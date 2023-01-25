@@ -1849,27 +1849,20 @@ N> For converting PDF into Image in Windows Forms platform, please refer the [Pd
 
 ## MHTML to PDF
 
-The MHTML file can be converted to PDF using [WebKit rendering engine](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit). Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the MHTML file to PDF document. Please refer to the following code example. 
 
-
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter with WebKit rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/"; 
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert MHTML to PDF
 PdfDocument document = htmlConverter.Convert("input.mhtml");  
-    
 //Save the document
 document.Save("Sample.pdf");
 document.Close();
@@ -1878,16 +1871,10 @@ document.Close();
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML converter with WebKit rendering engine
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
 'Convert MHTML to PDF
 Dim document As PdfDocument = htmlConverter.Convert("input.mhtml")
-
 'Save and close the document
 document.Save("Sample.pdf")
 document.Close()
@@ -1904,14 +1891,8 @@ document.Close()
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
 //Convert MHTML to PDF
 PdfDocument document = htmlConverter.Convert(@"input.mhtml");
-
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
@@ -1919,7 +1900,7 @@ document.Save(stream);
 stream.Position = 0;
 //Close the document
 document.Close(true);
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 string contentType = "application/pdf";
 //Define the file name
 string fileName = " Sample.pdf";
@@ -1940,23 +1921,18 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML to MHTML
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting the webpage to MHTML. Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the webpage to an MHTML file. Please refer to the following code example. 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter with WebKit rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert URL to MHTML
 htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml");
 
@@ -1964,13 +1940,8 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML converter with WebKit rendering engine
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)      
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()      
 'Convert URL to MHTML
 htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
@@ -2000,24 +1971,18 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML to Raster Image
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting webpage to Image. Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the webpage to an image. Please refer to the following code example. 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter with WebKit rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
-
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert URL to Image
 Image[] image = htmlConverter.ConvertToImage("http://www.syncfusion.com");
 //Save the image
@@ -2027,16 +1992,10 @@ image[0].Save("Sample.jpg");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML converter with WebKit rendering engine
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings
-
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
 'Convert URL to Image
-Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com ")
+Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com")
 'Save the image
 image(0).Save("Sample.jpg")
 
@@ -2050,19 +2009,13 @@ image(0).Save("Sample.jpg")
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize HTML converter with WebKit rendering engine
+//Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
-
 //Convert URL to Image
 Image image = htmlConverter.ConvertToImage("http://www.google.com");
 byte[] imageByte = image.ImageData;
 //Save the image
-File.WriteAllBytes("Output.jpg", imageByte);
+File.WriteAllBytes("Sample.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -2078,11 +2031,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML string to Raster Image
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting HTML string to Image. Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the HTML string to an image. Please refer to the following code example. 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
@@ -2090,14 +2043,8 @@ Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-
 
 string htmlString = "<html><body>Hello World!!!</body></html>";
 string baseURL = "";
-//Initialize HTML converter with WebKit rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
-
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert HTML string to Image
 Image[] image = htmlConverter.ConvertToImage(htmlString, baseURL);
 //Save the image
@@ -2109,14 +2056,8 @@ image[0].Save("Sample.jpg");
 
 Dim htmlString As String = "<html><body>Hello World!!!</body></html>"
 Dim baseURL As String = ""
-'Initialize HTML converter with WebKit rendering engine
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings
-
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
 'Convert HTML string to Image
 Dim image As Image() = htmlConverter.ConvertToImage(htmlString, baseURL)
 'Save the image
@@ -2132,21 +2073,14 @@ image(0).Save("Sample.jpg")
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize HTML converter with WebKit rendering engine
+//Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
-
 //HTML string and Base URL
 string htmlString = "<html><body>Hello World!!!</body></html>";
 string baseURL = "";
 //Convert HTML string to Image
 Image image = htmlConverter.ConvertToImage(htmlString, baseURL);
 byte[] imageByte = image.ImageData;
-
 //Save the image
 File.WriteAllBytes("Output.jpg", imageByte);
 
@@ -2164,25 +2098,18 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Partial webpage to Raster Image
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting partial webpage to Image. Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the partial webpage to an image. Please refer to the following code example. 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//WebKit converter settings
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Assign the WebKit binaries path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings;
-
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert Partial HTML to Image
 Image[] image = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic");
 //Save Image
@@ -2192,16 +2119,8 @@ image[0].Save("Output.jpg");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-
-'Initialize HTML converter 
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-'WebKit converter settings
-Dim webKitSettings As New WebKitConverterSettings()
-'Assign the WebKit binaries path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings
-
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
 'Convert Partial HTML to Image
 Dim image As Image() = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic")
 'Save Image
@@ -2236,14 +2155,8 @@ Hello world
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize HTML converter with WebKit rendering engine
+//Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
-
 //Convert Partial HTML to Image
 Image image = htmlConverter.ConvertPartialHtmlToImage("http://www.google.com", "lga");
 byte[] imageByte = image.ImageData;
@@ -2264,23 +2177,18 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML to SVG
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting HTML to SVG. Please refer the below code snippet,
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the HTML to SVG file. Please refer to the following code example. 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter with WebKit rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings;
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 
@@ -2288,13 +2196,8 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML converter with WebKit rendering engine
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim webKitSettings As New WebKitConverterSettings()
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = webKitSettings
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
 'Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
@@ -2308,20 +2211,13 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML converter with the WebKit rendering engine.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Set the WebKit path.
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign the WebKit settings to HTML converter.
-htmlConverter.ConverterSettings = webKitSettings;
-
-//Initialize the memory stream.
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize the memory stream
 MemoryStream stream = new MemoryStream();
-//Convert URL to SVG.
+//Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", stream);
-
-//Save the document.
+//Save the document
 using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 {
     stream.CopyTo(output);
@@ -2343,24 +2239,18 @@ N> HTML to SVG conversion is not supported in the Mac platforms.
 
 ## Partial webpage to SVG
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting partial webpage to SVG. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) supports converting the partial webpage to SVG. Please refer to the following code example.
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
+*HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
+*Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize HTML converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-// WebKit converter settings
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Assign the WebKit binaries path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-//Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings;
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Convert Partial HTML to SVG
 htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
@@ -2368,14 +2258,8 @@ htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
 {% highlight vb.net tabtitle="VB.NET" %}
 
-'Initialize HTML converter 
+'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-' WebKit converter settings
-Dim webKitSettings As New WebKitConverterSettings()
-'Assign the WebKit binaries path
-webKitSettings.WebKitPath = "/QtBinaries/"
-'Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings
 'Convert Partial HTML to SVG
 htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg")
 
@@ -2408,20 +2292,13 @@ Hello world
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the HTML converter with the WebKit rendering engine.
+//Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//WebKit converter settings.
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-//Assign the WebKit binaries path.
-webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
-//Assign WebKit settings.
-htmlConverter.ConverterSettings = webKitSettings;
-
-//Initialize the memory stream.
+//Initialize the memory stream
 MemoryStream stream = new MemoryStream();
-//Convert a partial HTML to SVG.
+//Convert a partial HTML to SVG
 htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", stream);
-//Save the document.
+//Save the document
 using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 {
     stream.CopyTo(output);

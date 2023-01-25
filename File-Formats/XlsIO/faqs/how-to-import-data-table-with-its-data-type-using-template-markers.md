@@ -8,7 +8,7 @@ documentation: UG
 
 # How to import data table with its data type using template markers?
 
-You can import data table with its data type using template markers by setting the **VariableTypeAction** to None. The following code snippet illustrates this.
+You can import data table with its data type using template markers by setting the [VariableTypeAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.VariableTypeAction.html) to None. The following code snippet illustrates this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

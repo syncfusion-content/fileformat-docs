@@ -8,9 +8,9 @@ documentation: UG
 
 # How to protect certain cells in a worksheet?
 
-All the cells in an Excel worksheet have a Locked property, which determines if the cell will be editable. When a worksheet is protected, all the cells in the worksheet get locked, by default.
+All the cells in an Excel worksheet have a **Locked** property, which determines if the cell will be editable. When a worksheet is protected, all the cells in the worksheet get locked, by default.
 
-However, there is often a need to protect only certain cells in a worksheet. In this scenario, you need to protect a worksheet, and set the **IsLocked** property as false for the cells that need to be made editable. 
+However, there is often a need to protect only certain cells in a worksheet. In this scenario, you need to protect a worksheet, and set the [Locked](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IExtendedFormat.html#Syncfusion_XlsIO_IExtendedFormat_Locked) property as false for the cells that need to be made editable. 
 
 The following code snippet illustrate this.
 

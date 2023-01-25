@@ -8,7 +8,7 @@ documentation: UG
 
 # How to ignore the green error marker in worksheets?
 
-When there exists data that are of different formats, the error marker appears in cells. In XlsIO You can ignore this by using **IgnoreErrorOptions** property. The following code snippet illustrate this.
+When there exists data that are of different formats, the error marker appears in cells. In XlsIO You can ignore this by using [IgnoreErrorOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_IgnoreErrorOptions) property. The following code snippet illustrate this.
 
 {% tabs %} 
 {% highlight c# tabtitle="C#" %}

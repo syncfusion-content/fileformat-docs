@@ -8,7 +8,7 @@ documentation: UG
 
 # How to sort two or more columns in a pivot table?
 
-You can sort two or more columns in a pivot table by using the **AutoSort()** method each time with the respective column index. The following code snippet illustrates this.
+You can sort two or more columns in a pivot table by using the [AutoSort()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) method each time with the respective column index. The following code snippet illustrates this.
 
 {% tabs %}  
 

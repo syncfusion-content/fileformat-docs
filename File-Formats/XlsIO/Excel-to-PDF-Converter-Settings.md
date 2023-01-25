@@ -960,7 +960,7 @@ A complete working example to hide gridlines in Excel to PDF conversion in C# is
 
 The Excel content will be rendered improperly when Arial Unicode MS Font is missing in the machine. In this case, enabling the [EmbedFonts](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_EmbedFonts) property renders the content properly.
 
-The following code snippet explains how to enable `EmbedFonts` property.
+The following code snippet explains how to enable **EmbedFonts** property.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -1150,7 +1150,7 @@ A complete working example to embed fonts in Excel to PDF conversion in C# is pr
 
 The default value of [ExportBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportBookmarks) property is TRUE and hence bookmarks are exported to PDF document by default, in Excel to PDF conversion. Disabling this property skips the bookmarks in conversion.
 
-The following code snippet explains how to disable `ExportBookmarks` property.
+The following code snippet explains how to disable **ExportBookmarks** property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1341,7 +1341,7 @@ A complete working example to export bookmarks in Excel to PDF conversion in C# 
 
 Excel document properties will be exported to PDF document by default, in Excel to PDF conversion. This can be skipped by disabling the [ExportDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportDocumentProperties).
 
-The following complete code snippet explains how to disable ``ExportDocumentProperties``.
+The following complete code snippet explains how to disable **ExportDocumentProperties**.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
@@ -1531,7 +1531,7 @@ A complete working example to export document properties in Excel to PDF convers
 
 The default value of [ExportQualityImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportQualityImage) if FALSE. Enabling this property exports quality image to PDF document.
 
-The following complete code snippet explains how to enable ``ExportQualityImage`` property.
+The following complete code snippet explains how to enable **ExportQualityImage** property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -1720,7 +1720,7 @@ A complete working example to export quality image in Excel to PDF conversion in
 
 ## Header Footer Option
 
-Two properties available under [HeaderFooterOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_HeaderFooterOption) are ``ShowHeader`` and ``ShowFooter``. 
+Two properties available under [HeaderFooterOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_HeaderFooterOption) are **ShowHeader** and **ShowFooter**. 
 
 ### Show Header
 
@@ -2486,7 +2486,7 @@ This property helps to select the layout option for the Excel document in Excel 
 
 ### Automatic
 
-Selecting **Automatic** under ``LayoutOptions`` prints the worksheets at their actual size. It's default value is **NoScaling**. The following code snippet explains how to select the layout option as **Automatic**.
+Selecting **Automatic** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. It's default value is **NoScaling**. The following code snippet explains how to select the layout option as **Automatic**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2675,7 +2675,7 @@ A complete working example to convert Excel to PDF with automatic layout in C# i
 
 ### Custom Scaling
 
-Selecting **CustomScaling** under ``LayoutOptions`` prints the worksheets at specified scaling, i.e., zoom value set in under page setup. The following code snippet explains how to use this.
+Selecting **CustomScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at specified scaling, i.e., zoom value set in under page setup. The following code snippet explains how to use this.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -2864,7 +2864,7 @@ A complete working example to convert Excel to PDF with custom scaling in C# is 
 
 ### Fit All Columns On One Page
 
-Selecting **FitAllColumnsOnOnePage** under ``LayoutOptions`` renders all columns in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllColumnsOnOnePage**.
+Selecting **FitAllColumnsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all columns in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllColumnsOnOnePage**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3053,7 +3053,7 @@ A complete working example to convert Excel to PDF with fit all columns on one p
 
 ### Fit All Rows On One Page
 
-Selecting **FitAllRowsOnOnePage** under ``LayoutOptions`` renders all rows in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllRowsOnOnePage**.
+Selecting **FitAllRowsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all rows in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllRowsOnOnePage**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3242,7 +3242,7 @@ A complete working example to convert Excel to PDF with fit all rows on one page
 
 ### Fit Sheet On One Page
 
-Selecting **FitSheetOnOnePage** under ``LayoutOptions`` renders every single worksheet in Excel workbook into, single PDF page. The following code snippet explains how to select the layout option as **FitSheetOnOnePage**.
+Selecting **FitSheetOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders every single worksheet in Excel workbook into, single PDF page. The following code snippet explains how to select the layout option as **FitSheetOnOnePage**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3431,7 +3431,7 @@ A complete working example to convert Excel to PDF with fit sheet on one page in
 
 ### No Scaling
 
-Selecting **NoScaling** under ``LayoutOptions`` prints the worksheets at their actual size. The following code snippet explains how to select the layout option as **NoScaling**.
+Selecting **NoScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. The following code snippet explains how to select the layout option as **NoScaling**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -3828,7 +3828,7 @@ A complete working example to convert Excel to PDF with PDF conformance in C# is
 
 ### Convert multiple Excel files into a single PDF document
 
-The following complete code snippet explains how to convert two Excel documents into a single PDF document using ``TemplateDocument`` property.
+The following complete code snippet explains how to convert two Excel documents into a single PDF document using [TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_TemplateDocument) property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -4049,7 +4049,7 @@ A complete working example to convert multiple workbooks to PDF in C# is present
 
 ### Convert selected worksheets into a single PDF document
 
-By using the ``TemplateDocument`` property, multiple worksheets or selected worksheets can be converted into single PDF document. The following code snippet explains how to convert selected sheets into a single PDF document.
+By using the [TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_TemplateDocument) property, multiple worksheets or selected worksheets can be converted into single PDF document. The following code snippet explains how to convert selected sheets into a single PDF document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -4475,11 +4475,11 @@ A complete working example to through exception when file is empty in Excel to P
 
 XlsIO intentionally skips unsupported elements and substitutes unsupported fonts. The elements that were not converted and the fonts that were intentionally substituted can be raised as warnings, to decide whether to proceed the conversion with the warnings or to stop the conversion.
 
-It is recommended to implement `IWarning` interface in a supporting class. The interface holds the properties,
+It is recommended to implement [IWarning](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWarning.html) interface in a supporting class. The interface holds the properties,
 *	**Type** – the element that failed to convert
 *	**Description** – the description of the failed element
 
-In addition, a decision to continue the conversion process can be done here by setting boolean value to the property `Cancel`. If `Cancel` is set to TRUE the conversion cancels, else the conversion continues.
+In addition, a decision to continue the conversion process can be done here by setting boolean value to the property [Cancel](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWarning.html#Syncfusion_XlsIO_IWarning_Cancel). If **Cancel** is set to TRUE the conversion cancels, else the conversion continues.
 
 The following code snippet shows how to capture warnings during Excel-to-PDF conversion.
 {% tabs %}  

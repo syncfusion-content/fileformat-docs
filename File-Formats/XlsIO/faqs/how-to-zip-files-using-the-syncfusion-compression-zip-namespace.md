@@ -8,7 +8,7 @@ documentation: UG
 
 # How to zip files using the Syncfusion.Compression.Zip namespace?
 
-You can compress the file using Syncfusion.Compression.Zip namespace. The following code illustrate this.
+You can compress the file using **Syncfusion.Compression.Zip** namespace. The following code illustrate this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -50,7 +50,7 @@ The following code snippet illustrate how to add the file from the local drive.
 {% highlight c# tabtitle="C#" %}
 string fileName = @"SampleFile.cs";
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
-zipArchive.DefaultCompressionLevel =CompressionLevel.Best;
+zipArchive.DefaultCompressionLevel = CompressionLevel.Best;
 Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 FileAttributes attributes = File.GetAttributes(fileName);
 ZipArchiveItem item = new ZipArchiveItem(zipArchive, "SampleFile.cs", stream, true, attributes);

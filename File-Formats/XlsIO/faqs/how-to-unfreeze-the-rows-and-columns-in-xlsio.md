@@ -8,7 +8,7 @@ documentation: UG
 
 # How to unfreeze the rows and columns in XlsIO?
 
-You can unfreeze rows and columns in XlsIO by using the RemovePanes method. The following code snippet illustrates this.
+You can unfreeze rows and columns in XlsIO by using the [RemovePanes](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_RemovePanes) method. The following code snippet illustrates this.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}

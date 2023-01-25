@@ -1372,3 +1372,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to add QR code to word using C#, VB.NET](https://www.syncfusion.com/kb/12960/how-to-add-qr-code-to-word-using-c-vb-net-docx)
+* [How to replace merge field with chart in Word document using mail merge?](https://www.syncfusion.com/kb/13864/how-to-replace-merge-field-with-chart-in-word-document-using-mail-merge)
+* [How to perform mail merge in Word document using image from URL?](https://www.syncfusion.com/kb/13841/how-to-perform-mail-merge-in-word-document-using-image-from-url)

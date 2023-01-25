@@ -8,7 +8,7 @@ documentation: UG
 
 # How to change the grid line color of the Excel sheet?
 
-In Essential XlsIO, you can change the grid line color of the worksheet using **GridLineColor** property. The below code snippet illustrate this.
+In Essential XlsIO, you can change the grid line color of the worksheet using [GridLineColor](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_GridLineColor) property. The below code snippet illustrate this.
 
 {% tabs %}  
 
