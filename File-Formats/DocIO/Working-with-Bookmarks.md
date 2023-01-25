@@ -1073,7 +1073,7 @@ document.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-simple-text-into-bookmark).
 
-The following code example shows how to insert a paragraph item by using [BookmarkNavigato](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
+The following code example shows how to insert a paragraph item by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
 
@@ -1997,3 +1997,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to insert nested bookmarks to the document](https://www.syncfusion.com/kb/254/how-do-i-insert-nested-bookmarks-to-the-document)
 * [How to get the bookmarks present in the document](https://www.syncfusion.com/kb/255/how-do-i-get-the-bookmarks-present-in-the-document)
 * [How to add a table in a bookmark location](https://www.syncfusion.com/kb/279/how-to-add-a-table-in-a-bookmark-location)
+* [How to insert bookmark for particular text in paragraph in Word document?](https://www.syncfusion.com/kb/13700/how-to-insert-bookmark-for-particular-text-in-paragraph-in-word-document)
