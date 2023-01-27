@@ -2751,7 +2751,7 @@ The following chart types are supported in DocIO.
 
 * [Area](https://www.syncfusion.com/kb/13681/how-to-create-area-chart-in-word-document-using-c)
 * [Area_3D](https://www.syncfusion.com/kb/13680/how-to-create-3d-area-chart-in-word-document-using-c)
-* Area_Stacked](https://www.syncfusion.com/kb/13679/how-to-create-stacked-area-chart-in-word-document-using-c)
+* [Area_Stacked](https://www.syncfusion.com/kb/13679/how-to-create-stacked-area-chart-in-word-document-using-c)
 * [Area_Stacked_100](https://www.syncfusion.com/kb/13678/how-to-create-100-stacked-area-chart-in-word-document-using-c)
 * [Area_Stacked_100_3D](https://www.syncfusion.com/kb/13677/how-to-create-3d-100-stacked-area-chart-in-word-document-using-c)
 * [Area_Stacked_3D](https://www.syncfusion.com/kb/13676/how-to-create-3d-stacked-area-chart-in-word-document-using-c)
