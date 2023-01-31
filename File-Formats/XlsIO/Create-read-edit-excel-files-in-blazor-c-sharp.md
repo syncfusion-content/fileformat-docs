@@ -708,6 +708,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to read and edit an Excel file in Blazor Client-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/EditExcel).
+
 ## Convert Excel to Image in Blazor Client-Side application
 
 1. Create a new C# Blazor Client-Side project with target framework as .NET 6.0 by referring [link](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-blazor-c-sharp#create-a-simple-excel-report-in-blazor-client-side-application)
@@ -765,6 +767,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to convert an Excel worksheet to image in Blazor Client-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/ExcelToImage).
 
 ## Convert Excel to PDF in Blazor Client-Side application
 
@@ -825,5 +829,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example of how to convert an Excel file to PDF in Blazor Client-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/ExcelToPDF).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Blazor Excel library demo](https://blazor.syncfusion.com/demos/xlsio/create-excel?theme=bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
