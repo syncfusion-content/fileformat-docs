@@ -6068,7 +6068,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can customize the numeric field input value to the specific pattern through [PatternString](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaNumericField.html#Syncfusion_Pdf_Xfa_PdfXfaNumericField_PatternString) property of [PdfXfaNumericField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaNumericField.html) class. The following code snippet explains this.
 Please refer the below link for numeric pattern format in detail,
-[http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html](http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html)
+[Numeric Pattern](http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html).
 
 {% tabs %}  
 
