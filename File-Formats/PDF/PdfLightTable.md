@@ -2381,7 +2381,7 @@ else
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Table/PdfLightTable/Create-table-with-built-in-style).
 
 The following image shows the PDF document with ```PdfGridBuiltinStyle.Gridtable4Accent2```.
-![Gridtable4Accent2 image](Table_images/Gridtable4Accent2.png)
+<img src="Table_images/Gridtable4Accent2.png" alt="Gridtable4Accent2 image" width="100%" Height="Auto"/>
 
 ## Pagination 
 

@@ -516,11 +516,11 @@ The ZUGFeRD invoices can be validated as follows:
 
     * Select the PDF/A-3b profile and click the Analyze button.
 
-![PDF/A-3b Preflight Check image](ZUGFeRD_images/PDF_A_3b_Check.png)
+<img src="ZUGFeRD_images/PDF_A_3b_Check.png" alt="PDF/A-3b Preflight Check image" width="100%" Height="Auto"/>
 
     * Check the result
 
-![PDF/A-3b Preflight Results image](ZUGFeRD_images/PDF_A_3b_Results.png)
+<img src="ZUGFeRD_images/PDF_A_3b_Results.png" alt="PDF/A-3b Preflight Results image" width="100%" Height="Auto"/>
 
 2. Conformance to the ZUGFeRD invoice can be checked as follows:
 
@@ -528,8 +528,8 @@ The ZUGFeRD invoices can be validated as follows:
 
     * Select the ZUGFeRD profile and click the Analyze button.
 
-![PDF ZUGFeRD Preflight Check image](ZUGFeRD_images/PDF_ZUGFeRD_Check.png)
+<img src="ZUGFeRD_images/PDF_ZUGFeRD_Check.png" alt="PDF ZUGFeRD Preflight Check image" width="100%" Height="Auto"/>
 
     * Check the result
 
-![PDF ZUGFeRD Preflight Results image](ZUGFeRD_images/PDF_ZUGFeRD_Results.png)
+<img src="ZUGFeRD_images/PDF_ZUGFeRD_Results.png" alt="PDF ZUGFeRD Preflight Results image" width="100%" Height="Auto"/>
