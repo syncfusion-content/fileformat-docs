@@ -252,3 +252,54 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The resultant document looks as follows.
 
 ![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
+
+## See Also
+
+The following table illustrates the supported overloads of mail merge.
+
+<table style="width: 760px;">
+<thead>
+<tr>
+<td style="width: 182.986px;"><strong>Execute Method </strong></td>
+<td style="width: 557.014px;"><strong>Examples</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 182.986px;">[Execute(IEnumerable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Collections_IEnumerable_)</td>
+<td style="width: 557.014px;">[Create Envelopes for mailings](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Envelopes-for-mailing).&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[Execute(DataRow)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataRow_)</td>
+<td style="width: 557.014px;">[Generate multiple Word documents](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-multiple-Word-documents) </td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[Execute(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_)</td>
+<td style="width: 557.014px;">[Generate notice to renew lease](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-notice-to-renew-lease).</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[Execute(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataView_)</td>
+<td style="width: 557.014px;">[Generate letter for candidates in sorted order](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-candidates-in-sorted-order).</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_)</td>
+<td style="width: 557.014px;">[Generate certificates for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-certificate-for-employees) </td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader_)</td>
+<td style="width: 557.014px;">[Generate payroll for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-payroll-for-employees).&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)</td>
+<td style="width: 557.014px;">[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts).</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[ExecuteNestedGroup(DbConnection,ArrayList,Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_) </td>
+<td style="width: 557.014px;">[Generate sales invoice]().</td>
+</tr>
+<tr>
+<td style="width: 182.986px;">[ExecuteNestedGroup(DataSet,ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_DataSet_System_Collections_ArrayList_) </td>
+<td style="width: 557.014px;">[Group customer based on products](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Group-customers-based-on-products).</td>
+</tr>
+</tbody>
+</table>
