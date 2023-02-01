@@ -307,4 +307,3 @@ You can restart the list numbering in a Word document during Mail merge. For fur
 * [How to mail merge Word document in Linux (Mono)](https://www.syncfusion.com/kb/10666/how-to-mail-merge-word-document-in-linux-mono)
 * [How to replace merge field with HTML string using Mail merge](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge)
 * [How to mail merge Word document in Docker](https://www.syncfusion.com/kb/10769/how-to-mail-merge-word-document-in-docker)
-* [How to perform mail merge in Word document using image from URL?](https://www.syncfusion.com/kb/13841/how-to-perform-mail-merge-in-word-document-using-image-from-url)
