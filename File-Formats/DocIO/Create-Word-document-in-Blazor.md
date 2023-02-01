@@ -246,6 +246,8 @@ By executing the program, you will get the **Word document** as follows.
 
 ![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
 
+T> You can also refer to this [video](https://www.youtube.com/watch?v=yVfDlpewbpU) to learn how to create a Word document in the Blazor Server-Side application.
+
 ## Client-side application
 
 Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
