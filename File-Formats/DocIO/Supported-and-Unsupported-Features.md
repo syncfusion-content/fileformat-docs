@@ -1262,5 +1262,10 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
+<tr>
+<td>Word to Markdown<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 </tbody>
 </table>

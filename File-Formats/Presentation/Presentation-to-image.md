@@ -643,3 +643,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
 N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
+
+## See Also
+
+* [How to convert PPTX to Image in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13884/how-to-convert-pptx-to-image-in-blazor-webassembly-wasm)
