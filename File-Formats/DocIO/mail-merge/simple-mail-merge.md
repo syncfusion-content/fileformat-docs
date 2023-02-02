@@ -255,64 +255,7 @@ The resultant document looks as follows.
 
 ## See Also
 
-The following table illustrates the supported overloads of mail merge.
-
-<table>
-<thead>
-<tr>
-<th width="20%">
-Execute Method
-</th>
-<th width="40%">
-Examples
-</th>
-</tr>
-</thead>
-<tr>
-<td>
-From v20.3.0.56 
-</td>
-<td>
-{{'[Execute(IEnumerable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Collections_IEnumerable_)'| markdownify }}<br/>
-{{'[Create Envelopes for mailings](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Envelopes-for-mailing)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-From v20.1.0.x 
-</td>
-<td>
-{{'[Execute(DataRow)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataRow_)'| markdownify }}<br/>
-{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2-preview.209](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2-preview.209)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-From v19.4.0.x
-</td>
-<td>
-{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
-{{'[HarfBuzzSharp.NativeAssets.Linux v2.6.1.7 NuGet](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.6.1.7)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-From v18.4.0.x to 19.4.0.x
-</td>
-<td>
-{{'[SkiaSharp.NativeAssets.Linux v2.80.2 NuGet](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2)'| markdownify }}<br/>
-</td>
-</tr>
-<tr>
-<td>
-Before v18.4.0.x
-</td>
-<td>
-Install SkiaSharp.Linux NuGet package for .Net Core application in Linux OS. you can find the SkiaSharp.Linux NuGet package created by us from {{'[here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070)'| markdownify }}.<br/>
-For more information, Please refer {{'[here](https://help.syncfusion.com/file-formats/docio/faq#how-to-perform-word-to-pdf-in-linux-prior-to-v184-release)'| markdownify }}.
-</td>
-</tr>
-</table>
+The following table illustrates the supported mail merge overloads of Execute, ExecuteGroup and ExecuteNestedGroup.
 
 <table style="width: 760px;">
 <thead>
