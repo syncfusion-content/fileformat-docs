@@ -528,7 +528,7 @@ The following table illustrates the supported mail merge overloads for ExecuteGr
 <table style="width: 760px;">
 <thead>
 <tr>
-<td style="width: 182.986px;"><strong>Overloads </strong></td>
+<td style="width: 182.986px;"><strong>Overload </strong></td>
 <td style="width: 557.014px;"><strong>Example</strong></td>
 </tr>
 </thead>
