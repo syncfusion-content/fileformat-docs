@@ -257,37 +257,35 @@ The resultant document looks as follows.
 
 The following table illustrates the supported mail merge overloads for Execute.
 
-<table style="width: 760px;">
-<thead>
+<table>
 <tr>
-<td style="width: 182.986px;"><strong>Overloads </strong></td>
-<td style="width: 557.014px;"><strong>Examples</strong></td>
+<th>Overloads<br/><br/></th>
+<th>Examples<br/><br/></th>
 </tr>
-</thead>
 <tbody>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(IEnumerable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Collections_IEnumerable_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Create Envelopes for mailings](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Envelopes-for-mailing).&nbsp;</td>
+<td>{{'[Execute(IEnumerable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Collections_IEnumerable_)'| markdownify }}</td>
+<td>{{'[Create Envelopes for mailings](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-Envelopes-for-mailing)'| markdownify }}</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(DataRow)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataRow_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Generate multiple Word documents](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-multiple-Word-documents) </td>
+<td>{{'[Execute(DataRow)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataRow_)'| markdownify }}</td>
+<td>{{'[Generate multiple Word documents](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-multiple-Word-documents)'| markdownify }}</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_)'| markdownify }}.</td>
-<td style="width: 557.014px;">{{'[Generate notice to renew lease](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-notice-to-renew-lease)'| markdownify }}.</td>
+<td>{{'[Execute(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable_)'| markdownify }}</td>
+<td>{{'[Generate notice to renew lease](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-notice-to-renew-lease)'| markdownify }}</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataView_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Generate letter for candidates in sorted order](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-candidates-in-sorted-order)'| markdownify }}.</td>
+<td>{{'[Execute(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataView_)'| markdownify }}</td>
+<td>{{'[Generate letter for candidates in sorted order](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-candidates-in-sorted-order)'| markdownify }}</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Generate certificates for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-certificate-for-employees) '| markdownify }}</td>
+<td>{{'[Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_)'| markdownify }}</td>
+<td>{{'[Generate certificates for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-certificate-for-employees)'| markdownify }}</td>
 </tr>
 <tr>
-<td style="width: 182.986px;">{{'[Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Generate payroll for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-payroll-for-employees).&nbsp;'| markdownify }}</td>
+<td>{{'[Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader_)'| markdownify }}</td>
+<td>{{'[Generate payroll for employees](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-payroll-for-employees)'| markdownify }}</td>
 </tr>
 </tbody>
 </table>

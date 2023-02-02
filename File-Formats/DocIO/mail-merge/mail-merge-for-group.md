@@ -525,17 +525,15 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following table illustrates the supported mail merge overloads for ExecuteGroup.
 
-<table style="width: 760px;">
-<thead>
+<table>
 <tr>
-<td style="width: 182.986px;"><strong>Overload </strong></td>
-<td style="width: 557.014px;"><strong>Example</strong></td>
+<th>Overload<br/><br/></th>
+<th>Example<br/><br/></th>
 </tr>
-</thead>
 <tbody>
 <tr>
-<td style="width: 182.986px;">{{'[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)'| markdownify }}</td>
-<td style="width: 557.014px;">{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}.</td>
+<td>{{'[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)'| markdownify }}</td>
+<td>{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}.</td>
 </tr>
 </tbody>
 </table>
