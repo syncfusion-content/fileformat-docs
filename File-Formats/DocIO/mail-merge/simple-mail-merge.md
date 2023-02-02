@@ -295,7 +295,7 @@ The following table illustrates the supported overloads of mail merge.
 </tr>
 <tr>
 <td style="width: 182.986px;">[ExecuteNestedGroup(DbConnection,ArrayList,Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_) </td>
-<td style="width: 557.014px;">[Generate sales invoice]().</td>
+<td style="width: 557.014px;">[Generate sales invoice](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-sales-invoice)</td>
 </tr>
 <tr>
 <td style="width: 182.986px;">[ExecuteNestedGroup(DataSet,ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_DataSet_System_Collections_ArrayList_) </td>
