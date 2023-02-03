@@ -63,6 +63,37 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-built-in-style).
 
+## How to check the compatibility mode of the Word document?
+
+The following code example illustrates how to check the compatibility mode of the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Set the compatibility mode.
+    document.Settings.CompatibilityMode = CompatibilityMode.Word2003;
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    'Set the compatibility mode.
+    document.Settings.CompatibilityMode = CompatibilityMode.Word2003
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Modify-built-in-style).
+
 ## How to open a document from stream using DocIO?
 
 A document can be opened as stream by using HttpWebResponse. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
