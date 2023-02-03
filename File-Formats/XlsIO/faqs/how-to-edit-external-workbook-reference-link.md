@@ -1,12 +1,12 @@
 ---
-title: How to edit existing external workbook reference link | XlsIO | Syncfusion
-description: Code example to edit existing external workbook reference link using Syncfusion .NET Excel library (XlsIO).
+title: How to edit external workbook reference link | XlsIO | Syncfusion
+description: Code example to edit external workbook reference link using Syncfusion .NET Excel library (XlsIO).
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# How to edit existing external workbook reference link?
+# How to edit external workbook reference link?
 
 Existing external workbook reference link can be modified through [URL](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.ExternWorkbookImpl.html#Syncfusion_XlsIO_Implementation_ExternWorkbookImpl_URL) property of [ExternWorkbookImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.ExternWorkbookImpl.html) class. Please find the code snippet below.
 
