@@ -1033,9 +1033,42 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Remove-footers-in-Word-document).
+
+## How to check the compatibility mode of the Word document?
+
+The [CompatibilityMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CompatibilityMode.html) of a Word document can also be determined. The following code example illustrates how to check the compatibility mode of the Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Get the compatibility mode.
+    CompatibilityMode compatibilityMode = document.Settings.CompatibilityMode;
+    Console.WriteLine(compatibilityMode);
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    'Get the compatibility mode.
+    CompatibilityMode compatibilityMode = document.Settings.CompatibilityMode
+    Console.WriteLine(compatibilityMode)
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/FAQs/Check-compatibility-mode).
 
 ## Which units does Essential DocIO uses for measurement properties such as size, margins, etc, in a Word document?
 

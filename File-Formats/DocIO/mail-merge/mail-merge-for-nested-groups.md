@@ -883,3 +883,24 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the above code example, it generates the resultant Word document as follows.
  
 ![Output Word document of mapping field of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_output.png)
+
+## See Also
+
+The following table illustrates the supported mail merge overload for ExecuteNestedGroup.
+
+<table>
+<tr>
+<th>Overloads<br/><br/></th>
+<th>Examples<br/><br/></th>
+</tr>
+<tbody>
+<tr>
+<td>{{'[ExecuteNestedGroup(DbConnection,ArrayList,Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_)'| markdownify }}</td>
+<td>{{'[Generate sales invoice](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-sales-invoice)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteNestedGroup(DataSet,ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_DataSet_System_Collections_ArrayList_)'| markdownify }}</td>
+<td>{{'[Group customer based on products](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Group-customers-based-on-products)'| markdownify }}.</td>
+</tr>
+</tbody>
+</table>

@@ -3394,4 +3394,5 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 * [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
 * [How to convert Word document to PDF in AWS Lambda](https://www.syncfusion.com/kb/11905/how-to-convert-word-document-to-pdf-in-aws-lambda)
 * [How to add signature field in the PDF converted from Word](https://www.syncfusion.com/kb/12956/how-to-add-signature-field-in-the-pdf-converted-from-word)
+* [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13871/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
 
