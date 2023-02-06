@@ -201,11 +201,11 @@ Shape can have formatting such as line color, fill color, positioning, wrap form
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add a new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add a new paragraph to the section
 WParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
@@ -215,37 +215,39 @@ paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
-//Applies fill color for shape
+//Apply fill color for shape
 rectangle.FillFormat.Fill = true;
 rectangle.FillFormat.Color = Color.LightGray;
-//Applies wrap formats
+//Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+//Apply wrap formats
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
 rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
-//Sets horizontal and vertical origin
+//Set horizontal and vertical origin
 rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
 rectangle.VerticalOrigin = VerticalOrigin.Page;
-//Sets line format
+//Set line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
-//Sets the left internal margin for the shape.
+//Set the left internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Left = 30;
-//Sets the right internal margin for the shape.
+//Set the right internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Right = 24;
-//Sets the bottom internal margin for the shape.
+//Set the bottom internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Bottom = 18;
-//Sets the top internal margin for the shape.
+//Set the top internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Top = 6;
-//Saves and closes the Word document
+//Save and close the Word document.
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new Word document 
+'Create a new Word document 
 Dim document As New WordDocument()
-'Adds new section to the document
+'Add a new section to the document
 Dim section As IWSection = document.AddSection()
-'Adds new paragraph to the section
+'Add a new paragraph to the section
 Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
 Dim rectangle As Shape = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100)
 rectangle.VerticalPosition = 72
@@ -255,37 +257,39 @@ paragraph = TryCast(rectangle.TextBody.AddParagraph(), WParagraph)
 Dim text As IWTextRange = paragraph.AppendText("This text is in rounded rectangle shape")
 text.CharacterFormat.TextColor = Color.Green
 text.CharacterFormat.Bold = True
-'Applies fill color for shape
+'Apply fill color for shape
 rectangle.FillFormat.Fill = True
 rectangle.FillFormat.Color = Color.LightGray
-'Applies wrap formats
+'Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+'Apply wrap formats
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square
 rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right
-'Sets horizontal and vertical origin
+'Set horizontal and vertical origin
 rectangle.HorizontalOrigin = HorizontalOrigin.Margin
 rectangle.VerticalOrigin = VerticalOrigin.Page
-'Sets line format
+'Set line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot
 rectangle.LineFormat.Color = Color.DarkGray
-'Sets the left internal margin for the shape.
+'Set the left internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Left = 30
-'Sets the right internal margin for the shape.
+'Set the right internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Right = 24
-'Sets the bottom internal margin for the shape.
+'Set the bottom internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Bottom = 18
-'Sets the top internal margin for the shape.
+'Set the top internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Top = 6
-'Saves and closes the Word document
+'Save and close the Word document.
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add a new section to the document
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add a new paragraph to the section
 IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
@@ -295,43 +299,45 @@ paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
-//Applies fill color for shape
+//Apply fill color for shape
 rectangle.FillFormat.Fill = true;
 rectangle.FillFormat.Color = Color.LightGray;
-//Applies wrap formats
+//Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+//Apply wrap formats
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
 rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
-//Sets horizontal and vertical origin
+//Set horizontal and vertical origin
 rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
 rectangle.VerticalOrigin = VerticalOrigin.Page;
-//Sets line format
+//Set line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
-//Sets the left internal margin for the shape.
+//Set the left internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Left = 30;
-//Sets the right internal margin for the shape.
+//Set the right internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Right = 24;
-//Sets the bottom internal margin for the shape.
+//Set the bottom internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Bottom = 18;
-//Sets the top internal margin for the shape.
+//Set the top internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Top = 6;
-//Saves and closes the Word document instance
+//Save and close the Word document instance.
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
-//Saves the stream as Word file in local machine
+//Save the stream as Word file in local machine.
 Save(stream, "Result.docx");
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add a new section to the document.
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add a new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
@@ -341,42 +347,44 @@ paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
-//Applies fill color for shape
+//Apply fill color for shape.
 rectangle.FillFormat.Fill = true;
 rectangle.FillFormat.Color = Color.LightGray;
-//Applies wrap formats
+//Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+//Apply wrap formats.
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
 rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
-//Sets horizontal and vertical origin
+//Set horizontal and vertical origin.
 rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
 rectangle.VerticalOrigin = VerticalOrigin.Page;
-//Sets line format
+//Set line format.
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Color.DarkGray;
-//Sets the left internal margin for the shape.
+//Set the left internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Left = 30;
-//Sets the right internal margin for the shape.
+//Set the right internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Right = 24;
-//Sets the bottom internal margin for the shape.
+//Set the bottom internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Bottom = 18;
-//Sets the top internal margin for the shape.
+//Set the top internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Top = 6;
-//Saves and closes the Word document instance
+//Save and closes the Word document instance
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
+//Save the Word document to  MemoryStream.
 document.Save(stream, FormatType.Docx);
 document.Close();
 stream.Position = 0;
-//Download Word document in the browser
+//Download Word document in the browser.
 return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
+//Create a new Word document 
 WordDocument document = new WordDocument();
-//Adds new section to the document
+//Add a new section to the document.
 IWSection section = document.AddSection();
-//Adds new paragraph to the section
+//Add a new paragraph to the section.
 IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
@@ -386,32 +394,34 @@ paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
 text.CharacterFormat.Bold = true;
-//Applies fill color for shape
+//Apply fill color for shape.
 rectangle.FillFormat.Fill = true;
 rectangle.FillFormat.Color = Syncfusion.Drawing.Color.LightGray;
-//Applies wrap formats
+//Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+//Apply wrap formats
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
 rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
-//Sets horizontal and vertical origin
+//Set horizontal and vertical origin
 rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
 rectangle.VerticalOrigin = VerticalOrigin.Page;
-//Sets line format
+//Set line format
 rectangle.LineFormat.DashStyle = LineDashing.Dot;
 rectangle.LineFormat.Color = Syncfusion.Drawing.Color.DarkGray;
-//Sets the left internal margin for the shape.
+//Set the left internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Left = 30;
-//Sets the right internal margin for the shape.
+//Set the right internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Right = 24;
-//Sets the bottom internal margin for the shape.
+//Set the bottom internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Bottom = 18;
-//Sets the top internal margin for the shape.
+//Set the top internal margin for the shape.
 rectangle.TextFrame.InternalMargin.Top = 6;
-//Saves and closes the Word document instance
+//Save and close the Word document instance.
 MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
+//Save the Word file to MemoryStream.
 document.Save(stream, FormatType.Docx);
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
+//Save the stream as a file in the device and invoke it for viewing.
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
