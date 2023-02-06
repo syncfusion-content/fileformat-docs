@@ -600,3 +600,4 @@ N> 10. In addition to the previous NuGet packages, we recommend to use [SkiaShar
 ## See Also
 
 * [How to convert word to tiff using C#, VB.NET](https://www.syncfusion.com/kb/10964/how-to-convert-word-to-tiff-using-c-vb-net)
+* [How to convert Word to Image in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13885/how-to-convert-word-to-image-in-blazor-webassembly-wasm)

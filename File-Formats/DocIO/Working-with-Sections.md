@@ -2241,6 +2241,153 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-page-number-in-footer).
 
+## Add Line Numbers
+
+Line numbers can be displayed beside a text in a Word document, which can be achieved using the following APIs.
+
+  * [LineNumberingDistanceFromText](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPageSetup.html#Syncfusion_DocIO_DLS_WPageSetup_LineNumberingDistanceFromText) - Represents the distance between the text and the line number.
+  * [LineNumberingMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPageSetup.html#Syncfusion_DocIO_DLS_WPageSetup_LineNumberingMode) - Represents how the line number runs, that is, continuous, restart each page, restart each section.
+  * [LineNumberingStartValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPageSetup.html#Syncfusion_DocIO_DLS_WPageSetup_LineNumberingStartValue) - Represents the starting value of the line number.
+  * [LineNumberingStep](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPageSetup.html#Syncfusion_DocIO_DLS_WPageSetup_LineNumberingStep) - Represents the incremental value of the line number.
+
+The following code example illustrates how to add line numbers in a Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Iterate each section.
+    foreach (WSection section in document.Sections)
+    {
+        //Set the line number distance from the text.
+        section.PageSetup.LineNumberingDistanceFromText = 10;
+        //Set the numbering mode.
+        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
+        //Set the starting line number value.
+        section.PageSetup.LineNumberingStartValue = 1;
+        //Set the increment value for line numbering.
+        section.PageSetup.LineNumberingStep = 2;
+    }
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    //Iterate each section.
+    For Each section As WSection In document.Sections
+        'Set the line number distance from the text.
+        section.PageSetup.LineNumberingDistanceFromText = 10
+        'Set the numbering mode.
+        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous
+        'Set the starting line number value.
+        section.PageSetup.LineNumberingStartValue = 1
+        'Set the increment value for line numbering.
+        section.PageSetup.LineNumberingStep = 2
+    Next
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+
+{% endhighlight %} 
+
+{% highlight c# tabtitle="UWP" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Iterate each section.
+        foreach (WSection section in document.Sections)
+        {
+            //Set the line number distance from the text.
+            section.PageSetup.LineNumberingDistanceFromText = 10;
+            //Set the numbering mode.
+            section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
+            //Set the starting line number value.
+            section.PageSetup.LineNumberingStartValue = 1;
+            //Set the increment value for line numbering.
+            section.PageSetup.LineNumberingStep = 2;
+        }
+        //Save a Word document to the MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx");
+    }
+}
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Iterate each section.
+        foreach (WSection section in document.Sections)
+        {
+            //Set the line number distance from the text.
+            section.PageSetup.LineNumberingDistanceFromText = 10;
+            //Set the numbering mode.
+            section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
+            //Set the starting line number value.
+            section.PageSetup.LineNumberingStartValue = 1;
+            //Set the increment value for line numbering.
+            section.PageSetup.LineNumberingStep = 2;
+        }
+        //Save a  Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download as a Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
+{% endhighlight %} 
+
+{% highlight c# tabtitle="Xamarin" %}
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Iterate each section.
+        foreach (WSection section in document.Sections)
+        {
+            //Set the line number distance from the text.
+            section.PageSetup.LineNumberingDistanceFromText = 10;
+            //Set the numbering mode.
+            section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
+            //Set the starting line number value.
+            section.PageSetup.LineNumberingStartValue = 1;
+            //Set the increment value for line numbering.
+            section.PageSetup.LineNumberingStep = 2;
+        }
+        //Save a Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing. 
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+    }
+}
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-line-numbers).
+
 ## Removing a Section
 
 The following code example illustrates how to remove a particular section from the Word document
