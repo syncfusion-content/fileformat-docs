@@ -27,7 +27,6 @@ To quickly get started with creating a Word document in Blazor, check this video
 * Check the box for Use previews of the .NET Core SDK and click OK.
 * Restart the Visual Studio 2019.
 
-
 ## Server-side application
 
 Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
