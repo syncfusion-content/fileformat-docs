@@ -255,7 +255,7 @@ The resultant document looks as follows.
 
 ## See Also
 
-The following table illustrates the supported mail merge overloads for Execute.
+The following table illustrates the supported mail merge overloads for Execute method.
 
 <table>
 <tr>
