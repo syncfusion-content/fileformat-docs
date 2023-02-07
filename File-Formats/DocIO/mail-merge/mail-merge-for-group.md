@@ -523,17 +523,17 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 
-The following table illustrates the supported mail merge overloads for ExecuteGroup.
+The following table illustrates the supported mail merge overloads for ExecuteGroup method.
 
 <table>
 <tr>
-<th>Overload<br/><br/></th>
-<th>Example<br/><br/></th>
+<th>Overloads<br/><br/></th>
+<th>Examples<br/><br/></th>
 </tr>
 <tbody>
 <tr>
 <td>{{'[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)'| markdownify }}</td>
-<td>{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}.</td>
+<td>{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}</td>
 </tr>
 </tbody>
 </table>
