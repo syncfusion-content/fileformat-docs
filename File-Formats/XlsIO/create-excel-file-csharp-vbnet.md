@@ -1646,7 +1646,7 @@ For example – let’s consider that you have a template document as shown belo
 
 ![Template Marker](Getting-Started_images/Getting-Started_img3.jpeg)
 
-[Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
+[Download input template](https://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
 The following code snippet shows how to use template markers with objects.
 
