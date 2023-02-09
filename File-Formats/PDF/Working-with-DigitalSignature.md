@@ -1485,6 +1485,17 @@ pdfLoadedDocument.Save(stream);
 //Close the document.
 pdfLoadedDocument.Close(true);
 
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+
 //Create the external signer class and sign the document hash.
 class ExternalSigner : IPdfExternalSigner
 {
