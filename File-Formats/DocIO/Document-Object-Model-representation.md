@@ -1,5 +1,5 @@
 ---
-title: Document Object Model representation in File Formats DocIO | Syncfusion
+title: Document Object Model representation in File Format DocIO | Syncfusion
 description: Learn here all about Document Object Model support in Syncfusion Essential File Formats DocIO control, its elements, and more.
 platform: file-formats
 control: DocIO
