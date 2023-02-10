@@ -1,6 +1,6 @@
 ---
 title: Migrate from net framework to net core | XlsIO | Syncfusion
-description: This page explains migration of .NET Framework to .NET Core
+description: This page explains how to migrate from .NET Framework to .NET Core for the deprecated ASP.NET packages.
 platform: file-formats
 control: XlsIO
 documentation: UG
