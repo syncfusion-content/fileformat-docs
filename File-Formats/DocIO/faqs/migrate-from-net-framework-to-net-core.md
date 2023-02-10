@@ -42,7 +42,7 @@ In this section, we will see about the changes which need to be considered while
 </tr>
 <tr>
 <td>Syncfusion.OfficeChartToImageConverter</td>
-<td>Not applicable – Classes are moved within Syncfusion.DocIORenderer namespace</td>
+<td>Not applicable - Classes are moved within Syncfusion.DocIORenderer namespace.</td>
 </tr>
 </table>
 
@@ -61,7 +61,7 @@ In this section, we will see about the changes which need to be considered while
 </tr>
 <tr>
 <td>[ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html)</td>
-<td>Not applicable – It is handled internally.</td>
+<td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
 <td>[DocToPDFConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html)</td>
@@ -74,16 +74,16 @@ In this section, we will see about the changes which need to be considered while
 <tr>
 <thead>
 <th>Missing properties</th>	
-<th>Alternate properties in .NET Core </th>
+<th>Alternate properties in .NET Core</th>
 </thead>
 </tr>
 <tr>
 <td>[IWordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWordDocument.html#Syncfusion_DocIO_DLS_IWordDocument_ChartToImageConverter)</td>
-<td>Not applicable – It is handled internally.</td>
+<td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
 <td>[WordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ChartToImageConverter)</td>
-<td>Not applicable – It is handled internally.</td>
+<td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
 <td>[DocToPDFConverterSettings.EnableFastRendering](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_EnableFastRendering)</td>
@@ -107,7 +107,7 @@ In this section, we will see about the changes which need to be considered while
 </tr>
 <tr>
 <td>[SaveOptions.HtmlExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportImagesFolder)</td>
-<td>Not applicable – You can save the images to folder using [SaveOptions.ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event in the application level.</td>
+<td>Not applicable - You can save the images to folder using [SaveOptions.ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event in the application level.</td>
 </tr>
 <tr>
 <td>[SaveOptions.HtmlExportCssStyleSheetFileName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportCssStyleSheetFileName)</td>

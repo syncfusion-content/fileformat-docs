@@ -5,16 +5,18 @@ control: Presentation
 documentation: UG
 ---
 # Migrate Presentation library from .NET Framework to .NET Core
-In this section, we will see about the changes which need to be considered while migrating Syncfusion .NET PowerPoint (Presentation) library from .NET Framework to .NET Core.  
-NuGet Packages 
+In this section, we will see about the changes which need to be considered while migrating Syncfusion .NET PowerPoint (Presentation) library from .NET Framework to .NET Core.
+
+## NuGet Packages
+
 <table>
 <tr>
 <thead>
 <th>
-{{'**Packages targeting .NET Framework** '| markdownify }}
+{{'**Packages targeting .NET Framework**'| markdownify }}
 </th>
 <th>
-{{'**Packages targeting .NET Standard 2.0/.NET Core** '| markdownify }}
+{{'**Packages targeting .NET Standard 2.0/.NET Core**'| markdownify }}
 </th>
 </thead>
 </tr>
@@ -70,7 +72,7 @@ Syncfusion.PresentationRenderer
 Syncfusion.OfficeChartToImageConverter
 </td>
 <td>
-Not applicable – Classes are moved within Syncfusion.PresentationRenderer namespace.
+Not applicable - Classes are moved within Syncfusion.PresentationRenderer namespace.
 </td>
 </tr>
 </table>
@@ -93,7 +95,7 @@ Not applicable – Classes are moved within Syncfusion.PresentationRenderer name
 {{'[ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#"")'| markdownify }}
 </td>
 <td>
- Not applicable – It is handled internally.
+Not applicable - It is handled internally.
 </td>
 </tr>
 </table>
@@ -116,7 +118,7 @@ Not applicable – Classes are moved within Syncfusion.PresentationRenderer name
 {{'[IPresentation.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_ChartToImageConverter"")'| markdownify }}
 </td>
 <td>
-Not applicable – It is handled internally.
+Not applicable - It is handled internally.
 </td>
 </tr>
 <tr>
@@ -124,7 +126,7 @@ Not applicable – It is handled internally.
 {{'[PresentationToPdfConverterSettings.EnablePortableRendering](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PresentationToPdfConverterSettings.html#Syncfusion_PresentationToPdfConverter_PresentationToPdfConverterSettings_EnablePortableRendering"")'| markdownify }}
 </td>
 <td>
-This is the default approach in .NET Core and handled internally. 
+This is the default approach in .NET Core and handled internally.
 </td>
 </tr>
 <tr>
@@ -163,7 +165,7 @@ Not supported
 {{'[Presentation.Open(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_String_"")'| markdownify }}
 </td>
 <td>
-You can open the document as stream from the file system using {{'[Presentation.Open(Stream)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream"")'| markdownify }} API. 
+You can open the document as stream from the file system using {{'[Presentation.Open(Stream)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.Presentation.html#Syncfusion_Presentation_Presentation_Open_System_IO_Stream"")'| markdownify }} API.
 </td>
 </tr>
 <tr>
@@ -196,17 +198,17 @@ IPresentationRenderer.ConvertToImage(IPresentationChart chart, Stream outputStre
 Supports Windows, macOS, Linux, docker, Azure, and AWS environments.
 
 ## Known limitations
-EMF and WMF images are not supported in .NET Core platforms 
+EMF and WMF images are not supported in .NET Core platform.
 
 ## Notable changes
-* Graphics library: In .NET Framework, our library makes use of System.Drawing.Common for any text measuring and graphics-related operations. Whereas in .NET Core, our library uses the SkiaSharp graphics library to provide the same type of graphics 
-* The below features are make use of SkiaSharp graphics library, which are separated into a separate package, [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core# "").
-	* [PowerPoint Presentation to PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf# "") 
-	* [PowerPoint Presentation to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image# "") 
+* Graphics library: In .NET Framework, our library makes use of System.Drawing.Common for any text measuring and graphics-related operations. Whereas in .NET Core, our library uses the SkiaSharp graphics library to provide the same type of graphics.
+* The below features are make use of SkiaSharp graphics library, which are separated into a separate package, [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core# "")
+	* [PowerPoint Presentation to PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf# "")
+	* [PowerPoint Presentation to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image# "")
 * During PowerPoint Presentation to PDF/Image conversion, if you are facing font-related problems (like accessing font from the environment), you can pass the fonts as streams using our [font substitution approach](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#font-substitution-for-unavailable-fonts "").
 
-N> If you want to migrate without any code changes from “[Syncfusion.Presentation.ASP.NET](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "")” NuGet in application targeting .NET Framework, you can consider to use anyone of the packages
-N> * [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms# "") 
-N> * [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf# "") 
-N> * [Syncfusion.Presentation.AspNet.Mcv4](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "") 
+N> If you want to migrate without any code changes from [Syncfusion.Presentation.ASP.NET](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "") NuGet in application targeting .NET Framework, you can consider to use anyone of the packages
+N> * [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms# "")
+N> * [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf# "")
+N> * [Syncfusion.Presentation.AspNet.Mcv4](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "")
 N> *But, this is not a recommended approach.*
