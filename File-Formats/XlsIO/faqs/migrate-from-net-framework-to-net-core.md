@@ -139,14 +139,16 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
                 IWorkbooks Open(string filename)   
             </td>
             <td>
+			The document can be loaded into a file stream and it can be used as a input for XlsIO. 
                 IWorkbooks Open(Stream stream)                   
             </td>
         </tr>
         <tr>
             <td>
-                IWorkbook SaveAs(string filename) 
+                IWorkbook SaveAs(string filename, HttpResponse Response, ExcelDownloadType type) 
             </td>
             <td>
+			The workbook can be saved into a stream and it can be downloaded with the API File(string fileName, string contentType) from controller.
                 IWorkbook SaveAs(Stream stream) 
             </td>
         </tr>
@@ -184,10 +186,10 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                ExcelToPdfFConverer(IWorkbook workbook) 
+                ExcelToPdfConverter ExcelToPdfFConverer(IWorkbook workbook) 
             </td>
             <td>
-                XlsIORenderer() 
+                XlsIORenderer XlsIORenderer() 
             </td>
         </tr>
         <tr>
