@@ -211,7 +211,7 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
 
 
 ## Advantages
-*	Supports Windows, macOS, and Linux
+*	Supports Windows, macOS, and Linux.
 
 ## Known limitations
 *	EMF and WMF images are not supported in .NET Core platforms.
