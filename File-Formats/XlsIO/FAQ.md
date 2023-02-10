@@ -70,3 +70,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to find and highlight data in Excel?](faqs/how-to-find-and-highlight-data-in-Excel)
 * [How to avoid header row while sorting Excel data?](faqs/how-to-avoid-header-row-while-sorting-Excel-data)
 * [How to edit external workbook reference link?](faqs/how-to-edit-external-workbook-reference-link)
+* [How to migrate from .NET Framework to .NET Core?](faqs/migrate-from-net-framework-to-net-core)
