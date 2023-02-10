@@ -136,12 +136,10 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                IWorkbooks Open(string filename) 
-                  
+                IWorkbooks Open(string filename)   
             </td>
             <td>
-                IWorkbook Open(Stream stream) 
-                  
+                IWorkbooks Open(Stream stream)                   
             </td>
         </tr>
         <tr>
