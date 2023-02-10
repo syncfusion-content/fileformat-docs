@@ -27,7 +27,7 @@ The following namespaces are required to compile the code:
 * using Syncfusion.OfficeChartToImageConverter
 * using Syncfusion.Pdf
 
-**For ASP.NET Core and Xamarin applications**
+**For ASP.NET Core,Blazor and Xamarin applications**
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocIORenderer
