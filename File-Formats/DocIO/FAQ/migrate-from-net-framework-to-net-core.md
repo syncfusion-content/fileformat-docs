@@ -139,7 +139,7 @@ documentation: UG
 </tr>
 <tr>
 <td>[SaveAsImage(IOfficeChart, Stream)] (https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_)</td>	
-<td>Not supported due to .NET Core framework limitations.</td>
+<td>WChart.SaveAsImage()</td>
 </tr>
 </table>
 
@@ -155,6 +155,10 @@ documentation: UG
 
 * Drawing library: In .NET Framework, our library makes use of System.Drawing for any text measuring and graphics-related operations. Whereas in .NET Core, our library uses the SkiaSharp graphics library to provide the same type of graphics operations in all the supported platforms.
 * The below features are make use of SkiaSharp graphics library, which are separated into a separate package, [Syncfusion.DocIORenderer.Net.Core] (https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core).
+	* [Word document to PDF] (https://help.syncfusion.com/file-formats/docio/word-to-pdf)
+	* [Word document to Image] (https://help.syncfusion.com/file-formats/docio/word-to-image)
+	* [Updating table of contents] (https://help.syncfusion.com/file-formats/docio/working-with-table-of-contents#updating-table-of-contents)
+	* [Convert chart to image] (
 * During Word to PDF/Image conversion, if you are facing font-related problems (like accessing font from the environment), you can pass the fonts as streams using our [font substitution approach] (https://help.syncfusion.com/file-formats/docio/word-to-pdf#font-substitution). 
 
 Note: 
