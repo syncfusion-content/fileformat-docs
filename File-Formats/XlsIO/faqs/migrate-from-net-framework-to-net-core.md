@@ -166,47 +166,6 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
                 IWorksheet ImportHtmlTable(Stream stream, int row, int column) 
             </td>
         </tr>
-        <tr>
-            <td>
-                IPictures Add(int row, int column, string filename) 
-            </td>
-            <td>
-                IPictures Add(int row, int column, Stream stream) 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                IListObject Refresh() 
-            </td>
-            <td>
-                Not supported due to .NET Framework limitation. 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ExcelToPdfFConverer(IWorkbook workbook) 
-            </td>
-            <td>
-                XlsIORenderer() 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ExcelToPdfConverter(IWorksheet worksheet) 
-            </td>
-            <td>
-                XlsIORenderer() 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ExcelToPdfConverter Convert() 
-            </td>
-            <td>
-                XlsIORenderer ConvertToPDF(IWorkbook workbook) 
-                XlsIORenderer ConvertToPDF(IWorksheet worksheet) 
-            </td>
-        </tr>
 </table>
 
 
