@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use .NETCore Nuget packages instead. We have provided the major changes that need to be made in your application when migrating to .NETCore packages.
 
-## Nugets Required
+### Nugets Required
 <table>
         <tr>
             <td>
@@ -46,6 +46,8 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
 </table>
 
+### Namespaces
+
 <table>
         <tr>
             <td>
@@ -73,7 +75,7 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
 </table>
 
-## Missing Types
+### Missing Types
 <table>
         <tr>
             <td>
@@ -102,7 +104,7 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
 </table>
 
 
-## Missing Properties
+### Missing Properties
 <table>
         <tr>
             <td>
@@ -122,7 +124,7 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
 </table>
 
-## Missing methods
+### Missing methods
 <table>
         <tr>
             <td>
@@ -210,14 +212,14 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
 </table>
 
 
-## Advantages
+### Advantages
 *	Supports Windows, macOS, and Linux.
 
-## Known limitations
+### Known limitations
 *	EMF and WMF images are not supported in .NET Core platforms.
 *	Import data from DataGrid, GridView, and DataGridView are not supported in .NET Core platforms.
 
-## Notable changes
+### Notable changes
 *	Drawing library: In .NET Framework, our library makes use of System.Drawing for any text measuring and graphics related operations. Whereas in .NET Core, our library makes use of SkiaSharp graphics library to provide the same type of graphics operations in all the supported platforms.
 *	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package “Syncfusion.XlsIORenderer.Net.Core”
 
