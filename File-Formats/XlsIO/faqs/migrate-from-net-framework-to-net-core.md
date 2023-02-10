@@ -1,6 +1,6 @@
 ---
 title: Migrate from net framework to net core | XlsIO | Syncfusion
-description: This page explains how to use .NET Core packages to migrate from .NET Framework to .NET Core
+description: This page explains migration of .NET Framework to .NET Core
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # How to migrate from net framework to net core?
 
-Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use .NETCore Nuget packages instead. We have provided the major changes that need to be made in your application when migrating to .NETCore packages.
+Syncfusion has deprecated the ASP.NET NuGet packages. We recommend that you use .NETCore NuGet packages instead. We have provided the major changes that need to be made in your application when migrating to .NETCore packages.
 
-### Nugets Required
+### NuGet Changes
 <table>
         <tr>
             <td>
@@ -22,26 +22,26 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                {{'[Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet)'| markdownify }}
+                {{'[Syncfusion.XlsIO.AspNet](https://www.NuGet.org/packages/Syncfusion.XlsIO.AspNet)'| markdownify }}
             </td>
             <td>
-               {{'[Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)'| markdownify }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{'[Syncfusion.ExcelToPdfConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet)'| markdownify }}
-            </td>
-            <td>
-                {{'[Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
+               {{'[Syncfusion.XlsIO.Net.Core](https://www.NuGet.org/packages/Syncfusion.XlsIO.Net.Core)'| markdownify }}
             </td>
         </tr>
         <tr>
             <td>
-                {{'[Syncfusion.ExcelChartToImageConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet)'| markdownify }}
+                {{'[Syncfusion.ExcelToPdfConverter.AspNet](https://www.NuGet.org/packages/Syncfusion.ExcelToPdfConverter.AspNet)'| markdownify }}
             </td>
             <td>
-                Not needed. This functionalities are moved to {{'[Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
+                {{'[Syncfusion.XlsIORenderer](https://www.NuGet.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{'[Syncfusion.ExcelChartToImageConverter.AspNet](https://www.NuGet.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet)'| markdownify }}
+            </td>
+            <td>
+                Not needed. This functionalities are moved to {{'[Syncfusion.XlsIORenderer](https://www.NuGet.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
             </td>
         </tr>
 </table>
@@ -186,7 +186,7 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                ExcelToPdfConverter ExcelToPdfFConverer(IWorkbook workbook) 
+                ExcelToPdfConverter ExcelToPdfConverter(IWorkbook workbook) 
             </td>
             <td>
                 XlsIORenderer XlsIORenderer() 
@@ -215,12 +215,12 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
 *	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package “Syncfusion.XlsIORenderer.Net.Core”
 
 ### Alternate solution
-If you want to migrate without any code changes, you can use of the below Nuget Packages when using .NET Framework in your application.
+If you want to migrate without any code changes, you can use of the below NuGet Packages when using .NET Framework in your application.
 
-*	[Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms)
-*	[Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf)
-*	[Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms)
-*	[Syncfusion.ExcelToPdfConverter.Wpf](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Wpf)
-*	[Syncfusion.ExcelChartToImageConverter.Wpf](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.WPF)
+*	[Syncfusion.XlsIO.WinForms](https://www.NuGet.org/packages/Syncfusion.XlsIO.WinForms)
+*	[Syncfusion.XlsIO.Wpf](https://www.NuGet.org/packages/Syncfusion.XlsIO.Wpf)
+*	[Syncfusion.ExcelToPdfConverter.WinForms](https://www.NuGet.org/packages/Syncfusion.ExcelToPdfConverter.WinForms)
+*	[Syncfusion.ExcelToPdfConverter.Wpf](https://www.NuGet.org/packages/Syncfusion.ExcelToPdfConverter.Wpf)
+*	[Syncfusion.ExcelChartToImageConverter.Wpf](https://www.NuGet.org/packages/Syncfusion.ExcelChartToImageConverter.WPF)
 
 The above approach is not recommended.
