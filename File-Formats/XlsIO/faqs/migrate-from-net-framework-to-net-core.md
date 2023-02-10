@@ -192,19 +192,10 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                ExcelToPdfConverter(IWorksheet worksheet) 
-            </td>
-            <td>
-                XlsIORenderer() 
-            </td>
-        </tr>
-        <tr>
-            <td>
                 ExcelToPdfConverter Convert() 
             </td>
             <td>
                 XlsIORenderer ConvertToPDF(IWorkbook workbook) 
-                XlsIORenderer ConvertToPDF(IWorksheet worksheet) 
             </td>
         </tr>
 </table>
