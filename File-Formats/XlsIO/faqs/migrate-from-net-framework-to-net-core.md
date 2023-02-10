@@ -212,7 +212,7 @@ Syncfusion has deprecated the ASP.NET NuGet packages. We recommend that you use 
 
 ### Notable changes
 *	Drawing library: In .NET Framework, our library makes use of System.Drawing for any text measuring and graphics related operations. Whereas in .NET Core, our library makes use of SkiaSharp graphics library to provide the same type of graphics operations in all the supported platforms.
-*	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package “Syncfusion.XlsIORenderer.Net.Core”
+*	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package [Syncfusion.XlsIORenderer.Net.Core](https://www.NuGet.org/packages/Syncfusion.XlsIORenderer.Net.Core)
 
 ### Alternate solution
 If you want to migrate without any code changes, you can use of the below NuGet Packages when using .NET Framework in your application.
