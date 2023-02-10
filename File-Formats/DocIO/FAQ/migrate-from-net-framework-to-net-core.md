@@ -1,6 +1,6 @@
 ---
-title: Migrate DocIO library from .NET Framework to .NET Core | DocIO | Syncfusion
-description: This section illustrates Migrate from net framework to net core
+title: Migrate from .NET Framework to .NET core | DocIO | Syncfusion
+description: This section illustrates Migrating DocIO library from .NET Framework to .NET core
 control: DocIO
 documentation: UG
 ---
