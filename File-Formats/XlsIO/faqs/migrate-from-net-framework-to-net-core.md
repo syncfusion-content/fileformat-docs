@@ -22,26 +22,26 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
         </tr>
         <tr>
             <td>
-                [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet)
+                {{'[Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet)'| markdownify }}
             </td>
             <td>
-                [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                [Syncfusion.ExcelToPdfConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet)
-            </td>
-            <td>
-                [Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
+               {{'[Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)'| markdownify }}
             </td>
         </tr>
         <tr>
             <td>
-                [Syncfusion.ExcelChartToImageConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet)
+                {{'[Syncfusion.ExcelToPdfConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet)'| markdownify }}
             </td>
             <td>
-                Not needed. This functionalities are moved to [Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
+                {{'[Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{'[Syncfusion.ExcelChartToImageConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet)'| markdownify }}
+            </td>
+            <td>
+                Not needed. This functionalities are moved to {{'[Syncfusion.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)'| markdownify }}
             </td>
         </tr>
 </table>
@@ -212,7 +212,8 @@ Syncfusion has deprecated the Asp.Net Nuget packages. We recommend that you use 
 *	Drawing library: In .NET Framework, our library makes use of System.Drawing for any text measuring and graphics related operations. Whereas in .NET Core, our library makes use of SkiaSharp graphics library to provide the same type of graphics operations in all the supported platforms.
 *	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package “Syncfusion.XlsIORenderer.Net.Core”
 
-N> If you want to migrate without any code changes, you can use of the below Nuget Packages when using .NET Framework in your application.
+### Alternate solution
+If you want to migrate without any code changes, you can use of the below Nuget Packages when using .NET Framework in your application.
 
 *	[Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms)
 *	[Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf)
