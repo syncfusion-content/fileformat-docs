@@ -202,13 +202,13 @@ EMF and WMF images are not supported in .NET Core platform.
 
 ## Notable changes
 * Graphics library: In .NET Framework, our library makes use of System.Drawing.Common for any text measuring and graphics-related operations. Whereas in .NET Core, our library uses the SkiaSharp graphics library to provide the same type of graphics.
-* The below features are make use of SkiaSharp graphics library, which are separated into a separate package, [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core# "")
-	* [PowerPoint Presentation to PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf# "")
-	* [PowerPoint Presentation to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image# "")
-* During PowerPoint Presentation to PDF/Image conversion, if you are facing font-related problems (like accessing font from the environment), you can pass the fonts as streams using our [font substitution approach](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#font-substitution-for-unavailable-fonts "").
+* The below features are make use of SkiaSharp graphics library, which are separated into a separate package, [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core)
+	* [PowerPoint Presentation to PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf)
+	* [PowerPoint Presentation to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image)
+* During PowerPoint Presentation to PDF/Image conversion, if you are facing font-related problems (like accessing font from the environment), you can pass the fonts as streams using our [font substitution approach](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#font-substitution-for-unavailable-fonts).
 
-N> If you want to migrate without any code changes from [Syncfusion.Presentation.ASP.NET](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "") NuGet in application targeting .NET Framework, you can consider to use anyone of the packages
-N> * [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms# "")
-N> * [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf# "")
-N> * [Syncfusion.Presentation.AspNet.Mcv4](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4# "")
+N> If you want to migrate without any code changes from [Syncfusion.Presentation.ASP.NET](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4) NuGet in application targeting .NET Framework, you can consider to use anyone of the packages
+N> * [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms)
+N> * [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf)
+N> * [Syncfusion.Presentation.AspNet.Mcv4](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4)
 N> *But, this is not a recommended approach.*
