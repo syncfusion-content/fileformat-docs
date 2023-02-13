@@ -2354,8 +2354,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## How to copy necessary Microsoft compatible fonts to Linux
 
-N> To use Microsoft fonts in your environment, kindly get license clearance from Microsoft at your side.
-
 The fonts present in the location (in Linux) "/usr/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the Linux.
 
 Use the following code example to install the Microsoft compatible fonts to Linux.
@@ -2369,6 +2367,8 @@ sudo apt-get install ttf-mscorefonts-installer
 {% endtabs %}
 
 After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
+
+N> To use Microsoft fonts in your environment, kindly get license clearance from Microsoft at your side.
 
 ## How to install necessary fonts in Linux containers
 
