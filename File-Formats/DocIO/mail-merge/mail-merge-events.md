@@ -18,9 +18,7 @@ The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS
 
 * [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html)- occurs when an **unmerged group field** is encountered.
 
-## MergeField Event
-
-N> While executing mail merge, DocIO internally uses copy of particular region for populating the contents. Sometimes, it may rise unexcepted problems due to inserting multiple body items in to the region through mail merge process. So, to insert multiple body items using mergefield event handler, we recommend you to use this [How to replace merge field with HTML string using Mail merge | WinForms - DocIO](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge) approach at your side. 
+## MergeField Event 
 
 You can apply formatting to the merged text or customize the merged text during mail merge process using the [MergeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html) Event.
 
@@ -146,6 +144,8 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 {% endhighlight %}
 
 {% endtabs %}
+
+N> While executing mail merge, DocIO internally uses copy of particular region for populating the contents. Sometimes, it may rise unexcepted problems due to inserting multiple body items in to the region through mail merge process. So, to insert multiple body items using mergefield event handler, we recommend you to use this [approach](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge) at your side.
 
 The following code example shows GetDataTable method which is used to get data for mail merge.
 
