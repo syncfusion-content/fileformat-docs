@@ -1000,7 +1000,14 @@ else
 
 ## Externally sign a PDF document 
 
-You can sign the PDF document from external digital signature created from various sources such as HSM, USB token, smart card, or other cloud services such as DigitalSign. The following code example shows how to sign the PDF document from external signature using [ComputeHash](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_ComputeHash) Event.
+You can sign the PDF document with an external digital signature created from various sources, such as an HSM, USB token, smart card, or other cloud services such as DigitalSign. The following approaches are available for externally signing the PDF documents.
+
+* [ComputeHash](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_ComputeHash) event 
+* [IPdfExternalSigner](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_ComputeHash) interface
+
+### Externally sign the PDF document using ComputeHash event 
+
+The following code example shows how to sign the PDF document from an external signature using [ComputeHash](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_ComputeHash) event.
 
 {% tabs %}
 
@@ -1095,7 +1102,8 @@ private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs 
     SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
 
     //Compute the signature using the specified digital ID file and the password
-    X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+    Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.DigitalSignatureTest.pfx");
+    X509Certificate2 certificate = new X509Certificate2(certificateStream, "DigitalPass123");
     var cmsSigner = new CmsSigner(certificate);
 
     //Set the digest algorithm SHA256
@@ -1132,7 +1140,8 @@ private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs 
     SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
 
     //Compute the signature using the specified digital ID file and the password
-    X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+    FileStream certificateStream = new FileStream("DigitalSignatureTest.pfx", FileMode.Open, FileAccess.Read);
+    X509Certificate2 certificate = new X509Certificate2(certificateStream, "DigitalPass123");
     var cmsSigner = new CmsSigner(certificate);
 
     //Set the digest algorithm SHA256
@@ -1180,7 +1189,8 @@ private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs 
     SignedCms signedCms = new SignedCms(new ContentInfo(documentBytes), detached: true);
 
     //Compute the signature using the specified digital ID file and the password
-    X509Certificate2 certificate = new X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123");
+    Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.DigitalSignatureTest.pfx");
+    X509Certificate2 certificate = new X509Certificate2(certificateStream, "DigitalPass123");
     var cmsSigner = new CmsSigner(certificate);
 
     //Set the digest algorithm SHA256
@@ -1189,6 +1199,333 @@ private static void Signature_ComputeHash1(object sender, PdfSignatureEventArgs 
 
     //Embed the encoded digital signature to the PDF document
     ars.SignedData = signedCms.Encode();
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Externally sign the PDF document using IPdfExternalSigner
+The following code example shows how to sign the PDF document from external signature using [IPdfExternalSigner](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.IPdfExternalSigner.html).
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new ExternalSigner("SHA1");
+
+//Add public certificates.
+List<X509Certificate2> certificates = new List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Saves the document.
+loadedDocument.Save("Output.pdf");
+//Closes the document.
+loadedDocument.Close(true);
+
+//Create the external signer class and sign the document hash.
+class ExternalSigner : IPdfExternalSigner
+{
+    private string _hashAlgorithm;
+    public string HashAlgorithm
+    {
+        get { return _hashAlgorithm; }
+    }
+
+    public ExternalSigner(string hashAlgorithm)
+    {
+        _hashAlgorithm = hashAlgorithm;
+    }
+    public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+    {
+        timeStampResponse = null;
+
+        X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(Path.GetFullPath("PDF.pfx"), "password123"));
+        if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+        {
+            System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+            return rsa.SignData(message, HashAlgorithm);
+        }
+        else if (digitalID.PrivateKey is RSACng)
+        {
+            RSACng rsa = (RSACng)digitalID.PrivateKey;
+            return rsa.SignData(message, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+        }
+        return null;
+    }
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load an existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Creates a digital signature. 
+Dim signature As PdfSignature = New PdfSignature(loadedDocument, loadedDocument.Pages(0), Nothing, "Signature")
+'Sets the signature information.
+signature.Bounds = New RectangleF(New PointF(0, 0), New SizeF(100, 30))
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1
+
+'Create an external signer.
+Dim externalSignature As IPdfExternalSigner = New ExternalSigner("SHA1")
+Dim certificates As List(Of X509Certificate2) = New List(Of X509Certificate2)()
+certificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
+signature.AddExternalSigner(externalSignature, certificates, Nothing)
+
+'Saves the document.
+loadedDocument.Save("Output.pdf")
+'Closes the document.
+loadedDocument.Close(True)
+
+Class ExternalSigner
+    Inherits IPdfExternalSigner
+
+    Private _hashAlgorithm As String
+
+    Public ReadOnly Property HashAlgorithm As String
+        Get
+            Return _hashAlgorithm
+        End Get
+    End Property
+
+    Public Sub New(ByVal hashAlgorithm As String)
+        _hashAlgorithm = hashAlgorithm
+    End Sub
+
+    Public Function Sign(ByVal message As Byte(), <Out> ByRef timeStampResponse As Byte()) As Byte()
+        timeStampResponse = Nothing
+        Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2(Path.GetFullPath("PDF.pfx"), "password123"))
+
+        If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
+            Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACrypto
+            Return rsa.SignData(message, HashAlgorithm)
+        ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
+            Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
+            Return rsa.SignData(message, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
+        End If
+
+        Return Nothing
+    End Function
+End Class
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Get the stream from the document
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+//Load an existing signed PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new ExternalSigner("SHA1");
+
+//Add public certificates.
+List<X509Certificate2> certificates = new List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document
+loadedDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+//Create the external signer class and sign the document hash.
+class ExternalSigner : IPdfExternalSigner
+{
+    private string _hashAlgorithm;
+    public string HashAlgorithm
+    {
+        get { return _hashAlgorithm; }
+    }
+
+    public ExternalSigner(string hashAlgorithm)
+    {
+        _hashAlgorithm = hashAlgorithm;
+    }
+    public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+    {
+        timeStampResponse = null;
+        Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+        X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(certificateStream, "password123"));
+        if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+        {
+            System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+            return rsa.SignData(message, HashAlgorithm);
+        }
+        else if (digitalID.PrivateKey is RSACng)
+        {
+            RSACng rsa = (RSACng)digitalID.PrivateKey;
+            return rsa.SignData(message, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+        }
+        return null;
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get the stream from the document
+FileStream documentStream = new FileStream("Input.pdf ", FileMode.Open, FileAccess.Read);
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new ExternalSigner("SHA1");
+
+//Add public certificates.
+List<X509Certificate2> certificates = new List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+stream.Position = 0;
+//Close the document
+loadedDocument.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+//Create the external signer class and sign the document hash.
+class ExternalSigner : IPdfExternalSigner
+{
+    private string _hashAlgorithm;
+    public string HashAlgorithm
+    {
+        get { return _hashAlgorithm; }
+    }
+
+    public ExternalSigner(string hashAlgorithm)
+    {
+        _hashAlgorithm = hashAlgorithm;
+    }
+    public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+    {
+        timeStampResponse = null;
+        FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+        X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(certificateStream, "password123"));
+        if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+        {
+            System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+            return rsa.SignData(message, HashAlgorithm);
+        }
+        else if (digitalID.PrivateKey is RSACng)
+        {
+            RSACng rsa = (RSACng)digitalID.PrivateKey;
+            return rsa.SignData(message, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+        }
+        return null;
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Load an existing PDF document. 
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Creates a digital signature.
+PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], null, "Signature");
+//Sets the signature information.
+signature.Bounds = new RectangleF(new PointF(0, 0), new SizeF(100, 30));
+signature.Settings.CryptographicStandard = CryptographicStandard.CADES;
+signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1;
+
+//Create an external signer.
+IPdfExternalSigner externalSignature = new ExternalSigner("SHA1");
+
+//Add public certificates.
+List<X509Certificate2> certificates = new List<X509Certificate2>();
+certificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+signature.AddExternalSigner(externalSignature, certificates, null);
+
+//Save the document to the stream.
+MemoryStream stream = new MemoryStream();
+pdfLoadedDocument.Save(stream);
+//Close the document.
+pdfLoadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("ExternalSignature.pdf", "application/pdf", stream);
+}
+
+//Create the external signer class and sign the document hash.
+class ExternalSigner : IPdfExternalSigner
+{
+    private string _hashAlgorithm;
+    public string HashAlgorithm
+    {
+        get { return _hashAlgorithm; }
+    }
+
+    public ExternalSigner(string hashAlgorithm)
+    {
+        _hashAlgorithm = hashAlgorithm;
+    }
+    public byte[] Sign(byte[] message, out byte[] timeStampResponse)
+    {
+        timeStampResponse = null;
+        Stream certificateStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+        X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(certificateStream, "password123"));
+        if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+        {
+            System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+            return rsa.SignData(message, HashAlgorithm);
+        }
+        else if (digitalID.PrivateKey is RSACng)
+        {
+            RSACng rsa = (RSACng)digitalID.PrivateKey;
+            return rsa.SignData(message, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+        }
+        return null;
+    }
 }
 
 {% endhighlight %}
@@ -3487,6 +3824,23 @@ loadedDocument.Save("EmptySignature.pdf");
 //Closes the document.
 loadedDocument.Close(true);
 
+void DeferredSign()
+{
+    //Create an external signer with a signed hash message.
+    IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+    //Add public certificates.
+    System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+    publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+    //Create an output file stream.
+    MemoryStream outputFileStream = new MemoryStream();
+    //Get the stream from the document.
+    FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+    string pdfPassword = string.Empty;
+    //Replace an empty signature.
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+}
+
 /// <summary>
 /// Represents to sign an empty signature from an external signer.
 /// </summary>
@@ -3512,20 +3866,23 @@ class SignEmpty : IPdfExternalSigner
         timeStampResponse = null;
         return signedBytes;
     }
-}
-//Create an external signer with a signed hash message.
-IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
-//Add public certificates.
-System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
-publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
 
-//Create an output file stream.
-MemoryStream outputFileStream = new MemoryStream();    
-//Get the stream from the document.
-FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
-string pdfPassword = string.Empty;
-//Replace an empty signature.
-PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+    private void SignDocumentHash(byte[] documentHash)
+    {
+      X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(Path.GetFullPath("../../../PDF.pfx"), "password123"));
+      if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+      {
+        System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm);
+      }
+      else if (digitalID.PrivateKey is RSACng)
+      {
+        RSACng rsa = (RSACng)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+      }
+    }
+}
+
 
 /// <summary>
 /// Represents to replace an empty signature from an external signer.
@@ -3580,6 +3937,16 @@ loadedDocument.Save("EmptySignature.pdf")
 'Close the document.
 loadedDocument.Close(True)
 
+Private Sub DeferredSign()
+    Dim externalSigner As IPdfExternalSigner = New ExternalSigner("SHA1", signedHash)
+    Dim publicCertificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)()
+    publicCertificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
+    Dim outputFileStream As MemoryStream = New MemoryStream()
+    Dim inputFileStream As FileStream = New FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read)
+    Dim pdfPassword As String = String.Empty
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates)
+End Sub
+
 ''' <summary>
 ''' Represents to sign an empty signature. 
 ''' </summary>
@@ -3607,20 +3974,19 @@ Class SignEmpty
         timeStampResponse = Nothing
         Return signedBytes
     End Function
-End Class
-'Create an external signer with a signed hash message.
-Dim externalSigner As IPdfExternalSigner = New ExternalSigner("SHA1", Module1.SignedHash)
-'Add public certificates.
-Dim publicCertificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)
-publicCertificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
 
-'Create an output file stream.
-Dim outputFileStream As MemoryStream = New MemoryStream
-'Get the stream from the document.
-Dim documentStream As FileStream = New FileStream("EmptySignature.pdf ", FileMode.Open, FileAccess.Read)
-Dim pdfPassword As String = String.Empty
-'Replace an empty signature.
-PdfSignature.ReplaceEmptySignature(documentStream, pdfPassword, outputFileStream, "Signature", externalSigner, publicCertificates)
+    Private Sub SignDocumentHash(ByVal documentHash As Byte())
+    Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx"), "password123"))
+
+    If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
+        Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACryptoServiceProvider)
+        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm)
+    ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
+        Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
+        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
+    End If
+    End Sub
+End Class
 
 ''' <summary>
 ''' Represents to replace the empty signature.
@@ -3655,7 +4021,7 @@ End Class
 {% highlight c# tabtitle="UWP" %}
 
 //Get the stream from the document.
-Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data. PDF_Succinctly.pdf");
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF_Succinctly.pdf");
 //Load an existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
 
@@ -3680,6 +4046,23 @@ loadedDocument.Save(stream);
 loadedDocument.Close(true);
 //Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples.
 Save(stream, "EmptySignature.pdf");
+
+void DeferredSign()
+{
+    //Create an external signer with a signed hash message.
+    IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+    //Add public certificates.
+    System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+    publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+    //Create an output file stream.
+    MemoryStream outputFileStream = new MemoryStream();
+    //Get the stream from the document.
+    FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+    string pdfPassword = string.Empty;
+    //Replace an empty signature.
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+}
 
 /// <summary>
 /// Represents to sign an empty signature from an external signer.
@@ -3707,20 +4090,22 @@ class SignEmpty : IPdfExternalSigner
         timeStampResponse = null;
         return signedBytes;
     }
-}
-//Create an external signer with a signed hash message.
-IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
-//Add public certificates.
-System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
-publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
 
-//Create an output file stream.
-MemoryStream outputFileStream = new MemoryStream();    
-//Get the stream from the document.
-FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
-string pdfPassword = string.Empty;
-//Replace an empty signature.
-PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+    private void SignDocumentHash(byte[] documentHash)
+    {
+      X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(Path.GetFullPath("../../../PDF.pfx"), "password123"));
+      if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+      {
+        System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm);
+      }
+      else if (digitalID.PrivateKey is RSACng)
+      {
+        RSACng rsa = (RSACng)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+      }
+    }
+}
 
 /// <summary>
 /// Represents to replace an empty signature from an external signer.
@@ -3784,6 +4169,23 @@ string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
+void DeferredSign()
+{
+    //Create an external signer with a signed hash message.
+    IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+    //Add public certificates.
+    System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+    publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+    //Create an output file stream.
+    MemoryStream outputFileStream = new MemoryStream();
+    //Get the stream from the document.
+    FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+    string pdfPassword = string.Empty;
+    //Replace an empty signature.
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+}
+
 /// <summary>
 /// Represents to sign an empty signature from the external signer.
 /// </summary>
@@ -3810,20 +4212,22 @@ class SignEmpty : IPdfExternalSigner
         timeStampResponse = null;
         return signedBytes;
     }
-}
-//Create an external signer with a signed hash message.
-IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
-//Add public certificates.
-System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
-publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
 
-//Create an output file stream.
-MemoryStream outputFileStream = new MemoryStream();    
-//Get the stream from the document.
-FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
-string pdfPassword = string.Empty;
-//Replace an empty signature.
-PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+    private void SignDocumentHash(byte[] documentHash)
+    {
+      X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(Path.GetFullPath("../../../PDF.pfx"), "password123"));
+      if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+      {
+        System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm);
+      }
+      else if (digitalID.PrivateKey is RSACng)
+      {
+        RSACng rsa = (RSACng)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+      }
+    }
+}
 
 /// <summary>
 /// Represents to replace an empty signature from an external signer.
@@ -3893,6 +4297,23 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
+void DeferredSign()
+{
+    //Create an external signer with a signed hash message.
+    IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
+    //Add public certificates.
+    System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
+    publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
+
+    //Create an output file stream.
+    MemoryStream outputFileStream = new MemoryStream();
+    //Get the stream from the document.
+    FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
+    string pdfPassword = string.Empty;
+    //Replace an empty signature.
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
+}
+
 /// <summary>
 /// Represents to sign an empty signature from an external signer.
 /// </summary>
@@ -3918,21 +4339,22 @@ class SignEmpty : IPdfExternalSigner
         timeStampResponse = null;
         return signedBytes;
     }
+
+    private void SignDocumentHash(byte[] documentHash)
+    {
+      X509Certificate2 digitalID = new X509Certificate2(new X509Certificate2(Path.GetFullPath("../../../PDF.pfx"), "password123"));
+      if (digitalID.PrivateKey is System.Security.Cryptography.RSACryptoServiceProvider)
+      {
+        System.Security.Cryptography.RSACryptoServiceProvider rsa = (System.Security.Cryptography.RSACryptoServiceProvider)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm);
+      }
+      else if (digitalID.PrivateKey is RSACng)
+      {
+        RSACng rsa = (RSACng)digitalID.PrivateKey;
+        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+      }
+    }
 }
-//Create an external signer with a signed hash message.
-IPdfExternalSigner externalSigner = new ExternalSigner("SHA1", signedHash);
-//Add public certificates.
-System.Collections.Generic.List<X509Certificate2> publicCertificates = new System.Collections.Generic.List<X509Certificate2>();
-publicCertificates.Add(new X509Certificate2(Convert.FromBase64String(PublicCert)));
-
-//Create an output file stream.
-MemoryStream outputFileStream = new MemoryStream();    
-//Get the stream from the document.
-FileStream inputFileStream = new FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read);
-string pdfPassword = string.Empty;
-
-//Replace an empty signature.
-PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates);
 
 /// <summary>
 /// Represents to replace an empty signature from an external signer.
