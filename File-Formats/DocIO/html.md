@@ -431,13 +431,12 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 You can customize the Word to HTML conversion with the following options:
 
-Also, choose whether to omit XML declaration in the exported HTML file using [HtmlExportOmitXmlDeclaration](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportOmitXmlDeclaration) API.
-
 * Extract the images used in the HTML document at the specified file directory
 * Specify to export the header and footer of the Word document in the HTML
 * Specify to consider Text Input field as a editable fields or text
 * Specify the CSS style sheet type and its name
 * Export the images as Base-64 embedded images
+* Omit XML declaration in the exported HTML file using [HtmlExportOmitXmlDeclaration](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportOmitXmlDeclaration).
 
 N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
 
