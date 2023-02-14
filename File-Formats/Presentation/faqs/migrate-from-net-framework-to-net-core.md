@@ -211,4 +211,4 @@ N> If you want to migrate without any code changes from [Syncfusion.Presentation
 N> * [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms)
 N> * [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf)
 N> * [Syncfusion.Presentation.AspNet.Mcv4](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4)
-N> *But, this is not a recommended approach.*
+N>*But, this is not a recommended approach.*
