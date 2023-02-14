@@ -2368,7 +2368,7 @@ sudo apt-get install ttf-mscorefonts-installer
 
 After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
 
-N> To use Microsoft fonts in your environment, kindly get license clearance from Microsoft at your side.
+N> To use Microsoft fonts in your environment, kindly get the license clearance from Microsoft on your side.
 
 ## How to install necessary fonts in Linux containers
 
