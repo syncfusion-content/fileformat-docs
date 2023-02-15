@@ -329,6 +329,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+N> By default, Microsoft Excel uses AES-128 encryption for versions Excel 2007 and above, and MD5 encryption for versions Excel97 to 2003 when providing the password for Excel documents. So, XlsIO uses the same encryptions for password protection based on the Excel versions.
+
 ### Protect workbook elements
 
 XlsIO provides options to protect and unprotect workbook elements with password. The following code example illustrates how to protect a workbook with a password.
