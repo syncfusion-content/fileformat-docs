@@ -18,7 +18,7 @@ The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS
 
 * [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html)- occurs when an **unmerged group field** is encountered.
 
-## MergeField Event 
+## MergeField Event
 
 You can apply formatting to the merged text or customize the merged text during mail merge process using the [MergeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html) Event.
 
