@@ -275,125 +275,166 @@ N> The [FirstLineIndent](https://help.syncfusion.com/cr/file-formats/Syncfusion.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-//Saves the Word document
-document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
-document.Close();
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Access the section in a Word document.
+    IWSection section = document.Sections[0];
+    //Access the paragraph in a Word document.
+    IWParagraph paragraph = section.Paragraphs[4];
+    //Apply paragraph formatting.
+    paragraph.ParagraphFormat.AfterSpacing = 18f;
+    paragraph.ParagraphFormat.BeforeSpacing = 18f;
+    paragraph.ParagraphFormat.BackColor = Color.LightGray;
+    paragraph.ParagraphFormat.FirstLineIndent = 10f;
+    paragraph.ParagraphFormat.LineSpacing = 10f;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    //Access the paragraph in a Word document.
+    paragraph = section.Paragraphs[7];
+    //Apply keep lines together property to the paragraph.
+    paragraph.ParagraphFormat.Keep = true;
+    //Access the paragraph in a Word document.
+    paragraph = section.Paragraphs[6];
+    //Apply keep with next property to the paragraph.
+    paragraph.ParagraphFormat.KeepFollow = true;
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new Word document 
-Dim document As New WordDocument()
-'Adds new section to the document
-Dim section As IWSection = document.AddSection()
-'Adds new paragraph to the section
-Dim paragraph As IWParagraph = section.AddParagraph()
-'Adds new text to the paragraph
-Dim firstText As IWTextRange = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.")
-'Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18.0F
-paragraph.ParagraphFormat.BeforeSpacing = 18.0F
-paragraph.ParagraphFormat.BackColor = Color.LightGray
-paragraph.ParagraphFormat.FirstLineIndent = 10.0F
-paragraph.ParagraphFormat.LineSpacing = 10.0F
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
-'Saves the Word document
-document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
-document.Close()
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    'Access the section in a Word document.
+    Dim section As IWSection = document.Sections(0)
+    'Access the paragraph in a Word document.
+    Dim paragraph As IWParagraph = section.Paragraphs(4)
+    'Apply paragraph formatting.
+    paragraph.ParagraphFormat.AfterSpacing = 18F
+    paragraph.ParagraphFormat.BeforeSpacing = 18F
+    paragraph.ParagraphFormat.BackColor = Color.LightGray
+    paragraph.ParagraphFormat.FirstLineIndent = 10F
+    paragraph.ParagraphFormat.LineSpacing = 10F
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
+    'Access the paragraph in a Word document.
+    paragraph = section.Paragraphs(7)
+    'Apply keep lines together property to the paragraph.
+    paragraph.ParagraphFormat.Keep = True
+    'Access the paragraph in a Word document.
+    paragraph = section.Paragraphs(6)
+    'Apply keep with next property to the paragraph.
+    paragraph.ParagraphFormat.KeepFollow = True
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access the section in a Word document.
+        IWSection section = document.Sections[0];
+        //Access the paragraph in a Word document.
+        IWParagraph paragraph = section.Paragraphs[4];
+        //Apply paragraph formatting.
+        paragraph.ParagraphFormat.AfterSpacing = 18f;
+        paragraph.ParagraphFormat.BeforeSpacing = 18f;
+        paragraph.ParagraphFormat.BackColor = Color.LightGray;
+        paragraph.ParagraphFormat.FirstLineIndent = 10f;
+        paragraph.ParagraphFormat.LineSpacing = 10f;
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[7];
+        //Apply keep lines together property to the paragraph.
+        paragraph.ParagraphFormat.Keep = true;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[6];
+        //Apply keep with next property to the paragraph.
+        paragraph.ParagraphFormat.KeepFollow = true;
+        //Save a Word document to the MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Save the stream as a Word document file on the local machine.
+        Save(stream, "Sample.docx"); 
+    }
+}
 //Refer to the following link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access the section in a Word document.
+        IWSection section = document.Sections[0];
+        //Access the paragraph in a Word document.
+        IWParagraph paragraph = section.Paragraphs[4];
+        //Apply paragraph formatting.
+        paragraph.ParagraphFormat.AfterSpacing = 18f;
+        paragraph.ParagraphFormat.BeforeSpacing = 18f;
+        paragraph.ParagraphFormat.BackColor = Color.LightGray;
+        paragraph.ParagraphFormat.FirstLineIndent = 10f;
+        paragraph.ParagraphFormat.LineSpacing = 10f;
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[7];
+        //Apply keep lines together property to the paragraph.
+        paragraph.ParagraphFormat.Keep = true;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[6];
+        //Apply keep with next property to the paragraph.
+        paragraph.ParagraphFormat.KeepFollow = true;
+        //Save a  Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        outputStream.Position = 0;
+        //Download as a Word document in the browser.
+        return File(outputStream, "application/msword", "Sample.docx");
+    }
+}
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Syncfusion.Drawing.Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Open the file as Stream.
+using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access the section in a Word document.
+        IWSection section = document.Sections[0];
+        //Access the paragraph in a Word document.
+        IWParagraph paragraph = section.Paragraphs[4];
+        //Apply paragraph formatting.
+        paragraph.ParagraphFormat.AfterSpacing = 18f;
+        paragraph.ParagraphFormat.BeforeSpacing = 18f;
+        paragraph.ParagraphFormat.BackColor = Color.LightGray;
+        paragraph.ParagraphFormat.FirstLineIndent = 10f;
+        paragraph.ParagraphFormat.LineSpacing = 10f;
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[7];
+        //Apply keep lines together property to the paragraph.
+        paragraph.ParagraphFormat.Keep = true;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[6];
+        //Apply keep with next property to the paragraph.
+        paragraph.ParagraphFormat.KeepFollow = true;
+        //Save a Word document to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+        //Save the stream as a file in the device and invoke it for viewing. 
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+    }
+}
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
