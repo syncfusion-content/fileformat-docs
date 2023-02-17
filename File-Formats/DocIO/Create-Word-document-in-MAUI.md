@@ -8,10 +8,10 @@ documentation: UG
 
 # Create Word document in .NET MAUI
 
-Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
+Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
 
 **Prerequisites:**
-To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin).
 
 ## Steps to create Word document programmatically in .NET MAUI
 
@@ -27,7 +27,7 @@ Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your pr
 
 ![Install the DocIO .NET NuGet package](MAUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
 Step 4: Add a new button to the **MainPage.xaml** as shown below.
 
