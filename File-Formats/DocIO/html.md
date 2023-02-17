@@ -436,6 +436,7 @@ You can customize the Word to HTML conversion with the following options:
 * Specify to consider Text Input field as a editable fields or text
 * Specify the CSS style sheet type and its name
 * Export the images as Base-64 embedded images
+* Omit XML declaration in the exported HTML file using [HtmlExportOmitXmlDeclaration](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportOmitXmlDeclaration).
 
 N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
 
@@ -458,6 +459,8 @@ document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
 //Export the Word document image as Base-64 embedded image
 document.SaveOptions.HTMLExportImageAsBase64 = true;
+//Set value to omit XML declaration in the exported html file.
+document.SaveOptions.HtmlExportOmitXmlDeclaration = true;
 //Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
@@ -479,6 +482,8 @@ document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
 'Export the Word document image as Base-64 embedded image
 document.SaveOptions.HTMLExportImageAsBase64 = True
+'Set value to omit XML declaration in the exported html file.
+document.SaveOptions.HtmlExportOmitXmlDeclaration = True;
 'Saves the document as html file
 export.SaveAsXhtml(document, "WordtoHtml.html")
 document.Close()
