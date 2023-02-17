@@ -9,6 +9,7 @@ documentation: UG
 # Migrate PDF library from .NET Framework to .NET Core 
 
 The Syncfusion ASP.NET Web Forms components will no longer be actively developed and will be marked as end of support after the 2023 Volume 2 release. However, ASP.NET Web Forms related NuGet's will be updated until then. If you want to use the Syncfusion ASP.NET Web Forms components in the future, you may continue to use till version 2023 Volume 2 release, and bug fixes will be provided as patches as long as Microsoft supports it, even after the 2023 Volume 2 release. It is recommended to use the latest Blazor or ASP.NET Core for new web applications development. For more details, please refer the below link,
+
 https://learn.microsoft.com/en-us/dotnet/architecture/blazor-for-web-forms-developers/introduction. 
 
 You can also visit the Blazor documentation and demo links provided for more information.
@@ -373,7 +374,7 @@ Not supported due to .NET Core framework limitations. Alternatively, this can be
 [Merge(PdfDocumentBase, object[])](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_System_Object___)
 </td>
 <td> 
-Merge(PdfDocumentBase, Object[]) - Object[] in the form of Stream[].  <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/) 
+Merge(PdfDocumentBase, Stream[])  <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/) 
 </td>
 </tr>
 <tr>
@@ -381,7 +382,7 @@ Merge(PdfDocumentBase, Object[]) - Object[] in the form of Stream[].  <br/> *Sam
 [Merge(String[])](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_System_String___)
 </td>
 <td> 
-Merge(PdfDocumentBase, Object[]) - Object[] in the form of Stream[]. <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)
+Merge(PdfDocumentBase, Stream[]) <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)
 </td>
 </tr>
 <tr>
