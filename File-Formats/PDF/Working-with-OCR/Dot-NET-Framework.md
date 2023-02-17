@@ -161,7 +161,7 @@ End Using
 
 {% endtabs %} 
 
-N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](https://help.syncfusion.com/file-formats/pdf/working-with-text-extraction) feature for this.
+N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/working-with-text-extraction) feature for this.
 
 ## Performing OCR with tesseract version 3.05
 
