@@ -8,7 +8,7 @@ documentation: UG
 
 # Migrate PDF library from .NET Framework to .NET Core 
 
-The Syncfusion ASP.NET Web Forms components will no longer be actively developed and will be marked as end of support after the 2023 Volume 2 release. However, ASP.NET Web Forms related NuGet’s will be updated until then. If you want to use the Syncfusion ASP.NET Web Forms components in the future, you may continue to use till version 2023 Volume 2 release, and bug fixes will be provided as patches as long as Microsoft supports it, even after the 2023 Volume 2 release. It is recommended to use the latest Blazor or ASP.NET Core for new web applications development. For more details, please refer the below link,
+The Syncfusion ASP.NET Web Forms components will no longer be actively developed and will be marked as end of support after the 2023 Volume 2 release. However, ASP.NET Web Forms related NuGet's will be updated until then. If you want to use the Syncfusion ASP.NET Web Forms components in the future, you may continue to use till version 2023 Volume 2 release, and bug fixes will be provided as patches as long as Microsoft supports it, even after the 2023 Volume 2 release. It is recommended to use the latest Blazor or ASP.NET Core for new web applications development. For more details, please refer the below link,
 https://learn.microsoft.com/en-us/dotnet/architecture/blazor-for-web-forms-developers/introduction. 
 
 You can also visit the Blazor documentation and demo links provided for more information.
@@ -617,3 +617,246 @@ Not supported
 </td>
 </tr>
 </table>
+
+## Property changes 
+<table>
+<tr>
+<thead>
+<th>Missing properties</th>
+<th>Alternate properties</th>
+</thead>
+</tr>
+<tr>
+<td>
+[ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ImagesInfo)
+</td>
+<td> 
+GetImagesInfo() <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)
+</td>
+</tr>
+<tr>
+<td>
+[Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance)
+</td>
+<td> 
+ConvertToPDFA(PdfConformanceLevel.Pdf_A1B) <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress) 
+</td>
+</tr>
+<tr>
+<td>
+[XFA Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaDocument_Flatten)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+Pdf_X1A2001 through [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConformanceLevel.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[PdfGrid.DataSource (DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource)
+</td>
+<td> 
+[PdfGrid.DataSource (IEnumerable<object>)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_DataSource) - In ASP.NET Core, only the strongly typed IEnumerable objects are supported. 
+</td>
+</tr>
+<tr>
+<td>
+[PdfLoadedDocument.CompressionOptions = PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html)
+</td>
+<td> 
+PdfLoadedDocument.Compress(PdfCompressionOptions) <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)
+</td>
+</tr>
+<tr>
+<td>
+[EncodingType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.EncodingType.html) - Enum  
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[ImageExportSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_ImageExportSettings)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[IsAllFontsEmbedded](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_IsAllFontsEmbedded)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[ColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLoadedPage.html#Syncfusion_Pdf_PdfLoadedPage_ColorSpace)
+</td>
+<td> 
+Not supported
+</td>
+</tr>
+<tr>
+<td>
+[Redactions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfLoadedPage.html#Syncfusion_Pdf_PdfLoadedPage_Redactions)
+</td>
+<td> 
+AddRedaction(PdfRedaction) - Additionally, call the following method to execute the redaction.<br/>
+PdfLoadedDocument.Redact(); <br/> *Sample link:* <br/>
+[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/ )
+</td>
+</tr>
+<tr>
+<td>
+[ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ImagesInfo)
+</td>
+<td> 
+GetImagesInfo() <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)
+</td>
+</tr>
+<tr>
+<td>
+[IsColored](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_IsColored)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[ActiveFrame](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_ActiveFrame)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[Encoding](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_Encoding)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[FrameCount](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_FrameCount)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[Mask](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_Mask)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[Quality](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_Quality)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[IsNativeRenderingEnabled](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html#Syncfusion_Pdf_Graphics_PdfHTMLTextElement_IsNativeRenderingEnabled)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[TextAlign](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfHTMLTextElement.html#Syncfusion_Pdf_Graphics_PdfHTMLTextElement_TextAlign)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[RightToLeft](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfStringFormat.html#Syncfusion_Pdf_Graphics_PdfStringFormat_RightToLeft)
+</td>
+<td> 
+Not supported
+</td>
+</tr>
+</table>
+
+## Event changes 
+
+<table>
+<tr>
+<thead>
+<th>Missing events</th>
+<th>Alternate events</th>
+</thead>
+</tr>
+<tr>
+<td>
+FontNotFoundEventArgs
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+ImagePreRenderEventArgs
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[ImagePreRenderEventArgs](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.ImagePreRenderEventArgs.html)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+</table>
+
+## Advantages 
+* *Cross-platform compatibility:* ASP.NET Core can run on Windows, MacOS, and Linux, making it a flexible option for developing web applications. 
+* *Integration with cloud services:* ASP.NET Core can be easily integrated with cloud services, such as Microsoft Azure, Amazon Web Services, Docker and Google Cloud Platform.  
+
+## Limitations 
+* EMF and WMF images are not supported on the .NET Core platform.   
+
+## Important notes  
+1. For text measuring and graphics operations in the .NET Framework, our library utilizes *System.Drawing*. In contrast, for similar graphics operations in .NET Core, our library employs *Syncfusion.Drawing*. 
+2. The following features utilize the NuGet package [Syncfusion.Pdf.Imaging.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) Which is separate from [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) NuGet package.   
+* [TIFF to PDF](https://help.syncfusion.com/file-formats/pdf/working-with-images#converting-multi-page-tiff-to-pdf)
+* [Compress PDF](https://help.syncfusion.com/file-formats/pdf/working-with-compression)
+* [Extract images from PDF](https://help.syncfusion.com/file-formats/pdf/working-with-image-extraction) 
+* [Get image information from PDF](https://help.syncfusion.com/file-formats/pdf/working-with-image-extraction) 
+* [Redact PDF](https://help.syncfusion.com/file-formats/pdf/working-with-redaction) 
+* [Export barcode to Image](https://help.syncfusion.com/file-formats/pdf/working-with-barcode#export-barcode-as-image)
+* [Convert PDF to PDF/A](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance#pdf-to-pdfa-conversion)
+* [Replace images in an existing PDF document](https://help.syncfusion.com/file-formats/pdf/working-with-images#replacing-images-in-an-existing-pdf-document) 
+3. For converting XPS to PDF document, kindly utilize the [Syncfusion.XpsToPdfConverter.Net.Core](https://www.nuget.org/packages/Syncfusion.XpsToPdfConverter.Net.Core) NuGet package in your ASP.NET Core application.  
+4. To convert PDF to image, please use the [Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows](https://www.nuget.org/packages/Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows/) NuGet package in your ASP.NET Core application.  
+
+N> If you want to migrate without any code changes from [Syncfusion.Pdf.AspNet](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet) NuGet in application targeting .NET Framework, you can consider using anyone of the following packages: 
+N> *[Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.WinForms) 
+N> *[Syncfusion.Pdf.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf)
+N> *[Syncfusion.Pdf.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc4) 
+N> *[Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5)
+N> But this is not a recommended approach.  
