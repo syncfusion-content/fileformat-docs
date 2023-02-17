@@ -133,7 +133,7 @@ Not supported
 </tr>
 <tr>
 <td>
-[PdfLauchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLaunchAction.html)
+[PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLaunchAction.html)
 </td>
 <td> 
 Not supported  
@@ -141,7 +141,7 @@ Not supported
 </tr>
 <tr>
 <td>
-[PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) - Add/modify Javascript actions on existing PDF document 
+[PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) - Add/modify JavaScript actions on existing PDF document 
 </td>
 <td> 
 Not supported 
