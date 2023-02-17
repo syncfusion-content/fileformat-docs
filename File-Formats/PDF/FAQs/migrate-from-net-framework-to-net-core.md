@@ -96,7 +96,7 @@ You can open the corrupted PDF document as stream or byte array with Boolean fro
 [TextLines](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.TextLines.html#constructors) 
 </td>
 <td> 
-TextLineCollection <br/> *Sample link:* <br/> https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document 
+TextLineCollection <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document) 
 </td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ TextLineCollection <br/> *Sample link:* <br/> https://github.com/SyncfusionExamp
 [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html)
 </td>
 <td> 
-PdfTiffImage <br/> *Sample link:* <br/> https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document   
+PdfTiffImage <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document)   
 </td>
 </tr>
 <tr>
@@ -112,7 +112,7 @@ PdfTiffImage <br/> *Sample link:* <br/> https://github.com/SyncfusionExamples/PD
 [XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.XPS.XPSToPdfConverter.html) 
 </td>
 <td> 
-XPSToPdfConverter <br/> *Sample link:* <br/> https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document 
+XPSToPdfConverter <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document)
 </td>
 </tr>
 <tr>
@@ -120,7 +120,7 @@ XPSToPdfConverter <br/> *Sample link:* <br/> https://github.com/SyncfusionExampl
 [PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html)    
 </td>
 <td> 
-PdfCompressionOptions <br/> *Sample link:* <br/> https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document 
+PdfCompressionOptions <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)
 </td>
 </tr>
 <tr>
@@ -131,6 +131,164 @@ PdfCompressionOptions <br/> *Sample link:* <br/> https://github.com/SyncfusionEx
 Not supported 
 </td>
 </tr>
-
-
+<tr>
+<td>
+[PdfLauchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLaunchAction.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) - Add/modify Javascript actions on existing PDF document 
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[PdfDocumentAnalyzer(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfDocumentAnalyzer.html#Syncfusion_Pdf_Parsing_PdfDocumentAnalyzer__ctor_System_String_)
+</td>
+<td> 
+You can check whether the existing PDF document is corrupted or not using [PdfDocumentAnalyzer(Stream)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfDocumentAnalyzer.html#Syncfusion_Pdf_Parsing_PdfDocumentAnalyzer__ctor_System_IO_Stream_).  
+</td>
+</tr>
+<tr>
+<td>
+[PdfUsedFont](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.Fonts.PdfUsedFont.html)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[ImageExportSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.ImageExportSettings.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[PdfBarcodeException](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfBarcodeException.html)
+</td>
+<td> 
+BarcodeException 
+</td>
+</tr>
+<tr>
+<td>
+[ImageExportSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.ImageExportSettings.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[HtmlToPdfResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.HtmlToPdf.HtmlToPdfResult.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[PdfRichMediaContent(String, PdfRichMediaContentType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaContent.html#Syncfusion_Pdf_Interactive_PdfRichMediaContent__ctor_System_String_Syncfusion_Pdf_Interactive_PdfRichMediaContentType_)
+</td>
+<td> 
+[PdfRichMediaContent(String, Stream, String, PdfRichMediaContentType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaContent.html#Syncfusion_Pdf_Interactive_PdfRichMediaContent__ctor_System_String_System_IO_Stream_System_String_Syncfusion_Pdf_Interactive_PdfRichMediaContentType_)
+</td>
+</tr>
+<tr>
+<td>
+[PdfAngleMeasurementAnnotation(PointF[])](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAngleMeasurementAnnotation.html#Syncfusion_Pdf_Interactive_PdfAngleMeasurementAnnotation__ctor_System_Drawing_PointF___)
+</td>
+<td> 
+Not supported
+</td>
+</tr>
+<tr>
+<td>
+[PdfCertificateDistinguishedName](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfCertificateDistinguishedName.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[GraphicsStateData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.GraphicsStateData.html)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[PdfConfig](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfConfig.html)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[TextData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.TextData.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
+<tr>
+<td>
+[TextLines](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.TextLines.html)
+</td>
+<td> 
+TextLineCollection <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)
+</td>
+</tr>
+<tr>
+<td>
+[PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafile.html)
+</td>
+<td> 
+Not supported
+</td>
+</tr>
+<tr>
+<td>
+[PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html)
+</td>
+<td> 
+PdfLayoutFormat <br/> *Sample link:* <br/> [https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/)
+</td>
+</tr>
+<tr>
+<td>
+[XFdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.XFdfDocument.html)
+</td>
+<td> 
+Not supported
+</td>
+</tr>
+<tr>
+<td>
+[HtmlToPdfResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.HtmlToPdf.HtmlToPdfResult.html)
+</td>
+<td> 
+Not supported 
+</td>
+</tr>
+<tr>
+<td>
+[PdfAngleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAngleMeasurementAnnotation.html)
+</td>
+<td> 
+Not supported  
+</td>
+</tr>
 </table>
