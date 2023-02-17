@@ -39,6 +39,7 @@ The Syncfusion ASP.NET Web Forms components will no longer be actively developed
 For more details, please refer to this link:https://learn.microsoft.com/en-us/dotnet/architecture/blazor-for-web-forms-developers/introduction. You can also visit the Blazor documentation and demo links provided for more information.
 * [Blazor documentation](https://blazor.syncfusion.com/documentation/introduction)
 * [Blazor demo](https://blazor.syncfusion.com/demos/)
+
 Please refer [this](/FAQs/migrate-from-net-framework-to-net-core.md) section for more details about migrating PDF library from .NET Framework to .NET Core
 
 N> 1. Starting with v20.1.0.x, if you reference Syncfusion HTML converter or OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
