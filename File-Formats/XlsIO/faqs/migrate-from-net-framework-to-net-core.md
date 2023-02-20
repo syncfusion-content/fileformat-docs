@@ -231,10 +231,10 @@ In this section, we will see about the changes which need to be considered while
 *	Drawing library: In .NET Framework, our library makes use of System.Drawing for any text measuring and graphics related operations. Whereas in .NET Core, our library makes use of SkiaSharp graphics library to provide the same type of graphics operations in all the supported platforms.
 *	The features such as Excel to PDF, Excel to image, and Chart to image which makes use of SkiaSharp graphics library are separated into a separate package [Syncfusion.XlsIORenderer.Net.Core](https://www.NuGet.org/packages/Syncfusion.XlsIORenderer.Net.Core)
 
-N>* If you want to migrate without any code changes, you can use of the below NuGet Packages when using .NET Framework in your application.
+N>If you want to migrate without any code changes, you can use of the below NuGet Packages when using .NET Framework in your application.
 N>*	[Syncfusion.XlsIO.WinForms](https://www.NuGet.org/packages/Syncfusion.XlsIO.WinForms)
 N>*	[Syncfusion.XlsIO.Wpf](https://www.NuGet.org/packages/Syncfusion.XlsIO.Wpf)
 N>*	[Syncfusion.ExcelToPdfConverter.WinForms](https://www.NuGet.org/packages/Syncfusion.ExcelToPdfConverter.WinForms)
 N>*	[Syncfusion.ExcelToPdfConverter.Wpf](https://www.NuGet.org/packages/Syncfusion.ExcelToPdfConverter.Wpf)
 N>*	[Syncfusion.ExcelChartToImageConverter.Wpf](https://www.NuGet.org/packages/Syncfusion.ExcelChartToImageConverter.WPF)
-N>* The above approach is not recommended.
+N>The above approach is not recommended.
