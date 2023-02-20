@@ -2368,6 +2368,8 @@ sudo apt-get install ttf-mscorefonts-installer
 
 After the installation, the necessary Microsoft compatible fonts will be available in this location "/usr/share/fonts/truetype/msttcorefonts", which will be considered for conversion.
 
+N> To use Microsoft fonts in your environment, kindly get the license clearance from Microsoft on your side.
+
 ## How to install necessary fonts in Linux containers
 
 In Word to PDF conversion, Essential DocIO uses the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
