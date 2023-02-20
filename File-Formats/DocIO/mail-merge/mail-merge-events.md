@@ -145,6 +145,8 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 
 {% endtabs %}
 
+N> While executing mail merge, DocIO internally uses a copy of a particular region for populating the contents. Sometimes, unexpected problems may arise due to inserting multiple body items into the region through the mail merge process. So, to insert multiple body items using the merge field event handler, you are recommended to use this [approach](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge) at your side.
+
 The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}
