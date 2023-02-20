@@ -366,7 +366,9 @@ Not supported due to .NET Core framework limitations. Alternatively, this can be
 [FromRtf(String, Single, PdfImageType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html#Syncfusion_Pdf_Graphics_PdfImage_FromRtf_System_String_System_Single_Syncfusion_Pdf_Graphics_PdfImageType_)
 </td>
 <td> 
-Not supported due to .NET Core framework limitations. Alternatively, this can be achieved by converting [RTF to Word](https://help.syncfusion.com/file-formats/docio/rtf) and [Word to PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf).  
+Not supported due to .NET Core framework limitations. Alternatively, this can be achieved by using [.NET Word library](https://help.syncfusion.com/file-formats/docio/overview). 
+<br/>
+[RTF to PDF](https://www.syncfusion.com/kb/8472/how-to-convert-a-word-document-to-pdf-in-asp-net-core)
 </td>
 </tr>
 <tr>
