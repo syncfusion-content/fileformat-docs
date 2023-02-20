@@ -73,7 +73,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[Syncfusion.ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.html)'| markdownify}}
             </td>
             <td>
-                Syncfusion.XlsIORenderer 
+                {{'[Syncfusion.XlsIORenderer](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.html)'| markdownify}}
             </td>
         </tr>
 		<tr>
@@ -81,7 +81,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[Syncfusion.ExcelChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelChartToImageConverter.html)'| markdownify}}
             </td>
             <td>
-                Syncfusion.XlsIORenderer 
+                {{'[Syncfusion.XlsIORenderer](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.html)'| markdownify}}
             </td>
         </tr>
 </table>
@@ -101,7 +101,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[ExcelToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html)'| markdownify}}
             </td>
             <td>
-                XlsIORenderer 
+                {{'[XlsIORenderer](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.html)'| markdownify}}
             </td>
         </tr>
         <tr>
@@ -109,7 +109,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[ExcelChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelChartToImageConverter.ChartToImageConverter.html)'| markdownify}}
             </td>
             <td>
-                XlsIORenderer 
+                {{'[XlsIORenderer ](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.html)'| markdownify}}
             </td>
         </tr>
 	   <tr>
@@ -117,7 +117,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[ExcelToPdfConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html)'| markdownify}}
             </td>
             <td>
-                XlsIORendererSettings
+                {{'[XlsIORendererSettings](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.XlsIORendererSettings.html)'| markdownify}}
             </td>
         </tr>
 </table>
@@ -138,7 +138,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[IApplication ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IApplication.html#Syncfusion_XlsIO_IApplication_ChartToImageConverter)'| markdownify}}
             </td>
             <td>
-                IApplication XlsIORenderer 
+                {{'[IApplication XlsIORenderer](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.XlsIORenderer.html)'| markdownify}} 
             </td>
         </tr>
 </table>
@@ -206,7 +206,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[ExcelToPdfConverter ExcelToPdfConverter(IWorkbook workbook)](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter__ctor_Syncfusion_XlsIO_IWorkbook_)'| markdownify}}
             </td>
             <td>
-                XlsIORenderer XlsIORenderer() 
+                {{'[XlsIORenderer XlsIORenderer()](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.XlsIORenderer.html#Syncfusion_XlsIORenderer_XlsIORenderer__ctor)'| markdownify}}
             </td>
         </tr>
         <tr>
@@ -214,7 +214,7 @@ In this section, we will see about the changes which need to be considered while
                 {{'[ExcelToPdfConverter Convert()](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverter_Convert)'| markdownify}}
             </td>
             <td>
-                XlsIORenderer ConvertToPDF(IWorkbook workbook) 
+                {{'[XlsIORenderer ConvertToPDF(IWorkbook workbook)](https://help.syncfusion.com/cr/aspnetcore-js2/Syncfusion.XlsIORenderer.XlsIORenderer.html#Syncfusion_XlsIORenderer_XlsIORenderer_ConvertToPDF_Syncfusion_XlsIO_IWorkbook_)'| markdownify}}
             </td>
         </tr>
 </table>
