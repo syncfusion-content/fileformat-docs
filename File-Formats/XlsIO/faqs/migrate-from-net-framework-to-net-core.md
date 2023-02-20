@@ -1,6 +1,6 @@
 ---
 title: Migrate from net framework to net core | XlsIO | Syncfusion
-description: This page explains how to migrate from .NET Framework to .NET Core.
+description: This section explains migrating Syncfusion .NET Excel (XlsIO) library from .NET Framework to .NET core.
 platform: file-formats
 control: XlsIO
 documentation: UG
