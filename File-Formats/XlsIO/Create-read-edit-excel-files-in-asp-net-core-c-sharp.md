@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in ASP.NET Core
 
-[Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
@@ -505,4 +505,4 @@ A complete working example of how to read and edit an Excel file in ASP.NET Core
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Core Excel library demo](https://ej2.syncfusion.com/aspnetcore/XlsIO/Create#/material) that shows how to create and modify Excel files from C# with just five lines of code.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Core Excel library demo](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
