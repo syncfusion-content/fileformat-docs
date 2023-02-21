@@ -7,11 +7,8 @@ documentation: UG
 ---
 # Working with Digital Signature
 
-In this video, you will see several ways to digitally sign a PDF document and validate signatures using the Blazor PDF Library.
+To quickly get started with digitally sign a PDF document and validate signatures using the Blazor PDF Library.
 {% youtube "https://www.youtube.com/watch?v=NNIFh1Ckdzw&t=672s" %}
-
-In this video, we will show how to create a PDF digital signature, customize it, add a timestamp, and add multiple signatures to a PDF document using the Blazor PDF Library.
-{% youtube "https://www.youtube.com/watch?v=Yn1RNrP78KE&list=PLDzXQPWT8wECs-VSbTRM9xxuSOQT7H9c5&index=8" %}
 
 ## Adding a digital signature
 
