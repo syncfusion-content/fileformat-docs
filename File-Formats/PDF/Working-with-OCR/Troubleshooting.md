@@ -117,11 +117,11 @@ For example, to perform the optical character recognition in German, the propert
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-By using the best and fastest tessdata, we can improve the OCR results. For more information, please refer to the links below.
+By using the best tessdata, we can improve the OCR results. For more information, please refer to the links below.
 <br/>
 * [https://github.com/tesseract-ocr/tessdata_best](https://github.com/tesseract-ocr/tessdata_best)
-<br/>
-* [https://github.com/tesseract-ocr/tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) 
+N> For better performance, kindly use the fast tessdata which is mentioned in below link, <br/>
+[https://github.com/tesseract-ocr/tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) 
 </td>
 </tr>
 </table>
