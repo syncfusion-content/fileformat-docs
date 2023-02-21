@@ -8,10 +8,10 @@ documentation: UG
 
 # Create Word document in WinUI
 
-Syncfusion Essential DocIO is a [WinUI Word library](https://www.syncfusion.com/word-framework/winui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
+Syncfusion Essential DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
 
 **Prerequisites:**
-To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
+To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
 
 
 ## WinUI Desktop app
@@ -32,7 +32,7 @@ Step 4: Install the Syncfusion.DocIO.NET NuGet package as a reference to your pr
 
 ![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
 Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
@@ -308,7 +308,7 @@ Step 1: Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the
 
 ![Create the WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
 
-N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://aka.ms/projectreunion/previewdownload) for Visual Studio.
+N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftProjectReunionPreview) for Visual Studio.
 
 Step 2: Enter the project name and click **Create**.
 
@@ -322,7 +322,7 @@ Step 4: Install the Syncfusion.DocIO.NET NuGet package as a reference to your pr
 
 ![Install the DocIO .NET NuGet package](WinUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
 Step 5: Add a new button in the **MainPage.xaml** as shown below.
 
