@@ -130,7 +130,7 @@ slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
 {% endtabs %}
 
-You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+You can download the image used in the sample from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
 
 **Add a shape:**
 

@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Optical Character Recognition (OCR)
+# Working with Optical Character Recognition (OCR) in File Formats PDF
 
 Essential PDF provides support for Optical Character Recognition with the help of Google’s Tesseract Optical Character Recognition engine.
 
@@ -161,7 +161,7 @@ End Using
 
 {% endtabs %} 
 
-N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
+N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/working-with-text-extraction) feature for this.
 
 ## Performing OCR with tesseract version 3.05
 
