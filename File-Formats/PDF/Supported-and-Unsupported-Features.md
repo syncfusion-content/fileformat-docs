@@ -481,7 +481,7 @@ DOC To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -490,7 +490,7 @@ Excel To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes*<br/><br/></td><td>
 Yes*<br/><br/></td>
-<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
@@ -529,6 +529,24 @@ No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
+<tr>
+<td>
+JPEG to PDF<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
+<tr>
+<td>
+PDF to JPEG<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td>
+<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 <tr>
 <td>
 PDF to PDF/A-1b<br/><br/></td><td>
