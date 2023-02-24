@@ -1,13 +1,13 @@
 ---
 layout: post
 title: File Formats NuGet Packages | Syncfusion
-description: Learn here all about NuGet Packages in Syncfusion Essential File Formats Packages, its elements, and more.
+description: NuGet Packages
 platform: file-formats
 control: NuGet Packages
 documentation: ug
 ---
 
-# NuGet Packages in File Formats
+# NuGet Packages
 
 [NuGet](https://www.nuget.org/) can be used to automatically add files and references to your Visual Studio projects. You can use the Syncfusion NuGet packages without installing the Essential Studio or platform installation to development with the Syncfusion controls. From v16.2.0.46 (2018 Volume 2 Service Pack 1) onwards, all the Syncfusion components are available as NuGet packages at [nuget.org](https://www.nuget.org/profiles/SyncfusionInc). 
 
@@ -323,3 +323,4 @@ You should get the private Syncfusion NuGet feed URL to install or upgrade the S
     #For MAC/Linux platform
     mono nuget.exe Sources Add –Name “Syncfusion Source” –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
     ~~~
+
