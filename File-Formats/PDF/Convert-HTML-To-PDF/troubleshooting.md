@@ -406,7 +406,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this issue, we can use the x32 bit blink binaries. The x32 bit windows blink binaries are compatible with the x32 bit windows system environment. Please download the x32 bit blink binaries for windows [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BLINKB~1124441598) and replace these binaries in the existing x64 bit blink binaries folder.
+<td>To overcome this issue, we can use the x32 bit blink binaries. The x32 bit windows blink binaries are compatible with the x32 bit windows system environment. Please download the x32 bit blink binaries for windows <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/BLINKB~1124441598">here</a> and replace these binaries in the existing x64 bit blink binaries folder.
 </td>
 </tr>
 </table>
@@ -431,14 +431,14 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <th style="font-size:14px">Solution
 </th>
 <td>We can resolve this issue by installing the Windows Server Essentials Media Pack.
-To install the Windows Server Essentials Media Pack, first install the Windows Server Essentials.
-1.	Open the Server Manager in the Taskbar.
-2.	Click Manage in the Server Manager and select Add Roles and Features option.
-3.	Select the Role-based or feature-based installation option and click next.
-4.	In the left side menu, select server roles, then Windows Server Essentials Experience in the server roles and then click next.
-5.	Now, the Windows Server Essentials will be installed.
-6.	After successful installation, install the Windows Server Essentials Media Pack.
-Go to the [official website](https://www.microsoft.com/en-us/download/details.aspx?id=40837) to download and Install the Windows Server Essentials Media Pack.
+To install the Windows Server Essentials Media Pack, first install the Windows Server Essentials.<br>
+1.	Open the Server Manager in the Taskbar.<br>
+2.	Click Manage in the Server Manager and select Add Roles and Features option.<br>
+3.	Select the Role-based or feature-based installation option and click next.<br>
+4.	In the left side menu, select server roles, then Windows Server Essentials Experience in the server roles and then click next.<br>
+5.	Now, the Windows Server Essentials will be installed.<br>
+6.	After successful installation, install the Windows Server Essentials Media Pack.<br>
+Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40837">official website</a> to download and Install the Windows Server Essentials Media Pack.
 
 N>This version is only applicable to Windows Server 2012 R2 Standard.
 
