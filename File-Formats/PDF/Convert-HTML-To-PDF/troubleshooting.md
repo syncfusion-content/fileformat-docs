@@ -8,6 +8,8 @@ documentation: UG
 
 # Troubleshooting and FAQ
 
+## BlinkBinaries are missing
+
 <table>
 <th style="font-size:14px">Exception</th>
 <th style="font-size:14px">BlinkBinaries are missing</th>
@@ -52,6 +54,8 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 </tr>
 </table>
 
+## BlinkBinaries access is denied in server
+
 <table>
 <th style="font-size:14px">Exception
 </th>
@@ -72,6 +76,8 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 </td>
 </tr>
 </table>
+
+## Blink rendering engine only supported from .NET Framework 4.5
 
 <table>
 
@@ -95,6 +101,8 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 </tr>
 
 </table>
+
+## Failed to convert Webpage Exception
 
 <table>
 <th style="font-size:14px">Exception
@@ -225,6 +233,8 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 
 </table>
 
+## Blink converter may create PDF with blank pages
+
 <table>
 <th style="font-size:14px">Issue
 </th>
@@ -247,6 +257,8 @@ Check the HTML file or URL is rendered properly in Chrome browser’s print prev
 </td>
 </tr>
 </table>
+
+## Images or other contents in the HTML are missing in the resultant PDF document
 
 <table>
 <th style="font-size:14px">Issue
@@ -289,6 +301,8 @@ settings.AdditionalDelay = 2000;
 
 </table>
 
+##Blink conversion failed in Azure app service (Windows). “The process was terminated due to an unhandled exception”
+
 <table>
 <th style="font-size:14px">Issue
 </th>
@@ -311,6 +325,8 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 </td>
 </tr>
 </table>
+
+## Unable to convert unsecured https URL to PDF using Blink
 
 <table>
 <th style="font-size:14px">Issue
@@ -339,6 +355,8 @@ settings.CommandLineArguments.Add("--ignore-certificate-errors");
 </td>
 </tr>
 </table>
+
+## Conversion failure in windows server 2012 R2
 
 <table>
 <th style="font-size:14px">Issue
@@ -369,6 +387,64 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 
+
+## Converting the HTML to PDF fails in x32 bit windows system environment
+
+<table>
+<th style="font-size:14px">Exception
+</th>
+<th style="font-size:14px">Converting the HTML to PDF fails in x32 bit windows system environment.
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The existing x64 bit Blink binaries windows are not compatible with x32 bit windows system architecture.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>To overcome this issue, we can use the x32 bit blink binaries. The x32 bit windows blink binaries are compatible with the x32 bit windows system environment. Please download the x32 bit blink binaries for windows [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BLINKB~1124441598) and replace these binaries in the existing x64 bit blink binaries folder.
+</td>
+</tr>
+</table>
+
+
+## ERROR:The specified module could not be found in windows server 2012 R2
+
+<table>
+<th style="font-size:14px">Exception
+</th>
+<th style="font-size:14px">The specified module could not be found in windows server 2012 R2.
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The issue happened because the Windows Server Essentials Media Pack was missing in the Windows server 2012 R2.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>We can resolve this issue by installing the Windows Server Essentials Media Pack.
+To install the Windows Server Essentials Media Pack, first install the Windows Server Essentials.
+1.	Open the Server Manager in the Taskbar.
+2.	Click Manage in the Server Manager and select Add Roles and Features option.
+3.	Select the Role-based or feature-based installation option and click next.
+4.	In the left side menu, select server roles, then Windows Server Essentials Experience in the server roles and then click next.
+5.	Now, the Windows Server Essentials will be installed.
+6.	After successful installation, install the Windows Server Essentials Media Pack.
+Go to the [official website](https://www.microsoft.com/en-us/download/details.aspx?id=40837) to download and Install the Windows Server Essentials Media Pack.
+
+N>This version is only applicable to Windows Server 2012 R2 Standard.
+
+</td>
+</tr>
+</table>
 <table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
