@@ -438,9 +438,9 @@ To install the Windows Server Essentials Media Pack, first install the Windows S
 4.	In the left side menu, select server roles, then Windows Server Essentials Experience in the server roles and then click next.<br>
 5.	Now, the Windows Server Essentials will be installed.<br>
 6.	After successful installation, install the Windows Server Essentials Media Pack.<br>
-Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40837">official website</a> to download and Install the Windows Server Essentials Media Pack.
+Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40837">official website</a> to download and Install the Windows Server Essentials Media Pack.<br><br>
 
-N>This version is only applicable to Windows Server 2012 R2 Standard.
+> **_NOTE:_** This version is only applicable to Windows Server 2012 R2 Standard.
 
 </td>
 </tr>
