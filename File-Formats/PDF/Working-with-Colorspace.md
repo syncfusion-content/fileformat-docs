@@ -1,11 +1,11 @@
 ---
-title: Working with Color Spaces | Syncfusion
+title: Working with Color Spaces in File Formats PDF library | Syncfusion
 description: This section explains how to create a PDF document with the specified color space. Syncfusion .NET PDF library allows to set the color spaces using Document & Graphics.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Color Spaces
+# Working with Color Spaces in File Formats PDF library
 
 [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net) allows you to set color spaces in different ways.
 
