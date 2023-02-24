@@ -323,4 +323,3 @@ You should get the private Syncfusion NuGet feed URL to install or upgrade the S
     #For MAC/Linux platform
     mono nuget.exe Sources Add –Name “Syncfusion Source” –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
     ~~~
-
