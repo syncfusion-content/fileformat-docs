@@ -5,6 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
+
 # Working with Sections
 
 A section contains the contents present in Headers, Footers and main document through the instances of [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html). A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. [WTextBody](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBody.html) represents group of paragraphs and tables etc. 
