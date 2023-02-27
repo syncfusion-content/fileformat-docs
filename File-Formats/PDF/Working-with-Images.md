@@ -10,7 +10,7 @@ documentation: UG
 
 Essential PDF supports both raster and vector images.
 
-Images are supported through the [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html) class, which is an abstract base class that provides the common functionality for [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) and [PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafile.html) classes.
+Images are supported through the [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfImage.html) class, which is an abstract base class that provides the common functionality for [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) and [PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafile.html) classes.
 
 ## Inserting an image in a new document
 
@@ -720,14 +720,35 @@ doc.Close(True)
 
 {% highlight c# tabtitle="UWP" %}
 
-
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+//Load an existing PDF document. 
+FileStream pdfStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream);
+
+//Create an image instance.
+FileStream imageStream = new FileStream(Path.GetFullPath("Autumn Leaves.jpg"), FileMode.Open, FileAccess.Read);
+PdfBitmap bmp = new PdfBitmap(imageStream);
+//Replace the first image in the page
+loadedDocument.Pages[0].ReplaceImage(0, bmp);
+
+MemoryStream stream = new MemoryStream();
+//Save the document as stream
+loadedDocument.Save(stream);
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+//Close the document
+loadedDocument.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
