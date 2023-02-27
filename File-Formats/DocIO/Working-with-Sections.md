@@ -2241,6 +2241,156 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-page-number-in-footer).
 
+## Add Page Borders
+
+When creating a Word document, [BorderStyle.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) is the default value of [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property in [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html) class, which will not show borders for a Word document.
+
+The following code example illustrates how to add page borders and format using options such as line width, color, page border margins and more.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the document.
+    IWSection section = document.AddSection();
+    //Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.Single;
+    //Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue;
+    //Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75f;
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5f;
+    section.PageSetup.Borders.Bottom.Space = 5f;
+    section.PageSetup.Borders.Right.Space = 5f;
+    section.PageSetup.Borders.Left.Space = 5f;
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+'Create a new Word document.
+Using document As WordDocument = New WordDocument()
+    'Add a section to the document.
+    Dim section As IWSection = document.AddSection()
+    'Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.[Single]
+    'Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue
+    'Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75F
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5F;
+    section.PageSetup.Borders.Bottom.Space = 5F;
+    section.PageSetup.Borders.Right.Space = 5F;
+    section.PageSetup.Borders.Left.Space = 5F;
+    'Add a paragraph to a section.
+    Dim paragraph As IWParagraph = section.AddParagraph()
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+    'Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %} 
+
+{% highlight c# tabtitle="UWP" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the document.
+    IWSection section = document.AddSection();
+    //Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.Single;
+    //Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue;
+    //Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75f;
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5f;
+    section.PageSetup.Borders.Bottom.Space = 5f;
+    section.PageSetup.Borders.Right.Space = 5f;
+    section.PageSetup.Borders.Left.Space = 5f;
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    MemoryStream stream = new MemoryStream();
+    //Save the Word document to the MemoryStream
+    await document.SaveAsync(stream, FormatType.Docx);
+    //Save the stream as Word file in local machine.
+    Save(stream, "Sample.docx");
+}
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the document.
+    IWSection section = document.AddSection();
+    //Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.Single;
+    //Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue;
+    //Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75f;
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5f;
+    section.PageSetup.Borders.Bottom.Space = 5f;
+    section.PageSetup.Borders.Right.Space = 5f;
+    section.PageSetup.Borders.Left.Space = 5f;
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Save the Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+    outputStream.Position = 0;
+    //Download Word document in the browser.
+    return File(outputStream, "application/msword", "Sample.docx");
+}
+{% endhighlight %} 
+
+{% highlight c# tabtitle="Xamarin" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the document.
+    IWSection section = document.AddSection();
+    //Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.Single;
+    //Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue;
+    //Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75f;
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5f;
+    section.PageSetup.Borders.Bottom.Space = 5f;
+    section.PageSetup.Borders.Right.Space = 5f;
+    section.PageSetup.Borders.Left.Space = 5f;
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Save the Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+}
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Apply-page-borders).
+
 ## Add Line Numbers
 
 Line numbers can be displayed beside a text in a Word document, which can be achieved using the following APIs.
