@@ -104,3 +104,24 @@ For example, to perform the optical character recognition in German, the propert
 </td>
 </tr>
 </table>
+
+<table>
+<th style="font-size:14px">Issue</th>
+<th style="font-size:14px">Text does not recognize properly when performing OCR on a PDF document with low-quality images</th>
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>The presence of low quality images in the input PDF document may be the cause of this issue.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Solution</th>
+<td>
+By using the best tessdata, we can improve the OCR results. For more information, please refer to the links below.
+<br/>
+* [https://github.com/tesseract-ocr/tessdata_best](https://github.com/tesseract-ocr/tessdata_best)
+N> For better performance, kindly use the fast tessdata which is mentioned in below link, <br/>
+[https://github.com/tesseract-ocr/tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) 
+</td>
+</tr>
+</table>
