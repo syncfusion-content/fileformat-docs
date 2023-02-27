@@ -2245,7 +2245,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 When creating a Word document, [BorderStyle.None](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BorderStyle.html) is the default value of [BorderType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html#Syncfusion_DocIO_DLS_Borders_BorderType) property in [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Borders.html) class, which will not show borders for a Word document.
 
-The following code example illustrates how to add page borders and format using options such as line width, color, page border margins and more.
+The following code example illustrates how to apply page borders and format using options such as line width, color, page border margins and more.
 
 {% tabs %}
 
