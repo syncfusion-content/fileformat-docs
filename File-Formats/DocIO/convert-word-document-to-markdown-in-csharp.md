@@ -122,7 +122,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Convert-Word-to-Markdown).
 
-## Supported Markdown elements
+## Design Word document for Markdown conversion
 
 The following table illustrates the supported Markdown elements in Word to Markdown conversion and how to set that Markdown elements in input Word document.
 
@@ -179,10 +179,6 @@ The following table illustrates the supported Markdown elements in Word to Markd
 </tr>
 </tbody>
 </table>
-
-## Create Markdown elements
-
-Create all the supported Markdown elements in a Word document using the .NET Word (DocIO) library, then save a Word document as a Markdown file.
 
 ### Code blocks
 
