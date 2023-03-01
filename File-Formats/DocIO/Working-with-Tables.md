@@ -2259,6 +2259,7 @@ The following code example illustrates how to apply built-in and custom table st
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
+    //Add one section and paragraph in document.
     document.EnsureMinimal();
     //Add a table to the Word document.
     WTable table = document.LastSection.AddTable() as WTable;
@@ -2326,6 +2327,7 @@ using (WordDocument document = new WordDocument())
 {% highlight vb.net tabtitle="VB.NET" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
+    'Add one section and paragraph in document.
     document.EnsureMinimal()
     'Add a table to the Word document.
     Dim table As WTable = TryCast(document.LastSection.AddTable(), WTable)
@@ -2394,6 +2396,7 @@ End Using
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
+    //Add one section and paragraph in document.
     document.EnsureMinimal();
     //Add a table to the Word document.
     WTable table = document.LastSection.AddTable() as WTable;
@@ -2466,6 +2469,7 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
+    //Add one section and paragraph in document.
     document.EnsureMinimal();
     //Add a table to the Word document.
     WTable table = document.LastSection.AddTable() as WTable;
@@ -2538,6 +2542,7 @@ using (WordDocument document = new WordDocument())
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
+    //Add one section and paragraph in document.
     document.EnsureMinimal();
     //Add a table to the Word document.
     WTable table = document.LastSection.AddTable() as WTable;
@@ -2608,8 +2613,6 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from [GitHub]().
 
 ## Merging cells vertically and horizontally
 
