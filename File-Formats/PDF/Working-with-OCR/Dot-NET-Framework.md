@@ -834,7 +834,7 @@ Tesseract 3.05 supports the native call for both x86 and x64 architectures.By de
 
 You can download the x64 supporting tesseract binaries from the following link.
 
-[Tesseract 64-bit binaries](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Tesseract3.05_x641904984914)
+[Tesseract 64-bit binaries](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Tesseract3.05_x641904984914)
 
 N> This 64-bit binaries are required only when the native call property is enabled.
 N> Make sure to provide the 64-bit binaries path while using in the 64-bit environment.
