@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Migrate-from-net-framework-to-net-core
+# Migrate from .NET Framework to .NET Core
 
 In this section, we will see about the changes which need to be considered while migrating Syncfusion .NET Excel (XlsIO) library from .NET Framework to .NET Core.
 
