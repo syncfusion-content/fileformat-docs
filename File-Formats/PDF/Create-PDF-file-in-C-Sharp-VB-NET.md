@@ -10,9 +10,9 @@ keywords: create pdf, edit pdf, write pdf, merge, pdf form, fill form, digital s
 
 The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) used to create PDF document from scratch and saving it to disk or stream. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-To include the .NET PDF library into your application, please refer to the [NuGet Package Required](https://help.syncfusion.com/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](https://help.syncfusion.com/File-Formats/PDF/Assemblies-Required) documentation.
+To include the .NET PDF library into your application, please refer to the [NuGet Package Required](https://help.syncfusion.com/file-formats/pdf/nuget-packages-required) or [Assemblies Required](https://help.syncfusion.com/file-formats/pdf/assemblies-required) documentation.
 
-N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel.
 
 Include the following namespaces in your .cs or .vb file as shown below.
