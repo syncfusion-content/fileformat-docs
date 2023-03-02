@@ -12,6 +12,9 @@ The Syncfusion [Blazor PDF library](https://www.syncfusion.com/document-processi
 
 To include the Syncfusion Blazor PDF library into your Blazor application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
+To quickly get started with creating a PDF document in Blazor, check this video:
+{% youtube "https://www.youtube.com/watch?v=B5BOBwus0Jc&t=2s" %}
+
 ## Steps to create PDF document in Blazor Server-Side application
 
 Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.

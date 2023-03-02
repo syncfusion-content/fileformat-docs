@@ -6,11 +6,11 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Optical Character Recognition (OCR)
+# Working with Optical Character Recognition (OCR) in File Formats PDF
 
 Essential PDF provides support for Optical Character Recognition with the help of Google’s Tesseract Optical Character Recognition engine.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 ## Prerequisites and setting up the Tesseract Engine
 
@@ -81,7 +81,7 @@ You can also download the language packages from below link
 
 [https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
 
-N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as separate package (OCR Processor) under the Add-On section in the below link [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version).
+N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as separate package (OCR Processor) under the Add-On section in the below link [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/account/downloads).
 
 N> PDF supports OCR only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
@@ -161,7 +161,7 @@ End Using
 
 {% endtabs %} 
 
-N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
+N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/working-with-text-extraction) feature for this.
 
 ## Performing OCR with tesseract version 3.05
 
@@ -834,7 +834,7 @@ Tesseract 3.05 supports the native call for both x86 and x64 architectures.By de
 
 You can download the x64 supporting tesseract binaries from the following link.
 
-[Tesseract 64-bit binaries](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Tesseract3.05_x641904984914)
+[Tesseract 64-bit binaries](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Tesseract3.05_x641904984914)
 
 N> This 64-bit binaries are required only when the native call property is enabled.
 N> Make sure to provide the 64-bit binaries path while using in the 64-bit environment.

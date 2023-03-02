@@ -7,6 +7,9 @@ documentation: UG
 ---
 # Working with Digital Signature
 
+To quickly get started with digitally signing a PDF document and validating signatures using the Blazor PDF Library, check this video:
+{% youtube "https://www.youtube.com/watch?v=NNIFh1Ckdzw&t=672s" %}
+
 ## Adding a digital signature
 
 The Essential PDF allows you to add a [digital signature](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/digital-signature-pdf) to the PDF document. To add a digital signature, you need a certificate with private keys. The Essential PDF provides support for digital signature by using the PFX files, Hardware Security Module (HSM), Online Certificate Status Protocol (OCSP), Certificate Revocation List (CRL), Windows Certificate Store, and supports signatures using the Elliptic Curve Digital Signature Algorithm (ECDSA).

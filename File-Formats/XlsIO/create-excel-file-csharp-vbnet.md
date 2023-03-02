@@ -34,7 +34,7 @@ Syncfusion licensing is a .NET library for validating the registered Syncfusion 
 </tbody>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 N> Syncfusion components are available in nuget.org
 
@@ -1635,7 +1635,7 @@ For example – let’s consider that you have a template document as shown belo
 
 <img src="Getting-Started_images/Getting-Started_img3.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
-[Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
+[Download input template](https://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
 The following code snippet shows how to use template markers with objects.
 
@@ -2040,4 +2040,4 @@ The resultant document looks as follows.
 
 <img src="Getting-Started_images/Getting-Started_img4.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
 
-N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
+N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/document-processing/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

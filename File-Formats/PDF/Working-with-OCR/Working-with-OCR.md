@@ -58,7 +58,7 @@ Directly install the NuGet package to your application from [nuget.org](https://
 </tr>
 <tr>
 <td>
-(.NET Core, .NET 5, .NET 6) Windows, Linux and Mac
+(.NET Core, .NET 5, .NET 6 and .NET 7) Windows, Linux and Mac
 </td>
 <td>
 {{'[Syncfusion.PDF.OCR.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET)'| markdownify }}
@@ -85,20 +85,28 @@ WPF
 ASP.NET 
 </td>
 <td>
-{{'[Syncfusion.Pdf.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet)'| markdownify }}
+{{'[Syncfusion.Pdf.OCR.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.AspNet)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET MVC
+ASP.NET MVC4
 </td>
 <td>
-{{'[Syncfusion.Pdf.OCR.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5)'| markdownify }}
+{{'[Syncfusion.Pdf.OCR.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.AspNet.Mvc4)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.Pdf.OCR.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.AspNet.Mvc5)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (.NET 5, .NET 6 and .NET 7) Windows, Linux and Mac
 </td>
 <td>
 {{'[Syncfusion.PDF.OCR.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core)'| markdownify }}
