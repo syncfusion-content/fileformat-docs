@@ -1,5 +1,5 @@
 ---
-title: Find item in Word document | DocIO | Syncfusion
+title: Find item in Word document in .NET Word library | Syncfusion
 description: Find an item in the Word document in C# using Syncfusion .NET Word (DocIO) library without Microsoft Word or interop dependencies
 platform: file-formats
 control: DocIO
@@ -302,7 +302,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
     //Find all footnote and endnote by EntityType in Word document.
     List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-    //Iterates the footnotes and remove the footnotes.
+    //Remove footnotes and endnotes.
     for (int i = 0; i < footNotes.Count; i++)
     {
         WFootnote footnote = footNotes[i] as WFootnote;
@@ -311,7 +311,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 
     //Find all fields by FieldType.
     List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
-    //Iterates the fields
+    //Iterate the hyperlink field and change URL.
     for (int i = 0; i < fields.Count; i++)
     {
         //Creates hyperlink instance from field to manipulate the hyperlink.
@@ -330,7 +330,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all footnote and endnote by EntityType in Word document.
     Dim footNotes As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Footnote, Nothing, Nothing)
-    'Iterates the footnotes and remove the footnotes.
+    'Remove footnotes and endnotes.
     For i = 0 To footNotes.Count - 1
         Dim footnote As WFootnote = TryCast(footNotes(i), WFootnote)
         footnote.OwnerParagraph.ChildEntities.Remove(footnote)
@@ -338,7 +338,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 
     'Find all fields by FieldType.
     Dim fields As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Field, "FieldType", FieldType.FieldHyperlink.ToString())
-    'Iterates the fields
+    'Iterate the hyperlink field and change URL.
     For i = 0 To fields.Count - 1
         'Creates hyperlink instance from field to manipulate the hyperlink.
         Dim hyperlink As Hyperlink = New Hyperlink(TryCast(fields(i), WField))
@@ -359,7 +359,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Iterates the footnotes and remove the footnotes.
+        //Remove footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -368,7 +368,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
-        //Iterates the fields
+        //Iterate the hyperlink field and change URL.
         for (int i = 0; i < fields.Count; i++)
         {
             //Creates hyperlink instance from field to manipulate the hyperlink.
@@ -397,7 +397,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Iterates the footnotes and remove the footnotes.
+        //Remove footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -406,7 +406,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
-        //Iterates the fields
+        //Iterate the hyperlink field and change URL.
         for (int i = 0; i < fields.Count; i++)
         {
             //Creates hyperlink instance from field to manipulate the hyperlink.
@@ -434,7 +434,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Iterates the footnotes and remove the footnotes.
+        //Remove footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -443,7 +443,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
-        //Iterates the fields
+        //Iterate the hyperlink field and change URL.
         for (int i = 0; i < fields.Count; i++)
         {
             //Creates hyperlink instance from field to manipulate the hyperlink.
@@ -480,7 +480,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
     string[] propertyValues = { "CompanyName", "CompanyName" };
 
-    //Find all block content control by Title and Tag. 
+    //Find all block content controls by Title and Tag.
     List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
     //Iterates the block content controls and remove the block content controls.
@@ -493,7 +493,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
     propertyValues = new string[] { "Contact", "Contact" };
 
-    //Find all inline content control by Title and Tag. 
+    //Find all inline content controls by Title and Tag. 
     List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
     //Iterates the inline content controls and remove the inline content controls.
@@ -509,7 +509,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     //Find all bold and italic text.
     List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-    //Iterates the textRanges and Remove the bold and italic
+    //Iterates the textRanges and remove the bold and italic.
     for (int i = 0; i < textRanges.Count; i++)
     {
         WTextRange textRange = textRanges[i] as WTextRange;
@@ -527,7 +527,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     Dim propertyNames = {"ContentControlProperties.Title", "ContentControlProperties.Tag"}
     Dim propertyValues = {"CompanyName", "CompanyName"}
 
-    'Find all block content control by Title and Tag. 
+    'Find all block content controls by Title and Tag. 
     Dim blockContentControls As List(Of Entity) = document.FindAllItemsByProperties(EntityType.BlockContentControl, propertyNames, propertyValues)
 
     'Iterates the block content controls and remove the block content controls.
@@ -539,7 +539,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     propertyNames = New String() {"ContentControlProperties.Title", "ContentControlProperties.Tag"}
     propertyValues = New String() {"Contact", "Contact"}
 
-    'Find all inline content control by Title and Tag. 
+    'Find all inline content controls by Title and Tag. 
     Dim inlineContentControls As List(Of Entity) = document.FindAllItemsByProperties(EntityType.InlineContentControl, propertyNames, propertyValues)
 
     'Iterates the inline content controls and remove the inline content controls.
@@ -554,7 +554,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all bold and italic text.
     Dim textRanges As List(Of Entity) = document.FindAllItemsByProperties(EntityType.TextRange, propertyNames, propertyValues)
 
-    'Iterates the textRanges and Remove the bold and italic
+    'Iterates the textRanges and remove the bold and italic
     For i = 0 To textRanges.Count - 1
         Dim textRange As WTextRange = TryCast(textRanges(i), WTextRange)
         textRange.CharacterFormat.Bold = False
@@ -575,7 +575,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         string[] propertyValues = { "CompanyName", "CompanyName" };
 
-        //Find all block content control by Title and Tag. 
+        //Find all block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
         //Iterates the block content controls and remove the block content controls.
@@ -588,7 +588,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content control by Title and Tag. 
+        //Find all inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
         //Iterates the inline content controls and remove the inline content controls.
@@ -604,7 +604,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Find all bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and Remove the bold and italic
+        //Iterates the textRanges and remove the bold and italic
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -632,7 +632,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         string[] propertyValues = { "CompanyName", "CompanyName" };
 
-        //Find all block content control by Title and Tag. 
+        //Find all block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
         //Iterates the block content controls and remove the block content controls.
@@ -645,7 +645,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content control by Title and Tag. 
+        //Find all inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
         //Iterates the inline content controls and remove the inline content controls.
@@ -661,7 +661,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         //Find all bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and Remove the bold and italic
+        //Iterates the textRanges and remove the bold and italic.
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -688,7 +688,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         string[] propertyValues = { "CompanyName", "CompanyName" };
 
-        //Find all block content control by Title and Tag. 
+        //Find all block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
         //Iterates the block content controls and remove the block content controls.
@@ -701,7 +701,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content control by Title and Tag. 
+        //Find all inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
         //Iterates the inline content controls and remove the inline content controls.
@@ -717,7 +717,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Find all bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and Remove the bold and italic
+        //Iterates the textRanges and remove the bold and italic.
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -736,3 +736,5 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %} 
 
 {% endtabs %}
+
+T> Passing null for both the property names and property values in above APIs, you can also find an item in a Word document without relying on any property.

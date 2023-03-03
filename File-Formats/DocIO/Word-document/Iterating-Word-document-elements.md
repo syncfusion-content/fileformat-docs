@@ -1061,6 +1061,4 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Iterate-document-elements).
 
-T> Passing null for both the property names and property values in above APIs, you can also find an item in a Word document without relying on any property.
-
-T> If you wish to find an item in Word document rather than iterating through each element one by one, you can use finding the item functionality to achieve it.
+T> If you wish to find an item in Word document rather than iterating through each element one by one, you can use [finding the item functionality](https://help.syncfusion.com/file-formats/docio/find-item-in-word-document) to achieve it.
