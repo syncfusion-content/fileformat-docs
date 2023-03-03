@@ -1,5 +1,5 @@
 ---
-title: Markdown to Word document conversion | DocIO | Syncfusion
+title: Convert Markdown to Word document in C# | DocIO | Syncfusion
 description: Convert Markdown to Word document in C# using Syncfusion .NET Word (DocIO) library without Microsoft Word or interop dependencies
 platform: file-formats
 control: DocIO
@@ -20,7 +20,8 @@ The following code example shows how to convert Markdown to Word document.
 {% highlight c# tabtitle="C#" %}
 //Open an existing Markdown file.
 using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown))
-{ //Save as a Word document.
+{
+    //Save as a Word document.
     document.Save("MarkdownToWord.docx", FormatType.Docx);
 }
 {% endhighlight %}
@@ -34,7 +35,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.md"))
 {
     //Load the file stream into a Markdown file.
@@ -46,7 +47,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Save the stream as a Word document in the local machine.
         Save(stream, "MarkdownToWord.docx");
     }
-//Please refer the below link to save Word document in UWP platform
+//Please refer to the following link to save the Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
@@ -104,7 +105,6 @@ using (WordDocument document = new WordDocument())
     document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
     //Open the Markdown file.
     document.Open("Input.md");
-
     //Save as a Word document.
     document.Save("Sample.docx");
 }
@@ -117,7 +117,6 @@ Using document As WordDocument = New WordDocument()
     document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited
     'Open the Markdown file.
     document.Open("Input.md")
-
     'Save as a Word document.
     document.Save("Sample.docx")
 End Using
@@ -135,9 +134,9 @@ using (WordDocument document = new WordDocument())
     //Save as a Word document to the MemoryStream.
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
-    //Save the stream as a Word file in local machine.
+    //Save the stream as a Word document in local machine.
     Save(stream, "Sample.docx");
-    //Please refer the below link to save Word document in UWP platform
+    //Please refer to the following link to save the Word document in UWP platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
@@ -174,7 +173,7 @@ using (WordDocument document = new WordDocument())
     document.Save(outputStream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing. 
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+    //Please download the helper files from the following link to save the stream as a file and open the file for viewing in Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
@@ -186,16 +185,16 @@ The following code examples show the event handler to customize the image based 
 {% highlight c# tabtitle="C#" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
-    //Set image stream based on image name from input Markdown
+    //Set the image stream based on the image name from the input Markdown.
     if (args.Uri == "Image_1.png")
         args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
     else if (args.Uri == "Image_2.png")
         args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrive image from website and use
+    //Retrive the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
-        //Download the image as stream.
+        //Download the image as a stream.
         byte[] image = client.DownloadData(args.Uri);
         Stream stream = new MemoryStream(image);
         //Set the retrieved image from the input Markdown.
@@ -206,15 +205,15 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByVal args As Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs)
-    'Set image stream based on image name from input Markdown
+    'Set the image stream based on the image name from the input Markdown.
     If args.Uri Is "Image_1.png" Then
         args.ImageStream = New FileStream("Image_1.png", FileMode.Open)
     ElseIf args.Uri Is "Image_2.png" Then
         args.ImageStream = New FileStream("Image_2.png", FileMode.Open)
-    'Retrive image from website and use
+    'Retrive the image from website and use it.
     ElseIf args.Uri.StartsWith("https://") Then
         Dim client As WebClient = New WebClient()
-        'Download the image as stream.
+        'Download the image as a stream.
         Dim image As Byte() = client.DownloadData(args.Uri)
         Dim stream As Stream = New MemoryStream(image)
         'Set the retrieved image from the input Markdown.
@@ -226,22 +225,22 @@ End Sub
 {% highlight c# tabtitle="UWP" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
-    //Set image stream based on image name from input Markdown
+    //Set the image stream based on the image name from the input Markdown.
     if (args.Uri == "Image_1.png")
     {
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets.Image_1.png");
+        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_1.png");
     }
     else if (args.Uri == "Image_2.png") 
     {
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Sample.Assets.Image_2.png");
+        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
     }
-    //Retrive image from website and use
+    //Retrive the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
-        //Download the image as stream.
+        //Download the image as a stream.
         byte[] image = client.DownloadData(args.Uri);
         Stream stream = new MemoryStream(image);
         //Set the retrieved image from the input Markdown.
@@ -253,16 +252,16 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 {% highlight c# tabtitle="ASP.NET Core" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
-    //Set image stream based on image name from input Markdown
+    //Set the image stream based on the image name from the input Markdown.
     if (args.Uri == "Image_1.png")
         args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
     else if (args.Uri == "Image_2.png")
         args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrive image from website and use
+    //Retrive the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
-        //Download the image as stream.
+        //Download the image as a stream.
         byte[] image = client.DownloadData(args.Uri);
         Stream stream = new MemoryStream(image);
         //Set the retrieved image from the input Markdown.
@@ -274,22 +273,22 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 {% highlight c# tabtitle="Xamarin" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
-    //Set image stream based on image name from input Markdown
+    //Set the image stream based on the image name from the input Markdown.
     if (args.Uri == "Image_1.png")
     {
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Image_1.png");
+        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_1.png");
     }
     else if (args.Uri == "Image_2.png") 
     {
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Image_2.png");
+        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
     }
-    //Retrive image from website and use
+    //Retrive the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
-        //Download the image as stream.
+        //Download the image as a stream.
         byte[] image = client.DownloadData(args.Uri);
         Stream stream = new MemoryStream(image);
         //Set the retrieved image from the input Markdown.
