@@ -56,7 +56,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -77,12 +77,12 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Save(stream, "Sample.docx"); 
     }
 }
-//Refer to the following link to save Word document in UWP platform
+//Refer to the following link to save a Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
@@ -107,7 +107,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -148,7 +148,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
     string[] propertyNames = { "ChartType", "ChartTitle" };
     string[] propertyValues = { OfficeChartType.Pie.ToString(), "Sales" };
-    //Find chart by ChartType and ChartTitle.
+    //Find the chart by ChartType and ChartTitle.
     WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
     //Rename the ChartTitle.
     if (chart != null)
@@ -156,7 +156,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 
     propertyNames =  new string[] { "Title","Rows.Count" };
     propertyValues =  new string[]{ "SupplierDetails","6" };
-    //Find table by Title and Rows Count
+    //Find the table by Title and Rows Count
     WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
     //Remove the table in document.
     if (table != null)
@@ -171,7 +171,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     Dim propertyNames = {"ChartType", "ChartTitle"}
     Dim propertyValues As String() = {OfficeChartType.Pie.ToString(), "Sales"}
-    'Find chart by ChartType and ChartTitle.
+    'Find the chart by ChartType and ChartTitle.
     Dim chart As WChart = TryCast(document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues), WChart)
 
     'Rename the ChartTitle.
@@ -179,7 +179,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 
     propertyNames = New String() {"Title", "Rows.Count"}
     propertyValues = New String() {"SupplierDetails", "6"}
-    'Find table by Title and Rows Count
+    'Find the table by Title and Rows Count
     Dim table As WTable = TryCast(document.FindItemByProperties(EntityType.Table, propertyNames, propertyValues), WTable)
     'Remove the table in document.
     If table IsNot Nothing Then table.OwnerTextBody.ChildEntities.Remove(table)
@@ -189,7 +189,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -197,7 +197,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         string[] propertyNames = { "ChartType", "ChartTitle" };
         string[] propertyValues = { OfficeChartType.Pie.ToString(), "Sales" };
-        //Find chart by ChartType and ChartTitle.
+        //Find the chart by ChartType and ChartTitle.
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
@@ -205,7 +205,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
-        //Find table by Title and Rows Count
+        //Find the table by Title and Rows Count
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
@@ -217,12 +217,12 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Save(stream, "Sample.docx"); 
     }
 }
-//Refer to the following link to save Word document in UWP platform
+//Refer to the following link to save a Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
@@ -230,7 +230,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     {
         string[] propertyNames = { "ChartType", "ChartTitle" };
         string[] propertyValues = { OfficeChartType.Pie.ToString(), "Sales" };
-        //Find chart by ChartType and ChartTitle.
+        //Find the chart by ChartType and ChartTitle.
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
@@ -238,7 +238,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
-        //Find table by Title and Rows Count
+        //Find the table by Title and Rows Count
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
@@ -254,7 +254,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -262,7 +262,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         string[] propertyNames = { "ChartType", "ChartTitle" };
         string[] propertyValues = { OfficeChartType.Pie.ToString(), "Sales" };
-        //Find chart by ChartType and ChartTitle.
+        //Find the chart by ChartType and ChartTitle.
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
@@ -270,7 +270,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
-        //Find table by Title and Rows Count
+        //Find the table by Title and Rows Count
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
@@ -302,7 +302,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
     //Find all footnote and endnote by EntityType in Word document.
     List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-    //Remove footnotes and endnotes.
+    //Remove the footnotes and endnotes.
     for (int i = 0; i < footNotes.Count; i++)
     {
         WFootnote footnote = footNotes[i] as WFootnote;
@@ -330,7 +330,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all footnote and endnote by EntityType in Word document.
     Dim footNotes As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Footnote, Nothing, Nothing)
-    'Remove footnotes and endnotes.
+    'Remove the footnotes and endnotes.
     For i = 0 To footNotes.Count - 1
         Dim footnote As WFootnote = TryCast(footNotes(i), WFootnote)
         footnote.OwnerParagraph.ChildEntities.Remove(footnote)
@@ -351,7 +351,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -359,7 +359,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Remove footnotes and endnotes.
+        //Remove the footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -384,12 +384,12 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Save(stream, "Sample.docx"); 
     }
 }
-//Refer to the following link to save Word document in UWP platform
+//Refer to the following link to save a Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
@@ -397,7 +397,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Remove footnotes and endnotes.
+        //Remove the footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -426,7 +426,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -434,7 +434,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     {
         //Find all footnote and endnote by EntityType in Word document.
         List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-        //Remove footnotes and endnotes.
+        //Remove the footnotes and endnotes.
         for (int i = 0; i < footNotes.Count; i++)
         {
             WFootnote footnote = footNotes[i] as WFootnote;
@@ -459,7 +459,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
     }
 }
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in the Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -483,7 +483,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     //Find all block content controls by Title and Tag.
     List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
-    //Iterates the block content controls and remove the block content controls.
+    //Iterate the block content controls and remove the block content controls.
     for (int i = 0; i < blockContentControls.Count; i++)
     {
         BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
@@ -493,10 +493,10 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
     propertyValues = new string[] { "Contact", "Contact" };
 
-    //Find all inline content controls by Title and Tag. 
+    //Find all the inline content controls by Title and Tag. 
     List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
-    //Iterates the inline content controls and remove the inline content controls.
+    //Iterate the inline content controls and remove the inline content controls.
     for (int i = 0; i < inlineContentControls.Count; i++)
     {
         InlineContentControl inlineContentControl = inlineContentControls[i] as InlineContentControl;
@@ -506,10 +506,10 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     propertyNames = new string[] { "CharacterFormat.Bold", "CharacterFormat.Italic" };
     propertyValues = new string[] { true.ToString(), true.ToString() };
 
-    //Find all bold and italic text.
+    //Find all the bold and italic text.
     List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-    //Iterates the textRanges and remove the bold and italic.
+    //Iterate the textRanges and remove the bold and italic.
     for (int i = 0; i < textRanges.Count; i++)
     {
         WTextRange textRange = textRanges[i] as WTextRange;
@@ -530,7 +530,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all block content controls by Title and Tag. 
     Dim blockContentControls As List(Of Entity) = document.FindAllItemsByProperties(EntityType.BlockContentControl, propertyNames, propertyValues)
 
-    'Iterates the block content controls and remove the block content controls.
+    'Iterate the block content controls and remove the block content controls.
     For i = 0 To blockContentControls.Count - 1
         Dim blockContentControl As BlockContentControl = TryCast(blockContentControls(i), BlockContentControl)
         blockContentControl.OwnerTextBody.ChildEntities.Remove(blockContentControl)
@@ -542,7 +542,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all inline content controls by Title and Tag. 
     Dim inlineContentControls As List(Of Entity) = document.FindAllItemsByProperties(EntityType.InlineContentControl, propertyNames, propertyValues)
 
-    'Iterates the inline content controls and remove the inline content controls.
+    'Iterate the inline content controls and remove the inline content controls.
     For i = 0 To inlineContentControls.Count - 1
         Dim inlineContentControl As InlineContentControl = TryCast(inlineContentControls(i), InlineContentControl)
         inlineContentControl.OwnerParagraph.ChildEntities.Remove(inlineContentControl)
@@ -551,10 +551,10 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     propertyNames = New String() {"CharacterFormat.Bold", "CharacterFormat.Italic"}
     propertyValues = New String() {True.ToString(), True.ToString()}
 
-    'Find all bold and italic text.
+    'Find all the bold and italic text.
     Dim textRanges As List(Of Entity) = document.FindAllItemsByProperties(EntityType.TextRange, propertyNames, propertyValues)
 
-    'Iterates the textRanges and remove the bold and italic
+    'Iterate the textRanges and remove the bold and italic
     For i = 0 To textRanges.Count - 1
         Dim textRange As WTextRange = TryCast(textRanges(i), WTextRange)
         textRange.CharacterFormat.Bold = False
@@ -566,7 +566,7 @@ End Using
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -578,7 +578,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Find all block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
-        //Iterates the block content controls and remove the block content controls.
+        //Iterate the block content controls and remove the block content controls.
         for (int i = 0; i < blockContentControls.Count; i++)
         {
             BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
@@ -588,10 +588,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content controls by Title and Tag. 
+        //Find all the inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
-        //Iterates the inline content controls and remove the inline content controls.
+        //Iterate the inline content controls and remove the inline content controls.
         for (int i = 0; i < inlineContentControls.Count; i++)
         {
             InlineContentControl inlineContentControl = inlineContentControls[i] as InlineContentControl;
@@ -601,10 +601,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "CharacterFormat.Bold", "CharacterFormat.Italic" };
         propertyValues = new string[] { true.ToString(), true.ToString() };
 
-        //Find all bold and italic text.
+        //Find all the bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and remove the bold and italic
+        //Iterate the textRanges and remove the bold and italic
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -618,12 +618,12 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Save(stream, "Sample.docx"); 
     }
 }
-//Refer to the following link to save Word document in UWP platform
+//Refer to the following link to save a Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
@@ -635,7 +635,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         //Find all block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
-        //Iterates the block content controls and remove the block content controls.
+        //Iterate the block content controls and remove the block content controls.
         for (int i = 0; i < blockContentControls.Count; i++)
         {
             BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
@@ -645,10 +645,10 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content controls by Title and Tag. 
+        //Find all the inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
-        //Iterates the inline content controls and remove the inline content controls.
+        //Iterate the inline content controls and remove the inline content controls.
         for (int i = 0; i < inlineContentControls.Count; i++)
         {
             InlineContentControl inlineContentControl = inlineContentControls[i] as InlineContentControl;
@@ -658,10 +658,10 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         propertyNames = new string[] { "CharacterFormat.Bold", "CharacterFormat.Italic" };
         propertyValues = new string[] { true.ToString(), true.ToString() };
 
-        //Find all bold and italic text.
+        //Find all the bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and remove the bold and italic.
+        //Iterate the textRanges and remove the bold and italic.
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -679,7 +679,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
+//Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
 {
     //Load the file stream into a Word document.
@@ -688,10 +688,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         string[] propertyValues = { "CompanyName", "CompanyName" };
 
-        //Find all block content controls by Title and Tag. 
+        //Find all the block content controls by Title and Tag. 
         List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl,propertyNames,propertyValues);
 
-        //Iterates the block content controls and remove the block content controls.
+        //Iterate the block content controls and remove the block content controls.
         for (int i = 0; i < blockContentControls.Count; i++)
         {
             BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
@@ -701,10 +701,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
         propertyValues = new string[] { "Contact", "Contact" };
 
-        //Find all inline content controls by Title and Tag. 
+        //Find all the inline content controls by Title and Tag. 
         List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl,propertyNames,propertyValues);
 
-        //Iterates the inline content controls and remove the inline content controls.
+        //Iterate the inline content controls and remove the inline content controls.
         for (int i = 0; i < inlineContentControls.Count; i++)
         {
             InlineContentControl inlineContentControl = inlineContentControls[i] as InlineContentControl;
@@ -714,10 +714,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         propertyNames = new string[] { "CharacterFormat.Bold", "CharacterFormat.Italic" };
         propertyValues = new string[] { true.ToString(), true.ToString() };
 
-        //Find all bold and italic text.
+        //Find all the bold and italic text.
         List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange,propertyNames,propertyValues);
 
-        //Iterates the textRanges and remove the bold and italic.
+        //Iterate the textRanges and remove the bold and italic.
         for (int i = 0; i < textRanges.Count; i++)
         {
             WTextRange textRange = textRanges[i] as WTextRange;
@@ -731,10 +731,10 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
     }
 }
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in the Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}
 
-T> Passing null for both the property names and property values in above APIs, you can also find an item in a Word document without relying on any property.
+T> Passing null for both the property names and property values in the above APIs, you can also find an item in a Word document without relying on any property.
