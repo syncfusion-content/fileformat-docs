@@ -2249,7 +2249,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Apply Base Style
 
-Table styles can be based on other table styles also. When applying a base style, the new style will inherit the values of the base style that are not explicitly redefined in the new style. You can apply a custom table style or a built-in table as a base for the table style using BuiltinTableStyle API.
+Table styles can be based on other table styles also. When applying a base style, the new style will inherit the values of the base style that are not explicitly redefined in the new style. You can apply a custom table style or a built-in table style as a base for the table style using BuiltinTableStyle API.
 
 The following code example illustrates how to apply built-in and custom table styles as base styles for another custom table.
 
