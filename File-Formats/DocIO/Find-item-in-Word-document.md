@@ -554,7 +554,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Find all the bold and italic text.
     Dim textRanges As List(Of Entity) = document.FindAllItemsByProperties(EntityType.TextRange, propertyNames, propertyValues)
 
-    'Iterate the textRanges and remove the bold and italic
+    'Iterate the textRanges and remove the bold and italic.
     For i = 0 To textRanges.Count - 1
         Dim textRange As WTextRange = TryCast(textRanges(i), WTextRange)
         textRange.CharacterFormat.Bold = False
