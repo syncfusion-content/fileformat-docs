@@ -205,7 +205,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
-        //Find the table by Title and Rows Count
+        //Find the table by Title and Rows Count.
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
