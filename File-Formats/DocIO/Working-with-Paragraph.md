@@ -7297,3 +7297,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to fit image within a text box in the Word document](https://www.syncfusion.com/kb/11787/how-to-fit-image-within-a-text-box-in-the-word-document)
 * [How to find and modify hyperlink address in Word document?](https://www.syncfusion.com/kb/13718/how-to-find-and-modify-hyperlink-address-in-word-document)
 * [How to change the character/symbol used for bullet points in Word document?](https://www.syncfusion.com/kb/13710/how-to-change-the-character-symbol-used-for-bullet-points-in-word-document)
+* [How to resize list character in a Word document?](https://www.syncfusion.com/kb/13928/how-to-resize-list-character-in-a-word-document)

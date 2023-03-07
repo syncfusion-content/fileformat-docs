@@ -2486,3 +2486,5 @@ N> * And also, it is not feasible to get the page-wise details from Word documen
 * [Is it possible to create different Header and footer in a word document](https://www.syncfusion.com/kb/291/is-it-possible-to-create-different-header-and-footer-in-a-word-document)
 * [How to change section break in Word document as page break?](https://www.syncfusion.com/support/kb/13649/how-to-change-section-break-in-word-document-as-page-break)
 * [How to add multiple page number formats in Word document?](https://www.syncfusion.com/kb/13701/how-to-add-multiple-page-number-formats-in-word-document)
+* [How to merge two Word documents without header and footer from the source document?](https://www.syncfusion.com/kb/13930/how-to-merge-two-word-documents-without-header-and-footer-from-the-source-document)
+* [How to add different header and footer for last page alone in the Word document?](https://www.syncfusion.com/kb/13948/how-to-add-different-header-and-footer-for-last-page-alone-in-the-word-document)

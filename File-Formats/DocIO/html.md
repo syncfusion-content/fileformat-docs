@@ -1218,3 +1218,4 @@ Underline types and colors are ignored.
 
 * [How to get image from URL while opening HTML in ASP.NET Core](https://www.syncfusion.com/kb/13054/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 * [How to convert HTML document to plain text in C# and VB.NET](https://www.syncfusion.com/kb/13194/how-to-convert-html-document-to-plain-text-in-c-and-vb-net)
+* [How to save images into a folder and use that path in Word to HTML?](https://www.syncfusion.com/kb/13949/how-to-save-images-into-a-folder-and-use-that-path-in-word-to-html)
