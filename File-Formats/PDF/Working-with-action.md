@@ -20,7 +20,7 @@ The below code example illustrates how to add the action to the PDF document usi
 PdfDocument document = new PdfDocument();
 
 //Create and add new launch action to the document
-PdfLaunchAction action = new PdfLaunchAction("../../Data/logo.png");
+PdfLaunchAction action = new PdfLaunchAction("logo.png");
 document.Actions.AfterOpen = action;
 
 //Save the document
@@ -36,7 +36,7 @@ document.Close(true);
 Dim document As New PdfDocument()
 
 'Create and add new launch action to the document
-Dim action As New PdfLaunchAction("../../Data/logo.png")
+Dim action As New PdfLaunchAction("logo.png")
 document.Actions.AfterOpen = action
 
 'Save the document
@@ -53,7 +53,25 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports adding Launch action to the PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Create and add new launch Action to the document.
+PdfLaunchAction action = new PdfLaunchAction("logo.png");
+document.Actions.AfterOpen = action;
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Close the document
+document.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -620,7 +638,7 @@ The [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf
 PdfDocument document = new PdfDocument();
 
 //Create and add new launch Action to the document
-PdfLaunchAction action = new PdfLaunchAction("../../Data/logo.png");
+PdfLaunchAction action = new PdfLaunchAction("logo.png");
 
 //Add the action to the document. 
 document.Actions.AfterOpen = action;
@@ -637,7 +655,7 @@ document.Close(true);
 Dim document As New PdfDocument()
 
 'Create and add new launch Action to the document
-Dim action As New PdfLaunchAction("../../Data/logo.png")
+Dim action As New PdfLaunchAction("logo.png")
 
 'Add the action to the document. 
 document.Actions.AfterOpen = action
@@ -656,7 +674,25 @@ document.Close(True)
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports launch action only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Create and add new launch Action to the document.
+PdfLaunchAction action = new PdfLaunchAction("logo.png");
+document.Actions.AfterOpen = action;
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Close the document
+document.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
