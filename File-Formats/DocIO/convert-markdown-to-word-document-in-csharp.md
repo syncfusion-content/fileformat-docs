@@ -190,7 +190,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
         args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
     else if (args.Uri == "Image_2.png")
         args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrive the image from the website and use it.
+    //Retrieve the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
@@ -210,7 +210,7 @@ Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByV
         args.ImageStream = New FileStream("Image_1.png", FileMode.Open)
     ElseIf args.Uri Is "Image_2.png" Then
         args.ImageStream = New FileStream("Image_2.png", FileMode.Open)
-    'Retrive the image from the website and use it.
+    'Retrieve the image from the website and use it.
     ElseIf args.Uri.StartsWith("https://") Then
         Dim client As WebClient = New WebClient()
         'Download the image as a stream.
@@ -236,7 +236,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
         args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
     }
-    //Retrive the image from the website and use it.
+    //Retrieve the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
@@ -257,7 +257,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
         args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
     else if (args.Uri == "Image_2.png")
         args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrive the image from the website and use it.
+    //Retrieve the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
@@ -284,7 +284,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
         Assembly assembly = typeof(App).GetTypeInfo().Assembly;
         args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
     }
-    //Retrive the image from the website and use it.
+    //Retrieve the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
         WebClient client = new WebClient();
