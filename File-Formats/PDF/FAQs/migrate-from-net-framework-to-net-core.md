@@ -79,7 +79,7 @@ You can open the corrupted PDF document as stream or byte array with Boolean fro
 {{'[TextLines](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.TextLines.html#constructors)'| markdownify }}
 </td>
 <td> 
-TextLineCollection <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }} 
+TextLineCollection <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }} 
 </td>
 </tr>
 <tr>
@@ -87,7 +87,7 @@ TextLineCollection <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionE
 {{'[PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html)'| markdownify }}
 </td>
 <td> 
-PdfTiffImage <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document)'| markdownify }}   
+PdfTiffImage <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document)'| markdownify }}   
 </td>
 </tr>
 <tr>
@@ -95,7 +95,7 @@ PdfTiffImage <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExample
 {{'[XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.XPS.XPSToPdfConverter.html)'| markdownify }}   
 </td>
 <td> 
-XPSToPdfConverter <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document)'| markdownify }}
+XPSToPdfConverter <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Converting-XPS-to-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -103,7 +103,7 @@ XPSToPdfConverter <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionEx
 {{'[PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html)'| markdownify }}   
 </td>
 <td> 
-PdfCompressionOptions <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)'| markdownify }}
+PdfCompressionOptions <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -231,7 +231,7 @@ Not supported
 {{'[TextLines](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.TextLines.html)'| markdownify }}
 </td>
 <td> 
-TextLineCollection <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }}
+TextLineCollection <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -247,7 +247,7 @@ Not supported
 {{'[PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html)'| markdownify }}
 </td>
 <td> 
-PdfLayoutFormat <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/)'| markdownify }}
+PdfLayoutFormat <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text/Adding-HTML-styled-text-to-PDF-document/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -290,7 +290,7 @@ Not supported
 {{'[ExtractText(out TextLines textLines)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText_Syncfusion_Pdf_TextLines__)'| markdownify }}
 </td>
 <td> 
-ExtractText(out TextLineCollection textLineCollection) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }}
+ExtractText(out TextLineCollection textLineCollection) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Text%20Extraction/Extract-each-lines-from-an-existing-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ ExtractText(out TextLineCollection textLineCollection) <br/> *Sample link:* <br/
 {{'[ExtractImages()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractImages().html)'| markdownify }}
 </td>
 <td> 
-ExtractImages <br/> *Sample link:* <br/> {{'[https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractImages().html](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractImages().html)'| markdownify }}
+ExtractImages <br/> Sample link: <br/> {{'[https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractImages().html](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractImages().html)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -306,7 +306,7 @@ ExtractImages <br/> *Sample link:* <br/> {{'[https://help.syncfusion.com/cr/file
 {{'[ExportAsImage()](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_ExportAsImage_System_Int32_)'| markdownify }}
 </td>
 <td> 
-ExportAsImage() <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image)'| markdownify }}
+ExportAsImage() <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -315,7 +315,7 @@ ExportAsImage() <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExam
 </td>
 <td> 
 AddRedaction(PdfRedaction) - Additionally, call the following method to execute the redaction. <br/>
-PdfLoadedDocument.Redact(); <br/> *Sample link:* <br/>
+PdfLoadedDocument.Redact(); <br/> Sample link: <br/>
 {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/)'| markdownify }}
 </td>
 </tr>
@@ -332,7 +332,7 @@ ToImage()
 {{'[Barcode.ToImage(SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html#Syncfusion_Pdf_Barcode_PdfUnidimensionalBarcode_ToImage)'| markdownify }}
 </td>
 <td> 
-Barcode.ToImage(SizeF size) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/)'| markdownify }}
+Barcode.ToImage(SizeF size) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@ Not supported due to .NET Core framework limitations. Alternatively, this can be
 {{'[Merge(PdfDocumentBase, object[])](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_System_Object___)'| markdownify }}
 </td>
 <td> 
-Merge(PdfDocumentBase, Stream[])  <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)'| markdownify }}
+Merge(PdfDocumentBase, Stream[])  <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@ Merge(PdfDocumentBase, Stream[])  <br/> *Sample link:* <br/> {{'[https://github.
 {{'[Merge(String[])](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_System_String___)'| markdownify }}
 </td>
 <td> 
-Merge(PdfDocumentBase, Stream[]) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)'| markdownify }}
+Merge(PdfDocumentBase, Stream[]) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -502,7 +502,7 @@ Not supported
 {{'[RemoveImage(PdfImageInfo)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_RemoveImage_Syncfusion_Pdf_Exporting_PdfImageInfo_)'| markdownify }}
 </td>
 <td> 
-RemoveImage(PdfImageInfo[]) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document)'| markdownify }}
+RemoveImage(PdfImageInfo[]) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -510,7 +510,7 @@ RemoveImage(PdfImageInfo[]) <br/> *Sample link:* <br/> {{'[https://github.com/Sy
 {{'[ReplaceImage(Int32, PdfImage)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ReplaceImage_System_Int32_Syncfusion_Pdf_Graphics_PdfImage_)'| markdownify }}
 </td>
 <td> 
-ReplaceImage(Int32, PdfImage) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Replace-image-in-an-existing-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Replace-image-in-an-existing-PDF-document/)'| markdownify }}
+ReplaceImage(Int32, PdfImage) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Replace-image-in-an-existing-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Replace-image-in-an-existing-PDF-document/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -616,7 +616,7 @@ Not supported
 {{'[ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ImagesInfo)'| markdownify }}
 </td>
 <td> 
-GetImagesInfo() <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)'| markdownify }}
+GetImagesInfo() <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -624,7 +624,7 @@ GetImagesInfo() <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExam
 {{'[Conformance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Conformance)'| markdownify }}
 </td>
 <td> 
-ConvertToPDFA(PdfConformanceLevel.Pdf_A1B) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress)'| markdownify }}
+ConvertToPDFA(PdfConformanceLevel.Pdf_A1B) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Conformance/Get-PDF-to-PDFA-conversion-progress)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -656,7 +656,7 @@ Not supported
 {{'[PdfLoadedDocument.CompressionOptions = PdfCompressionOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionOptions.html)'| markdownify }}
 </td>
 <td> 
-PdfLoadedDocument.Compress(PdfCompressionOptions) <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)'| markdownify }}
+PdfLoadedDocument.Compress(PdfCompressionOptions) <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Compression/Compress-the-images-in-an-existing-PDF-document)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -697,7 +697,7 @@ Not supported
 </td>
 <td> 
 AddRedaction(PdfRedaction) - Additionally, call the following method to execute the redaction.<br/>
-PdfLoadedDocument.Redact(); <br/> *Sample link:* <br/>
+PdfLoadedDocument.Redact(); <br/> Sample link: <br/>
 {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Removing-sensitive-content-from-the-PDF-document/)'| markdownify }}
 </td>
 </tr>
@@ -706,7 +706,7 @@ PdfLoadedDocument.Redact(); <br/> *Sample link:* <br/>
 {{'[ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ImagesInfo)'| markdownify }}
 </td>
 <td> 
-GetImagesInfo() <br/> *Sample link:* <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)'| markdownify }}
+GetImagesInfo() <br/> Sample link: <br/> {{'[https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-the-image-info-from-a-PDF-page/)'| markdownify }}
 </td>
 </tr>
 <tr>
