@@ -844,4 +844,4 @@ N> * [Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.Win
 N> * [Syncfusion.Pdf.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf)
 N> * [Syncfusion.Pdf.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc4) 
 N> * [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5)
-N> * But this is not a recommended approach.  
+But this is not a recommended approach.  
