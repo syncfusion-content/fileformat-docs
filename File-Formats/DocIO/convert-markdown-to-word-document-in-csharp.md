@@ -8,11 +8,11 @@ documentation: UG
 
 # Markdown to Word Conversion
 
-Markdown is a lightweight markup language that adds formatting elements to plain text documents. The .NET Word (DocIO) library supports to convert Markdown to Word document and vice versa, which mostly follows the CommonMark specification and GitHub-flavored syntax.
+Markdown is a lightweight markup language that adds formatting elements to plain text documents. The .NET Word (DocIO) library supports the conversion of Markdown to Word document and vice versa, which mostly follows the CommonMark specification and GitHub-flavored syntax.
 
 ## Convert Markdown to Word document
 
-Convert an existing markdown file to Word document (DOC, DOCX and RTF) using the .NET Word (DocIO) library.
+Convert an existing markdown file to a Word document (DOC, DOCX and RTF) using the .NET Word (DocIO) library.
 
 The following code example shows how to convert Markdown to Word document.
 
@@ -47,7 +47,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         //Save the stream as a Word document in the local machine.
         Save(stream, "MarkdownToWord.docx");
     }
-//Please refer to the following link to save the Word document in UWP platform
+//Please refer to the following link to save a Word document in the UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
@@ -63,7 +63,7 @@ using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAcce
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
         outputStream.Position = 0;
-        //Download the Word document in the browser.
+        //Download a Word document in the browser.
         return File(outputStream, "application/msword", "MarkdownToWord.docx");
     } 
 }
@@ -88,13 +88,13 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %}
 {% endtabs %}
 
-T> You can also save the markdown file as [HTML](https://help.syncfusion.com/file-formats/docio/html), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf) and [Image](https://help.syncfusion.com/file-formats/docio/word-to-image).
+T> You can also save the markdown file as [HTML](https://help.syncfusion.com/file-formats/docio/html), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf), and [Image](https://help.syncfusion.com/file-formats/docio/word-to-image).
 
 ## Customize image data
 
-The .NET Word (DocIO) library provides an MdImageNodeVisited event, which is used to customize image data while importing Markdown file. You can implement the logic to customize the image data by using this MdImageNodeVisited event.
+The .NET Word (DocIO) library provides a MdImageNodeVisited event, which customizes image data while importing a Markdown file. Implement the logic to customize the image data by using this MdImageNodeVisited event.
 
-The following code example shows how to load image data based on image source path when importing the Markdown files.
+The following code example shows how to load image data based on the image source path when importing the Markdown files.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -134,9 +134,9 @@ using (WordDocument document = new WordDocument())
     //Save as a Word document to the MemoryStream.
     MemoryStream stream = new MemoryStream();
     await document.SaveAsync(stream, FormatType.Docx);
-    //Save the stream as a Word document in local machine.
+    //Save the stream as a Word document in the local machine.
     Save(stream, "Sample.docx");
-    //Please refer to the following link to save the Word document in UWP platform
+    //Please refer to the following link to save a Word document in the UWP platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 }
 {% endhighlight %}
@@ -173,13 +173,13 @@ using (WordDocument document = new WordDocument())
     document.Save(outputStream, FormatType.Docx);
     //Save the stream as a file in the device and invoke it for viewing. 
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-    //Please download the helper files from the following link to save the stream as a file and open the file for viewing in Xamarin platform
+    //Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 {% endtabs %}
 
-The following code examples show the event handler to customize the image based on source path.
+The following code examples show the event handler to customize the image based on the source path.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -210,7 +210,7 @@ Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByV
         args.ImageStream = New FileStream("Image_1.png", FileMode.Open)
     ElseIf args.Uri Is "Image_2.png" Then
         args.ImageStream = New FileStream("Image_2.png", FileMode.Open)
-    'Retrive the image from website and use it.
+    'Retrive the image from the website and use it.
     ElseIf args.Uri.StartsWith("https://") Then
         Dim client As WebClient = New WebClient()
         'Download the image as a stream.
@@ -298,7 +298,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 {% endhighlight %}
 {% endtabs %}
 
-N> Hook the event handler before opening Word document as per above code example.
+N> Hook the event handler before opening a Word document as per the above code example.
 
 ## Supported Markdown Syntax
 
