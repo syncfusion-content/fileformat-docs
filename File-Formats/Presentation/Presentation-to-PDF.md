@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Presentation to PDF conversion
 
-PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to [convert PowerPoint document into PDF](https://www.syncfusion.com/powerpoint-framework/net/powerpoint-to-pdf-conversion).
+PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to [convert PowerPoint document into PDF](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-to-pdf-conversion).
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required)
 * [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf)
