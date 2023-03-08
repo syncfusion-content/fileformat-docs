@@ -610,7 +610,7 @@ A complete working example for creating and editing an Excel workbook in C# is p
  
 ## Sending to a client browser
 
-You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of [SaveAs](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html#Syncfusion_XlsIO_IWorkbook_SaveAs_System_String_System_Web_HttpResponse_Syncfusion_XlsIO_ExcelDownloadType_) method. This method explicitly make use of an instance of [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references **System.Web** assembly.
+You can save & send the workbook to a client browser from a web site or web application by invoking the below shown overload of [SaveAs](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html#Syncfusion_XlsIO_IWorkbook_SaveAs_System_String_System_Web_HttpResponse_Syncfusion_XlsIO_ExcelDownloadType_) method. This method explicitly make use of an instance of [HttpResponse](https://learn.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) as its parameter in order to stream the workbook to client browser. So this overload is suitable for web application which references **System.Web** assembly.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
