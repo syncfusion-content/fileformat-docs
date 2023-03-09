@@ -449,13 +449,13 @@ N> Hook the event handler before opening a Word document as per the above code e
 </tr>
 <tr>
 <td style="width: 16%;">
-<p>Blockquotes</p>
+<p>Block quotes</p>
 </td>
 <td style="width: 26%;">
-<p>&gt;Blockquotes text</p>
+<p>&gt;Block quotes text</p>
 </td>
 <td style="width: 41.7072%;">
-<p>For blockquotes, add&gt;to start of the line.</p>
+<p>For block quotes, add&gt;to start of the line.</p>
 </td>
 </tr>
 <tr>
