@@ -1060,3 +1060,5 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Iterate-document-elements).
+
+T> If you wish to find an item in a Word document rather than iterating through each element one by one, you can use finding the item functionality to achieve it.
