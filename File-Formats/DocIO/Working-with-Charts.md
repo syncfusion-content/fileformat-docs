@@ -2815,9 +2815,9 @@ The following chart types are supported in DocIO.
 * [Scatter_Markers](https://www.syncfusion.com/kb/13845/how-to-create-scatter-with-markers-chart-in-word-document-using-c)
 * [Scatter_SmoothedLine](https://www.syncfusion.com/kb/13844/how-to-create-scatter-with-smooth-line-chart-in-word-document-using-c)
 * [Scatter_SmoothedLine_Markers](https://www.syncfusion.com/kb/13843/how-to-create-scatter-with-smooth-line-and-markers-chart-in-word-document-using-c)
-* Stock_HighLowClose
-* Stock_OpenHighLowClose
-* Stock_VolumeHighLowClose
+* [Stock_HighLowClose](https://www.syncfusion.com/kb/13946/how-to-create-stock-high-low-close-chart-in-word-document-using-c)
+* [Stock_OpenHighLowClose](https://www.syncfusion.com/kb/13945/how-to-create-stock-open-high-low-close-chart-in-word-document-using-c)
+* [Stock_VolumeHighLowClose](https://www.syncfusion.com/kb/13944/how-to-create-stock-volume-high-low-close-chart-in-word-document-using-c)
 * Stock_VolumeOpenHighLowClose
 * [Surface_3D](https://www.syncfusion.com/kb/13870/how-to-create-3d-surface-chart-in-word-document-using-c)
 * [Surface_Contour](https://www.syncfusion.com/kb/13866/how-to-create-contour-surface-chart-in-word-document-using-c)
@@ -2832,3 +2832,7 @@ The following chart types are supported in DocIO.
 * [How to create line chart in Word document using C# and VB.NET](https://www.syncfusion.com/kb/12768/how-to-create-line-chart-in-word-document-using-c-and-vb-net)
 * [How to create clustered column chart in Word document using C# and VB.NET](https://www.syncfusion.com/kb/12726/how-to-create-clustered-column-chart-in-word-document-using-c-and-vb-net)
 * [How to create bubble chart in Word document using C# and VB.NET](https://www.syncfusion.com/kb/12333/how-to-create-bubble-chart-in-word-document-using-c-and-vb-net)
+* [How to create line chart with different color series in Word document using C#?](https://www.syncfusion.com/kb/13947/how-to-create-line-chart-with-different-color-series-in-word-document-using-c)
+* [How to set column space for column charts in Word document?](https://www.syncfusion.com/kb/13899/how-to-set-column-space-for-column-charts-in-word-document)
+* [How to set Y-axis interval for column charts in Word document?](https://www.syncfusion.com/kb/13900/how-to-set-y-axis-interval-for-column-charts-in-word-document)
+* [How to change chart title position in the Word document?](https://www.syncfusion.com/kb/13901/how-to-change-chart-title-position-in-the-word-document)
