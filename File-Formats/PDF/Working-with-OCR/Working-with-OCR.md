@@ -15,7 +15,7 @@ The [Syncfusion OCR processor library](https://www.syncfusion.com/document-proce
 
 The Syncfusion OCR processor library works seamlessly in various platforms: Azure App Services, Azure Functions, AWS Textract, Docker, WinForms, WPF, Blazor, ASP.NET MVC, ASP.NET Core with Windows, MacOS and Linux. 
 
-N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from the trial setup or the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn more about registering the Syncfusion license key in your application to use its components.
+N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from the trial setup or the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to learn more about registering the Syncfusion license key in your application to use its components.
 
 ## Key features 
 
