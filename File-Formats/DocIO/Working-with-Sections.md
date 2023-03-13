@@ -1,6 +1,6 @@
 ---
 title: Working with Sections | Syncfusion
-description: This section illustrates how to Work with Sections in the Word document using Syncfusion Word library (Essential DocIO)
+description: Learn how to work with sections, headers, footers, and page settings in a Word document using the .NET Word (DocIO) library, without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG

@@ -1,6 +1,6 @@
 ---
 title: DocIO Working with Shapes | Syncfusion
-description: This section describes about shapes for File-Formats Platform DocIO Control and manipulate the pre-defined shapes
+description: Learn how to add, modify, and remove shapes as well as group shapes in a Word document using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG

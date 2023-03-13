@@ -1,6 +1,6 @@
 ---
 title: Assemblies Required for DocIO | Syncfusion
-description: This section illustrates the assemblies required to use Syncfusion Word library (Essential DocIO) in various platforms and frameworks
+description: Learn the assemblies required to use .NET Word (DocIO) library in various platforms and frameworks without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

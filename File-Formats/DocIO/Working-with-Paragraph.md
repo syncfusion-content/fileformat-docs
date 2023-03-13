@@ -1,6 +1,6 @@
 ---
 title: Working with Paragraph | Syncfusion
-description: This section explains how to work with the child elements of Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
+description: Learn how to work with paragraphs, lists, and child elements of paragraphs in a Word document using the .NET Word (DocIO) library. 
 platform: file-formats
 control: DocIO
 documentation: UG
