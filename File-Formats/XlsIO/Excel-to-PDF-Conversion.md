@@ -2031,12 +2031,12 @@ This feature supports the following elements:
 	* Check box
 	* Combo box
 	* Option button
+* Gradient fill
 
 ## Unsupported elements
 
 The following list contains unsupported elements that presently not preserved in the generated PDF document: 
 
-* Gradient fill
 * Sparklines
 * Pivot charts
 * SmartArt graphics
