@@ -496,8 +496,7 @@ N> Hook the event handler before opening a Word document as per the above code e
 <p>Ordered List</p>
 </td>
 <td style="width: 26%;">
-<p>1. First</p>
-<p>2. Second</p>
+<p>1. First<br /> 2. Second</p>
 </td>
 <td style="width: 41.7072%;">
 <p>For ordered list, preceding the text with 1. (number with dot and one space)</p>
@@ -519,7 +518,7 @@ N> Hook the event handler before opening a Word document as per the above code e
 <p>Links</p>
 </td>
 <td style="width: 26%;">
-<p>Link text without title text :<br /> [Link text](URL)<br /> Link text with title text :<br /> [Link text](URL , &ldquo;title text&rdquo;)</p>
+<p><strong>Link text without title text</strong> :<br /> [Link text](URL)<br /> <strong>Link text with title text</strong> :<br /> [Link text](URL , &ldquo;title text&rdquo;)</p>
 </td>
 <td style="width: 41.7072%;">
 <p>For hyperlink, enclose the link text within the brackets [ ], and then enclose the URL as first parameter and title as second parameter within the parentheses().<br /> <strong>Note:</strong>The title text is optional.</p>
@@ -529,12 +528,12 @@ N> Hook the event handler before opening a Word document as per the above code e
 <td style="width: 16%;">
 <p>Table</p>
 </td>
-<td style="width: 26%;">![Create table](MarkdownToWord_images/Created_Table.png)</td>
+<td style="width: 26%;"><img src="MarkdownToWord_images/Created_Table.png" alt="Table Syntax in Markdown"></td>
 <td style="width: 41.7072%;">
 <p>Create a table using the pipes and underscores as given in the syntax to create 2 x 2 table.</p>
 <p></p>
 <p>You can also set column alignments using the syntax below, default it is left aligned.</p>
-<p>Right alignment:![Right aligned table](MarkdownToWord_images/RightAligned_Table.png)<br /> <br /> Center alignment:![Center aligned table](MarkdownToWord_images/CenterAligned_Table.png)</p>
+<p>Right alignment:<br/><img src="MarkdownToWord_images/RightAligned_Table.png" alt="Right aligned table Syntax in Markdown"><br /> <br /> Center alignment:<br/><img src="MarkdownToWord_images/CenterAligned_Table" alt="Center aligned table Syntax in Markdown"></p>
 </td>
 </tr>
 <tr>
