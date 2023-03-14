@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Slicer
+# Working with Excel Slicer
 
 Slicers are UI filters that help to display only specific data based on the selection criteria. They provide easy and simple UI options to enable or disable the filters in a table.
 
@@ -413,7 +413,7 @@ slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
 {% endhighlight %}
 {% endtabs %}
 
-The following code snippet illustraes how to format an existing slicer with all the above discussed properties. 
+The following code snippet illustrates how to format an existing slicer with all the above discussed properties. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
