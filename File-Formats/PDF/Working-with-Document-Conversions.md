@@ -2239,7 +2239,7 @@ N> HTML to SVG conversion is not supported in the Mac platforms.
 
 ## Partial webpage to SVG
 
-The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) supports converting the partial webpage to SVG. Please refer to the following code example.
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the partial webpage to SVG. Please refer to the following code example.
 
 *HTML to PDF Features:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/features) 
     
@@ -2317,3 +2317,69 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-SVG/.NET-Standard).
 
 N> Partial HTML to SVG conversion is not supported in the Mac platforms.
+
+## SVG to PDF 
+
+The [HTML to PDF converter library](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) supports converting the SVG to PDF document. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert a SVG file to PDF with HTML converter
+PdfDocument document = htmlConverter.Convert("inputSVG.svg");
+//Save and close the PDF document
+document.Save("SVGToPDF.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Initialize HTML to PDF converter 
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Convert a SVG file to PDF with HTML converter 
+Dim document As PdfDocument = htmlConverter.Convert("inputSVG.svg")
+'Save and close the PDF document
+document.Save("SVGToPDF.pdf")
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Essential PDF supports converting SVG to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to PDF document. 
+PdfDocument document = htmlConverter.Convert("inputSVG.svg");
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//If the position is not set to '0' then the PDF will be empty
+stream.Position = 0;
+//Close the document
+document.Close(true);
+//Defining the ContentType for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "SVGToPDF.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Essential PDF supports converting SVG to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
+
+{% endhighlight %}
+
+{% endtabs %}
