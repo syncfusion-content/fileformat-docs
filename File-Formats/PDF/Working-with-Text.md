@@ -2412,7 +2412,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Search and get the bounds of a text in a document
 
-You can search for a particular text in a document and get the bounds using [FindText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_FindText_System_String_System_Collections_Generic_Dictionary_System_Int32_System_Collections_Generic_List_System_Drawing_RectangleF____) method of [PdfViewerControl](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html) class. To include this functionality, you need to add the below mentioned assemblies as reference to the project.
+You can search for a particular text in a document and get the bounds using [FindText](https://help.syncfusion.com/cr/file-formats#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_FindText_System_String_System_Collections_Generic_Dictionary_System_Int32_System_Collections_Generic_List_System_Drawing_RectangleF____/Syncfusion.DocIO.html) method of [PdfViewerControl](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html) class. To include this functionality, you need to add the below mentioned assemblies as reference to the project.
 
 1. Syncfusion.Compression.Base.dll
 2. Syncfusion.Pdf.Base.dll
