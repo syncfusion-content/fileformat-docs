@@ -152,7 +152,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
     //Rename the ChartTitle.
     if (chart != null)
-    chart.ChartTitle = "Sales Analysis";
+        chart.ChartTitle = "Sales Analysis";
 
     propertyNames =  new string[] { "Title","Rows.Count" };
     propertyValues =  new string[]{ "SupplierDetails","6" };
@@ -160,7 +160,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
     //Remove the table in document.
     if (table != null)
-    table.OwnerTextBody.ChildEntities.Remove(table);
+        table.OwnerTextBody.ChildEntities.Remove(table);
     //Save a Word document.
     document.Save("Sample.docx", FormatType.Docx);
 }
@@ -173,7 +173,6 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     Dim propertyValues As String() = {OfficeChartType.Pie.ToString(), "Sales"}
     'Find the chart by ChartType and ChartTitle.
     Dim chart As WChart = TryCast(document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues), WChart)
-
     'Rename the ChartTitle.
     If chart IsNot Nothing Then chart.ChartTitle = "Sales Analysis"
 
@@ -201,7 +200,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
-        chart.ChartTitle = "Sales Analysis";
+            chart.ChartTitle = "Sales Analysis";
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
@@ -209,7 +208,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
-        table.OwnerTextBody.ChildEntities.Remove(table);
+            table.OwnerTextBody.ChildEntities.Remove(table);
         //Save a Word document to the MemoryStream.
         MemoryStream stream = new MemoryStream();
         await document.SaveAsync(stream, FormatType.Docx);
@@ -234,7 +233,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
-        chart.ChartTitle = "Sales Analysis";
+            chart.ChartTitle = "Sales Analysis";
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
@@ -242,7 +241,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
-        table.OwnerTextBody.ChildEntities.Remove(table);
+            table.OwnerTextBody.ChildEntities.Remove(table);
         //Save a  Word document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -266,7 +265,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
         //Rename the ChartTitle.
         if (chart != null)
-        chart.ChartTitle = "Sales Analysis";
+            chart.ChartTitle = "Sales Analysis";
 
         propertyNames =  new string[] { "Title","Rows.Count" };
         propertyValues =  new string[]{ "SupplierDetails","6" };
@@ -274,7 +273,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
         WTable table = document.FindItemByProperties(EntityType.Table, propertyNames,propertyValues) as WTable;
         //Remove the table in document.
         if (table != null)
-        table.OwnerTextBody.ChildEntities.Remove(table);
+            table.OwnerTextBody.ChildEntities.Remove(table);
         //Save a Word document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
@@ -308,7 +307,6 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
         WFootnote footnote = footNotes[i] as WFootnote;
         footnote.OwnerParagraph.ChildEntities.Remove(footnote);
     }
-
     //Find all fields by FieldType.
     List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
     //Iterate the hyperlink field and change URL.
@@ -335,7 +333,6 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
         Dim footnote As WFootnote = TryCast(footNotes(i), WFootnote)
         footnote.OwnerParagraph.ChildEntities.Remove(footnote)
     Next
-
     'Find all fields by FieldType.
     Dim fields As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Field, "FieldType", FieldType.FieldHyperlink.ToString())
     'Iterate the hyperlink field and change URL.
@@ -365,7 +362,6 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
             WFootnote footnote = footNotes[i] as WFootnote;
             footnote.OwnerParagraph.ChildEntities.Remove(footnote);
         }
-
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
         //Iterate the hyperlink field and change URL.
@@ -403,7 +399,6 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
             WFootnote footnote = footNotes[i] as WFootnote;
             footnote.OwnerParagraph.ChildEntities.Remove(footnote);
         }
-
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
         //Iterate the hyperlink field and change URL.
@@ -440,7 +435,6 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
             WFootnote footnote = footNotes[i] as WFootnote;
             footnote.OwnerParagraph.ChildEntities.Remove(footnote);
         }
-
         //Find all fields by FieldType.
         List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType",FieldType.FieldHyperlink.ToString());
         //Iterate the hyperlink field and change URL.
@@ -489,7 +483,6 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
         BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
         blockContentControl.OwnerTextBody.ChildEntities.Remove(blockContentControl);
     }
-
     propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
     propertyValues = new string[] { "Contact", "Contact" };
 
