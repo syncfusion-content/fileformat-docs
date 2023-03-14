@@ -2032,6 +2032,8 @@ This feature supports the following elements:
 	* Combo box
 	* Option button
 * Gradient fill
+	* Cells - Horizontal, Vertical, Diagonal Up, Diagonal Down
+	* Shapes - Linear, Radial
 
 ## Unsupported elements
 
