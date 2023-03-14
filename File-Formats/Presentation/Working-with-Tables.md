@@ -1726,18 +1726,16 @@ The following code example shows how to merge cells in a table.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Creates instance of PowerPoint Presentation
+//Create an instance of PowerPoint Presentation.
 IPresentation pptxDoc = Presentation.Create();
-//Adds slide to the Presentation
+//Add slide to the Presentation.
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Adds table to the slide
+//Add table to the slide.
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
-//Retrieves first cell.
-ICell cell = table[0, 0];
-//Sets the column span value to merge the cell.
-cell.ColumnSpan = 2;
 
-//Retrieves each cell and fills text content to the cell.
+//Retrieve first cell.
+ICell cell = table[0, 0];
+//Retrieve each cell and fills text content to the cell.
 cell.TextBody.AddParagraph("First Row and First Column");
 cell = table[0, 1];
 cell.TextBody.AddParagraph("First Row and Second Column");
@@ -1746,27 +1744,30 @@ cell.TextBody.AddParagraph("Second Row and First Column");
 cell = table[1, 1];
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
-//Gives simple description to table shape
+//Retrieve first cell.
+cell = table[0, 0];
+//Set the column span value to merge the cell.
+cell.ColumnSpan = 2;
+
+//Give simple description to table shape.
 table.Description = "Table arrangement";
-//Saves the Presentation
+//Save the Presentation.
 pptxDoc.Save("Table.pptx");
-//Closes the Presentation
+//Close the Presentation.
 pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Creates instance of PowerPoint Presentation
+'Create an instance of PowerPoint Presentation.
 Dim pptxDoc As IPresentation = Presentation.Create()
-'Adds slide to the Presentation
+'Add slide to the Presentation.
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-'Adds table to the slide
+'Add table to the slide.
 Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
-'Retrieves first cell.
-Dim cell As ICell = table(0, 0)
-'Sets the column span value to merge the cell.
-cell.ColumnSpan = 2
 
-'Retrieves each cell and fills text content to the cell.
+'Retrieve first cell.
+Dim cell As ICell = table(0, 0)
+'Retrieve each cell and fills text content to the cell.
 cell.TextBody.AddParagraph("First Row and First Column")
 cell = table(0, 1)
 cell.TextBody.AddParagraph("First Row and Second Column")
@@ -1775,27 +1776,30 @@ cell.TextBody.AddParagraph("Second Row and First Column")
 cell = table(1, 1)
 cell.TextBody.AddParagraph("Second Row and Second Column")
 
-'Gives simple description to table shape
+'Retrieve first cell.
+cell = table(0, 0)
+'Set the column span value to merge the cell.
+cell.ColumnSpan = 2
+
+'Give simple description to table shape.
 table.Description = "Table arrangement"
-'Saves the Presentation
+'Save the Presentation.
 pptxDoc.Save("Table.pptx")
-'Closes the Presentation
+'Close the Presentation.
 pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Creates instance of PowerPoint Presentation
+//Create an instance of PowerPoint Presentation.
 IPresentation pptxDoc = Presentation.Create();
-//Adds slide to the Presentation
+//Add slide to the Presentation.
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Adds table to the slide
+//Add table to the slide.
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
-//Retrieves first cell.
-ICell cell = table[0, 0];
-//Sets the column span value to merge the cell.
-cell.ColumnSpan = 2;
 
-//Retrieves each cell and fills text content to the cell.
+//Retrieve first cell.
+ICell cell = table[0, 0];
+//Retrieve each cell and fills text content to the cell.
 cell.TextBody.AddParagraph("First Row and First Column");
 cell = table[0, 1];
 cell.TextBody.AddParagraph("First Row and Second Column");
@@ -1804,32 +1808,35 @@ cell.TextBody.AddParagraph("Second Row and First Column");
 cell = table[1, 1];
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
-//Gives simple description to table shape
+//Retrieve first cell.
+cell = table[0, 0];
+//Set the column span value to merge the cell.
+cell.ColumnSpan = 2;
+
+//Give simple description to table shape.
 table.Description = "Table arrangement";
-//Initializes FileSavePicker
+//Initialize FileSavePicker.
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Table";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
+//Create a storage file from FileSavePicker.
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
+//Save changes to the specified storage file.
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Creates instance of PowerPoint Presentation
+//Create an instance of PowerPoint Presentation.
 IPresentation pptxDoc = Presentation.Create();
-//Adds slide to the Presentation
+//Add slide to the Presentation.
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Adds table to the slide
+//Add table to the slide.
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
-//Retrieves first cell.
-ICell cell = table[0, 0];
-//Sets the column span value to merge the cell.
-cell.ColumnSpan = 2;
 
-//Retrieves each cell and fills text content to the cell.
+//Retrieve first cell.
+ICell cell = table[0, 0];
+//Retrieve each cell and fills text content to the cell.
 cell.TextBody.AddParagraph("First Row and First Column");
 cell = table[0, 1];
 cell.TextBody.AddParagraph("First Row and Second Column");
@@ -1838,28 +1845,31 @@ cell.TextBody.AddParagraph("Second Row and First Column");
 cell = table[1, 1];
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
-//Gives simple description to table shape
+//Retrieve first cell.
+cell = table[0, 0];
+//Set the column span value to merge the cell.
+cell.ColumnSpan = 2;
+
+//Give simple description to table shape.
 table.Description = "Table arrangement";
-//Save the PowerPoint Presentation as stream
+//Save the PowerPoint Presentation as stream.
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
-//Closes the Presentation
+//Close the Presentation.
 pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-//Creates instance of PowerPoint Presentation
+//Create an instance of PowerPoint Presentation.
 IPresentation pptxDoc = Presentation.Create();
-//Adds slide to the Presentation
+//Add slide to the Presentation.
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Adds table to the slide
+//Add table to the slide.
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
-//Retrieves first cell.
-ICell cell = table[0, 0];
-//Sets the column span value to merge the cell.
-cell.ColumnSpan = 2;
 
-//Retrieves each cell and fills text content to the cell.
+//Retrieve first cell.
+ICell cell = table[0, 0];
+//Retrieve each cell and fills text content to the cell.
 cell.TextBody.AddParagraph("First Row and First Column");
 cell = table[0, 1];
 cell.TextBody.AddParagraph("First Row and Second Column");
@@ -1868,7 +1878,12 @@ cell.TextBody.AddParagraph("Second Row and First Column");
 cell = table[1, 1];
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
-//Gives simple description to table shape
+//Retrieve first cell.
+cell = table[0, 0];
+//Set the column span value to merge the cell.
+cell.ColumnSpan = 2;
+
+//Give simple description to table shape.
 table.Description = "Table arrangement";
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
