@@ -533,7 +533,7 @@ N> Hook the event handler before opening a Word document as per the above code e
 <p>Create a table using the pipes and underscores as given in the syntax to create 2 x 2 table.</p>
 <p></p>
 <p>You can also set column alignments using the syntax below, default it is left aligned.</p>
-<p>Right alignment:<br/><img src="MarkdownToWord_images/RightAligned_Table.png" alt="Right aligned table Syntax in Markdown"><br /> <br /> Center alignment:<br/><img src="MarkdownToWord_images/CenterAligned_Table" alt="Center aligned table Syntax in Markdown"></p>
+<p>Right alignment:<br/><img src="MarkdownToWord_images/RightAligned_Table.png" alt="Right aligned table Syntax in Markdown"><br /> <br /> Center alignment:<br/><img src="MarkdownToWord_images/CenterAligned_Table.png" alt="Center aligned table Syntax in Markdown"></p>
 </td>
 </tr>
 <tr>
