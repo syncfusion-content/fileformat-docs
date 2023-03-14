@@ -211,68 +211,75 @@ The following code example demonstrates how to insert a section in a template Po
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Loads a PowerPoint presentation
+//Load a PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
-//Creates a new section
+//Create a new section to Insert.
 ISection section = pptxDoc.Sections.Add();
-//Names the created section
+//Name the created section.
 section.Name = "InsertedSection";
-//Inserts the section at second position.
+//Insert the section at second position.
 pptxDoc.Sections.Insert(1, section);
-//Saves the PowerPoint presentation
+//Remove the unwanted created section.
+pptxDoc.Sections.RemoveAt(pptxDoc.Sections.Count - 1);
+//Save the PowerPoint presentation
 pptxDoc.Save("Sections.PPTX");
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-'Loads a PowerPoint presentation
+'Load a PowerPoint presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
-'Creates a new section
+'Create a new section to Insert.
 Dim section As ISection = pptxDoc.Sections.Add()
-'Names the created section
+'Name the created section.
 section.Name = "InsertedSection"
-'Inserts the section at second position.
+'Insert the section at second position.
 pptxDoc.Sections.Insert(1, section)
-'Saves the PowerPoint presentation
+'Remove the unwanted created section.
+pptxDoc.Sections.RemoveAt(pptxDoc.Sections.Count - 1)
+'Save the PowerPoint presentation
 pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
+//Instantiate the File Picker.
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
+//Create a storage file from FileOpenPicker.
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
+//Load or open a PowerPoint Presentation.
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-/Creates a new section
+//Create a new section to Insert.
 ISection section = pptxDoc.Sections.Add();
-//Names the created section
+//Name the created section.
 section.Name = "InsertedSection";
-//Inserts the section at second position.
+//Insert the section at second position.
 pptxDoc.Sections.Insert(1, section);
-//Initializes FileSavePicker
+//Remove the unwanted created section.
+pptxDoc.Sections.RemoveAt(pptxDoc.Sections.Count - 1);
+//Initialize FileSavePicker.
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Sections";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
+//Create a storage file from FileSavePicker.
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
+//Save changes to the specified storage file.
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Creates a new section
+//Load a PowerPoint presentation.
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
+//Create a new section to Insert.
 ISection section = pptxDoc.Sections.Add();
-//Names the created section
+//Name the created section.
 section.Name = "InsertedSection";
-//Inserts the section at second position.
+//Insert the section at second position.
 pptxDoc.Sections.Insert(1, section);
-//Save the PowerPoint Presentation as stream
+//Remove the unwanted created section.
+pptxDoc.Sections.RemoveAt(pptxDoc.Sections.Count - 1);
+//Save the PowerPoint Presentation as stream.
 FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 {% endhighlight %}
@@ -281,19 +288,21 @@ pptxDoc.Save(outputStream);
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-//Loads or open an PowerPoint Presentation
+//Load or open an PowerPoint Presentation.
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Creates a new section
+//Create a new section to Insert.
 ISection section = pptxDoc.Sections.Add();
-//Names the created section
+//Name the created section.
 section.Name = "InsertedSection";
-//Inserts the section at second position.
+//Insert the section at second position.
 pptxDoc.Sections.Insert(1, section);
+//Remove the unwanted created section.
+pptxDoc.Sections.RemoveAt(pptxDoc.Sections.Count - 1);
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-//Close the presentation
+//Close the presentation.
 pptxDoc.Close();
 stream.Position = 0;
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
