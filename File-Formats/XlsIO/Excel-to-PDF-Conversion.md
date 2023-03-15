@@ -2031,9 +2031,9 @@ This feature supports the following elements:
 	* Check box
 	* Combo box
 	* Option button
-* Gradient fill
-	* Cells - Horizontal, Vertical, Diagonal Up, Diagonal Down
-	* Shapes - Linear, Radial
+* Linear and Radial Gradient fill
+	* Cells
+	* Shapes
 
 ## Unsupported elements
 
