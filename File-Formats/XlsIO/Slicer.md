@@ -32,7 +32,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IListObject table = sheet.ListObjects[0];
 
   //Add slicer for the table.
-  sheet.Slicers.Add(table, 1, 11, 2);
+  sheet.Slicers.Add(table, 3, 11, 2);
 
   workbook.SaveAs("Output.xlsx");
 }
@@ -49,7 +49,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   Dim table As IListObject = sheet.ListObjects(0)
 
   'Add slicer for the table.
-  sheet.Slicers.Add(table, 1, 11, 2)
+  sheet.Slicers.Add(table, 3, 11, 2)
 
   workbook.SaveAs("Output.xlsx")
 End Using
@@ -70,7 +70,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IListObject table = sheet.ListObjects[0];
 
   //Add slicer for the table.
-  sheet.Slicers.Add(table, 1, 11, 2);
+  sheet.Slicers.Add(table, 3, 11, 2);
 
   //Initializes FileSavePicker      
   FileSavePicker savePicker = new FileSavePicker();
@@ -99,7 +99,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IListObject table = sheet.ListObjects[0];
 
   //Add slicer for the table.
-  sheet.Slicers.Add(table, 1, 11, 2);
+  sheet.Slicers.Add(table, 3, 11, 2);
 
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
@@ -126,7 +126,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IListObject table = sheet.ListObjects[0];
 
   //Add slicer for the table.
-  sheet.Slicers.Add(table, 1, 11, 2);
+  sheet.Slicers.Add(table, 3, 11, 2);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
@@ -147,6 +147,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+<img src="Slicer_images/CreateSlicer.png" alt="Create Slicer" width="100%" Height="Auto"/>
 
 ## Slicer Properties
 
