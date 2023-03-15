@@ -76,7 +76,7 @@ The tesseract binaries path is TesseractBinaries/Windows, and the assemblies sho
 </tr>
 <th style="font-size:14px">Solution</th>
 <td>
-Install the VC++ 2015 redistributable files in your machine to overcome an exception. So, please select both vc_redist.x64.exe or x86.exe and install it.
+Install the VC++ 2015 redistributable files in your machine to overcome an exception. So, please select both file and install it.
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
