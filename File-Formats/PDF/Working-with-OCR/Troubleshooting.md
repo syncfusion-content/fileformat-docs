@@ -80,7 +80,7 @@ Install the VC++ 2015 redistributable files in your machine to overcome an excep
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
-<img src="OCR-Images/vc_redist_file.png" alt="Visual C++ 2015 Redistributable file">
+<img src="OCR-Images/Redistributable-file.png" alt="Visual C++ 2015 Redistributable file">
 <br/><br/>
 Please find the download link Visual C++ 2015 Redistributable file,<br>
 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">Visual C++ 2015 Redistributable file</a> 
