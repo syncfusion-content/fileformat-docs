@@ -152,34 +152,34 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Slicer Properties
 
-### Rename a Slicer
+### Slicer name
 
 The existing name of a slicer can be obtained or changed through **Name** property. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Name = "Rename Slicer";
+slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 ISlicer slicer = worksheet.Slicers(0)
-slicer.Name = "Rename Slicer"
+slicer.Name = "Slicer1"
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Name = "Rename Slicer";
+slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Name = "Rename Slicer";
+slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Name = "Rename Slicer";
+slicer.Name = "Slicer1";
 {% endhighlight %}
 {% endtabs %}
 
@@ -190,27 +190,27 @@ Slicer caption can be modified through **Caption** property.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Caption = "New Caption";
+slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 ISlicer slicer = worksheet.Slicers(0)
-slicer.Caption = "New Caption"
+slicer.Caption = "Select any value"
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Caption = "New Caption";
+slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Caption = "New Caption";
+slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.Caption = "New Caption";
+slicer.Caption = "Select any value";
 {% endhighlight %}
 {% endtabs %}
 
@@ -360,27 +360,27 @@ A slicer header can be shown or hidden through **DisplayHeader** property.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.DisplayHeader = false;
+slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 ISlicer slicer = worksheet.Slicers(0)
-slicer.DisplayHeader = False
+slicer.DisplayHeader = True
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.DisplayHeader = false;
+slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.DisplayHeader = false;
+slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 ISlicer slicer = worksheet.Slicers[0];
-slicer.DisplayHeader = false;
+slicer.DisplayHeader = true;
 {% endhighlight %}
 {% endtabs %}
 
@@ -426,14 +426,20 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
+  //Access the table
+  IListObject table = sheet.ListObjects[0];
+
+  //Add slicer for the table
+  sheet.Slicers.Add(table, 3, 11, 2);
+
   //Access the slicer
   ISlicer slicer = worksheet.Slicers[0];
 
-  //Rename a Slicer
-  slicer.Name = "Rename Slicer";
+  //Slicer name
+  slicer.Name = "Slicer1";
 
   //Slicer caption
-  slicer.Caption = "New Caption";
+  slicer.Caption = "Select any value";
 
   //Positioning a Slicer
   slicer.Top = 100;
@@ -451,7 +457,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   slicer.NumberOfColumns = 2;
 
   //Slicer header
-  slicer.DisplayHeader = false;
+  slicer.DisplayHeader = true;
 
   //Slicer style
   slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
@@ -467,14 +473,20 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-  'Access the slicer
-  ISlicer slicer = worksheet.Slicers(0)
+  'Access the first table.
+  Dim table As IListObject = sheet.ListObjects(0)
 
-  'Rename a Slicer
-  slicer.Name = "Rename Slicer"
+  'Add slicer for the table
+  sheet.Slicers.Add(table, 3, 11, 2)
+
+  'Access the slicer
+  Dim slicer As ISlicer = worksheet.Slicers(0)
+
+  'Slicer name
+  slicer.Name = "Slicer1"
 
   'Slicer caption
-  slicer.Caption = "New Caption"
+  slicer.Caption = "Select any value"
 
   'Positioning a Slicer
   slicer.Top = 100
@@ -492,7 +504,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   slicer.NumberOfColumns = 2
 
   'Slicer header
-  slicer.DisplayHeader = False
+  slicer.DisplayHeader = True
 
   'Slicer style
   slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2
@@ -512,14 +524,20 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
+  //Access the table
+  IListObject table = sheet.ListObjects[0];
+
+  //Add slicer for the table
+  sheet.Slicers.Add(table, 3, 11, 2);
+
   //Access the slicer
   ISlicer slicer = worksheet.Slicers[0];
 
-  //Rename a Slicer
-  slicer.Name = "Rename Slicer";
+  //Slicer name
+  slicer.Name = "Slicer1";
 
   //Slicer caption
-  slicer.Caption = "New Caption";
+  slicer.Caption = "Select any value";
 
   //Positioning a Slicer
   slicer.Top = 100;
@@ -537,7 +555,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   slicer.NumberOfColumns = 2;
 
   //Slicer header
-  slicer.DisplayHeader = false;
+  slicer.DisplayHeader = true;
 
   //Slicer style
   slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
@@ -565,14 +583,20 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
+  //Access the table
+  IListObject table = sheet.ListObjects[0];
+
+  //Add slicer for the table
+  sheet.Slicers.Add(table, 3, 11, 2);
+
   //Access the slicer
   ISlicer slicer = worksheet.Slicers[0];
 
-  //Rename a Slicer
-  slicer.Name = "Rename Slicer";
+  //Slicer name
+  slicer.Name = "Slicer1";
 
   //Slicer caption
-  slicer.Caption = "New Caption";
+  slicer.Caption = "Select any value";
 
   //Positioning a Slicer
   slicer.Top = 100;
@@ -590,7 +614,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   slicer.NumberOfColumns = 2;
 
   //Slicer header
-  slicer.DisplayHeader = false;
+  slicer.DisplayHeader = true;
 
   //Slicer style
   slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
@@ -616,14 +640,20 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
 
+  //Access the table
+  IListObject table = sheet.ListObjects[0];
+
+  //Add slicer for the table
+  sheet.Slicers.Add(table, 3, 11, 2);
+
   //Access the slicer
   ISlicer slicer = worksheet.Slicers[0];
 
-  //Rename a Slicer
-  slicer.Name = "Rename Slicer";
+  //Slicer name
+  slicer.Name = "Slicer1";
 
   //Slicer caption
-  slicer.Caption = "New Caption";
+  slicer.Caption = "Select any value";
 
   //Positioning a Slicer
   slicer.Top = 100;
@@ -641,7 +671,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   slicer.NumberOfColumns = 2;
 
   //Slicer header
-  slicer.DisplayHeader = false;
+  slicer.DisplayHeader = true;
 
   //Slicer style
   slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
@@ -665,3 +695,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+<img src="Slicer_images/FormatSlicer.png" alt="Format Slicer" width="100%" Height="Auto"/>
