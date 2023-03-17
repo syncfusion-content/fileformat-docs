@@ -92,7 +92,7 @@ T> You can also save the markdown file as [HTML](https://help.syncfusion.com/fil
 
 ## Customize image data
 
-The .NET Word (DocIO) library provides a MdImageNodeVisited event, which customizes image data while importing a Markdown file. Implement the logic to customize the image data by using this MdImageNodeVisited event.
+The .NET Word (DocIO) library provides a [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event, which customizes image data while importing a Markdown file. Implement the logic to customize the image data by using this [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event.
 
 The following code example shows how to load image data based on the image source path when importing the Markdown files.
 

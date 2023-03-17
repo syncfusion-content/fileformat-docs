@@ -19,7 +19,7 @@ The following code example illustrates how to split the Word document by section
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Framework)" %}
 //Load the template document
 using (WordDocument document = new WordDocument(@"Template.docx"))
 {
