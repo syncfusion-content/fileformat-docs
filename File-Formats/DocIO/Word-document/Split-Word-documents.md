@@ -39,7 +39,7 @@ using (WordDocument document = new WordDocument(@"Template.docx"))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB (.NET Framework)" %}
 'Load the template document
 Using document As WordDocument = New WordDocument("Template.docx")
     Dim i As Integer = 0
@@ -57,35 +57,7 @@ Using document As WordDocument = New WordDocument("Template.docx")
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-//Loads the template document as stream
-using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
-{
-    int i = 0;
-    //Iterate each section from Word document
-    foreach (WSection section in document.Sections)
-    {
-        //Create new Word document
-        WordDocument newDocument = new WordDocument();
-        //Add cloned section into new Word document
-        newDocument.Sections.Add(section.Clone());
-        //Save and close the new Word documet
-        MemoryStream stream = new MemoryStream();
-        //Save the Word document to MemoryStream.
-        await newDocument.SaveAsync(stream, FormatType.Docx);
-        //Save the stream as Word document file in local machine.
-        Save(stream, "Section" + i + ".docx");
-        i++;
-        //Please refer the below link to save Word document in UWP platform
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Core 3.0, .NET 5.0, 6.0, 7.0)" %}
 FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Load the template document as stream
 using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -106,34 +78,6 @@ using(WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         newDocument.Close();
         outputStream.Dispose();
         i++;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-//Loads the template document as stream
-using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
-{
-    int i = 0;
-    //Iterate each section from Word document
-    foreach (WSection section in document.Sections)
-    {
-        //Create new Word document
-        WordDocument newDocument = new WordDocument();
-        //Add cloned section into new Word document
-        newDocument.Sections.Add(section.Clone());
-        //Saves the Word document to  MemoryStream
-        MemoryStream stream = new MemoryStream();
-        newDocument.Save(stream, FormatType.Docx);
-        //Closes the document
-        newDocument.Close();
-        i++;
-        //Save the stream as a file in the device and invoke it for viewing
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Section" + i + ".docx", "application/msword", stream);
-        //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-        //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
     }
 }
 {% endhighlight %}
