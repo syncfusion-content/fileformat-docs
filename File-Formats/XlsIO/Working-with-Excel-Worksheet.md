@@ -750,7 +750,7 @@ A complete working example to highlight an Excel worksheet tab in C# is present 
 
 ## Freeze Panes 	
 
-It is possible to [freeze](https://support.office.com/en-au/article/Freeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708) a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the [FreezePanes](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FreezePanes) method of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html). 
+It is possible to [freeze](https://support.microsoft.com/en-gb/office/freeze-panes-to-lock-rows-and-columns-dab2ffc9-020d-4026-8121-67dd25f2508f?redirectSourcePath=%252fen-us%252farticle%252fFreeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708) a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the [FreezePanes](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FreezePanes) method of [IRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html). 
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -1110,7 +1110,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Split Panes 
 
-The window into can be divided into different [panes](https://support.office.com/en-AU/article/Split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434) that scroll separately each. The following code snippets illustrates how to split the window through the [HorizontalSplit](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_HorizontalSplit) and [VerticalSplit](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_VerticalSplit) properties.
+The window into can be divided into different [panes](https://support.microsoft.com/en-us/office/split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434?ui=en-us&rs=en-us&ad=us) that scroll separately each. The following code snippets illustrates how to split the window through the [HorizontalSplit](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_HorizontalSplit) and [VerticalSplit](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_VerticalSplit) properties.
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
