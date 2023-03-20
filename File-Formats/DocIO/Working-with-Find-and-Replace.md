@@ -2865,7 +2865,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to replace text in a Word document with HTML](https://www.syncfusion.com/kb/13627/how-to-replace-text-in-a-word-document-with-html)
 * [How to find and replace text inside table in Word document](https://www.syncfusion.com/kb/13641/how-to-find-and-replace-text-inside-table-in-word-document)
 * [How to find and replace text in headers and footers of Word document](https://www.syncfusion.com/kb/13618/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
-* [How to find and replace placeholder with page break in Word document](https://www.syncfusion.com/kb/13642/how-to-find-and-replace-placeholder-with-page-break-in-word-document)
+* [How to find and replace placeholder with page break in Word document](https://www.syncfusion.com/kb/13642/how-to-find-and-replace-text-with-page-break-in-word-document)
 * [How to find and replace text with content control in Word document?](https://www.syncfusion.com/kb/13644/how-to-find-and-replace-text-with-content-control-in-word-document)
 * [How to find and replace line break in Word document as paragraph mark?](https://www.syncfusion.com/kb/13647/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
 * [How to insert another document before a text in Word document?](https://www.syncfusion.com/kb/13754/how-to-insert-another-document-before-a-text-in-word-document)
