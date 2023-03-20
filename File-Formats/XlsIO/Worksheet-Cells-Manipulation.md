@@ -2050,7 +2050,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Find and Replace
 
-XlsIO provides following options to perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) for text and numbers in Excel workbook or worksheet:
+XlsIO provides following options to perform [find and replace](https://support.microsoft.com/en-gb/office/find-or-replace-text-and-numbers-on-a-worksheet-0e304ca5-ecef-4808-b90f-fdb42f892e90?redirectSourcePath=%252fen-us%252farticle%252fFind-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) for text and numbers in Excel workbook or worksheet:
 
 *	Search for data in formulas, values or comments.
 *	Search for case-sensitive data and to match entire cell contents of the cell.

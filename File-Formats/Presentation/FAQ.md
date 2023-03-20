@@ -15,7 +15,7 @@ The current version of Presentation library supports only .PPTX format - Microso
 
 ## Is it possible to print the Presentation slides?
 
-Yes, you can print the PowerPoint presentations by using its ability to convert the slides as images and by using the [PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx# "") class. For more details, refer to [Printing](http://www.google.com/# "")
+Yes, you can print the PowerPoint presentations by using its ability to convert the slides as images and by using the [PrintDocument](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?redirectedfrom=MSDN&view=dotnet-plat-ext-7.0# "") class. For more details, refer to [Printing](http://www.google.com/# "")
 
 ## Does adding audio and video to a Presentation is supported?
 
