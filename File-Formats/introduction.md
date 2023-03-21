@@ -25,7 +25,7 @@ Similar to the Knowledge Base, the [Forum](http://www.syncfusion.com/forums/) 
 
 ## Create a support incident
 
-If you are unable to find the information you are looking for in the self-help resources mentioned above, please contact us by creating a [support ticket](https://www.syncfusion.com/support/directtrac/incidents).
+If you are unable to find the information you are looking for in the self-help resources mentioned above, please contact us by creating a [support ticket](https://support.syncfusion.com/agent/tickets?brandids=all&page=1&filterid=2).
 
 ## List of File Format libraries:
 
