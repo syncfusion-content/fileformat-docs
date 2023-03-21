@@ -3278,7 +3278,7 @@ N> This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.
 
 ## Remove mail merge settings
 
-To **restore a Word mail merge main document to a normal Word document** using Microsoft Word application, you have to process the steps suggested in this [article](https://support.microsoft.com/en-in/help/275995/how-to-restore-a-mail-merge-main-document-to-a-normal-word-document-in) manually. You can achieve this programmatically in just 2 lines of code using Syncfusion Word library.
+To **restore a Word mail merge main document to a normal Word document** using Microsoft Word application, you have to process the steps suggested in this [article](https://support.microsoft.com/en-us/topic/how-to-restore-a-mail-merge-main-document-to-a-normal-word-document-in-word-8c956d1d-3457-b728-adc1-0cc94da819fe) manually. You can achieve this programmatically in just 2 lines of code using Syncfusion Word library.
 
 For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document without this pop-up.
 
