@@ -58,7 +58,7 @@ using System.Drawing;
 
 {% endtabs %}
 
-Step 6: Include the below code snippet in the click event of the button in **MainPage.aspx.cs**, to **open and save Word document** and download it.
+Step 6: Include the below code snippets in the click event of the button in **MainPage.aspx.cs**, to **open and save Word document** and download it.
 
 **Open an existing Word document:**
 
