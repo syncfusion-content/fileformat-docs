@@ -60,10 +60,7 @@ Step 6: Add a new action method **OpenAndSaveDocument** in HomeController.cs and
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-using (WordDocument document = new WordDocument(Input.docx"))
-{
-
-}
+WordDocument document = new WordDocument(Input.docx");
 {% endhighlight %}
 
 {% endtabs %}
