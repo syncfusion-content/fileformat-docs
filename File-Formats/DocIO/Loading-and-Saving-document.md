@@ -255,7 +255,10 @@ await document.OpenAsync(inputStorageFile, FormatType.Docx, "password");
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Open an existing document from stream through constructor of WordDocument class.
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an encrypted Word document.
+WordDocument document = new WordDocument(fileStreamPath, "password");
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -294,7 +297,10 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Open an existing document from stream through constructor of WordDocument class.
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an encrypted Word document.
+WordDocument document = new WordDocument(fileStreamPath, "password");
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}

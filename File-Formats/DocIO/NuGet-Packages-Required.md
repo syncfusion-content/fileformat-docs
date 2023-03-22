@@ -49,7 +49,7 @@ Install-Package Syncfusion.DocIO.Wpf
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
+.NET Framework 4.0 Client Profile
 </td>
 <td>
 Syncfusion.DocIO.ClientProfile.nupkg
@@ -466,7 +466,6 @@ Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
-N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and it is not supported in ASP.NET Core, Blazor and Xamarin platforms.
 
 
 ## NuGet Package Installation and Uninstallation
