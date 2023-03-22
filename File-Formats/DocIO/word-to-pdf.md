@@ -170,11 +170,9 @@ pdfDocument.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF).
 
-N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
-N> 2. For .NET Framework, creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
-N> 3. The [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is supported from .NET Framework 4.0 onwards and .NET Core 2.0 onwards.
-N> 4. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
-N> 5. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
+N> 1. For .NET Framework, creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
+N> 2. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
+N> 3. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
 
 ## Word to PDF conversion in Linux OS
 
