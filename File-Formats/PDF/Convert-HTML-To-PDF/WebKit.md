@@ -3264,7 +3264,7 @@ If the HTML converter installer is not installed in your machine, you can get th
 <li>Finally, the troubleshooting logs will be stored in a text file on an application folder location. You can check the logs with issues and solutions.</li>
 <img src="htmlconversion_images/TroubleShootingTool_Log.png" alt="TroubleShootingTool Log">
 </ol>
-If the provided solutions did not resolve the issue, please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with troubleshooting logs and the screenshot.
+If the provided solutions did not resolve the issue, please contact Syncfusion <a href="https://support.syncfusion.com/agent/tickets/create">support</a> with troubleshooting logs and the screenshot.
 
 Please follow the below instructions for manual troubleshooting.
 
@@ -3621,7 +3621,7 @@ webkitConverterSettings.TempFileName = "Syncfusion";
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
+<td>Please contact Syncfusion <a href="https://support.syncfusion.com/agent/tickets/create">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
 </td>
 </tr>
 

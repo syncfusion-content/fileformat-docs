@@ -2812,7 +2812,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
+<td>Please contact Syncfusion <a href="https://support.syncfusion.com/agent/tickets/create">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
 </td>
 </tr>
 
