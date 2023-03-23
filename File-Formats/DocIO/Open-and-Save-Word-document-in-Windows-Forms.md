@@ -26,9 +26,6 @@ Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 {% endhighlight %}
 
@@ -104,18 +101,18 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-**Save and Close the Word document:**
+**Save the Word document:**
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Save the Word document.
 document.Save(Path.GetFullPath(@"../../Sample.docx"), FormatType.Docx);
-//Close the Word document.
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/Windows-Forms)
 
 By executing the program, you will get the **Word document** as follows.
 
