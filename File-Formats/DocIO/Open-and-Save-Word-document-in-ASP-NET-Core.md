@@ -18,8 +18,6 @@ Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO .NET Core NuGet package](ASP-NET-Core_images/Install_Nuget.png)
-
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: Include the following namespaces in the HomeController.cs file.
