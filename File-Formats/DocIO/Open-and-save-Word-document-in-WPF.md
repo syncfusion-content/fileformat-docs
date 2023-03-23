@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and Save Word document in WPF
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to **create**, read, and edit **Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **Open and save a Word document in WPF**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to **create**, read, and edit **Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **Open and save a Word document in WPF**.
 
 ## Steps to open and save Word document programmatically in WPF:
 
@@ -22,11 +22,11 @@ Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight HTML %}
+
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
-using System.ComponentModel;
-using System.Windows;
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -35,7 +35,7 @@ Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight HTML %}
 <Button Click="btnOpenAndSave_Click" Margin="0,0,10,12" VerticalAlignment="Bottom" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Right" Width="180">
     <Button.Background>
         <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
@@ -52,7 +52,7 @@ Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
 {% endtabs %}
 
-Step 5: Add the following code in **btnOpenAndSave_Click** to **open and save Word document** with simple text.
+Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing Word document in WPF**.
 
 **Open an existing Word document:**
 
@@ -64,6 +64,8 @@ WordDocument document = new WordDocument(Input.docx");
 {% endhighlight %}
 
 {% endtabs %}
+
+Step 6: Add below code example to add a paragraph in the Word document.
 
 **Add a paragraph to the Word document:**
 
@@ -82,6 +84,8 @@ text.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
+Step 7: Add below code example to **save the Word document in WPF**.
+
 **Save the Word document:**
 
 {% tabs %}
@@ -92,6 +96,8 @@ document.Save("Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/WPF).
 
 By executing the program, you will get the **Word document** as follows.
 

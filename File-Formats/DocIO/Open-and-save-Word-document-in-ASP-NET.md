@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and Save Word document in ASP.NET
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in ASP.NET Web Forms**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in ASP.NET Web Forms**.
 
 ## Steps to open and save Word document programmatically:
 
@@ -47,18 +47,16 @@ Step 5. Include the following namespace in your **MainPage.aspx.cs** file.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight HTML %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.IO;
-using System.Drawing;
 
 {% endhighlight %}
 
 {% endtabs %}
 
-Step 6: Include the below code snippets in the click event of the button in **MainPage.aspx.cs**, to **open and save Word document** and download it.
+Step 6: Include the below code snippets in the click event of the button in **MainPage.aspx.cs**, to **open an existing Word document in ASP.NET**.
 
 **Open an existing Word document:**
 
@@ -70,6 +68,8 @@ WordDocument document = new WordDocument(Input.docx");
 {% endhighlight %}
 
 {% endtabs %}
+
+Step 7: Add below code example to add a paragraph in the Word document.
 
 **Add a paragraph to the Word document:**
 
@@ -88,6 +88,8 @@ text.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
+Step 8: Add below code example to **save the Word document in ASP.NET**.
+
 **Save the Word document:**
 
 {% tabs %}
@@ -98,6 +100,8 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, Http
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/ASP.NET).
 
 By executing the program, you will get the **Word document** as follows.
 
