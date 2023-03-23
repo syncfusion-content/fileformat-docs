@@ -1,6 +1,6 @@
 ---
-title: Open and Save Word document in ASP.NET MVC | Syncfusion
-description: Open and save Word document without Microsoft Word or interop dependencies in ASP.NET MVC application using Syncfusion .NET Word (DocIO) library.
+title: Open and save Word document in ASP.NET MVC | Syncfusion
+description: Open and save Word document in ASP.NET MVC application using Syncfusion .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -77,12 +77,12 @@ IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.FirstLineIndent = 36;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 IWTextRange text = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.");
-text.CharacterFormat.FontSize = 12;
+text.CharacterFormat.FontSize = 12f;
 {% endhighlight %}
 
 {% endtabs %}
 
-**Close the Word document:**
+**Save the Word document:**
 
 {% tabs %}
 
@@ -92,8 +92,6 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Re
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from.
 
 By executing the program, you will get the Word document as follows.
 
