@@ -1,6 +1,6 @@
 ---
 title: Working with Form Fields | DocIO | Syncfusion
-description: This section illustrated how to work with FormFields in the Syncfusion Word (DocIO) Library and more.
+description: Learn how to work with form fields such as Text, Checkbox and Drop-Down in a Word document using the .NET Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG

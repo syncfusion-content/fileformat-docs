@@ -1,6 +1,6 @@
 ---
 title: Work document Conversion | Word library (DocIO) | Syncfusion
-description: The .NET Word library can convert Word file to PDF, image, RTF, TXT, HTML, ODT, and EPUB formats. Also, it can convert RTF, TXT, and HTML files to Word file.
+description: Learn how to convert a Word document into other supported file formats such as RTF, Text, HTML, Markdown, PDF, and image using the .NET Word library.
 platform: file-formats
 control: DocIO
 documentation: UG

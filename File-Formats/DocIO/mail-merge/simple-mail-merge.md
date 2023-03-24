@@ -1,6 +1,6 @@
 ---
 title: Simple Mail merge | Word library (DocIO) | Syncfusion
-description: This section illustrates how to Mail merge - replace all merge fields in a document with data, by repeating whole document for each record in data source.
+description: Learn how to Mail merge - replace all merge fields with data, by repeating whole document for each record in data source using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG

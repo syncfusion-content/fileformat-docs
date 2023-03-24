@@ -1,6 +1,6 @@
 ---
 title: RTF conversions | DocIO | Syncfusion
-description: This section illustrates how to perform RTF to Word conversion and Word to RTF conversions using Syncfusion Word library (Essential DocIO)
+description: Learn how to convert Word document to RTF and vice versa using the .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

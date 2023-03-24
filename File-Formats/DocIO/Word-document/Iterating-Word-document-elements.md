@@ -1,6 +1,6 @@
 ---
 title: Iterating Word document elements | DocIO | Syncfusion
-description: This section illustrates how to modify an existing Word document by iterating through Word document elements without using Microsoft Word or Office interop.
+description: Learn how to modify an existing Word document and iterate through the elements without Microsoft Word using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -1061,4 +1061,4 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Iterate-document-elements).
 
-T> If you wish to find an item in a Word document rather than iterating through each element one by one, you can use finding the item functionality to achieve it.
+T> If you wish to find an item in a Word document rather than iterating through each element one by one, you can use [finding the item functionality](https://help.syncfusion.com/file-formats/docio/find-item-in-word-document) to achieve it.
