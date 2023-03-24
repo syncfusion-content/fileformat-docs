@@ -1,6 +1,6 @@
 ---
 title: Open and save Word document in ASP.NET Core | Syncfusion
-description: Open and save Word document in ASP.NET Core application using Syncfusion .NET Core Word (Essential DocIO) library without Microsoft Word or interop dependencies
+description: Open and save Word document in ASP.NET Core application using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and save Word document in ASP.NET Core
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in ASP.NET Core**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in ASP.NET Core**.
 
 ## Steps to open and save Word document programmatically:
 
