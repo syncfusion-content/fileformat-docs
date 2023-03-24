@@ -17,7 +17,7 @@ Just like you can search for a text in a Word document, you can also search for 
 
 ## Find item by property
 
-Using FindItemByProperty API, find the first item in the Word document that has the specified property name and value.
+Using [FindItemByProperty](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindItemByProperty_Syncfusion_DocIO_DLS_EntityType_System_String_System_String_) API, find the first item in the Word document that has the specified property name and value.
 
 The following code example illustrates how to find the first item based on one property.
 
@@ -134,9 +134,11 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-item-in-word-document/Find-first-item-by-property).
+
 ## Find item by properties
 
-Using FindItemByProperties API, find the first item in the Word document based on multiple property names and their corresponding values.
+Using [FindItemByProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindItemByProperties_Syncfusion_DocIO_DLS_EntityType_System_String___System_String___) API, find the first item in the Word document based on multiple property names and their corresponding values.
 
 The following code example illustrates how to find the first item in Word document based on multiple property names and their corresponding values.
 
@@ -287,9 +289,11 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-item-in-word-document/Find-first-item-by-properties).
+
 ## Find all items by property
 
-Using FindAllItemsByProperty API, find all the items in the Word document that has the specified property name and value.
+Using [FindAllItemsByProperty](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAllItemsByProperty_Syncfusion_DocIO_DLS_EntityType_System_String_System_String_) API, find all the items in the Word document that has the specified property name and value.
 
 The following code example illustrates how to find all the items in Word document based on one property.
 
@@ -459,9 +463,11 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-item-in-word-document/Find-all-items-by-property).
+
 ## Find all items by properties
 
-Using FindAllItemsByProperties API, find all the items in the Word document based on multiple property names and their corresponding values.
+Using [FindAllItemsByProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAllItemsByProperties_Syncfusion_DocIO_DLS_EntityType_System_String___System_String) API, find all the items in the Word document based on multiple property names and their corresponding values.
 
 The following code example illustrates how to find all the items in Word document based on multiple property names and their corresponding values.
 
@@ -729,5 +735,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %} 
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-item-in-word-document/Find-all-items-by-properties).
 
 T> Passing null for both the property names and property values in the above APIs, you can also find an item in a Word document without relying on any property.

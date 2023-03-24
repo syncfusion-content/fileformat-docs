@@ -1,6 +1,6 @@
 ---
 title: Working with Mail merge | Word library (DocIO) | Syncfusion
-description: This section illustrates about Mail merge Word document to create reports (letters, envelopes, labels, invoice, payroll) without MS Word or Office interop.
+description: Learn how to mail merge Word document to create reports (letters, envelopes, labels, invoice, payroll) using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG

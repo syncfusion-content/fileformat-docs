@@ -1,6 +1,6 @@
 ---
 title: Working With Tables | DocIO | Syncfusion
-description: This section illustrates how to work with Tables in Word document using Syncfusion Word library (Essential DocIO)
+description: Learn how to work with tables, rows, cells, and their formatting in a Word document using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -2614,6 +2614,8 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-base-style-for-table).
 
 ## Merging cells vertically and horizontally
 

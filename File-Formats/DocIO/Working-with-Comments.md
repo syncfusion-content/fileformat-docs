@@ -1,6 +1,6 @@
 ---
 title: Working with Comments | DocIO | Syncfusion
-description: This section illustrates about working with comments in the Word document without MS Word or Office interop
+description: Learn how to add, modify, and remove comments in a Word document using the .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

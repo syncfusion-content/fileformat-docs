@@ -1,6 +1,6 @@
 ---
 title: Document Object Model representation in File Format DocIO | Syncfusion
-description: Learn here all about Document Object Model support in Syncfusion Essential File Formats DocIO control, its elements, and more.
+description: Learn here all about the Document Object Model (DOM) representation of Word documents and their elements in the Syncfusion .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
