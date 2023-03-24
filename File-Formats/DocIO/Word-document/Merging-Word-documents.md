@@ -1,6 +1,6 @@
 ---
 title: Merging Word documents | DocIO | Syncfusion
-description: This section illustrates how to merge multiple Word documents into one without using Microsoft Word or Office interop.
+description: Learn how to merge multiple Word documents into one using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

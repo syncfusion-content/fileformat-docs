@@ -1,6 +1,6 @@
 ---
 title: Working with Table Of Contents | Syncfusion
-description: This section illustrates how to insert and update the Table Of Content in a Word document without Microsoft Word or Office interop
+description: Learn how to add, modify, and update the table of contents (TOC) in a Word document using the .NET Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG
