@@ -73,10 +73,8 @@ Step 5: Add the following code in **btnOpenAndSave_Click** to **Open and save Wo
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-using (WordDocument document = new WordDocument(Path.GetFullPath("Input.docx", FormatType.Docx), FormatType.Automatic))
-{
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 
-}
 {% endhighlight %}
 
 {% endtabs %}

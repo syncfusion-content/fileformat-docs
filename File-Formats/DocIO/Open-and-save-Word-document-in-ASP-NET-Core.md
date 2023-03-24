@@ -64,9 +64,6 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-
-    }
 }
 {% endhighlight %}
 
