@@ -2615,6 +2615,8 @@ using (WordDocument document = new WordDocument())
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-base-style-for-table).
+
 ## Merging cells vertically and horizontally
 
 You can combine two or more table cells located in the same row or column into a single cell.

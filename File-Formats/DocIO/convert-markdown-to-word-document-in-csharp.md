@@ -88,6 +88,8 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Markdown-to-Word-conversion/Convert-Markdown-to-Word).
+
 T> You can also save the markdown file as [HTML](https://help.syncfusion.com/file-formats/docio/html), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf), and [Image](https://help.syncfusion.com/file-formats/docio/word-to-image).
 
 ## Customize image data
@@ -297,6 +299,8 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Markdown-to-Word-conversion/Customize-image).
 
 N> Hook the event handler before opening a Word document as per the above code example.
 
@@ -556,7 +560,7 @@ N> Hook the event handler before opening a Word document as per the above code e
 </td>
 <td style="width: 41.7072%;">
 <p>For image, enclose an alternative text within the brackets [], and then link of the image source within parentheses ().</p>
-<p>If URL path is base64string, then it will be preserved properly in Word document. Otherwise, you can also set image from stream while opening Markdown file.</p>
+<p>If URL path is base64string, then it will be preserved properly in Word document. Otherwise, you can also {{'[set image from stream while opening Markdown file.](https://help.syncfusion.com/file-formats/docio/convert-markdown-to-word-document-in-csharp#customize-image-data)'| markdownify }}</p>
 </td>
 </tr>
 <tr>
