@@ -67,15 +67,13 @@ private void InitializeComponent()
 
 {% endtabs %}
 
-Step 5: Add the following code in **btnOpenAndSave_Click** to **Open and save Word document** with simple text.
-
-**Open an existing Word document:**
+Step 5: Add the following code in **btnOpenAndSave_Click** to **Open and save Word document in Windows-Forms**.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Automatic))
+using (WordDocument document = new WordDocument(Path.GetFullPath("Input.docx", FormatType.Docx), FormatType.Automatic))
 {
 
 }
@@ -83,7 +81,7 @@ using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/In
 
 {% endtabs %}
 
-**Add a paragraph to the Word document:**
+Step 6: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
 
@@ -101,13 +99,13 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-**Save the Word document:**
+Step 7: Add below code example to save the Word document in Windows Forms.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Save the Word document.
-document.Save(Path.GetFullPath(@"../../Sample.docx"), FormatType.Docx);
+document.Save(("Sample.docx"), FormatType.Docx);
 {% endhighlight %}
 
 {% endtabs %}

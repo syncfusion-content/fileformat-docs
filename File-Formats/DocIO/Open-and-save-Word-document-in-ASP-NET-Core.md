@@ -39,7 +39,7 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight HTML %}
 
 @{Html.BeginForm("OpenAndSaveDocument", "Home", FormMethod.Get);
 {
@@ -54,15 +54,13 @@ Html.EndForm();
 
 {% endtabs %}
 
-Step 7: Add a new action method **OpenAndSaveDocument** in HomeController.cs and include the below code snippet to **Open and Save Document** and download it.
-
-**Open an existing Word document:**
+Step 7: Add a new action method **OpenAndSaveDocument** in HomeController.cs and include the below code snippet to **open an existing Word document in ASP.NET Core**.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 //Open the file as Stream.
-using (FileStream docStream = new FileStream(@"Data/Input.docx", FileMode.Open, FileAccess.Read))
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
@@ -74,7 +72,7 @@ using (FileStream docStream = new FileStream(@"Data/Input.docx", FileMode.Open, 
 
 {% endtabs %}
 
-**Add a paragraph to the Word document:**
+Step 8: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
 
@@ -92,7 +90,7 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-**Save and download the Word document:**
+Step 9: Add below code example to save the Word document in ASP.NET Core.
 
 {% tabs %}
 
