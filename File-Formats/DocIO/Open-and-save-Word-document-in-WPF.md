@@ -22,7 +22,7 @@ Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -35,7 +35,7 @@ Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight XML %}
 <Button Click="btnOpenAndSave_Click" Margin="0,0,10,12" VerticalAlignment="Bottom" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Right" Width="180">
     <Button.Background>
         <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
@@ -54,8 +54,6 @@ Step 4: Add a new button in **MainWindow.xaml** to create Word file as follows.
 
 Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing Word document in WPF**.
 
-**Open an existing Word document:**
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -66,8 +64,6 @@ WordDocument document = new WordDocument(Input.docx");
 {% endtabs %}
 
 Step 6: Add below code example to add a paragraph in the Word document.
-
-**Add a paragraph to the Word document:**
 
 {% tabs %}
 
@@ -85,8 +81,6 @@ text.CharacterFormat.FontSize = 12f;
 {% endtabs %}
 
 Step 7: Add below code example to **save the Word document in WPF**.
-
-**Save the Word document:**
 
 {% tabs %}
 

@@ -24,7 +24,7 @@ Step 4: Add a new button in the **MainPage.aspx** as shown below.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight HTML %}
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -47,7 +47,7 @@ Step 5. Include the following namespace in your **MainPage.aspx.cs** file.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -57,8 +57,6 @@ using Syncfusion.DocIO.DLS;
 {% endtabs %}
 
 Step 6: Include the below code snippets in the click event of the button in **MainPage.aspx.cs**, to **open an existing Word document in ASP.NET**.
-
-**Open an existing Word document:**
 
 {% tabs %}
 
@@ -70,8 +68,6 @@ WordDocument document = new WordDocument(Input.docx");
 {% endtabs %}
 
 Step 7: Add below code example to add a paragraph in the Word document.
-
-**Add a paragraph to the Word document:**
 
 {% tabs %}
 
@@ -90,12 +86,10 @@ text.CharacterFormat.FontSize = 12f;
 
 Step 8: Add below code example to **save the Word document in ASP.NET**.
 
-**Save the Word document:**
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Save the Word document to the disk in a DOCX format.
+//Save the Word document and download as attachment.
 document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, HttpContentDisposition.Attachment);
 {% endhighlight %}
 

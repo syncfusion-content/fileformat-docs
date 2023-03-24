@@ -22,7 +22,7 @@ Step 3: Include the following namespace in that HomeController.cs file.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight c# tabtitle="C#" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -54,8 +54,6 @@ Step 6: Add a new action method **OpenAndSaveDocument** in HomeController.cs.
 
 Step 7: Add below code example to **open an existing Word document in ASP.NET MVC**.
 
-**Open an existing Word document:**
-
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -66,8 +64,6 @@ WordDocument document = new WordDocument(Input.docx");
 {% endtabs %}
 
 Step 8: Add below code example to add a paragraph in the Word document.
-
-**Add a paragraph to the Word document:**
 
 {% tabs %}
 
@@ -85,8 +81,6 @@ text.CharacterFormat.FontSize = 12f;
 {% endtabs %}
 
 Step 9: Add below code example to **save the Word document in ASP.NET MVC**.
-
-**Save the Word document:**
 
 {% tabs %}
 
