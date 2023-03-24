@@ -1,6 +1,6 @@
 ---
 title: Working with Word document | DocIO | Syncfusion
-description: This section illustrates how to combine multiple Word documents into one, print a Word document, apply styles, and iterate through DOM elements.
+description: Learn to merge, split, and print Word documents with ease, as well as iterate through DOM elements using .NET Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG

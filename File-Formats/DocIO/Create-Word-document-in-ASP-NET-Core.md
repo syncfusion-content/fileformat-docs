@@ -1,6 +1,6 @@
 ---
 title: Create Word document in ASP.NET Core | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in ASP.NET Core application using Syncfusion .NET Core Word (Essential DocIO) library
+description: Create Word document without Microsoft Word or interop dependencies in ASP.NET Core application using Syncfusion .NET Core Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
