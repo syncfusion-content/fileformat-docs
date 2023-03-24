@@ -1,6 +1,6 @@
 ---
 title: Create a simple Word document in C#, VB.NET | Syncfusion
-description: This section illustrate how to create a new Word document from scratch. It supports to the mail merge, create & manipulate charts, Shapes, and Group shape.
+description: Learn how to use .NET Word (DocIO) library to create Word documents from scratch with basic elements and perform mail merge without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG

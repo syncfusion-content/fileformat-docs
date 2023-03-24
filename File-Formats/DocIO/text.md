@@ -1,6 +1,6 @@
 ---
 title: Word document to Text Conversion | DocIO | Syncfusion
-description: This section illustrates how to perform Word document to Text conversion using Syncfusion Word library (Essential DocIO)
+description: Learn how to convert Word document to text file and vice versa  using the .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

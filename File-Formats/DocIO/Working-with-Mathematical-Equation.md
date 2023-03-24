@@ -1,6 +1,6 @@
 ---
 title: Working with Mathematical Equation | DocIO | Syncfusion
-description: This section illustrates about create, modify and remove mathematical equation in Word document without MS Word or Office interop
+description: Learn how to add, modify, and remove mathematical equations in a Word document using the .NET Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG

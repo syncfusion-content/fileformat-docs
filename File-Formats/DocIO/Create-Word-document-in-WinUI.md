@@ -1,6 +1,6 @@
 ---
 title: Create Word document in WinUI | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in WinUI application using Syncfusion .NET Core Word (Essential DocIO) library
+description: Create Word document without Microsoft Word or interop dependencies in WinUI application using Syncfusion WinUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
