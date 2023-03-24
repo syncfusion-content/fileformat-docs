@@ -467,7 +467,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find all items by properties
 
-Using [FindAllItemsByProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAllItemsByProperties_Syncfusion_DocIO_DLS_EntityType_System_String___System_String___) API, find all the items in the Word document based on multiple property names and their corresponding values.
+Using [FindAllItemsByProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAllItemsByProperties_Syncfusion_DocIO_DLS_EntityType_System_String___System_String) API, find all the items in the Word document based on multiple property names and their corresponding values.
 
 The following code example illustrates how to find all the items in Word document based on multiple property names and their corresponding values.
 
