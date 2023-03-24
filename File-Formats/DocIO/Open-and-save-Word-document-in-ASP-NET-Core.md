@@ -90,7 +90,7 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-Step 9: Add below code example to save the Word document in ASP.NET Core.
+Step 9: Add below code example to **save the Word document in ASP.NET Core**.
 
 {% tabs %}
 

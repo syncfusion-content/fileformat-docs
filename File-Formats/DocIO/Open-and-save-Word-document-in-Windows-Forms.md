@@ -99,7 +99,7 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-Step 7: Add below code example to save the Word document in Windows Forms.
+Step 7: Add below code example to **save the Word document in Windows Forms**.
 
 {% tabs %}
 
