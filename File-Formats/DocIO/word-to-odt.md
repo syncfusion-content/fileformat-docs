@@ -1,5 +1,5 @@
 ---
-title: Converting Word document to ODT format | DocIO | Syncfusion
+title: Convert Word document to ODT in C# | DocIO | Syncfusion
 description: Learn how to convert Word document to ODT file using the .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
