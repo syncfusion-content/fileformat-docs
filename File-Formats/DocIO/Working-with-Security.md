@@ -1,5 +1,5 @@
 ---
-title: Working with Security | DocIO | Syncfusion
+title: Working with Word document Protection | DocIO | Syncfusion
 description: Learn how to encrypt, decrypt, and control changes by protecting the Word document using the .NET Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
