@@ -1,5 +1,5 @@
 ---
-title: Open and save Word document in ASP.NET | DocIO | Syncfusion
+title: Open and save Word document in ASP.NET | Syncfusion
 description: Open and save Word document in ASP.NET application using Syncfusion .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO

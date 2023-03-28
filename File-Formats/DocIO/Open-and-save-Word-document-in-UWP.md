@@ -1,5 +1,5 @@
 ---
-title: Open and save Word document in UWP | DocIO | Syncfusion
+title: Open and save Word document in UWP | Syncfusion
 description: Open and save Word document in UWP application using Syncfusion UWP Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
@@ -58,9 +58,15 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx);
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
+    {
+    
+    }
+}
 {% endhighlight %}
 
 {% endtabs %}
@@ -78,6 +84,13 @@ paragraph.ParagraphFormat.FirstLineIndent = 36;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 IWTextRange text = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.");
 text.CharacterFormat.FontSize = 12f;
+
+//Save a Word document to the MemoryStream.
+MemoryStream stream = new MemoryStream();
+//Save the Word document to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Save the stream as Word document file in local machine
+Save(stream, "Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}
@@ -87,13 +100,6 @@ Step 7: Add below code example to **save the Word document in UWP**.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Save a Word document to the MemoryStream.
-MemoryStream stream = new MemoryStream();
-//Save the Word document to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-//Save the stream as Word document file in local machine
-Save(stream, "Sample.docx");
-
 //Save the Word document.
 async void Save(MemoryStream streams, string filename)
 {
@@ -134,6 +140,6 @@ async void Save(MemoryStream streams, string filename)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/UWP).
 
-By executing the program, you will get the Word document as follows.
+By executing the program, you will get the **Word document** as follows.
 
 ![UWP open and save output Word document](UWP_images/OpenAndSaveOutput.png)
