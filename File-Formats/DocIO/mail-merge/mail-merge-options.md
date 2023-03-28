@@ -1,5 +1,5 @@
 ---
-title: Mail merge options | Word library (DocIO) | Syncfusion
+title: Mail merge options in .NET Word (DocIO) library | Syncfusion
 description: Learn how to use mail merge options to map the merge fields, remove unmerged fields, unmerged region, empty paragraphs and more in Word document.
 platform: file-formats
 control: DocIO

@@ -1,5 +1,5 @@
 ---
-title: Word Document to HTML conversion | DocIO | Syncfusion
+title: Convert Word to HTML and vice versa in C# | Syncfusion
 description: Learn how to convert Word document to HTML file and vice versa  using the .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
