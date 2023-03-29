@@ -58,7 +58,7 @@ Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-WordDocument document = new WordDocument(Input.docx");
+WordDocument document = new WordDocument("Input.docx");
 {% endhighlight %}
 
 {% endtabs %}
