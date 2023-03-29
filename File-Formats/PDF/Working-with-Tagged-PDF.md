@@ -2981,7 +2981,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
 PdfStructureElement rootElement = document.StructureElement;
 //Get the child elements for the element.
 PdfStructureElement[] child = rootElement.ChildElements;
-//Get the first child element from the page.
+//Get the first element from the child element.
 PdfStructureElement element = child[0];
 //Get the element properties.
 string abbrevation = element.Abbrevation;
@@ -3010,7 +3010,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
 PdfStructureElement rootElement = document.StructureElement;
 //Get the child elements for the element.
 PdfStructureElement[] child = rootElement.ChildElements;
-//Get the first child element from the page.
+//Get the first element from the child element.
 PdfStructureElement element = child[0];
 //Get the element properties.
 string abbrevation = element.Abbrevation;
@@ -3039,7 +3039,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
 PdfStructureElement rootElement = document.StructureElement;
 //Get the child elements for the element.
 PdfStructureElement[] child = rootElement.ChildElements;
-//Get the first child element from the page.
+//Get the first element from the child element.
 PdfStructureElement element = child[0];
 //Get the element properties.
 string abbrevation = element.Abbrevation;
