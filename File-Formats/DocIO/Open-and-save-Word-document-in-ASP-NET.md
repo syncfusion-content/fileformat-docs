@@ -62,7 +62,7 @@ Step 6: Include the below code snippets in the click event of the button in **Ma
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-WordDocument document = new WordDocument(Input.docx");
+WordDocument document = new WordDocument("Input.docx");
 {% endhighlight %}
 
 {% endtabs %}

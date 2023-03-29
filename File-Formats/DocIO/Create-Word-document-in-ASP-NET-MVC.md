@@ -1,6 +1,6 @@
 ---
 title: Create Word document in ASP.NET MVC | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in Blazor application using Syncfusion .NET Blazor Word (DocIO) library.
+description: Create Word document without Microsoft Word or interop dependencies in ASP.NET MVC application using Syncfusion .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
