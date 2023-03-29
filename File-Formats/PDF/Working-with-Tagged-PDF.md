@@ -2906,3 +2906,184 @@ Follow the below steps to validate the tagged PDF information in Adobe Acrobat:
 The following screenshot shows the Accessibility checker dialog box.
 
 ![TaggedPDF](TaggedPDF_images/TaggedPDF_img0.png) 
+
+## Get the accessibility tags
+
+Added support for extracting accessibility tags from PDF documents.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument("TaggedPDF.pdf");
+//Get the structure element root from the document.
+PdfStructureElement rootElement = document.StructureElement;
+//Get the first page from the document.
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+//Get the structure elements associated with the page.
+PdfStructureElement[] pageElements = loadedPage.StructureElements;
+//Get the first element from the page.
+PdfStructureElement element = pageElements[0];
+//Get the element properties.
+string abbrevation = element.Abbrevation;
+string ActualText = element.ActualText;
+string AlternateText = element.AlternateText;
+string Language = element.Language;
+int Order = element.Order;
+PdfTagType TagType = element.TagType;
+string Title = element.Title;
+ScopeType scope = element.Scope;
+//Get the tagged text in a paragraph or header tags.
+string taggedText = element.Text;
+//Get the parent and child for the first element.
+PdfStructureElement parent = element.Parent;
+//Get the child elements for the element.
+PdfStructureElement[] child = element.ChildElements;
+//Get the page bounds for the element.
+RectangleF bounds = element.Bounds;
+//Close the PDF document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load the existing PDF document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("TaggedPDF.pdf")
+'Get the structure element root from the document.
+Dim rootElement As PdfStructureElement = document.StructureElement
+'Get the first page from the document.
+Dim loadedPage As PdfLoadedPage = CType(document.Pages(0), PdfLoadedPage)
+'Get the structure elements associated with the page.
+Dim pageElements() As PdfStructureElement = loadedPage.StructureElements
+'Get the first element from the page.
+Dim element As PdfStructureElement = pageElements(0)
+'Get the element properties.
+Dim abbrevation As String = element.Abbrevation
+Dim ActualText As String = element.ActualText
+Dim AlternateText As String = element.AlternateText
+Dim Language As String = element.Language
+Dim Order As Integer = element.Order
+Dim TagType As PdfTagType = element.TagType
+Dim Title As String = element.Title
+Dim scope As ScopeType = element.Scope
+'Get the tagged text in the paragraph Or header tags.
+Dim taggedText As String = element.Text
+'Get the parent and child for the first element.
+Dim parent As PdfStructureElement = element.Parent
+'Get the child elements for the element.
+Dim child() As PdfStructureElement = element.ChildElements
+'Get the page bounds for the element.
+Dim bounds As RectangleF = element.Bounds
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//Get the stream from the document.
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+//Load the existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+//Get the structure element root from the document.
+PdfStructureElement rootElement = document.StructureElement;
+//Get the first page from the document.
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+//Get the structure elements associated with the page.
+PdfStructureElement[] pageElements = loadedPage.StructureElements;
+//Get the first element from the page.
+PdfStructureElement element = pageElements[0];
+//Get the element properties.
+string abbrevation = element.Abbrevation;
+string ActualText = element.ActualText;
+string AlternateText = element.AlternateText;
+string Language = element.Language;
+int Order = element.Order;
+PdfTagType TagType = element.TagType;
+string Title = element.Title;
+ScopeType scope = element.Scope;
+//Get the parent and child for the first element.
+PdfStructureElement parent = element.Parent;
+//Get the child elements for the element.
+PdfStructureElement[] child = element.ChildElements;
+//Get the page bounds for the element.
+RectangleF bounds = element.Bounds;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get the stream from the document.
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+//Load the existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+//Get the structure element root from the document.
+PdfStructureElement rootElement = document.StructureElement;
+//Get the first page from the document.
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+//Get the structure elements associated with the page.
+PdfStructureElement[] pageElements = loadedPage.StructureElements;
+//Get the first element from the page.
+PdfStructureElement element = pageElements[0];
+//Get the element properties.
+string abbrevation = element.Abbrevation;
+string ActualText = element.ActualText;
+string AlternateText = element.AlternateText;
+string Language = element.Language;
+int Order = element.Order;
+PdfTagType TagType = element.TagType;
+string Title = element.Title;
+ScopeType scope = element.Scope;
+//Get the tagged text in a paragraph or header tags.
+string taggedText = element.Text;
+//Get the parent and child for the first element.
+PdfStructureElement parent = element.Parent;
+//Get the child elements for the element.
+PdfStructureElement[] child = element.ChildElements;
+//Get the page bounds for the element.
+RectangleF bounds = element.Bounds;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//Get the stream from the document.
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+//Load the existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+//Get the structure element root from the document.
+PdfStructureElement rootElement = document.StructureElement;
+//Get the first page from the document.
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+//Get the structure elements associated with the page.
+PdfStructureElement[] pageElements = loadedPage.StructureElements;
+//Get the first element from the page.
+PdfStructureElement element = pageElements[0];
+//Get the element properties.
+string abbrevation = element.Abbrevation;
+string ActualText = element.ActualText;
+string AlternateText = element.AlternateText;
+string Language = element.Language;
+int Order = element.Order;
+PdfTagType TagType = element.TagType;
+string Title = element.Title;
+ScopeType scope = element.Scope;
+//Get the tagged text in a paragraph or header tags.
+string taggedText = element.Text;
+//Get the parent and child for the first element.
+PdfStructureElement parent = element.Parent;
+//Get the child elements for the element.
+PdfStructureElement[] child = element.ChildElements;
+//Get the page bounds for the element.
+RectangleF bounds = element.Bounds;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+{% endtabs %}
