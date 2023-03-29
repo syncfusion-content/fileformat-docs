@@ -2909,7 +2909,7 @@ The following screenshot shows the Accessibility checker dialog box.
 
 ## Get the accessibility tags
 
-Added support for extracting accessibility tags from PDF documents.
+You can extract the existing tag details by using the [StructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_StructureElement) property available on the [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code explains this.
 
 {% tabs %}
 
