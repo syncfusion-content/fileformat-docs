@@ -9,7 +9,7 @@ documentation: UG
 
 The Syncfusion [Xamarin PDF library](https://www.syncfusion.com/document-processing/pdf-framework/xamarin/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-To include the Syncfusion Xamarin PDF library into your Xamarin application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+To include the Syncfusion Xamarin PDF library into your Xamarin application, please refer to the [NuGet Package Required](/file-formats/pdf/nuget-packages-required) or [Assemblies Required](/file-formats/pdf/assemblies-required) documentation.
 
 ## Steps to create PDF document in Xamarin
 
