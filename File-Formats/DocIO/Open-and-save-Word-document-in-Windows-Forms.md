@@ -73,7 +73,7 @@ Step 5: Add the following code in **btnOpenAndSave_Click** to **Open and save Wo
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-using (WordDocument document = new WordDocument(Path.GetFullPath("Input.docx", FormatType.Docx), FormatType.Automatic))
+WordDocument document = new WordDocument("Input.docx");
 
 {% endhighlight %}
 
@@ -103,7 +103,7 @@ Step 7: Add below code example to **save the Word document in Windows Forms**.
 
 {% highlight c# tabtitle="C#" %}
 //Save the Word document.
-document.Save(("Sample.docx"), FormatType.Docx);
+document.Save("Sample.docx");
 {% endhighlight %}
 
 {% endtabs %}

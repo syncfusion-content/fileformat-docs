@@ -59,12 +59,9 @@ Step 7: Add a new action method **OpenAndSaveDocument** in HomeController.cs and
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Open the file as Stream.
-using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-}
+//Open an existing Word document.
+WordDocument document = new WordDocument(new FileStream("Input.docx", FileMode.Open, FileAccess.Read));
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -87,7 +84,7 @@ textRange.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-Step 9: Add below code example to **save the Word document in ASP.NET Core**.
+Step 9: Add below code example to **save the Word document in ASP.NET Core.
 
 {% tabs %}
 
