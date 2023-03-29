@@ -275,7 +275,7 @@ Check the HTML file or URL is rendered properly in Chrome browser’s print prev
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this issue, add suitable delay for the conversion using the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_AdditionalDelay) property of the HTMLConverter. 
+<td>To overcome this issue, add suitable delay for the conversion using the <a href="https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_AdditionalDelay">AdditionalDelay</a> property of the HTMLConverter. 
 <br><br/>
 {% highlight c# tabtitle="C#" %}
 
@@ -440,7 +440,7 @@ To install the Windows Server Essentials Media Pack, first install the Windows S
 6.	After successful installation, install the Windows Server Essentials Media Pack.<br>
 Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40837">official website</a> to download and Install the Windows Server Essentials Media Pack.<br><br>
 
-> **_NOTE:_** This version is only applicable to Windows Server 2012 R2 Standard.
+{{'**Note:**'| markdownify }}This version is only applicable to Windows Server 2012 R2 Standard.
 
 </td>
 </tr>
