@@ -53,7 +53,7 @@ Step 6: Add the following code in **DocIO.razor** file to open and save a new bu
 {% highlight CSHTML %}
 <h2>Syncfusion DocIO library (DocIO)</h2>
 <p>Syncfusion DocIO library (DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@OpenAndSaveWord">Open and save Word</button>
+<button class="btn btn-primary" @onclick="@OpenAndSaveDocument">Open and save Document</button>
 {% endhighlight %}
 {% endtabs %}
 
@@ -66,9 +66,9 @@ Step 7: Add the following code snippet in **DocIO.razor** file to **Open and sav
     /// <summary>
     /// Open and save the Word document and download it
     /// </summary>
-    protected async void OpenAndSaveWord()
+    protected async void OpenAndSaveDocument()
     {
-        documentStream = service.OpenAndSaveWord();
+        documentStream = service.OpenAndSaveDocument();
         await JS.SaveAs("Sample.docx", documentStream.ToArray());
     }
 }
@@ -86,20 +86,21 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **OpenAndSaveWord** in **WordService** class and include the following code snippet to **Open an existing Word document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **OpenAndSaveDocument** in **WordService** class and include the following code snippet to **Open an existing Word document in Blazor** Server-Side application.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-public MemoryStream OpenAndSaveWord()
+public MemoryStream OpenAndSaveDocument()
 {
     using (FileStream sourceStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
     {
         //Open an existing Word document.
-        using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+        using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     }
-    
+}
+
 Step 10: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
@@ -236,20 +237,20 @@ Step 6: Add the following code to create a new button.
 
 <h2>Syncfusion DocIO library (DocIO)</h2>
 <p>Syncfusion Blazor DocIO library (DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@OpenAndSaveWordWord">Open and save Word</button>
+<button class="btn btn-primary" @onclick="@OpenAndSaveWordDocument">Open and save Document</button>
 
 {% endhighlight %}
 
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``OpenAndSaveWord`` and include the following code snippet to **Open an existing Word document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and include the following code snippet to **Open an existing Word document in Blazor** Client-Side application.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
 @functions {
-    async void OpenAndSaveWord()
+    async void OpenAndSaveDocument()
     {
         using (Stream inputStream = await client.GetStreamAsync("Input.docx"))
         {
