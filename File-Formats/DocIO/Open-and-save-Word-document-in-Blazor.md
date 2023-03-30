@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and save Word document in Blazor
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **Open and save a Word document in Blazor**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in Blazor**.
 
 **Prerequisites:**
 
@@ -31,7 +31,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
-Step 4: To **Open and save a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **open and save a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -41,13 +41,13 @@ Step 5: Create a razor file with name as **DocIO** under **Pages** folder and in
 {% highlight c# tabtitle="C#" %}
 @page "/DocIO"
 @using System.IO;
-@using ServerSideApplication;
-@inject ServerSideApplication.Data.WordService service
+@using Open_and_save_Word_document;
+@inject Open_and_save_Word_document.Data.WordService service
 @inject Microsoft.JSInterop.IJSRuntime JS
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add the following code in **DocIO.razor** file to open and save a new button.
+Step 6: Add the following code in **DocIO.razor** file to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -57,7 +57,7 @@ Step 6: Add the following code in **DocIO.razor** file to open and save a new bu
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add the following code snippet in **DocIO.razor** file to **Open and save Word document** and download it.
+Step 7: Add the following code snippet in **DocIO.razor** file to **open and save Word document** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -86,7 +86,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **OpenAndSaveDocument** in **WordService** class and include the following code snippet to **Open an existing Word document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **OpenAndSaveDocument** in **WordService** class and include the following code snippet to **open an existing Word document in Blazor** Server-Side application.
 
 {% tabs %}
 
@@ -213,7 +213,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
-Step 4: To **Open and save a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **open and save a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -243,7 +243,7 @@ Step 6: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and include the following code snippet to **Open an existing Word document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and include the following code snippet to **open an existing Word document in Blazor** Client-Side application.
 
 {% tabs %}
 
