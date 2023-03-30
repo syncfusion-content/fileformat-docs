@@ -67,7 +67,7 @@ private void InitializeComponent()
 
 {% endtabs %}
 
-Step 5: Add the following code in **btnOpenAndSave_Click** to **open and save Word document in Windows-Forms**.
+Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing Word document in Windows-Forms**.
 
 {% tabs %}
 
