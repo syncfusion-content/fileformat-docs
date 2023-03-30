@@ -45,6 +45,8 @@ Include the OCR library in your project using two approaches.
 * NuGet Package Required (Recommended)
 * Assemblies Required 
 
+N> Starting with v21.1.x, If you reference Syncfusion OCR processor library from the NuGet feed, the package structure has been changed. The TesseractBinaries and Tesseract language data paths has been automatically added and do not need to add it manually. 
+
 ### NuGet Package Required (Recommended)
 
 Directly install the NuGet package to your application from [nuget.org](https://www.nuget.org/).
