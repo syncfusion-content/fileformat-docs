@@ -17,7 +17,11 @@ The following code illustrates how to load and save a macro enabled document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads the macro-enabled template
 WordDocument document = new WordDocument("Template.dotm");
 //Gets the table
@@ -29,7 +33,7 @@ document.Save("Sample.docm", FormatType.Word2013Docm);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Loads the macro-enabled template
 Dim document As New WordDocument("Template.dotm")
 'Gets the table
@@ -41,26 +45,17 @@ document.Save("Sample.docm", FormatType.Word2013Docm)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example illustrates the method used to get the tables from data set.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
 
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 private DataTable GetDataTable()
 {
     //List of syncfusion products name
@@ -84,11 +79,9 @@ private DataTable GetDataTable()
     }
     return table;
 }
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 Private Function GetDataTable() As DataTable
     'List of syncfusion products name
     Dim products As String() = {"DocIO", "PDF", "XlsIO"}
@@ -112,18 +105,6 @@ Private Function GetDataTable() As DataTable
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %} 
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Macros/Open-and-save-macro-enabled-document).
@@ -132,52 +113,9 @@ The following code example illustrates how to remove the macros present in the d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Loads the document with macros
-WordDocument document = new WordDocument("Sample.docm");
-//Checks whether the document has macros and then removes them
-if (document.HasMacros)
-    document.RemoveMacros();
-//Saves the document
-document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Loads the document with macros
-Dim document As New WordDocument("Sample.docm")
-'Checks whether the document has macros and then removes them
-If document.HasMacros Then
-    document.RemoveMacros()
-End If
-'Saves the document
-document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Loads the document with macros
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Sample.docm"), FormatType.Docx);
-//Checks whether the document has macros and then removes them
-if (document.HasMacros)
-    document.RemoveMacros();
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads the document with macros
-FileStream fileStreamPath = new FileStream("Sample.docm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
@@ -192,22 +130,29 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads the document with macros
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Sample.docm"), FormatType.Docx);
+WordDocument document = new WordDocument("Template.docm");
 //Checks whether the document has macros and then removes them
 if (document.HasMacros)
     document.RemoveMacros();
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
+//Saves the document
+document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+'Loads the document with macros
+Dim document As New WordDocument("Template.docm")
+'Checks whether the document has macros and then removes them
+If document.HasMacros Then
+    document.RemoveMacros()
+End If
+'Saves the document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}
