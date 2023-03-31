@@ -102,13 +102,11 @@ WordDocument document = new WordDocument();
 document.EnsureMinimal();
 //Appends text to the last paragraph of the document
 document.LastParagraph.AppendText("Hello World");
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
-stream.Position = 0;
+//Closes the Word document.
 document.Close();
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
 {% endtabs %}
@@ -689,13 +687,11 @@ FileStream fileStream = new FileStream(@"Giant Panda.docx",FileMode.Open,FileAcc
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
 //Replaces the word "bear" as "panda"
 document.Replace("bear", "panda", false, true);
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
-stream.Position = 0;
+//Closes the Word document.
 document.Close();
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -765,13 +761,11 @@ foreach (TextSelection selection in textSelection)
     IWTextRange textRange = selection.GetAsOneRange();
     textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
 }
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
-stream.Position = 0;
+//Closes the Word document.
 document.Close();
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
 {% endtabs %}
@@ -841,13 +835,11 @@ string[] fieldNames = new string[] { "FirstName", "LastName", "Email", "Country"
 string[] fieldValues = new string[] { "John", "Smith", "john_smith@domain.com", "USA" };
 //Executes the mail merge operation that replaces the matching field names with field values respectively.
 document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
-stream.Position = 0;
+//Closes the Word document.
 document.Close();
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
 {% endhighlight %} 
 
 {% endtabs %}
@@ -919,14 +911,11 @@ List<Employee> employeeList = GetEmployees();
 MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
 //Performs Mail merge
 document.MailMerge.ExecuteGroup(dataSource);
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document.
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
 {% endhighlight %}
 
 {% endtabs %}
@@ -1247,9 +1236,6 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
 wordDocument.Close();
-outputStream.Position = 0;
-//Download Word document in the browser
-return File(outputStream, "application/pdf", "Result.pdf");
 {% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
@@ -1292,4 +1278,3 @@ N> 2. [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfu
 * [Create Word document in Linux](https://help.syncfusion.com/file-formats/docio/create-word-document-in-linux)
 * [Create Word document in Docker](https://help.syncfusion.com/file-formats/docio/word-to-pdf-linux-docker)
 * [Create Word document in Mac OS](https://help.syncfusion.com/file-formats/docio/create-word-document-in-mac)
-
