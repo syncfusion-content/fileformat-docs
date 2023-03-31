@@ -196,6 +196,10 @@ ASP.NET MVC
 
 N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
 
+N> Starting with v21.1.XX, If you reference Syncfusion HTML to PDF library from the NuGet feed, the package structure has been changed. The Blink binaries paths has been automatically added and do not need to add it manually. However, if you need to refer blink binaries paths manually in your application, please use the BlinkPath in BlinkConverterSettings.
+
+You can get the BlinkBinaries from NuGet package runtime folder or you can get the binaries by installing the HTML converter installer.
+
 ## PDF OCR
 
 For recognizing text from the scanned PDF document, the following NuGet packages should be installed in your application:
