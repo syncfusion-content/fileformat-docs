@@ -12,7 +12,22 @@ A section contains the contents present in Headers, Footers and main document th
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new instance of WordDocument (Empty Word Document)
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -26,7 +41,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -40,62 +55,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new instance of WordDocument (Empty Word Document)
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new instance of WordDocument (Empty Word Document)
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-sections-in-Word-document).
@@ -106,7 +65,31 @@ You can also add a new section that starts on a same page by specifying the [Bre
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds a paragraph to created section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Adds the new section to the document
+section = document.AddSection();
+//Sets a section break
+section.BreakCode = SectionBreakCode.NoBreak;
+//Adds a paragraph to created section
+paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -129,7 +112,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -152,89 +135,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the new section to the document
-section = document.AddSection();
-//Sets a section break
-section.BreakCode = SectionBreakCode.NoBreak;
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the new section to the document
-section = document.AddSection();
-//Sets a section break
-section.BreakCode = SectionBreakCode.NoBreak;
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the new section to the document
-section = document.AddSection();
-//Sets a section break
-section.BreakCode = SectionBreakCode.NoBreak;
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-continuous-sections-in-Word).
@@ -247,7 +147,30 @@ The following code example shows how to set the page setup properties
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+//Sets page setup options
+section.PageSetup.Orientation = PageOrientation.Landscape;
+section.PageSetup.Margins.All = 72;
+section.PageSetup.Borders.LineWidth = 2;
+//Sets the PrinterPaperTray value for FirstPageTray in page setup options
+section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
+//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
+section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
+//Adds a paragraph to created section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -268,7 +191,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -289,86 +212,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-//Sets page setup options
-section.PageSetup.Orientation = PageOrientation.Landscape;
-section.PageSetup.Margins.All = 72;
-section.PageSetup.Borders.LineWidth = 2;
-//Sets the PrinterPaperTray value for FirstPageTray in page setup options
-section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
-//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
-section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-//Sets page setup options
-section.PageSetup.Orientation = PageOrientation.Landscape;
-section.PageSetup.Margins.All = 72;
-section.PageSetup.Borders.LineWidth = 2;
-//Sets the PrinterPaperTray value for FirstPageTray in page setup options
-section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
-//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
-section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-//Sets page setup options
-section.PageSetup.Orientation = PageOrientation.Landscape;
-section.PageSetup.Margins.All = 72;
-section.PageSetup.Borders.LineWidth = 2;
-//Sets the PrinterPaperTray value for FirstPageTray in page setup options
-section.PageSetup.FirstPageTray = PrinterPaperTray.EnvelopeFeed;
-//Sets the PrinterPaperTray value for OtherPagesTray in page setup options
-section.PageSetup.OtherPagesTray = PrinterPaperTray.MiddleBin;
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Page-setup-properties).
@@ -381,7 +224,44 @@ The following code example shows how to display contents in multiple columns.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds the section into Word document
+IWSection section = document.AddSection();
+//Adds the column into the section
+section.AddColumn(150, 20);
+//Adds the column into the section
+section.AddColumn(150, 20);
+//Adds the column into the section
+section.AddColumn(150, 20);
+//Adds a paragraph to created section
+IWParagraph paragraph = section.AddParagraph();
+//Adds a paragraph to created section
+paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Adds the column break
+paragraph.AppendBreak(BreakType.ColumnBreak);
+//Adds a paragraph to created section
+paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Adds the column break
+paragraph.AppendBreak(BreakType.ColumnBreak);
+//Adds a paragraph to created section
+paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -416,7 +296,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -451,128 +331,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-//Adds the column into the section    
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph         
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to MemoryStream        
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds the column into the section
-section.AddColumn(150, 20);
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Adds the column break
-paragraph.AppendBreak(BreakType.ColumnBreak);
-//Adds a paragraph to created section
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Create-multi-column-document).
@@ -583,7 +341,39 @@ You can prefer to have more sections in a Word document when you need to have di
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds the section into Word document
+IWSection section = document.AddSection();
+//Adds a paragraph to created section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends the text to the created paragraph
+paragraph.AppendText(paraText);
+//Sets the page size
+section.PageSetup.PageSize = PageSize.A4;
+//Sets the page orientation as portrait
+section.PageSetup.Orientation = PageOrientation.Portrait;
+//Adds the new section to the document
+section = document.AddSection();
+//Sets the section break
+section.BreakCode = SectionBreakCode.NewPage;
+paragraph = section.AddParagraph();
+//Sets the page size
+section.PageSetup.PageSize = PageSize.A4;
+//Sets the page orientation as land scape
+section.PageSetup.Orientation = PageOrientation.Landscape;
+//Appends the text to the paragraph
+paragraph.AppendText(paraText);
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -613,7 +403,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -643,113 +433,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as portrait
-section.PageSetup.Orientation = PageOrientation.Portrait;
-//Adds the new section to the document
-section = document.AddSection();
-//Sets the section break
-section.BreakCode = SectionBreakCode.NewPage;
-paragraph = section.AddParagraph();
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as land scape
-section.PageSetup.Orientation = PageOrientation.Landscape;
-//Appends the text to the paragraph
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();  
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as portrait
-section.PageSetup.Orientation = PageOrientation.Portrait;
-//Adds the new section to the document
-section = document.AddSection();
-//Sets the section break
-section.BreakCode = SectionBreakCode.NewPage;
-paragraph = section.AddParagraph();
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as land scape
-section.PageSetup.Orientation = PageOrientation.Landscape;
-//Appends the text to the paragraph
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser       
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();        
-//Adds a paragraph to created section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends the text to the created paragraph
-paragraph.AppendText(paraText);
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as portrait
-section.PageSetup.Orientation = PageOrientation.Portrait;
-//Adds the new section to the document
-section = document.AddSection();
-//Sets the section break
-section.BreakCode = SectionBreakCode.NewPage;
-paragraph = section.AddParagraph();
-//Sets the page size
-section.PageSetup.PageSize = PageSize.A4;
-//Sets the page orientation as land scape
-section.PageSetup.Orientation = PageOrientation.Landscape;
-//Appends the text to the paragraph
-paragraph.AppendText(paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Document-with-different-page-settings).
@@ -769,7 +452,38 @@ The following code example illustrates how to add simple header and footer into 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds the first section to the document
+IWSection section = document.AddSection();
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends some text to the first page in document
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the second page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the third page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+//Inserts the default page header
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+paragraph.AppendText("[ Default Page Header ]");
+//Inserts the default Page footer
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+paragraph.AppendText("[ Default Page Footer ]");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -798,7 +512,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -827,119 +541,54 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default Page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream        
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default Page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default Page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Simple-headers-and-footers).
 
 You can have a specific header and footer contents for the first page in a Word document. The following code illustrates the same. 
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds the first section to the document
+IWSection section = document.AddSection();
+//Sets DifferentFirstPage as true for inserting header and footer text
+section.PageSetup.DifferentFirstPage = true;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends some text to the first page in document
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the second page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the third page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+//Inserts the first page header
+paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
+paragraph.AppendText("[First Page Header ]");
+//Inserts the first page footer
+paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
+paragraph.AppendText("[ First Page Footer ]");
+//Inserts the default page header
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+paragraph.AppendText("[ Default Page Header ]");
+//Inserts the default page footer
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+paragraph.AppendText("[ Default Page Footer ]");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -976,7 +625,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1013,134 +662,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentFirstPage as true for inserting header and footer text
-section.PageSetup.DifferentFirstPage = true;    
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the first page header
-paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
-paragraph.AppendText("[First Page Header ]");
-//Inserts the first page footer
-paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
-paragraph.AppendText("[ First Page Footer ]");
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentFirstPage as true for inserting header and footer text
-section.PageSetup.DifferentFirstPage = true;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the first page header
-paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
-paragraph.AppendText("[First Page Header ]");
-//Inserts the first page footer
-paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
-paragraph.AppendText("[ First Page Footer ]");
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentFirstPage as true for inserting header and footer text
-section.PageSetup.DifferentFirstPage = true;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the first page header
-paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
-paragraph.AppendText("[First Page Header ]");
-//Inserts the first page footer
-paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
-paragraph.AppendText("[ First Page Footer ]");
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Header-and-footers-for-first-page).
@@ -1151,7 +672,46 @@ The following code example shows how to set different header and footer for the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds the first section to the document
+IWSection section = document.AddSection();
+//Sets DifferentOddAndEvenPages as true for inserting header and footer text
+section.PageSetup.DifferentOddAndEvenPages = true;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends some text to the first page in document
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the second page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the third page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+//Inserts the odd page header
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+paragraph.AppendText("[ Odd Page Header ]");
+//Inserts the default page footer
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+paragraph.AppendText("[ Odd Page Footer ]");
+//Inserts the even page header
+paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
+paragraph.AppendText("[Even Page Header ]");
+//Inserts the even page footer
+paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
+paragraph.AppendText("[ Even Page Footer ]");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1188,7 +748,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1225,134 +785,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentOddAndEvenPages as true for inserting header and footer text
-section.PageSetup.DifferentOddAndEvenPages = true;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the odd page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Odd Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Odd Page Footer ]");
-//Inserts the even page header
-paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
-paragraph.AppendText("[Even Page Header ]");
-//Inserts the even page footer
-paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
-paragraph.AppendText("[ Even Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentOddAndEvenPages as true for inserting header and footer text
-section.PageSetup.DifferentOddAndEvenPages = true;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the odd page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Odd Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Odd Page Footer ]");
-//Inserts the even page header
-paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
-paragraph.AppendText("[Even Page Header ]");
-//Inserts the even page footer
-paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
-paragraph.AppendText("[ Even Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Sets DifferentOddAndEvenPages as true for inserting header and footer text
-section.PageSetup.DifferentOddAndEvenPages = true;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the odd page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Odd Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Odd Page Footer ]");
-//Inserts the even page header
-paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
-paragraph.AppendText("[Even Page Header ]");
-//Inserts the even page footer
-paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
-paragraph.AppendText("[ Even Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Odd-and-even-page-header-footer).
@@ -1361,9 +793,50 @@ You can use the previous section header and footer for the current section by us
 
 The following code example shows how to link the previous section header and footer for the current section.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds the first section to the document
+IWSection section = document.AddSection();
+//Inserts the first section header
+section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
+//Inserts the first section footer
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends some text to the first page in document
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+//Adds the second section to the document
+section = document.AddSection();
+//Inserts the second section header
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
+//Inserts the second section footer.
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
+//Sets LinkToPrevious as true for retrieve the header and footer from previous section
+section.HeadersFooters.LinkToPrevious = true;
+//Appends some text to the second page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+//Adds the third section to the document
+section = document.AddSection();
+//Inserts the third section header
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
+//Inserts the third section footer
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
+//Appends some text to the third page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -1402,7 +875,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -1441,140 +914,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Inserts the first section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
-//Inserts the first section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-//Adds the second section to the document
-section = document.AddSection();
-//Inserts the second section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
-//Inserts the second section footer.
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
-//Sets LinkToPrevious as true for retrieve the header and footer from previous section
-section.HeadersFooters.LinkToPrevious = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-//Adds the third section to the document
-section = document.AddSection();
-//Inserts the third section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
-//Inserts the third section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Inserts the first section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
-//Inserts the first section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-//Adds the second section to the document
-section = document.AddSection();
-//Inserts the second section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
-//Inserts the second section footer.
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
-//Sets LinkToPrevious as true for retrieve the header and footer from previous section
-section.HeadersFooters.LinkToPrevious = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-//Adds the third section to the document
-section = document.AddSection();
-//Inserts the third section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
-//Inserts the third section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Inserts the first section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
-//Inserts the first section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-//Adds the second section to the document
-section = document.AddSection();
-//Inserts the second section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
-//Inserts the second section footer.
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
-//Sets LinkToPrevious as true for retrieve the header and footer from previous section
-section.HeadersFooters.LinkToPrevious = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-//Adds the third section to the document
-section = document.AddSection();
-//Inserts the third section header
-section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
-//Inserts the third section footer
-section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Link-previous-section).
@@ -1585,7 +924,34 @@ You can remove the headers and footers from an existing Word document. The follo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Open an existing document.
+FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Iterate to each section in the Word document.
+foreach (WSection section in document.Sections)
+{
+    //Remove the first page header.
+    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+    //Remove the first page footer.
+    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+    //Remove the odd footer.
+    section.HeadersFooters.OddFooter.ChildEntities.Clear();
+    //Remove the odd header.
+    section.HeadersFooters.OddHeader.ChildEntities.Clear();
+    //Remove the even header.
+    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
+    //Remove the even footer.
+    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+}
+//Save and close the Word document instance.
+MemoryStream stream = new MemoryStream();
+//Save the Word document to the MemoryStream.
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Open an existing document.
 WordDocument document = new WordDocument("Input.docx", FormatType.Automatic);
 //Iterate to each section in the Word document.
@@ -1609,7 +975,7 @@ document.Save("Output.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Open an existing document.
 Dim document As WordDocument = New WordDocument("Input.docx", FormatType.Automatic)
 'Iterate to each section in the Word document.
@@ -1630,99 +996,6 @@ Next
 'Save the Word document.
 document.Save("Output.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Open an existing document.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
-//Iterate to each section in the Word document.
-foreach (WSection section in document.Sections)
-{
-    //Remove the first page header.
-    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-    //Remove the first page footer.
-    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
-    //Remove the odd footer.
-    section.HeadersFooters.OddFooter.ChildEntities.Clear();
-    //Remove the odd header.
-    section.HeadersFooters.OddHeader.ChildEntities.Clear();
-    //Remove the even header.
-    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-    //Remove the even footer.
-    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-}
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word file to the MemoryStream.
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Save the stream a Word file in the local machine.
-Save(stream, "Output.docx");
-//Please refer to the below link to save the Word document in the UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Open an existing document.
-FileStream inputStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read);
-WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
-//Iterate to each section in the Word document.
-foreach (WSection section in document.Sections)
-{
-    //Remove the first page header.
-    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-    //Remove the first page footer.
-    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
-    //Remove the odd footer.
-    section.HeadersFooters.OddFooter.ChildEntities.Clear();
-    //Remove the odd header.
-    section.HeadersFooters.OddHeader.ChildEntities.Clear();
-    //Remove the even header.
-    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-    //Remove the even footer.
-    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-}
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word document to the MemoryStream.
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download the Word document in the browser.
-return File(stream, "application/msword", "Output.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Open an existing document.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
-WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
-//Iterate to each section in the Word document.
-foreach (WSection section in document.Sections)
-{
-    //Remove the first page header.
-    section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-    //Remove the first page footer.
-    section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
-    //Remove the odd footer.
-    section.HeadersFooters.OddFooter.ChildEntities.Clear();
-    //Remove the odd header.
-    section.HeadersFooters.OddHeader.ChildEntities.Clear();
-    //Remove the even header.
-    section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-    //Remove the even footer.
-    section.HeadersFooters.EvenFooter.ChildEntities.Clear();
-}
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word file to the MemoryStream.
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream a file and open the file for viewing in the Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1731,92 +1004,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Adding Page Numbers
 
-You can insert the current page number within the document contents. The following code example illustrates how to insert current page number within footer.   
+You can insert the current page number within the document contents. The following code example illustrates how to insert current page number within footer.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-section.PageSetup.PageStartingNumber = 1;
-section.PageSetup.RestartPageNumbering = true;
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
-//Adds a footer paragraph text to the document
-IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
-paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
-//Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015");
-//Adds page number field to the document
-paragraph.AppendText("\tPage ");
-paragraph.AppendField("Page", FieldType.FieldPage);
-//Adds the paragraph
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-document.Save("Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new Word document
-Dim document As New WordDocument()
-'Adds the section into Word document
-Dim section As IWSection = document.AddSection()
-section.PageSetup.PageStartingNumber = 1
-section.PageSetup.RestartPageNumbering = True
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic
-'Adds a footer paragraph text to the document
-Dim paragraph As IWParagraph = section.HeadersFooters.Footer.AddParagraph()
-paragraph.ParagraphFormat.Tabs.AddTab(523.0F, TabJustification.Right, TabLeader.NoLeader)
-'Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015")
-'Adds page number field to the document
-paragraph.AppendText(vbTab & "Page ")
-paragraph.AppendField("Page", FieldType.FieldPage)
-'Adds the paragraph
-paragraph = section.AddParagraph()
-'Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
-'Saves and closes the Word document instance
-document.Save("Sample.docx", FormatType.Docx)
-document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-section.PageSetup.PageStartingNumber = 1;
-section.PageSetup.RestartPageNumbering = true;
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
-//Adds a footer paragraph text to the document
-IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
-paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
-//Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015");
-//Adds page number field to the document
-paragraph.AppendText("\tPage ");
-paragraph.AppendField("Page", FieldType.FieldPage);
-//Adds the paragraph
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1841,12 +1033,9 @@ MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 document.Save(stream, FormatType.Docx);
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1867,14 +1056,33 @@ paragraph = section.AddParagraph();
 //Appends the text to the created paragraph
 paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 //Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
+document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+'Creates a new Word document
+Dim document As New WordDocument()
+'Adds the section into Word document
+Dim section As IWSection = document.AddSection()
+section.PageSetup.PageStartingNumber = 1
+section.PageSetup.RestartPageNumbering = True
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic
+'Adds a footer paragraph text to the document
+Dim paragraph As IWParagraph = section.HeadersFooters.Footer.AddParagraph()
+paragraph.ParagraphFormat.Tabs.AddTab(523.0F, TabJustification.Right, TabLeader.NoLeader)
+'Adds text for the footer paragraph
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015")
+'Adds page number field to the document
+paragraph.AppendText(vbTab & "Page ")
+paragraph.AppendField("Page", FieldType.FieldPage)
+'Adds the paragraph
+paragraph = section.AddParagraph()
+'Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+'Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}
@@ -1883,7 +1091,39 @@ The following code example illustrates how to add the current page number and to
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds the section into Word document
+IWSection section = document.AddSection();
+section.PageSetup.PageStartingNumber = 1;
+section.PageSetup.RestartPageNumbering = true;
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+//Adds a footer paragraph text to the document
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+// Adds text for the footer paragraph
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
+//Adds the text
+paragraph.AppendText(" Page ");
+//Adds page number field to the document
+paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
+//Adds the text
+paragraph.AppendText(" of ");
+//Adds number of page field to the document
+paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
+//Adds the paragraph
+paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into Word document
@@ -1913,7 +1153,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into Word document
@@ -1941,113 +1181,6 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-section.PageSetup.PageStartingNumber = 1;
-section.PageSetup.RestartPageNumbering = true;
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
-//Adds a footer paragraph text to the document
-IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
-paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
-//Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
-//Adds the text
-paragraph.AppendText(" Page ");
-//Adds page number field to the document
-paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
-// Adds the text
-paragraph.AppendText(" of ");
-//Adds number of page field to the document
-paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
-//Adds the paragraph
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-section.PageSetup.PageStartingNumber = 1;
-section.PageSetup.RestartPageNumbering = true;
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
-//Adds a footer paragraph text to the document
-IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
-paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
-// Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
-//Adds the text
-paragraph.AppendText(" Page ");
-//Adds page number field to the document
-paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
-//Adds the text
-paragraph.AppendText(" of ");
-//Adds number of page field to the document
-paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
-//Adds the paragraph
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into Word document
-IWSection section = document.AddSection();
-section.PageSetup.PageStartingNumber = 1;
-section.PageSetup.RestartPageNumbering = true;
-section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
-//Adds a footer paragraph text to the document
-IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
-paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
-//Adds text for the footer paragraph
-paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
-//Adds the text
-paragraph.AppendText(" Page ");
-//Adds page number field to the document
-paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
-//Adds the text
-paragraph.AppendText(" of ");
-//Adds number of page field to the document
-paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
-//Adds the paragraph
-paragraph = section.AddParagraph();
-//Appends the text to the created paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2056,7 +1189,42 @@ The following code example shows how to adjust the height of header and footer.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds the first section to the document
+IWSection section = document.AddSection();
+//Specifies the value to header distance
+section.PageSetup.HeaderDistance = 100;
+//Specifies the value to footer distance
+section.PageSetup.FooterDistance = 100;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Appends some text to the first page in document
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the second page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+paragraph.ParagraphFormat.PageBreakAfter = true;
+//Appends some text to the third page in document
+paragraph = section.AddParagraph();
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+//Inserts the default page header
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+paragraph.AppendText("[ Default Page Header ]");
+//Inserts the default page footer
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+paragraph.AppendText("[ Default Page Footer ]");
+//Saves and closes the Word document instance
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds the first section to the document
@@ -2089,7 +1257,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Adds the first section to the document
@@ -2122,122 +1290,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Specifies the value to header distance
-section.PageSetup.HeaderDistance = 100;
-//Specifies the value to footer distance
-section.PageSetup.FooterDistance = 100;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();        
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Specifies the value to header distance
-section.PageSetup.HeaderDistance = 100;
-//Specifies the value to footer distance
-section.PageSetup.FooterDistance = 100;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds the first section to the document
-IWSection section = document.AddSection();
-//Specifies the value to header distance
-section.PageSetup.HeaderDistance = 100;
-//Specifies the value to footer distance
-section.PageSetup.FooterDistance = 100;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Appends some text to the first page in document
-paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the second page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
-paragraph.ParagraphFormat.PageBreakAfter = true;
-//Appends some text to the third page in document
-paragraph = section.AddParagraph();
-paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
-//Inserts the default page header
-paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-paragraph.AppendText("[ Default Page Header ]");
-//Inserts the default page footer
-paragraph = section.HeadersFooters.OddFooter.AddParagraph();
-paragraph.AppendText("[ Default Page Footer ]");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Sections/Add-page-number-in-footer).
@@ -2250,7 +1302,33 @@ The following code example illustrates how to apply page borders and format usin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the document.
+    IWSection section = document.AddSection();
+    //Set the borders style.
+    section.PageSetup.Borders.BorderType = BorderStyle.Single;
+    //Set the color of the borders.
+    section.PageSetup.Borders.Color = Color.Blue;
+    //Set the linewidth of the borders.
+    section.PageSetup.Borders.LineWidth = 0.75f;
+    //Set the page border margins.
+    section.PageSetup.Borders.Top.Space = 5f;
+    section.PageSetup.Borders.Bottom.Space = 5f;
+    section.PageSetup.Borders.Right.Space = 5f;
+    section.PageSetup.Borders.Left.Space = 5f;
+    //Add a paragraph to a section.
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Save the Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -2275,7 +1353,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
     'Add a section to the document.
@@ -2297,95 +1375,6 @@ Using document As WordDocument = New WordDocument()
     'Save the Word document.
     document.Save("Sample.docx", FormatType.Docx)
 End Using
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a section to the document.
-    IWSection section = document.AddSection();
-    //Set the borders style.
-    section.PageSetup.Borders.BorderType = BorderStyle.Single;
-    //Set the color of the borders.
-    section.PageSetup.Borders.Color = Color.Blue;
-    //Set the linewidth of the borders.
-    section.PageSetup.Borders.LineWidth = 0.75f;
-    //Set the page border margins.
-    section.PageSetup.Borders.Top.Space = 5f;
-    section.PageSetup.Borders.Bottom.Space = 5f;
-    section.PageSetup.Borders.Right.Space = 5f;
-    section.PageSetup.Borders.Left.Space = 5f;
-    //Add a paragraph to a section.
-    IWParagraph paragraph = section.AddParagraph();
-    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    MemoryStream stream = new MemoryStream();
-    //Save the Word document to the MemoryStream
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Save the stream as Word file in local machine.
-    Save(stream, "Sample.docx");
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a section to the document.
-    IWSection section = document.AddSection();
-    //Set the borders style.
-    section.PageSetup.Borders.BorderType = BorderStyle.Single;
-    //Set the color of the borders.
-    section.PageSetup.Borders.Color = Color.Blue;
-    //Set the linewidth of the borders.
-    section.PageSetup.Borders.LineWidth = 0.75f;
-    //Set the page border margins.
-    section.PageSetup.Borders.Top.Space = 5f;
-    section.PageSetup.Borders.Bottom.Space = 5f;
-    section.PageSetup.Borders.Right.Space = 5f;
-    section.PageSetup.Borders.Left.Space = 5f;
-    //Add a paragraph to a section.
-    IWParagraph paragraph = section.AddParagraph();
-    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    //Save the Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-    outputStream.Position = 0;
-    //Download Word document in the browser.
-    return File(outputStream, "application/msword", "Sample.docx");
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a section to the document.
-    IWSection section = document.AddSection();
-    //Set the borders style.
-    section.PageSetup.Borders.BorderType = BorderStyle.Single;
-    //Set the color of the borders.
-    section.PageSetup.Borders.Color = Color.Blue;
-    //Set the linewidth of the borders.
-    section.PageSetup.Borders.LineWidth = 0.75f;
-    //Set the page border margins.
-    section.PageSetup.Borders.Top.Space = 5f;
-    section.PageSetup.Borders.Bottom.Space = 5f;
-    section.PageSetup.Borders.Right.Space = 5f;
-    section.PageSetup.Borders.Left.Space = 5f;
-    //Add a paragraph to a section.
-    IWParagraph paragraph = section.AddParagraph();
-    paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    //Save the Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-    //Save the stream as a file in the device and invoke it for viewing.
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-}
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2405,78 +1394,7 @@ The following code example illustrates how to add line numbers in a Word documen
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Load an existing Word document.
-using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
-{
-    //Iterate each section.
-    foreach (WSection section in document.Sections)
-    {
-        //Set the line number distance from the text.
-        section.PageSetup.LineNumberingDistanceFromText = 10;
-        //Set the numbering mode.
-        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
-        //Set the starting line number value.
-        section.PageSetup.LineNumberingStartValue = 1;
-        //Set the increment value for line numbering.
-        section.PageSetup.LineNumberingStep = 2;
-    }
-    //Save a Word document.
-    document.Save("Sample.docx", FormatType.Docx);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Load an existing Word document.
-Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
-    //Iterate each section.
-    For Each section As WSection In document.Sections
-        'Set the line number distance from the text.
-        section.PageSetup.LineNumberingDistanceFromText = 10
-        'Set the numbering mode.
-        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous
-        'Set the starting line number value.
-        section.PageSetup.LineNumberingStartValue = 1
-        'Set the increment value for line numbering.
-        section.PageSetup.LineNumberingStep = 2
-    Next
-    'Save a Word document.
-    document.Save("Sample.docx", FormatType.Docx)
-End Using
-
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Open the file as Stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Iterate each section.
-        foreach (WSection section in document.Sections)
-        {
-            //Set the line number distance from the text.
-            section.PageSetup.LineNumberingDistanceFromText = 10;
-            //Set the numbering mode.
-            section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
-            //Set the starting line number value.
-            section.PageSetup.LineNumberingStartValue = 1;
-            //Set the increment value for line numbering.
-            section.PageSetup.LineNumberingStep = 2;
-        }
-        //Save a Word document to the MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        await document.SaveAsync(stream, FormatType.Docx);
-        //Save the stream as a Word document file on the local machine.
-        Save(stream, "Sample.docx");
-    }
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -2498,41 +1416,49 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
         //Save a  Word document to the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
-        outputStream.Position = 0;
-        //Download as a Word document in the browser.
-        return File(outputStream, "application/msword", "Sample.docx");
     }
 }
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Open the file as Stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    //Iterate each section.
+    foreach (WSection section in document.Sections)
     {
-        //Iterate each section.
-        foreach (WSection section in document.Sections)
-        {
-            //Set the line number distance from the text.
-            section.PageSetup.LineNumberingDistanceFromText = 10;
-            //Set the numbering mode.
-            section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
-            //Set the starting line number value.
-            section.PageSetup.LineNumberingStartValue = 1;
-            //Set the increment value for line numbering.
-            section.PageSetup.LineNumberingStep = 2;
-        }
-        //Save a Word document to the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Docx);
-        //Save the stream as a file in the device and invoke it for viewing. 
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
+        //Set the line number distance from the text.
+        section.PageSetup.LineNumberingDistanceFromText = 10;
+        //Set the numbering mode.
+        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
+        //Set the starting line number value.
+        section.PageSetup.LineNumberingStartValue = 1;
+        //Set the increment value for line numbering.
+        section.PageSetup.LineNumberingStep = 2;
     }
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
 }
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    //Iterate each section.
+    For Each section As WSection In document.Sections
+        'Set the line number distance from the text.
+        section.PageSetup.LineNumberingDistanceFromText = 10
+        'Set the numbering mode.
+        section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous
+        'Set the starting line number value.
+        section.PageSetup.LineNumberingStartValue = 1
+        'Set the increment value for line numbering.
+        section.PageSetup.LineNumberingStep = 2
+    Next
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -2545,46 +1471,7 @@ The following code example illustrates how to remove a particular section from t
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens an input Word template
-WordDocument document = new WordDocument(inputFileName);
-//Removes the second section from the collection
-document.Sections.RemoveAt(1);
-//Saves and closes the Word document instance
-document.Save("Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens an input Word template
-Dim document As New WordDocument(inputFileName)
-'Removes the second section from the collection
-document.Sections.RemoveAt(1)
-‘Saves and closes the Word document instance
-document.Save("Sample.docx", FormatType.Docx)
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
-//Opens an input Word template
-WordDocument document = new WordDocument(inputFileStream);
-//Removes the second section from the collection
-document.Sections.RemoveAt(1);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream inputFileStream = new FileStream(inputFileName, FileMode.Open, FileAccess.ReadWrite);
 //Opens an input Word template
 WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
@@ -2598,24 +1485,26 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+//Opens an input Word template
+WordDocument document = new WordDocument(inputFileName);
 //Removes the second section from the collection
 document.Sections.RemoveAt(1);
 //Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
+document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+'Opens an input Word template
+Dim document As New WordDocument(inputFileName)
+'Removes the second section from the collection
+document.Sections.RemoveAt(1)
+‘Saves and closes the Word document instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}
