@@ -2188,7 +2188,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 {% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 
@@ -2251,7 +2251,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 {% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Convert Partial HTML to SVG
 htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
