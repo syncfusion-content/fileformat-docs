@@ -2197,7 +2197,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter()
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
@@ -2212,7 +2212,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Initialize the memory stream
 MemoryStream stream = new MemoryStream();
 //Convert URL to SVG
