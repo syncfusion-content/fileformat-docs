@@ -78,8 +78,8 @@ using (WordDocument document = new WordDocument())
     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
     //Sets category labels
     chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
@@ -234,8 +234,8 @@ using (WordDocument document = new WordDocument())
     chart.PrimaryValueAxis.Title = "In Dollars";
     //Sets position of legend
     chart.Legend.Position = OfficeLegendPosition.Bottom;
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
@@ -357,8 +357,8 @@ using (WordDocument document = new WordDocument())
     chart.PrimaryValueAxis.Title = "In Dollars";
     //Sets position of legend
     chart.Legend.Position = OfficeLegendPosition.Bottom;
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
