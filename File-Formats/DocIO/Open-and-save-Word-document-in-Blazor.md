@@ -100,6 +100,7 @@ public MemoryStream OpenAndSaveDocument()
         using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     }
 }
+{% endhighlight %}
 
 Step 10: Add below code example to add a paragraph in the Word document.
 
