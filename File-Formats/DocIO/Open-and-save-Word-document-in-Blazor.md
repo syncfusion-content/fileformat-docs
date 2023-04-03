@@ -102,6 +102,8 @@ public MemoryStream OpenAndSaveDocument()
 }
 {% endhighlight %}
 
+{% endtabs %}
+
 Step 10: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
