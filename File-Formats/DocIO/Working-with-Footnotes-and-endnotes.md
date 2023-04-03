@@ -43,8 +43,8 @@ using (WordDocument document = new WordDocument())
     //Adds footnote text
     paragraph = footnote.TextBody.AddParagraph();
     paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
@@ -137,8 +137,8 @@ using (WordDocument document = new WordDocument())
     //Adds endnote text
     paragraph = endnote.TextBody.AddParagraph();
     paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
@@ -405,8 +405,8 @@ using (WordDocument document = new WordDocument())
     //Adds footnote text
     paragraph = footnote.TextBody.AddParagraph();
     paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
@@ -506,8 +506,8 @@ using (WordDocument document = new WordDocument())
     //Adds endnote text
     paragraph = endnote.TextBody.AddParagraph();
     paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    MemoryStream stream = new MemoryStream();
     //Saves the Word document to  MemoryStream
+    MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     document.Close();
 }
