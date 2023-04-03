@@ -2235,7 +2235,8 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion).
 
-N> Syncfusion PDF supports converting XPS to PDF with  [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application. HTML to SVG conversion is not supported on Mac platforms.
+N> 1. Syncfusion PDF supports converting HTML to SVG with  [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application.
+N> 2. HTML to SVG conversion is not supported on Mac platforms.
 
 ## Partial webpage to SVG
 
@@ -2316,7 +2317,8 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-SVG/.NET-Standard).
 
-N>Syncfusion PDF supports Partial HTML to SVG conversion with [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application. Partial HTML to SVG conversion is not supported on Mac platforms.
+N> 1. Syncfusion PDF supports Partial HTML to SVG conversion with [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application.
+N> 2. Partial HTML to SVG conversion is not supported on Mac platforms.
 
 ## SVG to PDF 
 
