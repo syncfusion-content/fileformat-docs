@@ -30,7 +30,7 @@ DocIO supports the following WordprocessingML:
 The following code example explains how to create a new Word document with few lines of code.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -42,7 +42,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -54,25 +54,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-using (WordDocument document = new WordDocument())
-{
-    //Adds a section and a paragraph to the document
-    document.EnsureMinimal();
-    //Appends text to the last paragraph of the document
-    document.LastParagraph.AppendText("Hello World");
-    MemoryStream stream = new MemoryStream();
-    //Saves the Word file to MemoryStream
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Saves the stream as Word file in local machine
-    Save(stream, "Sample.docx");
-    document.Close();
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -80,33 +62,11 @@ using (WordDocument document = new WordDocument())
     document.EnsureMinimal();
     //Appends text to the last paragraph of the document
     document.LastParagraph.AppendText("Hello World");
+    //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     //Saves and closes the destination document to  MemoryStream
     document.Save(stream, FormatType.Docx);
     document.Close();
-    stream.Position = 0;
-    //Download Word document in the browser
-    return File(stream, "application/msword", "Sample.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new instance of WordDocument (Empty Word Document)
-using (WordDocument document = new WordDocument())
-{
-    //Adds a section and a paragraph to the document
-    document.EnsureMinimal();
-    //Appends text to the last paragraph of the document
-    document.LastParagraph.AppendText("Hello World");
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-    //Closes the document              
-    document.Close();
-
-    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -119,7 +79,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 DOTX is a Word document template. The following code snippet shows how to create the Word document template with few lines of code.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -131,7 +91,7 @@ document.Save("Sample.dotx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -143,25 +103,7 @@ document.Save("Sample.dotx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-using (WordDocument document = new WordDocument())
-{
-    //Adds a section and a paragraph to the document
-    document.EnsureMinimal();
-    //Appends text to the last paragraph of the document
-    document.LastParagraph.AppendText("Hello World");
-    MemoryStream stream = new MemoryStream();
-    //Saves the Word file to MemoryStream
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Saves the stream as Word file in local machine
-    Save(stream, "Sample.dotx");
-    document.Close();
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -169,32 +111,11 @@ using (WordDocument document = new WordDocument())
     document.EnsureMinimal();
     //Appends text to the last paragraph of the document
     document.LastParagraph.AppendText("Hello World");
+    //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     //Saves and closes the destination document to  MemoryStream
     document.Save(stream, FormatType.Dotx);
     document.Close();
-    stream.Position = 0;
-    //Download Word document in the browser
-    return File(stream, "application/msword", "Sample.dotx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new instance of WordDocument (Empty Word Document)
-using (WordDocument document = new WordDocument())
-{
-    //Adds a section and a paragraph to the document
-    document.EnsureMinimal();
-    //Appends text to the last paragraph of the document
-    document.LastParagraph.AppendText("Hello World");
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Dotx);
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.dotx", "application/msword", stream);
-    //Closes the document
-    document.Close();
-    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -207,7 +128,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 DOCM is a macro enabled Word document. It is same as DOCX document contains macros and scripts. The DocIO provides only preservation support for macros. The following code illustrates how to load and save a macro enabled document using the DocIO library.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 // Loads the macro-enabled template.
 WordDocument document = new WordDocument("Template.dotm");
 // Gets the table
@@ -219,7 +140,7 @@ document.Save("Sample.docm", FormatType.Word2013Docm);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads the macro-enabled template.
 Dim document As New WordDocument("Template.dotm")
 'Gets the table
@@ -235,7 +156,7 @@ document.Close()
 //DocIO supports Mail merge execute group in Windows forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET CORE platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStreamPath = new FileStream("Template.dotm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm))
@@ -244,13 +165,11 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm)
     DataTable table = GetDataTable();
     // Executes Mail Merge with groups.
     document.MailMerge.ExecuteGroup(table);
+    //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Word2013Docm);
     //Closes the Word document
     document.Close();
-    stream.Position = 0;
-    //Download Word document in the browser
-    return File(stream, "application/msword", "Sample.docm");
 }
 {% endhighlight %}
 
@@ -274,7 +193,7 @@ N> 3. The custom XML elements present in the Word Processing 2003 XML documents 
 The following code example shows how to convert the Word document into Word Processing XML document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Saves the document as Word Processing ML document
@@ -283,7 +202,7 @@ document.Save("WordToWordML.xml", FormatType.WordML);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads an existing Word document 
 Dim document As New WordDocument("Template.docx")
 'Saves the document as Word Processing ML document
@@ -292,51 +211,16 @@ document.Save("WordToWordML.xml", FormatType.WordML)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
-{
-    MemoryStream stream = new MemoryStream();
-    await document.SaveAsync(stream, FormatType.WordML);
-    //Saves the stream as Word file in local machine
-    Save(stream, "WordToWordML.xml");
-    //Closes the Word document
-    document.Close();
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
+    //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.WordML);
     //Closes the Word document
     document.Close();
-    stream.Position = 0;
-    //Download Word document in the browser
-    return File(stream, "application/msword", "WordToWordML.xml");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.docx")), FormatType.Docx))
-{
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.WordML);
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToWordML.xml", "application/msword", stream);
-    //Closes the Word document
-    document.Close();
-    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -347,7 +231,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert the Word Processing XML document into Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 // Loads an existing Word document 
 WordDocument document = new WordDocument("Template.xml");
 //Saves the Word Processing ML document as docx
@@ -356,7 +240,7 @@ document.Save("WordMLToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 ' Loads an existing Word document 
 Dim document As New WordDocument("Template.xml")
 'Saves the Word Processing ML document as docx 
@@ -365,51 +249,16 @@ document.Save("WordMLToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")), FormatType.WordML))
-{
-    MemoryStream stream = new MemoryStream();
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Saves the stream as Word file in local machine
-    Save(stream, "WordMLToWord.docx");
-    //Closes the Word document
-    document.Close();
-}
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStreamPath = new FileStream("Template.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.WordML))
 {
+    //Saves the Word document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
     //Closes the Word document
     document.Close();
-    stream.Position = 0;
-    //Download Word document in the browser
-    return File(stream, "application/msword", "WordMLToWord.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("Sample.Assets.Template.xml")), FormatType.WordML))
-{
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordMLToWord.docx", "application/msword", stream);
-    //Closes the Word document
-    document.Close();
-    //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
@@ -483,7 +332,7 @@ DOC is one of the classic file format of Word processing document. It is a propr
 The DocIO library supports importing or exporting of DOC format and refer to the following code sample.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -495,7 +344,7 @@ document.Save("BinaryDocument.doc");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -557,7 +406,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -603,7 +452,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code shows, how to convert the DOC file into DOCX file format using DocIO
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.doc", FormatType.Doc);
 //Saves the binary document(.doc) as Word Document(.docx) file
@@ -612,7 +461,7 @@ document.Save("DocToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.doc", FormatType.Doc)
 ' Saves the binary document(.doc) as Word Document(.docx) file
@@ -638,7 +487,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStreamPath = new FileStream("Template.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
@@ -676,7 +525,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code shows, how to convert the DOCX file into DOC file format using DocIO
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the Word Document(.docx) as binary document(.doc) file
@@ -685,7 +534,7 @@ document.Save("DocxToBinary.doc", FormatType.Doc);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the Word Document(.docx) as binary document(.doc) file 
@@ -743,7 +592,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -784,7 +633,7 @@ The following code shows, how to save Word document with same word version compa
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Enables flag to maintain compatibility with same Word version
@@ -794,7 +643,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Enables flag to maintain compatibility with same Word version
@@ -830,7 +679,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
@@ -891,7 +740,7 @@ The following code example shows how to open a Word (*.doc) document containing 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Sets flag to skip old file format exception while opening document
@@ -904,7 +753,7 @@ document.Save("Sample.doc", FormatType.Doc);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Sets flag to skip old file format exception while opening document
@@ -971,7 +820,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -1028,7 +877,7 @@ The following code example shows how to preserve embedded Ole image as normal im
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Sets flag to preserve embedded Ole image as normal image while opening document
@@ -1040,7 +889,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Sets flag to preserve embedded Ole image as normal image while opening document
@@ -1074,7 +923,7 @@ using (WordDocument document = new WordDocument())
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {

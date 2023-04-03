@@ -20,7 +20,7 @@ The following code example illustrates how to add a text watermark to the Word d
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -44,7 +44,7 @@ document.Save("TextWatermark.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds a section and a paragraph in the document
@@ -68,38 +68,7 @@ document.Save("TextWatermark.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-IWParagraph paragraph = document.LastParagraph;
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Creates a new text watermark
-TextWatermark textWatermark = new TextWatermark();
-//Sets the created watermark to the document
-document.Watermark = textWatermark;
-//Sets the text watermark font size
-textWatermark.Size = 72;
-//Sets the text watermark layout to Horizontal
-textWatermark.Layout = WatermarkLayout.Horizontal;
-textWatermark.Semitransparent = false;
-//Sets the text watermark text color
-textWatermark.Color = Color.Black;
-//Sets the text to text watermark text
-textWatermark.Text = "TextWatermark";
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "TextWatermark.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -122,38 +91,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result_watermark1.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-IWParagraph paragraph = document.LastParagraph;
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Creates a new text watermark
-TextWatermark textWatermark = new TextWatermark("TextWatermark", "", 250, 100);
-//Sets the created watermark to the document
-document.Watermark = textWatermark;
-//Sets the text watermark font size
-textWatermark.Size = 72;
-//Sets the text watermark layout to Horizontal
-textWatermark.Layout = WatermarkLayout.Horizontal;
-textWatermark.Semitransparent = false;
-//Sets the text watermark text color
-textWatermark.Color = Syncfusion.Drawing.Color.Black;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextWatermark.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -168,7 +105,7 @@ The following code example illustrates how to add a picture watermark to the Wor
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -188,7 +125,7 @@ document.Save("PictureWatermark.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds a section and a paragraph in the document
@@ -212,7 +149,7 @@ document.Close()
 //DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 

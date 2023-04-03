@@ -56,7 +56,7 @@ The following code example shows how to add a table of contents (TOC) in Word do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into the Word document
@@ -103,7 +103,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into the Word document
@@ -154,7 +154,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into the Word document
@@ -201,63 +201,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into the Word document
-IWSection section = document.AddSection();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Adds the paragraph into the created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
-paragraph.AppendTOC(1, 3);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("First Chapter");
-//Sets a built-in heading style.
-paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Second Chapter");
-//Sets a built-in heading style.
-paragraph.ApplyStyle(BuiltinStyle.Heading2);
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text into the headings
-paragraph.AppendText("Third Chapter");
-//Sets a built-in heading style
-paragraph.ApplyStyle(BuiltinStyle.Heading3);
-//Adds the text into the paragraph.
-section.AddParagraph().AppendText(paraText);
-//Updates the table of contents
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing         
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document instance
-document.Close();
-
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -276,7 +219,7 @@ The following code example shows how to update a TOC in an existing word documen
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Opens an input word template
 WordDocument document = new WordDocument(@”Template.docx”);
 //Updates the table of contents.
@@ -286,7 +229,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Opens an input word template
 Dim document As New WordDocument("Template.docx")
 'Updates the table of contents.
@@ -300,7 +243,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -311,25 +254,7 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an existing document through constructor of WordDocument class
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
-//Updates the table of contents
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Saves the stream as a file in the device and invoke it for viewing              
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document instance
-document.Close();
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
@@ -345,7 +270,7 @@ The following code example shows how to create table of contents with user-defin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a new custom styles
@@ -400,7 +325,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a new custom styles
@@ -459,7 +384,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a new custom styles
@@ -514,71 +439,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Creates a new custom styles
-Style style = (WParagraphStyle)document.AddParagraphStyle("MyStyle");
-style.CharacterFormat.Bold = true;
-style.CharacterFormat.FontName = "Verdana";
-style.CharacterFormat.FontSize = 25;
-//Adds the section into the Word document
-IWSection section = document.AddSection();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Adds the paragraph into the created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
-TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
-tableOfContents.UseHeadingStyles = false;
-//Sets the TOC level style based on the created TOC 
-tableOfContents.SetTOCLevelStyle(2, "MyStyle");
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("First Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle("MyStyle");
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Second Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Adds the text to the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into Word document
-section = document.AddSection();
-//Adds a paragraph to a created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Third Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle("MyStyle");
-//Adds the text to the paragraph
-section.AddParagraph().AppendText(paraText);
-//Updates the table of contents
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing     
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document instance
-document.Close();
-
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -593,7 +453,7 @@ The following code example illustrates how to apply switches for the table of co
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -673,7 +533,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
     'Add a section into the Word document.
@@ -756,7 +616,7 @@ End Using
 //DocIO doesn't support updating table of contents in UWP platform.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -831,101 +691,12 @@ using (WordDocument document = new WordDocument())
     tableOfContent.UseTableEntryFields = true;
     //Update the table of contents.
     document.UpdateTableOfContents();
-    //Save a Markdown file to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Markdown);
-    outputStream.Position = 0;
-    //Download as a Markdown file in the browser.
-    FileStream outStream = File.Create("Sample.docx");
-    outputStream.CopyTo(outStream);
-    outputStream.Dispose();
-    outStream.Dispose();
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
 }
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a section to the Word document.
-    IWSection section = document.AddSection();
-    //Add a paragraph to the created section.
-    IWParagraph paragraph = section.AddParagraph();
-    //Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
-    TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
-    //Set lower heading level for TOC.
-    tableOfContent.LowerHeadingLevel = 2;
-    //Set upper heading level for TOC.
-    tableOfContent.UpperHeadingLevel = 5;
-    //Enable a flag to use default heading styles in TOC entries.
-    tableOfContent.UseHeadingStyles = true;
-    //Enable a flag to show page numbers in TOC entries.
-    tableOfContent.IncludePageNumbers = true;
-    //Disable a flag to align page numbers after the TOC entries.
-    tableOfContent.RightAlignPageNumbers = false;
-    //Disable a flag to preserve TOC entries without hyperlinks.
-    tableOfContent.UseHyperlinks = false;
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append text.
-    paragraph.AppendText("First ");
-    //Append line break.
-    paragraph.AppendBreak(BreakType.LineBreak);
-    paragraph.AppendText("Chapter");
-    //Enable a flag to include newline characters in TOC entries.
-    tableOfContent.IncludeNewLineCharacters = true;
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading2);
-    //Add a section to the Word document.
-    section = document.AddSection();
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append text.
-    paragraph.AppendText("Second ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading1);
-    //Add a section to the Word document.
-    section = document.AddSection();
-    paragraph = section.AddParagraph();
-    paragraph.AppendText("Third ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading2);
-    section = document.AddSection();
-    paragraph = section.AddParagraph();
-    paragraph.AppendText("Fourth ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading3);
-    //Add the text to the new paragraph of the section.
-    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Set outline level for paragraph.
-    paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
-    //Append text.
-    paragraph.AppendText("Outline Level Paragraph");
-    //Enable a flag to consider outline level paragraphs in TOC entries.
-    tableOfContent.UseOutlineLevels = true;
-    //Add a section to the Word document.
-    section = document.AddSection();
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append a field to the paragraph.
-    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
-    //Enable a flag to use table entry fields in TOC entries.
-    tableOfContent.UseTableEntryFields = true;
-    //Update the table of contents.
-    document.UpdateTableOfContents();
-    //Save a Word document to MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Markdown);
-    //Save a stream as a file in the device and invoke it for viewing.
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-}
-//Please download the helper files from the following link to save the stream as a file and open the file for viewing on Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
