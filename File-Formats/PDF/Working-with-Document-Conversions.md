@@ -2188,7 +2188,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 {% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 
@@ -2197,7 +2197,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
 {% highlight vb.net tabtitle="VB.NET" %}
 
 'Initialize HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter()
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
@@ -2212,7 +2212,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Initialize the memory stream
 MemoryStream stream = new MemoryStream();
 //Convert URL to SVG
@@ -2235,7 +2235,8 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion).
 
-N> HTML to SVG conversion is not supported in the Mac platforms.
+N> 1. Syncfusion PDF supports converting HTML to SVG with  [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application.
+N> 2. HTML to SVG conversion is not supported on Mac platforms.
 
 ## Partial webpage to SVG
 
@@ -2250,7 +2251,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 {% highlight c# tabtitle="C#" %}
 
 //Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 //Convert Partial HTML to SVG
 htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
@@ -2316,7 +2317,8 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-SVG/.NET-Standard).
 
-N> Partial HTML to SVG conversion is not supported in the Mac platforms.
+N> 1. Syncfusion PDF supports Partial HTML to SVG conversion with [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core) package reference in the .NET Core application.
+N> 2. Partial HTML to SVG conversion is not supported on Mac platforms.
 
 ## SVG to PDF 
 
