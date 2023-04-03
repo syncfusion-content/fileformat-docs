@@ -24,7 +24,7 @@ The following code illustrates how to add new checkbox form field.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -52,7 +52,7 @@ document.Save("Checkbox.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -80,40 +80,7 @@ document.Save("Checkbox.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("Gender\t");
-//Appends new Checkbox
-WCheckBox checkbox = paragraph.AppendCheckBox();
-checkbox.Checked = false;
-//Sets Checkbox size
-checkbox.CheckBoxSize = 10; 
-checkbox.CalculateOnExit = true;
-//Sets help text
-checkbox.Help = "Help text";
-paragraph.AppendText("Male\t");
-checkbox = paragraph.AppendCheckBox();
-checkbox.Checked = false;
-checkbox.CheckBoxSize = 10;
-checkbox.CalculateOnExit = true;
-paragraph.AppendText("Female");
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Checkbox.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -140,42 +107,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Checkbox.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("Gender\t");
-//Appends new Checkbox
-WCheckBox checkbox = paragraph.AppendCheckBox();
-checkbox.Checked = false;
-//Sets Checkbox size
-checkbox.CheckBoxSize = 10; 
-checkbox.CalculateOnExit = true;
-//Sets help text
-checkbox.Help = "Help text";
-paragraph.AppendText("Male\t");
-checkbox = paragraph.AppendCheckBox();
-checkbox.Checked = false;
-checkbox.CheckBoxSize = 10;
-checkbox.CalculateOnExit = true;
-paragraph.AppendText("Female");
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Checkbox.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -186,7 +117,7 @@ You can modify the checkbox properties such as checked state, size, help text in
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Checkbox.docx");
 //Iterates through paragraph items
@@ -207,7 +138,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads the template document 
 Dim document As New WordDocument("Checkbox.docx")
 'Iterates through paragraph items
@@ -227,34 +158,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Checkbox.docx"), FormatType.Docx);
-//Iterates through paragraph items
-foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
-{
-    if (item is WCheckBox)
-    {
-        WCheckBox checkbox = item as WCheckBox;
-        //Modifies check box properties
-        if (checkbox.Checked)
-            checkbox.Checked = false;
-        checkbox.SizeType = CheckBoxSizeType.Exactly;
-    }
-}
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Loads the template document 
 FileStream fileStreamPath = new FileStream("Checkbox.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -275,36 +179,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Checkbox.docx"), FormatType.Docx);
-//Iterates through paragraph items
-foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
-{
-    if (item is WCheckBox)
-    {
-        WCheckBox checkbox = item as WCheckBox;
-        //Modifies check box properties
-        if (checkbox.Checked)
-            checkbox.Checked = false;
-        checkbox.SizeType = CheckBoxSizeType.Exactly;
-    }
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -319,7 +193,7 @@ The following code illustrates how to add a new dropdown field.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -343,7 +217,7 @@ document.Save("Dropdown.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument()
 'Adds new section to the document
@@ -367,36 +241,7 @@ document.Save("Dropdown.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("Educational Qualification\t");
-//Appends Dropdown field
-WDropDownFormField dropDownField = paragraph.AppendDropDownFormField();
-//Adds items to the Dropdown items collection
-dropDownField.DropDownItems.Add("Higher");
-dropDownField.DropDownItems.Add("Vocational");
-dropDownField.DropDownItems.Add("Universal");
-dropDownField.Enabled = true;
-//Sets the item index for default value
-dropDownField.DropDownSelectedIndex = 1;
-dropDownField.CalculateOnExit = true;
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Dropdown.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -419,38 +264,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Dropdown.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("Educational Qualification\t");
-//Appends Dropdown field
-WDropDownFormField dropDownField = paragraph.AppendDropDownFormField();
-//Adds items to the Dropdown items collection
-dropDownField.DropDownItems.Add("Higher");
-dropDownField.DropDownItems.Add("Vocational");
-dropDownField.DropDownItems.Add("Universal");
-dropDownField.Enabled = true;
-//Sets the item index for default value
-dropDownField.DropDownSelectedIndex = 1;
-dropDownField.CalculateOnExit = true;
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dropdown.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -461,7 +274,7 @@ You can add or modify list of items of a Dropdown form field in a Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Dropdown.docx");
 //Iterates through paragraph items
@@ -482,7 +295,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads the template document 
 Dim document As New WordDocument("Dropdown.docx")
 'Iterates through paragraph items
@@ -501,34 +314,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Dropdown.docx"), FormatType.Docx);
-//Iterates through paragraph items
-foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
-{
-    if (item is WDropDownFormField)
-    {
-        WDropDownFormField dropdown = item as WDropDownFormField;
-        //Modifies the dropdown items
-        dropdown.DropDownItems.Remove(1);
-        dropdown.DropDownSelectedIndex = 0;
-        dropdown.CharacterFormat.FontName = "Arial";
-    }
-}
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Loads the template document 
 FileStream fileStreamPath = new FileStream("Dropdown.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -549,36 +335,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Dropdown.docx"), FormatType.Docx);
-//Iterates through paragraph items
-foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
-{
-    if (item is WDropDownFormField)
-    {
-        WDropDownFormField dropdown = item as WDropDownFormField;
-        //Modifies the dropdown items
-        dropdown.DropDownItems.Remove(1);
-        dropdown.DropDownSelectedIndex = 0;
-        dropdown.CharacterFormat.FontName = "Arial";
-    }
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -593,7 +349,7 @@ The following code illustrates how to add new text form field.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -627,7 +383,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -661,46 +417,7 @@ document.Save("textField.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("General Information");
-section.AddParagraph();
-paragraph = section.AddParagraph() as WParagraph;
-IWTextRange text = paragraph.AppendText("Name\t");
-text.CharacterFormat.Bold = true;
-//Appends Text form field 
-WTextFormField textField = paragraph.AppendTextFormField(null);
-//Sets type of Text form field
-textField.Type = TextFormFieldType.RegularText;
-textField.CharacterFormat.FontName = "Calibri";
-textField.CalculateOnExit = true;
-section.AddParagraph();
-paragraph = section.AddParagraph() as WParagraph;
-text = paragraph.AppendText("Date of Birth\t");
-text.CharacterFormat.Bold = true;
-//Appends Text form field
-textField = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"));
-textField.StringFormat = "MM/DD/YY";
-//Sets Text form field type
-textField.Type = TextFormFieldType.DateText;
-textField.CalculateOnExit = true;
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -733,48 +450,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendText("General Information");
-section.AddParagraph();
-paragraph = section.AddParagraph() as WParagraph;
-IWTextRange text = paragraph.AppendText("Name\t");
-text.CharacterFormat.Bold = true;
-//Appends Text form field 
-WTextFormField textField = paragraph.AppendTextFormField(null);
-//Sets type of Text form field
-textField.Type = TextFormFieldType.RegularText;
-textField.CharacterFormat.FontName = "Calibri";
-textField.CalculateOnExit = true;
-section.AddParagraph();
-paragraph = section.AddParagraph() as WParagraph;
-text = paragraph.AppendText("Date of Birth\t");
-text.CharacterFormat.Bold = true;
-//Appends Text form field
-textField = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"));
-textField.StringFormat = "MM/DD/YY";
-//Sets Text form field type
-textField.Type = TextFormFieldType.DateText;
-textField.CalculateOnExit = true;
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -785,7 +460,7 @@ You can add or modify text form field properties such as default text, type in a
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Iterates through section
@@ -819,7 +494,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 'Loads the template document 
 Dim document As New WordDocument("Template.docx")
 'Iterates through section
@@ -850,47 +525,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Iterates through section
-foreach (WSection section in document.Sections)
-    //Iterates through section child elements
-    foreach (WTextBody textBody in section.ChildEntities)
-    {
-        //Iterates through form fields
-        foreach (WFormField formField in textBody.FormFields)
-        {
-            switch (formField.FormFieldType)
-            {
-                case FormFieldType.TextInput:
-                    WTextFormField textField = formField as WTextFormField;
-                    if (textField.Type == TextFormFieldType.DateText)
-                    {
-                        //Modifies the text form field
-                        textField.Type = TextFormFieldType.RegularText;
-                        textField.StringFormat = "";
-                        textField.DefaultText = "Default text";
-                        textField.Text = "Default text";
-                        textField.CalculateOnExit = false;
-                    }
-                    break;
-            }
-        }
-    }
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Closes the document
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Loads the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -924,49 +559,6 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads the template document 
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
-//Iterates through section
-foreach (WSection section in document.Sections)
-    //Iterates through section child elements
-    foreach (WTextBody textBody in section.ChildEntities)
-    {
-        //Iterates through form fields
-        foreach (WFormField formField in textBody.FormFields)
-        {
-            switch (formField.FormFieldType)
-            {
-                case FormFieldType.TextInput:
-                    WTextFormField textField = formField as WTextFormField;
-                    if (textField.Type == TextFormFieldType.DateText)
-                    {
-                        //Modifies the text form field
-                        textField.Type = TextFormFieldType.RegularText;
-                        textField.StringFormat = "";
-                        textField.DefaultText = "Default text";
-                        textField.Text = "Default text";
-                        textField.CalculateOnExit = false;
-                    }
-                    break;
-            }
-        }
-    }
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
