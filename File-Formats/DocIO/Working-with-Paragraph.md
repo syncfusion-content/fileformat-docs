@@ -128,7 +128,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStream = new FileStream(@"Test.docx", FileMode.Open, FileAccess.ReadWrite);
 //Loads the template document
 WordDocument document = new WordDocument(fileStream, FormatType.Docx);
@@ -464,31 +464,6 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}  
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds tab stop at position 11
-Tab firstTab = paragraph.ParagraphFormat.Tabs.AddTab(11, TabJustification.Left, TabLeader.Dotted);
-//Adds tab stop at position 62
-paragraph.ParagraphFormat.Tabs.AddTab(62, TabJustification.Left, TabLeader.Single);
-paragraph.AppendText("This sample\t illustrates the use of tabs in the paragraph. Tabs\t can be inserted or removed from the paragraph.");
-//Removes tab stop from the collection
-paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
 
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
@@ -1229,31 +1204,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-IWPicture picture = firstParagraph.AppendPicture(imageStream);
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
@@ -1273,31 +1223,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-IWPicture picture = firstParagraph.AppendPicture(imageStream);
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -1359,41 +1284,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WPicture)
-        {
-            WPicture picture = item as WPicture;
-            //Replaces the image
-            if (picture.Title == "Bookmark")
-            {
-                Stream imagestream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-                picture.LoadImage(imagestream);
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 //Loads the template document
@@ -1423,41 +1313,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document.
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WPicture)
-        {
-            WPicture picture = item as WPicture;
-            //Replaces the image
-            if (picture.Title == "Bookmark")
-            {
-                Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-                picture.LoadImage(imageStream);
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -1626,51 +1481,7 @@ picture.FlipHorizontal = true
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("This paragraph has picture. ");
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-//Appends new picture to the paragraph
-WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
-picture.TextWrappingStyle = TextWrappingStyle.Square;
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Paragraph;
-//Sets width and height for the paragraph
-picture.Width = 150;
-picture.Height = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 200;
-picture.VerticalPosition = 150;
-//Sets lock aspect ratio for the picture
-picture.LockAspectRatio = true;
-picture.Name = "PictureName";
-//Sets horizontal and vertical alignments
-picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
-picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
-//Sets 90 degree rotation
-picture.Rotation = 90;
-//Sets horizontal flip
-picture.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
@@ -1710,50 +1521,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document.
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("This paragraph has picture. ");
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-//Appends new picture to the paragraph
-WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
-picture.TextWrappingStyle = TextWrappingStyle.Square;
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Paragraph;
-//Sets width and height for the paragraph
-picture.Width = 150;
-picture.Height = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 200;
-picture.VerticalPosition = 150;
-//Sets lock aspect ratio for the picture
-picture.LockAspectRatio = true;
-picture.Name = "PictureName";
-//Sets horizontal and vertical alignments
-picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
-picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
-//Sets 90 degree rotation
-picture.Rotation = 90;
-//Sets horizontal flip
-picture.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -3116,28 +2883,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Web Hyperlink:  ");
-paragraph = section.AddParagraph();
-//Appends web hyperlink to the paragraph
-IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-web-link).
@@ -3386,33 +3131,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Image Hyperlink");
-paragraph = section.AddParagraph();
-//Creates a new image instance and load image 
-WPicture picture = new WPicture(document);
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Dummy-Images.jpg");
-picture.LoadImage(imageStream);
-//Appends new image hyperlink to the paragraph
-paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
@@ -3434,33 +3152,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document.
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Image Hyperlink");
-paragraph = section.AddParagraph();
-//Creates a new image instance and load image 
-WPicture picture = new WPicture(document);
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-picture.LoadImage(imageStream);
-//Appends new image hyperlink to the paragraph
-paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -3670,42 +3361,6 @@ Next
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Gets the textbody content
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Gets the symbol from the paragraph items
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WSymbol)
-        {
-            WSymbol symbol = item as WSymbol;
-            if (symbol.CharacterCode == 100)
-            {
-                //Modifies the character code
-                symbol.CharacterCode = 40;
-                symbol.FontName = "Wingdings";
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
 
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
@@ -3974,33 +3629,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Opens the file to be embedded
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Book1.xlsx");
-//Loads the picture instance with the image need to be displayed
-WPicture picture = new WPicture(document);
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-picture.LoadImage(imageStream);
-//Appends the OLE object to the paragraph
-WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
-//Saves and closes the Word document instance     
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
@@ -4022,33 +3650,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document.
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Opens the file to be embedded
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Book1.xlsx");
-//Loads the picture instance with the image need to be displayed
-WPicture picture = new WPicture(document);
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-picture.LoadImage(imageStream);
-//Appends the OLE object to the paragraph
-WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -4214,140 +3815,6 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-WordDocument document = new WordDocument(inputStream, FormatType.Docx);
-// Extract the OLE object from the word document
-ExtractOLEObject(document);
-document.Close();
-
-private static void ExtractOLEObject(WordDocument document)
-{
-    WOleObject oleObject = null;
-    int oleIndex = -1;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            foreach (Entity entity in paragraph.ChildEntities)
-            {
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    //Gets OleObject
-                    oleObject = entity as WOleObject;
-                    //Gets index of OleObject
-                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
-                    //Gets ole type
-                    string oleTypeStr = oleObject.ObjectType;
-                    // Checks for Excel type so that file can be saved with proper extension.
-                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                    {
-                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msexcel" ,"Workbook" + oleObject.OleStorageName + ".xlsx");
-                            break;
-                        }
-                        else
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msexcel", "Workbook" + oleObject.OleStorageName + ".xls");
-                            break;
-                        }
-                    }
-                    //Checks for Word document embedded object and save them
-                    if (oleTypeStr.Contains("Word.Document"))
-                    {
-                        if (oleTypeStr.Contains("Word.Document.12"))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".docx");
-                            break;
-                        }
-                        else if (oleTypeStr.Contains("Word.Document.8"))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".doc");
-                            break;
-                        }
-                    }
-                    //Checks for PDF embedded object and save them
-                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
-                    {
-                        MemoryStream stream = new MemoryStream();
-                        stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                        Save(stream, "application/pdf", "Sample" + oleObject.OleStorageName + ".pdf");
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-
-async void Save(MemoryStream streams, string contentType, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        switch (contentType)
-        {
-            case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
-                savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", ".ppt" });
-                break;
-
-            case "application/msexcel":
-                savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", ".xls" });
-                break;
-
-            case "application/msword":
-                savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx", ".doc" });
-                break;
-
-            case "application/pdf":
-                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-                break;
-            case "application/html":
-                savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
-                break;
-        }
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 using (FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -4425,86 +3892,6 @@ private static void ExtractOLEObject(WordDocument document)
                         fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                         fstream.Flush();
                         fstream.Close();
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
-WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
-// Extract the OLE object from the word document
-ExtractOLEObject(wordDocument);
-wordDocument.Close();
-
-private static void ExtractOLEObject(WordDocument document)
-{
-    WOleObject oleObject = null;
-    int oleIndex = -1;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            foreach (Entity entity in paragraph.ChildEntities)
-            {
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    //Gets OleObject
-                    oleObject = entity as WOleObject;
-                    //Gets index of OleObject
-                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
-                    //Gets ole type
-                    string oleTypeStr = oleObject.ObjectType;
-                    // Checks for Excel type so that file can be saved with proper extension.
-                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                    {
-                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xlsx", "application/msexcel", memoryStream);
-                            break;
-                        }
-                        else
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xls", "application/msexcel", memoryStream);
-                            break;
-                        }
-                    }
-                    //Checks for Word document embedded object and save them
-                    if (oleTypeStr.Contains("Word.Document"))
-                    {
-                        if (oleTypeStr.Contains("Word.Document.12"))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".docx", "application/msword", memoryStream);
-                            break;
-                        }
-                        else if (oleTypeStr.Contains("Word.Document.8"))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".doc", "application/msword", memoryStream);
-                            break;
-                        }
-                    }
-                    //Checks for PDF embedded object and save them
-                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
-                    {
-                        MemoryStream memoryStream = new MemoryStream();
-                        memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".pdf", "application/pdf", memoryStream);
                         break;
                     }
 
@@ -4712,36 +4099,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;            
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new picture to textbox body
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Dummy-Images.jpg");
-IWPicture picture = textboxParagraph.AppendPicture(imageStream);
-picture.Height = 75;
-picture.Width = 50;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
@@ -4766,36 +4123,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;        
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new picture to textbox body
-Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-IWPicture picture = textboxParagraph.AppendPicture(imageStream);
-picture.Height = 75;
-picture.Width = 50;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 

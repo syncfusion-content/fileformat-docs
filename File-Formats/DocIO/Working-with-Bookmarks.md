@@ -653,30 +653,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Loads an existing Word document into DocIO instance
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-//Inserts a new picture after the bookmark end
-WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Northwind.png");
-picture.LoadImage(imageStream);
-picture.WidthScale = 50;
-picture.HeightScale = 50;
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -695,30 +671,6 @@ picture.HeightScale = 50;
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
-document.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads an existing Word document into DocIO instance
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-//Inserts a new picture after the bookmark end
-WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("GettingStarted.Data.Northwind.png");
-picture.LoadImage(imageStream);
-picture.WidthScale = 50;
-picture.HeightScale = 50;
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 document.Close();
 {% endhighlight %}
 
@@ -941,36 +893,6 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Loads an existing Word document into DocIO instance
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content
-TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-document.AddSection();
-IWParagraph paragraph = document.LastSection.AddParagraph();
-paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-//Adds the new bookmark into Word document
-paragraph.AppendBookmarkStart("bookmark_empty");
-paragraph.AppendBookmarkEnd("bookmark_empty");
-//Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-//Inserts the text body part after the bookmark start
-bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-document.Close();
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-text-body-part-into-bookmark).
@@ -1120,36 +1042,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads an existing Word document into DocIO instance
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content
-TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-document.AddSection();
-IWParagraph paragraph = document.LastSection.AddParagraph();
-paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-//Adds the new bookmark into Word document
-paragraph.AppendBookmarkStart("bookmark_empty");
-paragraph.AppendBookmarkEnd("bookmark_empty");
-//Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-bookmarkNavigator.MoveToBookmark("bookmark_empty");
-//Replaces the bookmark content with text body part
-bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-document.Close();
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
 
 {% endtabs %}
 
