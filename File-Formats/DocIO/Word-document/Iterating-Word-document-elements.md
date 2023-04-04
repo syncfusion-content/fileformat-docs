@@ -19,7 +19,7 @@ The following code example shows how to iterate throughout the Word document and
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -42,7 +42,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing document from file system through constructor of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Processes the body contents for each section in the Word document
@@ -62,7 +62,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Dim document As New WordDocument("Template.docx")
 'Processes the body contents for each section in the Word document
@@ -87,7 +87,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -124,7 +124,7 @@ private static void IterateTextBody(WTextBody textBody)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -161,7 +161,7 @@ private static void IterateTextBody(WTextBody textBody)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through the each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
@@ -200,7 +200,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -217,7 +217,7 @@ private static void IterateTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -234,7 +234,7 @@ private static void IterateTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub IterateTable(table As WTable)
 'Iterates the row collection in a table
 For Each row As WTableRow In table.Rows
@@ -258,7 +258,7 @@ The following code example shows how to iterate throughout the paragraph and mod
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -281,7 +281,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing document from file system through constructor of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Processes the body contents for each section in the Word document
@@ -301,7 +301,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Template.docx")
     'Processes the body contents for each section in the Word document
     For Each section As WSection In document.Sections
@@ -324,7 +324,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -358,7 +358,7 @@ private static void IterateTextBody(WTextBody textBody)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void IterateTextBody(WTextBody textBody)
 {
     //Iterates through each of the child items of WTextBody
@@ -392,7 +392,7 @@ private static void IterateTextBody(WTextBody textBody)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 'Iterates through each of the child items of WTextBody
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
@@ -429,7 +429,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -446,7 +446,7 @@ private static void IterateTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void IterateTable(WTable table)
 {
     //Iterates the row collection in a table
@@ -463,7 +463,7 @@ private static void IterateTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub IterateTable(table As WTable)
 'Iterates the row collection in a table
 For Each row As WTableRow In table.Rows
@@ -483,7 +483,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -534,7 +534,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void IterateParagraph(ParagraphItemCollection paraItems)
 {
     for (int i = 0; i < paraItems.Count; i++)
@@ -585,7 +585,7 @@ private static void IterateParagraph(ParagraphItemCollection paraItems)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub IterateParagraph(paraItems As ParagraphItemCollection)
 For i As Integer = 0 To paraItems.Count - 1
     Dim entity As Entity = paraItems(i)

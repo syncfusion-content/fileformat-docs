@@ -35,11 +35,11 @@ The following code example shows how to perform Mail merge in the specific regio
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
 //Gets the data table 
 DataTable table = GetDataTable();
@@ -50,7 +50,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("EmployeesTemplate.docx")
 'Gets the data table
 Dim table As DataTable = GetDataTable()
@@ -67,11 +67,11 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private DataTable GetDataTable()
 {
     DataSet dataset = new DataSet();
@@ -88,7 +88,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     Dim dataset As DataSet = New DataSet
     Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
@@ -118,7 +118,7 @@ You can perform Mail merge with .NET objects in a template document. The followi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -135,7 +135,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the employee details as “IEnumerable” collection
@@ -149,7 +149,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -243,7 +243,7 @@ The following code example shows GetEmployees method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -256,7 +256,7 @@ public List<Employee> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -269,7 +269,7 @@ public List<Employee> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetEmployees() As List(Of Employee)
     Dim employees As New List(Of Employee)()
     employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
@@ -313,7 +313,7 @@ The following code example shows the Employee class.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -338,7 +338,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -363,7 +363,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Employee
     Public Property FirstName() As String
         Get

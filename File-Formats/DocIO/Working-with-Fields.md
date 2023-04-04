@@ -33,7 +33,7 @@ The following code example explains how to add a field to the Word document.
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -69,7 +69,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section to the Word Document
@@ -100,7 +100,7 @@ The following code example explains how to format the field in Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -148,7 +148,7 @@ document.Save("Template.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -209,7 +209,7 @@ The following code example explains how to update the fields present in Word doc
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance 
 WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
 //Updates the fields present in a document
@@ -227,7 +227,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance 
 FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -254,7 +254,7 @@ The following code example explains how to add an If field to a Word document.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -302,7 +302,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -343,7 +343,7 @@ The following code example explains how to add a DocVariable field to a Word doc
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -385,7 +385,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -425,7 +425,7 @@ The following code example explains how to append cross reference for bookmark i
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -475,7 +475,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -517,7 +517,7 @@ The following code example shows how to unlink the fields in Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -557,7 +557,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -602,7 +602,7 @@ The following code example shows how to apply the number format for sequence fie
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -646,7 +646,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -676,7 +676,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new document
@@ -725,7 +725,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new document
@@ -767,7 +767,7 @@ The following code example shows how to refer the bookmark in sequence field.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an exixting word document
 WordDocument document = new WordDocument("Template.docx");
 //Accesses sequence field in the document
@@ -807,7 +807,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -845,7 +845,7 @@ The following code example shows how to reset the numbering for sequence field.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -900,7 +900,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -936,7 +936,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new word document
@@ -1114,7 +1114,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new word document
@@ -1227,7 +1227,7 @@ The following code example shows how to repeat the closest preceding sequence nu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1255,7 +1255,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1277,7 +1277,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new document
@@ -1390,7 +1390,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new document
@@ -1467,7 +1467,7 @@ The following code example shows how to hide the field result of sequence field.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1505,7 +1505,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a Word document
 WordDocument document = CreateDocument();
 //Accesses sequence field in the document
@@ -1532,7 +1532,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new Word document
@@ -1633,7 +1633,7 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private WordDocument CreateDocument()
 {
     //Creates a new Word document
@@ -1699,7 +1699,7 @@ The following code example shows how to insert the next sequence number for the 
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an exixting word document
 WordDocument document = new WordDocument("Template.docx");
 //Accesses sequence field in the document
@@ -1717,7 +1717,7 @@ document.Close();
 {% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);

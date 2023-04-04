@@ -13,7 +13,7 @@ You can create a deep copy of a Word document by using [Clone](https://help.sync
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -29,7 +29,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing document 
 WordDocument inputTemplateDoc = new WordDocument(fileName);
 //Creates a clone of Input Template 
@@ -41,7 +41,7 @@ clonedDocument.Close();
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document 
 Dim inputTemplateDoc As New WordDocument(fileName)
 'Creates a clone of Input Template 
@@ -61,7 +61,7 @@ You can also create a deep copy of document elements such as sections, paragraph
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("SourceDocument.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument sourceDocument = new WordDocument(fileStreamPath);
@@ -81,7 +81,7 @@ for (int i = 0; i < sourceDocument.Sections.Count;i++)
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens a source document
 WordDocument sourceDocument = new WordDocument("SourceDocument.docx");
 //Processes the each section in the Word document
@@ -99,7 +99,7 @@ for (int i = 0; i < sourceDocument.Sections.Count;i++)
 sourceDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens a source document
 Dim sourceDocument As New WordDocument("SourceDocument.docx")
 'Processes the each section in the Word document
@@ -128,7 +128,7 @@ The following code example explains how to link character and paragraph style.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a Word document
 using (WordDocument document = new WordDocument())
 {
@@ -161,7 +161,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
 using (WordDocument document = new WordDocument())
 {
@@ -193,7 +193,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Using document As WordDocument = New WordDocument()
     'This method adds a section and a paragraph in the document
@@ -240,7 +240,7 @@ The Built-in document properties of a word document is represented by [BuiltinDo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -258,7 +258,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument(inputFileName);
 //Accesses the built-in document properties
@@ -271,7 +271,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing Word document
 Dim document As New WordDocument(inputFileName)
 'Accesses the built-in document properties
@@ -297,7 +297,7 @@ The following code example shows how to update word count in an existing word do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document.
 using (WordDocument document = new WordDocument(fileStreamPath , FormatType.Docx))
@@ -316,7 +316,7 @@ using (WordDocument document = new WordDocument(fileStreamPath , FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -332,7 +332,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
     document.Save("Result.docx");
 }
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Update the word count in the document.
@@ -364,7 +364,7 @@ The following code example shows how to update page count in an existing word do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document.
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -420,7 +420,7 @@ You add a new custom document properties through [Add](https://help.syncfusion.c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -437,7 +437,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input word template
 WordDocument document = new WordDocument(inputFileName);
 //Adds the custom document properties of various data types
@@ -450,7 +450,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Dim document As New WordDocument(inputFileName)
 'Adds the custom document properties of various data types
@@ -473,7 +473,7 @@ You can access and modify an existing document property as shown in the followin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -489,7 +489,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument(inputFileName);
 //Accesses an existing custom document property
 DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
@@ -499,7 +499,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument(inputFileName)
 'Accesses an existing custom document property
 Dim [property] As DocumentProperty = document.CustomDocumentProperties("PropertyA")
@@ -530,7 +530,7 @@ The following code example explains how to access and modify the value of an exi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Loads the template document
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -593,7 +593,7 @@ document.Close();
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Processes the metaproperty collection in the Word document
@@ -653,7 +653,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Processes the metaproperty collection in the Word document
@@ -717,7 +717,7 @@ The following code illustrates how to apply gradient as background to the docume
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -737,7 +737,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -760,7 +760,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -791,7 +791,7 @@ The following code illustrates how to apply image as background for the document
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
@@ -810,7 +810,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document 
@@ -828,7 +828,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds new section to document
@@ -902,7 +902,7 @@ The following code example shows how to hide the background in print layout view
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -918,7 +918,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load Word document.
 using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx))
 {
@@ -929,7 +929,7 @@ using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific) " %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific] " %}
 'Load Word document.
 Using document As WordDocument = New WordDocument(“Input.docx"), FormatType.Docx)
     'Disable a flag to hide the background in the print layout view. 
@@ -951,7 +951,7 @@ The following code example shows how to remove the background in a Word document
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -967,7 +967,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load Word document.
 using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx))
 {
@@ -979,7 +979,7 @@ using (WordDocument document = new WordDocument(“Input.docx” FormatType.Docx
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load Word document.
 Using document As WordDocument = New WordDocument(“Input.docx"), FormatType.Docx)
     'Remove the existing background in the Word document.
@@ -1003,7 +1003,7 @@ The following examples show how to update the alternate chunk in the word docume
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -1016,7 +1016,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1027,7 +1027,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document from file system through constructor of WordDocument class
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Update the alternate chunks in the document

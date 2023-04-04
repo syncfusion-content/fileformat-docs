@@ -30,11 +30,11 @@ The following code example shows how to perform a nested Mail merge.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the data from the database
@@ -49,7 +49,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Gets the data from the database
@@ -78,7 +78,7 @@ The following code example shows GetCommands method which is used to get data fo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ private ArrayList GetCommands()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetCommands() As ArrayList
     'ArrayList contains the list of commands
     Dim commands As New ArrayList()
@@ -141,7 +141,7 @@ The following code snippet shows how to perform the Mail merge with dynamic obje
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -168,7 +168,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates an instance of the MailMergeDataSet
@@ -192,7 +192,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates an instance of the MailMergeDataSet
@@ -258,7 +258,7 @@ The following code example shows GetCustomers and GetOrders methods which are us
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private List<ExpandoObject> GetCustomers()
 {
     List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -277,7 +277,7 @@ private List<ExpandoObject> GetOrders()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private List<ExpandoObject> GetCustomers()
 {
     List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -296,7 +296,7 @@ private List<ExpandoObject> GetOrders()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetCustomers() As List(Of ExpandoObject)
     Dim customers As New List(Of ExpandoObject)()
     customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"))
@@ -343,7 +343,7 @@ The following code example shows GetDynamicCustomer and GetDynamicOrder methods,
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
     dynamic dynamicCustomer = new ExpandoObject();
@@ -362,7 +362,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
     dynamic dynamicCustomer = new ExpandoObject();
@@ -381,7 +381,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
     Dim dynamicCustomer As Object = New ExpandoObject()
     dynamicCustomer.CustomerID = customerID
@@ -448,7 +448,7 @@ The following code example shows how to perform nested Mail merge with the impli
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -465,7 +465,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the organization details as “IEnumerable” collection
@@ -479,7 +479,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Gets the organization details as “IEnumerable” collection
@@ -499,7 +499,7 @@ The following code example shows GetOrganizations method which is used to get da
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -521,7 +521,7 @@ public static List<Organization> GetOrganizations()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public static List<Organization> GetOrganizations()
 {
     //Creates Employee details
@@ -543,7 +543,7 @@ public static List<Organization> GetOrganizations()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetOrganizations() As List(Of Organization)
     'Creates Employee details
     Dim employees As List(Of EmployeeDetails) = New List(Of EmployeeDetails)
@@ -570,7 +570,7 @@ The following code example shows Organization, DepartmentDetails, and EmployeeDe
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -617,7 +617,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -664,7 +664,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Organization
     Public Property BranchName() As String
     Public Property Address() As String

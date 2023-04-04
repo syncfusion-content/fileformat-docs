@@ -17,7 +17,7 @@ Convert an existing Word document or document that is created from scratch into 
 The following code example shows how to convert a Word document to a Markdown.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -84,7 +84,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -170,7 +170,7 @@ The Essential DocIO supports two types of code blocks in Word to Markdown conver
 The following code example shows how to create code blocks in a Word document using DocIO.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -235,7 +235,7 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -282,7 +282,7 @@ Create block quotes in a Word document by applying the “Quote” paragraph sty
 The following code example shows how to create block quotes in a Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -317,7 +317,7 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -357,7 +357,7 @@ Specify the folder location to export the images using the [MarkdownExportImages
 The following code example illustrates how set the images folder to export the images while converting a Word document to a Markdown file.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document. 
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -382,7 +382,7 @@ End Using
 //DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -412,7 +412,7 @@ DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats
 The following code example illustrates how to save Image files during a Word to Markdown Conversion.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document. 
 using (WordDocument document = new WordDocument(@"Input.docx"))
 {
@@ -437,7 +437,7 @@ End Using
 //DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -483,7 +483,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 The following code examples show the event handler to customize the image path and save the image in an external folder.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 {
     string imagepath = @"D:\Temp\Image1.png";
@@ -511,7 +511,7 @@ End Sub
 //DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 {
     string imagepath = @"D:\Temp\Image1.png";

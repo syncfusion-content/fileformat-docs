@@ -18,7 +18,7 @@ The following code example shows how to add a bookmark in Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -68,7 +68,7 @@ document.Save("Bookmarks.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -104,7 +104,7 @@ The following code example shows how to retrieve an instance of bookmark from a 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -126,7 +126,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -151,7 +151,7 @@ The following code example shows how to remove a bookmark from Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -173,7 +173,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -205,7 +205,7 @@ The following code example shows how to retrieve the specified bookmark content 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -238,7 +238,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -267,7 +267,7 @@ The following code example shows how to retrieve the specified bookmark content 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -307,7 +307,7 @@ newDocument.Save("Result.docx", FormatType.Docx)
 newDocument.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -345,7 +345,7 @@ The following code example shows how to retrieve the bookmark content of a speci
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -400,7 +400,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -435,7 +435,7 @@ The following code example shows how to create table with bookmark.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public IWTable CreateTable(WordDocument document)
 {
     //Adds a new table into Word document
@@ -519,7 +519,7 @@ Private Function CreateTable(document As WordDocument) As IWTable
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public IWTable CreateTable(WordDocument document)
 {
     //Adds a new table into Word document
@@ -574,7 +574,7 @@ The following code example shows how to insert a simple text by using [BookmarkN
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -598,7 +598,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -623,7 +623,7 @@ The following code example shows how to insert a paragraph item by using [Bookma
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -653,7 +653,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -682,7 +682,7 @@ The following code example shows how to insert a paragraph by using [BookmarkNav
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -710,7 +710,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -737,7 +737,7 @@ The following code example shows how to insert a table by using [BookmarkNavigat
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -785,7 +785,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -822,7 +822,7 @@ The following code example shows how to insert a [TextBodyPart](https://help.syn
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -866,7 +866,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -905,7 +905,7 @@ The following code example shows how to remove the contents of a specified bookm
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -931,7 +931,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -972,7 +972,7 @@ The following code example shows how to replace a specified bookmark content by 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
@@ -1016,7 +1016,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1051,7 +1051,7 @@ The following code example shows how to replace a specified bookmark content by 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 WordDocument templateDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates the bookmark navigator instance to access the bookmark
@@ -1101,7 +1101,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Docx);

@@ -47,7 +47,7 @@ The following code example shows how to create a merge field in the Word documen
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -61,7 +61,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -73,7 +73,7 @@ document.Save("Template.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument 
 Dim document As WordDocument = New WordDocument
 'Adds a section and a paragraph in the document
@@ -95,7 +95,7 @@ The following code example shows how to perform mail merge in above Word documen
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -110,7 +110,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
  
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 string[] fieldNames = new string[] { "FullName" };
@@ -122,7 +122,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 Dim fieldNames As String() = New String() {"FullName"}

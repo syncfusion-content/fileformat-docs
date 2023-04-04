@@ -20,7 +20,7 @@ The following code example shows how to insert the footnotes into the Word docum
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -50,7 +50,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -77,7 +77,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -114,7 +114,7 @@ The following code example shows how to insert the endnotes into the Word docume
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -144,7 +144,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -171,7 +171,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new document
 Dim document As New WordDocument()
 'Creates a section
@@ -210,7 +210,7 @@ The following code example illustrates how to set positions for footnotes and en
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -262,7 +262,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -313,7 +313,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
     'Create a section.
@@ -379,7 +379,7 @@ The following code example shows how to change the default footnote separator.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -412,7 +412,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -442,7 +442,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -480,7 +480,7 @@ The following code example shows how to change the default endnote separator.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -513,7 +513,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -543,7 +543,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -584,7 +584,7 @@ The following code example shows how to modify the footnote and endnote content 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream  = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -622,7 +622,7 @@ using (FileStream docStream  = new FileStream("Input.docx", FileMode.Open, FileA
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -655,7 +655,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Access paragraph in a Word document.
@@ -697,7 +697,7 @@ The following code example shows how to remove the footnotes/endnotes from the W
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Loads the template document as stream
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
@@ -765,7 +765,7 @@ private static void RemoveFootNoteEndNote(WTable table)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Removes footnote/endnote from the document
@@ -830,7 +830,7 @@ private static void RemoveFootNoteEndNote(WTable table)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Removes footnote from the document

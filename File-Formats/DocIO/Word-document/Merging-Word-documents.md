@@ -15,7 +15,7 @@ The following code example illustrates how to import the contents from source do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
@@ -33,7 +33,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the source document 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document 
@@ -47,7 +47,7 @@ sourceDocument.Close();
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the source document 
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document 
@@ -73,7 +73,7 @@ When your requirement is to append the contents from the same page instead of st
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an source document from file system through constructor of WordDocument class
@@ -93,7 +93,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the source document 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document 
@@ -109,7 +109,7 @@ sourceDocument.Close();
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the source document 
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document 
@@ -135,7 +135,7 @@ The following code example shows how to maintain information about imported list
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the source document
 FileStream SourceFileStream = new FileStream("Source.docx", FileMode.Open);
 WordDocument sourceDocument = new WordDocument(SourceFileStream, FormatType.Docx);
@@ -164,7 +164,7 @@ destinationDocument.Save(outputStream, FormatType.Docx);
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the source document
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 //Opens the destination document  
@@ -190,7 +190,7 @@ destinationDocument.Save(outputFileName, FormatType.Docx);
 destinationDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the source document
 Dim sourceDocument As New WordDocument(sourceFileName)
 'Opens the destination document

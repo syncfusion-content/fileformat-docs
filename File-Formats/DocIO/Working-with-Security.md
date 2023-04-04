@@ -15,7 +15,7 @@ The following code example shows how to encrypt the Word document with password.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -28,7 +28,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input Word document
 WordDocument document = new WordDocument("Template.docx");
 //Encrypts the Word document with a password
@@ -38,7 +38,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word document
 Dim document As New WordDocument("Template.docx")
 'Encrypts the Word document with a password
@@ -58,7 +58,7 @@ The following code example shows how to open the encrypted Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an encrypted Word document
@@ -70,7 +70,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an encrypted Word document
 WordDocument document = new WordDocument ("Template.docx", "password");
 //Saves and closes the Word document instance
@@ -78,7 +78,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an encrypted Word document
 Dim document As New WordDocument("Template.docx", "password")
 ‘Saves and closes the Word document instance
@@ -148,7 +148,7 @@ You can open the encrypted Word document and remove the encryption from the docu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an encrypted Word document
@@ -162,7 +162,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an encrypted Word document
 WordDocument document = new WordDocument("Template.docx", "password");
 //Removes encryption in Word document
@@ -172,7 +172,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an encrypted Word document
 Dim document As New WordDocument("Template.docx", "password")
 'Removes encryption in Word document
@@ -230,7 +230,7 @@ The following code example shows how to restrict editing to modify only form fie
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -244,7 +244,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens a Word document
 WordDocument document = new WordDocument(@"Template.docx");
 //Sets the protection with password and it allows only to modify the form fields type
@@ -254,7 +254,7 @@ document.Save("Protection.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens a Word document
 Dim document As New WordDocument("Template.docx")
 'Sets the protection with password and it allows only to modify the form fields type

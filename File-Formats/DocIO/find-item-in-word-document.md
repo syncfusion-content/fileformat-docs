@@ -23,7 +23,7 @@ The following code example illustrates how to find the first item based on one p
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -55,7 +55,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -91,7 +91,7 @@ The following code example illustrates how to find the first item in Word docume
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -136,7 +136,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -179,7 +179,7 @@ The following code example illustrates how to find all the items in Word documen
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -231,7 +231,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 End Using
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -278,7 +278,7 @@ The following code example illustrates how to find all the items in Word documen
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -369,7 +369,7 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {

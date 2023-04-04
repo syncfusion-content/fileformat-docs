@@ -20,7 +20,7 @@ The following code example illustrates how to add a text watermark to the Word d
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -68,7 +68,7 @@ document.Save("TextWatermark.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -105,7 +105,7 @@ The following code example illustrates how to add a picture watermark to the Wor
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -145,15 +145,7 @@ document.Save("PictureWatermark.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
-//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 

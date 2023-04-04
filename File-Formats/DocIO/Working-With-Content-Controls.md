@@ -25,7 +25,7 @@ You can add content control to a text body of the Word document using block cont
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -54,7 +54,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -79,7 +79,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -114,7 +114,7 @@ You can add content control as a child to a paragraph using the inline content c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -136,7 +136,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -156,7 +156,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -224,7 +224,7 @@ The following code sample illustrates the content control properties usage.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -260,7 +260,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -294,7 +294,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -353,7 +353,7 @@ The following code sample shows how to protect the content control and its conte
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -385,7 +385,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -415,7 +415,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -457,7 +457,7 @@ Form creation:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -733,7 +733,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new document
 WordDocument document = new WordDocument();
 //Adding a new section to the document
@@ -1007,7 +1007,7 @@ document.Save("Form_Template.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new document
 Dim document As WordDocument = New WordDocument()
 'Adding a new section to the document
@@ -1291,7 +1291,7 @@ Form filling:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the created form document
 WordDocument document1 = new WordDocument(outputStream, FormatType.Automatic);
 IWSection sec = document1.LastSection;
@@ -1385,7 +1385,7 @@ document1.Save(saveStream, FormatType.Docx);
 document1.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open the created form document.
 WordDocument document1 = new WordDocument("Form_Template.docx");
 IWSection sec = document1.LastSection;
@@ -1477,7 +1477,7 @@ document1.Save("Form_Filled.docx");
 document1.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open the created form document
 Dim document1 As WordDocument = New WordDocument("Form_Template.docx")
 Dim sec As IWSection = document1.LastSection
@@ -1577,7 +1577,7 @@ Word allows you to store XML data, named *custom XML parts*, in a Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1611,7 +1611,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1643,7 +1643,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -1696,7 +1696,7 @@ A rich text content control contains text or other items, such as tables, pictur
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1726,7 +1726,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1752,7 +1752,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1788,7 +1788,7 @@ A plain text content control contains text and cannot contain other items, such 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1810,7 +1810,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1830,7 +1830,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1860,7 +1860,7 @@ A check box content control provides a UI that represents a binary state: checke
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1879,7 +1879,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1896,7 +1896,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -1923,7 +1923,7 @@ A date picker content control provides a calendar UI for selecting a date. The c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1951,7 +1951,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -1977,7 +1977,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2013,7 +2013,7 @@ A drop-down list content control and combo box content control displays a list o
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2076,7 +2076,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2133,7 +2133,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds new section to the document
@@ -2200,7 +2200,7 @@ A picture content control displays an image. Refer to the following code to add 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2225,7 +2225,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -2246,7 +2246,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -2277,7 +2277,7 @@ You can edit the inline content control text by iterating the child items of inl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Creates an instance of WordDocument class
@@ -2391,7 +2391,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads a template document
 WordDocument document = new WordDocument(@"Template.docx");
 ///Processes the body contents for each section in the Word document
@@ -2498,7 +2498,7 @@ private static void ReplaceTextWithInlineContentControl(string text, InlineConte
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 ''' Processes the body contents for each section in the Word document

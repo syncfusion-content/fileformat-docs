@@ -20,7 +20,7 @@ The following code example shows how to create a Word template document with mer
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -44,7 +44,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -66,7 +66,7 @@ document.Save("Template.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 'Adds one section and one paragraph to the document
@@ -102,7 +102,7 @@ The following code example shows how to perform a simple Mail merge in the gener
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -120,7 +120,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
@@ -132,7 +132,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 Dim fieldNames As String() = New String() {"EmployeeId", "Name", "Phone", "City"}

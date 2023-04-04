@@ -39,7 +39,7 @@ The following code example illustrates how to convert the entire Word document t
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -68,7 +68,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -88,7 +88,7 @@ using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.D
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
@@ -118,7 +118,7 @@ The following code example illustrates how to convert a specific page in a Word 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -142,7 +142,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -157,7 +157,7 @@ using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.D
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
@@ -183,7 +183,7 @@ The following code example illustrates how to convert a specific range of pages 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -212,7 +212,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -232,7 +232,7 @@ using(WordDocument wordDocument = new WordDocument("Template.docx", FormatType.D
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initialize the ChartToImageConverter for converting charts during Word to image conversion.
@@ -260,11 +260,11 @@ The following code snippet illustrates how to convert a Word document to an imag
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO only supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx))
 {
@@ -295,7 +295,7 @@ using (WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initialize the ChartToImageConverter for converting charts during Word to image conversion.

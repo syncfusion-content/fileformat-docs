@@ -56,7 +56,7 @@ The following code example shows how to add a table of contents (TOC) in Word do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into the Word document
@@ -154,7 +154,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds the section into the Word document
@@ -219,7 +219,7 @@ The following code example shows how to update a TOC in an existing word documen
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input word template
 WordDocument document = new WordDocument(@”Template.docx”);
 //Updates the table of contents.
@@ -243,7 +243,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document from stream through constructor of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
@@ -270,7 +270,7 @@ The following code example shows how to create table of contents with user-defin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a new custom styles
@@ -384,7 +384,7 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a new custom styles
@@ -453,7 +453,7 @@ The following code example illustrates how to apply switches for the table of co
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -616,7 +616,7 @@ End Using
 //DocIO doesn't support updating table of contents in UWP platform.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {

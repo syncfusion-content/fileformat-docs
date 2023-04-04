@@ -37,7 +37,7 @@ The following code example illustrates how to convert a Word document into PDF d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -58,7 +58,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -74,7 +74,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -123,11 +123,11 @@ The following code sample shows how to convert the Word document to PDF using di
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports Word to PDF fast rendering in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -147,7 +147,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -183,7 +183,7 @@ The following code sample shows how to embed the TrueType fonts into the convert
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -204,7 +204,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -224,7 +224,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -256,7 +256,7 @@ The following code sample shows how to embed the complete TrueType fonts into th
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -277,7 +277,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -297,7 +297,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -329,7 +329,7 @@ The following code sample shows how to preserve document structured tags in the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -350,7 +350,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -366,7 +366,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -394,7 +394,7 @@ The following code sample shows how to preserve Word document headings as bookma
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -415,7 +415,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -431,7 +431,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -455,7 +455,7 @@ The following code sample shows how to preserve both Word document headings and 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -476,7 +476,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -492,7 +492,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -520,7 +520,7 @@ The following code sample shows how to preserve Word document form field as PDF 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 // Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -541,7 +541,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -557,7 +557,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -585,11 +585,11 @@ The following code sample shows how to customize the image quality of charts and
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -611,7 +611,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -647,11 +647,11 @@ The following code sample shows how to use this property to regenerate the neste
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports to Recreate Nested Metafile in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone, and it's also supported in .NET Core 3.0, but it requires DocToPDFConverter assembly instead of DocIORenderer.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -667,7 +667,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -697,7 +697,7 @@ The following code sample shows how to reduce the Main Memory usage while conver
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -718,7 +718,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -740,7 +740,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -772,7 +772,7 @@ The following code sample shows how to set the [PdfConformanceLevel](https://hel
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -793,7 +793,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -813,7 +813,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -845,7 +845,7 @@ The following code sample shows how to exclude the alternate chunk parts in Word
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -866,7 +866,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -886,7 +886,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -918,7 +918,7 @@ The following code sample shows how to preserve the complex script text in the c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -939,7 +939,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -955,7 +955,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -987,7 +987,7 @@ The following code sample shows how to hyphenate text in a Word document while c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1010,7 +1010,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1030,7 +1030,7 @@ wordDocument.Close();
 pdfDocument.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1060,7 +1060,7 @@ The following code sample shows how to **preserve revision marks in a generated 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1081,7 +1081,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -1100,7 +1100,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion.
@@ -1130,7 +1130,7 @@ You can customize how track changes markup appears in a generated PDF when conve
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1159,7 +1159,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -1186,7 +1186,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion
@@ -1224,7 +1224,7 @@ The default Word to PDF conversion renders the deletion and formatting changes i
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
@@ -1247,7 +1247,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Sets revision types to preserve track changes in Word when converting to PDF
@@ -1268,7 +1268,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Sets revision types to preserve track changes in when converting to PDF conversion
@@ -1299,7 +1299,7 @@ The following code sample shows how to **preserve comments balloon in a generate
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 {
     //Loads an existing Word document.
@@ -1326,7 +1326,7 @@ using (FileStream fileStream = new FileStream("Template.docx", FileMode.Open))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1351,7 +1351,7 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", FormatType.
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Sets ShowInBalloons to render a document comments in converted PDF document.
@@ -1385,11 +1385,11 @@ The following code sample shows how to preserve Ole Equation as bitmap image in 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);     
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
@@ -1405,7 +1405,7 @@ pdfDocument.Close(true);
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
@@ -1435,7 +1435,7 @@ The below code example shows how to restrict Copying and Printing permission of 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1464,7 +1464,7 @@ pdfDocument.Close();
 outputFile.Dispose();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Creates an instance of the DocToPDFConverter
@@ -1485,7 +1485,7 @@ converter.Dispose();
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Creates an instance of the DocToPDFConverter
@@ -1524,7 +1524,7 @@ The following code example shows how to use alternate font instead of "Microsoft
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read);
 //Loads file stream into Word document
@@ -1547,7 +1547,7 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 //Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
@@ -1570,7 +1570,7 @@ pdfDocument.Save("WordtoPDF.pdf");
 pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Initializes the ChartToImageConverter for converting charts during Word to PDF conversion
@@ -1601,7 +1601,7 @@ The following code example shows how to set the **alternate installed font** ins
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -1614,7 +1614,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -1627,7 +1627,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub FontSettings_SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
     'If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
@@ -1650,7 +1650,7 @@ The following code example shows how to use the alternate fonts instead of "Micr
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -1661,7 +1661,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     //Sets the alternate font when a specified font is not installed in the production environment
@@ -1672,7 +1672,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
     'Sets the alternate font when a specified font is not installed in the production environment
     If args.OrignalFontName = "Arial Unicode MS" && args.FontStyle == FontStyle.Regular Then

@@ -44,7 +44,7 @@ The following XHTML validation types are supported in Essential DocIO while impo
 The following code example shows how to convert the HTML file into Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the HTML document against validation type none
 WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None);
 //Saves the Word document
@@ -62,7 +62,7 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
@@ -82,7 +82,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert the Word document into HTML.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the document as Html file
@@ -100,7 +100,7 @@ document.Save("WordToHtml.html", FormatType.Html)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -132,7 +132,7 @@ The Essential DocIO provides settings while performing HTML to Word conversion a
 The following code example shows how to customize the HTML to Word conversion.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Html string to be inserted
@@ -187,7 +187,7 @@ The Essential DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/c
 The following code example shows how to load image data based on image source path when importing the HTML files.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
 //Hooks the ImageNodeVisited event to open the image from a specific location
@@ -217,7 +217,7 @@ document.Save("HtmlToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream
 FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
 //Creates a new instance of WordDocument
@@ -241,7 +241,7 @@ document.Close();
 The following code example shows how to read the image from the specified path when importing the HTML files.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Read the image from the specified (args.Uri) path
@@ -256,7 +256,7 @@ Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEven
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Read the image from the specified (args.Uri) path
@@ -290,7 +290,7 @@ N> While exporting header and footer, DocIO exports the first section header con
 The following code sample shows how to customize Word to HTML conversion.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx");
 HTMLExport export = new HTMLExport();

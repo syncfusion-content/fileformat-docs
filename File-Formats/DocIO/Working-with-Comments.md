@@ -19,7 +19,7 @@ The following code illustrates how to add a new comment to the document:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -59,7 +59,7 @@ document.Save("Comment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -92,7 +92,7 @@ The following code illustrates how to modify the text of an existing comment in 
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Iterates the comments in the Word document
 foreach (WComment comment in document.Comments)
@@ -118,7 +118,7 @@ document.Save("ModifiedComment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Iterates the comments in the Word document
@@ -147,7 +147,7 @@ The following code illustrates how to remove all the comments in Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Removes all the comments in a Word document
 document.Comments.Clear();
@@ -163,7 +163,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Removes all the comments in a Word document
@@ -183,7 +183,7 @@ The following code illustrates how to remove a particular comment from Word docu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
 //Removes second comments from a document.
 document.Comments.RemoveAt(1);
@@ -201,7 +201,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Removes second comments from a document.
@@ -225,7 +225,7 @@ The following code examples show how to access the parent comment of a particula
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document into DocIO instance.
 WordDocument document = new WordDocument("Comment.docx");
 //Get the Ancestor comment.
@@ -246,7 +246,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 // Get the Ancestor comment.
@@ -271,7 +271,7 @@ The following code example illustrates how to get the paragraph item where it ex
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(WordDocument document = new WordDocument("Comment.docx"))
 {
     //Iterate the comments in the Word document.
@@ -297,7 +297,7 @@ Using document As New WordDocument("Comment.docx")
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {

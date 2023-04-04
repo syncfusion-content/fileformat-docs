@@ -17,7 +17,7 @@ The following code example illustrates how to find a particular text and its nex
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -42,7 +42,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Finds the first occurrence of a particular text in the document
@@ -64,7 +64,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Find the first occurrence of a particular text in the document
@@ -96,7 +96,7 @@ The following code example illustrates how to find all the occurrences of a part
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -115,7 +115,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Finds all the occurrences of a particular text
@@ -131,7 +131,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Finds all the occurrences of a particular text
@@ -156,7 +156,7 @@ The following code example illustrates how to find a particular text extended to
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -185,7 +185,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Finds the first occurrence of a particular text extended to several paragraphs in the document
@@ -211,7 +211,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Finds the first occurrence of a particular text extended to several paragraphs in the document
@@ -247,7 +247,7 @@ The following code example illustrates how to replace a particular text.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads a template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -264,7 +264,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads a template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Finds the first occurrence of a particular text in the document
@@ -278,7 +278,7 @@ document.Save("Replace.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Finds the first occurrence of a particular text in the document
@@ -302,7 +302,7 @@ The following code example illustrates how to replace the first occurrence of a 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads a template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -321,7 +321,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads a template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Sets to replace only the first occurrence of a particular text
@@ -337,7 +337,7 @@ document.Save("Replace.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Sets to replace only the first occurrence of a particular text
@@ -361,7 +361,7 @@ The following code example illustrates how to replace a particular text with a W
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads a template document
 FileStream fileStreamPath1 = new FileStream("SourceTemplate.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath1, FormatType.Docx);
@@ -377,7 +377,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads a template document
 WordDocument document = new WordDocument("SourceTemplate.docx", FormatType.Docx);
 //Gets the document to replace the text
@@ -389,7 +389,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As New WordDocument("SourceTemplate.docx", FormatType.Docx)
 'Gets the document to replace the text
@@ -411,7 +411,7 @@ The following code example illustrates how to replace the text extended to sever
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads a template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -424,7 +424,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads a template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Replaces the text extended to two paragraphs with simple text
@@ -434,7 +434,7 @@ document.Save("Replace.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Replaces the text extended to two paragraphs with simple text
@@ -455,7 +455,7 @@ The following code example illustrates how to replace the text extended to sever
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -475,7 +475,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document. 
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -490,7 +490,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document. 
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Access the specific paragraph in a Word document.
@@ -516,7 +516,7 @@ The following code example illustrates how to replace all occurrences of a missp
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -528,7 +528,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Finds all occurrences of a misspelled word and replaces with properly spelled word
@@ -538,7 +538,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Finds all occurrences of a misspelled word and replaces with properly spelled word
@@ -559,7 +559,7 @@ The following code example illustrates how to find and replace non-breaking spac
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as stream.
 using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
@@ -575,7 +575,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
@@ -586,7 +586,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document. 
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Replace all occurrences of non-breaking spaces with regular spaces.
@@ -607,7 +607,7 @@ The following code example illustrates how to find and replace text in a word do
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -630,7 +630,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Finds all the image placeholder text in the Word document
@@ -650,7 +650,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Finds all the image placeholder text in the Word document
@@ -738,7 +738,7 @@ The following code example illustrates how to create a mail merge template by re
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -765,7 +765,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Finds all the placeholder text enclosed within '«' and '»' in the Word document
@@ -791,7 +791,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Finds all the placeholder text enclosed within '«' and '»' in the Word document
@@ -826,7 +826,7 @@ The following code example illustrates how to do this.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -859,7 +859,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Creates a new table
@@ -891,7 +891,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Creates a new table
@@ -928,7 +928,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void ImportDataToTable(WTable table)
 {
     FileStream fs = new FileStream("Suppliers.xml", FileMode.Open, FileAccess.Read);
@@ -967,7 +967,7 @@ private void ImportDataToTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void ImportDataToTable(WTable table)
 {
     FileStream fs = new FileStream("Suppliers.xml", FileMode.Open, FileAccess.Read);
@@ -1006,7 +1006,7 @@ private void ImportDataToTable(WTable table)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub ImportDataToTable(ByVal table As WTable)
     Dim fs As FileStream = New FileStream("Suppliers.xml", FileMode.Open, FileAccess.Read)
     Dim reader As XmlReader = XmlReader.Create(fs)
@@ -1050,7 +1050,7 @@ The following code example provides supporting methods for the above code.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 Private void ImportDataToRow(XmlReader reader, WTableRow tableRow)
 {
     if (reader == null)
@@ -1101,7 +1101,7 @@ Private void ImportDataToRow(XmlReader reader, WTableRow tableRow)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 Private void ImportDataToRow(XmlReader reader, WTableRow tableRow)
 {
     if (reader == null)
@@ -1152,7 +1152,7 @@ Private void ImportDataToRow(XmlReader reader, WTableRow tableRow)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub ImportDataToRow(ByVal reader As XmlReader, ByVal tableRow As WTableRow)
     If (reader Is Nothing) Then
         Throw New Exception("reader")
@@ -1208,7 +1208,7 @@ The following code example illustrates how to merge or combine Word documents by
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1227,7 +1227,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Finds all the content placeholder text in the Word document
@@ -1244,7 +1244,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Finds all the content placeholder text in the Word document
@@ -1272,7 +1272,7 @@ The following code example illustrates how to replace text that extends to sever
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1292,7 +1292,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the input Word document.
 WordDocument document = new WordDocument("Template.docx");
 WordDocument subDocument = new WordDocument("Source.docx", FormatType.Docx);
@@ -1311,7 +1311,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 Dim subDocument As WordDocument = New WordDocument("Source.docx", FormatType.Docx)
@@ -1341,7 +1341,7 @@ The following code example illustrates how to find all occurrences of a length o
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1358,7 +1358,7 @@ document.Save(outputStream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Finds all occurrence of the text in the Word document
@@ -1373,7 +1373,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Finds all occurrence of the text in the Word document
@@ -1399,7 +1399,7 @@ The following code example illustrates how to replace the pattern of text with n
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1415,7 +1415,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1426,7 +1426,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Replace all occurrences of the given pattern of text with normal text.
@@ -1448,7 +1448,7 @@ The following code example illustrates how to replace a pattern of multiline tex
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1464,7 +1464,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1475,7 +1475,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Replace the text extended to several paragraphs with simple text.
@@ -1497,7 +1497,7 @@ The following code example illustrates how to find and replace text with the for
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1515,7 +1515,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1528,7 +1528,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Find the first occurrence of a particular text in the document.
@@ -1552,7 +1552,7 @@ The following code example illustrates how to find and replace the text extended
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1570,7 +1570,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1583,7 +1583,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Find the first occurrence of particular text extended to several paragraphs in the document.
@@ -1607,7 +1607,7 @@ The following code example illustrates how to find the next occurrence of text e
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -1627,7 +1627,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -1642,7 +1642,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Access the specific table in a Word document.

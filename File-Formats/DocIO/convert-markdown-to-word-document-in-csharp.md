@@ -17,7 +17,7 @@ Convert an existing markdown file to a Word document (DOC, DOCX and RTF) using t
 The following code example shows how to convert Markdown to Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Markdown file.
 using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown))
 {
@@ -34,7 +34,7 @@ Using document As WordDocument = New WordDocument("Input.md", FormatType.Markdow
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAccess.Read))
 {
@@ -61,7 +61,7 @@ The .NET Word (DocIO) library provides a [ImageNodeVisited](https://help.syncfus
 The following code example shows how to load image data based on the image source path when importing the Markdown files.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a Word document instance.
 using (WordDocument document = new WordDocument())
 {
@@ -86,7 +86,7 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a Word document instance.
 using (WordDocument document = new WordDocument())
 {
@@ -106,7 +106,7 @@ using (WordDocument document = new WordDocument())
 The following code examples show the event handler to customize the image based on the source path.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
     //Set the image stream based on the image name from the input Markdown.
@@ -146,7 +146,7 @@ Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByV
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
     //Set the image stream based on the image name from the input Markdown.

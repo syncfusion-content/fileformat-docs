@@ -17,11 +17,11 @@ The following code illustrates how to load and save a macro enabled document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the macro-enabled template
 WordDocument document = new WordDocument("Template.dotm");
 //Gets the table
@@ -33,7 +33,7 @@ document.Save("Sample.docm", FormatType.Word2013Docm);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the macro-enabled template
 Dim document As New WordDocument("Template.dotm")
 'Gets the table
@@ -51,11 +51,11 @@ The following code example illustrates the method used to get the tables from da
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //DocIO supports mail merge operation in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private DataTable GetDataTable()
 {
     //List of syncfusion products name
@@ -81,7 +81,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     'List of syncfusion products name
     Dim products As String() = {"DocIO", "PDF", "XlsIO"}
@@ -113,7 +113,7 @@ The following code example illustrates how to remove the macros present in the d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads the document with macros
 FileStream fileStreamPath = new FileStream("Template.docm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -130,7 +130,7 @@ stream.Position = 0;
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the document with macros
 WordDocument document = new WordDocument("Template.docm");
 //Checks whether the document has macros and then removes them
@@ -142,7 +142,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the document with macros
 Dim document As New WordDocument("Template.docm")
 'Checks whether the document has macros and then removes them

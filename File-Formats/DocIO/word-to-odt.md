@@ -13,7 +13,7 @@ The [OpenDocument format (ODF)](http://en.wikipedia.org/wiki/OpenDocument#) is a
 The Essential DocIO supports converting the Word document into ODT file. The following code example shows how to convert the Word document into ODT file.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Saves the document as ODT file
@@ -31,7 +31,7 @@ document.Save("WordToODT.odt", FormatType.Odt)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))

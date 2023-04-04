@@ -26,7 +26,7 @@ The following code example shows how to use the [MergeField](https://help.syncfu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);  
@@ -41,7 +41,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");    
 //Uses the mail merge events to perform the conditional formatting during runtime
@@ -53,7 +53,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Uses the mail merge events to perform the conditional formatting during runtime
@@ -75,7 +75,7 @@ The following code example shows how to set text color to the alternate Mail mer
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
     //Sets text color to the alternate mail merge record
@@ -86,7 +86,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
     //Sets text color to the alternate mail merge record
@@ -97,7 +97,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub ApplyAlternateRecordsTextColor(ByVal sender As Object, ByVal args As MergeFieldEventArgs)
     'Sets text color to the alternate mail merge record
     If ((args.RowIndex Mod 2) = 0) Then
@@ -118,7 +118,7 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static DataTable GetDataTable()
 {
     DataTable dataTable = new DataTable("Employee");
@@ -135,7 +135,7 @@ private static DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static DataTable GetDataTable()
 {
     DataTable dataTable = new DataTable("Employee");
@@ -152,7 +152,7 @@ private static DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     Dim dataTable As New DataTable("Employee")
     dataTable.Columns.Add("EmployeeName")
@@ -183,7 +183,7 @@ The following code example shows how to use the [MergeImageField](https://help.s
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -201,7 +201,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
 WordDocument document = new WordDocument("Template.docx");
 //Uses the mail merge events handler for image fields
@@ -216,7 +216,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 'Uses the mail merge events handler for image fields
@@ -237,7 +237,7 @@ The following code example shows how to bind the image from file system during M
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 {
     //Binds image from file system during mail merge
@@ -256,7 +256,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 {
     //Binds image from file system during mail merge
@@ -274,7 +274,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
     'Binds image from file system during mail merge
     If args.FieldName = "Logo" Then
@@ -302,7 +302,7 @@ The following code example shows how to use the [BeforeClearField](https://help.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -319,7 +319,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -333,7 +333,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -357,7 +357,7 @@ The following code example shows how to bind the data to unmerged fields during 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
     if (args.HasMappedFieldInDataSource)
@@ -384,7 +384,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
     if (args.HasMappedFieldInDataSource)
@@ -411,7 +411,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFieldEventArgs)
     If args.HasMappedFieldInDataSource Then
         'To check whether the mapped field has null value
@@ -443,7 +443,7 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private DataTable GetDataTable()
 {
     //Create an instance of DataTable
@@ -469,7 +469,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private DataTable GetDataTable()
 {
     //Create an instance of DataTable
@@ -495,7 +495,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     'Create an instance of DataTable
     Dim dataTable As DataTable = New DataTable("Employee")
@@ -536,7 +536,7 @@ The following code example shows how to use the [BeforeClearGroupField](https://
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -557,7 +557,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -575,7 +575,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -599,7 +599,7 @@ The following code example shows how to bind the data to unmerged group fields d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
     if (!args.HasMappedGroupInDataSource)
@@ -620,7 +620,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
     if (!args.HasMappedGroupInDataSource)
@@ -642,7 +642,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub BeforeClearFields(ByVal sender As Object, ByVal args As BeforeClearGroupFieldEventArgs)
     If Not args.HasMappedGroupInDataSource Then
         ‘Gets the Current unmerged group name from the event argument
@@ -667,7 +667,7 @@ The following code example shows GetOrders and GetEmployees methods which are us
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -690,7 +690,7 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -713,7 +713,7 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets orders list
 Private Shared Function GetOrders() As List(Of OrderDetails)
     Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)()
@@ -740,7 +740,7 @@ The following code example shows Employees, CustomerDetails, and OrderDetails cl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public class Employees
 {
     public string FirstName { get; set; }
@@ -795,7 +795,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Employees
 {
     public string FirstName { get; set; }
@@ -851,7 +851,7 @@ public class OrderDetails
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Employees
     Public Property FirstName As String
     Public Property LastName As String

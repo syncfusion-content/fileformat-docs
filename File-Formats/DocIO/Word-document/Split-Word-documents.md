@@ -19,7 +19,7 @@ The following code example illustrates how to split the Word document by section
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Load the template document as stream
 using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -42,7 +42,7 @@ using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the template document
 using (WordDocument document = new WordDocument(@"Template.docx"))
 {
@@ -62,7 +62,7 @@ using (WordDocument document = new WordDocument(@"Template.docx"))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load the template document
 Using document As WordDocument = New WordDocument("Template.docx")
     Dim i As Integer = 0
@@ -90,7 +90,7 @@ The following code example illustrates how to split the Word document by using h
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the template document as stream
@@ -183,7 +183,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the template document
 using (WordDocument doc = new WordDocument("Template.docx"))
 {
@@ -271,7 +271,7 @@ private static void SaveWordDocument(WordDocument newDocument, string fileName)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load the template document
 Using doc As WordDocument = New WordDocument("Template.docx")
     Dim newDocument As WordDocument = Nothing
@@ -349,7 +349,7 @@ The following code example illustrates how to split the Word document using book
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -379,7 +379,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -406,7 +406,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Create a bookmark navigator instance to access the bookmark.
@@ -442,7 +442,7 @@ The following code example illustrates how to split the Word document using the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Load an existing Word document.
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -475,7 +475,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document into DocIO instance.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -505,7 +505,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document into DocIO instance.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     Dim findPlaceHolderWord As String() = New String() {"[First Content Start]", "[Second Content Start]", "[Third Content Start]"}

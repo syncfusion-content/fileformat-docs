@@ -18,7 +18,7 @@ The following code example shows how to add mapping when a merge field name in a
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document. 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -39,7 +39,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates data source
@@ -57,7 +57,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates data source
@@ -87,17 +87,17 @@ The following code example shows how to retrieve the merge field names in the Wo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Gets the merge field names from the document.
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets the merge field names from the document
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets the merge field names from the document
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
 {% endhighlight %}
@@ -108,17 +108,17 @@ The following code example shows how to retrieve the merge field group names in 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Gets the merge field group names from the document.
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets the merge field group names from the document
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets the merge field group names from the document
 Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 {% endhighlight %}
@@ -129,17 +129,17 @@ The following code example shows how to retrieve the merge field names for a spe
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Gets the fields from the specified groups. 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets the fields from the specified groups 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets the fields from the specified groups 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 {% endhighlight %}
@@ -156,7 +156,7 @@ The following code example shows how to remove the empty paragraphs during Mail 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -173,7 +173,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Removes paragraph that contains only empty fields 
@@ -187,7 +187,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Removes paragraph that contains only empty fields 
@@ -228,7 +228,7 @@ The following code example shows how to keep the unmerged merge fields in the ge
  
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -245,7 +245,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document 
@@ -259,7 +259,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document 
@@ -285,7 +285,7 @@ The following code example shows how to remove empty merge field group during ma
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -304,7 +304,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the employee details as “IEnumerable” collection
@@ -320,7 +320,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As WordDocument =  New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -342,7 +342,7 @@ The following code example shows GetEmployees method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public static List<Employees> GetEmployees()
 {
     List<OrderDetails> orders = new List<OrderDetails>();
@@ -409,7 +409,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public static List<Employees> GetEmployees()
 {
     List<OrderDetails> orders = new List<OrderDetails>();
@@ -476,7 +476,7 @@ public class OrderDetails
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetEmployees() As List(Of Employees)
     Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
     orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
@@ -548,7 +548,7 @@ The following code example shows how to restart the list numbering in a Word doc
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 WordDocument document = new WordDocument(fileStream, FormatType.Docx);
@@ -570,7 +570,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Sets ImportOptions to restart the list numbering
@@ -590,7 +590,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets ImportOptions to restart the list numbering
@@ -616,7 +616,7 @@ The following code example shows Employee class.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public class Employee
 {
     public string EmployeeID { get; set; }
@@ -634,7 +634,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Employee
 {
     public string EmployeeID { get; set; }
@@ -652,7 +652,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Employee
     Public Property EmployeeID() As String
         Get
@@ -705,7 +705,7 @@ The following code example shows how to insert each record as new row in single 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -739,7 +739,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates a data table
@@ -770,7 +770,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Data/Template.docx")
 'Creates a data table
@@ -817,7 +817,7 @@ The following code example shows how to skip merging particular image during mai
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document 
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -835,7 +835,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Uses the mail merge events to perform the conditional formatting during runtime
@@ -850,7 +850,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As WordDocument = New WordDocument("Template.docx")  
 'Uses the mail merge events to perform the conditional formatting during runtime 
@@ -871,7 +871,7 @@ The following code example shows how to skip merging particular image during mai
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
     //Skip to merge particular image
@@ -887,7 +887,7 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 {
     //Skip to merge particular image
@@ -898,7 +898,7 @@ private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub MergeEmployeePhoto(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs) 
     'Skip to merge particular image 
     If args.FieldName = "Andrew" Then 
@@ -922,7 +922,7 @@ The following code example illustrates how to start a new page for each group of
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the file as Stream.
 using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -944,7 +944,7 @@ using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, Fil
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template Word document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -961,7 +961,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Gets the invoice details as “IEnumerable” collection.
@@ -983,7 +983,7 @@ The following code example shows GetInvoice method, which is used to get data fo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -1029,7 +1029,7 @@ public List<Invoice> GetInvoice()
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public static List<Invoice> GetInvoice()
 {
     //Creates invoice details.
@@ -1075,7 +1075,7 @@ public static List<Invoice> GetInvoice()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetInvoice() As List(Of Invoice)
     'Creates invoice details.
     Dim invoices As List(Of Invoice) = New List(Of Invoice)()
@@ -1126,7 +1126,7 @@ The following code example shows Invoice, Orders, Order and OrderTotals classes.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 public class Invoice
 {
@@ -1396,7 +1396,7 @@ public class OrderTotals
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Invoice
 {
     #region Fields
@@ -1666,7 +1666,7 @@ public class OrderTotals
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Public Class Invoice
     #Region "Fields"
@@ -2034,7 +2034,7 @@ The following code example shows how to remove the mail merge settings from the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2048,7 +2048,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Check and removes the mail merge settings
@@ -2059,7 +2059,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document Word document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Check and removes the mail merge settings
@@ -2083,7 +2083,7 @@ The following code example shows how to change the data source file path in the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2096,7 +2096,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document Word document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Change the data source file path
@@ -2106,7 +2106,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB. NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document Word document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Change the data source file path

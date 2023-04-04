@@ -30,7 +30,7 @@ DocIO supports the following WordprocessingML:
 The following code example explains how to create a new Word document with few lines of code.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -54,7 +54,7 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -79,7 +79,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 DOTX is a Word document template. The following code snippet shows how to create the Word document template with few lines of code.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -103,7 +103,7 @@ document.Save("Sample.dotx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -128,7 +128,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 DOCM is a macro enabled Word document. It is same as DOCX document contains macros and scripts. The DocIO provides only preservation support for macros. The following code illustrates how to load and save a macro enabled document using the DocIO library.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Loads the macro-enabled template.
 WordDocument document = new WordDocument("Template.dotm");
 // Gets the table
@@ -156,7 +156,7 @@ document.Close()
 //DocIO supports Mail merge execute group in Windows forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET CORE platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.dotm", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Dotm))
@@ -193,7 +193,7 @@ N> 3. The custom XML elements present in the Word Processing 2003 XML documents 
 The following code example shows how to convert the Word document into Word Processing XML document.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Saves the document as Word Processing ML document
@@ -211,7 +211,7 @@ document.Save("WordToWordML.xml", FormatType.WordML)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -231,7 +231,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert the Word Processing XML document into Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Loads an existing Word document 
 WordDocument document = new WordDocument("Template.xml");
 //Saves the Word Processing ML document as docx
@@ -249,7 +249,7 @@ document.Save("WordMLToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.WordML))
@@ -332,7 +332,7 @@ DOC is one of the classic file format of Word processing document. It is a propr
 The DocIO library supports importing or exporting of DOC format and refer to the following code sample.
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -406,7 +406,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -452,7 +452,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code shows, how to convert the DOC file into DOCX file format using DocIO
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.doc", FormatType.Doc);
 //Saves the binary document(.doc) as Word Document(.docx) file
@@ -487,7 +487,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.doc", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
@@ -525,7 +525,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code shows, how to convert the DOCX file into DOC file format using DocIO
 
 {% tabs %}
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Saves the Word Document(.docx) as binary document(.doc) file
@@ -592,7 +592,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -633,7 +633,7 @@ The following code shows, how to save Word document with same word version compa
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Enables flag to maintain compatibility with same Word version
@@ -679,7 +679,7 @@ document.Close();
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
 {
@@ -740,7 +740,7 @@ The following code example shows how to open a Word (*.doc) document containing 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Sets flag to skip old file format exception while opening document
@@ -820,7 +820,7 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -877,7 +877,7 @@ The following code example shows how to preserve embedded Ole image as normal im
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an empty Word document instance
 WordDocument document = new WordDocument();
 //Sets flag to preserve embedded Ole image as normal image while opening document
@@ -923,7 +923,7 @@ using (WordDocument document = new WordDocument())
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {

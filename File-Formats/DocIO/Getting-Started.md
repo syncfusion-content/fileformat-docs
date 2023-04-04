@@ -42,7 +42,7 @@ Include the following namespaces in your .cs or .vb file
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -56,7 +56,7 @@ Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -71,7 +71,7 @@ The following code example explains how to create a new Word document with few l
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -95,7 +95,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance of WordDocument (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph to the document
@@ -123,7 +123,7 @@ The following code example explains how to add a section into a [WordDocument](h
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -141,7 +141,7 @@ Dim section As IWSection = document.AddSection()
 section.PageSetup.Margins.All = 50.0F
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word document
@@ -158,7 +158,7 @@ The following code example explains how to add a Paragraph into a Word document
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -194,7 +194,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri"
 secondTextRange.CharacterFormat.FontSize = 11
 {% endhighlight %}  
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adds a new simple paragraph into the section
 IWParagraph firstParagraph = section.AddParagraph();
 //Sets the paragraph's horizontal alignment as justify
@@ -218,7 +218,7 @@ The following code example shows how to add an image into the Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
@@ -244,7 +244,7 @@ picture.Height = 100
 picture.Width = 100
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -264,7 +264,7 @@ Table is another important element in Word that contains a set of paragraphs arr
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -330,7 +330,7 @@ paragraph = secondCell.AddParagraph()
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adds a table into the Word document
 IWTable table = section.AddTable();
 //Creates the specified number of rows and columns
@@ -370,7 +370,7 @@ Essential DocIO allow you to create simple and multi-level lists. The following 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -498,7 +498,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Writes default numbered list. 
 paragraph = section.AddParagraph();
 //Sets before spacing for paragraph.
@@ -568,7 +568,7 @@ Finally, save the document in file system and close its instance.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Saves the document in the given name and format
 document.Save(outputFileName, FormatType.Docx);
 //Releases the resources occupied by WordDocument instance
@@ -582,7 +582,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
@@ -610,7 +610,7 @@ You can open an existing Word document either by using constructor of [WordDocum
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Giant Panda.docx");
 //Replaces the word "bear" as "panda"
@@ -632,7 +632,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"Giant Panda.docx",FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -653,7 +653,7 @@ The following code example explains how to search a particular text and highligh
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(@"../../Data/Giant Panda.docx");
 //Finds the occurrence of the Word "panda" in the document
@@ -683,7 +683,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"Test.docx",FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -731,7 +731,7 @@ The following code example shows how to perform simple Mail merge by using strin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document with required merge fields
 WordDocument document = new WordDocument(@"../../data/SimpleMailMergeTemplate.docx");
 //Initializes the string array with field names
@@ -759,7 +759,7 @@ document.Save("result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"SimpleMailMergeTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -807,7 +807,7 @@ The following code example shows how to perform Mail merge with objects.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument(@"../../Data/EmployeesTemplate.doc");
 //Gets the employee details as IEnumerable collection
@@ -835,7 +835,7 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
@@ -858,7 +858,7 @@ The following code example provides supporting methods and class for the above c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -992,7 +992,7 @@ Public Class Employee
 End Class
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -1069,7 +1069,7 @@ The following code example illustrates how to convert a Word document into PDF d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic );
 //Initializes chart to image converter for converting charts during Word to pdf conversion
@@ -1103,7 +1103,7 @@ pdfDocument.Close()
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);

@@ -22,7 +22,7 @@ The following code example illustrates how to create a simple table with predefi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -116,7 +116,7 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
 //Adds a section into Word document
@@ -172,7 +172,7 @@ The following code example illustrates how to create a simple table by dynamical
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -318,7 +318,7 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -403,7 +403,7 @@ You can create a nested table by adding a new table into a cell. The following c
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -487,7 +487,7 @@ document.Save("NestedTable.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -543,7 +543,7 @@ The following code example illustrates how to align text within a table.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void AlignCellContent(WTableCell tableCell, VerticalAlignment verticalAlignment, HorizontalAlignment horizontalAlignment)
 {
     //Sets vertical alignment to the cell.
@@ -605,7 +605,7 @@ You can insert an image into the table cell by accessing the paragraph in that c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class.
 using (WordDocument document = new WordDocument())
 {
@@ -646,7 +646,7 @@ Using document As New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of the WordDocument class.
 using (WordDocument document = new WordDocument())
 {
@@ -686,7 +686,7 @@ N> 4. As in the Microsoft Word, DocIO supports [RowFormat.Borders](https://help.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Opens an existing Word document into DocIO instance
@@ -782,7 +782,7 @@ document.Save("TableFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing Word document into DocIO instance
@@ -842,7 +842,7 @@ The following code example illustrates how to load an existing document and appl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 document.Open("Table.docx", FormatType.Docx);
@@ -946,7 +946,7 @@ document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1014,7 +1014,7 @@ The following code example shows how to resize the table in a Word document.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)*'| markdownify }}
 WordDocument document = new WordDocument();
 //Opens an existing Word document into DocIO instance
@@ -1060,7 +1060,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1101,7 +1101,7 @@ The following code example illustrates how to apply the built-in table styles to
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1125,7 +1125,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1152,7 +1152,7 @@ The following code example illustrates how to enable and disable the special tab
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1200,7 +1200,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1237,7 +1237,7 @@ The following code example illustrates how to apply a custom table style to tabl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 WSection section = document.Sections[0];
@@ -1301,7 +1301,7 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1348,7 +1348,7 @@ The following code example illustrates how to apply built-in and custom table st
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -1485,7 +1485,7 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -1569,7 +1569,7 @@ The following code example illustrates how to apply horizontal merge to specifie
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1597,7 +1597,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1621,7 +1621,7 @@ The following code example illustrates how to apply vertical merge to specified 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1649,7 +1649,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1673,7 +1673,7 @@ The following code example illustrate how to create a table that contains horizo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1719,7 +1719,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1752,7 +1752,7 @@ The following code example illustrates how to create a table with vertical merge
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1798,7 +1798,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1840,7 +1840,7 @@ The following code example illustrates how to create a table with a single heade
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1887,7 +1887,7 @@ document.Save("TableWithHeaderRow.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -1925,7 +1925,7 @@ The following code example illustrates how to disable all the table rows from sp
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 WSection section = document.Sections[0];
@@ -1952,7 +1952,7 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath);
@@ -1978,7 +1978,7 @@ The following code example illustrates how to iterate through the table and appl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 WSection section = document.Sections[0];
@@ -2026,7 +2026,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2064,7 +2064,7 @@ You can remove a table from a text body by its instance or by its index position
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the instance of the first section in the Word document
@@ -2094,7 +2094,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -2121,7 +2121,7 @@ You can remove a particular table row from a table rows collection by its instan
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# (.NET Windows-specific)" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the instance of the first section in the Word document
@@ -2151,7 +2151,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# (.NET Cross platform)" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of WordDocument class
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
