@@ -379,7 +379,7 @@ using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [ Windows-specific] " %}
 //Open an existing document.
 using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
 {
@@ -391,7 +391,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
     document.Save("Result.docx");
 }
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [ Windows-specific]" %}
 'Open an existing document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Update the page count along with word count in the document.

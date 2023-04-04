@@ -60,7 +60,7 @@ The following code example shows how to open the encrypted Word document.
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document from stream through constructor of WordDocument class
-FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an encrypted Word document
 WordDocument document = new WordDocument(fileStreamPath, "password");
 //Saves the Word document to MemoryStream
