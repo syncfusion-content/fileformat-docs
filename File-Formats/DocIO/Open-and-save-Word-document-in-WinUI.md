@@ -198,6 +198,15 @@ paragraph.BreakCharacterFormat.FontSize = 12f;
 IWTextRange text = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.");
 text.CharacterFormat.FontSize = 12f;
 
+{% endhighlight %}
+
+{% endtabs %}
+
+Step 9: Add below code example to **save the Word document in WinUI UWP app**.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
 //Save the Word document to the MemoryStream.
 using (MemoryStream stream = new MemoryStream())
 {
@@ -209,7 +218,7 @@ using (MemoryStream stream = new MemoryStream())
 
 {% endtabs %}
 
-Step 9: Add below code example to **save the Word document in WinUI UWP app**.
+Step 10: Add below code example to save the Word document as a physical file and open the file for viewing.
 
 {% tabs %}
 
