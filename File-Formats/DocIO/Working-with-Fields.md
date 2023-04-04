@@ -51,7 +51,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section to the Word Document
@@ -124,7 +124,7 @@ document.Save("Template.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -218,7 +218,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance 
 Dim document As New WordDocument("Input.docx", FormatType.Docx)
 'Updates the fields present in a document
@@ -278,7 +278,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -364,7 +364,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -450,7 +450,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -537,7 +537,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As WordDocument = New WordDocument()
 'Adds a new section into the Word Document
@@ -624,7 +624,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -701,7 +701,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function CreateDocument() As WordDocument
     'Creates a new word document
     Dim document As WordDocument = New WordDocument
@@ -787,7 +787,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an exixting word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Accesses sequence field in the document
@@ -873,7 +873,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
 Dim table As IWTable = CType(document.LastSection.Body.ChildEntities(1), WTable)
@@ -1026,7 +1026,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function CreateDocument() As WordDocument
     'Creates a new word document
     Dim document As WordDocument = New WordDocument
@@ -1241,7 +1241,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a Word document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -1334,7 +1334,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function CreateDocument() As WordDocument
     'Creates a new word document
     Dim document As WordDocument = New WordDocument
@@ -1486,7 +1486,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a Word document
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
@@ -1583,7 +1583,7 @@ private WordDocument CreateDocument()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function CreateDocument() As WordDocument
     'Creates a new Word document
     Dim document As WordDocument = New WordDocument
@@ -1714,7 +1714,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}

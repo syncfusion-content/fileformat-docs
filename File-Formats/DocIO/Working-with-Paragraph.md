@@ -43,7 +43,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -106,7 +106,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the text body of first section
@@ -194,7 +194,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document.
 Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
     'Access the section in a Word document.
@@ -287,7 +287,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -358,7 +358,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -445,7 +445,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -514,7 +514,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Gets the text body of first section
@@ -589,7 +589,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument(inputFileName)
 'Accesses the styles collection that contains paragraph and character styles in Word document
@@ -655,7 +655,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -720,7 +720,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -775,7 +775,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template.
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Accesses the styles collection that contains paragraph and character styles in a Word document.
@@ -836,7 +836,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -905,7 +905,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim document As New WordDocument("Template.docx")
 'Gets the last paragraph
@@ -1006,7 +1006,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document 
 Dim document As New WordDocument()
 'Add new section to the document
@@ -1186,7 +1186,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -1261,7 +1261,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
@@ -1350,7 +1350,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
@@ -1446,7 +1446,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -1566,7 +1566,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument("Template.docx")
 'Gets textbody content
@@ -1677,7 +1677,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new document
 Dim document As WordDocument = New WordDocument
 'Adds a new section to the document
@@ -1805,7 +1805,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -1901,7 +1901,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2001,7 +2001,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2109,7 +2109,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2224,7 +2224,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2354,7 +2354,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2497,7 +2497,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2656,7 +2656,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document. 
 Dim document As New WordDocument()
 'Add a new section to the document.
@@ -2783,7 +2783,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 ' Gets the document text
@@ -2848,7 +2848,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2908,7 +2908,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2968,7 +2968,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3034,7 +3034,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3111,7 +3111,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3189,7 +3189,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim document As New WordDocument("Sample.docx", FormatType.Docx)
 Dim paragraph As WParagraph = document.LastParagraph
@@ -3271,7 +3271,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3339,7 +3339,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Sample.docx", FormatType.Docx)
 'Gets the textbody content
@@ -3441,7 +3441,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3530,7 +3530,7 @@ using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing Word document.
 Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Access paragraph from section.
@@ -3609,7 +3609,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3745,7 +3745,7 @@ private static void ExtractOLEObject(WordDocument document)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document
 Using document As WordDocument = New WordDocument(inputFileName)
     'Extract the OLE object from the word document
@@ -3958,7 +3958,7 @@ private static void RemoveOLEObject(WordDocument document)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the source document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Remove OLE object from the document
@@ -4077,7 +4077,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -4173,7 +4173,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document

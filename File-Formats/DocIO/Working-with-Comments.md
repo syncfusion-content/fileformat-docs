@@ -40,7 +40,7 @@ document.Save("Comment.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds a section and a paragraph in the document
@@ -105,7 +105,7 @@ document.Save("ModifiedComment.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Comment.docx")
 'Iterates the comments in the Word document
 For Each comment As WComment In document.Comments
@@ -155,7 +155,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Comment.docx")
 'Removes all the comments in a Word document
 document.Comments.Clear()
@@ -192,7 +192,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Comment.docx")
 'Removes second comments from a document.
 document.Comments.RemoveAt(1)
@@ -236,7 +236,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing Word document into DocIO instance.
 Dim document As WordDocument = New WordDocument("Comment.docx")
 'Get the Ancestor comment.
@@ -285,7 +285,7 @@ using(WordDocument document = new WordDocument("Comment.docx"))
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using document As New WordDocument("Comment.docx")
     'Iterate the comments in the Word document.
     For Each comment As WComment In document.Comments

@@ -26,7 +26,7 @@ using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open an existing Markdown file.
 Using document As WordDocument = New WordDocument("Input.md", FormatType.Markdown)
     'Save as a Word document.
@@ -74,7 +74,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a Word document instance.
 Using document As WordDocument = New WordDocument()
     'Hook the event to customize the image while importing Markdown.
@@ -127,7 +127,7 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByVal args As Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs)
     'Set the image stream based on the image name from the input Markdown.
     If args.Uri Is "Image_1.png" Then

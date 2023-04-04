@@ -26,7 +26,7 @@ document.Save("WordToEPub.epub", FormatType.EPub);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Exports the fonts used in the document

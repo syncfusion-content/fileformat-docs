@@ -103,7 +103,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Adds the section into the Word document
@@ -229,7 +229,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input word template
 Dim document As New WordDocument("Template.docx")
 'Updates the table of contents.
@@ -325,7 +325,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a new custom styles
@@ -533,7 +533,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
     'Add a section into the Word document.

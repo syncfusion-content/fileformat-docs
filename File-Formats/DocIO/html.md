@@ -53,7 +53,7 @@ document.Save("HTMLtoWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 ' Loads the HTML document against validation type none
 Dim document As New WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None)
 'Saves the Word document
@@ -91,7 +91,7 @@ document.Save("WordToHtml.html", FormatType.Html);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the document as Html file
@@ -152,7 +152,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Html string to be inserted
@@ -202,7 +202,7 @@ document.Save("HtmlToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new instance of WordDocument
 Dim document As WordDocument = New WordDocument()
 'Hooks the ImageNodeVisited event to open the image from a specific location
@@ -249,7 +249,7 @@ private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
     'Read the image from the specified (args.Uri) path
     args.ImageStream = System.IO.File.OpenRead(args.Uri)
@@ -313,7 +313,7 @@ export.SaveAsXhtml(document, "WordtoHtml.html");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx")
 Dim export As New HTMLExport()
