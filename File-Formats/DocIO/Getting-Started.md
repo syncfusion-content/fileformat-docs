@@ -244,22 +244,6 @@ picture.Height = 100
 picture.Width = 100
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Adds another paragraph and aligns it as center
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Sets after spacing for paragraph.
-paragraph.ParagraphFormat.AfterSpacing = 8;
-//Adds a picture into the paragraph
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream1 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfilePicture.jpg");
-IWPicture picture = paragraph.AppendPicture(imageStream1);
-//Specify the size of the picture
-picture.Height = 100;
-picture.Width = 100;
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Adds another paragraph and aligns it as center
 IWParagraph paragraph = section.AddParagraph();
@@ -273,22 +257,6 @@ IWPicture picture = paragraph.AppendPicture(image1);
 picture.Height = 100;
 picture.Width = 100;
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adds another paragraph and aligns it as center
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Sets after spacing for paragraph.
-paragraph.ParagraphFormat.AfterSpacing = 8;
-//Adds a picture into the paragraph
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream1 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfilePicture.jpg");
-IWPicture picture = paragraph.AppendPicture(imageStream1);
-//Specify the size of the picture
-picture.Height = 100;
-picture.Width = 100;
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -664,23 +632,6 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Giant Panda.docx");
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(FileStream);
-//Replaces the word "bear" as "panda"
-document.Replace("bear", "panda", false, true);
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word document file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStream = new FileStream(@"Giant Panda.docx",FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
@@ -693,23 +644,6 @@ document.Save(stream, FormatType.Docx);
 //Closes the Word document.
 document.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Giant Panda.docx");
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
-//Replaces the word "bear" as "panda"
-document.Replace("bear", "panda", false, true);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -1169,59 +1103,6 @@ pdfDocument.Close()
 wordDocument.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputWordDocument = assembly.GetManifestResourceStream("CreateWordSample.Assets.WordToPDF.docx");
-//Loads the template document
-WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
-//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
-DocIORenderer converter = new DocIORenderer();
-//Converts Word document into PDF document
-PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
-//Save the document into stream.
-MemoryStream outputStream = new MemoryStream();
-pdfDocument.Save(outputStream);
-//Closes the instance of PDF document object
-pdfDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(outputStream, "Output.pdf");
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("PDF Documents", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-{% endhighlight %}
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
 //Loads an existing Word document into DocIO instance
@@ -1237,24 +1118,6 @@ pdfDocument.Save(outputStream);
 pdfDocument.Close();
 wordDocument.Close();
 {% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputWordDocument = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.EmployeesTemplate.docx");
-//Loads an existing Word document into DocIO instance
-WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
-//document.Save(stream, FormatType.Docx);
-DocIORenderer docIORenderer = new DocIORenderer();
-PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument);
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-pdfDocument.Close();
-wordDocument.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "application/pdf", stream);
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 
 {% endtabs %}
 

@@ -646,34 +646,6 @@ Using document As New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
- //Creates an instance of the WordDocument class.
-using (WordDocument document = new WordDocument())
-{
-    IWSection section = document.AddSection();
-    //Adds a new table into the Word document.
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns.
-    table.ResetCells(2, 2);
-    table[0, 0].AddParagraph().AppendText("Product Name");
-    table[0, 1].AddParagraph().AppendText("Product Image");
-    table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into the cell.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-    IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
-    picture.Height = 75;
-    picture.Width = 60;
-    //Saves the Word file to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Saves the stream as a Word file in a local machine
-    Save(stream, "Result.docx");
-    //Refer to the following link to save the Word document in the UWP platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-}
-{% endhighlight %}
-
 {% highlight c# tabtitle="C# (.NET Cross platform)" %}
 //Creates an instance of the WordDocument class.
 using (WordDocument document = new WordDocument())
@@ -696,34 +668,6 @@ using (WordDocument document = new WordDocument())
     document.Save(stream, FormatType.Docx);
     //Closes the Word document
     document.Close();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates an instance of the WordDocument class.
-using (WordDocument document = new WordDocument())
-{
-    IWSection section = document.AddSection();
-    //Adds a new table into the Word document.
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns.
-    table.ResetCells(2, 2);
-    table[0, 0].AddParagraph().AppendText("Product Name");
-    table[0, 1].AddParagraph().AppendText("Product Image");
-    table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into the cell.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream imageStream = assembly.GetManifestResourceStream("GettingStarted.Assets.Image.png");
-    IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
-    picture.Height = 75;
-    picture.Width = 60;
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Save the stream as a file in the device and invokes it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-    //Download the helper files from the following link to save the stream as a file and open the file for viewing on the Xamarin platform:
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
 
