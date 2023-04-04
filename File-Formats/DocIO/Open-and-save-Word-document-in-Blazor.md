@@ -100,6 +100,9 @@ public MemoryStream OpenAndSaveDocument()
         using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     }
 }
+{% endhighlight %}
+
+{% endtabs %}
 
 Step 10: Add below code example to add a paragraph in the Word document.
 
@@ -258,6 +261,9 @@ Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and inclu
             using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
         }
     }
+{% endhighlight %}
+
+{% endtabs %}
 Step 8: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
@@ -306,7 +312,6 @@ public static class FileUtils
             filename,
             Convert.ToBase64String(data));
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -339,7 +344,6 @@ Step 11: Add the following JavaScript function in the Index.html file present un
         }
     }
 </script>
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -355,7 +359,6 @@ Step 12: Add the following code snippet in the razor file of Navigation menu in 
         <span class="oi oi-list-rich" aria-hidden="true"></span> Create Word
     </NavLink>
 </li>
-
 {% endhighlight %}
 
 {% endtabs %}
