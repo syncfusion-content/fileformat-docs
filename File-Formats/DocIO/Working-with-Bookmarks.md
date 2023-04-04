@@ -43,7 +43,7 @@ document.Save("Bookmarks.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section into the Word Document
@@ -115,7 +115,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -162,7 +162,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
@@ -221,7 +221,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -287,7 +287,7 @@ newDocument.Save("Result.docx", FormatType.Docx);
 newDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -372,7 +372,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document
 Dim document As WordDocument = New WordDocument
 'Adds a section and a paragraph in the document
@@ -478,7 +478,7 @@ public IWTable CreateTable(WordDocument document)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function CreateTable(document As WordDocument) As IWTable
     'Adds a new table into Word document
     Dim table As IWTable = document.LastSection.AddTable
@@ -586,7 +586,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -638,7 +638,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -696,7 +696,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -761,7 +761,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -844,7 +844,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -918,7 +918,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
@@ -994,7 +994,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark
 Dim bookmarkNavigator As New BookmarksNavigator(document)
@@ -1076,7 +1076,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 Dim templateDocument As New WordDocument("Template.docx", FormatType.Docx)
 'Creates the bookmark navigator instance to access the bookmark

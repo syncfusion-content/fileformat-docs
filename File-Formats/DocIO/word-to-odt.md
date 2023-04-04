@@ -22,7 +22,7 @@ document.Save("WordToODT.odt", FormatType.Odt);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the existing Word document 
 Dim document As New WordDocument("Template.docx")
 'Saves the document as ODT file

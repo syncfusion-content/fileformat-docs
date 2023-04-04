@@ -42,7 +42,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -91,7 +91,7 @@ document.Save("Sample.dotx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -140,7 +140,7 @@ document.Save("Sample.docm", FormatType.Word2013Docm);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the macro-enabled template.
 Dim document As New WordDocument("Template.dotm")
 'Gets the table
@@ -202,7 +202,7 @@ document.Save("WordToWordML.xml", FormatType.WordML);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document 
 Dim document As New WordDocument("Template.docx")
 'Saves the document as Word Processing ML document
@@ -240,7 +240,7 @@ document.Save("WordMLToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 ' Loads an existing Word document 
 Dim document As New WordDocument("Template.xml")
 'Saves the Word Processing ML document as docx 
@@ -344,7 +344,7 @@ document.Save("BinaryDocument.doc");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -461,7 +461,7 @@ document.Save("DocToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.doc", FormatType.Doc)
 ' Saves the binary document(.doc) as Word Document(.docx) file
@@ -534,7 +534,7 @@ document.Save("DocxToBinary.doc", FormatType.Doc);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Saves the Word Document(.docx) as binary document(.doc) file 
@@ -643,7 +643,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Enables flag to maintain compatibility with same Word version
@@ -753,7 +753,7 @@ document.Save("Sample.doc", FormatType.Doc);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Sets flag to skip old file format exception while opening document
@@ -889,7 +889,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an empty Word document instance
 Dim document As New WordDocument()
 'Sets flag to preserve embedded Ole image as normal image while opening document

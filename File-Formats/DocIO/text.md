@@ -21,7 +21,7 @@ document.Save("WordToText.txt", FormatType.Txt);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a text file
 Dim document As New WordDocument("Template.docx")
 'Saves the document as text file
@@ -60,7 +60,7 @@ document.Save("TextToWord.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a text file
 Dim document As New WordDocument("Template.txt")
 'Saves the document as text file
@@ -109,7 +109,7 @@ newdocument.Close();
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads a template document
 Dim document As New WordDocument("Template.docx")
 'Gets the document text

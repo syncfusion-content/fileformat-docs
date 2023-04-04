@@ -69,7 +69,7 @@ document.Save("Table.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class 
 Dim document As New WordDocument()
 'Adds a section into Word document
@@ -245,7 +245,7 @@ document.Save("Table.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -445,7 +445,7 @@ document.Save("NestedTable.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -626,7 +626,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of the WordDocument class.
 Using document As New WordDocument()
     Dim section As IWSection = document.AddSection()
@@ -734,7 +734,7 @@ document.Save("TableFormatting.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Opens an existing Word document into DocIO instance
@@ -894,7 +894,7 @@ document.Save("TableCellFormatting.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 document.Open("Table.docx", FormatType.Docx)
@@ -1038,7 +1038,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As WordDocument = New WordDocument
 'Opens an existing Word document into DocIO instance
@@ -1113,7 +1113,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1176,7 +1176,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1269,7 +1269,7 @@ document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 Dim section As WSection = document.Sections(0)
@@ -1417,7 +1417,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document.
 Using document As WordDocument = New WordDocument()
     'Add one section and paragraph to the document.
@@ -1583,7 +1583,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -1635,7 +1635,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -1696,7 +1696,7 @@ document.Save("HorizontalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -1775,7 +1775,7 @@ document.Save("VerticalMerge.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -1864,7 +1864,7 @@ document.Save("TableWithHeaderRow.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -1938,7 +1938,7 @@ document.Save("Result.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 Dim section As WSection = document.Sections(0)
@@ -2003,7 +2003,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 Dim section As WSection = document.Sections(0)
@@ -2079,7 +2079,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 'Accesses the instance of the first section in the Word document
@@ -2136,7 +2136,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument class
 Dim document As New WordDocument("Template.docx")
 'Accesses the instance of the first section in the Word document

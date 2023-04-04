@@ -49,7 +49,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Imports Syncfusion.DocIO
 Imports Syncfusion.DocIO.DLS
@@ -83,7 +83,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Add a section & a paragraph in the empty document
@@ -132,7 +132,7 @@ IWSection section = document.AddSection();
 section.PageSetup.Margins.All = 50f;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates an instance of WordDocument Instance (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section into the Word document
@@ -176,7 +176,7 @@ secondTextRange.CharacterFormat.FontName = "Calibri";
 secondTextRange.CharacterFormat.FontSize = 11;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Adds a new simple paragraph into the section
 Dim firstParagraph As IWParagraph = section.AddParagraph()
 'Sets the paragraph's horizontal alignment as justify
@@ -231,7 +231,7 @@ picture.Height = 100;
 picture.Width = 100;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Adds another paragraph and aligns it as center
 Dim paragraph As IWParagraph = section.AddParagraph()
 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
@@ -297,7 +297,7 @@ paragraph = secondCell.AddParagraph();
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Adds a table into the Word document
 Dim table As IWTable = section.AddTable()
 'Creates the specified number of rows and columns
@@ -434,7 +434,7 @@ paragraph.ListFormat.CurrentListLevel.NumberAlignment = ListNumberAlignment.Left
 section.AddParagraph();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Writes default numbered list. 
 paragraph = section.AddParagraph()
 'Sets before spacing for paragraph.
@@ -575,7 +575,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Saves the document in the given name and format
 document.Save(outputFileName, FormatType.Docx)
 'Releases the resources occupied by WordDocument instance
@@ -621,7 +621,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Giant Panda.docx")
 'Replaces the word "bear" as "panda"
@@ -669,7 +669,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("../../Data/Giant Panda.docx")
 'Finds the occurrence of the word "panda" in the document
@@ -745,7 +745,7 @@ document.Save("result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document with required merge fields
 Dim document As New WordDocument("../../data/SimpleMailMergeTemplate.docx")
 'Initializes the string array with field names
@@ -821,7 +821,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 //Loads the template document
 Dim document As New WordDocument("../../Data/EmployeesTemplate.doc")
 'Gets the employee details as IEnumerable collection
@@ -894,7 +894,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetEmployees() As List(Of Employee)
     Dim employees As New List(Of Employee)()
     employees.Add(New Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
@@ -1086,7 +1086,7 @@ pdfDocument.Close();
 wordDocument.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET (.NET Windows-specific)" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim wordDocument As New WordDocument(inputWordDocument, FormatType.Automatic)
 'Initializes chart to image converter for converting charts during Word to pdf conversion
