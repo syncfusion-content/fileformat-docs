@@ -13,6 +13,11 @@ The Word document files are converted as EPUB v2.0 file format with few lines of
 The following code illustrates how to convert the Word document to EPUB file.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
@@ -89,10 +94,6 @@ async void Save(MemoryStream streams, string filename)
     //Launch the saved Word file
     await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
 {% endhighlight %}
 
 {% endtabs %}

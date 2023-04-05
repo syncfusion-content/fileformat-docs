@@ -807,6 +807,23 @@ The following code example shows how to perform Mail merge with objects.
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+//Loads an existing Word document into DocIO instance
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+//Gets the employee details as IEnumerable collection
+List<Employee> employeeList = GetEmployees();
+//Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
+MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
+//Performs Mail merge
+document.MailMerge.ExecuteGroup(dataSource);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument(@"../../Data/EmployeesTemplate.doc");
@@ -835,28 +852,50 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets the employee details as IEnumerable collection
-List<Employee> employeeList = GetEmployees();
-//Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
-MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
-//Performs Mail merge
-document.MailMerge.ExecuteGroup(dataSource);
-//Saves the Word document to MemoryStream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document.
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods and class for the above code
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public List<Employee> GetEmployees()
+{
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
+}
+
+public class Employee
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Syncfusion.Drawing.Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        FileStream imageStream = new FileStream(photoFilePath, FileMode.Open, FileAccess.ReadWrite);
+        Photo = Syncfusion.Drawing.Image.FromStream(imageStream);
+        imageStream.Dispose();
+        imageStream.Close();
+    }
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 public List<Employee> GetEmployees()
@@ -992,45 +1031,6 @@ Public Class Employee
 End Class
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-public List<Employee> GetEmployees()
-{
-    List<Employee> employees = new List<Employee>();
-    employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
-    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-    employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-    return employees;
-}
-
-public class Employee
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Region { get; set; }
-    public string Country { get; set; }
-    public string Title { get; set; }
-    public Syncfusion.Drawing.Image Photo { get; set; }
-    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Title = title;
-        Address = address;
-        City = city;
-        Region = region;
-        Country = country;
-        FileStream imageStream = new FileStream(photoFilePath, FileMode.Open, FileAccess.ReadWrite);
-        Photo = Syncfusion.Drawing.Image.FromStream(imageStream);
-        imageStream.Dispose();
-        imageStream.Close();
-    }
-}
-{% endhighlight %} 
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
@@ -1069,6 +1069,22 @@ The following code example illustrates how to convert a Word document into PDF d
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+//Loads an existing Word document into DocIO instance
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
+//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
+DocIORenderer converter = new DocIORenderer();
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Save the document into stream.
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+wordDocument.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic );
@@ -1102,22 +1118,6 @@ pdfDocument.Save("Sample.pdf")
 pdfDocument.Close()
 wordDocument.Close()
 {% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
-//Loads an existing Word document into DocIO instance
-WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
-//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
-DocIORenderer converter = new DocIORenderer();
-//Converts Word document into PDF document
-PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
-//Save the document into stream.
-MemoryStream outputStream = new MemoryStream();
-pdfDocument.Save(outputStream);
-//Closes the instance of PDF document object
-pdfDocument.Close();
-wordDocument.Close();
-{% endhighlight %} 
 
 {% endtabs %}
 

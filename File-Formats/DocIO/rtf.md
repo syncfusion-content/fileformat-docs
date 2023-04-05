@@ -17,6 +17,19 @@ The Essential DocIO converts the RTF document into Word document and vice versa.
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Input.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
+{
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Input.rtf", FormatType.Rtf);
@@ -35,19 +48,6 @@ document.Save("RtfToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Input.rtf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
-{
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Closes the Word document
-    document.Close();
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/RTF-conversions/Convert-RTF-to-Word).
@@ -55,6 +55,20 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert Word document into RTF document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Rtf);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
@@ -71,19 +85,6 @@ Dim document As New WordDocument("Template.docx", FormatType.Docx)
 document.Save("WordToRtf.rtf", FormatType.Rtf)
 'Closes the document
 document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-{
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Rtf);
-    //Closes the Word document
-    document.Close();
-}
 {% endhighlight %}
 
 {% endtabs %}

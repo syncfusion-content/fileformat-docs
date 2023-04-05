@@ -17,6 +17,21 @@ Convert an existing markdown file to a Word document (DOC, DOCX and RTF) using t
 The following code example shows how to convert Markdown to Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Open the file as a Stream.
+using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Markdown file.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Markdown))
+    {
+        //Save as a Word document into the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Docx);
+    } 
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Markdown file.
 using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown))
@@ -34,20 +49,6 @@ Using document As WordDocument = New WordDocument("Input.md", FormatType.Markdow
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Open the file as a Stream.
-using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAccess.Read))
-{
-    //Load the file stream into a Markdown file.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Markdown))
-    {
-        //Save as a Word document into the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Docx);
-    } 
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Markdown-to-Word-conversion/Convert-Markdown-to-Word).
@@ -61,6 +62,22 @@ The .NET Word (DocIO) library provides a [ImageNodeVisited](https://help.syncfus
 The following code example shows how to load image data based on the image source path when importing the Markdown files.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a Word document instance.
+using (WordDocument document = new WordDocument())
+{
+    //Hook the event to customize the image while importing Markdown.
+    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
+    //Open the Markdown file.
+    document.Open("Input.md");
+
+    //Save as a Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a Word document instance.
 using (WordDocument document = new WordDocument())
@@ -86,26 +103,33 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a Word document instance.
-using (WordDocument document = new WordDocument())
-{
-    //Hook the event to customize the image while importing Markdown.
-    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    //Open the Markdown file.
-    document.Open("Input.md");
-
-    //Save as a Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code examples show the event handler to customize the image based on the source path.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
+{
+    //Set the image stream based on the image name from the input Markdown.
+    if (args.Uri == "Image_1.png")
+        args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
+    else if (args.Uri == "Image_2.png")
+        args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
+    //Retrieve the image from the website and use it.
+    else if (args.Uri.StartsWith("https://"))
+    {
+        WebClient client = new WebClient();
+        //Download the image as a stream.
+        byte[] image = client.DownloadData(args.Uri);
+        Stream stream = new MemoryStream(image);
+        //Set the retrieved image from the input Markdown.
+        args.ImageStream = stream;
+    }
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
@@ -144,27 +168,6 @@ Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByV
         args.ImageStream = stream
     End If
 End Sub
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
-{
-    //Set the image stream based on the image name from the input Markdown.
-    if (args.Uri == "Image_1.png")
-        args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
-    else if (args.Uri == "Image_2.png")
-        args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrieve the image from the website and use it.
-    else if (args.Uri.StartsWith("https://"))
-    {
-        WebClient client = new WebClient();
-        //Download the image as a stream.
-        byte[] image = client.DownloadData(args.Uri);
-        Stream stream = new MemoryStream(image);
-        //Set the retrieved image from the input Markdown.
-        args.ImageStream = stream;
-    }
-}
 {% endhighlight %}
 
 {% endtabs %}

@@ -33,6 +33,25 @@ The following code example explains how to add a field to the Word document.
 
 {% tabs %} 
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class (Empty Word Document)
+WordDocument document = new WordDocument();
+//Adds a new section to the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph to Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field to Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Field code used to describe how to display the date
+field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
@@ -69,25 +88,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class (Empty Word Document)
-WordDocument document = new WordDocument();
-//Adds a new section to the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph to Word document and appends text into paragraph
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Today's Date: ");
-//Adds the new Date field to Word document with field name and its type
-WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
-//Field code used to describe how to display the date
-field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Add-field-in-Word-document).
@@ -99,6 +99,32 @@ You can format the field instances added to the Word document by iterating the i
 The following code example explains how to format the field in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of a WordDocument 
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Adds the new Page field in Word document with field name and its type
+IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
+IEntity entity = field;
+//Iterates to sibling items until Field End 
+while (entity.NextSibling != null)
+{
+    if (entity is WTextRange)
+        //Sets character format for text ranges 
+        (entity as WTextRange).CharacterFormat.FontSize = 6;
+    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+        break;
+    //Gets next sibling item.
+    entity = entity.NextSibling;
+}
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
@@ -148,32 +174,6 @@ document.Save("Template.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of a WordDocument 
-WordDocument document = new WordDocument();
-//Adds one section and one paragraph to the document
-document.EnsureMinimal();
-//Adds the new Page field in Word document with field name and its type
-IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
-IEntity entity = field;
-//Iterates to sibling items until Field End 
-while (entity.NextSibling != null)
-{
-    if (entity is WTextRange)
-        //Sets character format for text ranges 
-        (entity as WTextRange).CharacterFormat.FontSize = 6;
-    else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-        break;
-    //Gets next sibling item.
-    entity = entity.NextSibling;
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Format-fields).
@@ -209,6 +209,19 @@ The following code example explains how to update the fields present in Word doc
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance 
+FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Updates the fields present in a document
+document.UpdateDocumentFields(true);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance 
 WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
@@ -227,19 +240,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance 
-FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Updates the fields present in a document
-document.UpdateDocumentFields(true);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Update-fields-in-document).
@@ -253,6 +253,35 @@ To learn more about IF field and its syntax in Microsoft Word, refer to the [MSD
 The following code example explains how to add an If field to a Word document.
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("If field which uses string of characters in expression");
+paragraph = section.AddParagraph();
+//Creates the new instance of IF field
+WIfField field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+//Specifies the expression, true and false statement in field code
+field.FieldCode = "IF \"True\" = \"True\" \"The given statement is Correct\" \"The given statement is Wrong\"";
+paragraph = section.AddParagraph();
+paragraph.AppendText("If field which uses numbers in expression");
+paragraph = section.AddParagraph();
+//Creates the new instance of IF field
+field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+//Specifies the expression, true and false statement in field code
+field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given statement is Wrong\"";
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
@@ -302,35 +331,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of a WordDocument
-WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("If field which uses string of characters in expression");
-paragraph = section.AddParagraph();
-//Creates the new instance of IF field
-WIfField field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
-//Specifies the expression, true and false statement in field code
-field.FieldCode = "IF \"True\" = \"True\" \"The given statement is Correct\" \"The given statement is Wrong\"";
-paragraph = section.AddParagraph();
-paragraph.AppendText("If field which uses numbers in expression");
-paragraph = section.AddParagraph();
-//Creates the new instance of IF field
-field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
-//Specifies the expression, true and false statement in field code
-field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given statement is Wrong\"";
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/IF-field).
@@ -342,6 +342,32 @@ The DocVariable field displays the value of a specified document variable in the
 The following code example explains how to add a DocVariable field to a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("First Name of the customer: ");
+//Adds the DocVariable field with Variable name and its type
+paragraph.AppendField("FirstName", FieldType.FieldDocVariable);
+paragraph = section.AddParagraph();
+paragraph.AppendText("Last Name of the customer: ");
+//Adds the DocVariable field with Variable name and its type
+paragraph.AppendField("LastName", FieldType.FieldDocVariable);
+//Adds the value for variable in WordDocument.Variable collection
+document.Variables.Add("FirstName", "Jeff");
+document.Variables.Add("LastName", "Smith");
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
@@ -385,32 +411,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of a WordDocument
-WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("First Name of the customer: ");
-//Adds the DocVariable field with Variable name and its type
-paragraph.AppendField("FirstName", FieldType.FieldDocVariable);
-paragraph = section.AddParagraph();
-paragraph.AppendText("Last Name of the customer: ");
-//Adds the DocVariable field with Variable name and its type
-paragraph.AppendField("LastName", FieldType.FieldDocVariable);
-//Adds the value for variable in WordDocument.Variable collection
-document.Variables.Add("FirstName", "Jeff");
-document.Variables.Add("LastName", "Smith");
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Document-variables).
@@ -424,6 +424,36 @@ N> The Essential DocIO supports creating and updating the cross-reference fields
 The following code example explains how to append cross reference for bookmark in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document
+IWParagraph paragraph = section.AddParagraph();
+//Adds text, bookmark start and end in the paragraph
+paragraph.AppendBookmarkStart("Title");
+paragraph.AppendText("Northwind Database");
+paragraph.AppendBookmarkEnd("Title");
+paragraph = section.AddParagraph();
+paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
+section = document.AddSection();
+section.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+//Gets the collection of bookmark start in the word document
+List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
+paragraph.AppendText("Bookmark Cross Reference starts here ");
+//Appends the cross reference for bookmark “Title” with ContentText as reference kind
+paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
+//Updates the document Fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
@@ -475,36 +505,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of a WordDocument
-WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document
-IWParagraph paragraph = section.AddParagraph();
-//Adds text, bookmark start and end in the paragraph
-paragraph.AppendBookmarkStart("Title");
-paragraph.AppendText("Northwind Database");
-paragraph.AppendBookmarkEnd("Title");
-paragraph = section.AddParagraph();
-paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-section = document.AddSection();
-section.AddParagraph();
-paragraph = section.AddParagraph() as WParagraph;
-//Gets the collection of bookmark start in the word document
-List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
-paragraph.AppendText("Bookmark Cross Reference starts here ");
-//Appends the cross reference for bookmark “Title” with ContentText as reference kind
-paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
-//Updates the document Fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Cross-reference).
@@ -516,6 +516,27 @@ You can replace the field with its most recent result in the Word document by un
 The following code example shows how to unlink the fields in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Today's Date: ");
+//Adds the new Date field in Word document with field name and its type
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+//Updates the field
+field.Update();
+//Unlink the field
+field.Unlink();
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+//Closes the Word document instance
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -557,27 +578,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Today's Date: ");
-//Adds the new Date field in Word document with field name and its type
-WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
-//Updates the field
-field.Update();
-//Unlink the field
-field.Unlink();
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-//Closes the Word document instance
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Unlink-fields).
@@ -601,6 +601,30 @@ You can apply the number format for the sequence field using [NumberFormat](http
 The following code example shows how to apply the number format for sequence field.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new document
+WordDocument document = CreateDocument();
+//Accesses sequence field in the document
+WSeqField field = (document.LastSection.Body.ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField;
+//Applies the number format for sequence field
+field.NumberFormat = CaptionNumberingFormat.Roman;
+//Accesses sequence field in the document
+field = (document.LastSection.Body.ChildEntities[1] as WParagraph).ChildEntities[0] as WSeqField;
+//Applies the number format for sequence field
+field.NumberFormat = CaptionNumberingFormat.Roman;
+//Accesses sequence field in the document
+field = (document.LastSection.Body.ChildEntities[2] as WParagraph).ChildEntities[0] as WSeqField;
+//Applies the number format for sequence field
+field.NumberFormat = CaptionNumberingFormat.Roman;
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new document
@@ -646,35 +670,36 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new document
-WordDocument document = CreateDocument();
-//Accesses sequence field in the document
-WSeqField field = (document.LastSection.Body.ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField;
-//Applies the number format for sequence field
-field.NumberFormat = CaptionNumberingFormat.Roman;
-//Accesses sequence field in the document
-field = (document.LastSection.Body.ChildEntities[1] as WParagraph).ChildEntities[0] as WSeqField;
-//Applies the number format for sequence field
-field.NumberFormat = CaptionNumberingFormat.Roman;
-//Accesses sequence field in the document
-field = (document.LastSection.Body.ChildEntities[2] as WParagraph).ChildEntities[0] as WSeqField;
-//Applies the number format for sequence field
-field.NumberFormat = CaptionNumberingFormat.Roman;
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods for the above code.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private WordDocument CreateDocument()
+{
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item1");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item2");
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendField("List", FieldType.FieldSequence);
+    paragraph.AppendText(".Item3");
+    return document;
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
@@ -725,31 +750,6 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private WordDocument CreateDocument()
-{
-    //Creates a new document
-    WordDocument document = new WordDocument();
-    //Adds a new section to the document
-    IWSection section = document.AddSection();
-    //Sets margin of the section
-    section.PageSetup.Margins.All = 72;
-    //Adds a paragraph to the section
-    IWParagraph paragraph = section.AddParagraph();
-    paragraph.AppendField("List", FieldType.FieldSequence);
-    paragraph.AppendText(".Item1");
-    //Adds a paragraph to the section
-    paragraph = section.AddParagraph();
-    paragraph.AppendField("List", FieldType.FieldSequence);
-    paragraph.AppendText(".Item2");
-    //Adds a paragraph to the section
-    paragraph = section.AddParagraph();
-    paragraph.AppendField("List", FieldType.FieldSequence);
-    paragraph.AppendText(".Item3");
-    return document;
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Apply-number-format-for-SEQ-field).
@@ -766,6 +766,29 @@ For example, you can refer the image caption numbers in sentence by including th
 The following code example shows how to refer the bookmark in sequence field.
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens an existing document 
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
+//Accesses sequence field in the document
+WParagraph paragraph = document.LastSection.Body.ChildEntities[4] as WParagraph;
+WSeqField seqField = paragraph.ChildEntities[12] as WSeqField;
+//Adds bookmark reference to the sequence field
+seqField.BookmarkName = "BkmkPurchase";
+//Accesses sequence field in the document
+paragraph = document.LastSection.Paragraphs[5] as WParagraph;
+seqField = paragraph.ChildEntities[1] as WSeqField;
+//Adds bookmark reference to the sequence field
+seqField.BookmarkName = "BkkmUnitPrice";
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an exixting word document
@@ -807,29 +830,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens an existing document 
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
-//Accesses sequence field in the document
-WParagraph paragraph = document.LastSection.Body.ChildEntities[4] as WParagraph;
-WSeqField seqField = paragraph.ChildEntities[12] as WSeqField;
-//Adds bookmark reference to the sequence field
-seqField.BookmarkName = "BkmkPurchase";
-//Accesses sequence field in the document
-paragraph = document.LastSection.Paragraphs[5] as WParagraph;
-seqField = paragraph.ChildEntities[1] as WSeqField;
-//Adds bookmark reference to the sequence field
-seqField.BookmarkName = "BkkmUnitPrice";
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Refer-bookmark-in-SEQ-field).
@@ -844,6 +844,36 @@ You can reset the numbering for sequence field (\r) using [ResetNumber](https://
 The following code example shows how to reset the numbering for sequence field.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a Word document
+WordDocument document = CreateDocument();
+//Accesses sequence field in the document
+IWTable table = document.LastSection.Body.ChildEntities[1] as WTable;
+WSeqField field = ((table[0, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
+//Resets the number for sequence field
+field.ResetNumber = 1001;
+//Accesses sequence field in the document
+field = ((table[1, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
+//Resets the number for sequence field
+field.ResetNumber = 1002;
+//Accesses sequence field in the document
+field = ((table[2, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
+//Resets the number for sequence field
+field.ResetNumber = 1003;
+//Accesses sequence field in the document
+table = document.LastSection.Body.ChildEntities[3] as WTable;
+field = ((table[0, 1].ChildEntities[1] as WParagraph).ChildEntities[1] as WSeqField);
+//Resets the heading level for sequence field
+field.ResetHeadingLevel = 1;
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
@@ -900,41 +930,107 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a Word document
-WordDocument document = CreateDocument();
-//Accesses sequence field in the document
-IWTable table = document.LastSection.Body.ChildEntities[1] as WTable;
-WSeqField field = ((table[0, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
-//Resets the number for sequence field
-field.ResetNumber = 1001;
-//Accesses sequence field in the document
-field = ((table[1, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
-//Resets the number for sequence field
-field.ResetNumber = 1002;
-//Accesses sequence field in the document
-field = ((table[2, 1].ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField);
-//Resets the number for sequence field
-field.ResetNumber = 1003;
-//Accesses sequence field in the document
-table = document.LastSection.Body.ChildEntities[3] as WTable;
-field = ((table[0, 1].ChildEntities[1] as WParagraph).ChildEntities[1] as WSeqField);
-//Resets the heading level for sequence field
-field.ResetHeadingLevel = 1;
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods for the above code.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private WordDocument CreateDocument()
+{
+    //Creates a new word document
+    WordDocument document = new WordDocument();
+    //Adds new section to the document
+    IWSection section = document.AddSection();
+    //Sets margin of the section
+    section.PageSetup.Margins.All = 72;
+    //Adds new paragraph to the section
+    IWParagraph paragraph = section.AddParagraph() as WParagraph;
+    //Adds text range
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //First row
+    FileStream imageStream = new FileStream("Nancy.png", FileMode.Open, FileAccess.ReadWrite);
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Employee Id: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
+    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
+    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
+    //Second row
+    imageStream = new FileStream("Andrews.png", FileMode.Open, FileAccess.ReadWrite);
+    table[1, 0].AddParagraph().AppendPicture(imageStream);
+    paragraph = table[1, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
+    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
+    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
+    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
+    //Third row
+    imageStream = new FileStream("Janet.png", FileMode.Open, FileAccess.ReadWrite);
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Employee ID: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
+    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
+    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
+    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
+    //Adds new Paragraph to the section
+    paragraph = section.AddParagraph();
+    paragraph.AppendBreak(BreakType.PageBreak);
+    //Adds text range
+    paragraph.AppendText("Product Overview");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
+    //Adds a new table into Word document
+    table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Id", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
@@ -1114,102 +1210,6 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private WordDocument CreateDocument()
-{
-    //Creates a new word document
-    WordDocument document = new WordDocument();
-    //Adds new section to the document
-    IWSection section = document.AddSection();
-    //Sets margin of the section
-    section.PageSetup.Margins.All = 72;
-    //Adds new paragraph to the section
-    IWParagraph paragraph = section.AddParagraph() as WParagraph;
-    //Adds text range
-    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-    textRange.CharacterFormat.FontSize = 16;
-    textRange.CharacterFormat.Bold = true;
-    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-    //Adds a new table into Word document
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns
-    table.ResetCells(3, 2);
-    //First row
-    FileStream imageStream = new FileStream("Nancy.png", FileMode.Open, FileAccess.ReadWrite);
-    table[0, 0].AddParagraph().AppendPicture(imageStream);
-    paragraph = table[0, 1].AddParagraph();
-    paragraph.AppendText("Employee Id: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[0, 1].AddParagraph().AppendText("Name: Nancy Davolio");
-    table[0, 1].AddParagraph().AppendText("Title: Sales Representative");
-    table[0, 1].AddParagraph().AppendText("Address: 507 - 20th Ave. E.");
-    table[0, 1].AddParagraph().AppendText("Zip Code: 98122");
-    //Second row
-    imageStream = new FileStream("Andrews.png", FileMode.Open, FileAccess.ReadWrite);
-    table[1, 0].AddParagraph().AppendPicture(imageStream);
-    paragraph = table[1, 1].AddParagraph();
-    paragraph.AppendText("Employee ID: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[1, 1].AddParagraph().AppendText("Name: Andrew Fuller");
-    table[1, 1].AddParagraph().AppendText("Title: Vice President, Sales");
-    table[1, 1].AddParagraph().AppendText("Address1: 908 W. Capital Way, ");
-    table[1, 1].AddParagraph().AppendText("TacomaWA USA");
-    //Third row
-    imageStream = new FileStream("Janet.png", FileMode.Open, FileAccess.ReadWrite);
-    table[2, 0].AddParagraph().AppendPicture(imageStream);
-    paragraph = table[2, 1].AddParagraph();
-    paragraph.AppendText("Employee ID: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[2, 1].AddParagraph().AppendText("Name: Janet Leverling");
-    table[2, 1].AddParagraph().AppendText("Title: Sales Representative");
-    table[2, 1].AddParagraph().AppendText("Address1: 722 Moss Bay Blvd,  ");
-    table[2, 1].AddParagraph().AppendText("KirklandWA USA");
-    //Adds new Paragraph to the section
-    paragraph = section.AddParagraph();
-    paragraph.AppendBreak(BreakType.PageBreak);
-    //Adds text range
-    paragraph.AppendText("Product Overview");
-    paragraph.ApplyStyle(BuiltinStyle.Heading1);
-    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
-    //Adds a new table into Word document
-    table = section.AddTable();
-    //Specifies the total number of rows & columns
-    table.ResetCells(3, 2);
-    //Accesses the instance of the cell  and adds the content into cell
-    //First row
-    imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
-    table[0, 0].AddParagraph().AppendPicture(imageStream);
-    table[0, 1].AddParagraph().AppendText("Mountain-200");
-    paragraph = table[0, 1].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[0, 1].AddParagraph().AppendText("Size: 38");
-    table[0, 1].AddParagraph().AppendText("Weight: 25");
-    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-    //Second row
-    table[1, 0].AddParagraph().AppendText("Mountain-300");
-    paragraph = table[1, 0].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[1, 0].AddParagraph().AppendText("Size: 35");
-    table[1, 0].AddParagraph().AppendText("Weight: 22");
-    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
-    table[1, 1].AddParagraph().AppendPicture(imageStream);
-    //Third row
-    imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
-    table[2, 0].AddParagraph().AppendPicture(imageStream);
-    table[2, 1].AddParagraph().AppendText("Road-150");
-    paragraph = table[2, 1].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Id", FieldType.FieldSequence);
-    table[2, 1].AddParagraph().AppendText("Size: 44");
-    table[2, 1].AddParagraph().AppendText("Weight: 14");
-    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-    return document;
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Reset-numbering-for-SEQ-field).
@@ -1226,6 +1226,22 @@ For example, if you need to display total number of products in a page, you can 
 The following code example shows how to repeat the closest preceding sequence number in the Word document.
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a Word document
+WordDocument document = CreateDocument();
+//Accesses sequence field in the document
+WSeqField field = (document.LastSection.HeadersFooters.Header.ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField;
+//Enables a flag to repeat the nearest number for sequence field
+field.RepeatNearestNumber = true;
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
@@ -1255,27 +1271,71 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a Word document
-WordDocument document = CreateDocument();
-//Accesses sequence field in the document
-WSeqField field = (document.LastSection.HeadersFooters.Header.ChildEntities[0] as WParagraph).ChildEntities[1] as WSeqField;
-//Enables a flag to repeat the nearest number for sequence field
-field.RepeatNearestNumber = true;
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods for the above code.
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private WordDocument CreateDocument()
+{
+    //Creates a new document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Inserts the default page header
+    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    paragraph.AppendText("Total No. of Products: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    //Adds a paragraph to the section
+    paragraph = section.AddParagraph();
+    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    textRange.CharacterFormat.FontSize = 16;
+    textRange.CharacterFormat.Bold = true;
+    //Adds a paragraph to the section
+    section.AddParagraph().AppendText("Product Overview");
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table into Word document
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(3, 2);
+    //Accesses the instance of the cell  and adds the content into cell
+    //First row
+    FileStream imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
+    table[0, 0].AddParagraph().AppendPicture(imageStream);
+    table[0, 1].AddParagraph().AppendText("Mountain-200");
+    paragraph = table[0, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[0, 1].AddParagraph().AppendText("Size: 38");
+    table[0, 1].AddParagraph().AppendText("Weight: 25");
+    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
+    //Second row
+    table[1, 0].AddParagraph().AppendText("Mountain-300");
+    paragraph = table[1, 0].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[1, 0].AddParagraph().AppendText("Size: 35");
+    table[1, 0].AddParagraph().AppendText("Weight: 22");
+    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
+    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
+    table[1, 1].AddParagraph().AppendPicture(imageStream);
+    //Third row
+    imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
+    table[2, 0].AddParagraph().AppendPicture(imageStream);
+    table[2, 1].AddParagraph().AppendText("Road-150");
+    paragraph = table[2, 1].AddParagraph();
+    paragraph.AppendText("Product No: ");
+    paragraph.AppendField("Product count", FieldType.FieldSequence);
+    table[2, 1].AddParagraph().AppendText("Size: 44");
+    table[2, 1].AddParagraph().AppendText("Weight: 14");
+    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
+    return document;
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
@@ -1390,66 +1450,6 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private WordDocument CreateDocument()
-{
-    //Creates a new document
-    WordDocument document = new WordDocument();
-    //Adds a new section to the document
-    IWSection section = document.AddSection();
-    //Inserts the default page header
-    IWParagraph paragraph = section.HeadersFooters.OddHeader.AddParagraph();
-    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-    paragraph.AppendText("Total No. of Products: ");
-    paragraph.AppendField("Product count", FieldType.FieldSequence);
-    //Adds a paragraph to the section
-    paragraph = section.AddParagraph();
-    IWTextRange textRange = paragraph.AppendText("Adventure Works Cycles");
-    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-    textRange.CharacterFormat.FontSize = 16;
-    textRange.CharacterFormat.Bold = true;
-    //Adds a paragraph to the section
-    section.AddParagraph().AppendText("Product Overview");
-    document.LastParagraph.ApplyStyle(BuiltinStyle.Heading1);
-    //Adds a new table into Word document
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns
-    table.ResetCells(3, 2);
-    //Accesses the instance of the cell  and adds the content into cell
-    //First row
-    FileStream imageStream = new FileStream("Mountain-200.png", FileMode.Open, FileAccess.ReadWrite);
-    table[0, 0].AddParagraph().AppendPicture(imageStream);
-    table[0, 1].AddParagraph().AppendText("Mountain-200");
-    paragraph = table[0, 1].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Product count", FieldType.FieldSequence);
-    table[0, 1].AddParagraph().AppendText("Size: 38");
-    table[0, 1].AddParagraph().AppendText("Weight: 25");
-    table[0, 1].AddParagraph().AppendText("Price: $2,294.99");
-    //Second row
-    table[1, 0].AddParagraph().AppendText("Mountain-300");
-    paragraph = table[1, 0].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Product count", FieldType.FieldSequence);
-    table[1, 0].AddParagraph().AppendText("Size: 35");
-    table[1, 0].AddParagraph().AppendText("Weight: 22");
-    table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-    imageStream = new FileStream("Mountain-300.png", FileMode.Open, FileAccess.ReadWrite);
-    table[1, 1].AddParagraph().AppendPicture(imageStream);
-    //Third row
-    imageStream = new FileStream("Road-550.png", FileMode.Open, FileAccess.ReadWrite);
-    table[2, 0].AddParagraph().AppendPicture(imageStream);
-    table[2, 1].AddParagraph().AppendText("Road-150");
-    paragraph = table[2, 1].AddParagraph();
-    paragraph.AppendText("Product No: ");
-    paragraph.AppendField("Product count", FieldType.FieldSequence);
-    table[2, 1].AddParagraph().AppendText("Size: 44");
-    table[2, 1].AddParagraph().AppendText("Weight: 14");
-    table[2, 1].AddParagraph().AppendText("Price: $3,578.27");
-    return document;
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Repeat-nearest-number-of-SEQ-field).
@@ -1466,6 +1466,27 @@ For example, if you need to consider the sequence numbering for list of products
 The following code example shows how to hide the field result of sequence field.
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a Word document
+WordDocument document = CreateDocument();
+//Accesses sequence field in the document
+WTable table = document.LastSection.Body.ChildEntities[1] as WTable;
+WSeqField field = ((table[2, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);
+//Enables a flag to to hide the sequence field result 
+field.HideResult = true;
+//Accesses sequence field in the document
+field = ((table[4, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);
+//Enables a flag to hide the sequence field result 
+field.HideResult = true;
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a Word document
@@ -1505,32 +1526,62 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a Word document
-WordDocument document = CreateDocument();
-//Accesses sequence field in the document
-WTable table = document.LastSection.Body.ChildEntities[1] as WTable;
-WSeqField field = ((table[2, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);
-//Enables a flag to to hide the sequence field result 
-field.HideResult = true;
-//Accesses sequence field in the document
-field = ((table[4, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);
-//Enables a flag to hide the sequence field result 
-field.HideResult = true;
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods for the above code.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private WordDocument CreateDocument()
+{
+    //Creates a new Word document
+    WordDocument document = new WordDocument();
+    //Adds a new section to the document
+    IWSection section = document.AddSection();
+    //Adds a paragraph to the section
+    IWParagraph paragraph = section.AddParagraph();
+    paragraph.AppendText("Syncfusion Product Details");
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Adds a new table 
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(6, 4);
+    //Accesses the instance of the cell and add the content into cell
+    //First row
+    table[0, 0].AddParagraph().AppendText("S.No");
+    table[0, 1].AddParagraph().AppendText("Platform Id");
+    table[0, 2].AddParagraph().AppendText("Platform");
+    table[0, 3].AddParagraph().AppendText("Status ");
+    table[1, 0].AddParagraph().AppendText("1.");
+    //Second row
+    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
+    table[1, 3].AddParagraph().AppendText("Live");
+    //Third row
+    table[2, 0].AddParagraph().AppendText("2.");
+    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[2, 2].AddParagraph().AppendText("LightSwitch");
+    table[2, 3].AddParagraph().AppendText("Retired");
+    //Fourth row
+    table[3, 0].AddParagraph().AppendText("3.");
+    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
+    table[3, 3].AddParagraph().AppendText("Live");
+    //Fifth row
+    table[4, 0].AddParagraph().AppendText("4.");
+    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[4, 2].AddParagraph().AppendText("Silverlight ");
+    table[4, 3].AddParagraph().AppendText("Retired");
+    //Sixth row
+    table[5, 0].AddParagraph().AppendText("5.");
+    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
+    table[5, 2].AddParagraph().AppendText("Blazor");
+    table[5, 3].AddParagraph().AppendText("Live");
+    section.AddParagraph().AppendText("Total No. of Platforms : 5");
+    return document;
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private WordDocument CreateDocument()
@@ -1633,57 +1684,6 @@ Private Function CreateDocument() As WordDocument
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private WordDocument CreateDocument()
-{
-    //Creates a new Word document
-    WordDocument document = new WordDocument();
-    //Adds a new section to the document
-    IWSection section = document.AddSection();
-    //Adds a paragraph to the section
-    IWParagraph paragraph = section.AddParagraph();
-    paragraph.AppendText("Syncfusion Product Details");
-    paragraph.ApplyStyle(BuiltinStyle.Heading1);
-    //Adds a new table 
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns
-    table.ResetCells(6, 4);
-    //Accesses the instance of the cell and add the content into cell
-    //First row
-    table[0, 0].AddParagraph().AppendText("S.No");
-    table[0, 1].AddParagraph().AppendText("Platform Id");
-    table[0, 2].AddParagraph().AppendText("Platform");
-    table[0, 3].AddParagraph().AppendText("Status ");
-    table[1, 0].AddParagraph().AppendText("1.");
-    //Second row
-    table[1, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-    table[1, 2].AddParagraph().AppendText("ASP.NET Core");
-    table[1, 3].AddParagraph().AppendText("Live");
-    //Third row
-    table[2, 0].AddParagraph().AppendText("2.");
-    table[2, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-    table[2, 2].AddParagraph().AppendText("LightSwitch");
-    table[2, 3].AddParagraph().AppendText("Retired");
-    //Fourth row
-    table[3, 0].AddParagraph().AppendText("3.");
-    table[3, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-    table[3, 2].AddParagraph().AppendText("ASP.NET MVC");
-    table[3, 3].AddParagraph().AppendText("Live");
-    //Fifth row
-    table[4, 0].AddParagraph().AppendText("4.");
-    table[4, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-    table[4, 2].AddParagraph().AppendText("Silverlight ");
-    table[4, 3].AddParagraph().AppendText("Retired");
-    //Sixth row
-    table[5, 0].AddParagraph().AppendText("5.");
-    table[5, 1].AddParagraph().AppendField("PlatformCount", FieldType.FieldSequence);
-    table[5, 2].AddParagraph().AppendText("Blazor");
-    table[5, 3].AddParagraph().AppendText("Live");
-    section.AddParagraph().AppendText("Total No. of Platforms : 5");
-    return document;
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Fields/Hide-SEQ-field-result).
@@ -1698,24 +1698,6 @@ You can insert the next sequence number for the specified items using [InsertNex
 The following code example shows how to insert the next sequence number for the specified item.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-//Opens an exixting word document
-WordDocument document = new WordDocument("Template.docx");
-//Accesses sequence field in the document
-WParagraph paragraph = document.LastSection.Body.ChildEntities[4] as WParagraph;
-WSeqField field = paragraph.ChildEntities[12] as WSeqField;
-//Enables a flag to insert next number for sequence field
-field.InsertNextNumber = true;
-//Updates the document fields
-document.UpdateDocumentFields();
-//Saves and closes the Word document.
-document.Save("Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens an existing document 
@@ -1733,6 +1715,24 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens an exixting word document
+WordDocument document = new WordDocument("Template.docx");
+//Accesses sequence field in the document
+WParagraph paragraph = document.LastSection.Body.ChildEntities[4] as WParagraph;
+WSeqField field = paragraph.ChildEntities[12] as WSeqField;
+//Enables a flag to insert next number for sequence field
+field.InsertNextNumber = true;
+//Updates the document fields
+document.UpdateDocumentFields();
+//Saves and closes the Word document.
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 {% endhighlight %}
 
 {% endtabs %}

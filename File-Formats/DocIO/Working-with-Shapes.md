@@ -16,6 +16,39 @@ The following code example illustrates how to add pre-defined shape to the docum
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+//Adds new shape to the document
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+paragraph = section.AddParagraph() as WParagraph;
+//Adds textbody contents to the shape
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
+text.CharacterFormat.TextColor = Color.Green;
+text.CharacterFormat.Bold = true;
+//Adds another shape to the document 
+paragraph = section.AddParagraph() as WParagraph;
+paragraph.AppendBreak(BreakType.LineBreak);
+Shape pentagon = paragraph.AppendShape(AutoShapeType.Pentagon, 100, 100);
+paragraph = pentagon.TextBody.AddParagraph() as WParagraph;
+paragraph.AppendText("This text is in pentagon shape");
+pentagon.HorizontalPosition = 72;
+pentagon.VerticalPosition = 200;
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
@@ -80,39 +113,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-//Adds new shape to the document
-Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
-//Sets position for shape
-rectangle.VerticalPosition = 72;
-rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph() as WParagraph;
-//Adds textbody contents to the shape
-paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
-IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
-text.CharacterFormat.TextColor = Color.Green;
-text.CharacterFormat.Bold = true;
-//Adds another shape to the document 
-paragraph = section.AddParagraph() as WParagraph;
-paragraph.AppendBreak(BreakType.LineBreak);
-Shape pentagon = paragraph.AppendShape(AutoShapeType.Pentagon, 100, 100);
-paragraph = pentagon.TextBody.AddParagraph() as WParagraph;
-paragraph.AppendText("This text is in pentagon shape");
-pentagon.HorizontalPosition = 72;
-pentagon.VerticalPosition = 200;
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-shapes-in-Word).
@@ -122,6 +122,50 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for shape.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document 
+WordDocument document = new WordDocument();
+//Add a new section to the document.
+IWSection section = document.AddSection();
+//Add a new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
+text.CharacterFormat.TextColor = Color.Green;
+text.CharacterFormat.Bold = true;
+//Apply fill color for shape.
+rectangle.FillFormat.Fill = true;
+rectangle.FillFormat.Color = Color.LightGray;
+//Set transparency (opacity) to the shape fill color.
+rectangle.FillFormat.Transparency = 75;
+//Apply wrap formats.
+rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
+rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
+//Set horizontal and vertical origin.
+rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
+rectangle.VerticalOrigin = VerticalOrigin.Page;
+//Set line format.
+rectangle.LineFormat.DashStyle = LineDashing.Dot;
+rectangle.LineFormat.Color = Color.DarkGray;
+//Set the left internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Left = 30;
+//Set the right internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Right = 24;
+//Set the bottom internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Bottom = 18;
+//Set the top internal margin for the shape.
+rectangle.TextFrame.InternalMargin.Top = 6;
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document 
@@ -207,50 +251,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a new Word document 
-WordDocument document = new WordDocument();
-//Add a new section to the document.
-IWSection section = document.AddSection();
-//Add a new paragraph to the section.
-IWParagraph paragraph = section.AddParagraph() as WParagraph;
-Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
-rectangle.VerticalPosition = 72;
-rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph() as WParagraph;
-paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
-IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
-text.CharacterFormat.TextColor = Color.Green;
-text.CharacterFormat.Bold = true;
-//Apply fill color for shape.
-rectangle.FillFormat.Fill = true;
-rectangle.FillFormat.Color = Color.LightGray;
-//Set transparency (opacity) to the shape fill color.
-rectangle.FillFormat.Transparency = 75;
-//Apply wrap formats.
-rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
-rectangle.WrapFormat.TextWrappingType = TextWrappingType.Right;
-//Set horizontal and vertical origin.
-rectangle.HorizontalOrigin = HorizontalOrigin.Margin;
-rectangle.VerticalOrigin = VerticalOrigin.Page;
-//Set line format.
-rectangle.LineFormat.DashStyle = LineDashing.Dot;
-rectangle.LineFormat.Color = Color.DarkGray;
-//Set the left internal margin for the shape.
-rectangle.TextFrame.InternalMargin.Left = 30;
-//Set the right internal margin for the shape.
-rectangle.TextFrame.InternalMargin.Right = 24;
-//Set the bottom internal margin for the shape.
-rectangle.TextFrame.InternalMargin.Bottom = 18;
-//Set the top internal margin for the shape.
-rectangle.TextFrame.InternalMargin.Top = 6;
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Format-shapes).
@@ -260,6 +260,31 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can rotate the shape and also apply flipping (horizontal and vertical) to it. The following code example explains how to rotate and flip the shape.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
@@ -307,31 +332,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
-//Sets position for shape
-rectangle.VerticalPosition = 72;
-rectangle.HorizontalPosition = 72;
-//Sets 90 degree rotation
-rectangle.Rotation = 90;
-//Sets horizontal flip
-rectangle.FlipHorizontal = true;
-paragraph = section.AddParagraph() as WParagraph;
-paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
-IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Rotate-shapes).
@@ -354,6 +354,73 @@ N> 2. While grouping the shapes or other objects, the wrapping style should not 
 The following code example illustrates how to create group shape in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+//Creates new group shape
+GroupShape groupShape = new GroupShape(document);
+//Adds group shape to the paragraph
+paragraph.ChildEntities.Add(groupShape);
+//Creates new shape
+Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
+//Sets height and width for shape
+shape.Height = 100;
+shape.Width = 150;
+//Sets horizontal and vertical position
+shape.HorizontalPosition = 72;
+shape.VerticalPosition = 72;
+//Set wrapping style for shape
+shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets horizontal and vertical origin
+shape.HorizontalOrigin = HorizontalOrigin.Page;
+shape.VerticalOrigin = VerticalOrigin.Page;
+//Adds the specified shape to group shape
+groupShape.Add(shape);
+//Creates new picture
+WPicture picture = new WPicture(document);
+FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.ReadWrite);
+picture.LoadImage(imageStream);
+//Sets wrapping style for picture
+picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets height and width for the image
+picture.Height = 100;
+picture.Width = 100;
+//Sets horizontal and vertical position
+picture.HorizontalPosition = 400;
+picture.VerticalPosition = 150;
+//Sets horizontal and vertical origin
+picture.HorizontalOrigin = HorizontalOrigin.Page;
+picture.VerticalOrigin = VerticalOrigin.Page;
+//Adds the specified picture to group shape
+groupShape.Add(picture);
+//Creates new textbox
+WTextBox textbox = new WTextBox(document);
+textbox.TextBoxFormat.Width = 150;
+textbox.TextBoxFormat.Height = 75;
+//Adds new text to the textbox body
+IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
+textboxParagraph.AppendText("Text inside text box");
+//Sets wrapping style for textbox
+textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
+//Sets horizontal and vertical position
+textbox.TextBoxFormat.HorizontalPosition = 200;
+textbox.TextBoxFormat.VerticalPosition = 200;
+//Sets horizontal and vertical origin
+textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
+textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
+//Adds the specified textbox to group shape
+groupShape.Add(textbox);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
@@ -485,73 +552,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-//Creates new group shape
-GroupShape groupShape = new GroupShape(document);
-//Adds group shape to the paragraph
-paragraph.ChildEntities.Add(groupShape);
-//Creates new shape
-Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
-//Sets height and width for shape
-shape.Height = 100;
-shape.Width = 150;
-//Sets horizontal and vertical position
-shape.HorizontalPosition = 72;
-shape.VerticalPosition = 72;
-//Set wrapping style for shape
-shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical origin
-shape.HorizontalOrigin = HorizontalOrigin.Page;
-shape.VerticalOrigin = VerticalOrigin.Page;
-//Adds the specified shape to group shape
-groupShape.Add(shape);
-//Creates new picture
-WPicture picture = new WPicture(document);
-FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.ReadWrite);
-picture.LoadImage(imageStream);
-//Sets wrapping style for picture
-picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Sets horizontal and vertical position
-picture.HorizontalPosition = 400;
-picture.VerticalPosition = 150;
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Page;
-//Adds the specified picture to group shape
-groupShape.Add(picture);
-//Creates new textbox
-WTextBox textbox = new WTextBox(document);
-textbox.TextBoxFormat.Width = 150;
-textbox.TextBoxFormat.Height = 75;
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-//Sets wrapping style for textbox
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
-//Sets horizontal and vertical position
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Adds the specified textbox to group shape
-groupShape.Add(textbox);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-group-shape-in-Word).
@@ -559,6 +559,114 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to add collection of shapes or images as a group shape in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+//Creates paragraph item collections to add child shapes
+ParagraphItem[] paragraphItems = new ParagraphItem[3];
+//Creates new shape
+Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
+//Sets height and width for shape
+shape.Height = 100;
+shape.Width = 150;
+//Sets Wrapping style for shape
+shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets horizontal and vertical position for shape
+shape.HorizontalPosition = 7;
+shape.VerticalPosition = 72;
+//Sets horizontal and vertical origin for shape
+shape.HorizontalOrigin = HorizontalOrigin.Page;
+shape.VerticalOrigin = VerticalOrigin.Page;
+//Sets the shape as paragraph item
+paragraphItems[0] = shape;
+//Appends new textbox to the document
+WTextBox textbox = new WTextBox(document);
+//Sets height and width for textbox
+textbox.TextBoxFormat.Width = 150;
+textbox.TextBoxFormat.Height = 75;
+//Adds new text to the textbox body
+IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
+//Adds new text to the textbox paragraph
+textboxParagraph.AppendText("Text inside text box");
+//Sets wrapping style for textbox
+textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
+//Sets horizontal and vertical position for textbox
+textbox.TextBoxFormat.HorizontalPosition = 200;
+textbox.TextBoxFormat.VerticalPosition = 200;
+//Sets horizontal and vertical origin for textbox
+textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
+textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
+//Sets the textbox as paragraph item
+paragraphItems[1] = textbox;
+//Appends new chart to the document
+WChart chart = new WChart(document);
+//Sets height and width for chart
+chart.Height = 270;
+chart.Width = 446;
+//Sets wrapping style for chart
+chart.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets chart type
+chart.ChartType = OfficeChartType.Pie;
+chart.VerticalPosition = 350;
+//Sets chart title
+chart.ChartTitle = "Best Selling Products";
+//Sets font and size for chart title
+chart.ChartTitleArea.FontName = "Calibri";
+chart.ChartTitleArea.Size = 14;
+//Sets data for chart
+chart.ChartData.SetValue(1, 1, "");
+chart.ChartData.SetValue(1, 2, "Sales");
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
+chart.ChartData.SetValue(2, 2, 141.396);
+chart.ChartData.SetValue(3, 1, "Stanley Hudson");
+chart.ChartData.SetValue(3, 2, 80.368);
+chart.ChartData.SetValue(4, 1, "Bernard Shah");
+chart.ChartData.SetValue(4, 2, 71.155);
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
+chart.ChartData.SetValue(5, 2, 47.234);
+chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
+chart.ChartData.SetValue(6, 2, 46.825);
+chart.ChartData.SetValue(7, 1, "Thomas Hardy");
+chart.ChartData.SetValue(7, 2, 42.593);
+chart.ChartData.SetValue(8, 1, "Hanna Moos");
+chart.ChartData.SetValue(8, 2, 41.819);
+chart.ChartData.SetValue(9, 1, "Alice Mutton");
+chart.ChartData.SetValue(9, 2, 32.698);
+chart.ChartData.SetValue(10, 1, "Christina Berglund");
+chart.ChartData.SetValue(10, 2, 29.171);
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
+chart.ChartData.SetValue(11, 2, 25.696);
+//Creates a new chart series with the name “Sales”
+IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
+//Sets value for the chart series 
+pieSeries.Values = chart.ChartData[2, 2, 11, 2];
+//Sets data label
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
+//Sets background color
+chart.ChartArea.Fill.ForeColor = Color.FromArgb(242, 242, 242);
+chart.PlotArea.Fill.ForeColor = Color.FromArgb(242, 242, 242);
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+//Sets category labels
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
+//Sets the chart as paragraph item
+paragraphItems[2] = chart;
+//Creates new group shape
+GroupShape groupShape = new GroupShape(document, paragraphItems);
+groupShape.HorizontalPosition = 72;
+//Adds the group shape to the paragraph
+paragraph.ChildEntities.Add(groupShape);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
@@ -774,114 +882,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-//Creates paragraph item collections to add child shapes
-ParagraphItem[] paragraphItems = new ParagraphItem[3];
-//Creates new shape
-Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
-//Sets height and width for shape
-shape.Height = 100;
-shape.Width = 150;
-//Sets Wrapping style for shape
-shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical position for shape
-shape.HorizontalPosition = 7;
-shape.VerticalPosition = 72;
-//Sets horizontal and vertical origin for shape
-shape.HorizontalOrigin = HorizontalOrigin.Page;
-shape.VerticalOrigin = VerticalOrigin.Page;
-//Sets the shape as paragraph item
-paragraphItems[0] = shape;
-//Appends new textbox to the document
-WTextBox textbox = new WTextBox(document);
-//Sets height and width for textbox
-textbox.TextBoxFormat.Width = 150;
-textbox.TextBoxFormat.Height = 75;
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new text to the textbox paragraph
-textboxParagraph.AppendText("Text inside text box");
-//Sets wrapping style for textbox
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
-//Sets horizontal and vertical position for textbox
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin for textbox
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Sets the textbox as paragraph item
-paragraphItems[1] = textbox;
-//Appends new chart to the document
-WChart chart = new WChart(document);
-//Sets height and width for chart
-chart.Height = 270;
-chart.Width = 446;
-//Sets wrapping style for chart
-chart.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets chart type
-chart.ChartType = OfficeChartType.Pie;
-chart.VerticalPosition = 350;
-//Sets chart title
-chart.ChartTitle = "Best Selling Products";
-//Sets font and size for chart title
-chart.ChartTitleArea.FontName = "Calibri";
-chart.ChartTitleArea.Size = 14;
-//Sets data for chart
-chart.ChartData.SetValue(1, 1, "");
-chart.ChartData.SetValue(1, 2, "Sales");
-chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
-chart.ChartData.SetValue(2, 2, 141.396);
-chart.ChartData.SetValue(3, 1, "Stanley Hudson");
-chart.ChartData.SetValue(3, 2, 80.368);
-chart.ChartData.SetValue(4, 1, "Bernard Shah");
-chart.ChartData.SetValue(4, 2, 71.155);
-chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
-chart.ChartData.SetValue(5, 2, 47.234);
-chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
-chart.ChartData.SetValue(6, 2, 46.825);
-chart.ChartData.SetValue(7, 1, "Thomas Hardy");
-chart.ChartData.SetValue(7, 2, 42.593);
-chart.ChartData.SetValue(8, 1, "Hanna Moos");
-chart.ChartData.SetValue(8, 2, 41.819);
-chart.ChartData.SetValue(9, 1, "Alice Mutton");
-chart.ChartData.SetValue(9, 2, 32.698);
-chart.ChartData.SetValue(10, 1, "Christina Berglund");
-chart.ChartData.SetValue(10, 2, 29.171);
-chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
-chart.ChartData.SetValue(11, 2, 25.696);
-//Creates a new chart series with the name “Sales”
-IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
-//Sets value for the chart series 
-pieSeries.Values = chart.ChartData[2, 2, 11, 2];
-//Sets data label
-pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
-//Sets background color
-chart.ChartArea.Fill.ForeColor = Color.FromArgb(242, 242, 242);
-chart.PlotArea.Fill.ForeColor = Color.FromArgb(242, 242, 242);
-chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
-//Sets category labels
-chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
-//Sets the chart as paragraph item
-paragraphItems[2] = chart;
-//Creates new group shape
-GroupShape groupShape = new GroupShape(document, paragraphItems);
-groupShape.HorizontalPosition = 72;
-//Adds the group shape to the paragraph
-paragraph.ChildEntities.Add(groupShape);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Collection-of-shapes-into-group-shape).
@@ -891,6 +891,96 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to group the nested group shapes as a group shape in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+//Creates new group shape
+GroupShape groupShape = new GroupShape(document);
+//Adds group shape to the paragraph
+paragraph.ChildEntities.Add(groupShape);
+//Appends new shape to the document
+Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
+//Sets height and width for shape
+shape.Height = 100;
+shape.Width = 150;
+//Sets Wrapping style for shape
+shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets horizontal and vertical position for shape
+shape.HorizontalPosition = 72;
+shape.VerticalPosition = 72;
+//Sets horizontal and vertical origin for shape
+shape.HorizontalOrigin = HorizontalOrigin.Page;
+shape.VerticalOrigin = VerticalOrigin.Page;
+//Adds the specified shape to group shape
+groupShape.Add(shape);
+//Appends new picture to the document
+WPicture picture = new WPicture(document);
+//Loads image from the file
+FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.ReadWrite);
+picture.LoadImage(imageStream);
+//Sets wrapping style for picture
+picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets height and width for the picture
+picture.Height = 100;
+picture.Width = 100;
+//Sets horizontal and vertical position for the picture
+picture.HorizontalPosition = 400;
+picture.VerticalPosition = 150;
+//Sets horizontal and vertical origin for the picture
+picture.HorizontalOrigin = HorizontalOrigin.Page;
+picture.VerticalOrigin = VerticalOrigin.Page;
+//Adds specified picture to the group shape
+groupShape.Add(picture);
+//Creates new nested group shape 
+GroupShape nestedGroupShape = new GroupShape(document);
+//Appends new textbox to the document
+WTextBox textbox = new WTextBox(document);
+//Sets width and height for the textbox
+textbox.TextBoxFormat.Width = 150;
+textbox.TextBoxFormat.Height = 75;
+//Adds new text to the textbox body
+IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
+//Adds new text to the textbox paragraph
+textboxParagraph.AppendText("Text inside text box");
+//Sets wrapping style for the textbox 
+textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
+//Sets horizontal and vertical position for the textbox
+textbox.TextBoxFormat.HorizontalPosition = 200;
+textbox.TextBoxFormat.VerticalPosition = 200;
+//Sets horizontal and vertical origin for the textbox
+textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
+textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
+//Adds specified textbox to the nested group shape
+nestedGroupShape.Add(textbox);
+//Appends new shape to the document
+shape = new Shape(document, AutoShapeType.Oval);
+//Sets height and width for the new shape
+shape.Height = 100;
+shape.Width = 150;
+//Sets horizontal and vertical position for the shape
+shape.HorizontalPosition = 200;
+shape.VerticalPosition = 72;
+//Sets horizontal and vertical origin for the shape
+shape.HorizontalOrigin = HorizontalOrigin.Page;
+shape.VerticalOrigin = VerticalOrigin.Page;
+//Sets horizontal and vertical position for the nested group shape
+nestedGroupShape.HorizontalPosition = 72;
+nestedGroupShape.VerticalPosition = 72;
+//Adds specified shape to the nested group shape
+nestedGroupShape.Add(shape);
+//Adds nested group shape to the group shape of the paragraph
+groupShape.Add(nestedGroupShape);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
@@ -1069,96 +1159,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-WParagraph paragraph = section.AddParagraph() as WParagraph;
-//Creates new group shape
-GroupShape groupShape = new GroupShape(document);
-//Adds group shape to the paragraph
-paragraph.ChildEntities.Add(groupShape);
-//Appends new shape to the document
-Shape shape = new Shape(document, AutoShapeType.RoundedRectangle);
-//Sets height and width for shape
-shape.Height = 100;
-shape.Width = 150;
-//Sets Wrapping style for shape
-shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical position for shape
-shape.HorizontalPosition = 72;
-shape.VerticalPosition = 72;
-//Sets horizontal and vertical origin for shape
-shape.HorizontalOrigin = HorizontalOrigin.Page;
-shape.VerticalOrigin = VerticalOrigin.Page;
-//Adds the specified shape to group shape
-groupShape.Add(shape);
-//Appends new picture to the document
-WPicture picture = new WPicture(document);
-//Loads image from the file
-FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.ReadWrite);
-picture.LoadImage(imageStream);
-//Sets wrapping style for picture
-picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets height and width for the picture
-picture.Height = 100;
-picture.Width = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 400;
-picture.VerticalPosition = 150;
-//Sets horizontal and vertical origin for the picture
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Page;
-//Adds specified picture to the group shape
-groupShape.Add(picture);
-//Creates new nested group shape 
-GroupShape nestedGroupShape = new GroupShape(document);
-//Appends new textbox to the document
-WTextBox textbox = new WTextBox(document);
-//Sets width and height for the textbox
-textbox.TextBoxFormat.Width = 150;
-textbox.TextBoxFormat.Height = 75;
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new text to the textbox paragraph
-textboxParagraph.AppendText("Text inside text box");
-//Sets wrapping style for the textbox 
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.Behind;
-//Sets horizontal and vertical position for the textbox
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin for the textbox
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Page;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Adds specified textbox to the nested group shape
-nestedGroupShape.Add(textbox);
-//Appends new shape to the document
-shape = new Shape(document, AutoShapeType.Oval);
-//Sets height and width for the new shape
-shape.Height = 100;
-shape.Width = 150;
-//Sets horizontal and vertical position for the shape
-shape.HorizontalPosition = 200;
-shape.VerticalPosition = 72;
-//Sets horizontal and vertical origin for the shape
-shape.HorizontalOrigin = HorizontalOrigin.Page;
-shape.VerticalOrigin = VerticalOrigin.Page;
-//Sets horizontal and vertical position for the nested group shape
-nestedGroupShape.HorizontalPosition = 72;
-nestedGroupShape.VerticalPosition = 72;
-//Adds specified shape to the nested group shape
-nestedGroupShape.Add(shape);
-//Adds nested group shape to the group shape of the paragraph
-groupShape.Add(nestedGroupShape);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Shapes/Add-nested-group-shapes).
@@ -1170,6 +1170,30 @@ You can ungroup the group shapes in the Word document to preserve each shape as 
 The following code example illustrates how to ungroup the group shape in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document
+WordDocument document = new WordDocument(fileStream, FormatType.Docx);
+//Gets the last paragraph
+WParagraph lastParagraph = document.LastParagraph;
+//Iterates through the paragraph items to get the group shape
+for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
+{
+    if (lastParagraph.ChildEntities[i] is GroupShape)
+    {
+        GroupShape groupShape = lastParagraph.ChildEntities[i] as GroupShape;
+        //Ungroup the child shapes in the group shape
+        groupShape.Ungroup();
+        break;
+    }
+}
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document 
@@ -1210,30 +1234,6 @@ Next
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Gets the last paragraph
-WParagraph lastParagraph = document.LastParagraph;
-//Iterates through the paragraph items to get the group shape
-for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
-{
-    if (lastParagraph.ChildEntities[i] is GroupShape)
-    {
-        GroupShape groupShape = lastParagraph.ChildEntities[i] as GroupShape;
-        //Ungroup the child shapes in the group shape
-        groupShape.Ungroup();
-        break;
-    }
-}
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}

@@ -44,6 +44,20 @@ The following XHTML validation types are supported in Essential DocIO while impo
 The following code example shows how to convert the HTML file into Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
+{
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the HTML document against validation type none
 WordDocument document = new WordDocument("Input.html", FormatType.Html, XHTMLValidationType.None);
@@ -62,19 +76,6 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Input.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
-{
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.docx);
-    //Closes the Word document
-    document.Close();
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Convert-HTML-to-Word).
@@ -82,6 +83,20 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to convert the Word document into HTML.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Html);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
@@ -98,19 +113,6 @@ Dim document As New WordDocument("Template.docx", FormatType.Docx)
 document.Save("WordToHtml.html", FormatType.Html)
 'Closes the document 
 document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-{
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Html);
-    //Closes the Word document
-    document.Close();
-}
 {% endhighlight %}
 
 {% endtabs %}
@@ -187,6 +189,26 @@ The Essential DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/c
 The following code example shows how to load image data based on image source path when importing the HTML files.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Open the file as Stream
+FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
+//Creates a new instance of WordDocument
+WordDocument document = new WordDocument();
+//Hooks the ImageNodeVisited event to open the image from a specific location
+document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+//Opens the input HTML document
+document.Open(docStream, FormatType.Html);
+//Unhooks the ImageNodeVisited event after loading HTML
+document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+//Creates an instance of memory stream
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the WordDocument instance
+document.Close(); 
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new instance of WordDocument
 WordDocument document = new WordDocument();
@@ -217,30 +239,20 @@ document.Save("HtmlToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Open the file as Stream
-FileStream docStream = new FileStream("Input.html", FileMode.Open, FileAccess.Read);
-//Creates a new instance of WordDocument
-WordDocument document = new WordDocument();
-//Hooks the ImageNodeVisited event to open the image from a specific location
-document.HTMLImportSettings.ImageNodeVisited += OpenImage;
-//Opens the input HTML document
-document.Open(docStream, FormatType.Html);
-//Unhooks the ImageNodeVisited event after loading HTML
-document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-//Creates an instance of memory stream
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the WordDocument instance
-document.Close(); 
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows how to read the image from the specified path when importing the HTML files.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    //Read the image from the specified (args.Uri) path
+    args.ImageStream = System.IO.File.OpenRead(args.Uri);
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
@@ -254,14 +266,6 @@ Private Sub OpenImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEven
     'Read the image from the specified (args.Uri) path
     args.ImageStream = System.IO.File.OpenRead(args.Uri)
 End Sub
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private void OpenImage(object sender, ImageNodeVisitedEventArgs args)
-{
-    //Read the image from the specified (args.Uri) path
-    args.ImageStream = System.IO.File.OpenRead(args.Uri);
-}
 {% endhighlight %}
 
 {% endtabs %}

@@ -56,6 +56,55 @@ The following code example shows how to add a table of contents (TOC) in Word do
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds the section into the Word document
+IWSection section = document.AddSection();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Adds the paragraph into the created section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
+paragraph.AppendTOC(1, 3);
+//Adds the section into the Word document
+section = document.AddSection();
+//Adds the paragraph into the created section
+paragraph = section.AddParagraph();
+//Adds the text for the headings
+paragraph.AppendText("First Chapter");
+//Sets a built-in heading style.
+paragraph.ApplyStyle(BuiltinStyle.Heading1);
+//Adds the text into the paragraph
+section.AddParagraph().AppendText(paraText);
+//Adds the section into the Word document
+section = document.AddSection();
+//Adds the paragraph into the created section
+paragraph = section.AddParagraph();
+//Adds the text for the headings
+paragraph.AppendText("Second Chapter");
+//Sets a built-in heading style.
+paragraph.ApplyStyle(BuiltinStyle.Heading2);
+//Adds the text into the paragraph
+section.AddParagraph().AppendText(paraText);
+//Adds the section into the Word document
+section = document.AddSection();
+//Adds the paragraph into the created section
+paragraph = section.AddParagraph();
+//Adds the text into the headings
+paragraph.AppendText("Third Chapter");
+//Sets a built-in heading style
+paragraph.ApplyStyle(BuiltinStyle.Heading3);
+//Adds the text into the paragraph.
+section.AddParagraph().AppendText(paraText);
+//Updates the table of contents
+document.UpdateTableOfContents();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -154,55 +203,6 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds the section into the Word document
-IWSection section = document.AddSection();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Adds the paragraph into the created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
-paragraph.AppendTOC(1, 3);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("First Chapter");
-//Sets a built-in heading style.
-paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Second Chapter");
-//Sets a built-in heading style.
-paragraph.ApplyStyle(BuiltinStyle.Heading2);
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text into the headings
-paragraph.AppendText("Third Chapter");
-//Sets a built-in heading style
-paragraph.ApplyStyle(BuiltinStyle.Heading3);
-//Adds the text into the paragraph.
-section.AddParagraph().AppendText(paraText);
-//Updates the table of contents
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Add-table-of-contents).
@@ -218,6 +218,19 @@ N>  3. In ASP.NET Core, Blazor, and Xamarin platforms, to update TOC in a Word d
 The following code example shows how to update a TOC in an existing word document. 
 
 {% tabs %} 
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens an existing document from stream through constructor of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
+//Updates the table of contents.
+document.UpdateTableOfContents();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input word template
@@ -243,19 +256,6 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens an existing document from stream through constructor of WordDocument class
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
-//Updates the table of contents.
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -269,6 +269,63 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to create table of contents with user-defined styles instead of heading styles.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Creates a new custom styles
+Style style = (WParagraphStyle)document.AddParagraphStyle("MyStyle");
+style.CharacterFormat.Bold = true;
+style.CharacterFormat.FontName = "Verdana";
+style.CharacterFormat.FontSize = 25;
+//Adds the section into the Word document
+IWSection section = document.AddSection();
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+//Adds the paragraph into the created section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
+TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
+tableOfContents.UseHeadingStyles = false;
+//Sets the TOC level style based on the created TOC 
+tableOfContents.SetTOCLevelStyle(2, "MyStyle");
+//Adds the section into the Word document
+section = document.AddSection();
+//Adds the paragraph into the created section
+paragraph = section.AddParagraph();
+//Adds the text for the headings
+paragraph.AppendText("First Chapter");
+//Sets the built-in heading style
+paragraph.ApplyStyle("MyStyle");
+//Adds the text into the paragraph
+section.AddParagraph().AppendText(paraText);
+//Adds the section into the Word document
+section = document.AddSection();
+//Adds the paragraph into the created section
+paragraph = section.AddParagraph();
+//Adds the text for the headings
+paragraph.AppendText("Second Chapter");
+//Sets the built-in heading style
+paragraph.ApplyStyle(BuiltinStyle.Heading1);
+//Adds the text to the paragraph
+section.AddParagraph().AppendText(paraText);
+//Adds the section into Word document
+section = document.AddSection();
+//Adds a paragraph to a created section
+paragraph = section.AddParagraph();
+//Adds the text for the headings
+paragraph.AppendText("Third Chapter");
+//Sets the built-in heading style
+paragraph.ApplyStyle("MyStyle");
+//Adds the text to the paragraph
+section.AddParagraph().AppendText(paraText);
+//Updates the table of contents
+document.UpdateTableOfContents();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
@@ -384,63 +441,6 @@ document.Close()
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Creates a new custom styles
-Style style = (WParagraphStyle)document.AddParagraphStyle("MyStyle");
-style.CharacterFormat.Bold = true;
-style.CharacterFormat.FontName = "Verdana";
-style.CharacterFormat.FontSize = 25;
-//Adds the section into the Word document
-IWSection section = document.AddSection();
-string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
-//Adds the paragraph into the created section
-IWParagraph paragraph = section.AddParagraph();
-//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
-TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
-tableOfContents.UseHeadingStyles = false;
-//Sets the TOC level style based on the created TOC 
-tableOfContents.SetTOCLevelStyle(2, "MyStyle");
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("First Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle("MyStyle");
-//Adds the text into the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into the Word document
-section = document.AddSection();
-//Adds the paragraph into the created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Second Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle(BuiltinStyle.Heading1);
-//Adds the text to the paragraph
-section.AddParagraph().AppendText(paraText);
-//Adds the section into Word document
-section = document.AddSection();
-//Adds a paragraph to a created section
-paragraph = section.AddParagraph();
-//Adds the text for the headings
-paragraph.AppendText("Third Chapter");
-//Sets the built-in heading style
-paragraph.ApplyStyle("MyStyle");
-//Adds the text to the paragraph
-section.AddParagraph().AppendText(paraText);
-//Updates the table of contents
-document.UpdateTableOfContents();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/TOC-with-user-defined-styles).
@@ -452,6 +452,89 @@ You can modify the preservation of TOC entries in a Word document by applying sw
 The following code example illustrates how to apply switches for the table of contents.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a section to the Word document.
+    IWSection section = document.AddSection();
+    //Add a paragraph to the created section.
+    IWParagraph paragraph = section.AddParagraph();
+    //Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
+    TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
+    //Set lower heading level for TOC.
+    tableOfContent.LowerHeadingLevel = 2;
+    //Set upper heading level for TOC.
+    tableOfContent.UpperHeadingLevel = 5;
+    //Enable a flag to use default heading styles in TOC entries.
+    tableOfContent.UseHeadingStyles = true;
+    //Enable a flag to show page numbers in TOC entries.
+    tableOfContent.IncludePageNumbers = true;
+    //Disable a flag to align page numbers after the TOC entries.
+    tableOfContent.RightAlignPageNumbers = false;
+    //Disable a flag to preserve TOC entries without hyperlinks.
+    tableOfContent.UseHyperlinks = false;
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append text.
+    paragraph.AppendText("First ");
+    //Append line break.
+    paragraph.AppendBreak(BreakType.LineBreak);
+    paragraph.AppendText("Chapter");
+    //Enable a flag to include newline characters in TOC entries.
+    tableOfContent.IncludeNewLineCharacters = true;
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    //Add a section to the Word document.
+    section = document.AddSection();
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append text.
+    paragraph.AppendText("Second ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Add a section to the Word document.
+    section = document.AddSection();
+    paragraph = section.AddParagraph();
+    paragraph.AppendText("Third ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading2);
+    section = document.AddSection();
+    paragraph = section.AddParagraph();
+    paragraph.AppendText("Fourth ");
+    paragraph.AppendText("Chapter");
+    //Set a built-in heading style.
+    paragraph.ApplyStyle(BuiltinStyle.Heading3);
+    //Add the text to the new paragraph of the section.
+    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Set outline level for paragraph.
+    paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
+    //Append text.
+    paragraph.AppendText("Outline Level Paragraph");
+    //Enable a flag to consider outline level paragraphs in TOC entries.
+    tableOfContent.UseOutlineLevels = true;
+    //Add a section to the Word document.
+    section = document.AddSection();
+    //Add a paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Append a field to the paragraph.
+    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
+    //Enable a flag to use table entry fields in TOC entries.
+    tableOfContent.UseTableEntryFields = true;
+    //Update the table of contents.
+    document.UpdateTableOfContents();
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
@@ -614,89 +697,6 @@ End Using
 
 {% highlight c# tabtitle="UWP" %}
 //DocIO doesn't support updating table of contents in UWP platform.
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a section to the Word document.
-    IWSection section = document.AddSection();
-    //Add a paragraph to the created section.
-    IWParagraph paragraph = section.AddParagraph();
-    //Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries.
-    TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
-    //Set lower heading level for TOC.
-    tableOfContent.LowerHeadingLevel = 2;
-    //Set upper heading level for TOC.
-    tableOfContent.UpperHeadingLevel = 5;
-    //Enable a flag to use default heading styles in TOC entries.
-    tableOfContent.UseHeadingStyles = true;
-    //Enable a flag to show page numbers in TOC entries.
-    tableOfContent.IncludePageNumbers = true;
-    //Disable a flag to align page numbers after the TOC entries.
-    tableOfContent.RightAlignPageNumbers = false;
-    //Disable a flag to preserve TOC entries without hyperlinks.
-    tableOfContent.UseHyperlinks = false;
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append text.
-    paragraph.AppendText("First ");
-    //Append line break.
-    paragraph.AppendBreak(BreakType.LineBreak);
-    paragraph.AppendText("Chapter");
-    //Enable a flag to include newline characters in TOC entries.
-    tableOfContent.IncludeNewLineCharacters = true;
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading2);
-    //Add a section to the Word document.
-    section = document.AddSection();
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append text.
-    paragraph.AppendText("Second ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading1);
-    //Add a section to the Word document.
-    section = document.AddSection();
-    paragraph = section.AddParagraph();
-    paragraph.AppendText("Third ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading2);
-    section = document.AddSection();
-    paragraph = section.AddParagraph();
-    paragraph.AppendText("Fourth ");
-    paragraph.AppendText("Chapter");
-    //Set a built-in heading style.
-    paragraph.ApplyStyle(BuiltinStyle.Heading3);
-    //Add the text to the new paragraph of the section.
-    section.AddParagraph().AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Set outline level for paragraph.
-    paragraph.ParagraphFormat.OutlineLevel = OutlineLevel.Level2;
-    //Append text.
-    paragraph.AppendText("Outline Level Paragraph");
-    //Enable a flag to consider outline level paragraphs in TOC entries.
-    tableOfContent.UseOutlineLevels = true;
-    //Add a section to the Word document.
-    section = document.AddSection();
-    //Add a paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Append a field to the paragraph.
-    paragraph.AppendField("Table of Entry Field", FieldType.FieldTOCEntry);
-    //Enable a flag to use table entry fields in TOC entries.
-    tableOfContent.UseTableEntryFields = true;
-    //Update the table of contents.
-    document.UpdateTableOfContents();
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Closes the document
-    document.Close();
-}
 {% endhighlight %}
 
 {% endtabs %}

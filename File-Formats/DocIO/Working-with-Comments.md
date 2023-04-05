@@ -19,6 +19,29 @@ The following code illustrates how to add a new comment to the document:
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds a section and a paragraph in the document
+document.EnsureMinimal();
+IWParagraph paragraph = document.LastParagraph;
+//Appends text to the paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Adds comment to a paragraph
+WComment comment = paragraph.AppendComment("comment test");
+//Specifies the author of the comment
+comment.Format.User = "Peter";
+//Specifies the initial of the author
+comment.Format.UserInitials = "St";
+//Set the date and time for comment
+comment.Format.DateTime = DateTime.Now;
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document.
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
 WordDocument document = new WordDocument();
@@ -59,29 +82,6 @@ document.Save("Comment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-IWParagraph paragraph = document.LastParagraph;
-//Appends text to the paragraph
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Adds comment to a paragraph
-WComment comment = paragraph.AppendComment("comment test");
-//Specifies the author of the comment
-comment.Format.User = "Peter";
-//Specifies the initial of the author
-comment.Format.UserInitials = "St";
-//Set the date and time for comment
-comment.Format.DateTime = DateTime.Now;
-//Saves the Word document to MemoryStream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document.
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Add-comment-to-Word-document).
@@ -91,6 +91,23 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code illustrates how to modify the text of an existing comment in the Word document:
 
 {% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Iterates the comments in the Word document
+foreach (WComment comment in document.Comments)
+{
+    //Modifies the last paragraph text of an existing comment when it is added by "Peter"
+    if (comment.Format.User == "Peter")
+        comment.TextBody.LastParagraph.Text = "Modified Comment Content";
+}
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
@@ -118,23 +135,6 @@ document.Save("ModifiedComment.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Iterates the comments in the Word document
-foreach (WComment comment in document.Comments)
-{
-    //Modifies the last paragraph text of an existing comment when it is added by "Peter"
-    if (comment.Format.User == "Peter")
-        comment.TextBody.LastParagraph.Text = "Modified Comment Content";
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Modify-text-of-an-existing-comment).
@@ -146,6 +146,18 @@ You can either remove all the comments or a particular comment from the Word doc
 The following code illustrates how to remove all the comments in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Removes all the comments in a Word document
+document.Comments.Clear();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
@@ -163,18 +175,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Removes all the comments in a Word document
-document.Comments.Clear();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Remove-all-comments-in-Word-document).
@@ -182,6 +182,18 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code illustrates how to remove a particular comment from Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Removes second comments from a document.
+document.Comments.RemoveAt(1);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Comment.docx");
@@ -201,18 +213,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Removes second comments from a document.
-document.Comments.RemoveAt(1);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Remove-particular-comment-from-Word).
@@ -224,6 +224,21 @@ You can access the parent comment of a particular comment (reply) in a Word docu
 The following code examples show how to access the parent comment of a particular comment in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+// Get the Ancestor comment.
+document.Comments[1].Ancestor;
+//Save the Word document to  MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Close the document.
+document.Close();
+stream.Position = 0;
+//Download the Word document in the browser
+return File(stream, "application/msword", "Result.docx");
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load an existing Word document into DocIO instance.
@@ -246,21 +261,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-// Get the Ancestor comment.
-document.Comments[1].Ancestor;
-//Save the Word document to  MemoryStream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Close the document.
-document.Close();
-stream.Position = 0;
-//Download the Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Access-parent-comment).
@@ -270,6 +270,26 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to get the paragraph item where it exists in the commented region based on the existing comment in the Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Iterate the comments in the Word document.
+    foreach (WComment comment in document.Comments)
+    {
+        //Get the commented word or part of a particular comment.
+        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
+            ParagraphItemCollection paragraphItem = comment.CommentedItems;
+    }
+    //Save the Word document to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    stream.Position = 0;
+    //Download the Word document in the browser.
+    return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 using(WordDocument document = new WordDocument("Comment.docx"))
@@ -295,26 +315,6 @@ Using document As New WordDocument("Comment.docx")
     Next
     document.Save("Result.docx", FormatType.Docx)
 End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-FileStream fileStreamPath = new FileStream("Comment.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-using(WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-{
-    //Iterate the comments in the Word document.
-    foreach (WComment comment in document.Comments)
-    {
-        //Get the commented word or part of a particular comment.
-        if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
-            ParagraphItemCollection paragraphItem = comment.CommentedItems;
-    }
-    //Save the Word document to MemoryStream.
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    stream.Position = 0;
-    //Download the Word document in the browser.
-    return File(stream, "application/msword", "Result.docx");
-}
 {% endhighlight %}
 
 {% endtabs %}

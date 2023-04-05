@@ -18,6 +18,32 @@ The following code example shows how to add a bookmark in Word document.
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class (Empty Word Document)
+WordDocument document = new WordDocument();
+//Adds a new section into the Word Document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Northwind Database");
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
+//Adds a paragraph into section
+paragraph = section.AddParagraph();
+//Adds a new bookmark start into paragraph with name "Northwind"
+paragraph.AppendBookmarkStart("Northwind");
+//Adds a text between the bookmark start and end into paragraph
+paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
+//Adds a new bookmark end into paragraph with name " Northwind "
+paragraph.AppendBookmarkEnd("Northwind");
+//Adds a text after the bookmark end
+paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
@@ -68,32 +94,6 @@ document.Save("Bookmarks.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class (Empty Word Document)
-WordDocument document = new WordDocument();
-//Adds a new section into the Word Document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Northwind Database");
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
-//Adds a paragraph into section
-paragraph = section.AddParagraph();
-//Adds a new bookmark start into paragraph with name "Northwind"
-paragraph.AppendBookmarkStart("Northwind");
-//Adds a text between the bookmark start and end into paragraph
-paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-//Adds a new bookmark end into paragraph with name " Northwind "
-paragraph.AppendBookmarkEnd("Northwind");
-//Adds a text after the bookmark end
-paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Add-bookmark-in-Word-document).
@@ -103,6 +103,21 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to retrieve an instance of bookmark from a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
+Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
+//Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
+bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
@@ -126,21 +141,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-//Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-an-instance-of-bookmark).
@@ -150,6 +150,21 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to remove a bookmark from Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
+Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
+//Removes the bookmark named "Northwind" from Word document.
+document.Bookmarks.Remove(bookmark);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
@@ -173,21 +188,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-//Removes the bookmark named "Northwind" from Word document.
-document.Bookmarks.Remove(bookmark);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Remove-bookmark-from-Word-document).
@@ -204,6 +204,27 @@ You can get the content between bookmark start and bookmark end of the specified
 The following code example shows how to retrieve the specified bookmark content by using [GetBookmarkContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetBookmarkContent) method in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Gets the bookmark content
+TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+//Adds the retrieved content into another new section
+document.AddSection();
+for (int i = 0; i < part.BodyItems.Count; i++)
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -238,27 +259,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content
-TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-//Adds the retrieved content into another new section
-document.AddSection();
-for (int i = 0; i < part.BodyItems.Count; i++)
-    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-body-part).
@@ -266,6 +266,27 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to retrieve the specified bookmark content by using [GetContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_GetContent) method in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Gets the bookmark content as WordDocumentPart
+WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
+//Saves the WordDocumentPart as separate Word document
+WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
+//Closes the template document
+document.Close();
+MemoryStream stream = new MemoryStream();
+newDocument.Save(stream, FormatType.Docx);
+newDocument.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
@@ -307,27 +328,6 @@ newDocument.Save("Result.docx", FormatType.Docx)
 newDocument.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content as WordDocumentPart
-WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Saves the WordDocumentPart as separate Word document
-WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-//Close the WordDocumentPart instance
-wordDocumentPart.Close();
-//Closes the template document
-document.Close();
-MemoryStream stream = new MemoryStream();
-newDocument.Save(stream, FormatType.Docx);
-newDocument.Close();
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-as-document-part).
@@ -344,6 +344,35 @@ N> 4. [LastColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.
 The following code example shows how to retrieve the bookmark content of a specified column range from a table in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds a section and a paragraph in the document
+document.EnsureMinimal();
+//Inserts a new table with bookmark
+IWTable table = CreateTable(document);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "BkmkInTable"
+bookmarkNavigator.MoveToBookmark("BkmkInTable");
+//Sets the column index where the bookmark starts within the table
+bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
+//Sets the column index where the bookmark ends within the table
+bookmarkNavigator.CurrentBookmark.LastColumn = 4;
+//Gets the bookmark content
+TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
+//Adds new section
+document.AddSection();
+for (int i = 0; i < part.BodyItems.Count; i++)
+//Adds the retrieved content into another new section
+document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document
@@ -400,40 +429,54 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new Word document
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-//Inserts a new table with bookmark
-IWTable table = CreateTable(document);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "BkmkInTable"
-bookmarkNavigator.MoveToBookmark("BkmkInTable");
-//Sets the column index where the bookmark starts within the table
-bookmarkNavigator.CurrentBookmark.FirstColumn = 1;
-//Sets the column index where the bookmark ends within the table
-bookmarkNavigator.CurrentBookmark.LastColumn = 4;
-//Gets the bookmark content
-TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-//Adds new section
-document.AddSection();
-for (int i = 0; i < part.BodyItems.Count; i++)
-//Adds the retrieved content into another new section
-document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows how to create table with bookmark.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public IWTable CreateTable(WordDocument document)
+{
+    //Adds a new table into Word document
+    IWTable table = document.LastSection.AddTable();
+    //Specifies the total number of rows & columns
+    table.ResetCells(5, 5);
+    //Accesses the instance of the cells and adds the content into cells
+    table[0, 0].AddParagraph().AppendText("Supplier ID");
+    table[0, 1].AddParagraph().AppendText("Company Name");
+    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
+    //Appends a bookmark start in third cell of first row
+    paragraph.AppendBookmarkStart("BkmkInTable");
+    paragraph.AppendText("Contact Name");
+    table[0, 3].AddParagraph().AppendText("Address");
+    table[0, 4].AddParagraph().AppendText("City");
+    table[1, 0].AddParagraph().AppendText("1");
+    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
+    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
+    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
+    table[1, 4].AddParagraph().AppendText("London");
+    table[2, 0].AddParagraph().AppendText("2");
+    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
+    table[2, 2].AddParagraph().AppendText("Shelley Burke");
+    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
+    table[2, 4].AddParagraph().AppendText("New Orleans");
+    table[3, 0].AddParagraph().AppendText("3");
+    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
+    table[3, 2].AddParagraph().AppendText("Regina Murphy");
+    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
+    table[3, 4].AddParagraph().AppendText("Ann Arbor");
+    table[4, 0].AddParagraph().AppendText("4");
+    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
+    paragraph = table.Rows[4].Cells[2].AddParagraph();
+    //Appends a bookmark end in third cell of last row
+    paragraph.AppendBookmarkEnd("BkmkInTable");
+    paragraph.AppendText("Yoshi Nagase");
+    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
+    table[4, 4].AddParagraph().AppendText("Tokyo");
+    return table;
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 public IWTable CreateTable(WordDocument document)
@@ -519,49 +562,6 @@ Private Function CreateTable(document As WordDocument) As IWTable
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-public IWTable CreateTable(WordDocument document)
-{
-    //Adds a new table into Word document
-    IWTable table = document.LastSection.AddTable();
-    //Specifies the total number of rows & columns
-    table.ResetCells(5, 5);
-    //Accesses the instance of the cells and adds the content into cells
-    table[0, 0].AddParagraph().AppendText("Supplier ID");
-    table[0, 1].AddParagraph().AppendText("Company Name");
-    IWParagraph paragraph = table.Rows[0].Cells[2].AddParagraph();
-    //Appends a bookmark start in third cell of first row
-    paragraph.AppendBookmarkStart("BkmkInTable");
-    paragraph.AppendText("Contact Name");
-    table[0, 3].AddParagraph().AppendText("Address");
-    table[0, 4].AddParagraph().AppendText("City");
-    table[1, 0].AddParagraph().AppendText("1");
-    table[1, 1].AddParagraph().AppendText("Exotic Liquids");
-    table[1, 2].AddParagraph().AppendText("Charlotte Cooper");
-    table[1, 3].AddParagraph().AppendText("49 Gilbert St.");
-    table[1, 4].AddParagraph().AppendText("London");
-    table[2, 0].AddParagraph().AppendText("2");
-    table[2, 1].AddParagraph().AppendText("New Orleans Cajun Delights");
-    table[2, 2].AddParagraph().AppendText("Shelley Burke");
-    table[2, 3].AddParagraph().AppendText("P.O. Box 78934");
-    table[2, 4].AddParagraph().AppendText("New Orleans");
-    table[3, 0].AddParagraph().AppendText("3");
-    table[3, 1].AddParagraph().AppendText("Grandma Kelly's Homestead");
-    table[3, 2].AddParagraph().AppendText("Regina Murphy");
-    table[3, 3].AddParagraph().AppendText("707 Oxford Rd.");
-    table[3, 4].AddParagraph().AppendText("Ann Arbor");
-    table[4, 0].AddParagraph().AppendText("4");
-    table[4, 1].AddParagraph().AppendText("Tokyo Traders");
-    paragraph = table.Rows[4].Cells[2].AddParagraph();
-    //Appends a bookmark end in third cell of last row
-    paragraph.AppendBookmarkEnd("BkmkInTable");
-    paragraph.AppendText("Yoshi Nagase");
-    table[4, 3].AddParagraph().AppendText("9-8 Sekimai Musashino - shi");
-    table[4, 4].AddParagraph().AppendText("Tokyo");
-    return table;
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Get-bookmark-content-within-table).
@@ -573,6 +573,23 @@ You can insert table, paragraph, simple text and paragraph item at the start or 
 The following code example shows how to insert a simple text by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads the template document
+FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Inserts a new text before the bookmark end of the bookmark
+bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -598,23 +615,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads the template document
-FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Inserts a new text before the bookmark end of the bookmark
-bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-simple-text-into-bookmark).
@@ -622,6 +622,27 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to insert a paragraph item by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind", false, true);
+//Inserts a new picture after the bookmark end
+WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
+FileStream imageStream = new FileStream("Northwind.png", FileMode.Open, FileAccess.Read);
+picture.LoadImage(imageStream);
+picture.WidthScale = 50;
+picture.HeightScale = 50;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -653,6 +674,14 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-item-into-bookmark).
+
+The following code example shows how to insert a paragraph by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
+
+{% tabs %}
+
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads an existing Word document into DocIO instance
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -661,26 +690,16 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-//Inserts a new picture after the bookmark end
-WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-FileStream imageStream = new FileStream("Northwind.png", FileMode.Open, FileAccess.Read);
-picture.LoadImage(imageStream);
-picture.WidthScale = 50;
-picture.HeightScale = 50;
+//Inserts a new paragraph before the bookmark start
+IWParagraph paragraph = new WParagraph(document);
+paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
+bookmarkNavigator.InsertParagraph(paragraph);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the document
 document.Close();
 {% endhighlight %}
-
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-item-into-bookmark).
-
-The following code example shows how to insert a paragraph by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
-
-{% tabs %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -710,25 +729,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-//Inserts a new paragraph before the bookmark start
-IWParagraph paragraph = new WParagraph(document);
-paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-bookmarkNavigator.InsertParagraph(paragraph);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-paragraph-into-bookmark).
@@ -736,6 +736,35 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to insert a table by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind", false, false);
+//Inserts a new paragraph before the bookmark end
+IWParagraph paragraph = new WParagraph(document);
+paragraph.AppendText("Northwind Database Contains the following tables:");
+bookmarkNavigator.InsertParagraph(paragraph);
+//Inserts a new table before the bookmark end
+WTable table = new WTable(document);
+table.ResetCells(3, 2);
+table[0, 0].AddParagraph().AppendText("Suppliers");
+table[0, 1].AddParagraph().AppendText("2");
+table[1, 0].AddParagraph().AppendText("Customers");
+table[1, 1].AddParagraph().AppendText("1");
+table[2, 0].AddParagraph().AppendText("Employees");
+table[2, 1].AddParagraph().AppendText("3");
+bookmarkNavigator.InsertTable(table);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -785,35 +814,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind", false, false);
-//Inserts a new paragraph before the bookmark end
-IWParagraph paragraph = new WParagraph(document);
-paragraph.AppendText("Northwind Database Contains the following tables:");
-bookmarkNavigator.InsertParagraph(paragraph);
-//Inserts a new table before the bookmark end
-WTable table = new WTable(document);
-table.ResetCells(3, 2);
-table[0, 0].AddParagraph().AppendText("Suppliers");
-table[0, 1].AddParagraph().AppendText("2");
-table[1, 0].AddParagraph().AppendText("Customers");
-table[1, 1].AddParagraph().AppendText("1");
-table[2, 0].AddParagraph().AppendText("Employees");
-table[2, 1].AddParagraph().AppendText("3");
-bookmarkNavigator.InsertTable(table);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Insert-table-into-bookmark).
@@ -821,6 +821,33 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to insert a [TextBodyPart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.TextBodyPart.html) by using [BookmarkNavigator](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html).
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Gets the bookmark content
+TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
+document.AddSection();
+IWParagraph paragraph = document.LastSection.AddParagraph();
+paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
+//Adds the new bookmark into Word document
+paragraph.AppendBookmarkStart("bookmark_empty");
+paragraph.AppendBookmarkEnd("bookmark_empty");
+//Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
+bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
+//Inserts the text body part after the bookmark start
+bookmarkNavigator.InsertTextBodyPart(textBodyPart);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -864,33 +891,6 @@ bookmarkNavigator.MoveToBookmark("bookmark_empty", True, True)
 bookmarkNavigator.InsertTextBodyPart(textBodyPart)
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content
-TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-document.AddSection();
-IWParagraph paragraph = document.LastSection.AddParagraph();
-paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-//Adds the new bookmark into Word document
-paragraph.AppendBookmarkStart("bookmark_empty");
-paragraph.AppendBookmarkEnd("bookmark_empty");
-//Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-//Inserts the text body part after the bookmark start
-bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}
@@ -904,6 +904,23 @@ You can delete the contents between bookmark start and end of the specified book
 The following code example shows how to remove the contents of a specified bookmark from Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind "
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Deletes bookmark content without deleting the format in the target document.
+bookmarkNavigator.DeleteBookmarkContent(false);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document into DocIO instance
@@ -931,23 +948,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind "
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Deletes bookmark content without deleting the format in the target document.
-bookmarkNavigator.DeleteBookmarkContent(false);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Delete-bookmark-content).
@@ -971,6 +971,33 @@ Case 2
 The following code example shows how to replace a specified bookmark content by using [ReplaceBookmarkContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_ReplaceBookmarkContent_Syncfusion_DocIO_DLS_TextBodyPart_) method in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Gets the bookmark content
+TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
+document.AddSection();
+IWParagraph paragraph = document.LastSection.AddParagraph();
+paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
+//Adds the new bookmark into Word document
+paragraph.AppendBookmarkStart("bookmark_empty");
+paragraph.AppendBookmarkEnd("bookmark_empty");
+//Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
+bookmarkNavigator.MoveToBookmark("bookmark_empty");
+//Replaces the bookmark content with text body part
+bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
@@ -1016,33 +1043,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content
-TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-document.AddSection();
-IWParagraph paragraph = document.LastSection.AddParagraph();
-paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-//Adds the new bookmark into Word document
-paragraph.AppendBookmarkStart("bookmark_empty");
-paragraph.AppendBookmarkEnd("bookmark_empty");
-//Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-bookmarkNavigator.MoveToBookmark("bookmark_empty");
-//Replaces the bookmark content with text body part
-bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Bookmarks/Replace-content-with-body-part).
@@ -1050,6 +1050,36 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to replace a specified bookmark content by using [ReplaceContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarksNavigator.html#Syncfusion_DocIO_DLS_BookmarksNavigator_ReplaceContent_Syncfusion_DocIO_DLS_WordDocumentPart_) method in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
+bookmarkNavigator.MoveToBookmark("Northwind");
+//Gets the bookmark content as WordDocumentPart
+WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
+//Loads the Word document with bookmark NorthwindDB
+FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Creates the bookmark navigator instance to access the bookmark
+bookmarkNavigator = new BookmarksNavigator(document);
+//Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
+bookmarkNavigator.MoveToBookmark("NorthwindDB");
+//Replaces the bookmark content with word body part
+bookmarkNavigator.ReplaceContent(wordDocumentPart);
+//Close the WordDocumentPart instance
+wordDocumentPart.Close();
+//Closes the template document
+templateDocument.Close();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
@@ -1099,36 +1129,6 @@ wordDocumentPart.Close()
 templateDocument.Close()
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
-//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-bookmarkNavigator.MoveToBookmark("Northwind");
-//Gets the bookmark content as WordDocumentPart
-WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-//Loads the Word document with bookmark NorthwindDB
-FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Creates the bookmark navigator instance to access the bookmark
-bookmarkNavigator = new BookmarksNavigator(document);
-//Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-bookmarkNavigator.MoveToBookmark("NorthwindDB");
-//Replaces the bookmark content with word body part
-bookmarkNavigator.ReplaceContent(wordDocumentPart);
-//Close the WordDocumentPart instance
-wordDocumentPart.Close();
-//Closes the template document
-templateDocument.Close();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}

@@ -17,6 +17,21 @@ Convert an existing Word document or document that is created from scratch into 
 The following code example shows how to convert a Word document to a Markdown.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Open the file as a Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Save as a Markdown file into the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Markdown);
+    }
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
@@ -81,20 +96,6 @@ async void Save(MemoryStream streams, string filename)
     }
     //Launch the saved Word file.
     await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Open the file as a Stream.
-using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Save as a Markdown file into the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Markdown);
-    }
 }
 {% endhighlight %}
 
@@ -170,6 +171,43 @@ The Essential DocIO supports two types of code blocks in Word to Markdown conver
 The following code example shows how to create code blocks in a Word document using DocIO.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a new section to the document.
+    IWSection section = document.AddSection();
+    //Add a new paragraph to the section.
+    IWParagraph paragraph = section.AddParagraph();
+    //Append text to the paragraph.
+    IWTextRange textRange = paragraph.AppendText("Fenced Code");
+    /Add a new paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Create a user-defined style as FencedCode.
+    IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
+    /Apply FencedCode style for the paragraph.
+    paragraph.ApplyStyle("FencedCode");
+    //Append text.
+    textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
+    //Add a new paragraph and append text to the paragraph.
+    section.AddParagraph().AppendText("Indented Code");
+    //Add a new paragraph to the section.
+    paragraph = section.AddParagraph();
+    //Create a user-defined style as IndentedCode.
+    style = document.AddParagraphStyle("IndentedCode");
+    //Apply IndentedCode style for the paragraph.
+    paragraph.ApplyStyle("IndentedCode");
+    //Append text.
+    textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
+    //Save as a Markdown file into the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Markdown);
+    outputStream.Position = 0;
+    return File(outputStream, "application/msword", "WordToMd.md");
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
@@ -235,42 +273,6 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a new section to the document.
-    IWSection section = document.AddSection();
-    //Add a new paragraph to the section.
-    IWParagraph paragraph = section.AddParagraph();
-    //Append text to the paragraph.
-    IWTextRange textRange = paragraph.AppendText("Fenced Code");
-    /Add a new paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Create a user-defined style as FencedCode.
-    IWParagraphStyle style = document.AddParagraphStyle("FencedCode");
-    /Apply FencedCode style for the paragraph.
-    paragraph.ApplyStyle("FencedCode");
-    //Append text.
-    textRange = paragraph.AppendText("class Hello\n{\n\tStatic void Main()\n\t{\n\t\tConsole.WriteLine(\"Fenced Code\")\n\t}\n}");
-    //Add a new paragraph and append text to the paragraph.
-    section.AddParagraph().AppendText("Indented Code");
-    //Add a new paragraph to the section.
-    paragraph = section.AddParagraph();
-    //Create a user-defined style as IndentedCode.
-    style = document.AddParagraphStyle("IndentedCode");
-    //Apply IndentedCode style for the paragraph.
-    paragraph.ApplyStyle("IndentedCode");
-    //Append text.
-    textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
-    //Save as a Markdown file into the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Markdown);
-    outputStream.Position = 0;
-    return File(outputStream, "application/msword", "WordToMd.md");
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Code-block-in-Markdown).
@@ -282,6 +284,26 @@ Create block quotes in a Word document by applying the “Quote” paragraph sty
 The following code example shows how to create block quotes in a Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a new section to the document.
+    IWSection section = document.AddSection();
+    //Create a user-defined style.
+    IWParagraphStyle style = document.AddParagraphStyle("Quote");
+    //Add a new paragraph to the section.
+    IWParagraph paragraph = section.AddParagraph();
+    //Apply Quote style to simple hello world text.
+    paragraph.ApplyStyle("Quote");
+    //Append text.
+    IWTextRange textRange = paragraph.AppendText("Hello World");
+    //Save the document as a Markdown file.
+    return File(outputStream, "application/msword", "WordToMd.md");
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 using (WordDocument document = new WordDocument())
@@ -317,25 +339,6 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add a new section to the document.
-    IWSection section = document.AddSection();
-    //Create a user-defined style.
-    IWParagraphStyle style = document.AddParagraphStyle("Quote");
-    //Add a new paragraph to the section.
-    IWParagraph paragraph = section.AddParagraph();
-    //Apply Quote style to simple hello world text.
-    paragraph.ApplyStyle("Quote");
-    //Append text.
-    IWTextRange textRange = paragraph.AppendText("Hello World");
-    //Save the document as a Markdown file.
-    return File(outputStream, "application/msword", "WordToMd.md");
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Block-quote-in-Markdown).
@@ -357,6 +360,23 @@ Specify the folder location to export the images using the [MarkdownExportImages
 The following code example illustrates how set the images folder to export the images while converting a Word document to a Markdown file.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Open the file as a Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Set images folder to export images. 
+        document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
+        //Save a Markdown file to the MemoryStream.
+        MemoryStream outputStream = new MemoryStream();
+        document.Save(outputStream, FormatType.Markdown);
+    }
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open an existing Word document. 
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
@@ -378,29 +398,14 @@ Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
 End Using
 {% endhighlight %}
 
+{% highlight c# tabtitle="Xamarin" %}
+//DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
+{% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 //DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Open the file as a Stream.
-using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
-{
-    //Load the file stream into a Word document.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
-    {
-        //Set images folder to export images. 
-        document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
-        //Save a Markdown file to the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Markdown);
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO doesn’t support the MarkdownExportImagesFolder API in UWP and Xamarin platforms.
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Markdown-conversion/Export-images-to-folder).
@@ -412,30 +417,6 @@ DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats
 The following code example illustrates how to save Image files during a Word to Markdown Conversion.
 
 {% tabs %}
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-//Open an existing Word document. 
-using (WordDocument document = new WordDocument(@"Input.docx"))
-{
-    //Hook the event to customize the image. 
-    document.SaveOptions.ImageNodeVisited += SaveImage;
-    //Save a Word document as a Markdown file.
-    document.Save("WordtoMd.md", FormatType.Markdown);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Open an existing Word document. 
-Using document As WordDocument = New WordDocument("Input.docx")
-    'Hook the event to customize the image. 
-    document.SaveOptions.ImageNodeVisited += SaveImage
-    'Save a Word document as a Markdown file.
-    document.Save("WordtoMd.md", FormatType.Markdown)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
@@ -459,6 +440,27 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 }
 {% endhighlight %}
 
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Open an existing Word document. 
+using (WordDocument document = new WordDocument(@"Input.docx"))
+{
+    //Hook the event to customize the image. 
+    document.SaveOptions.ImageNodeVisited += SaveImage;
+    //Save a Word document as a Markdown file.
+    document.Save("WordtoMd.md", FormatType.Markdown);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Open an existing Word document. 
+Using document As WordDocument = New WordDocument("Input.docx")
+    'Hook the event to customize the image. 
+    document.SaveOptions.ImageNodeVisited += SaveImage
+    'Save a Word document as a Markdown file.
+    document.Save("WordtoMd.md", FormatType.Markdown)
+End Using
+{% endhighlight %}
+
 {% highlight c# tabtitle="Xamarin" %}
 //Open the file as a Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.docx"))
@@ -478,11 +480,29 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
     //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 {% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code examples show the event handler to customize the image path and save the image in an external folder.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    string imagepath = @"D:\Temp\Image1.png";
+    //Save the image stream as a file.
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the URI to be used for the image in the output Markdown. 
+    args.Uri = imagepath;
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
 {
@@ -509,18 +529,6 @@ End Sub
 
 {% highlight c# tabtitle="UWP" %}
 //DocIO doesn’t support the ImageNodeVisitedEventArgs in UWP platform.
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
-{
-    string imagepath = @"D:\Temp\Image1.png";
-    //Save the image stream as a file.
-    using (FileStream fileStreamOutput = File.Create(imagepath))
-        args.ImageStream.CopyTo(fileStreamOutput);
-    //Set the URI to be used for the image in the output Markdown. 
-    args.Uri = imagepath;
-}
 {% endhighlight %}
 
 {% endtabs %}

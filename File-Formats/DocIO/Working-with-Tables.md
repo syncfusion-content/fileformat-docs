@@ -22,6 +22,54 @@ The following code example illustrates how to create a simple table with predefi
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class 
+WordDocument document = new WordDocument();
+//Adds a section into Word document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWTextRange textRange = section.AddParagraph().AppendText("Price Details");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+section.AddParagraph();
+//Adds a new table into Word document
+IWTable table = section.AddTable();
+//Specifies the total number of rows & columns
+table.ResetCells(3, 2);
+//Accesses the instance of the cell (first row, first cell) and adds the content into cell
+textRange = table[0, 0].AddParagraph().AppendText("Item");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+//Accesses the instance of the cell (first row, second cell) and adds the content into cell
+textRange = table[0, 1].AddParagraph().AppendText("Price($)");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+//Accesses the instance of the cell (second row, first cell) and adds the content into cell
+textRange = table[1, 0].AddParagraph().AppendText("Apple");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (second row, second cell) and adds the content into cell
+textRange = table[1, 1].AddParagraph().AppendText("50");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (third row, first cell) and adds the content into cell
+textRange = table[2, 0].AddParagraph().AppendText("Orange");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (third row, second cell) and adds the content into cell
+textRange = table[2, 1].AddParagraph().AppendText("30");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class 
 WordDocument document = new WordDocument();
@@ -116,54 +164,6 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class 
-WordDocument document = new WordDocument();
-//Adds a section into Word document
-IWSection section = document.AddSection();
-//Adds a new paragraph into Word document and appends text into paragraph
-IWTextRange textRange = section.AddParagraph().AppendText("Price Details");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 12;
-textRange.CharacterFormat.Bold = true;
-section.AddParagraph();
-//Adds a new table into Word document
-IWTable table = section.AddTable();
-//Specifies the total number of rows & columns
-table.ResetCells(3, 2);
-//Accesses the instance of the cell (first row, first cell) and adds the content into cell
-textRange = table[0, 0].AddParagraph().AppendText("Item");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 12;
-textRange.CharacterFormat.Bold = true;
-//Accesses the instance of the cell (first row, second cell) and adds the content into cell
-textRange = table[0, 1].AddParagraph().AppendText("Price($)");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 12;
-textRange.CharacterFormat.Bold = true;
-//Accesses the instance of the cell (second row, first cell) and adds the content into cell
-textRange = table[1, 0].AddParagraph().AppendText("Apple");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 10;
-//Accesses the instance of the cell (second row, second cell) and adds the content into cell
-textRange = table[1, 1].AddParagraph().AppendText("50");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 10;
-//Accesses the instance of the cell (third row, first cell) and adds the content into cell
-textRange = table[2, 0].AddParagraph().AppendText("Orange");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 10;
-//Accesses the instance of the cell (third row, second cell) and adds the content into cell
-textRange = table[2, 1].AddParagraph().AppendText("30");
-textRange.CharacterFormat.FontName = "Arial";
-textRange.CharacterFormat.FontSize = 10;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-simple-table).
@@ -171,6 +171,81 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to create a simple table by dynamically adding rows.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Price Details");
+section.AddParagraph();
+//Adds a new table into Word document
+IWTable table = section.AddTable();
+//Adds the first row into table
+WTableRow row = table.AddRow();
+//Adds the first cell into first row 
+WTableCell cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Item");
+//Adds the second cell into first row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Price($)");
+//Adds the second row into table
+row = table.AddRow(true, false);
+//Adds the first cell into second row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Apple");
+//Adds the second cell into second row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("50");
+//Adds the third row into table
+row = table.AddRow(true, false);
+//Adds the first cell into third row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Orange");
+//Adds the second cell into third row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("30");
+//Adds the fourth row into table
+row = table.AddRow(true, false);
+//Adds the first cell into fourth row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Banana");
+//Adds the second cell into fourth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("20");
+//Adds the fifth row to table
+row = table.AddRow(true, false);
+//Adds the first cell into fifth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Grapes");
+//Adds the second cell into fifth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("70");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -318,81 +393,6 @@ document.Save("Table.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Price Details");
-section.AddParagraph();
-//Adds a new table into Word document
-IWTable table = section.AddTable();
-//Adds the first row into table
-WTableRow row = table.AddRow();
-//Adds the first cell into first row 
-WTableCell cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Item");
-//Adds the second cell into first row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Price($)");
-//Adds the second row into table
-row = table.AddRow(true, false);
-//Adds the first cell into second row
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Apple");
-//Adds the second cell into second row
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("50");
-//Adds the third row into table
-row = table.AddRow(true, false);
-//Adds the first cell into third row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Orange");
-//Adds the second cell into third row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("30");
-//Adds the fourth row into table
-row = table.AddRow(true, false);
-//Adds the first cell into fourth row
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Banana");
-//Adds the second cell into fourth row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("20");
-//Adds the fifth row to table
-row = table.AddRow(true, false);
-//Adds the first cell into fifth row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("Grapes");
-//Adds the second cell into fifth row 
-cell = row.AddCell();
-//Specifies the cell width
-cell.Width = 200;
-cell.AddParagraph().AppendText("70");
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Dynamic-table-by-adding-rows).
@@ -402,6 +402,50 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can create a nested table by adding a new table into a cell. The following code example illustrates how to add a table into a cell.
 
 {% tabs %} 
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Price Details");
+IWTable table = section.AddTable();
+table.ResetCells(3, 2);
+table[0, 0].AddParagraph().AppendText("Item");
+table[0, 1].AddParagraph().AppendText("Price($)");
+table[1, 0].AddParagraph().AppendText("Items with same price");
+//Adds a nested table into the cell (second row, first cell).
+IWTable nestTable = table[1, 0].AddTable();
+//Creates the specified number of rows and columns to nested table
+nestTable.ResetCells(3, 1);
+//Accesses the instance of the nested table cell (first row, first cell)
+WTableCell nestedCell = nestTable.Rows[0].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Apple");
+//Accesses the instance of the nested table cell (second row, first cell)
+nestedCell = nestTable.Rows[1].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Orange");
+//Accesses the instance of the nested table cell (third row, first cell)
+nestedCell = nestTable.Rows[2].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Mango");
+//Accesses the instance of the cell (second row, second cell)
+nestedCell = table.Rows[1].Cells[1];
+table[1, 1].AddParagraph().AppendText("85");
+table[2, 0].AddParagraph().AppendText("Pomegranate");
+table[2, 1].AddParagraph().AppendText("70");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -487,50 +531,6 @@ document.Save("NestedTable.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Price Details");
-IWTable table = section.AddTable();
-table.ResetCells(3, 2);
-table[0, 0].AddParagraph().AppendText("Item");
-table[0, 1].AddParagraph().AppendText("Price($)");
-table[1, 0].AddParagraph().AppendText("Items with same price");
-//Adds a nested table into the cell (second row, first cell).
-IWTable nestTable = table[1, 0].AddTable();
-//Creates the specified number of rows and columns to nested table
-nestTable.ResetCells(3, 1);
-//Accesses the instance of the nested table cell (first row, first cell)
-WTableCell nestedCell = nestTable.Rows[0].Cells[0];
-//Specifies the width of the nested cell
-nestedCell.Width = 200;
-//Adds the content into nested cell
-nestedCell.AddParagraph().AppendText("Apple");
-//Accesses the instance of the nested table cell (second row, first cell)
-nestedCell = nestTable.Rows[1].Cells[0];
-//Specifies the width of the nested cell
-nestedCell.Width = 200;
-//Adds the content into nested cell
-nestedCell.AddParagraph().AppendText("Orange");
-//Accesses the instance of the nested table cell (third row, first cell)
-nestedCell = nestTable.Rows[2].Cells[0];
-//Specifies the width of the nested cell
-nestedCell.Width = 200;
-//Adds the content into nested cell
-nestedCell.AddParagraph().AppendText("Mango");
-//Accesses the instance of the cell (second row, second cell)
-nestedCell = table.Rows[1].Cells[1];
-table[1, 1].AddParagraph().AppendText("85");
-table[2, 0].AddParagraph().AppendText("Pomegranate");
-table[2, 1].AddParagraph().AppendText("70");
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-nested-table).
@@ -605,6 +605,31 @@ You can insert an image into the table cell by accessing the paragraph in that c
 
 {% tabs %}
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of the WordDocument class.
+using (WordDocument document = new WordDocument())
+{
+    IWSection section = document.AddSection();
+    //Adds a new table into the Word document.
+    IWTable table = section.AddTable();
+    //Specifies the total number of rows & columns.
+    table.ResetCells(2, 2);
+    table[0, 0].AddParagraph().AppendText("Product Name");
+    table[0, 1].AddParagraph().AppendText("Product Image");
+    table[1, 0].AddParagraph().AppendText("Apple Juice");
+    //Adds the image into the cell.
+    FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
+    IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
+    picture.Height = 75;
+    picture.Width = 60;
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class.
 using (WordDocument document = new WordDocument())
@@ -646,31 +671,6 @@ Using document As New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of the WordDocument class.
-using (WordDocument document = new WordDocument())
-{
-    IWSection section = document.AddSection();
-    //Adds a new table into the Word document.
-    IWTable table = section.AddTable();
-    //Specifies the total number of rows & columns.
-    table.ResetCells(2, 2);
-    table[0, 0].AddParagraph().AppendText("Product Name");
-    table[0, 1].AddParagraph().AppendText("Product Image");
-    table[1, 0].AddParagraph().AppendText("Apple Juice");
-    //Adds the image into the cell.
-    FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
-    IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
-    picture.Height = 75;
-    picture.Width = 60;
-    //Saves the Word document to MemoryStream
-    MemoryStream stream = new MemoryStream();
-    document.Save(stream, FormatType.Docx);
-    //Closes the Word document
-    document.Close();
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Insert-image-in-cell).
@@ -685,6 +685,56 @@ N> 3. To show/display border for a table or cell in the Word Document, you can s
 N> 4. As in the Microsoft Word, DocIO supports [RowFormat.Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.RowFormat.html#Syncfusion_DocIO_DLS_RowFormat_Borders) in DOC format alone.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class (Empty Word Document)
+FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing Word document into DocIO instance
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Specifies the title for the table
+table.Title ="PriceDetails";
+//Specifies the description of the table
+table.Description = "This table shows the price details of various fruits";
+//Specifies the left indent of the table
+table.IndentFromLeft = 50;
+//Specifies the background color of the table
+table.TableFormat.BackColor = Color.FromArgb(192, 192, 192);
+//Specifies the horizontal alignment of the table
+table.TableFormat.HorizontalAlignment = RowAlignment.Left;
+//Specifies the left, right, top and bottom padding of all the cells in the table
+table.TableFormat.Paddings.All = 10;
+//Specifies the auto resize of table to automatically resize all cell width based on its content
+table.TableFormat.IsAutoResized = true;
+//Specifies the table top, bottom, left and right border line width
+table.TableFormat.Borders.LineWidth = 2f;
+//Specifies the table horizontal border line width
+table.TableFormat.Borders.Horizontal.LineWidth = 2f;
+//Specifies the table vertical border line width
+table.TableFormat.Borders.Vertical.LineWidth = 2f;
+//Specifies the tables top, bottom, left and right border color
+table.TableFormat.Borders.Color = Color.Red;
+//Specifies the table Horizontal border color
+table.TableFormat.Borders.Horizontal.Color = Color.Red;
+//Specifies the table vertical border color
+table.TableFormat.Borders.Vertical.Color = Color.Red;
+//Specifies the table borders border type
+table.TableFormat.Borders.BorderType = BorderStyle.Double;
+//Accesses the instance of the first row in the table
+WTableRow row = table.Rows[0];
+//Specifies the row height
+row.Height = 20;
+//Specifies the row height type
+row.HeightType = TableRowHeightType.AtLeast;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)
@@ -782,56 +832,6 @@ document.Save("TableFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class (Empty Word Document)
-FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing Word document into DocIO instance
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Accesses the instance of the first section in the Word document
-WSection section = document.Sections[0];
-//Accesses the instance of the first table in the section
-WTable table = section.Tables[0] as WTable;
-//Specifies the title for the table
-table.Title ="PriceDetails";
-//Specifies the description of the table
-table.Description = "This table shows the price details of various fruits";
-//Specifies the left indent of the table
-table.IndentFromLeft = 50;
-//Specifies the background color of the table
-table.TableFormat.BackColor = Color.FromArgb(192, 192, 192);
-//Specifies the horizontal alignment of the table
-table.TableFormat.HorizontalAlignment = RowAlignment.Left;
-//Specifies the left, right, top and bottom padding of all the cells in the table
-table.TableFormat.Paddings.All = 10;
-//Specifies the auto resize of table to automatically resize all cell width based on its content
-table.TableFormat.IsAutoResized = true;
-//Specifies the table top, bottom, left and right border line width
-table.TableFormat.Borders.LineWidth = 2f;
-//Specifies the table horizontal border line width
-table.TableFormat.Borders.Horizontal.LineWidth = 2f;
-//Specifies the table vertical border line width
-table.TableFormat.Borders.Vertical.LineWidth = 2f;
-//Specifies the tables top, bottom, left and right border color
-table.TableFormat.Borders.Color = Color.Red;
-//Specifies the table Horizontal border color
-table.TableFormat.Borders.Horizontal.Color = Color.Red;
-//Specifies the table vertical border color
-table.TableFormat.Borders.Vertical.Color = Color.Red;
-//Specifies the table borders border type
-table.TableFormat.Borders.BorderType = BorderStyle.Double;
-//Accesses the instance of the first row in the table
-WTableRow row = table.Rows[0];
-//Specifies the row height
-row.Height = 20;
-//Specifies the row height type
-row.HeightType = TableRowHeightType.AtLeast;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-table-formatting).
@@ -841,6 +841,60 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to load an existing document and apply cell formatting options such as [VerticalAlignment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_VerticalAlignment), [TextDirection](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_TextDirection), [Paddings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_Paddings), [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CellFormat.html#Syncfusion_DocIO_DLS_CellFormat_Borders), etc.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Accesses the instance of the first row in the table
+WTableRow row = table.Rows[0];
+//Specifies the row height
+row.Height = 20;
+//Specifies the row height type
+row.HeightType = TableRowHeightType.AtLeast;
+//Accesses the instance of the first cell in the row
+WTableCell cell = row.Cells[0];
+//Specifies the cell back ground color
+cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
+//Specifies the same padding as table option as false to preserve current cell padding
+cell.CellFormat.SamePaddingsAsTable = false;
+//Specifies the left, right, top and bottom padding of the cell
+cell.CellFormat.Paddings.Left = 5;
+cell.CellFormat.Paddings.Right = 5;
+cell.CellFormat.Paddings.Top = 5;
+cell.CellFormat.Paddings.Bottom = 5;
+//Specifies the vertical alignment of content of text
+cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
+//Sets the text direction for cell
+cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
+//Accesses the instance of the second cell in the row
+cell = row.Cells[1];
+cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
+cell.CellFormat.SamePaddingsAsTable = false;
+//Specifies the left, right, top and bottom padding of the cell
+cell.CellFormat.Paddings.All = 5;
+cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Disables the text wrap option to avoid displaying longer text on multiple lines
+cell.CellFormat.TextWrap = false;
+//Access the instance of the third cell in the row
+cell = row.Cells[2];
+//Set color for tablecell borders
+cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
+cell.CellFormat.Borders.Color = Color.Red;
+cell.CellFormat.Borders.Top.Color = Color.Red;
+cell.CellFormat.Borders.Bottom.Color = Color.Red;
+cell.CellFormat.Borders.Right.Color = Color.Red;
+cell.CellFormat.Borders.Left.Color = Color.Red;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -946,60 +1000,6 @@ document.Save("TableCellFormatting.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Accesses the instance of the first row in the table
-WTableRow row = table.Rows[0];
-//Specifies the row height
-row.Height = 20;
-//Specifies the row height type
-row.HeightType = TableRowHeightType.AtLeast;
-//Accesses the instance of the first cell in the row
-WTableCell cell = row.Cells[0];
-//Specifies the cell back ground color
-cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
-//Specifies the same padding as table option as false to preserve current cell padding
-cell.CellFormat.SamePaddingsAsTable = false;
-//Specifies the left, right, top and bottom padding of the cell
-cell.CellFormat.Paddings.Left = 5;
-cell.CellFormat.Paddings.Right = 5;
-cell.CellFormat.Paddings.Top = 5;
-cell.CellFormat.Paddings.Bottom = 5;
-//Specifies the vertical alignment of content of text
-cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
-//Disables the text wrap option to avoid displaying longer text on multiple lines
-cell.CellFormat.TextWrap = false;
-//Sets the text direction for cell
-cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
-//Accesses the instance of the second cell in the row
-cell = row.Cells[1];
-cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
-cell.CellFormat.SamePaddingsAsTable = false;
-//Specifies the left, right, top and bottom padding of the cell
-cell.CellFormat.Paddings.All = 5;
-cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
-//Disables the text wrap option to avoid displaying longer text on multiple lines
-cell.CellFormat.TextWrap = false;
-//Access the instance of the third cell in the row
-cell = row.Cells[2];
-//Set color for tablecell borders
-cell.CellFormat.Borders.BorderType = BorderStyle.Thick;
-cell.CellFormat.Borders.Color = Color.Red;
-cell.CellFormat.Borders.Top.Color = Color.Red;
-cell.CellFormat.Borders.Bottom.Color = Color.Red;
-cell.CellFormat.Borders.Right.Color = Color.Red;
-cell.CellFormat.Borders.Left.Color = Color.Red;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-cell-formatting).
@@ -1013,6 +1013,31 @@ You can automatically resize the table cell to fit its contents based on the giv
 The following code example shows how to resize the table in a Word document. 
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document into DocIO instance
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+//Accesses the instance of the second table in the section
+table = section.Tables[1] as WTable;
+//Resizes the table to fit the contents respect to window/page width
+table.AutoFit(AutoFitType.FitToWindow);
+//Accesses the instance of the third table in the section
+table = section.Tables[2] as WTable;
+//Resizes the table to fit the contents respect to fixed column width
+table.AutoFit(AutoFitType.FixedColumnWidth);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class (Empty Word Document)*'| markdownify }}
@@ -1058,31 +1083,6 @@ table.AutoFit(AutoFitType.FixedColumnWidth)
 'Saves and closes the document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Loads an existing Word document into DocIO instance
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Accesses the instance of the first section in the Word document
-WSection section = document.Sections[0];
-//Accesses the instance of the first table in the section
-WTable table = section.Tables[0] as WTable;
-//Resizes the table to fit the contents respect to the contents
-table.AutoFit(AutoFitType.FitToContent);
-//Accesses the instance of the second table in the section
-table = section.Tables[1] as WTable;
-//Resizes the table to fit the contents respect to window/page width
-table.AutoFit(AutoFitType.FitToWindow);
-//Accesses the instance of the third table in the section
-table = section.Tables[2] as WTable;
-//Resizes the table to fit the contents respect to fixed column width
-table.AutoFit(AutoFitType.FixedColumnWidth);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
 {% endhighlight %}
 
 {% endtabs %} 
@@ -1100,6 +1100,21 @@ N>  Essential DocIO currently provides support for table styles in DOCX and Word
 The following code example illustrates how to apply the built-in table styles to the table.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Applies "LightShading" built-in style to table
+table.ApplyStyle(BuiltinTableStyle.LightShading);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1125,21 +1140,6 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Applies "LightShading" built-in style to table
-table.ApplyStyle(BuiltinTableStyle.LightShading);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-built-in-table-style).
@@ -1151,6 +1151,33 @@ Once you have applied a table style, you can enable or disable the special forma
 The following code example illustrates how to enable and disable the special table formatting options of the table styles
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Applies "LightShading" built-in style to table
+table.ApplyStyle(BuiltinTableStyle.LightShading);
+//Enables special formatting for banded columns of the table 
+table.ApplyStyleForBandedColumns = true;
+//Enables special formatting for banded rows of the table
+table.ApplyStyleForBandedRows = true;
+//Disables special formatting for first column of the table
+table.ApplyStyleForFirstColumn = false;
+//Enables special formatting for header row of the table
+table.ApplyStyleForHeaderRow = true;
+//Enables special formatting for last column of the table
+table.ApplyStyleForLastColumn = true;
+//Disables special formatting for last row of the table
+table.ApplyStyleForLastRow = false;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1200,33 +1227,6 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Applies "LightShading" built-in style to table
-table.ApplyStyle(BuiltinTableStyle.LightShading);
-//Enables special formatting for banded columns of the table 
-table.ApplyStyleForBandedColumns = true;
-//Enables special formatting for banded rows of the table
-table.ApplyStyleForBandedRows = true;
-//Disables special formatting for first column of the table
-table.ApplyStyleForFirstColumn = false;
-//Enables special formatting for header row of the table
-table.ApplyStyleForHeaderRow = true;
-//Enables special formatting for last column of the table
-table.ApplyStyleForLastColumn = true;
-//Disables special formatting for last row of the table
-table.ApplyStyleForLastRow = false;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Table-style-options).
@@ -1236,6 +1236,41 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to apply a custom table style to table.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Adds a new custom table style
+WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
+//Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1;
+tableStyle.TableProperties.ColumnStripe = 1;
+tableStyle.TableProperties.Paddings.Top = 0;
+tableStyle.TableProperties.Paddings.Bottom = 0;
+tableStyle.TableProperties.Paddings.Left = 5.4f;
+tableStyle.TableProperties.Paddings.Right = 5.4f;
+//Applies conditional formatting for first row
+ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+firstRowStyle.CharacterFormat.Bold = true;
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
+firstRowStyle.CellProperties.BackColor = Color.Blue;
+//Applies conditional formatting for first column
+ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
+firstColumnStyle.CharacterFormat.Bold = true;
+//Applies conditional formatting for odd row
+ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+//Applies the custom table style to the table
+table.ApplyStyle("CustomStyle");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1301,41 +1336,6 @@ document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Table.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Adds a new custom table style
-WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
-//Applies formatting for whole table
-tableStyle.TableProperties.RowStripe = 1;
-tableStyle.TableProperties.ColumnStripe = 1;
-tableStyle.TableProperties.Paddings.Top = 0;
-tableStyle.TableProperties.Paddings.Bottom = 0;
-tableStyle.TableProperties.Paddings.Left = 5.4f;
-tableStyle.TableProperties.Paddings.Right = 5.4f;
-//Applies conditional formatting for first row
-ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
-firstRowStyle.CharacterFormat.Bold = true;
-firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
-firstRowStyle.CellProperties.BackColor = Color.Blue;
-//Applies conditional formatting for first column
-ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
-firstColumnStyle.CharacterFormat.Bold = true;
-//Applies conditional formatting for odd row
-ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
-oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
-//Applies the custom table style to the table
-table.ApplyStyle("CustomStyle");
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-custom-table-style).
@@ -1347,6 +1347,78 @@ Table styles can be based on other table styles also. When applying a base style
 The following code example illustrates how to apply built-in and custom table styles as base styles for another custom table.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and paragraph to the document.
+    document.EnsureMinimal();
+    //Add a table to the Word document.
+    WTable table = document.LastSection.AddTable() as WTable;
+    table.ResetCells(3, 2);
+    table[0, 0].AddParagraph().AppendText("Row 1 Cell 1");
+    table[0, 1].AddParagraph().AppendText("Row 1 Cell 2");
+    table[1, 0].AddParagraph().AppendText("Row 2 Cell 1");
+    table[1, 1].AddParagraph().AppendText("Row 2 Cell 2");
+    table[2, 0].AddParagraph().AppendText("Row 3 Cell 1");
+    table[2, 1].AddParagraph().AppendText("Row 3 Cell2");
+    //Add a new custom table style.
+    WTableStyle tableStyle = document.AddTableStyle("CustomStyle1") as WTableStyle;
+    tableStyle.TableProperties.RowStripe = 1;
+    //Apply conditional formatting for the first row.
+    ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+    firstRowStyle.CharacterFormat.Bold = true;
+    //Apply conditional formatting for the odd row.
+    ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+    oddRowBandingStyle.CharacterFormat.Italic = true;
+    // Apply built in table style as base style for CustomStyle1.
+    tableStyle.ApplyBaseStyle(BuiltinTableStyle.TableContemporary);
+    //Apply the custom table style to the table.
+    table.ApplyStyle("CustomStyle1");
+
+    document.LastSection.AddParagraph();
+    //Create another table in the Word document.
+    table = document.LastSection.AddTable() as WTable;
+    table.ResetCells(3, 2);
+    table[0, 0].AddParagraph().AppendText("Row 1 Cell 1");
+    table[0, 1].AddParagraph().AppendText("Row 1 Cell 2");
+    table[1, 0].AddParagraph().AppendText("Row 2 Cell 1");
+    table[1, 1].AddParagraph().AppendText("Row 2 Cell 2");
+    table[2, 0].AddParagraph().AppendText("Row 3 Cell 1");
+    table[2, 1].AddParagraph().AppendText("Row 3 Cell2");
+
+    //Add a new custom table style.
+    tableStyle = document.AddTableStyle("CustomStyle2") as WTableStyle;
+    tableStyle.TableProperties.RowStripe = 1;
+    //Apply conditional formatting for the first row.
+    firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+    firstRowStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    //Apply conditional formatting for the odd row.
+    oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+    oddRowBandingStyle.CharacterFormat.TextColor = Color.Red;
+
+    //Add a new custom table style.
+    WTableStyle tableStyle2 = document.AddTableStyle("CustomStyle3") as WTableStyle;
+    tableStyle2.TableProperties.RowStripe = 1;
+    //Apply conditional formatting for the first row.
+    ConditionalFormattingStyle firstRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+    firstRowStyle2.CellProperties.BackColor = Color.Blue;
+    //Apply conditional formatting for the odd row.
+    ConditionalFormattingStyle oddRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+    oddRowStyle2.CellProperties.BackColor = Color.Yellow;
+    //Apply custom table style as base style for another custom table style.
+    tableStyle2.ApplyBaseStyle("CustomStyle2");
+    //Apply the custom table style to the table.
+    table.ApplyStyle("CustomStyle3");
+
+    //Save the Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+}
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
@@ -1485,78 +1557,6 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Create a new Word document.
-using (WordDocument document = new WordDocument())
-{
-    //Add one section and paragraph to the document.
-    document.EnsureMinimal();
-    //Add a table to the Word document.
-    WTable table = document.LastSection.AddTable() as WTable;
-    table.ResetCells(3, 2);
-    table[0, 0].AddParagraph().AppendText("Row 1 Cell 1");
-    table[0, 1].AddParagraph().AppendText("Row 1 Cell 2");
-    table[1, 0].AddParagraph().AppendText("Row 2 Cell 1");
-    table[1, 1].AddParagraph().AppendText("Row 2 Cell 2");
-    table[2, 0].AddParagraph().AppendText("Row 3 Cell 1");
-    table[2, 1].AddParagraph().AppendText("Row 3 Cell2");
-    //Add a new custom table style.
-    WTableStyle tableStyle = document.AddTableStyle("CustomStyle1") as WTableStyle;
-    tableStyle.TableProperties.RowStripe = 1;
-    //Apply conditional formatting for the first row.
-    ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
-    firstRowStyle.CharacterFormat.Bold = true;
-    //Apply conditional formatting for the odd row.
-    ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
-    oddRowBandingStyle.CharacterFormat.Italic = true;
-    // Apply built in table style as base style for CustomStyle1.
-    tableStyle.ApplyBaseStyle(BuiltinTableStyle.TableContemporary);
-    //Apply the custom table style to the table.
-    table.ApplyStyle("CustomStyle1");
-
-    document.LastSection.AddParagraph();
-    //Create another table in the Word document.
-    table = document.LastSection.AddTable() as WTable;
-    table.ResetCells(3, 2);
-    table[0, 0].AddParagraph().AppendText("Row 1 Cell 1");
-    table[0, 1].AddParagraph().AppendText("Row 1 Cell 2");
-    table[1, 0].AddParagraph().AppendText("Row 2 Cell 1");
-    table[1, 1].AddParagraph().AppendText("Row 2 Cell 2");
-    table[2, 0].AddParagraph().AppendText("Row 3 Cell 1");
-    table[2, 1].AddParagraph().AppendText("Row 3 Cell2");
-
-    //Add a new custom table style.
-    tableStyle = document.AddTableStyle("CustomStyle2") as WTableStyle;
-    tableStyle.TableProperties.RowStripe = 1;
-    //Apply conditional formatting for the first row.
-    firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
-    firstRowStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-    //Apply conditional formatting for the odd row.
-    oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
-    oddRowBandingStyle.CharacterFormat.TextColor = Color.Red;
-
-    //Add a new custom table style.
-    WTableStyle tableStyle2 = document.AddTableStyle("CustomStyle3") as WTableStyle;
-    tableStyle2.TableProperties.RowStripe = 1;
-    //Apply conditional formatting for the first row.
-    ConditionalFormattingStyle firstRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
-    firstRowStyle2.CellProperties.BackColor = Color.Blue;
-    //Apply conditional formatting for the odd row.
-    ConditionalFormattingStyle oddRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
-    oddRowStyle2.CellProperties.BackColor = Color.Yellow;
-    //Apply custom table style as base style for another custom table style.
-    tableStyle2.ApplyBaseStyle("CustomStyle2");
-    //Apply the custom table style to the table.
-    table.ApplyStyle("CustomStyle3");
-
-    //Save the Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-    //Closes the document
-    document.Close();
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-base-style-for-table).
@@ -1568,6 +1568,22 @@ You can combine two or more table cells located in the same row or column into a
 The following code example illustrates how to apply horizontal merge to specified range of cells in a specified row.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Horizontal merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(5, 5);
+//Specifies the horizontal merge from second cell to fifth cell in third row
+table.ApplyHorizontalMerge(2, 1, 4);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1597,22 +1613,6 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Horizontal merging of Table cells");
-IWTable table = section.AddTable();
-table.ResetCells(5, 5);
-//Specifies the horizontal merge from second cell to fifth cell in third row
-table.ApplyHorizontalMerge(2, 1, 4);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-horizontal-merge-to-cells).
@@ -1620,6 +1620,22 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to apply vertical merge to specified range of rows in a specified column.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Vertical merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(5, 5);
+// Specifies the vertical merge to the third cell, from second row to fifth row
+table.ApplyVerticalMerge(2, 1, 4);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1649,22 +1665,6 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Vertical merging of Table cells");
-IWTable table = section.AddTable();
-table.ResetCells(5, 5);
-// Specifies the vertical merge to the third cell, from second row to fifth row
-table.ApplyVerticalMerge(2, 1, 4);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Apply-vertical-merge-to-cells).
@@ -1672,6 +1672,31 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrate how to create a table that contains horizontal merged cells.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Horizontal merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(2, 2);
+//Adds content to table cell
+table[0, 0].AddParagraph().AppendText("First row, First cell");
+table[0, 1].AddParagraph().AppendText("First row, Second cell");
+table[1, 0].AddParagraph().AppendText("Second row, First cell");
+table[1, 1].AddParagraph().AppendText("Second row, Second cell");
+//Specifies the horizontal merge start to first row, first cell
+table[0, 0].CellFormat.HorizontalMerge = CellMerge.Start;
+//Modifies the cell content
+table[0, 0].Paragraphs[0].Text = "Horizontally merged cell";
+//Specifies the horizontal merge continue to second row second cell
+table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1719,31 +1744,6 @@ document.Save("HorizontalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Horizontal merging of Table cells");
-IWTable table = section.AddTable();
-table.ResetCells(2, 2);
-//Adds content to table cell
-table[0, 0].AddParagraph().AppendText("First row, First cell");
-table[0, 1].AddParagraph().AppendText("First row, Second cell");
-table[1, 0].AddParagraph().AppendText("Second row, First cell");
-table[1, 1].AddParagraph().AppendText("Second row, Second cell");
-//Specifies the horizontal merge start to first row, first cell
-table[0, 0].CellFormat.HorizontalMerge = CellMerge.Start;
-//Modifies the cell content
-table[0, 0].Paragraphs[0].Text = "Horizontally merged cell";
-//Specifies the horizontal merge continue to second row second cell
-table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-horizontal-merged-cells).
@@ -1751,6 +1751,31 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to create a table with vertical merged cells.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Vertical merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(2, 2);
+//Adds content to table cells
+table[0, 0].AddParagraph().AppendText("First row, First cell");
+table[0, 1].AddParagraph().AppendText("First row, Second cell");
+table[1, 0].AddParagraph().AppendText("Second row, First cell");
+table[1, 1].AddParagraph().AppendText("Second row, Second cell");
+//Specifies the vertical merge start to first row first cell
+table[0, 0].CellFormat.VerticalMerge = CellMerge.Start;
+//Modifies the cell content
+table[0, 0].Paragraphs[0].Text = "Vertically merged cell";
+//Specifies the vertical merge continue to second row first cell
+table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1798,31 +1823,6 @@ document.Save("VerticalMerge.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-section.AddParagraph().AppendText("Vertical merging of Table cells");
-IWTable table = section.AddTable();
-table.ResetCells(2, 2);
-//Adds content to table cells
-table[0, 0].AddParagraph().AppendText("First row, First cell");
-table[0, 1].AddParagraph().AppendText("First row, Second cell");
-table[1, 0].AddParagraph().AppendText("Second row, First cell");
-table[1, 1].AddParagraph().AppendText("Second row, Second cell");
-//Specifies the vertical merge start to first row first cell
-table[0, 0].CellFormat.VerticalMerge = CellMerge.Start;
-//Modifies the cell content
-table[0, 0].Paragraphs[0].Text = "Vertically merged cell";
-//Specifies the vertical merge continue to second row first cell
-table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-vertical-merged-cells).
@@ -1839,6 +1839,32 @@ N>  Heading rows do not have any effect with nested tables in Microsoft Word as 
 The following code example illustrates how to create a table with a single header row.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+IWTable table = section.AddTable();
+table.ResetCells(50, 1);
+WTableRow row = table.Rows[0];
+//Specifies the first row as a header row of the table
+row.IsHeader = true;
+row.Height = 20;
+row.HeightType = TableRowHeightType.AtLeast;
+row.Cells[0].AddParagraph().AppendText("Header Row");
+for (int i = 1; i < 50; i++)
+{
+    row = table.Rows[i];
+    row.Height = 20;
+    row.HeightType = TableRowHeightType.AtLeast;
+    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
+}
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1887,32 +1913,6 @@ document.Save("TableWithHeaderRow.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-WordDocument document = new WordDocument();
-IWSection section = document.AddSection();
-IWTable table = section.AddTable();
-table.ResetCells(50, 1);
-WTableRow row = table.Rows[0];
-//Specifies the first row as a header row of the table
-row.IsHeader = true;
-row.Height = 20;
-row.HeightType = TableRowHeightType.AtLeast;
-row.Cells[0].AddParagraph().AppendText("Header Row");
-for (int i = 1; i < 50; i++)
-{
-    row = table.Rows[i];
-    row.Height = 20;
-    row.HeightType = TableRowHeightType.AtLeast;
-    row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Create-table-with-header-row).
@@ -1924,6 +1924,22 @@ You can enable or disable the table row content to split across multiple pages, 
 The following code example illustrates how to disable all the table rows from splitting across multiple pages.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Disables breaking across pages for all rows in the table.
+foreach (WTableRow row in table.Rows)
+    row.RowFormat.IsBreakAcrossPages = false;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -1952,22 +1968,6 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Disables breaking across pages for all rows in the table.
-foreach (WTableRow row in table.Rows)
-    row.RowFormat.IsBreakAcrossPages = false;
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Disable-row-to-break-across-pages).
@@ -1977,6 +1977,34 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example illustrates how to iterate through the table and apply back color to a particular cell.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Iterates the rows of the table
+foreach (WTableRow row in table.Rows)
+{
+    //Iterates through the cells of rows
+    foreach (WTableCell cell in row.Cells)
+    {
+        //Iterates through the paragraphs of the cell
+        foreach (WParagraph paragraph in cell.Paragraphs)
+        {
+            //When the paragraph contains text Panda then apply green as back color to cell
+            if (paragraph.Text.Contains("panda"))
+                cell.CellFormat.BackColor = Color.Green;
+        }
+    }
+}
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -2026,34 +2054,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-WSection section = document.Sections[0];
-WTable table = section.Tables[0] as WTable;
-//Iterates the rows of the table
-foreach (WTableRow row in table.Rows)
-{
-    //Iterates through the cells of rows
-    foreach (WTableCell cell in row.Cells)
-    {
-        //Iterates through the paragraphs of the cell
-        foreach (WParagraph paragraph in cell.Paragraphs)
-        {
-            //When the paragraph contains text Panda then apply green as back color to cell
-            if (paragraph.Text.Contains("panda"))
-                cell.CellFormat.BackColor = Color.Green;
-        }
-    }
-}
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Iterating-through-table-elements).
@@ -2063,6 +2063,23 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can remove a table from a text body by its instance or by its index position in the text body item collection. The following code example shows how to remove a table in Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Removes a table from the text body
+section.Body.ChildEntities.Remove(table);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -2094,23 +2111,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Accesses the instance of the first section in the Word document
-WSection section = document.Sections[0];
-//Accesses the instance of the first table in the section
-WTable table = section.Tables[0] as WTable;
-//Removes a table from the text body
-section.Body.ChildEntities.Remove(table);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Tables/Remove-table).
@@ -2120,6 +2120,23 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can remove a particular table row from a table rows collection by its instance or by its index position in the collection. The following code example shows how to remove a particular row from table in the Word document.
 
 {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Remove particular row from the table
+table.Rows.RemoveAt(6);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of WordDocument class
@@ -2149,23 +2166,6 @@ table.Rows.RemoveAt(6)
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Accesses the instance of the first section in the Word document
-WSection section = document.Sections[0];
-//Accesses the instance of the first table in the section
-WTable table = section.Tables[0] as WTable;
-//Remove particular row from the table
-table.Rows.RemoveAt(6);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
 {% endhighlight %}
 
 {% endtabs %}
