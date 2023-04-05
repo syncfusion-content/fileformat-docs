@@ -72,3 +72,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to edit external workbook reference link?](faqs/how-to-edit-external-workbook-reference-link)
 * [How to set error bars in chart?](faqs/how-to-set-error-bars-in-chart)
 * [Migrate XlsIO library from .NET Framework to .NET Core?](faqs/migrate-from-net-framework-to-net-core)
+* [How to apply rotation and transparency to background image?](faqs/how-to-apply-rotation-and-transparency-to-background-image)
