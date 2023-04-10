@@ -797,19 +797,43 @@ document.Close()
 
 {% highlight c# tabtitle="UWP" %}
 
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Create the PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page. 
+PdfPage page = document.Pages.Add();
+//Create a new rectangle.
+RectangleF bounds = new RectangleF(10, 40, 30, 30);
+
+//Create a link for image file. 
+PdfFileLinkAnnotation fileLinkAnnotation = new PdfFileLinkAnnotation(bounds, filePath);
+//Add this annotation to a page.
+page.Annotations.Add(fileLinkAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Set the position as '0'.
+stream.Position = 0;
+//Close the document.
+document.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
 
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 
