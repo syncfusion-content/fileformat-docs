@@ -74,6 +74,14 @@ Syncfusion.Compression.Portable.dll<br/>
 Syncfusion.Pdf.Portable.dll
 	
 <br/></td></tr>
+<tr>
+<td>
+Windows UI library (WinUI)<br/>
+.NET Multi-platform App UI (.NET MAUI)</td><td>
+Syncfusion.Pdf.NET.dll<br/>
+Syncfusion.Compression.NET.dll
+	
+<br/></td></tr>
 </table>
 
 N> The .NET Standard assemblies can be found in the following Essential Studio installation path
@@ -112,7 +120,7 @@ ASP.NET MVC
 </td></tr>
 <tr>
 <td>
-.NET/.NET Core
+.NET/.NET Core<br/>
 Blazor 
 </td>
 <td>
@@ -131,35 +139,33 @@ N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT,
 
 For converting a Word document to PDF, the following assemblies need to be referenced in your application
 <table>
+<thead>
+<tr>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
-<tr>
-<td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.Base<br/>Syncfusion.DocToPdfConverter.Base<br/></td></tr>
 <tr>
 <td>
 Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.ClientProfile<br/>Syncfusion.DocToPdfConverter.ClientProfile<br/></td></tr>
-</table>
-
-N> Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
-<table>
 <tr>
 <td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+ASP.NET Core, Xamarin and Blazor<br/></td><td>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/>Syncfusion.Shared.WPF<br/></td></tr>
+Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)<br/>
+</td><td>
+Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
-N> The above mentioned assemblies is supported from .NET Framework 4.0 onwards
+N> 1. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
+N> 2. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
+N> 3. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
 
 ## Converting Excel document to PDF
 
@@ -198,7 +204,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin and Blazor (Server-Side)
+UWP, .NET Core, Xamarin, and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -208,34 +214,94 @@ Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
 </td>
 </tr>
+<tr>
+<td>
+WinUI and .NET MAUI
+</td>
+<td>
+Syncfusion.Compression.NET<br/>
+Syncfusion.XlsIO.NET<br/>
+Syncfusion.Pdf.NET<br/>
+Syncfusion.SkiaSharpHelper.NET<br/>
+Syncfusion.XlsIORenderer.NET<br/>
+</td>
+</tr>
 </tbody>
 </table>
 
 N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
-## Converting Presentation document to PDF
+## Converting PowerPoint Presentation to PDF
 
-For converting a presentation document to PDF, the following assemblies need to be referenced in your application.
-
-Presentation to PDF conversion (without charts)
+For converting a PowerPoint Presentation to PDF, the following assemblies needed to be referenced in your application
 <table>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
+</tr>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET, ASP.NET MVC<br/></td><td>Syncfusion.Compression.Base <br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Presentation.Base<br/>Syncfusion.Pdf.Base<br/>Syncfusion.PresentationToPdfConverter.Base<br/></td></tr>
-</table>
-Presentation to PDF conversion (with charts)
-<table>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
+</td>
+<td>
+Syncfusion.Presentation.Base<br/>
+Syncfusion.Compression.Base<br/>
+Syncfusion.OfficeChart.Base<br/>
+Syncfusion.Pdf.Base<br/>
+Syncfusion.PresentationToPDFConverter.Base<br/>
+</td>
+</tr>
 <tr>
 <td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+ASP.NET Core, Xamarin and Blazor <br/>
+</td>
+<td>
+Syncfusion.Presentation.Portable<br/>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.OfficeChart.Portable<br/>
+Syncfusion.Pdf.Portable<br/>
+Syncfusion.PresentationRenderer.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
+Skiasharp
+</td>
+</tr>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET, ASP.NET MVC<br/></td><td>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Presentation.Base<br/>Syncfusion.Shared.WPF<br/>Syncfusion.SfChart.WPF<br/>Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.Pdf.Base<br/>Syncfusion.PresentationToPdfConverter.Base<br/></td></tr>
+Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+<br/>
+</td>
+<td>
+Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
+Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/> Syncfusion.SkiaSharpHelper.NET<br/>Skiasharp
+</td>
+</tr>
 </table>
 
-N> Presentation to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
+<table>
+<tr>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
+</tr>
+<tr>
+<td>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.WPF<br/>
+Syncfusion.SfChart.WPF<br/>
+</td>
+</tr>
+</table>
+
+N> The "Syncfusion.OfficeChartToImageConverter.WPF" assembly is supported from .NET Framework 4.0 onwards.
