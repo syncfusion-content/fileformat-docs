@@ -146,7 +146,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
+WPF, Windows Forms, ASP. NET, and ASP.NET MVC<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.Base<br/>Syncfusion.DocToPdfConverter.Base<br/></td></tr>
 <tr>
 <td>
