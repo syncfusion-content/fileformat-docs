@@ -73,3 +73,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to set error bars in chart?](faqs/how-to-set-error-bars-in-chart)
 * [Migrate XlsIO library from .NET Framework to .NET Core?](faqs/migrate-from-net-framework-to-net-core)
 * [How to apply rotation and transparency to background image?](faqs/how-to-apply-rotation-and-transparency-to-background-image)
+* [How to open an Excel file with encoding in .NET Core?](faqs/how-to-open-an-excel-file-with-encoding-in-net-core)
