@@ -26,7 +26,7 @@ The following code example demonstrates how to access the [MasterSlide](https://
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Access the first master slide in PowerPoint file
@@ -39,7 +39,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Access the first master slide in PowerPoint file.
@@ -62,7 +62,27 @@ You can change the background of the master slide, all slides in the presentatio
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a PowerPoint presentation.
+using (IPresentation pptxDoc = Presentation.Create())
+{
+    //Access the first master slide in PowerPoint file.
+    IMasterSlide masterSlide = pptxDoc.Masters[0];
+    //Retrieve the background instance.
+    IBackground background = masterSlide.Background;
+    //Set the fill type for background as Solid fill.
+    background.Fill.FillType = FillType.Solid;
+    //Get the instance for solid Fill.
+    ISolidFill solidFill = background.Fill.SolidFill;
+    //Set the color for solid fill object.
+    solidFill.Color = ColorObject.Green;
+    //Save the PowerPoint Presentation to MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    pptxDoc.Save(outputStream);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Create())
 {
@@ -81,7 +101,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a PowerPoint presentation.
 Using pptxDoc As IPresentation = Presentation.Create()
     'Access the first master slide in PowerPoint file.
@@ -99,81 +119,6 @@ Using pptxDoc As IPresentation = Presentation.Create()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Create a PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Create())
-{
-    //Access the first master slide in PowerPoint file.
-    IMasterSlide masterSlide = pptxDoc.Masters[0];
-    //Retrieve the background instance.
-    IBackground background = masterSlide.Background;
-    //Set the fill type for background as Solid fill.
-    background.Fill.FillType = FillType.Solid;
-    //Get the instance for solid Fill.
-    ISolidFill solidFill = background.Fill.SolidFill;
-    //Set the color for solid fill object.
-    solidFill.Color = ColorObject.Green;
-    //Initialize FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Sample";
-    savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-    //Create a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    //Save changes to the specified storage file
-    await pptxDoc.SaveAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Create a PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Create())
-{
-    //Access the first master slide in PowerPoint file.
-    IMasterSlide masterSlide = pptxDoc.Masters[0];
-    //Retrieve the background instance.
-    IBackground background = masterSlide.Background;
-    //Set the fill type for background as Solid fill.
-    background.Fill.FillType = FillType.Solid;
-    //Get the instance for solid Fill.
-    ISolidFill solidFill = background.Fill.SolidFill;
-    //Set the color for solid fill object.
-    solidFill.Color = ColorObject.Green;
-    //Save the PowerPoint Presentation to MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    pptxDoc.Save(outputStream);
-    outputStream.Position = 0;
-    //Download PowerPoint Presentation in the browser.
-    return File(outputStream, "application/vnd.openxmlformats-officedocument.presentationml.presentation", "Sample.pptx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Create a PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Create())
-{
-    //Access the first master slide in PowerPoint file.
-    IMasterSlide masterSlide = pptxDoc.Masters[0];
-    //Retrieve the background instance.
-    IBackground background = masterSlide.Background;
-    //Set the fill type for background as Solid fill.
-    background.Fill.FillType = FillType.Solid;
-    //Get the instance for solid Fill.
-    ISolidFill solidFill = background.Fill.SolidFill;
-    //Set the color for solid fill object.
-    solidFill.Color = ColorObject.Green;
-    //Save the PowerPoint Presentation to MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    pptxDoc.Save(outputStream);
-    outputStream.Position = 0;
-    //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", outputStream);
-    else
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", outputStream);
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Master-and-Layout-slides/Modify-PowerPoint-master-slide-background).
@@ -186,7 +131,7 @@ The following code example demonstrates how to create new custom layout slide an
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
 //Add a new LayoutSlide to the PowerPoint file
@@ -201,7 +146,7 @@ pptxDoc.Save("LayoutSlide.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a PowerPoint instance
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a new LayoutSlide to the PowerPoint file
