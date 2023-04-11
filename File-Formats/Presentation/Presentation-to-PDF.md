@@ -16,7 +16,41 @@ PowerPoint allows you to convert an entire Presentation or a single slide into P
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Namespaces to perform PPTX to PDF conversion
 using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Presentation;
@@ -37,7 +71,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Namespaces to perform PPTX to PDF conversion
 Imports Syncfusion.OfficeChartToImageConverter
 Imports Syncfusion.Presentation
@@ -56,74 +90,6 @@ pdfDocument.Save("Sample.pdf")
 pdfDocument.Close(True)
 'Closes the Presentation
 pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationRenderer;
-using System.IO;
-
-//Load the PowerPoint presentation into stream.
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Create the MemoryStream to save the converted PDF.
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream.
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Namespaces to perform PPTX to PDF conversion
-using Syncfusion.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationRenderer;
-using System.IO;
-
-//Load the PowerPoint presentation into stream.
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Create the MemoryStream to save the converted PDF.
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream.
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
 {% endhighlight %}
 
 {% endtabs %}
@@ -165,66 +131,8 @@ When a font used in a PowerPoint presentation is unavailable in the environment 
 The following code example demonstrates how to set alternate font name for a missing font while converting a PowerPoint presentation to PDF. The provided alternate font should be installed in the production environment.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-//Load the PowerPoint presentation and convert to PDF
-using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-{
-    //Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-    // Initializes the 'SubstituteFont' event to set the replacement font
-    pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-    //Convert the PowerPoint presentation to PDF file
-    using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
-    {
-        //Save the PDF file
-        pdfDoc.Save("Sample.pdf");
-    }
-}
-/// <summary>
-/// Sets the alternate font when a specified font is unavailable in the production environment
-/// </summary>
-/// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
-/// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
-private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
-{
-    if (args.OriginalFontName == "Arial Unicode MS")
-        args.AlternateFontName = "Arial";
-    else
-        args.AlternateFontName = "Times New Roman";
-}
-{% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-'Load the PowerPoint presentation and convert to PDF
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-'Initializes the 'SubstituteFont' event to set the replacement font
-AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
-'Convert the PowerPoint presentation to PDF file
-Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
-'Save the PDF file.
-pdfDoc.Save("Sample.pdf")
-'Dispose the PowerPoint presentation instance
-pptxDoc.Dispose()
-'Dispose the PDF document instance
-pdfDoc.Dispose()
-''' <summary>
-''' Sets the alternate font when a specified font is unavailable in the production environment
-''' </summary>
-''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
-''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
-Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-    ' Sets the alternate font when a specified font is not installed in the production environment
-    If args.OriginalFontName = "Arial Unicode MS" Then
-        args.AlternateFontName = "Arial"
-    Else
-        args.AlternateFontName = "Times New Roman"
-    End If
-End Sub
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 //Load the PowerPoint presentation as stream
 using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
 {
@@ -258,36 +166,63 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens the PowerPoint presentation
-using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
+{% highlight C# tabtitle="C# [Windows-specific]" %}
+//Load the PowerPoint presentation and convert to PDF
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
+    //Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
     // Initializes the 'SubstituteFont' event to set the replacement font
-    pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
-    //Convert PowerPoint presentation to PDF
-    PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-    //Create new instance of  MemoryStream
-    MemoryStream stream = new MemoryStream(); 
-    //Save the Pdf to memory stream
-    pdfDocument.Save(stream);
-    stream.Position = 0;
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+    pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+    //Convert the PowerPoint presentation to PDF file
+    using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
+    {
+        //Save the PDF file
+        pdfDoc.Save("Sample.pdf");
+    }
 }
 /// <summary>
 /// Sets the alternate font when a specified font is unavailable in the production environment
 /// </summary>
 /// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
 /// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
-private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
     else
         args.AlternateFontName = "Times New Roman";
 }
+{% endhighlight %}
+
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+'Load the PowerPoint presentation and convert to PDF
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+'Initializes the 'SubstituteFont' event to set the replacement font
+AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
+'Convert the PowerPoint presentation to PDF file
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+'Save the PDF file.
+pdfDoc.Save("Sample.pdf")
+'Dispose the PowerPoint presentation instance
+pptxDoc.Dispose()
+'Dispose the PDF document instance
+pdfDoc.Dispose()
+''' <summary>
+''' Sets the alternate font when a specified font is unavailable in the production environment
+''' </summary>
+''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
+''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
+Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+    ' Sets the alternate font when a specified font is not installed in the production environment
+    If args.OriginalFontName = "Arial Unicode MS" Then
+        args.AlternateFontName = "Arial"
+    Else
+        args.AlternateFontName = "Times New Roman"
+    End If
+End Sub
 {% endhighlight %}
 
 {% endtabs %}
@@ -298,7 +233,43 @@ The following code example demonstrates how to upload a font stream for missing 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
+//Load the PowerPoint presentation as stream
+using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
+{
+    //Load the PowerPoint presentation from stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStream))
+    {
+        // Initializes the 'SubstituteFont' event to set the replacement font
+        pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+        //Convert the PowerPoint presentation to PDF file
+        PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+        //Create new instance of file stream
+        FileStream pdfStream = new FileStream("Output.pdf", FileMode.Create);
+        //Save the generated PDF to file stream
+        pdfDocument.Save(pdfStream);
+        //Release all resources
+        pdfStream.Dispose();
+        pdfDocument.Close(true);
+    }
+}
+/// <summary>
+/// Sets the alternate font stream when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Bold)
+        args.AlternateFontStream = new FileStream("cambriab.ttf", FileMode.Open);
+    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = new FileStream("BROADW.TTF", FileMode.Open);
+    else
+        args.AlternateFontStream = new FileStream("COOPBL.TTF", FileMode.Open);
+}
+{% endhighlight %}
+
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation and convert to PDF
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
@@ -329,7 +300,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
@@ -361,77 +332,6 @@ Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontE
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Load the PowerPoint presentation as stream
-using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
-{
-    //Load the PowerPoint presentation from stream
-    using (IPresentation pptxDoc = Presentation.Open(fileStream))
-    {
-        // Initializes the 'SubstituteFont' event to set the replacement font
-        pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
-        //Convert the PowerPoint presentation to PDF file
-        PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-        //Create new instance of file stream
-        FileStream pdfStream = new FileStream("Output.pdf", FileMode.Create);
-        //Save the generated PDF to file stream
-        pdfDocument.Save(pdfStream);
-        //Release all resources
-        pdfStream.Dispose();
-        pdfDocument.Close(true);
-    }
-}
-/// <summary>
-/// Sets the alternate font stream when a specified font is unavailable in the production environment
-/// </summary>
-/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
-/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
-private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
-{
-    if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Bold)
-        args.AlternateFontStream = new FileStream("cambriab.ttf", FileMode.Open);
-    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
-        args.AlternateFontStream = new FileStream("BROADW.TTF", FileMode.Open);
-    else
-        args.AlternateFontStream = new FileStream("COOPBL.TTF", FileMode.Open);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens the PowerPoint presentation
-using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
-{
-    // Initializes the 'SubstituteFont' event to set the replacement font
-    pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
-    //Convert PowerPoint presentation to PDF
-    PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-    //Create new instance of  MemoryStream
-    MemoryStream stream = new MemoryStream();
-    //Save the Pdf to memory stream
-    pdfDocument.Save(stream);
-    stream.Position = 0;
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-/// <summary>
-/// Sets the alternate font stream when a specified font is unavailable in the production environment
-/// </summary>
-/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
-/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
-private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
-{
-    //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Bold)
-        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.cambriab.ttf");
-    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
-        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.BROADW.TTF");
-    else
-        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.COOPBL.TTF");
-}
-{% endhighlight %}
 {% endtabs %}
 
 ## Fallback fonts
@@ -444,47 +344,9 @@ The following code example demonstrates how to initialize a default fallback fon
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens a PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-//Initialize the conversion settings
-PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-//Enable the portable rendering
-pdfConverterSettings.EnablePortableRendering = true;
-//Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts();
-//Converts the PowerPoint Presentation into PDF document with Portable rendering option
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-//Saves the PDF document
-pdfDocument.Save("Sample.pdf");
-//Closes the PDF document
-pdfDocument.Close(true);
-//Closes the Presentation
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens a PowerPoint Presentation
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-'Initialize the conversion settings
-Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
-'Enable the portable rendering.
-pdfConverterSettings.EnablePortableRendering = true
-'Use a sets of default FallbackFont collection to IPresentation
-pptxDoc.FontSettings.InitializeFallbackFonts
-'Converts the PowerPoint Presentation into PDF document
-Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
-'Saves the PDF document
-pdfDocument.Save("Sample.pdf")
-'Closes the PDF document
-pdfDocument.Close(True)
-'Closes the Presentation
-pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 //Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
 {
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
@@ -512,22 +374,71 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{% highlight C# tabtitle="C# [Windows-specific]" %}
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+//Enable the portable rendering
+pdfConverterSettings.EnablePortableRendering = true;
+//Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts();
+//Converts the PowerPoint Presentation into PDF document with Portable rendering option
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+//Saves the PDF document
+pdfDocument.Save("Sample.pdf");
+//Closes the PDF document
+pdfDocument.Close(true);
+//Closes the Presentation
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+'Opens a PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+'Initialize the conversion settings
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+'Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true
+'Use a sets of default FallbackFont collection to IPresentation
+pptxDoc.FontSettings.InitializeFallbackFonts
+'Converts the PowerPoint Presentation into PDF document
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+'Saves the PDF document
+pdfDocument.Save("Sample.pdf")
+'Closes the PDF document
+pdfDocument.Close(True)
+'Closes the Presentation
+pptxDoc.Close()
+{% endhighlight %}
+
+{% endtabs %}
+
+### Customize Default Fallback Fonts
+
+The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to PDF.
+
+{% tabs %}
+
+{% highlight C# tabtitle="C# [Cross-platform]" %}
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
 {
-    //Open the existing PowerPoint presentation with loaded stream
+    //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
         //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
-        //Create the MemoryStream to save the converted PDF
+        // Customize a default fallback font name
+        // Modify the Hebrew script default font name as "David"
+        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+        //Create the MemoryStream to save the converted PDF.
         using (MemoryStream pdfStream = new MemoryStream())
         {
-            //Convert the PowerPoint document to PDF document
+            //Convert the PowerPoint document to PDF document.
             using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
             {
-                //Save the converted PDF document to MemoryStream
+                //Save the converted PDF document to MemoryStream.
                 pdfDocument.Save(pdfStream);
                 pdfStream.Position = 0;
             }
@@ -542,15 +453,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 }
 {% endhighlight %}
 
-{% endtabs %}
-
-### Customize Default Fallback Fonts
-
-The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to PDF.
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Initialize the conversion settings
@@ -572,7 +475,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize the conversion settings
@@ -594,72 +497,6 @@ pdfDocument.Close(True)
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Load the PowerPoint presentation into stream.
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Use a sets of default FallbackFont collection to IPresentation
-        pptxDoc.FontSettings.InitializeFallbackFonts();
-        // Customize a default fallback font name
-        // Modify the Hebrew script default font name as "David"
-        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
-        //Create the MemoryStream to save the converted PDF.
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream.
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Load the PowerPoint presentation into stream.
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Use a sets of default FallbackFont collection to IPresentation
-        pptxDoc.FontSettings.InitializeFallbackFonts();
-        // Customize a default fallback font name
-        // Modify the Hebrew script default font name as "David"
-        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
-        //Create the MemoryStream to save the converted PDF.
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream.
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 ### Add Custom Fallback Fonts
@@ -668,7 +505,48 @@ The following code example demonstrates how to add custom fallback fonts while c
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Add custom fallback font names
+        // Arabic
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+        // Hebrew
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
+        // Hindi
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
+        // Chinese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+        // Japanese
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
+        // Korean
+        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Initialize the conversion settings
@@ -698,7 +576,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize the conversion settings
@@ -728,88 +606,6 @@ pdfDocument.Close(True)
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Load the PowerPoint presentation into stream.
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Add custom fallback font names
-        // Arabic
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-        // Hebrew
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-        // Hindi
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-        // Chinese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-        // Japanese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-        // Korean
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-        //Create the MemoryStream to save the converted PDF.
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream.
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Add custom fallback font names
-        // Arabic
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-        // Hebrew
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-        // Hindi
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-        // Chinese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-        // Japanese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-        // Korean
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-        //Create the MemoryStream to save the converted PDF
-        using (MemoryStream pdfStream = new MemoryStream())
-        {
-            //Convert the PowerPoint document to PDF document
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-            {
-                //Save the converted PDF document to MemoryStream
-                pdfDocument.Save(pdfStream);
-                pdfStream.Position = 0;
-            }
-            //Create the output PDF file stream
-            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
-            {
-                //Copy the converted PDF stream into created output PDF stream
-                pdfStream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
@@ -823,15 +619,7 @@ The following code example demonstrates how to cancel or continue the PowerPoint
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Essential Presentation library supports Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-//Essential Presentation supports library Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 // Open the file as Stream
 using (FileStream pptStream = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
 {
@@ -902,67 +690,14 @@ public class DocumentWarning : IWarning
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-// Open the file as Stream
-using (FileStream pptStream = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(pptStream))
-    {
-        //Instantiation of PresentationToPdfConverterSettings
-        PresentationToPdfConverterSettings settings = new PresentationToPdfConverterSettings();
-        //Gets all the warnings into the collection
-        settings.Warning = new DocumentWarning();
-        //Converts the PowerPoint Presentation into PDF document
-        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, settings))
-        {
-            //If the PowerPoint to Pdf conversion has been stopped, IsCanceled value will be True and PDF document will not get generated, Otherwise false, then the PDF document will get generated and can be viewed.
-            if (!PresentationToPdfConverter.IsCanceled)
-            {
-                //Saves the PDF file
-                using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                {
-                    pdfDocument.Save(outputStream);
-                    outputStream.Position = 0;
-                    //Save the stream as a file in the device and invoke it for viewing
-                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
-                }
-            }
-        }
-    }
-}
-/// <summary>
-/// DocumentWarning class implements the IWarning interface
-/// </summary>
-/// <seealso cref="IWarning" />
-public class DocumentWarning : IWarning
-{
-    /// <summary>
-    /// Gets the Boolen value whether to continue conversion or not
-    /// </summary>
-    /// <param name="warningInfo">Collection of warnings</param>
-    /// <returns></returns>
-    public bool ShowWarnings(List<WarningInfo> warningInfo)
-    {
-        //By default to perform the PowerPoint to PDF conversion by setting the isContinueConversion as true.
-        bool isContinueConversion = true;
-        foreach (WarningInfo warning in warningInfo)
-        {
-            //Since there are warnings in the PowerPoint presentation the value of isContinueConversion will be set as false.
-            isContinueConversion = false;
-            //Based on warning.WarningType enumeration, you can do your manipulation.
-            if (warning.Description.Contains("Metafile") || warning.Description.Contains("Chart"))
-            {
-                //Continue the PowerPoint to PDF conversion by setting the isContinueConversion as true.
-                isContinueConversion = true;
-            }
-        }
-        return isContinueConversion;
-    }
-}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
+//Essential Presentation library supports Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
 {% endhighlight %}
+
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+//Essential Presentation supports library Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Handouts
@@ -973,7 +708,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -991,7 +726,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable the handouts and number of pages per slide options in converter settings.
@@ -1018,7 +753,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Enable the include hidden slides option in converter settings.
@@ -1034,7 +769,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -1060,7 +795,7 @@ The following code sample demonstrates how to include the hidden slides while co
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -1077,7 +812,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable or disable including the hidden slides option in converter settings.
@@ -1105,7 +840,7 @@ The following code sample shows how to use this property to regenerate the neste
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 
 //Open a PowerPoint Presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
@@ -1126,7 +861,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 
 'Open a PowerPoint Presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -1161,7 +896,7 @@ The following code sample demonstrates how to set the PDF conformance level whil
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Sample.pptx"));
 //Initialize the conversion settings
@@ -1178,7 +913,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable or disable including the hidden slides option in converter settings.
@@ -1205,43 +940,7 @@ The following code sample shows how to preserve structured document tags in the 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Open a PowerPoint Presentation.
-using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-{
-    //Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
-    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-    //Initialize the conversion settings.
-    PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
-    //Enable a flag to preserve structured document tags in the converted PDF document.               
-    pdfConverterSettings.AutoTag = true;
-    //Convert the PowerPoint Presentation into a PDF document.
-    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
-    {
-        //Save a PDF document.
-        pdfDocument.Save("Sample.pdf");
-    }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Open a PowerPoint Presentation.
-Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-    'Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
-    pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-    'Initialize the conversion settings.
-    Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
-    'Enable a flag to preserve structured document tags in the converted PDF document.
-    pdfConverterSettings.AutoTag = True
-    'Convert the PowerPoint Presentation into a PDF document.
-    Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
-        'Save a PDF document.
-        pdfDocument.Save("Sample.pdf")
-    End Using
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 //Load the PowerPoint presentation into a stream.
 using (FileStream fileStreamInput = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read))
 {
@@ -1266,27 +965,40 @@ using (FileStream fileStreamInput = new FileStream("Sample.pptx", FileMode.Open,
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//The "App" is the class of the Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Open a PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
+{% highlight C# tabtitle="C# [Windows-specific]" %}
+//Open a PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-    //Instantiation of the PresentationToPdfConverterSettings.
+    //Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
+    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+    //Initialize the conversion settings.
     PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
     //Enable a flag to preserve structured document tags in the converted PDF document.               
     pdfConverterSettings.AutoTag = true;
     //Convert the PowerPoint Presentation into a PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
     {
-        //Save the converted PDF document to the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        pdfDocument.Save(outputStream);
-        outputStream.Position = 0;
-        //Save the stream as a file in the device and invoke it for viewing.
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
+        //Save a PDF document.
+        pdfDocument.Save("Sample.pdf");
     }
 }
+{% endhighlight %}
+
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+'Open a PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
+    pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+    'Initialize the conversion settings.
+    Dim pdfConverterSettings As PresentationToPdfConverterSettings = New PresentationToPdfConverterSettings()
+    'Enable a flag to preserve structured document tags in the converted PDF document.
+    pdfConverterSettings.AutoTag = True
+    'Convert the PowerPoint Presentation into a PDF document.
+    Using pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+        'Save a PDF document.
+        pdfDocument.Save("Sample.pdf")
+    End Using
+End Using
 {% endhighlight %}
 
 {% endtabs %}
@@ -1302,7 +1014,7 @@ The following code sample demonstrates how to set the quality of the charts whil
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
@@ -1319,7 +1031,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
@@ -1348,7 +1060,7 @@ The following code sample demonstrates how to optimize the duplicate images whil
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Enable the include hidden slides option in converter settings.
@@ -1365,7 +1077,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -1392,7 +1104,7 @@ The following code sample demonstrates how to optimize the image quality and res
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Enable the include hidden slides option in converter settings.
@@ -1411,7 +1123,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -1438,7 +1150,7 @@ The Syncfusion PowerPoint library supports converting the PowerPoint document to
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight C# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 //Initialize the conversion settings
@@ -1455,7 +1167,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint document
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 'Initialize the conversion settings
