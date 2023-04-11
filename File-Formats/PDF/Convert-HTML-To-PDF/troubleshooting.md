@@ -445,6 +445,19 @@ Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=4083
 </td>
 </tr>
 </table>
+
+## How to Exclude BlinkBinaries or Runtime Files in Build or Deployment
+
+The runtime files, or blink binaries, will be copied into a bin or published folder while building and publishing the application.
+
+By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the package reference of the csproj file, you can exclude the runtime files or blink binaries from being copied into the bin or publish folder while building and publishing the application. But you need to place the BlinkBinaries in the server disk and set the BlinkPath in the BlinkConverterSettings to perform the conversion. 
+
+{{'**Note:**'| markdownify }}Using this approach, you can reduce the deployment size on your own servers.
+
+Refer to the following package reference:
+
+<img src="htmlconversion_images/RemoveBlinkBinaries.png" alt="ExcludeAssets"><br>
+
 <table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
