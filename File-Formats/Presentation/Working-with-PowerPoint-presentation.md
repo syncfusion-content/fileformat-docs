@@ -13,72 +13,7 @@ Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentat
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens a PowerPoint presentation
-IPresentation sourcePresentation = Presentation.Open(fileName);
-//Clones the Presentation
-IPresentation clonedPresentation = sourcePresentation.Clone();
-//Gets the first slide from the cloned PowerPoint presentation
-ISlide firstSlide = clonedPresentation.Slides[0];
-//Adds a textbox in a slide by specifying its position and size
-IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
-//Adds a paragraph in the body of the textShape
-IParagraph paragraph = textShape.TextBody.AddParagraph();
-//Adds a textPart in the paragraph
-ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
-//Saves the modified cloned PowerPoint presentation
-clonedPresentation.Save("ClonedPresentation.pptx");
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens a PowerPoint presentation
-Dim sourcePresentation_1 As IPresentation = Presentation.Open(fileName)
-'Clones the Presentation
-Dim clonedPresentation_1 As IPresentation = sourcePresentation_1.Clone()
-'Gets the first slide from the cloned PowerPoint presentation
-Dim firstSlide As ISlide = clonedPresentation_1.Slides(0)
-'Adds a textbox in a slide by specifying its position and size
-Dim textShape As IShape = firstSlide.AddTextBox(100, 75, 756, 200)
-'Adds a paragraph in the body of the textShape
-Dim paragraph As IParagraph = textShape.TextBody.AddParagraph()
-'Adds a textPart in the paragraph
-Dim textPart As ITextPart = paragraph.AddTextPart("Essential Presentation")
-'Saves the modified cloned PowerPoint presentation
-clonedPresentation_1.Save("ClonedPresentation.pptx")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation sourcePresentation = await Presentation.OpenAsync(inputStorageFile);
-//Clones the Presentation
-IPresentation clonedPresentation = sourcePresentation.Clone();
-//Gets the first slide from the cloned PowerPoint presentation
-ISlide firstSlide = clonedPresentation.Slides[0];
-//Adds a textbox in a slide by specifying its position and size
-IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
-//Adds a paragraph in the body of the textShape
-IParagraph paragraph = textShape.TextBody.AddParagraph();
-//Adds a textPart in the paragraph
-ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "ClonedPresentation";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await clonedPresentation.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -98,13 +33,11 @@ FileStream outputStream = new FileStream(outputFileName, FileMode.Create);
 clonedPresentation.SaveAs(outputStream);
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Loads the PowerPoint Presentation as stream.
-Assembly assembly = typeof(GettingStartedPresentation).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
-IPresentation pptxDoc = Presentation.Open(inputStream);
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens a PowerPoint presentation
+IPresentation sourcePresentation = Presentation.Open(fileName);
 //Clones the Presentation
-IPresentation clonedPresentation = pptxDoc.Clone();
+IPresentation clonedPresentation = sourcePresentation.Clone();
 //Gets the first slide from the cloned PowerPoint presentation
 ISlide firstSlide = clonedPresentation.Slides[0];
 //Adds a textbox in a slide by specifying its position and size
@@ -113,18 +46,26 @@ IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
 IParagraph paragraph = textShape.TextBody.AddParagraph();
 //Adds a textPart in the paragraph
 ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-clonedPresentation.Save(stream);
-//Close the presentation
-clonedPresentation.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+//Saves the modified cloned PowerPoint presentation
+clonedPresentation.Save("ClonedPresentation.pptx");
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens a PowerPoint presentation
+Dim sourcePresentation_1 As IPresentation = Presentation.Open(fileName)
+'Clones the Presentation
+Dim clonedPresentation_1 As IPresentation = sourcePresentation_1.Clone()
+'Gets the first slide from the cloned PowerPoint presentation
+Dim firstSlide As ISlide = clonedPresentation_1.Slides(0)
+'Adds a textbox in a slide by specifying its position and size
+Dim textShape As IShape = firstSlide.AddTextBox(100, 75, 756, 200)
+'Adds a paragraph in the body of the textShape
+Dim paragraph As IParagraph = textShape.TextBody.AddParagraph()
+'Adds a textPart in the paragraph
+Dim textPart As ITextPart = paragraph.AddTextPart("Essential Presentation")
+'Saves the modified cloned PowerPoint presentation
+clonedPresentation_1.Save("ClonedPresentation.pptx")
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -139,7 +80,7 @@ The following code example demonstrates how to convert the slides of a PowerPoin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Converts the slides to images
@@ -148,7 +89,7 @@ Image[] images = pptxDoc.RenderAsImages(Syncfusion.Drawing.ImageType.Bitmap);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Converts the slides to images
@@ -163,7 +104,7 @@ The following code example demonstrates how to print the converted images.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Initializes the start and page for printing
 int startPageIndex = 1;
 int endPageIndex = images.Length;
@@ -229,7 +170,7 @@ private void PrintPageMethod (object sender, PrintPageEventArgs e)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim endPageIndex As Integer = images.Length
 'Creates new PrintDialog instance.
 Dim printDialog As New System.Windows.Forms. PrintDialog()
@@ -311,7 +252,7 @@ The following code example demonstrates how to access the existing built in docu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Accesses the built-in document properties
@@ -321,7 +262,7 @@ Console.WriteLine("Author - {0}", pptxDoc.BuiltInDocumentProperties.Author);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Accesses the built-in document properties
@@ -339,54 +280,7 @@ The following code example demonstrates how to modify the existing built in docu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens a PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-//Modifies the Built-in document properties
-pptxDoc.BuiltInDocumentProperties.Category = "Sales reports";
-pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders";
-//Saves the modified PowerPoint presentation
-pptxDoc.Save("Output.pptx");
-//Closes the modified PowerPoint presentation
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens a PowerPoint presentation
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-'Modifies the Built-in document properties
-pptxDoc.BuiltInDocumentProperties.Category = "Sales reports"
-pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders"
-'Saves the modified PowerPoint presentation
-pptxDoc.Save("Output.pptx")
-'Closes the modified PowerPoint presentation
-pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Modifies the Built-in document properties
-pptxDoc.BuiltInDocumentProperties.Category = "Sales reports";
-pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders";
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -400,27 +294,28 @@ pptxDoc.Save(outputStream);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Modifies the Built-in document properties
 pptxDoc.BuiltInDocumentProperties.Category = "Sales reports";
 pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders";
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
+//Saves the modified PowerPoint presentation
+pptxDoc.Save("Output.pptx");
+//Closes the modified PowerPoint presentation
 pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens a PowerPoint presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+'Modifies the Built-in document properties
+pptxDoc.BuiltInDocumentProperties.Category = "Sales reports"
+pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders"
+'Saves the modified PowerPoint presentation
+pptxDoc.Save("Output.pptx")
+'Closes the modified PowerPoint presentation
+pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
@@ -437,7 +332,24 @@ The following code example demonstrates how to add new custom document property.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Adds custom document properties 
+ICustomDocumentProperties documentProperty = pptxDoc.CustomDocumentProperties;
+documentProperty.Add("PropertyA");
+documentProperty["PropertyA"].Text = "@!123";
+documentProperty.Add("PropertyB");
+documentProperty["PropertyB"].Text = "B";
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+//Closes the PowerPoint presentation
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Adds custom document properties 
@@ -452,7 +364,7 @@ pptxDoc.Save("Output.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Adds custom document properties
@@ -467,75 +379,6 @@ pptxDoc.Save("Output.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Adds custom document properties 
-ICustomDocumentProperties documentProperty = pptxDoc.CustomDocumentProperties;
-documentProperty.Add("PropertyA");
-documentProperty["PropertyA"].Text = "@!123";
-documentProperty.Add("PropertyB");
-documentProperty["PropertyB"].Text = "B";
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Adds custom document properties 
-ICustomDocumentProperties documentProperty = pptxDoc.CustomDocumentProperties;
-documentProperty.Add("PropertyA");
-documentProperty["PropertyA"].Text = "@!123";
-documentProperty.Add("PropertyB");
-documentProperty["PropertyB"].Text = "B";
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
-pptxDoc.Save(outputStream);
-//Closes the PowerPoint presentation
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Adds custom document properties 
-ICustomDocumentProperties documentProperty = pptxDoc.CustomDocumentProperties;
-documentProperty.Add("PropertyA");
-documentProperty["PropertyA"].Text = "@!123";
-documentProperty.Add("PropertyB");
-documentProperty["PropertyB"].Text = "B";
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Add-custom-document-properties).
@@ -546,7 +389,20 @@ The following code example demonstrates how to access and modify an existing cus
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Accesses an existing custom document property
+IDocumentProperty property = pptxDoc.CustomDocumentProperties["PropertyA"];
+//Modifies the value of DocumentProperty
+property.Value = "Hello world";
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 //Accesses an existing custom document property
@@ -559,7 +415,7 @@ pptxDoc.Save("Output.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Accesses an existing custom document property
@@ -570,67 +426,6 @@ Dim [property] As IDocumentProperty = pptxDoc.CustomDocumentProperties("Property
 pptxDoc.Save("Output.pptx")
 'Closes the PowerPoint presentation
 pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = await Presentation.OpenAsync(inputStorageFile);
-//Accesses an existing custom document property
-IDocumentProperty property = pptxDoc.CustomDocumentProperties["PropertyA"];
-//Modifies the value of DocumentProperty
-property.Value = "Hello world";
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Accesses an existing custom document property
-IDocumentProperty property = pptxDoc.CustomDocumentProperties["PropertyA"];
-//Modifies the value of DocumentProperty
-property.Value = "Hello world";
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
-pptxDoc.Save(outputStream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Accesses an existing custom document property
-IDocumentProperty property = pptxDoc.CustomDocumentProperties["PropertyA"];
-//Modifies the value of DocumentProperty
-property.Value = "Hello world";
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}
@@ -645,51 +440,7 @@ Below code snippet demonstrates how to create a final non – editable presentat
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Create an instance for PowerPoint presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add slide to the presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Mark the presentation as final
-pptxDoc.Final = true;
-//Save the presentation
-pptxDoc.Save("MarkAsFinal.pptx");
-//Close the presentation
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Create an instance for PowerPoint presentation
-Dim pptxDoc As IPresentation = Presentation.Create()
-'Add slide to the presentation
-Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-'Mark the presentation as final
-pptxDoc.Final = True
-'Save the presentation
-pptxDoc.Save("MarkAsFinal.pptx")
-'Close the presentation
-pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add slide to the presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Mark the presentation as final
-pptxDoc.Final = true;
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "MarkAsFinal";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Create an instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add slide to the presentation
@@ -703,25 +454,30 @@ pptxDoc.Save(outputStream);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create an instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 //Mark the presentation as final
 pptxDoc.Final = true;
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
+//Save the presentation
+pptxDoc.Save("MarkAsFinal.pptx");
 //Close the presentation
 pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("MarkFinal.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("MarkFinal.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Create an instance for PowerPoint presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+'Add slide to the presentation
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+'Mark the presentation as final
+pptxDoc.Final = True
+'Save the presentation
+pptxDoc.Save("MarkAsFinal.pptx")
+'Close the presentation
+pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
