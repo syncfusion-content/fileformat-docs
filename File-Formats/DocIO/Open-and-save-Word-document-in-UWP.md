@@ -60,8 +60,8 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 {% highlight c# tabtitle="C#" %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-    //Loads an existing Word document.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Load an existing Word document.
+    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     

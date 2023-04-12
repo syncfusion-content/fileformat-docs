@@ -66,7 +66,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainWindow.xaml.cs an
 {% highlight c# tabtitle="C#" %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-    //"App" is the class of Portable project.
+    //Load an existing Word document.
     Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
@@ -171,7 +171,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 {% highlight c# tabtitle="C#" %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-    //"App" is the class of Portable project.
+    //Load an existing Word document.
     Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {

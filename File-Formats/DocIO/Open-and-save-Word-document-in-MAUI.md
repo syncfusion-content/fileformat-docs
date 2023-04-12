@@ -65,7 +65,7 @@ Step 6: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//"App" is the class of Portable project
+//Load an existing Word document.
 Assembly assembly = typeof(OpenAndSave).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("OpenAndSave.Resources.Input.docx")))
 {
