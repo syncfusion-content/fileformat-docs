@@ -2817,7 +2817,7 @@ The following chart types are supported in DocIO.
 * [Stock_HighLowClose](https://www.syncfusion.com/kb/13946/how-to-create-stock-high-low-close-chart-in-word-document-using-c)
 * [Stock_OpenHighLowClose](https://www.syncfusion.com/kb/13945/how-to-create-stock-open-high-low-close-chart-in-word-document-using-c)
 * [Stock_VolumeHighLowClose](https://www.syncfusion.com/kb/13944/how-to-create-stock-volume-high-low-close-chart-in-word-document-using-c)
-* Stock_VolumeOpenHighLowClose
+* [Stock_VolumeOpenHighLowClose](https://www.syncfusion.com/kb/14012/how-to-create-stock-volume-open-high-low-close-chart-in-word-document-using-c)
 * [Surface_3D](https://www.syncfusion.com/kb/13870/how-to-create-3d-surface-chart-in-word-document-using-c)
 * [Surface_Contour](https://www.syncfusion.com/kb/13866/how-to-create-contour-surface-chart-in-word-document-using-c)
 * [Surface_NoColor_3D](https://www.syncfusion.com/kb/13867/how-to-create-wireframe-3d-surface-chart-in-word-document-using-c)
