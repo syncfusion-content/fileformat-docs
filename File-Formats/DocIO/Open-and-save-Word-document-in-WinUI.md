@@ -32,10 +32,10 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
 {% highlight XML %}
 <Window
-    x:Class="CreateWordSample.MainWindow"
+    x:Class="Open_and_save_Word_document.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CreateWordSample"
+    xmlns:local="using:Open_and_save_Word_document"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -67,7 +67,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainWindow.xaml.cs an
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
     //Load an existing Word document.
-    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     
@@ -133,10 +133,10 @@ Step 5: Add a new button in the **MainPage.xaml** as shown below.
 {% highlight XML %}
 
 <Page
-    x:Class="CreateWordSample.MainPage"
+    x:Class="Open_and_save_Word_document.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CreateWordSample1"
+    xmlns:local="using:Open_and_save_Word_document"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -172,7 +172,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
     //Load an existing Word document.
-    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     

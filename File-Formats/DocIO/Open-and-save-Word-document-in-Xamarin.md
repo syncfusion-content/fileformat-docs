@@ -52,7 +52,7 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        x:Class="GettingStarted. MainXamlPage">
+        x:Class="Open_and_save_Word_document. MainXamlPage">
 
     <StackLayout VerticalOptions="Center">
         <Button Text="open and save Word document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
@@ -82,7 +82,7 @@ Step 7: Include the below code snippet in the click event of the button in MainX
 
 void OnButtonClicked(object sender, EventArgs args)
 {
-    //"App" is the class of Portable project
+    //Load an existing Word document.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {

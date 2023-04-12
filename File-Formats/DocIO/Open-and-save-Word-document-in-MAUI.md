@@ -30,13 +30,13 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
 {% highlight XML %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="OpenAndSaveDocument.MainPage"
+            x:Class="Open_and_save_Word_document.MainPage"
             BackgroundColor="{DynamicResource SecondaryColor}">
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
             Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="OpenAndSaveDocument"
+                Text="Open and Save Document"
                 FontAttributes="Bold"
                 Grid.Row="0"
                 SemanticProperties.Hint="Open and Save Word document you click"
@@ -66,8 +66,8 @@ Step 6: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 
 {% highlight c# tabtitle="C#" %}
 //Load an existing Word document.
-Assembly assembly = typeof(OpenAndSave).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("OpenAndSave.Resources.Input.docx")))
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Resources.Input.docx")))
 {
 
 }

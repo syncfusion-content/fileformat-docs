@@ -36,10 +36,10 @@ Step 4: Add a new button in the MainPage.xaml as shown below.
 {% highlight XML %}
 
 <Page
-    x:Class="OpenAndSaveWordSample.MainPage"
+    x:Class="Open_and_save_Word_document.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:OpenAndSaveWordSample"
+    xmlns:local="using:Open_and_save_Word_document"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -61,7 +61,7 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
     //Load an existing Word document.
-    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     

@@ -31,7 +31,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 5: Add the following code snippet in Program.cs file to **open an existing Word document**.
+Step 5: Add the following code snippet in Program.cs file to **open an existing Word document in .NET Core application on Mac OS**.
 
 {% tabs %}
 

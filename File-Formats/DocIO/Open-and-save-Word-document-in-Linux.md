@@ -49,7 +49,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 4: Add the following code snippet in Program.cs file to **open an existing Word document**.
+Step 4: Add the following code snippet in Program.cs file to **open an existing Word document in .NET Core application on Linux**.
 
 {% tabs %}
 
