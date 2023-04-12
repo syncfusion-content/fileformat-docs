@@ -94,7 +94,7 @@ text.CharacterFormat.FontSize = 12f;
 
 {% endtabs %}
 
-Step 9: Add below code example to **save the Word document in WinUI Desktop app**.
+Step 9: Add below code example to **save the Word document in WinUI Desktop app**. Refer the helper methods to save the document in WinUI Desktop App from [here](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/WinUI/WinUI-Desktop-app/Create-Word-document/Create-Word-document/SaveHelper.cs).
 
 {% tabs %}
 
