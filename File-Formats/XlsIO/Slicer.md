@@ -158,27 +158,27 @@ The existing name of a slicer can be obtained or changed through **Name** proper
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.Name = "Slicer1"
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Name = "Slicer1";
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Name = "Slicer1";
 {% endhighlight %}
 {% endtabs %}
@@ -189,27 +189,27 @@ Slicer caption can be modified through **Caption** property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.Caption = "Select any value"
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Caption = "Select any value";
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Caption = "Select any value";
 {% endhighlight %}
 {% endtabs %}
@@ -220,31 +220,31 @@ Slicer can be positioned in the worksheet as required, as below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Top = 100;
 slicer.Left = 300;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.Top = 100
 slicer.Left = 300
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Top = 100;
 slicer.Left = 300;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Top = 100;
 slicer.Left = 300;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Top = 100;
 slicer.Left = 300;
 {% endhighlight %}
@@ -256,31 +256,31 @@ A slicer can be resized as shown below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Height = 200;
 slicer.Width = 150;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.Height = 200
 slicer.Width = 150
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Height = 200;
 slicer.Width = 150;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Height = 200;
 slicer.Width = 150;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.Height = 200;
 slicer.Width = 150;
 {% endhighlight %}
@@ -292,31 +292,31 @@ Slicer item can also the resized, as shown below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerItemHeight = 0.4;
 slicer.SlicerItemWidth = 80;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.SlicerItemHeight = 0.4
 slicer.SlicerItemWidth = 80
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerItemHeight = 0.4;
 slicer.SlicerItemWidth = 80;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerItemHeight = 0.4;
 slicer.SlicerItemWidth = 80;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerItemHeight = 0.4;
 slicer.SlicerItemWidth = 80;
 {% endhighlight %}
@@ -328,27 +328,27 @@ Select the number of columns inside a slicer as below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.NumberOfColumns = 2;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.NumberOfColumns = 2
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.NumberOfColumns = 2;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.NumberOfColumns = 2;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.NumberOfColumns = 2;
 {% endhighlight %}
 {% endtabs %}
@@ -359,27 +359,27 @@ A slicer header can be shown or hidden through **DisplayHeader** property.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.DisplayHeader = True
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.DisplayHeader = true;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.DisplayHeader = true;
 {% endhighlight %}
 {% endtabs %}
@@ -390,27 +390,27 @@ Slicer style can be selected as shown below.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-ISlicer slicer = worksheet.Slicers(0)
+ISlicer slicer = sheet.Slicers(0)
 slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
-ISlicer slicer = worksheet.Slicers[0];
+ISlicer slicer = sheet.Slicers[0];
 slicer.SlicerStyle = ExcelSlicerStyle.SlicerStyleDark2;
 {% endhighlight %}
 {% endtabs %}
@@ -433,7 +433,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   sheet.Slicers.Add(table, 3, 11, 2);
 
   //Access the slicer
-  ISlicer slicer = worksheet.Slicers[0];
+  ISlicer slicer = sheet.Slicers[0];
 
   //Slicer name
   slicer.Name = "Slicer1";
@@ -480,7 +480,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   sheet.Slicers.Add(table, 3, 11, 2)
 
   'Access the slicer
-  Dim slicer As ISlicer = worksheet.Slicers(0)
+  Dim slicer As ISlicer = sheet.Slicers(0)
 
   'Slicer name
   slicer.Name = "Slicer1"
@@ -531,7 +531,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   sheet.Slicers.Add(table, 3, 11, 2);
 
   //Access the slicer
-  ISlicer slicer = worksheet.Slicers[0];
+  ISlicer slicer = sheet.Slicers[0];
 
   //Slicer name
   slicer.Name = "Slicer1";
@@ -590,7 +590,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   sheet.Slicers.Add(table, 3, 11, 2);
 
   //Access the slicer
-  ISlicer slicer = worksheet.Slicers[0];
+  ISlicer slicer = sheet.Slicers[0];
 
   //Slicer name
   slicer.Name = "Slicer1";
@@ -647,7 +647,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   sheet.Slicers.Add(table, 3, 11, 2);
 
   //Access the slicer
-  ISlicer slicer = worksheet.Slicers[0];
+  ISlicer slicer = sheet.Slicers[0];
 
   //Slicer name
   slicer.Name = "Slicer1";

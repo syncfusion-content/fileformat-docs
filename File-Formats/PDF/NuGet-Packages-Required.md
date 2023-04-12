@@ -75,8 +75,9 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting NET Core)<br/>
-Console Application (Targeting .NET Core)
+ASP.NET Core (Targeting NET Core) <br/>
+Console Application (Targeting .NET Core) <br/> 
+Blazor
 </td>
 <td>
 {{'[Syncfusion.Pdf.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/)'| markdownify }}
@@ -96,6 +97,15 @@ Xamarin
 </td>
 <td>
 {{'[Syncfusion.Xamarin.Pdf.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Pdf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Windows UI (WinUI) <br/>
+.NET Multi-platform App UI (.NET MAUI)
+</td>
+<td>
+{{'[Syncfusion.Pdf.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.NET/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -194,7 +204,8 @@ ASP.NET MVC
 </tr>
 </table>
 
-N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> 1. HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> 2. Starting with v21.1.XX, The package structure is changed if you reference Syncfusion HTML to the PDF library from the NuGet feed. The Blink binaries paths are automatically added and do not need to add it manually. However, if you need to refer the blink binaries paths in your application manually, please use the BlinkPath in BlinkConverterSettings. Get the BlinkBinaries from the NuGet package runtime folder or get the binaries by installing the HTML converter installer.
 
 ## PDF OCR
 
@@ -209,7 +220,7 @@ For recognizing text from the scanned PDF document, the following NuGet packages
 </tr>
 <tr>
 <td>
-Windows Forms<br/>
+Windows Forms,<br/>
 Console Application (Targeting .NET Framework)
 </td>
 <td>
@@ -250,7 +261,8 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core <br/> 
+Blazor
 </td>
 <td>
 {{'[Syncfusion.PDF.OCR.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net.Core/)'| markdownify }}
@@ -321,7 +333,8 @@ ASP.NET MVC5
 <tr>
 <td>
 ASP.NET Core<br/>
-Console Application (Targeting .NET Core)
+Console Application (Targeting .NET Core) <br/> 
+Blazor
 </td>
 <td>
 {{'[Syncfusion.DocIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)'| markdownify }}
@@ -485,7 +498,8 @@ ASP.NET MVC5
 <tr>
 <td>
 ASP.NET Core (Targeting .NET Core)<br/>
-Console Application (Targeting .NET Core)
+Console Application (Targeting .NET Core) <br/> 
+Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}

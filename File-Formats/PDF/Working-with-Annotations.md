@@ -784,6 +784,129 @@ else
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-popup-annotation-in-the-PDF-document).
 
+### Flattening redaction annotation
+
+To flatten the redaction annotation in PDF document, use the following code example. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the annotation from annotation collection. 
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+    //Check for the Redaction annotation.
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
+        //Get the redaction annotation. 
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+        //Flatten the redaction annotation.
+        redactAnnot.Flatten = true;
+
+    }
+}
+
+//Save the document.
+loadedDocument.Save("Output.pdf");
+
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Load the existing PDF document. 
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Input.pdf")
+
+'Get the annotation from annotation collection. 
+For Each annot As PdfAnnotation In loadedDocument.Pages(0).Annotations
+
+    'Check for redaction annotation. 
+    If TypeOf annot Is PdfLoadedRedactionAnnotation Then
+
+        'Load the redaction annotation. 
+        Dim redactAnnot As PdfLoadedRedactionAnnotation = TryCast(annot, PdfLoadedRedactionAnnotation)
+
+        'Flatten the redaction annotation.
+        redactAnnot.Flatten = True
+
+    End If
+
+Next
+
+'Save the PDF document. 
+loadedDocument.Save("Output.pdf")
+
+'Close the PDF document. 
+loadedDocument.Close()
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Get stream from an existing PDF document. 
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the annotation from annotation collection. 
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+    //Check for the Redaction annotation.
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
+        //Get the redaction annotation. 
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+        //Flatten the redaction annotation. 
+        redactAnnot.Flatten = true;
+    }
+}
+
+loadedDocument.Redact();
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream(); 
+loadedDocument.Save(stream); 
+
+stream.Position = 0; 
+
+//Close the document.
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file.
+string contentType = "application/pdf"; 
+
+//Define the file name.
+string fileName = "output.pdf";
+
+//Create a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> To flatten the redaction annotation from PDF document in ASP.NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project. 
+
 ## Flattening annotations without calling save method 
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphic objects that would resemble the annotation and cannot be edited.
@@ -4823,6 +4946,8 @@ redactAnnot.Flatten = true;
 }
 }
 
+loadedDocument.Redact();
+
 //Save the document into stream 
 MemoryStream stream = new MemoryStream(); 
 loadedDocument.Save(stream); 
@@ -4878,6 +5003,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pd
 {% endhighlight %}
 
 {% endtabs %}
+
+N> To modify the redaction annotation from PDF document in ASP.NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project. 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-the-redaction-annotation-in-PDF-document).
 
@@ -7981,6 +8108,71 @@ else
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Highlight-text-in-the-newly-created-PDF-document).
+
+## Get images from custom rubber stamp annotation
+
+You can get the images from the custom rubber stamp annotation appearance using the [PdfLoadedRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedRubberStampAnnotation.html) class. The following code explains this.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
+//Get the existing PDF page.
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+//Get the existing rubber stamp annotation.
+PdfLoadedRubberStampAnnotation rubberStampAnnotation = lpage.Annotations[0] as PdfLoadedRubberStampAnnotation;
+//Get the custom images used for the rubber stamp annotation.
+Image[] images = rubberStampAnnotation.GetImages();
+//Close the PDF document.
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+' Load an existing document.
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Get the existing PDF page.
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0), PdfLoadedPage)
+'Get the existing rubber stamp annotation.
+Dim rubberStampAnnotation As PdfLoadedRubberStampAnnotation = CType(lpage.Annotations(0), PdfLoadedRubberStampAnnotation)
+'Get the custom images used for the rubber stamp annotation.
+Dim images As Image() = rubberStampAnnotation.GetImages()
+'Close the PDF document.
+ldoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+
+//PDF supports getting the images from custom rubber stamp annotation only in WinForms, WPF and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Load the existing PDF file.
+FileStream fileStream = new FileStream("input.pdf", FileMode.Open);
+PdfLoadedDocument ldoc = new PdfLoadedDocument(fileStream);
+//Get the existing PDF page.
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+//Get the rubber stamp annotation.
+PdfLoadedRubberStampAnnotation rubberStampAnnotation = lpage.Annotations[0] as PdfLoadedRubberStampAnnotation;
+//Get the custom image streams.
+Stream[] imageStreams = rubberStampAnnotation.GetImages();
+//Close the PDF document.
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+
+//PDF supports getting the images from custom rubber stamp annotation only in WinForms, WPF and ASP.NET Core platforms.
+
+{% endhighlight %}
+{% endtabs %}
 
 ## Troubleshooting
 
