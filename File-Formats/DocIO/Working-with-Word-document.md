@@ -1705,3 +1705,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [Print Word documents](https://help.syncfusion.com/file-formats/docio/word-document/print-word-documents)
 * [Split Word documents](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents)
 * [Why it is not possible to access the Word document contents page by page](https://www.syncfusion.com/kb/3989/why-it-is-not-possible-to-access-the-word-document-contents-page-by-page)
+* [How to merge Word documents without changing the page numbers?](https://www.syncfusion.com/kb/14004/how-to-merge-word-documents-without-changing-the-page-numbers)
