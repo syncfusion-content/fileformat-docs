@@ -14,7 +14,7 @@ Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-pr
 
 Step 1: Create a new Windows Forms application project.
 
-Step 2: Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
+Step 2: Install [Syncfusion.DocToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -26,10 +26,9 @@ Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.OfficeChart
-using Syncfusion.DocToPDFConverter
-using Syncfusion.OfficeChartToImageConverter
-using Syncfusion.Pdf
+using Syncfusion.DocToPDFConverter;
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Pdf;
 {% endhighlight %}
 
 {% endtabs %}
@@ -60,7 +59,7 @@ private void InitializeComponent()
     WordToPDF.Text = "Convert Word document to PDF";
     WordToPDF.Click += new EventHandler(WordToPDF_Click);
 
-    //Create Word
+    //Word to PDF.
     ClientSize = new System.Drawing.Size(450, 150);
     Controls.Add(label);
     Controls.Add(btnWordToPDF);
