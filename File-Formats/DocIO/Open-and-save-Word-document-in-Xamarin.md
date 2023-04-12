@@ -55,7 +55,7 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
         x:Class="GettingStarted. MainXamlPage">
 
     <StackLayout VerticalOptions="Center">
-        <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+        <Button Text="open and save Word document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
     </StackLayout>
 </ContentPage>
 
@@ -212,8 +212,6 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
 </table>
 
 Compile and execute the application. Now this application **opens and saves a Word document**.
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/Xamarin).
 
 By executing the program, you will get the **Word document** as follows.
 

@@ -30,17 +30,17 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
 {% highlight XML %}
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="CreateWordSample.MainPage"
+            x:Class="OpenAndSaveDocument.MainPage"
             BackgroundColor="{DynamicResource SecondaryColor}">
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
             Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="Create Document"
+                Text="OpenAndSaveDocument"
                 FontAttributes="Bold"
                 Grid.Row="0"
-                SemanticProperties.Hint="Creates Word document you click"
-                Clicked="CreateDocument"
+                SemanticProperties.Hint="Open and Save Word document you click"
+                Clicked="OpenAndSaveDocument"
                 HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
@@ -66,8 +66,8 @@ Step 6: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 
 {% highlight c# tabtitle="C#" %}
 //"App" is the class of Portable project
-Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Input.docx")))
+Assembly assembly = typeof(OpenAndSave).GetTypeInfo().Assembly;
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("OpenAndSave.Resources.Input.docx")))
 {
 
 }
@@ -107,8 +107,6 @@ saveService.SaveAndView("Sample.docx", "application/msword", ms);
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI).
 
 By executing the program, you will get the **Word document** as follows.
 

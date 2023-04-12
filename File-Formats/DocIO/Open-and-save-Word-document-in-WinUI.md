@@ -41,7 +41,7 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
     mc:Ignorable="d">
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="button" Click="CreateDocument">Create Document</Button>
+        <Button x:Name="button" Click="OpenAndSaveDocument">Open and save Word document</Button>
     </StackPanel>
 </Window>
 {% endhighlight %}
@@ -67,7 +67,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainWindow.xaml.cs an
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
     //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     
@@ -108,8 +108,6 @@ Save(outputStream, "Sample.docx");
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/WinUI/WinUI-Desktop-app).
-
 By executing the program, you will get the **Word document** as follows.
 
 ![WinUI Desktop open and save output Word document](WinUI_Images/OpenAndSaveOutput.png)
@@ -145,7 +143,7 @@ Step 5: Add a new button in the **MainPage.xaml** as shown below.
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="button" Click="CreateDocument">Create Document</Button>
+        <Button x:Name="button" Click="OpenAndSaveDocument">Open and save Word document</Button>
     </StackPanel>
 </Page>
 
@@ -174,7 +172,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in MainPage.xaml.cs and 
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
     //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Assembly assembly = typeof(Open_and_save_Word_document).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
     
@@ -259,8 +257,6 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/WinUI/WinUI-UWP-app).
 
 By executing the program, you will get the **Word document** as follows.
 

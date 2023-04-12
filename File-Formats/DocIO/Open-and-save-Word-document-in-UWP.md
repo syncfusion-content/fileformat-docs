@@ -36,16 +36,16 @@ Step 4: Add a new button in the MainPage.xaml as shown below.
 {% highlight XML %}
 
 <Page
-    x:Class="CreateWordSample.MainPage"
+    x:Class="OpenAndSaveWordSample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CreateWordSample"
+    xmlns:local="using:OpenAndSaveWordSample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Create Document" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="button" Content="Open and Save Word document" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
 
@@ -60,7 +60,7 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 {% highlight c# tabtitle="C#" %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-    //"App" is the class of Portable project.
+    //Loads an existing Word document.
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
     using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Open_and_save_Word_document.Assets.Input.docx"), FormatType.Docx))
     {
@@ -146,8 +146,6 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/UWP).
 
 By executing the program, you will get the **Word document** as follows.
 
