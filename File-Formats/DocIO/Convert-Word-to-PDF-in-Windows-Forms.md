@@ -96,7 +96,7 @@ PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 
 {% endtabs %}
 
-Step 7: Add below code example to **save the Word document in Windows Forms**.
+Step 7: Add below code example to **save the PDF document in Windows Forms**.
 
 {% tabs %}
 
@@ -107,6 +107,6 @@ pdfDocument.Save("WordToPDF.pdf");
 
 {% endtabs %}
 
-By executing the program, you will get the **Word document** as follows.
+By executing the program, you will get the **PDF document** as follows.
 
 ![Windows Forms output Word document](Windows-Forms_images/ConvertWordtoPDF.png)
