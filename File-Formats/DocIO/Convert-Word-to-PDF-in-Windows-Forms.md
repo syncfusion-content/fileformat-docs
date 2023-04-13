@@ -22,7 +22,7 @@ Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;

@@ -2870,4 +2870,3 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and replace line break in Word document as paragraph mark?](https://www.syncfusion.com/kb/13647/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
 * [How to insert another document before a text in Word document?](https://www.syncfusion.com/kb/13754/how-to-insert-another-document-before-a-text-in-word-document)
 * [How to replace text within bookmark content in Word document?](https://www.syncfusion.com/kb/13784/how-to-replace-text-within-bookmark-content-in-word-document)
-* [How to get the section number of the particular bookmark in C#?](https://www.syncfusion.com/kb/13972/how-to-get-the-section-number-of-the-particular-bookmark-in-c)
