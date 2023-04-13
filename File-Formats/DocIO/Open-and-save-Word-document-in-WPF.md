@@ -1,5 +1,5 @@
 ---
-title: Open and save Word document in WPF | DocIO | Syncfusion
+title: Open and save Word document in WPF | Syncfusion
 description: Open and save Word document in WPF application using Syncfusion .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and Save Word document in WPF
 
-Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to **create, read, and edit Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **Open and save a Word document in WPF**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to **create, read, and edit Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save a Word document in WPF**.
 
 ## Steps to open and save Word document programmatically in WPF:
 
@@ -58,7 +58,7 @@ Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-WordDocument document = new WordDocument(Input.docx");
+WordDocument document = new WordDocument("Input.docx");
 {% endhighlight %}
 
 {% endtabs %}

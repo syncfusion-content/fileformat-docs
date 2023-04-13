@@ -58,7 +58,7 @@ Step 7: Add below code example to **open an existing Word document in ASP.NET MV
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-WordDocument document = new WordDocument(Input.docx");
+WordDocument document = new WordDocument("Input.docx");
 {% endhighlight %}
 
 {% endtabs %}
