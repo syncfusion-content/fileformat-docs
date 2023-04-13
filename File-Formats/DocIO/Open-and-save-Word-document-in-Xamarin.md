@@ -52,7 +52,7 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        x:Class="Open_and_save_Word_document. MainXamlPage">
+        x:Class="Open_and_save_Word_document.MainXamlPage">
 
     <StackLayout VerticalOptions="Center">
         <Button Text="open and save Word document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
