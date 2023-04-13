@@ -1,5 +1,5 @@
 ---
-title: Working With Fields in .NET Word (DocIO) library | Syncfusion
+title: Working with Fields in .NET Word (DocIO) library | Syncfusion
 description: Learn how to add dynamic information such as title, time, page number, etc. to a Word document as a field using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
