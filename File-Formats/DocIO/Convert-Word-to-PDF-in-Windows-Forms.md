@@ -62,7 +62,7 @@ private void InitializeComponent()
     //Word to PDF.
     ClientSize = new System.Drawing.Size(450, 150);
     Controls.Add(label);
-    Controls.Add(btnWordToPDF);
+    Controls.Add(WordToPDF);
     Text = "Convert Word document to PDF";
 }
 {% endhighlight %}
