@@ -2000,4 +2000,3 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to insert bookmark for particular text in paragraph in Word document?](https://www.syncfusion.com/kb/13700/how-to-insert-bookmark-for-particular-text-in-paragraph-in-word-document)
 * [How to get the section number of the particular bookmark in C#?](https://www.syncfusion.com/kb/13972/how-to-get-the-section-number-of-the-particular-bookmark-in-c)
 * [How to replace bookmark content in one Word document with all the content from another Word document?](https://www.syncfusion.com/kb/13971/how-to-replace-bookmark-content-in-one-word-document-with-all-the-content-from-another-word)
-* [How to get the section number of the particular bookmark in C#?](https://www.syncfusion.com/kb/13972/how-to-get-the-section-number-of-the-particular-bookmark-in-c)
