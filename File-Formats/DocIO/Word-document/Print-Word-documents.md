@@ -13,7 +13,11 @@ Initially you have to render the pages as images as shown below
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the Word document
 WordDocument document = new WordDocument((string)this.textBox.Tag);
 //Renders the Word document as image
@@ -22,7 +26,7 @@ Image[] images = document.RenderAsImages(ImageType.Metafile);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the Word document
 Dim document As New WordDocument(DirectCast(Me.textBox.Tag, String))
 'Renders the Word document as image
@@ -31,19 +35,7 @@ Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can specify the printer settings and page settings through the [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. The [PrintDocument.PrintPage](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument.printpage?view=net-5.0) event should be handled to layout the document for printing. 
 
@@ -51,7 +43,11 @@ The following code example demonstrates how to print the Word document pages tha
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 int endPageIndex = images.Length;
 //Creates new PrintDialog instance
 System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
@@ -82,7 +78,7 @@ if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim endPageIndex As Integer = images.Length
 'Creates new PrintDialog instance
 Dim printDialog As New System.Windows.Forms.PrintDialog()
@@ -111,24 +107,17 @@ If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 End If
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example provides supporting methods for the above code.
 
-{% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void PrintPageMethod(object sender, PrintPageEventArgs e)
 {
     //Gets the print start page width
@@ -165,7 +154,8 @@ private void PrintPageMethod(object sender, PrintPageEventArgs e)
         startPageIndex = 0;
 }
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
 'Gets the print start page width
 Dim currentPageWidth As Integer = images(startPageIndex).Width
@@ -199,18 +189,8 @@ Else
 End If
 End Sub
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-{% endtabs %}   
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Print-Word-document).
 
