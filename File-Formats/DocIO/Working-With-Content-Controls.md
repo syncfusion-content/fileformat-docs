@@ -2591,3 +2591,7 @@ End Sub
 {% endtabs %}
 
 N> In the above-mentioned code samples, for Xamarin platforms the document is saved as stream only. To save the stream to file kindly refer code sample [here](https://help.syncfusion.com/file-formats/docio/xamarin#save-the-document#).
+
+## See Also
+
+* [How to remove the placeholder text if the meta property is empty in a Word document?](https://www.syncfusion.com/kb/13982/how-to-remove-the-placeholder-text-if-the-meta-property-is-empty-in-a-word-document)

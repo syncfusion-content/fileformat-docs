@@ -35,7 +35,7 @@ WPF
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
+.NET Framework 4.0 Client Profile
 </td>
 <td>
 {{'[Syncfusion.Pdf.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.ClientProfile/)'| markdownify }}
@@ -300,7 +300,7 @@ WPF
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
+.NET Framework 4.0 Client Profile
 </td>
 <td>
 {{'[Syncfusion.DocToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.ClientProfile/)'| markdownify }}
@@ -382,7 +382,7 @@ WPF
 </tr>
 <tr>
 <td>
-.NET Framework 3.5 or 4.0 Client Profile
+.NET Framework 4.0 Client Profile
 </td>
 <td>
 {{'[Syncfusion.ExcelToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.ClientProfile/)'| markdownify }}
@@ -433,7 +433,7 @@ Xamarin
 </tr>
 <tr>
 <td>
-Blazor (Server-Side)
+Blazor (Server-App)
 </td>
 <td>
 {{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}

@@ -2179,3 +2179,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [Is it possible to add/remove column from the table](https://www.syncfusion.com/kb/286/is-it-possible-to-add-remove-column-from-the-table)
 * [How to insert a row with the same formatting in a Word document](https://www.syncfusion.com/kb/13626/how-to-insert-a-row-with-the-same-formatting-in-a-word-document)
 * [How to split a table without losing their format in Word document using C#?](https://www.syncfusion.com/kb/13743/how-to-split-a-table-without-losing-their-format-in-word-document-using-c)
+* [How to keep a group of rows always together in a Word document?](https://www.syncfusion.com/kb/13985/how-to-keep-a-group-of-rows-always-together-in-a-word-document)
