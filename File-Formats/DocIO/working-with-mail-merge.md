@@ -307,3 +307,4 @@ You can restart the list numbering in a Word document during Mail merge. For fur
 * [How to mail merge Word document in Linux (Mono)](https://www.syncfusion.com/kb/10666/how-to-mail-merge-word-document-in-linux-mono)
 * [How to replace merge field with HTML string using Mail merge](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge)
 * [How to mail merge Word document in Docker](https://www.syncfusion.com/kb/10769/how-to-mail-merge-word-document-in-docker)
+* [Is it possible to merge outer group fields placed within inner nested group using nested mail merge?](https://www.syncfusion.com/kb/13981/is-it-possible-to-merge-outer-group-fields-placed-within-inner-nested-group-using-nested)
