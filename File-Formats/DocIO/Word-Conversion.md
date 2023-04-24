@@ -8,7 +8,7 @@ documentation: UG
 
 # Working with Document Conversions
 
-The [.NET Word Library](https://www.syncfusion.com/word-framework/net) or DocIO provides a support to convert documents from one format to another format. Each file format document can be categorized as flow layout document or fixed layout document. 
+The [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net) or DocIO provides a support to convert documents from one format to another format. Each file format document can be categorized as flow layout document or fixed layout document. 
 
 **Flow layout document:**
 
@@ -28,7 +28,7 @@ The [.NET Word Library](https://www.syncfusion.com/word-framework/net) or DocIO 
 Essential DocIO can convert various flow document as fixed document by using our layout engine. Following conversions are supported by Essential DocIO.
 
 * Microsoft Word file format Conversions.
-* [Word to PDF](https://www.syncfusion.com/word-framework/net/word-to-pdf-conversion).
+* [Word to PDF](https://www.syncfusion.com/document-processing/word-framework/net/word-to-pdf-conversion).
 * [Word to Image](/file-formats/docio/word-to-image).
 * [Word to RTF](/file-formats/docio/rtf).
 * [Word to Text](/file-formats/docio/text).
