@@ -337,9 +337,6 @@ Xamarin
 </tr>
 </table>
 
-N> 1. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is supported only from 4.0 .NET Framework onwards. 
-N> 2. The “Syncfusion.Xamarin.PresentationRenderer.nupkg” and “Syncfusion.PresentationRenderer.Net.Core.nupkg” NuGet packages supports chart to image conversion only from .NET Standard 2.0 onwards.
-
 ## NuGet package installation and uninstallation
 
 To use NuGet package in your project, refer to the NuGet package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-packages) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.

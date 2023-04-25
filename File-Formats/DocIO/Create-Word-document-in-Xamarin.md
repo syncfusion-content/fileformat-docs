@@ -1,6 +1,6 @@
 ---
 title: Create Word document in Xamarin | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in Xamarin application using Syncfusion Xamarin Word (Essential DocIO) library
+description: Create Word document without Microsoft Word or interop dependencies in Xamarin application using Syncfusion Xamarin Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -16,7 +16,7 @@ Step 1: Create a new Xamarin.Forms application project.
 
 ![Create Xamarin application in Visual Studio](Xamarin_images/create.png)
 
-Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 

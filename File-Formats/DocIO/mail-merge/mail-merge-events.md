@@ -1,6 +1,6 @@
 ---
-title: Mail merge events | Word library (DocIO) | Syncfusion
-description: This section illustrates how to format or customize the merged text and image, clear or retain unmerged fields during mail merge using events.
+title: Mail merge events in .NET Word (DocIO) library | Syncfusion
+description: Learn how to work with mail merge events to customize the document contents and merging image during mail merge process using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -26,7 +26,22 @@ The following code example shows how to use the [MergeField](https://help.syncfu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the template document 
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);  
+//Uses the mail merge events to perform the conditional formatting during runtime
+document.MailMerge.MergeField += new MergeFieldEventHandler(ApplyAlternateRecordsTextColor);
+//Executes Mail Merge with groups
+document.MailMerge.ExecuteGroup(GetDataTable());
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");    
 //Uses the mail merge events to perform the conditional formatting during runtime
@@ -38,7 +53,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Uses the mail merge events to perform the conditional formatting during runtime
@@ -54,50 +69,13 @@ document.Close()
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Opens the template document 
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);  
-//Uses the mail merge events to perform the conditional formatting during runtime
-document.MailMerge.MergeField += new MergeFieldEventHandler(ApplyAlternateRecordsTextColor);
-//Executes Mail Merge with groups
-document.MailMerge.ExecuteGroup(GetDataTable());
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Uses the mail merge events to perform the conditional formatting during runtime
-document.MailMerge.MergeField += new MergeFieldEventHandler(ApplyAlternateRecordsTextColor);
-//Executes Mail Merge with groups
-document.MailMerge.ExecuteGroup(GetDataTable());
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document 
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows how to set text color to the alternate Mail merge record by using [MergeFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MergeFieldEventHandler.html).
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 {
     //Sets text color to the alternate mail merge record
@@ -108,7 +86,18 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
+{
+    //Sets text color to the alternate mail merge record
+    if (args.RowIndex % 2 == 0)
+    {
+        args.TextRange.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub ApplyAlternateRecordsTextColor(ByVal sender As Object, ByVal args As MergeFieldEventArgs)
     'Sets text color to the alternate mail merge record
     If ((args.RowIndex Mod 2) = 0) Then
@@ -121,28 +110,6 @@ End Sub
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
-{
-    //Sets text color to the alternate mail merge record
-    if (args.RowIndex % 2 == 0)
-    {
-        args.TextRange.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
-{
-    //Sets text color to the alternate mail merge record
-    if (args.RowIndex % 2 == 0)
-    {
-        args.TextRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.FromArgb(255, 102, 0);
-    }
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 N> While executing mail merge, DocIO internally uses a copy of a particular region for populating the contents. Sometimes, unexpected problems may arise due to inserting multiple body items into the region through the mail merge process. So, to insert multiple body items using the merge field event handler, you are recommended to use this [approach](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge) at your side.
@@ -151,7 +118,7 @@ The following code example shows GetDataTable method which is used to get data f
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static DataTable GetDataTable()
 {
     DataTable dataTable = new DataTable("Employee");
@@ -168,7 +135,24 @@ private static DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+private static DataTable GetDataTable()
+{
+    DataTable dataTable = new DataTable("Employee");
+    dataTable.Columns.Add("EmployeeName");
+    dataTable.Columns.Add("EmployeeNumber");
+    for (int i = 0; i < 20; i++)
+    {
+        DataRow datarow = dataTable.NewRow();
+        dataTable.Rows.Add(datarow);
+        datarow[0] = "Employee" + i.ToString();
+        datarow[1] = "EMP" + i.ToString();
+    }
+    return dataTable;
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     Dim dataTable As New DataTable("Employee")
     dataTable.Columns.Add("EmployeeName")
@@ -187,40 +171,6 @@ End Function
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-private static DataTable GetDataTable()
-{
-    DataTable dataTable = new DataTable("Employee");
-    dataTable.Columns.Add("EmployeeName");
-    dataTable.Columns.Add("EmployeeNumber");
-    for (int i = 0; i < 20; i++)
-    {
-        DataRow datarow = dataTable.NewRow();
-        dataTable.Rows.Add(datarow);
-        datarow[0] = "Employee" + i.ToString();
-        datarow[1] = "EMP" + i.ToString();
-    }
-    return dataTable;
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-private static DataTable GetDataTable()
-{
-    DataTable dataTable = new DataTable("Employee");
-    dataTable.Columns.Add("EmployeeName");
-    dataTable.Columns.Add("EmployeeNumber");
-    for (int i = 0; i < 20; i++)
-    {
-        DataRow datarow = dataTable.NewRow();
-        dataTable.Rows.Add(datarow);
-        datarow[0] = "Employee" + i.ToString();
-        datarow[1] = "EMP" + i.ToString();
-    }
-    return dataTable;
-}
-{% endhighlight %}
-
 {% endtabs %} 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-for-mail-merge-field).
@@ -233,61 +183,7 @@ The following code example shows how to use the [MergeImageField](https://help.s
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens the template document
-WordDocument document = new WordDocument("Template.docx");
-//Uses the mail merge events handler for image fields
-document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_ProductImage);
-//Specifies the field names and field values
-string[] fieldNames = new string[] { "Logo"};
-string[] fieldValues = new string[] { "Logo.png"};
-//Executes the mail merge with groups
-document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves and closes WordDocument instance
-document.Save("Sample.docx");
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens the template document
-Dim document As New WordDocument("Template.docx")
-'Uses the mail merge events handler for image fields
-AddHandler document.MailMerge.MergeImageField, AddressOf MergeField_ProductImage
-'Specifies the field names and field values
-Dim fieldNames As String() = New String() {"Logo"}
-Dim fieldValues As String() = New String() {"Logo.png"}
-'Executes the mail merge with groups
-document.MailMerge.Execute(fieldNames, fieldValues)
-'Saves and closes WordDocument instance
-document.Save("Sample.docx")
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Creates an instance of a WordDocument
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument();
-document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Uses the mail merge events handler for image fields
-document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_ProductImage);
-//Specifies the field names and field values
-string[] fieldNames = new string[] { "Logo"};
-string[] fieldValues = new string[] { "Sample.Assets.Logo.png"};
-//Executes the mail merge with groups
-document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-//Refer to the following link to save Word document in UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -303,31 +199,36 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+WordDocument document = new WordDocument("Template.docx");
 //Uses the mail merge events handler for image fields
 document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_ProductImage);
 //Specifies the field names and field values
 string[] fieldNames = new string[] { "Logo"};
-string[] fieldValues = new string[] { "Sample.Assets.Logo.png"};
+string[] fieldValues = new string[] { "Logo.png"};
 //Executes the mail merge with groups
 document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
+//Saves and closes WordDocument instance
+document.Save("Sample.docx");
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens the template document
+Dim document As New WordDocument("Template.docx")
+'Uses the mail merge events handler for image fields
+AddHandler document.MailMerge.MergeImageField, AddressOf MergeField_ProductImage
+'Specifies the field names and field values
+Dim fieldNames As String() = New String() {"Logo"}
+Dim fieldValues As String() = New String() {"Logo.png"}
+'Executes the mail merge with groups
+document.MailMerge.Execute(fieldNames, fieldValues)
+'Saves and closes WordDocument instance
+document.Save("Sample.docx")
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}
@@ -336,60 +237,7 @@ The following code example shows how to bind the image from file system during M
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
-{
-    //Binds image from file system during mail merge
-    if (args.FieldName == "Logo")
-    {
-        string ProductFileName = args.FieldValue.ToString();
-        //Gets the image from file system
-        args.Image = Image.FromFile(ProductFileName);
-        //Gets the picture, to be merged for image merge field
-        WPicture picture = args.Picture;
-        //Resizes the picture
-        picture.Height = 50;
-        picture.Width = 150;
-    }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
-    'Binds image from file system during mail merge
-    If args.FieldName = "Logo" Then
-        Dim ProductFileName As String = args.FieldValue.ToString()
-        'Gets the image from file system
-        args.Image = Image.FromFile(ProductFileName)
-        'Gets the picture, to be merged for image merge field
-        Dim picture As WPicture = args.Picture
-        'Resizes the picture
-        picture.Height = 50
-        picture.Width = 150
-    End If
-End Sub
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
-{ 
-    //Binds image from file system during mail merge
-    if (args.FieldName == "Logo")
-    {
-        string ProductFileName = args.FieldValue.ToString();
-        //Gets the image from file system
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream(ProductFileName);
-        //Gets the picture, to be merged for image merge field
-        WPicture picture = args.Picture;
-        //Resizes the picture
-        picture.Height = 50;
-        picture.Width = 150;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 {
     //Binds image from file system during mail merge
@@ -408,7 +256,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 {
     //Binds image from file system during mail merge
@@ -416,8 +264,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
     {
         string ProductFileName = args.FieldValue.ToString();
         //Gets the image from file system
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream(ProductFileName);
+        args.Image = Image.FromFile(ProductFileName);
         //Gets the picture, to be merged for image merge field
         WPicture picture = args.Picture;
         //Resizes the picture
@@ -425,6 +272,22 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
         picture.Width = 150;
     }
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
+    'Binds image from file system during mail merge
+    If args.FieldName = "Logo" Then
+        Dim ProductFileName As String = args.FieldValue.ToString()
+        'Gets the image from file system
+        args.Image = Image.FromFile(ProductFileName)
+        'Gets the picture, to be merged for image merge field
+        Dim picture As WPicture = args.Picture
+        'Resizes the picture
+        picture.Height = 50
+        picture.Width = 150
+    End If
+End Sub
 {% endhighlight %}
 
 {% endtabs %}
@@ -439,7 +302,24 @@ The following code example shows how to use the [BeforeClearField](https://help.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the template document 
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath);
+//Sets “ClearFields” to true to remove empty mail merge fields from document
+document.MailMerge.ClearFields = false;
+//Uses the mail merge event to clear the unmerged field while perform mail merge execution
+document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);
+//Execute mail merge
+document.MailMerge.ExecuteGroup(GetDataTable());
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -453,7 +333,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Sets “ClearFields” to true to remove empty mail merge fields from document
@@ -471,107 +351,13 @@ document.Close()
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Opens the template document 
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath);
-//Sets “ClearFields” to true to remove empty mail merge fields from document
-document.MailMerge.ClearFields = false;
-//Uses the mail merge event to clear the unmerged field while perform mail merge execution
-document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);
-//Execute mail merge
-document.MailMerge.ExecuteGroup(GetDataTable());
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Sets “ClearFields” to true to remove empty mail merge fields from document
-document.MailMerge.ClearFields = false;
-//Uses the mail merge event to clear the unmerged field while perform mail merge execution
-document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);
-//Execute mail merge
-document.MailMerge.ExecuteGroup(GetDataTable());
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows how to bind the data to unmerged fields during Mail merge process by using [BeforeClearFieldEventHandler](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearFieldEventHandler.html).
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
-{
-    if (args.HasMappedFieldInDataSource)
-    {
-        //To check whether the mapped field has null value
-        if (args.FieldValue == null || args.FieldValue == DBNull.Value)
-        {
-            //Gets the unmerged field name
-            string unmergedFieldName = args.FieldName;
-            string ownerGroup = args.GroupName;
-            //Sets error message for unmerged fields
-            args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " of owner group " + ownerGroup + " is defined as Null in the data source.";
-        }
-        else
-            //If field value is empty, you can set whether the unmerged merge field can be clear or not
-            args.ClearField = true;
-    }
-    else
-    {
-        string unmergedFieldName = args.FieldName;
-        //Sets error message for unmerged fields, which is not found in data source
-        args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " is not found in the data source.";
-    }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFieldEventArgs)
-    If args.HasMappedFieldInDataSource Then
-        'To check whether the mapped field has null value
-        If args.FieldValue Is Nothing OrElse args.FieldValue = DBNull.Value Then
-            'Gets the unmerged field name
-            Dim unmergedFieldName As String = args.FieldName
-            Dim ownerGroup As String = args.GroupName
-            'Sets error message for unmerged fields
-            args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " of owner group " & ownerGroup & " is defined as Null in the data source."
-        Else
-            'If field value is empty, you can set whether the unmerged merge field can be clear or not
-            args.ClearField = True
-    End If
-    Else
-        Dim unmergedFieldName As String = args.FieldName
-        'Sets error message for unmerged fields, which is not found in data source
-        args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " is not found in the data source."
-    End If
-End Sub
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
     if (args.HasMappedFieldInDataSource)
@@ -598,7 +384,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
 {
     if (args.HasMappedFieldInDataSource)
@@ -625,13 +411,39 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 }
 {% endhighlight %}
 
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFieldEventArgs)
+    If args.HasMappedFieldInDataSource Then
+        'To check whether the mapped field has null value
+        If args.FieldValue Is Nothing OrElse args.FieldValue = DBNull.Value Then
+            'Gets the unmerged field name
+            Dim unmergedFieldName As String = args.FieldName
+            Dim ownerGroup As String = args.GroupName
+            'Sets error message for unmerged fields
+            args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " of owner group " & ownerGroup & " is defined as Null in the data source."
+        Else
+            'If field value is empty, you can set whether the unmerged merge field can be clear or not
+            args.ClearField = True
+    End If
+    Else
+        Dim unmergedFieldName As String = args.FieldName
+        'Sets error message for unmerged fields, which is not found in data source
+        args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " is not found in the data source."
+    End If
+End Sub
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private DataTable GetDataTable()
 {
     //Create an instance of DataTable
@@ -657,7 +469,33 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+private DataTable GetDataTable()
+{
+    //Create an instance of DataTable
+    DataTable dataTable = new DataTable("Employee");
+    //Add columns
+    dataTable.Columns.Add("EmployeeId");
+    dataTable.Columns.Add("City");
+    //Add records
+    DataRow row;
+    row = dataTable.NewRow();
+    row["EmployeeId"] = "1001";
+    row["City"] = null;
+    dataTable.Rows.Add(row);
+    row = dataTable.NewRow();
+    row["EmployeeId"] = "1002";
+    row["City"] = "";
+    dataTable.Rows.Add(row);
+    row = dataTable.NewRow();
+    row["EmployeeId"] = "1003";
+    row["City"] = "London";
+    dataTable.Rows.Add(row);
+    return dataTable;
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     'Create an instance of DataTable
     Dim dataTable As DataTable = New DataTable("Employee")
@@ -686,57 +524,6 @@ End Function
 //ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-private DataTable GetDataTable()
-{
-    //Create an instance of DataTable
-    DataTable dataTable = new DataTable("Employee");
-    //Add columns
-    dataTable.Columns.Add("EmployeeId");
-    dataTable.Columns.Add("City");
-    //Add records
-    DataRow row;
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1001";
-    row["City"] = null;
-    dataTable.Rows.Add(row);
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1002";
-    row["City"] = "";
-    dataTable.Rows.Add(row);
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1003";
-    row["City"] = "London";
-    dataTable.Rows.Add(row);
-    return dataTable;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-private DataTable GetDataTable()
-{
-    //Create an instance of DataTable
-    DataTable dataTable = new DataTable("Employee");
-    //Add columns
-    dataTable.Columns.Add("EmployeeId");
-    dataTable.Columns.Add("City");
-    //Add records
-    DataRow row;
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1001";
-    row["City"] = null;
-    dataTable.Rows.Add(row);
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1002";
-    row["City"] = "";
-    dataTable.Rows.Add(row);
-    row = dataTable.NewRow();
-    row["EmployeeId"] = "1003";
-    row["City"] = "London";
-    dataTable.Rows.Add(row);
-    return dataTable;
-}
-{% endhighlight %} 
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-to-bind-data-for-unmerged-fields).
@@ -747,74 +534,11 @@ You can get the unmerged group fields in a Word document during mail merge proce
 
 The following code example shows how to use the [BeforeClearGroupField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BeforeClearGroupFieldEventHandler.html) event during Mail merge process.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens the template document 
-WordDocument document = new WordDocument(@"Sample.docx");
-//Sets “ClearFields” to true to remove empty mail merge fields from document
-document.MailMerge.ClearFields = false;
-//Uses the mail merge event to clear the unmerged group field while perform mail merge execution
-document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-//Performs Mail merge
-document.MailMerge.ExecuteNestedGroup(dataTable);
-//Saves and closes the WordDocument instance
-document.Save("Sample.docx");
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens the template document 
-Dim document As WordDocument = New WordDocument("Sample.docx")
-'Sets “ClearFields” to true to remove empty mail merge fields from document
-document.MailMerge.ClearFields = False
-'Uses the mail merge event to clear the unmerged field while perform mail merge execution
-AddHandler document.MailMerge.BeforeClearGroupField, AddressOf BeforeClearFields
-'Gets the employee details as “IEnumerable” collection
-Dim employeeList As List(Of Employees) = GetEmployees()
-'Creates an instance of MailMergeDataTableby specifying mail merge group name and “IEnumerable” collection
-Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employees", employeeList)
-'Performs Mail merge
-document.MailMerge.ExecuteNestedGroup(dataTable)
-'Saves and closes the WordDocument instance
-document.Save("Sample.docx")
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Creates an instance of a WordDocument
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument();
-document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Sets “ClearFields” to true to remove empty mail merge fields from document
-document.MailMerge.ClearFields = false;
-//Uses the mail merge event to clear the unmerged group field while perform mail merge execution
-document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-//Performs Mail merge
-document.MailMerge.ExecuteNestedGroup(dataTable);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-
-//Refer to the following link to save Word document in UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
-FileStream fileStreamPath = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Sets “ClearFields” to true to remove empty mail merge fields from document
 document.MailMerge.ClearFields = false;
@@ -831,15 +555,11 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens the template document 
+WordDocument document = new WordDocument("Template.docx");
 //Sets “ClearFields” to true to remove empty mail merge fields from document
 document.MailMerge.ClearFields = false;
 //Uses the mail merge event to clear the unmerged group field while perform mail merge execution
@@ -850,16 +570,27 @@ List<Employees> employeeList = GetEmployees();
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
+//Saves and closes the WordDocument instance
+document.Save("Sample.docx");
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+{% endhighlight %}
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens the template document 
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Sets “ClearFields” to true to remove empty mail merge fields from document
+document.MailMerge.ClearFields = False
+'Uses the mail merge event to clear the unmerged field while perform mail merge execution
+AddHandler document.MailMerge.BeforeClearGroupField, AddressOf BeforeClearFields
+'Gets the employee details as “IEnumerable” collection
+Dim employeeList As List(Of Employees) = GetEmployees()
+'Creates an instance of MailMergeDataTableby specifying mail merge group name and “IEnumerable” collection
+Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employees", employeeList)
+'Performs Mail merge
+document.MailMerge.ExecuteNestedGroup(dataTable)
+'Saves and closes the WordDocument instance
+document.Save("Sample.docx")
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}
@@ -868,7 +599,28 @@ The following code example shows how to bind the data to unmerged group fields d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
+{
+    if (!args.HasMappedGroupInDataSource)
+    {
+        //Gets the Current unmerged group name from the event argument
+        string[] groupName = args.GroupName.Split(':');
+        if (groupName[groupName.Length - 1] == "Orders")
+        {
+            string[] fields = args.FieldNames;
+            List<OrderDetails> orderList = GetOrders();
+            //Binds the data to the unmerged fields in group as alternative values
+            args.AlternateValues = orderList;
+        }
+        else
+            //If group value is empty, you can set whether the unmerged merge group field can be clear or not.
+            args.ClearGroup = true;
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
 {
     if (!args.HasMappedGroupInDataSource)
@@ -890,7 +642,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Sub BeforeClearFields(ByVal sender As Object, ByVal args As BeforeClearGroupFieldEventArgs)
     If Not args.HasMappedGroupInDataSource Then
         ‘Gets the Current unmerged group name from the event argument
@@ -909,76 +661,13 @@ Private Sub BeforeClearFields(ByVal sender As Object, ByVal args As BeforeClearG
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
-{
-    if (!args.HasMappedGroupInDataSource)
-    {
-        //Gets the Current unmerged group name from the event argument
-        string[] groupName = args.GroupName.Split(':');
-        if (groupName[groupName.Length - 1] == "Orders")
-        {
-            string[] fields = args.FieldNames;
-            List<OrderDetails> orderList = GetOrders();
-            //Binds the data to the unmerged fields in group as alternative values
-            args.AlternateValues = orderList;
-        }
-        else
-            //If group value is empty, you can set whether the unmerged merge group field can be clear or not.
-            args.ClearGroup = true;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
-{
-    if (!args.HasMappedGroupInDataSource)
-    {
-        //Gets the Current unmerged group name from the event argument
-        string[] groupName = args.GroupName.Split(':');
-        if (groupName[groupName.Length - 1] == "Orders")
-        {
-            string[] fields = args.FieldNames;
-            List<OrderDetails> orderList = GetOrders();
-            //Binds the data to the unmerged fields in group as alternative values
-            args.AlternateValues = orderList;
-        }
-        else
-            //If group value is empty, you can set whether the unmerged merge group field can be clear or not.
-            args.ClearGroup = true;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
-{
-    if (!args.HasMappedGroupInDataSource)
-    {
-        //Gets the Current unmerged group name from the event argument
-        string[] groupName = args.GroupName.Split(':');
-        if (groupName[groupName.Length - 1] == "Orders")
-        {
-            string[] fields = args.FieldNames;
-            List<OrderDetails> orderList = GetOrders();
-            //Binds the data to the unmerged fields in group as alternative values
-            args.AlternateValues = orderList;
-        }
-        else
-            //If group value is empty, you can set whether the unmerged merge group field can be clear or not.
-            args.ClearGroup = true;
-    }
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows GetOrders and GetEmployees methods which are used to get data for mail merge.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Gets order list
 private static List<OrderDetails> GetOrders()
 {
@@ -1001,7 +690,30 @@ public static List<Employees> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Gets order list
+private static List<OrderDetails> GetOrders()
+{
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
+    return orders;
+}
+
+//Gets employee list
+public static List<Employees> GetEmployees()
+{
+    List<OrderDetails> orders = new List<OrderDetails>();
+    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+    List<Employees> employees = new List<Employees>();
+    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+    return employees;
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets orders list
 Private Shared Function GetOrders() As List(Of OrderDetails)
     Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)()
@@ -1022,81 +734,68 @@ Public Shared Function GetEmployees() As List(Of Employees)
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Gets order list
-private static List<OrderDetails> GetOrders()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-    return orders;
-}
-
-//Gets employee list
-public static List<Employees> GetEmployees()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-    List<Employees> employees = new List<Employees>();
-    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-    return employees;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Gets order list
-private static List<OrderDetails> GetOrders()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-    return orders;
-}
-
-//Gets employee list
-public static List<Employees> GetEmployees()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-    List<Employees> employees = new List<Employees>();
-    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-    return employees;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Gets order list
-private static List<OrderDetails> GetOrders()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-    return orders;
-}
-
-//Gets employee list
-public static List<Employees> GetEmployees()
-{
-    List<OrderDetails> orders = new List<OrderDetails>();
-    orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-    List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-    customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-    customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-    List<Employees> employees = new List<Employees>();
-    employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-    return employees;
-}
-{% endhighlight %}
-
 {% endtabs %} 
 
 The following code example shows Employees, CustomerDetails, and OrderDetails classes.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public class Employees
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeID { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<CustomerDetails> Customers { get; set; }
+    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+        EmployeeID = employeeId;
+        City = city;
+        Country = country;
+        Customers = customers;
+    }
+}
+
+public class CustomerDetails
+{
+    public string ContactName { get; set; }
+    public string CompanyName { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public List<OrderDetails> Orders { get; set; }
+    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+    {
+        ContactName = contactName;
+        CompanyName = companyName;
+        City = city;
+        Country = country;
+        Orders = orders;
+    }
+}
+
+public class OrderDetails
+{
+    public string OrderID { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippedDate { get; set; }
+    public DateTime RequiredDate { get; set; }
+    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+    {
+        OrderID = orderId;
+        OrderDate = orderDate;
+        ShippedDate = shippedDate;
+        RequiredDate = requiredDate;
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Employees
 {
     public string FirstName { get; set; }
@@ -1152,7 +851,7 @@ public class OrderDetails
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Employees
     Public Property FirstName As String
     Public Property LastName As String
@@ -1201,172 +900,6 @@ Public Class OrderDetails
 End Class
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-public class Employees
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string EmployeeID { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<CustomerDetails> Customers { get; set; }
-    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Address = address;
-        EmployeeID = employeeId;
-        City = city;
-        Country = country;
-        Customers = customers;
-    }
-}
-
-public class CustomerDetails
-{
-    public string ContactName { get; set; }
-    public string CompanyName { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<OrderDetails> Orders { get; set; }
-    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-    {
-        ContactName = contactName;
-        CompanyName = companyName;
-        City = city;
-        Country = country;
-        Orders = orders;
-    }
-}
-
-public class OrderDetails
-{
-    public string OrderID { get; set; }
-    public DateTime OrderDate { get; set; }
-    public DateTime ShippedDate { get; set; }
-    public DateTime RequiredDate { get; set; }
-    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-    {
-        OrderID = orderId;
-        OrderDate = orderDate;
-        ShippedDate = shippedDate;
-        RequiredDate = requiredDate;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-public class Employees
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string EmployeeID { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<CustomerDetails> Customers { get; set; }
-    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Address = address;
-        EmployeeID = employeeId;
-        City = city;
-        Country = country;
-        Customers = customers;
-    }
-}
-
-public class CustomerDetails
-{
-    public string ContactName { get; set; }
-    public string CompanyName { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<OrderDetails> Orders { get; set; }
-    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-    {
-        ContactName = contactName;
-        CompanyName = companyName;
-        City = city;
-        Country = country;
-        Orders = orders;
-    }
-}
-
-public class OrderDetails
-{
-    public string OrderID { get; set; }
-    public DateTime OrderDate { get; set; }
-    public DateTime ShippedDate { get; set; }
-    public DateTime RequiredDate { get; set; }
-    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-    {
-        OrderID = orderId;
-        OrderDate = orderDate;
-        ShippedDate = shippedDate;
-        RequiredDate = requiredDate;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-
-public class Employees
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string EmployeeID { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<CustomerDetails> Customers { get; set; }
-    public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Address = address;
-        EmployeeID = employeeId;
-        City = city;
-        Country = country;
-        Customers = customers;
-    }
-}
-
-public class CustomerDetails
-{
-    public string ContactName { get; set; }
-    public string CompanyName { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-    public List<OrderDetails> Orders { get; set; }
-    public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-    {
-        ContactName = contactName;
-        CompanyName = companyName;
-        City = city;
-        Country = country;
-        Orders = orders;
-    }
-}
-
-public class OrderDetails
-{
-    public string OrderID { get; set; }
-    public DateTime OrderDate { get; set; }
-    public DateTime ShippedDate { get; set; }
-    public DateTime RequiredDate { get; set; }
-    public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-    {
-        OrderID = orderId;
-        OrderDate = orderDate;
-        ShippedDate = shippedDate;
-        RequiredDate = requiredDate;
-    }
-}
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-to-bind-data-for-unmerged-group).

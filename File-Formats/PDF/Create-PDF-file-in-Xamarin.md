@@ -9,7 +9,7 @@ documentation: UG
 
 The Syncfusion [Xamarin PDF library](https://www.syncfusion.com/document-processing/pdf-framework/xamarin/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
-To include the Syncfusion Xamarin PDF library into your Xamarin application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+To include the Syncfusion Xamarin PDF library into your Xamarin application, please refer to the [NuGet Package Required](/file-formats/pdf/nuget-packages-required) or [Assemblies Required](/file-formats/pdf/assemblies-required) documentation.
 
 ## Steps to create PDF document in Xamarin
 
@@ -88,7 +88,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 
 {% endhighlight %}
 
-Step 8: Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Helper_Class1450461599 ) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Step 8: Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Helper_Class1305995392) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -132,7 +132,57 @@ Step 8: Download the helper files from this [link](https://www.syncfusion.com/do
   </tr>     
 </table>
 
-Step 9: Compile and execute the application. This will creates a simple PDF document.
+N> Introduced a new runtime permission model for the Android SDK version 23 and above. So, include the following code for enabling the Android file provider to save and view the generated PDF document.
+
+Step 9(i): Create a new XML file with the name of provider_paths.xml under the Android project Resources folder and add the following code in it.
+Eg: Resources/xml/provider_paths.xml
+
+{% highlight c# tabtitle="C#" %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+<external-path name="external_files" path="."/>
+</paths>
+{% endhighlight %}
+
+Step 9(ii): Add the following code to the AndroidManifest.xml file located under Properties/AndroidManifest.xml.
+
+{% highlight c# tabtitle="C#" %}
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname. GettingStarted ">
+<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+<application android:label=" GettingStarted.Android" android:requestLegacyExternalStorage="true">
+<provider android:name="android.support.v4.content.FileProvider"
+android:authorities="${applicationId}.provider"
+android:exported="false"
+android:grantUriPermissions="true">
+<meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+android:resource="@xml/provider_paths" />
+</provider>
+</application>
+</manifest>
+{% endhighlight %}
+
+### Please include the changes if you deploy the application in Android 11:
+
+* Enabled the androidLegacyExtranalStorage in the AndroidManifest.xml file.
+
+{% highlight c# tabtitle="C#" %}
+
+<application android:label=" PDFXamarinSample.Android" android:requestLegacyExternalStorage="true">
+
+{% endhighlight %}
+
+* User permission for read or write external storage.Add the following code to the AndroidManifest.xml file located under Properties/AndroidManifest.xml.
+
+{% highlight c# tabtitle="C#" %}
+
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+</uses-permission>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+{% endhighlight %}
+
+Step 10: Compile and execute the application. This will creates a simple PDF document.
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFDocument).
 

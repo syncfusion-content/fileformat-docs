@@ -1,6 +1,6 @@
 ---
-title: Working with Mail merge | Word library (DocIO) | Syncfusion
-description: This section illustrates about Mail merge Word document to create reports (letters, envelopes, labels, invoice, payroll) without MS Word or Office interop.
+title: Mail merge a Word document in C# | DocIO | Syncfusion
+description: Learn how to mail merge Word document to create reports (letters, envelopes, labels, invoice, payroll) using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -45,51 +45,9 @@ You can **create Word document template programmatically** by adding merge field
 
 The following code example shows how to create a merge field in the Word document.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Creates an instance of a WordDocument 
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-//Appends merge field to the last paragraph.
-document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField);
-//Saves and closes the WordDocument instance.
-document.Save("Template.docx");
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Creates an instance of a WordDocument 
-Dim document As WordDocument = New WordDocument
-'Adds a section and a paragraph in the document
-document.EnsureMinimal()
-'Appends merge field to the last paragraph.
-document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField)
-'Saves and closes the WordDocument instance.
-document.Save("Template.docx")
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Creates an instance of a WordDocument 
-WordDocument document = new WordDocument();
-//Adds a section and a paragraph in the document
-document.EnsureMinimal();
-//Appends merge field to the last paragraph.
-document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Template.docx");
-document.Close();
-
-//Refer to the following link to save Word document in UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
@@ -101,30 +59,32 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Template.docx");
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds a section and a paragraph in the document
 document.EnsureMinimal();
 //Appends merge field to the last paragraph.
 document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField);
-//Saves the Word document to  MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
+//Saves and closes the WordDocument instance.
+document.Save("Template.docx");
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creates an instance of a WordDocument 
+Dim document As WordDocument = New WordDocument
+'Adds a section and a paragraph in the document
+document.EnsureMinimal()
+'Appends merge field to the last paragraph.
+document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField)
+'Saves and closes the WordDocument instance.
+document.Save("Template.docx")
+document.Close()
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Create-merge-field).
@@ -133,52 +93,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example shows how to perform mail merge in above Word document template using string arrays as data source.
 
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-//Opens the template document
-WordDocument document = new WordDocument("Template.docx");
-string[] fieldNames = new string[] { "FullName" };
-string[] fieldValues = new string[] { "Nancy Davolio" };
-//Performs the mail merge
-document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves and closes the WordDocument instance
-document.Save("Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
+{% tabs %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-'Opens the template document
-Dim document As New WordDocument("Template.docx")
-Dim fieldNames As String() = New String() {"FullName"}
-Dim fieldValues As String() = New String() {"Nancy Davolio"}
-'Performs the mail merge
-document.MailMerge.Execute(fieldNames, fieldValues)
-'Saves and closes the WordDocument instance
-document.Save("Sample.docx", FormatType.Docx)
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Creates an instance of a WordDocument
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument();
-document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-string[] fieldNames = new string[] { "FullName" };
-string[] fieldValues = new string[] { "Nancy Davolio" };
-//Performs the mail merge
-document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-document.Close();
-
-//Refer to the following link to save Word document in UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -191,30 +108,32 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Closes the Word document
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
+ 
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+WordDocument document = new WordDocument("Template.docx");
 string[] fieldNames = new string[] { "FullName" };
 string[] fieldValues = new string[] { "Nancy Davolio" };
 //Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document 
+//Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens the template document
+Dim document As New WordDocument("Template.docx")
+Dim fieldNames As String() = New String() {"FullName"}
+Dim fieldValues As String() = New String() {"Nancy Davolio"}
+'Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues)
+'Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Getting-started-mail-merge).
@@ -307,3 +226,4 @@ You can restart the list numbering in a Word document during Mail merge. For fur
 * [How to mail merge Word document in Linux (Mono)](https://www.syncfusion.com/kb/10666/how-to-mail-merge-word-document-in-linux-mono)
 * [How to replace merge field with HTML string using Mail merge](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge)
 * [How to mail merge Word document in Docker](https://www.syncfusion.com/kb/10769/how-to-mail-merge-word-document-in-docker)
+* [Is it possible to merge outer group fields placed within inner nested group using nested mail merge?](https://www.syncfusion.com/kb/13981/is-it-possible-to-merge-outer-group-fields-placed-within-inner-nested-group-using-nested)

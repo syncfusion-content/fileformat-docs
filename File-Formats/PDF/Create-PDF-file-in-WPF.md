@@ -10,7 +10,7 @@ documentation: UG
 
 The Syncfusion [.NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms and secure PDF files. 
 
-To include the .NET PDF library into your WPF application, please refer to the [NuGet Package Required](/File-Formats/PDF/NuGet-Packages-Required) or [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation. 
+To include the .NET PDF library into your WPF application, please refer to the [NuGet Package Required](/file-formats/pdf/nuget-packages-required) or [Assemblies Required](/file-formats/pdf/assemblies-required) documentation. 
 
 ## Steps to create PDF document in WPF
 

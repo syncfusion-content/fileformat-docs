@@ -19,12 +19,12 @@ In this section, we will see about the changes which need to be considered while
 </thead>
 </tr>
 <tr>
-<td>{{'[Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/#"")'| markdownify }}<br/>{{'[Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfusion.DocIO.Wpf/#"")'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet/#"")'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc4/#"")'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5/#"")'| markdownify }}</td>
-<td>{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core/#"")'| markdownify }}</td>
+<td>{{'[Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms)'| markdownify }}<br/>{{'[Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfusion.DocIO.Wpf)'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet)'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc4)'| markdownify }}<br/>{{'[Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5)'| markdownify }}</td>
+<td>{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)'| markdownify }}</td>
 </tr>
 <tr>
-<td>{{'[Syncfusion.DocToPDFConverter.WinForms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms/#"")'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.Wpf](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf/#"")'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.AspNet](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet/#"")'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc4/#"")'| markdownify }}<br/>{{'[Syncfusion.DocIToPDFConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc5/#"")'| markdownify }}</td>
-<td>{{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/#"")'| markdownify }}</td>
+<td>{{'[Syncfusion.DocToPDFConverter.WinForms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms)'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.Wpf](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf)'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.AspNet](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet)'| markdownify }}<br/>{{'[Syncfusion.DocToPDFConverter.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc4)'| markdownify }}<br/>{{'[Syncfusion.DocIToPDFConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc5)'| markdownify }}</td>
+<td>{{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)'| markdownify }}</td>
 </tr>
 </table>
 
@@ -57,15 +57,15 @@ In this section, we will see about the changes which need to be considered while
 </thead>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html#"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html)'| markdownify }}</td>
 <td>DocIORenderer</td>
 </tr>
 <tr>
-<td>{{'[ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#"")'| markdownify }}</td>
+<td>{{'[ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html)'| markdownify }}</td>
 <td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html)'| markdownify }}</td>
 <td>DocIORendererSettings</td>
 </tr>
 </table>
@@ -79,47 +79,47 @@ In this section, we will see about the changes which need to be considered while
 </thead>
 </tr>
 <tr>
-<td>{{'[IWordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWordDocument.html#Syncfusion_DocIO_DLS_IWordDocument_ChartToImageConverter"")'| markdownify }}</td>
+<td>{{'[IWordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWordDocument.html#Syncfusion_DocIO_DLS_IWordDocument_ChartToImageConverter)'| markdownify }}</td>
 <td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
-<td>{{'[WordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ChartToImageConverter"")'| markdownify }}</td>
+<td>{{'[WordDocument.ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ChartToImageConverter)'| markdownify }}</td>
 <td>Not applicable - It is handled internally.</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings.EnableFastRendering](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_EnableFastRendering"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings.EnableFastRendering](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_EnableFastRendering)'| markdownify }}</td>
 <td>This is the default approach in .NET Core and handled internally.</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings.RecreateNestedMetaFile](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_RecreateNestedMetafile"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings.RecreateNestedMetaFile](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_RecreateNestedMetafile)'| markdownify }}</td>
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings.ImageQuality](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_ImageQuality"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings.ImageQuality](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_ImageQuality)'| markdownify }}</td>
 <td>Not supported</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings.ImageResolution](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_ImageResolution"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings.ImageResolution](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_ImageResolution)'| markdownify }}</td>
 <td>Not supported</td>
 </tr>
 <tr>
-<td>{{'[DocToPDFConverterSettings.PreserveOleEquationAsBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_PreserveOleEquationAsBitmap"")'| markdownify }}</td>
+<td>{{'[DocToPDFConverterSettings.PreserveOleEquationAsBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_PreserveOleEquationAsBitmap)'| markdownify }}</td>
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[SaveOptions.HtmlExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportImagesFolder"")'| markdownify }}</td>
-<td>Not applicable - You can save the images to folder using {{'[SaveOptions.ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited"")'| markdownify }} event in the application level.</td>
+<td>{{'[SaveOptions.HtmlExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportImagesFolder)'| markdownify }}</td>
+<td>Not applicable - You can save the images to folder using {{'[SaveOptions.ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited)'| markdownify }} event in the application level.</td>
 </tr>
 <tr>
-<td>{{'[SaveOptions.HtmlExportCssStyleSheetFileName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportCssStyleSheetFileName"")'| markdownify }}</td>
+<td>{{'[SaveOptions.HtmlExportCssStyleSheetFileName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportCssStyleSheetFileName)'| markdownify }}</td>
 <td>Not supported</td>
 </tr>
 <tr>
-<td>{{'[SaveOption.HTMLExportImageAsBase64](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HTMLExportImageAsBase64"")'| markdownify }}</td>
+<td>{{'[SaveOption.HTMLExportImageAsBase64](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HTMLExportImageAsBase64)'| markdownify }}</td>
 <td>This is the default approach in .NET Core and handled internally.</td>
 </tr>
 <tr>
-<td>{{'[CssStyleSheetType.External](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CssStyleSheetType.html#"")'| markdownify }}</td>
+<td>{{'[CssStyleSheetType.External](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.CssStyleSheetType.html)'| markdownify }}</td>
 <td>Not supported</td>
 </tr>
 </table>
@@ -134,43 +134,43 @@ In this section, we will see about the changes which need to be considered while
 </thead>
 </tr>
 <tr>
-<td>{{'[WordDocument.Open(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_"")'| markdownify }}<br/>{{'[WordDocument.Open(String, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_Syncfusion_DocIO_FormatType_"")'| markdownify }}</td>
-<td>You can open the document as stream from the file system using {{'[WordDocument.Open(Stream, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_IO_Stream_Syncfusion_DocIO_FormatType_"")'| markdownify }} API</td>
+<td>{{'[WordDocument.Open(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_)'| markdownify }}<br/>{{'[WordDocument.Open(String, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_String_Syncfusion_DocIO_FormatType_)'| markdownify }}</td>
+<td>You can open the document as stream from the file system using {{'[WordDocument.Open(Stream, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Open_System_IO_Stream_Syncfusion_DocIO_FormatType_)'| markdownify }} API</td>
 </tr>
 <tr>
-<td>{{'[WordDocument.Save(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_"")'| markdownify }}<br/>{{'[WordDocumentSave(String, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_"")'| markdownify }}</td>
-<td>You can save the document as stream to the file system using {{'[WordDocument.Save(Stream, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_IO_Stream_Syncfusion_DocIO_FormatType_"")'| markdownify }} API</td>
+<td>{{'[WordDocument.Save(String)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_)'| markdownify }}<br/>{{'[WordDocumentSave(String, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_)'| markdownify }}</td>
+<td>You can save the document as stream to the file system using {{'[WordDocument.Save(Stream, FormatType)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_IO_Stream_Syncfusion_DocIO_FormatType_)'| markdownify }} API</td>
 </tr>
 <tr>
-<td>{{'[WordDocument.Save(string fileName, FormatType formatType, HttpResponse response)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_System_Web_HttpResponse_Syncfusion_DocIO_HttpContentDisposition_"")'| markdownify }}</td>	
+<td>{{'[WordDocument.Save(string fileName, FormatType formatType, HttpResponse response)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_System_Web_HttpResponse_Syncfusion_DocIO_HttpContentDisposition_)'| markdownify }}</td>	
 <td>You can save the document as stream and then download from browser.</td>
 </tr>
 <tr>
-<td>{{'[WParagraph.AppendPicture(Image)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Drawing_Image_"")'| markdownify }}</td>	
+<td>{{'[WParagraph.AppendPicture(Image)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Drawing_Image_)'| markdownify }}</td>	
 <td>You can open the image as stream and append in paragraph using AppendPicture(Stream imageStream) API.</td>
 </tr>
 <tr>
-<td>{{'[MailMerge.Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_"")'| markdownify }}</td>	
+<td>{{'[MailMerge.Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_)'| markdownify }}</td>	
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[MailMerge.Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader_"")'| markdownify }}</td>	
+<td>{{'[MailMerge.Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader_)'| markdownify }}</td>	
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[MailMerge.ExecuteGroup(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_IDataReader_"")'| markdownify }}</td>	
+<td>{{'[MailMerge.ExecuteGroup(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_IDataReader_)'| markdownify }}</td>	
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[MailMerge.ExecuteNestedGroup(DbConnection, ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_"")'| markdownify }}</td>	
+<td>{{'[MailMerge.ExecuteNestedGroup(DbConnection, ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_)'| markdownify }}</td>	
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[MailMerge.ExecuteNestedGroup(DbConnection, ArrayList, Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_"")'| markdownify }}</td>	
+<td>{{'[MailMerge.ExecuteNestedGroup(DbConnection, ArrayList, Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_)'| markdownify }}</td>	
 <td>Not supported due to .NET Core limitations.</td>
 </tr>
 <tr>
-<td>{{'[ChartToImageConverter.SaveAsImage(IOfficeChart, Stream)](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_"")'| markdownify }}</td>	
+<td>{{'[ChartToImageConverter.SaveAsImage(IOfficeChart, Stream)](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_)'| markdownify }}</td>	
 <td>WChart.SaveAsImage()</td>
 </tr>
 </table>

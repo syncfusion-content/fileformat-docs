@@ -17,42 +17,8 @@ Convert an existing markdown file to a Word document (DOC, DOCX and RTF) using t
 The following code example shows how to convert Markdown to Word document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-//Open an existing Markdown file.
-using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown))
-{
-    //Save as a Word document.
-    document.Save("MarkdownToWord.docx", FormatType.Docx);
-}
-{% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-'Open an existing Markdown file.
-Using document As WordDocument = New WordDocument("Input.md", FormatType.Markdown)
-    'Save as a Word document.
-    document.Save("MarkdownToWord.docx", FormatType.Docx)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Open the file as a Stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.md"))
-{
-    //Load the file stream into a Markdown file.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Markdown))
-    {
-        //Save as a Word document into the MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        await document.SaveAsync(stream, FormatType.Docx);
-        //Save the stream as a Word document in the local machine.
-        Save(stream, "MarkdownToWord.docx");
-    }
-//Please refer to the following link to save a Word document in the UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Open the file as a Stream.
 using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAccess.Read))
 {
@@ -62,31 +28,30 @@ using (FileStream docStream = new FileStream("Input.md", FileMode.Open, FileAcce
         //Save as a Word document into the MemoryStream.
         MemoryStream outputStream = new MemoryStream();
         document.Save(outputStream, FormatType.Docx);
-        outputStream.Position = 0;
-        //Download a Word document in the browser.
-        return File(outputStream, "application/msword", "MarkdownToWord.docx");
     } 
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Open the file as a Stream.
-using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.md"))
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Open an existing Markdown file.
+using (WordDocument document = new WordDocument("Input.md", FormatType.Markdown))
 {
-    //Load the file stream into a Markdown file.
-    using (WordDocument document = new WordDocument(docStream, FormatType.Markdown))
-    {
-        //Save as a Word document into the MemoryStream.
-        MemoryStream outputStream = new MemoryStream();
-        document.Save(outputStream, FormatType.Docx);
-        //Save the stream as a file in the device and invoke it for viewing. 
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MarkdownToWord.docx", "application/msword", outputStream);
-    }
-//Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+    //Save as a Word document.
+    document.Save("MarkdownToWord.docx", FormatType.Docx);
 }
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Open an existing Markdown file.
+Using document As WordDocument = New WordDocument("Input.md", FormatType.Markdown)
+    'Save as a Word document.
+    document.Save("MarkdownToWord.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Markdown-to-Word-conversion/Convert-Markdown-to-Word).
 
 T> You can also save the markdown file as [HTML](https://help.syncfusion.com/file-formats/docio/html), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf), and [Image](https://help.syncfusion.com/file-formats/docio/word-to-image).
 
@@ -97,7 +62,23 @@ The .NET Word (DocIO) library provides a [ImageNodeVisited](https://help.syncfus
 The following code example shows how to load image data based on the image source path when importing the Markdown files.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a Word document instance.
+using (WordDocument document = new WordDocument())
+{
+    //Hook the event to customize the image while importing Markdown.
+    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
+    //Open the Markdown file.
+    document.Open("Input.md");
+
+    //Save as a Word document to the MemoryStream.
+    MemoryStream outputStream = new MemoryStream();
+    document.Save(outputStream, FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a Word document instance.
 using (WordDocument document = new WordDocument())
 {
@@ -110,7 +91,7 @@ using (WordDocument document = new WordDocument())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a Word document instance.
 Using document As WordDocument = New WordDocument()
     'Hook the event to customize the image while importing Markdown.
@@ -122,67 +103,13 @@ Using document As WordDocument = New WordDocument()
 End Using
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Create a Word document instance.
-using (WordDocument document = new WordDocument())
-{
-    //Hook the event to customize the image while importing Markdown.
-    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    //Open the Markdown file.
-    document.Open("Input.md");
-
-    //Save as a Word document to the MemoryStream.
-    MemoryStream stream = new MemoryStream();
-    await document.SaveAsync(stream, FormatType.Docx);
-    //Save the stream as a Word document in the local machine.
-    Save(stream, "Sample.docx");
-    //Please refer to the following link to save a Word document in the UWP platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Create a Word document instance.
-using (WordDocument document = new WordDocument())
-{
-    //Hook the event to customize the image while importing Markdown.
-    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    //Open the Markdown file.
-    document.Open("Input.md");
-
-    //Save as a Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-    outputStream.Position = 0;
-    //Download as a Word document in the browser.
-    return File(outputStream, "application/msword", "Sample.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Create a Word document instance.
-using (WordDocument document = new WordDocument())
-{
-    //Hook the event to customize the image while importing Markdown.
-    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    //Open the Markdown file.
-    document.Open("Input.md");
-
-    //Save as a Word document to the MemoryStream.
-    MemoryStream outputStream = new MemoryStream();
-    document.Save(outputStream, FormatType.Docx);
-    //Save the stream as a file in the device and invoke it for viewing. 
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", outputStream);
-    //Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform
-    //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-}
-{% endhighlight %}
 {% endtabs %}
 
 The following code examples show the event handler to customize the image based on the source path.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
     //Set the image stream based on the image name from the input Markdown.
@@ -203,7 +130,28 @@ private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
+{
+    //Set the image stream based on the image name from the input Markdown.
+    if (args.Uri == "Image_1.png")
+        args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
+    else if (args.Uri == "Image_2.png")
+        args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
+    //Retrieve the image from the website and use it.
+    else if (args.Uri.StartsWith("https://"))
+    {
+        WebClient client = new WebClient();
+        //Download the image as a stream.
+        byte[] image = client.DownloadData(args.Uri);
+        Stream stream = new MemoryStream(image);
+        //Set the retrieved image from the input Markdown.
+        args.ImageStream = stream;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByVal args As Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs)
     'Set the image stream based on the image name from the input Markdown.
     If args.Uri Is "Image_1.png" Then
@@ -222,81 +170,9 @@ Private Shared Sub MdImportSettings_ImageNodeVisited(ByVal sender As Object, ByV
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
-{
-    //Set the image stream based on the image name from the input Markdown.
-    if (args.Uri == "Image_1.png")
-    {
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_1.png");
-    }
-    else if (args.Uri == "Image_2.png") 
-    {
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
-    }
-    //Retrieve the image from the website and use it.
-    else if (args.Uri.StartsWith("https://"))
-    {
-        WebClient client = new WebClient();
-        //Download the image as a stream.
-        byte[] image = client.DownloadData(args.Uri);
-        Stream stream = new MemoryStream(image);
-        //Set the retrieved image from the input Markdown.
-        args.ImageStream = stream;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
-{
-    //Set the image stream based on the image name from the input Markdown.
-    if (args.Uri == "Image_1.png")
-        args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
-    else if (args.Uri == "Image_2.png")
-        args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-    //Retrieve the image from the website and use it.
-    else if (args.Uri.StartsWith("https://"))
-    {
-        WebClient client = new WebClient();
-        //Download the image as a stream.
-        byte[] image = client.DownloadData(args.Uri);
-        Stream stream = new MemoryStream(image);
-        //Set the retrieved image from the input Markdown.
-        args.ImageStream = stream;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
-{
-    //Set the image stream based on the image name from the input Markdown.
-    if (args.Uri == "Image_1.png")
-    {
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_1.png");
-    }
-    else if (args.Uri == "Image_2.png") 
-    {
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        args.ImageStream = assembly.GetManifestResourceStream("Customize_image.Assets.Image_2.png");
-    }
-    //Retrieve the image from the website and use it.
-    else if (args.Uri.StartsWith("https://"))
-    {
-        WebClient client = new WebClient();
-        //Download the image as a stream.
-        byte[] image = client.DownloadData(args.Uri);
-        Stream stream = new MemoryStream(image);
-        //Set the retrieved image from the input Markdown.
-        args.ImageStream = stream;
-    }
-}
-{% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Markdown-to-Word-conversion/Customize-image).
 
 N> Hook the event handler before opening a Word document as per the above code example.
 
@@ -556,7 +432,7 @@ N> Hook the event handler before opening a Word document as per the above code e
 </td>
 <td style="width: 41.7072%;">
 <p>For image, enclose an alternative text within the brackets [], and then link of the image source within parentheses ().</p>
-<p>If URL path is base64string, then it will be preserved properly in Word document. Otherwise, you can also set image from stream while opening Markdown file.</p>
+<p>If URL path is base64string, then it will be preserved properly in Word document. Otherwise, you can also {{'[set image from stream while opening Markdown file.](https://help.syncfusion.com/file-formats/docio/convert-markdown-to-word-document-in-csharp#customize-image-data)'| markdownify }}</p>
 </td>
 </tr>
 <tr>
