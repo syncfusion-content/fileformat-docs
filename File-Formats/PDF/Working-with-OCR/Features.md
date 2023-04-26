@@ -1329,9 +1329,6 @@ processor.Settings.Performance = Performance.Fast
 {% endtabs %}  
 ## TesseractBinaries paths and Tesseract language data
 
-Starting with v21.2.x, TesseractBinaries and Tesseract language data do not have any reference paths added. However, if you need to refer TesseractBinaries and Tessdata paths manually in your application.
+Starting with v21.1.x, TesseractBinaries and Tesseract language data folder paths are added by default. So, there is no need to provide these paths explicitly. However, you can refer TesseractBinaries and Tessdata paths manually in your application as per the requirement.
 
-please use the below folder path: 
-
-Tesseract language data folder path: bin\Debug\net6.0\runtimes\tessdata
-TesseractBinaries windows folder path: bin\Debug\net6.0\runtimes
+You can get the TessseractBinaries or TessData files from NuGet package runtimes folder or bin folder of the application.
