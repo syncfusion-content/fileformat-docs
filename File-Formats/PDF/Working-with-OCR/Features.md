@@ -1327,3 +1327,7 @@ processor.Settings.Performance = Performance.Fast
 {% endhighlight %}
 
 {% endtabs %}  
+## TesseractBinaries Paths and Tesseract Language Data
+
+Starting with v21.1.x, TesseractBinaries, and Tesseract language data folder paths are added by default. So, there is no need to provide these paths explicitly. However, you can refer to TesseractBinaries and Tessdata paths manually in your application as per the requirement.
+You can get the TessseractBinaries or TessData files from the NuGet package runtimes folder or bin folder of the application.
