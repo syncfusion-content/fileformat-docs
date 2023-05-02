@@ -15,51 +15,7 @@ You can add any of the predefined [SmartArt](https://help.syncfusion.com/cr/file
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a BasicBlockList SmartArt to the slide at the specified size and position.
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426); 
-//Save the Presentation
-pptxDoc.Save("SmartArt.pptx");
-//Close the Presentation
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Create an instance of PowerPoint Presentation
-Dim pptxDoc As IPresentation = Presentation.Create()
-'Add a blank slide to the Presentation
-Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-'Add a BasicBlockList SmartArt to the slide at the specified size and position.
-Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426)
-'Save the Presentation
-pptxDoc.Save("SmartArt.pptx")
-'Close the Presentation
-pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a BasicBlockList SmartArt to the slide at the specified size and position.
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426); 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide to the Presentation
@@ -73,25 +29,30 @@ pptxDoc.Save(outputStream);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide to the Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 //Add a BasicBlockList SmartArt to the slide at the specified size and position.
 ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426); 
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
+//Save the Presentation
+pptxDoc.Save("SmartArt.pptx");
+//Close the Presentation
 pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Create an instance of PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+'Add a blank slide to the Presentation
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+'Add a BasicBlockList SmartArt to the slide at the specified size and position.
+Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426)
+'Save the Presentation
+pptxDoc.Save("SmartArt.pptx")
+'Close the Presentation
+pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
@@ -102,7 +63,25 @@ You can add a new node to the [SmartArt](https://help.syncfusion.com/cr/file-for
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create an instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Add a blank slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+//Add a SmartArt to the slide at the specified size and position
+ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
+// Add a new node to the SmartArt.
+ISmartArtNode newNode = smartArt.Nodes.Add();
+// Set the text to the newly added node.
+newNode.TextBody.AddParagraph("New main node added.");
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Close the Presentation.
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide to the Presentation
@@ -119,7 +98,7 @@ pptxDoc.Save("SmartArt.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a blank slide to the Presentation
@@ -137,39 +116,25 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
-// Add a new node to the SmartArt.
-ISmartArtNode newNode = smartArt.Nodes.Add();
-// Set the text to the newly added node.
-newNode.TextBody.AddParagraph("New main node added.");
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+In [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagrams, you can also add nodes to several nested levels. The maximum limit of nested levels may vary based on SmartArt types. The following code example demonstrates adding nested level nodes in a [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html).
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide to the Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
+//Add a SmartArt to the slide at the specified size and position.
 ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
 // Add a new node to the SmartArt.
 ISmartArtNode newNode = smartArt.Nodes.Add();
-// Set the text to the newly added node.
-newNode.TextBody.AddParagraph("New main node added.");
+// Add a child node to the SmartArt node
+ISmartArtNode childNode = newNode.ChildNodes.Add();
+// Set a text to newly added child node.
+childNode.TextBody.AddParagraph("Child node of the existing node.");
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -177,38 +142,7 @@ pptxDoc.Save(outputStream);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
-// Add a new node to the SmartArt.
-ISmartArtNode newNode = smartArt.Nodes.Add();
-// Set the text to the newly added node.
-newNode.TextBody.AddParagraph("New main node added.");
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
-{% endtabs %}
-
-In [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagrams, you can also add nodes to several nested levels. The maximum limit of nested levels may vary based on SmartArt types. The following code example demonstrates adding nested level nodes in a [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html).
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide to the Presentation
@@ -227,7 +161,7 @@ pptxDoc.Save("SmartArt.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a blank slide to the Presentation
@@ -246,77 +180,6 @@ pptxDoc.Save("SmartArt.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position.
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
-// Add a new node to the SmartArt.
-ISmartArtNode newNode = smartArt.Nodes.Add();
-// Add a child node to the SmartArt node
-ISmartArtNode childNode = newNode.ChildNodes.Add();
-// Set a text to newly added child node.
-childNode.TextBody.AddParagraph("Child node of the existing node.");
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position.
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
-// Add a new node to the SmartArt.
-ISmartArtNode newNode = smartArt.Nodes.Add();
-// Add a child node to the SmartArt node
-ISmartArtNode childNode = newNode.ChildNodes.Add();
-// Set a text to newly added child node.
-childNode.TextBody.AddParagraph("Child node of the existing node.");
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-//Close the Presentation.
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position.
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
-// Add a new node to the SmartArt.
-ISmartArtNode newNode = smartArt.Nodes.Add();
-// Add a child node to the SmartArt node
-ISmartArtNode childNode = newNode.ChildNodes.Add();
-// Set a text to newly added child node.
-childNode.TextBody.AddParagraph("Child node of the existing node.");
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
 {% endtabs %}
 
 ## Modifying SmartArt appearance 
@@ -325,7 +188,32 @@ You can modify the [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfu
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Get the Slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+//Get the SmartArt from Slide.
+ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
+//Get the first node
+ISmartArtNode firstNode = smartArt.Nodes[0];
+// Set the text content of node.
+firstNode.TextBody.AddParagraph("First Node");
+//Set the fill type of node.
+firstNode.Shapes[0].Fill.FillType = FillType.Solid;
+// Set the fill color of node.
+firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.GreenYellow;
+//Set  transparency value of fill
+firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Close the Presentation.
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
 //Get the Slide from Presentation
@@ -348,7 +236,7 @@ pptxDoc.Save("SmartArt.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
 'Get the Slide from Presentation
@@ -371,99 +259,6 @@ pptxDoc.Save("SmartArt.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Get the Slide from Presentation
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from Slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Get the first node
-ISmartArtNode firstNode = smartArt.Nodes[0];
-// Set the text content of node.
-firstNode.TextBody.AddParagraph("First Node");
-//Set the fill type of node.
-firstNode.Shapes[0].Fill.FillType = FillType.Solid;
-// Set the fill color of node.
-firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.GreenYellow;
-//Set  transparency value of fill
-firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Get the Slide from Presentation
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from Slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Get the first node
-ISmartArtNode firstNode = smartArt.Nodes[0];
-// Set the text content of node.
-firstNode.TextBody.AddParagraph("First Node");
-//Set the fill type of node.
-firstNode.Shapes[0].Fill.FillType = FillType.Solid;
-// Set the fill color of node.
-firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.GreenYellow;
-//Set  transparency value of fill
-firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-//Close the Presentation.
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Get the Slide from Presentation
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from Slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Get the first node
-ISmartArtNode firstNode = smartArt.Nodes[0];
-// Set the text content of node.
-firstNode.TextBody.AddParagraph("First Node");
-//Set the fill type of node.
-firstNode.Shapes[0].Fill.FillType = FillType.Solid;
-// Set the fill color of node.
-firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.GreenYellow;
-//Set  transparency value of fill
-firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
 {% endtabs %}
 
 ## Iterating through child nodes of an existing SmartArt
@@ -472,7 +267,32 @@ You can iterate through the child nodes and access the properties of each node i
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Traverse through shape in the first slide.
+foreach (IShape shape in pptxDoc.Slides[0].Shapes)
+{
+    if (shape is ISmartArt)
+    {
+        //Traverse through all nodes inside SmartArt
+        foreach (ISmartArtNode mainNode in (shape as ISmartArt).Nodes)
+        {
+            if (mainNode.TextBody.Text == "Old Content")
+            //Change the node content
+            mainNode.TextBody.Paragraphs[0].TextParts[0].Text = "New Content";
+        }
+    }
+}
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Close the Presentation.
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
 //Traverse through shape in the first slide.
@@ -495,7 +315,7 @@ pptxDoc.Save("SmartArt.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
 'Traverse through shape in the first slide.
@@ -516,99 +336,6 @@ pptxDoc.Save("SmartArt.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Traverse through shape in the first slide.
-foreach (IShape shape in pptxDoc.Slides[0].Shapes)
-{
-    if (shape is ISmartArt)
-    {
-        //Traverse through all nodes inside SmartArt
-        foreach (ISmartArtNode mainNode in (shape as ISmartArt).Nodes)
-        {
-            if (mainNode.TextBody.Text == "Old Content")
-            //Change the node content
-            mainNode.TextBody.Paragraphs[0].TextParts[0].Text = "New Content";
-        }
-    }
-}
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Traverse through shape in the first slide.
-foreach (IShape shape in pptxDoc.Slides[0].Shapes)
-{
-    if (shape is ISmartArt)
-    {
-        //Traverse through all nodes inside SmartArt
-        foreach (ISmartArtNode mainNode in (shape as ISmartArt).Nodes)
-        {
-            if (mainNode.TextBody.Text == "Old Content")
-            //Change the node content
-            mainNode.TextBody.Paragraphs[0].TextParts[0].Text = "New Content";
-        }
-    }
-}
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-//Close the Presentation.
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Traverse through shape in the first slide.
-foreach (IShape shape in pptxDoc.Slides[0].Shapes)
-{
-    if (shape is ISmartArt)
-    {
-        //Traverse through all nodes inside SmartArt
-        foreach (ISmartArtNode mainNode in (shape as ISmartArt).Nodes)
-        {
-            if (mainNode.TextBody.Text == "Old Content")
-            //Change the node content
-            mainNode.TextBody.Paragraphs[0].TextParts[0].Text = "New Content";
-        }
-    }
-}
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
 {% endtabs %}
 
 ## Removing node from an existing SmartArt
@@ -617,7 +344,24 @@ You can remove a node from the [SmartArt](https://help.syncfusion.com/cr/file-fo
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+//Get the first slide from the Presentation.
+ISlide slide = pptxDoc.Slides[0];
+//Get the SmartArt from slide.
+ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
+//Remove a node at the specified index.
+smartArt.Nodes.RemoveAt(4);
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Close the Presentation.
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Open a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("SampleDocument.pptx");
 //Get the first slide from the Presentation.
@@ -632,7 +376,7 @@ pptxDoc.Save("SmartArt.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Open a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("SampleDocument.pptx")
 'Get the first slide from the Presentation.
@@ -647,75 +391,6 @@ pptxDoc.Save("SmartArt.pptx")
 pptxDoc.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".pptx");
-//Creates a storage file from FileOpenPicker
-StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Get the Slide from Presentation
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Remove a node at the specified index.
-smartArt.Nodes.RemoveAt(4);
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Get the first slide from the Presentation.
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Remove a node at the specified index.
-smartArt.Nodes.RemoveAt(4);
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-//Close the Presentation.
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-//Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
-//Get the first slide from the Presentation.
-ISlide slide = pptxDoc.Slides[0];
-//Get the SmartArt from slide.
-ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
-//Remove a node at the specified index.
-smartArt.Nodes.RemoveAt(4);
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-{% endhighlight %}
-
 {% endtabs %}
 
 ## Assistant nodes in SmartArt
@@ -724,7 +399,29 @@ You can check whether a node is an assistant or not. Also you can change a node 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create an instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Add a blank slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+//Add a SmartArt to the slide at the specified size and position
+ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96);
+//Traverse through all nodes of the SmartArt.
+foreach (ISmartArtNode node in smartArt.Nodes)
+{
+    //Check if the node is assistant or not.
+    if (node.IsAssistant)
+        //Set the assistant node to false.
+        node.IsAssistant = false;
+}
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+//Close the Presentation.
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
 
@@ -746,7 +443,7 @@ pptxDoc.Save("Sample.pptx");
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create an instance of PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a blank slide to the Presentation
@@ -765,83 +462,6 @@ Next
 pptxDoc.Save("Sample.pptx")
 'Close the Presentation.
 pptxDoc.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96);
-//Traverse through all nodes of the SmartArt.
-foreach (ISmartArtNode node in smartArt.Nodes)
-{
-    //Check if the node is assistant or not.
-    if (node.IsAssistant)
-        //Set the assistant node to false.
-        node.IsAssistant = false;
-} 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "SmartArt";
-savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-//Saves changes to the specified storage file
-await pptxDoc.SaveAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96);
-//Traverse through all nodes of the SmartArt.
-foreach (ISmartArtNode node in smartArt.Nodes)
-{
-    //Check if the node is assistant or not.
-    if (node.IsAssistant)
-        //Set the assistant node to false.
-        node.IsAssistant = false;
-}
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-//Close the Presentation.
-pptxDoc.Close();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-// Create an instance of PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Create();
-//Add a blank slide to the Presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a SmartArt to the slide at the specified size and position
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96);
-//Traverse through all nodes of the SmartArt.
-foreach (ISmartArtNode node in smartArt.Nodes)
-{
-    //Check if the node is assistant or not.
-    if (node.IsAssistant)
-        //Set the assistant node to false.
-        node.IsAssistant = false;
-}
-//Create new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format.
-pptxDoc.Save(stream);
-//Close the presentation
-pptxDoc.Close();
-stream.Position = 0;
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SmartArt.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}

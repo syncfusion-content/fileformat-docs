@@ -35,7 +35,11 @@ The following code example shows how to perform Mail merge in the specific regio
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//SqlCeConnection is supported in .NET Framework alone.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
 //Gets the data table 
 DataTable table = GetDataTable();
@@ -46,7 +50,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As New WordDocument("EmployeesTemplate.docx")
 'Gets the data table
 Dim table As DataTable = GetDataTable()
@@ -57,25 +61,17 @@ document.Save("Result.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//SqlCeConnection is supported in .NET Framework alone.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 private DataTable GetDataTable()
 {
     DataSet dataset = new DataSet();
@@ -92,7 +88,7 @@ private DataTable GetDataTable()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Private Function GetDataTable() As DataTable
     Dim dataset As DataSet = New DataSet
     Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
@@ -108,19 +104,7 @@ Private Function GetDataTable() As DataTable
 End Function
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//SqlCeConnection is supported in .NET Framework alone.
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-for-group).
 
@@ -134,9 +118,26 @@ You can perform Mail merge with .NET objects in a template document. The followi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Opens the template document
-WordDocument document = new WordDocument(@"Template.docx");
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the employee details as “IEnumerable” collection
+List<Employee> employeeList = GetEmployees();
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+//Performs Mail merge
+document.MailMerge.ExecuteGroup(dataTable);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %} 
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens the template document
+WordDocument document = new WordDocument("Template.docx");
 //Gets the employee details as “IEnumerable” collection
 List<Employee> employeeList = GetEmployees();
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
@@ -148,7 +149,7 @@ document.Save("Result.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -160,6 +161,43 @@ document.MailMerge.ExecuteGroup(dataTable)
 'Saves and closes the Word document instance
 document.Save("Result.docx")
 document.Close()
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+//Opens the template document
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Template.docx"), FormatType.Docx);
+//Gets the employee details as “IEnumerable” collection
+List<Employee> employeeList = GetEmployees();
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+//Uses the mail merge events handler for image fields
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
+//Performs Mail merge
+document.MailMerge.ExecuteGroup(dataTable);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document 
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+
+private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
+{
+    //Binds image from file system during mail merge
+    if (args.FieldName == "Photo")
+    {
+        string ProductFileName = args.FieldValue.ToString();
+        //Gets the image from file system
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+        Stream imageStream = assembly.GetManifestResourceStream("Sample.Data." + ProductFileName);
+        args.ImageStream = imageStream;
+    }
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
@@ -199,70 +237,13 @@ private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Opens the template document
-FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the employee details as “IEnumerable” collection
-List<Employee> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-//Performs Mail merge
-document.MailMerge.ExecuteGroup(dataTable);
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Opens the template document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Template.docx"), FormatType.Docx);
-//Gets the employee details as “IEnumerable” collection
-List<Employee> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-//Uses the mail merge events handler for image fields
-document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
-//Performs Mail merge
-document.MailMerge.ExecuteGroup(dataTable);
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document 
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-
-private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
-{
-    //Binds image from file system during mail merge
-    if (args.FieldName == "Photo")
-    {
-        string ProductFileName = args.FieldValue.ToString();
-        //Gets the image from file system
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        Stream imageStream = assembly.GetManifestResourceStream("Sample.Data." + ProductFileName);
-        args.ImageStream = imageStream;
-    }
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code example shows GetEmployees method which is used to get data for mail merge.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -275,7 +256,20 @@ public List<Employee> GetEmployees()
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+public List<Employee> GetEmployees()
+{
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Function GetEmployees() As List(Of Employee)
     Dim employees As New List(Of Employee)()
     employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
@@ -285,35 +279,22 @@ Public Function GetEmployees() As List(Of Employee)
     employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
     Return employees
 End Function
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-public List<Employee> GetEmployees()
-{
-    List<Employee> employees = new List<Employee>();
-    employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-    employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-    return employees;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-public List<Employee> GetEmployees()
-{
-    List<Employee> employees = new List<Employee>();
-    employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-    employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-    return employees;
-}
 {% endhighlight %}
 
 {% highlight c# tabtitle="Xamarin" %}
+public List<Employee> GetEmployees()
+{
+    List<Employee> employees = new List<Employee>();
+    employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+    employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+    employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+    employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+    employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+    return employees;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
 public List<Employee> GetEmployees()
 {
     List<Employee> employees = new List<Employee>();
@@ -330,8 +311,34 @@ public List<Employee> GetEmployees()
 
 The following code example shows the Employee class.
 
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public class Employee
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public string Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Photo = photoFileName;
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -356,7 +363,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Public Class Employee
     Public Property FirstName() As String
         Get
@@ -443,6 +450,31 @@ Public Class Employee
 End Class
 {% endhighlight %}
 
+{% highlight c# tabtitle="Xamarin" %}
+public class Employee
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public string Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Photo = photoFileName;
+    }
+}
+{% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 public class Employee
 {
@@ -468,55 +500,6 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-public class Employee
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Region { get; set; }
-    public string Country { get; set; }
-    public string Title { get; set; }
-    public string Photo { get; set; }
-    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Title = title;
-        Address = address;
-        City = city;
-        Region = region;
-        Country = country;
-        Photo = photoFileName;
-    }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-public class Employee
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Region { get; set; }
-    public string Country { get; set; }
-    public string Title { get; set; }
-    public string Photo { get; set; }
-    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Title = title;
-        Address = address;
-        City = city;
-        Region = region;
-        Country = country;
-        Photo = photoFileName;
-    }
-}
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
