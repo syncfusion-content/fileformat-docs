@@ -27,9 +27,9 @@ To quickly get started with creating a Word document in Blazor, check this video
 * Check the box for Use previews of the .NET Core SDK and click OK.
 * Restart the Visual Studio 2019.
 
-## Server-side application
+## Server app
 
-Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server- app project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
@@ -37,11 +37,11 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/Blazor_images_Server_ProjectName.png)
 
-Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server app for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
 
-Step 4: To **create a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **create a Word document in server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
@@ -99,7 +99,7 @@ using System.IO;
 
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **CreateWord** in **WordService** class and include the following code snippet to **create a simple Word document in Blazor** Server app.
 
 {% tabs %}
 
@@ -248,11 +248,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor Serve output Word document](Blazor_Images/Blazor_Output.png)
 
-## Client-side application
+## WASM app
 
-Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
@@ -260,11 +260,11 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/Blazor_image_Client_ProjectName.png)
 
-Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor WASM app for .NET Core 3.0.0-preview9.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor Client side.](Blazor_Images/Select_Client.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor WASM.](Blazor_Images/Select_Client.png)
 
-Step 4: To **create a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **create a Word document in WASM app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
@@ -298,7 +298,7 @@ Step 6: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** WASM app.
 
 {% tabs %}
 
@@ -451,8 +451,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Client-side output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor WASM output Word document](Blazor_Images/Blazor_Output.png)
 
-N> Even though Word library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
+N> Even though Word library works in WASM, it is recommended to use server  deployment. Since the WASM deployment increases the application payload size.
 
 Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)

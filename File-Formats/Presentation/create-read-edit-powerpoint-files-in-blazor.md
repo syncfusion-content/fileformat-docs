@@ -23,9 +23,9 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 * Check the box for Use previews of the .NET Core SDK and click OK.
 * Restart the Visual Studio 2019.
 
-## Server-side application
+## Server app
 
-Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document ](Workingwith_Blazor/Create_project.png)
 
@@ -33,11 +33,11 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server app for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Server.png)
 
-Step 4: To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
+Step 4: To **create a PowerPoint document in Server app**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
 ![Install .NET Core Nuget Package](Workingwith_Blazor/NuGet.png)
 
@@ -101,7 +101,7 @@ Step 8: Create a new cs file with name as **PresentationService** under Data fol
 
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server app.
 
 {% tabs %}
 
@@ -209,11 +209,11 @@ Step 11: Add the following JavaScript function in the _Host.cshtml in the Pages 
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
-![Blazor Server-side output PowerPoint document](Workingwith_Blazor/Output.png)
+![Blazor Server output PowerPoint document](Workingwith_Blazor/Output.png)
 
-## Client-side application
+## WASM app
 
-Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document](Workingwith_Blazor/Create_project.png)
 
@@ -221,11 +221,11 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor WASM app for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Client.png)
 
-Step 4: To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
+Step 4: To **create a PowerPoint document in Server app**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
 ![Install .NET Core Nuget Package](Workingwith_Blazor/NuGet.png)
 
@@ -257,7 +257,7 @@ Step 6: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** WASM app.
 
 {% tabs %}
 
@@ -362,8 +362,8 @@ Step 9: Add the following JavaScript function in the _Host.cshtml in the Pages f
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
-![Blazor Client-Side output PowerPoint document](Workingwith_Blazor/Output.png)
+![Blazor WASM output PowerPoint document](Workingwith_Blazor/Output.png)
 
-N> Even though PowerPoint library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size. You can also explore our [Blazor PowerPoint library demo](https://blazor.syncfusion.com/demos/powerpoint/getting-started) that shows how to create and modify PowerPoint files from C# with just five lines of code.
+N> Even though PowerPoint library works in WASM, it is recommended to use server deployment. Since the WASM deployment increases the application payload size. You can also explore our [Blazor PowerPoint library demo](https://blazor.syncfusion.com/demos/powerpoint/getting-started) that shows how to create and modify PowerPoint files from C# with just five lines of code.
 
 Kindly explore the [supported and unsupported features of PowerPoint library in Blazor](https://help.syncfusion.com/file-formats/presentation/supported-and-unsupported-features).

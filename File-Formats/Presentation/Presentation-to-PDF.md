@@ -691,11 +691,11 @@ public class DocumentWarning : IWarning
 {% endhighlight %}
 
 {% highlight C# tabtitle="C# [Windows-specific]" %}
-//Essential Presentation library supports Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
+//Essential Presentation library supports Show warning for unsupported elements feature in C# [Cross-platform], Blazor server app and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
-//Essential Presentation supports library Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
+//Essential Presentation supports library Show warning for unsupported elements feature in C# [Cross-platform], Blazor server app and Xamarin platforms alone.
 {% endhighlight %}
 
 {% endtabs %}

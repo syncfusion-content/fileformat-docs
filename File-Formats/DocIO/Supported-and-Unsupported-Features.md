@@ -1103,8 +1103,8 @@ Yes<br/><br/></td></tr>
 <table>
 <tr>
 <th>Feature<br/><br/></th>
-<th>Server side and hosted application<br/><br/></th>
-<th>Client side application<br/><br/></th>
+<th>Server  and hosted application<br/><br/></th>
+<th>WASM app<br/><br/></th>
 </tr>
 <tbody>
 <tr>
