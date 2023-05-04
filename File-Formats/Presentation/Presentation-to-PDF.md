@@ -824,11 +824,11 @@ The following code example demonstrates how to cancel or continue the PowerPoint
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Essential Presentation library supports Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
+//Essential Presentation library supports Show warning for unsupported elements feature in ASP.NET Core, Blazor server app and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
-//Essential Presentation supports library Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
+//Essential Presentation supports library Show warning for unsupported elements feature in ASP.NET Core, Blazor server app and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
