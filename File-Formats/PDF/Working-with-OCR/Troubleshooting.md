@@ -62,6 +62,30 @@ The tesseract binaries path is TesseractBinaries/Windows, and the assemblies sho
 2.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x86/libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
+<tr>
+<th style="font-size:14px">Reason 1
+</th>
+<td>An exception may occur due to missing or mismatched assemblies of the Tesseract binaries and Tesseract data from the OCR processor.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px">Reason 2
+</th>
+<td>An exception may occur due to the VC++ 2015 redistributable files missing in the machine where the OCR processor takes place.
+</td>
+</tr>
+<th style="font-size:14px">Solution</th>
+<td>
+Install the VC++ 2015 redistributable files in your machine to overcome an exception. So, please select both file and install it.
+<br/>
+<b>Refer to the following screenshot:</b>
+<br/>
+<img src="OCR-Images/Redistributable-file.png" alt="Visual C++ 2015 Redistributable file">
+<br/><br/>
+Please find the download link Visual C++ 2015 Redistributable file,<br>
+<a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">Visual C++ 2015 Redistributable file</a> 
+</td>
+</tr>
 </table>
 
 <table>
@@ -117,11 +141,10 @@ For example, to perform the optical character recognition in German, the propert
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-By using the best tessdata, we can improve the OCR results. For more information, please refer to the links below.
+By using the best tessdata, we can improve the OCR results. For more information,<br> please refer to the links below.
 <br/>
-* [https://github.com/tesseract-ocr/tessdata_best](https://github.com/tesseract-ocr/tessdata_best)
-N> For better performance, kindly use the fast tessdata which is mentioned in below link, <br/>
-[https://github.com/tesseract-ocr/tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) 
+<a href="https://github.com/tesseract-ocr/tessdata_best">https://github.com/tesseract-ocr/tessdata_best</a> <br>
+{{'**Note:**'| markdownify }}For better performance, kindly use the fast tessdata which is mentioned in below link,<br/><a href="https://github.com/tesseract-ocr/tessdata_fast">https://github.com/tesseract-ocr/tessdata_fast</a> </td>
 </td>
 </tr>
 </table>
