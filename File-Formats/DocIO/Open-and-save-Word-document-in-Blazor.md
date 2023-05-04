@@ -206,7 +206,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Server app output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor Server output Word document](Blazor_Images/Blazor_Output.png)
 
 ## WASM app
 
@@ -369,6 +369,6 @@ By executing the program, you will get the **Word document** as follows.
 
 ![Blazor WASM app output Word document](Blazor_Images/Blazor_Output.png)
 
-N> Even though Word library works in WASM, it is recommended to use server-side deployment. Since the WASM deployment increases the application payload size.
+N> Even though Word library works in WASM, it is recommended to use server deployment. Since the WASM deployment increases the application payload size.
 
 Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
