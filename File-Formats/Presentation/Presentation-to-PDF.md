@@ -195,8 +195,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight VB.
-NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
