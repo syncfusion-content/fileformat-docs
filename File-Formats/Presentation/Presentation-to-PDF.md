@@ -71,7 +71,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Namespaces to perform PPTX to PDF conversion
 Imports Syncfusion.OfficeChartToImageConverter
 Imports Syncfusion.Presentation
@@ -195,7 +195,8 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.
+NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
@@ -300,7 +301,7 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 }
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
@@ -393,7 +394,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize the conversion settings
@@ -475,7 +476,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize the conversion settings
@@ -576,7 +577,7 @@ pdfDocument.Close(true);
 pptxDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Initialize the conversion settings
@@ -694,7 +695,7 @@ public class DocumentWarning : IWarning
 //Essential Presentation library supports Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 //Essential Presentation supports library Show warning for unsupported elements feature in C# [Cross-platform], Blazor server-side application and Xamarin platforms alone.
 {% endhighlight %}
 
@@ -726,7 +727,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable the handouts and number of pages per slide options in converter settings.
@@ -769,7 +770,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -812,7 +813,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable or disable including the hidden slides option in converter settings.
@@ -861,7 +862,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 
 'Open a PowerPoint Presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -913,7 +914,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable or disable including the hidden slides option in converter settings.
@@ -984,7 +985,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 }
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Open a PowerPoint Presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
     'Create an instance of the ChartToImageConverter and assign it to the ChartToImageConverter property of the Presentation.
@@ -1031,7 +1032,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
@@ -1077,7 +1078,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -1123,7 +1124,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation to convert.
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Enable the include hidden slides option in converter settings.
@@ -1167,7 +1168,7 @@ pptxDoc.Close();
 pdfDoc.Close();
 {% endhighlight %}
 
-{% highlight VB. NET tabtitle="VB.NET [Windows-specific]" %}
+{% highlight VB.NET tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint document
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 'Initialize the conversion settings
