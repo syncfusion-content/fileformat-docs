@@ -29,7 +29,7 @@ To quickly get started with creating a Word document in Blazor, check this video
 
 ## Server app
 
-Step 1: Create a new C# Blazor Server- app project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
@@ -41,7 +41,7 @@ Step 3: Choose **Blazor Server App** and click Create button to create a new Bla
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
 
-Step 4: To **create a Word document in server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **create a Word document in Blazor Server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
@@ -248,7 +248,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Serve output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor Server app output Word document](Blazor_Images/Blazor_Output.png)
 
 ## WASM app
 
