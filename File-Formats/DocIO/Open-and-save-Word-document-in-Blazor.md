@@ -23,15 +23,15 @@ Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/docume
 * Check the box for Use previews of the .NET Core SDK and click OK.
 * Restart the Visual Studio 2019.
 
-## Server-side application
+## Server app
 
-Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server app for .NET Core 3.0.0-preview9.
 
-Step 4: To **open and save a Word document in server-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+Step 4: To **open and save a Word document in Blazor Server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -86,7 +86,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **OpenAndSaveDocument** in **WordService** class and include the following code snippet to **open an existing Word document in Blazor** Server-Side application.
+Step 9: Create a new MemoryStream method with name as **OpenAndSaveDocument** in **WordService** class and include the following code snippet to **open an existing Word document in Blazor** Server app.
 
 {% tabs %}
 
@@ -206,15 +206,15 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor Server output Word document](Blazor_Images/Blazor_Output.png)
 
-## Client-side application
+## WASM app
 
-Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor WASM app for .NET Core 3.0.0-preview9.
 
 Step 4: To **open and save a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
@@ -246,7 +246,7 @@ Step 6: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and include the following code snippet to **open an existing Word document in Blazor** Client-Side application.
+Step 7: Create a new async method with name as ``OpenAndSaveDocument`` and include the following code snippet to **open an existing Word document in Blazor** WASM app.
 
 {% tabs %}
 
@@ -367,8 +367,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Client-side output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor WASM output Word document](Blazor_Images/Blazor_Output.png)
 
-N> Even though Word library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
+N> Even though Word library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size.
 
 Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
