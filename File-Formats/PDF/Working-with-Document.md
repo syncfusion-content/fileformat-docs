@@ -15,80 +15,7 @@ You can choose the standard or custom page size when you add a page to the PDF d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-// Set the page size.
-document.PageSettings.Size = PdfPageSize.A4;
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-//Set the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Draw the text.
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
-
-//Save the document.
-document.Save("Output.pdf");
-//Close the document.
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document.
-Dim document As New PdfDocument()
-'Set the page size.
-document.PageSettings.Size = PdfPageSize.A4
-'Add a page to the document
-Dim page As PdfPage = document.Pages.Add()
-
-'Create PDF graphics for the page.
-Dim graphics As PdfGraphics = page.Graphics
-'Set the font.
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
-'Draw the text.
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
-
-'Save the document.
-document.Save("Output.pdf")
-'Close the document.
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-// Set the page size.
-document.PageSettings.Size = PdfPageSize.A4;
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-//Set the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Draw the text.
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -113,16 +40,9 @@ stream.Position = 0;
 //Close the document.
 document.Close(true);
 
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -136,24 +56,35 @@ PdfGraphics graphics = page.Graphics;
 //Set the font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 //Draw the text.
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
 
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
+//Save the document.
+document.Save("Output.pdf");
 //Close the document.
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document.
+Dim document As New PdfDocument()
+'Set the page size.
+document.PageSettings.Size = PdfPageSize.A4
+'Add a page to the document
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page.
+Dim graphics As PdfGraphics = page.Graphics
+'Set the font.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+'Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
 
 {% endhighlight %}
 
