@@ -35,8 +35,6 @@ graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Dra
 MemoryStream stream = new MemoryStream();
 //Save the document into stream
 document.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 document.Close(true);
 
