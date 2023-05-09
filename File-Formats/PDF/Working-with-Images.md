@@ -821,7 +821,6 @@ loadedDocument.Save(stream)
 loadedDocument.Close(True)
 
 {% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Images/Remove-images-from-PDF-document). 
