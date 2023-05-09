@@ -88,12 +88,13 @@ using (WordDocument document = new WordDocument(filePath))
     using (DocToPDFConverter converter = new DocToPDFConverter())
     {
         //Converts Word document into PDF document
-        PdfDocument pdfDocument = converter.ConvertToPDF(document);
-
-        //Saves the PDF document to MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);
-        stream.Position = 0;
+        using (PdfDocument pdfDocument = converter.ConvertToPDF(document))
+        {
+            //Saves the PDF document to MemoryStream.
+            MemoryStream stream = new MemoryStream();
+            pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);
+            stream.Position = 0;
+        }                   
     }
 }
 
@@ -101,7 +102,7 @@ using (WordDocument document = new WordDocument(filePath))
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET-Core).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/ASP.NET).
 
 By executing the program, you will get the **PDF document** as follows.
 
