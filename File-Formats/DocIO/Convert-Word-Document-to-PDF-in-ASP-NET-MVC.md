@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in ASP.NET MVC**.
 
-## Steps to convert word document to PDF in C#:
+## Steps to convert Word document to PDF in C#:
 
 Step 1: Create a new ASP.NET Web Application  project.
 
@@ -20,7 +20,7 @@ Step 2: Select the MVC application
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/MVC.png)
 
-Step 3: Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) and [Syncfusion.DocToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.DocToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocToPdfConverter.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO ASP.NET MVC NuGet package](ASP-NET-MVC_images/NugetPackage.png)
 
@@ -35,7 +35,6 @@ Step 4: Include the following namespace in that HomeController.cs file.
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using Syncfusion.Pdf;
-using System.Web.Mvc;
 using Syncfusion.DocToPDFConverter;
 
 {% endhighlight %}
@@ -63,7 +62,7 @@ Html.EndForm();
 
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordDocumentToPdf** in HomeController.cs and include the below code snippet to **convert the Word document to Pdf** and download it.
+Step 7: Add a new action method **ConvertWordDocumentToPDF** in HomeController.cs and include the below code snippet to **convert the Word document to PDF** and download it.
 
 {% tabs %}
 
@@ -76,18 +75,19 @@ using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Template
     using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
     {
         //Instantiation of DocToPDFConverter for Word to PDF conversion
-        DocToPDFConverter converter = new DocToPDFConverter();
+        using (DocToPDFConverter converter = new DocToPDFConverter())
+        {
+            //Converts Word document into PDF document
+            PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 
-        //Converts Word document into PDF document
-        PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+            //Saves the PDF document to MemoryStream.
+            MemoryStream stream = new MemoryStream();
+            pdfDocument.Save(stream);
+            stream.Position = 0;
 
-        //Saves the PDF document to MemoryStream.
-        MemoryStream stream = new MemoryStream();
-        pdfDocument.Save(stream);
-        stream.Position = 0;
-
-        //Download PDF document in the browser.
-        return File(stream, "application/pdf", "Sample.pdf");
+            //Download PDF document in the browser.
+            return File(stream, "application/pdf", "Sample.pdf");
+        };                 
     }
 }
 

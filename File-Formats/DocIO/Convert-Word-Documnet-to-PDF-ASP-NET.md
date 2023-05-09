@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in ASP.NET Web Forms**.
 
-## Steps to convert word document to PDF in C#:
+## Steps to convert Word document to PDF in C#:
 
 Step 1: Create a new ASP.NET Web application project.
 
@@ -21,7 +21,7 @@ Step 2: Select the Empty project
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/ASPNET.png)
 
 
-Step 3: Install the [Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet) and [Syncfusion.DocToPDFConverter.AspNet](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.DocToPDFConverter.AspNet](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO ASP.NET NuGet package](ASP-NET_images/NugetPackage.png)
 
