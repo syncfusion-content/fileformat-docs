@@ -85,16 +85,16 @@ string filePath = Server.MapPath("~/App_Data/Template.docx");
 using (WordDocument document = new WordDocument(filePath))
 {
     //Instantiation of DocToPDFConverter for Word to PDF conversion
-    DocToPDFConverter converter = new DocToPDFConverter();
+    using (DocToPDFConverter converter = new DocToPDFConverter())
+    {
+        //Converts Word document into PDF document
+        PdfDocument pdfDocument = converter.ConvertToPDF(document);
 
-    //Converts Word document into PDF document
-    PdfDocument pdfDocument = converter.ConvertToPDF(document);
-
-    //Saves the PDF document to MemoryStream.
-    MemoryStream stream = new MemoryStream();
-    pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);                
-    stream.Position = 0;
-               
+        //Saves the PDF document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);
+        stream.Position = 0;
+    }
 }
 
 {% endhighlight %}
