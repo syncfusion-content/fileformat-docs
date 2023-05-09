@@ -1,11 +1,11 @@
 ---
-title: Working with PDF conformance | Syncfusion
+title: Working with PDF conformance in Fileformat PDF | Syncfusion
 description: This section explains how to create a PDF conformance documents and convert PDF to PDF/A conformance document.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with PDF Conformance
+# Working with PDF Conformance in Fileformat PDF
 
 The Essential PDF currently supports the following PDF conformances:
 

@@ -1,11 +1,11 @@
 ---
-title: Converting PowerPoint Presentation to PDF |Syncfusion|
-description: This section illustrates how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion
+title: Converting PPT Presentation to PDF in Fileformat PDF |Syncfusion
+description: This section illustrates how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion in Fileformat PDF.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Presentation to PDF conversion
+# Presentation to PDF conversion in Fileformat PDF
 
 PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to [convert PowerPoint document into PDF](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-to-pdf-conversion).
 
