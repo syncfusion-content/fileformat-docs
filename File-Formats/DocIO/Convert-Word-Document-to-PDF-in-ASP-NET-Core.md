@@ -92,7 +92,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.doc
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/ASP.NET-Core).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/ASP.NET-Core).
 
 By executing the program, you will get the **PDF document** as follows.
 
