@@ -267,6 +267,12 @@ The following code illustrate this,
 
 {% tabs %}  
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support inserting a vector image C#.NET Cross platforms.
+
+{% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF Document
