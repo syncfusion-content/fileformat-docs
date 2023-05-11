@@ -785,8 +785,6 @@ MemoryStream stream = new MemoryStream();
 
 //Save the document into stream
 loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty
-stream.Position = 0;
 //Close the document
 loadedDocument.Close(true);
 
