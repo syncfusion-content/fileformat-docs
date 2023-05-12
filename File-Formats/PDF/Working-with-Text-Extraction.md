@@ -351,30 +351,6 @@ You can get single character and its properties by using [TextGlyph](https://hel
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform. 
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-//PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//PDF supports getting the single character and its properties using TextGlyph only in Xamarin platform.
-
-{% endhighlight %}
-
 {% highlight c# tabtitle="Xamarin" %}
 
 //Load the existing PDF document
