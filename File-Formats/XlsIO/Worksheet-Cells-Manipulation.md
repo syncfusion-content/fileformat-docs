@@ -1,6 +1,6 @@
 ---
 title: Worksheet Cells Manipulation in Fileformat PDF | Syncfusion
-description: This section illustrates about cells manipulation in Excel worksheet using Syncfusion XlsIO (a .NET Excel library).
+description: This section illustrates about cells manipulation in Excel worksheet using Syncfusion XlsIO in Fileformats XlsIO. (a .NET Excel library).
 platform: file-formats
 control: XlsIO
 documentation: UG
