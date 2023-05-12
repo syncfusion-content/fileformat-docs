@@ -152,3 +152,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the PDF document as follows.
 
 ![UWP output PDF document](UWP_images/OutputImage.png)
+
+### Note:
+As per MSDN announcement, the minimum version of UWP project must be Fall Creators Update (FCU).
