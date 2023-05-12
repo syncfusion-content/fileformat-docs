@@ -1,6 +1,6 @@
 ---
 title: Convert Word document to PDF in Blazor | DocIO | Syncfusion 
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in Blazor application using .NET Word (DocIO) library.
+description: Convert Word document to PDF without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,26 +8,22 @@ documentation: UG
 
 # Convert Word document to PDF in Blazor
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Blazor**.
-
-To quickly get started with creating a Word document in Blazor, check this video:
-
-{% youtube "https://www.youtube.com/watch?v=yVfDlpewbpU" %}
+Syncfusion Essential DocIO is a [Blazor Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Blazor**.
 
 ## Server app
 
 Step 1: Create a new C# Blazor Server app project. Select Blazor Server App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Server.png)
+![Create Blazor Server app](Blazor_Images/Create-server-project-WordToPDF.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create a project name for your new project](Blazor_Images/Project-Name.png)
+![Create a project name for your new project](Blazor_Images/Project-Name-WordtoPDF.png)
 
 
 Step 3: To **convert a Word document to PDF in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
-![Install DocIO.NET Core NuGet Package](Blazor_Images/NugetPackage.png)
+![Install DocIORenderer.Net Core NuGet Package](Blazor_Images/NugetPackage.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -93,7 +89,7 @@ Step 8: Create a new MemoryStream method with name as **ConvertWordtoPDF** in **
 using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open an existing Word document.
-    using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+    using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     {
         //Instantiation of DocIORenderer for Word to PDF conversion
         using (DocIORenderer render = new DocIORenderer())
@@ -186,13 +182,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor Server app output PDF document](Blazor_Images/OutputImage.png)
+![Blazor Server app output PDF document](WordToPDF_images/OutputImage.png)
 
 ## WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_WASM.png)
+![Create  Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -200,7 +196,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3: To **convert the Word document to PDF in WASM app**, install [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
-![Install DocIO.NET Core NuGet Package](Blazor_Images/NugetPackage.png)
+![Install DocIORenderer.Net Core  NuGet Package](Blazor_Images/NugetPackage.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -243,7 +239,7 @@ Step 6: Create a new async method with name as ``WordToPDF`` and include the fol
 using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
 {
     //Open an existing Word document.
-    using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
         //Initialize the DocIORenderer for Word to PDF conversion.
         using (DocIORenderer render = new DocIORenderer())
@@ -339,7 +335,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor WASM app output Word document](Blazor_Images/OutputImage.png)
+![Blazor WASM app output Word document](WordToPDF_images/OutputImage.png)
 
 N> Even though Word library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size.
 

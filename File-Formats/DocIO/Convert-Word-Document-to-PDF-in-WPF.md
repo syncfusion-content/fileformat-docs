@@ -14,11 +14,11 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/d
 
 Step 1: Create a new WPF application project.
 
-![Create WPF application in Visual Studio](WPF_images/CreateProject.png)
+![Create WPF application in Visual Studio](WPF_images/Create-WPF-Project-WordtoPDF.png)
 
 Step 2: Install the [Syncfusion.DocToPdfConverter.Wpf](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) NuGet package as a reference to your WPF application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO WPF NuGet package](WPF_images/NugetPackage.png)
+![Install DocToPdfConverter Wpf NuGet package](WPF_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -63,7 +63,7 @@ Step 5: Add the following code in **btnConvert_Click** to **convert Word documen
 {% highlight c# tabtitle="C#" %}
 
 //Open an existing Word document.
-using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Automatic))
+using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Docx))
 {
     //Instantiation of DocToPDFConverter for Word to PDF conversion
     using (DocToPDFConverter converter = new DocToPDFConverter())
@@ -85,4 +85,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![WPF output PDF document](WPF_images/OutputImage.png)
+![WPF output PDF document](WordToPDF_images/OutputImage.png)

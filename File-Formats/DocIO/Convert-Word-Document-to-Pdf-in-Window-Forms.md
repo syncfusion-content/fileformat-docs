@@ -14,11 +14,11 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/d
 
 Step 1: Create a new Windows Forms application project.
 
-![Create Windows Forms application in Visual Studio](Windows-Forms_images/CreateProject.png)
+![Create Windows Forms application in Visual Studio](Windows-Forms_images/Create-Project-WordtoPDF.png)
 
 Step 2: Install [Syncfusion.DocToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO Windows Forms NuGet package](Windows-Forms_images/Nugetpackage.png)
+![Install DocToPdfConverter WinForms Forms NuGet package](Windows-Forms_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -79,7 +79,7 @@ Step 5: Add the following code in **btnConvert_Click** to **convert Word documen
 {% highlight c# tabtitle="C#" %}
 
 //Load the existing Word document 
-using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Automatic))
+using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Docx))
 {
     //Instantiation of DocToPDFConverter for Word to PDF conversion
     using (DocToPDFConverter converter = new DocToPDFConverter())
@@ -101,4 +101,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Windows Forms output PDF document](Windows-Forms_images/OutputImage.png)
+![Windows Forms output PDF document](WordToPDF_images/OutputImage.png)

@@ -1,6 +1,6 @@
 ---
 title: Convert Word document to PDF in UWP | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in UWP application using UWP Word (DocIO) library.
+description: Convert Word document to PDF without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -14,11 +14,11 @@ Syncfusion Essential DocIO is a [UWP Word library](https://www.syncfusion.com/do
 
 Step 1: Create a new C# Blank App (Universal Windows) project.
 
-![Create UWP application in Visual Studio](UWP_images/Create_Project.png)
+![Create UWP application in Visual Studio](UWP_images/Create-UWP-project-WordtoPDF.png)
 
 Step 2: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/) NuGet package as a reference to your UWP application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO UWP NuGet package](UWP_images/NugetPackage.png)
+![Install DocIORenderer.Net Core NuGet package](UWP_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -67,32 +67,30 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 
 {% highlight c# tabtitle="C#" %}
 
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
+//Load an existing Word document.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_PDF.Assets.Input.docx"), FormatType.Docx))
 {
-    //Load an existing Word document.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_PDF.Assets.Input.docx"), FormatType.Docx))
+    //Instantiation of DocIORenderer for Word to PDF conversion
+    using (DocIORenderer render = new DocIORenderer())
     {
-        //Instantiation of DocIORenderer for Word to PDF conversion
-        using (DocIORenderer render = new DocIORenderer())
-        {
-            //Converts Word document into PDF document
-            using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
-            {                       
-                //Saves the PDF file
-                MemoryStream outputStream = new MemoryStream();
-                pdfDocument.Save(outputStream);
+        //Converts Word document into PDF document
+        using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
+        {                       
+            //Saves the PDF file
+            MemoryStream outputStream = new MemoryStream();
+            pdfDocument.Save(outputStream);
 
-                //Closes the instance of PDF document object
-                pdfDocument.Close();
-                outputStream.Position = 0;
+            //Closes the instance of PDF document object
+            pdfDocument.Close();
+            outputStream.Position = 0;
 
-                //Save the PDF file
-                SavePDF(outputStream);
-            }                   
-        }               
+            //Save the PDF file
+            SavePDF(outputStream);
+        }                   
     }               
-}
+}               
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -151,7 +149,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the PDF document as follows.
 
-![UWP output PDF document](UWP_images/OutputImage.png)
+![UWP output PDF document](WordToPDF_images/OutputImage.png)
 
-### Note:
-As per MSDN announcement, the minimum version of UWP project must be Fall Creators Update (FCU).
+N> As per MSDN announcement, the minimum version of UWP project must be Fall Creators Update (FCU).

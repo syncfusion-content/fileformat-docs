@@ -1,6 +1,6 @@
 ---
 title: Convert Word document to PDF in WinUI | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library.
+description: Convert Word document to PDF without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -17,15 +17,15 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
-![Create the WinUI Desktop app in Visual Studio](WinUI_Images/CreateProject.png)
+![Create the WinUI Desktop app in Visual Studio](WinUI_Images/Create-Project-WinUI-WordtoPDF.png)
 
 Step 2: Enter the project name and click **Create**.
 
-![Create a project name for your new project](WinUI_Images/ProjectName.png)
+![Create a project name for your new project](WinUI_Images/Project-Name-WinUI-WordtoPDF.png)
 
 Step 4: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIO .NET NuGet package](WinUI_Images/NugetPackage.png)
+![Install the DocIORenderer.NET NuGet package](WinUI_Images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -70,7 +70,7 @@ Step 7: Add a new action method **ConvertWordtoPDF** in MainWindow.xaml.cs and i
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-//Loading an existinG Word document
+//Loading an existing Word document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_PDF.Assets.Input.docx"), FormatType.Docx))
 {
@@ -185,4 +185,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![WinUI Desktop output PDF document](WinUI_Images/OutputImage.png)
+![WinUI Desktop output PDF document](WordToPDF_images/OutputImage.png)
