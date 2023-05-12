@@ -1475,7 +1475,6 @@ page.Annotations.Add(popupAnnotation)
 'Saves the document to disk.
 document.Save("PopupAnnotation.pdf")
 document.Close(True)
-
 {% endhighlight %}
 
 {% endtabs %}
