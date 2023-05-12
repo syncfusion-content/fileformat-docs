@@ -15,56 +15,34 @@ Refer to the following links for assemblies/nuget packages required based on pla
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-worksheet-to-image) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-worksheet-to-image)
 
+N> Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform. 
+
 ## Convert as bitmap
 
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Initialize XlsIORenderer
+application.XlsIORenderer = new XlsIORenderer();
+
+//Create a new memory stream to save the image
+Stream stream = new MemoryStream();
+
+//Convert worksheet to image and save it to stream.
+worksheet.ConvertToImage(1, 1, 10, 20, stream);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Convert as bitmap
 Image image = sheet.ConvertToImage(1, 1, 10, 20);
 image.Save("Sample.png", ImageFormat.Png);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Convert as bitmap
 Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
 image.Save("Sample.png", ImageFormat.Png)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
-
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-//Create a new memory stream to save the image
-Stream stream = new MemoryStream();
-
-//Convert worksheet to image and save it to stream.
-worksheet.ConvertToImage(1, 1, 10, 20, stream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-//Create a new memory stream to save the image
-Stream stream = new MemoryStream();
-
-//Convert worksheet to image and save it to stream.
-worksheet.ConvertToImage(1, 1, 10, 20, stream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-//Create a new memory stream to save the image
-Stream stream = new MemoryStream();
-
-//Convert worksheet to image and save it to stream.
-worksheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 {% endtabs %}  
 
@@ -73,54 +51,53 @@ worksheet.ConvertToImage(1, 1, 10, 20, stream);
 The following code snippet shows how to save a sheet as stream.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Initialize XlsIORenderer
+application.XlsIORenderer = new XlsIORenderer();
+
+// Converts and save as stream
+MemoryStream stream = new MemoryStream();
+sheet.ConvertToImage(1, 1, 10, 20, stream);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 // Converts and save as stream
 MemoryStream stream = new MemoryStream();
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Converts and save as stream
 Dim stream As MemoryStream = New MemoryStream()
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
-
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-//Create a new memory stream to save the image
-Stream stream = new MemoryStream();
-
-//Convert worksheet to image and save it to stream.
-worksheet.ConvertToImage(1, 1, 10, 20, stream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-// Converts and save as stream
-MemoryStream stream = new MemoryStream();
-sheet.ConvertToImage(1, 1, 10, 20, stream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-// Initialize XlsIORenderer
-application.XlsIORenderer = new XlsIORenderer();
-
-// Converts and save as stream
-MemoryStream stream = new MemoryStream();
-sheet.ConvertToImage(1, 1, 10, 20, stream);
 {% endhighlight %}
 {% endtabs %}  
 
 The complete code snippet of the previous options is given below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Initialize XlsIORenderer
+  application.XlsIORenderer = new XlsIORenderer();  
+
+  //Converts and save as stream
+  MemoryStream stream = new MemoryStream();
+  sheet.ConvertToImage(1, 1, 10, 20, stream);
+
+  //Close and Dispose
+  workbook.Close();
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -145,7 +122,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -167,102 +144,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'No exception will be thrown if there are unsaved workbooks.
   excelEngine.ThrowNotSavedOnDestroy = False
 End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("WorksheetToImage.Sample.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Initialize XlsIORenderer
-  application.XlsIORenderer = new XlsIORenderer();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Image Files", new List<string>() { ".png",".jpeg",".jpg" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Converts and save to stream
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  sheet.ConvertToImage(1, 1, 10, 20, stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Initialize XlsIORenderer
-  application.XlsIORenderer = new XlsIORenderer();  
-
-  //Converts and save as stream
-  MemoryStream stream = new MemoryStream();
-  sheet.ConvertToImage(1, 1, 10, 20, stream);
-
-  //Close and Dispose
-  workbook.Close();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("WorksheetToImage.Sample.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Initializing XlsIORenderer
-  application.XlsIORenderer = new XlsIORenderer();
-
-  //Converts and save to stream.
-  MemoryStream stream = new MemoryStream();
-  sheet.ConvertToImage(1, 1, 10, 20, stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Test.png", "image/png", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %} 
 
