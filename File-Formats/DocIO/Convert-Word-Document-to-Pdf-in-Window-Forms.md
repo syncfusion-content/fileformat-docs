@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Windows Forms**.
 
-## Steps to convert Word document to PDF in C#:
+## Steps to convert Word document to PDF in Windows Forms:
 
 Step 1: Create a new Windows Forms application project.
 
@@ -18,7 +18,7 @@ Step 1: Create a new Windows Forms application project.
 
 Step 2: Install [Syncfusion.DocToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.WinForms) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
-![Install DocToPdfConverter WinForms Forms NuGet package](Windows-Forms_images/Nuget-Package-WordtoPDF.png)
+![Install Syncfusion.DocToPdfConverter.WinForms NuGet package](Windows-Forms_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -97,7 +97,7 @@ using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/In
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Windows-Forms).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/WindowForms).
 
 By executing the program, you will get the **PDF document** as follows.
 

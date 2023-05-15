@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word document to PDF in Blazor
 
-Syncfusion Essential DocIO is a [Blazor Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Blazor**.
+Syncfusion Essential DocIO is a [Blazor Word library](https://www.syncfusion.com/document-processing/word-framework/blazor/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Blazor**.
 
-## Server app
+## Word to PDF in Blazor Server app
 
 Step 1: Create a new C# Blazor Server app project. Select Blazor Server App from the template and click the Next button.
 
@@ -23,7 +23,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3: To **convert a Word document to PDF in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
-![Install DocIORenderer.Net Core NuGet Package](Blazor_Images/NugetPackage.png)
+![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/NugetPackage.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -43,8 +43,8 @@ Step 5: Add the following code in **DocIO.razor** file to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
-<h2>Syncfusion DocIO library (Essential DocIO)</h2>
-<p>Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<h2>Syncfusion DocIO library </h2>
+<p>Syncfusion DocIO library is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
 <button class="btn btn-primary" @onclick="@ConvertWordtoPDF">Convert Word to PDF</button>
 {% endhighlight %}
 {% endtabs %}
@@ -56,7 +56,7 @@ Step 6: Add the following code in **DocIO.razor** file to create and download th
 @code {
     MemoryStream documentStream;
     /// <summary>
-    /// Create and download the PDF document
+    /// Convert Word to PDF and download the PDF document
     /// </summary>
     protected async void ConvertWordtoPDF()
     {
@@ -97,7 +97,7 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileM
             //Converts Word document into PDF document
             using (PdfDocument pdfDocument = render.ConvertToPDF(document))
             {
-                //Saves the Word document to MemoryStream.
+                //Saves the PDF document to MemoryStream.
                 MemoryStream stream = new MemoryStream();
                 pdfDocument.Save(stream);
                 stream.Position = 0;
@@ -178,13 +178,13 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Server-side-application).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Blazor/Server-app).
 
 By executing the program, you will get the **PDF document** as follows.
 
 ![Blazor Server app output PDF document](WordToPDF_images/OutputImage.png)
 
-## WASM app
+## Word to PDF in Blazor WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
@@ -196,7 +196,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3: To **convert the Word document to PDF in WASM app**, install [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
-![Install DocIORenderer.Net Core  NuGet Package](Blazor_Images/NugetPackage.png)
+![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/NugetPackage.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -222,8 +222,8 @@ Step 5: Add the following code to create a new button.
 
 {% highlight CSHTML %}
 
-<h2>Syncfusion DocIO library (Essential DocIO)</h2>
-<p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<h2>Syncfusion DocIO library</h2>
+<p>Syncfusion Blazor DocIO library used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
 <button class="btn btn-primary" @onclick="@WordToPDF">Convert Word to PDF</button>
 
 {% endhighlight %}
@@ -331,12 +331,10 @@ Step 9: Add the following code snippet in the razor file of Navigation menu in t
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Blazor/Client-side-application).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Blazor/Client-side-application).
 
 By executing the program, you will get the **PDF document** as follows.
 
 ![Blazor WASM app output Word document](WordToPDF_images/OutputImage.png)
 
-N> Even though Word library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size.
-
-Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
+N> To convert Word to PDF, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to PDF conversion works in a WASM app.

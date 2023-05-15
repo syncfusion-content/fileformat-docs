@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to PDF in WinUI
 
-Syncfusion Essential DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in WinUI**.
+Syncfusion DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in WinUI**.
 
 **Prerequisites:**
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
@@ -25,7 +25,7 @@ Step 2: Enter the project name and click **Create**.
 
 Step 4: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIORenderer.NET NuGet package](WinUI_Images/Nuget-Package-WordtoPDF.png)
+![Syncfusion.DocIORenderer.NET NuGet package](WinUI_Images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -94,7 +94,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}
 
-Step 8: Add a new SaveHelper.cs file. Create method in the name of SaveAndLaunch and Add below code example to save the PDF document as a physical file and open the file for viewing.
+## Save PDF document in WinUI
 
 {% tabs %}
 
@@ -109,28 +109,8 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
     if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
     {
         FileSavePicker savePicker = new();
-        if (extension == ".docx")
-        {
-            savePicker.DefaultFileExtension = ".docx";
-            savePicker.SuggestedFileName = filename;
-            //Saves the file as Docx file.
-            savePicker.FileTypeChoices.Add("DOCX", new List<string>() { ".docx" });
-        }
-        else if (extension == ".doc")
-        {
-            savePicker.DefaultFileExtension = ".doc";
-            savePicker.SuggestedFileName = filename;
-            //Saves the file as Doc file.
-            savePicker.FileTypeChoices.Add("DOC", new List<string>() { ".doc" });
-        }
-        else if (extension == ".rtf")
-        {
-            savePicker.DefaultFileExtension = ".rtf";
-            savePicker.SuggestedFileName = filename;
-            //Saves the file as Xml file.
-            savePicker.FileTypeChoices.Add("RTF", new List<string>() { ".rtf" });
-        }
-        else if (extension == ".pdf")
+        
+        if (extension == ".pdf")
         {
             savePicker.DefaultFileExtension = ".pdf";
             savePicker.SuggestedFileName = filename;
@@ -181,7 +161,7 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WinUI/WinUI-Desktop-app).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/WinUI).
 
 By executing the program, you will get the **PDF document** as follows.
 

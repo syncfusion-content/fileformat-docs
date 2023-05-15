@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to PDF in WPF
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in WPF**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in WPF**.
 
 ## Steps to convert Word document to PDF in WPF:
 
@@ -18,7 +18,7 @@ Step 1: Create a new WPF application project.
 
 Step 2: Install the [Syncfusion.DocToPdfConverter.Wpf](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.Wpf) NuGet package as a reference to your WPF application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocToPdfConverter Wpf NuGet package](WPF_images/Nuget-Package-WordtoPDF.png)
+![Install Syncfusion.DocToPdfConverter.Wpf NuGet package](WPF_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -49,7 +49,7 @@ Step 4: Add a new button in **MainWindow.xaml** to convert Word document to PDF 
     </Button.Background>
     <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
         <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
+        <TextBlock Text="Convert Word to PDF" Height="15.96" Width="126" Margin="0,4,0,3" />
     </StackPanel>
 </Button>
 {% endhighlight %}
@@ -81,7 +81,7 @@ using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/In
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/WPF).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/WPF).
 
 By executing the program, you will get the **PDF document** as follows.
 

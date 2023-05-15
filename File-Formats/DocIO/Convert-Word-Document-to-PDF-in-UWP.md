@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to PDF in UWP
 
-Syncfusion Essential DocIO is a [UWP Word library](https://www.syncfusion.com/document-processing/word-framework/uwp/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in UWP**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in UWP**.
 
 ## Steps to convert Word document to PDF in UWP:
 
@@ -18,7 +18,7 @@ Step 1: Create a new C# Blank App (Universal Windows) project.
 
 Step 2: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/) NuGet package as a reference to your UWP application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIORenderer.Net Core NuGet package](UWP_images/Nuget-Package-WordtoPDF.png)
+![Syncfusion.DocIORenderer.Net.Core](UWP_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -145,10 +145,10 @@ private async void SavePDF(Stream outputStream)
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/UWP).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/UWP).
 
 By executing the program, you will get the PDF document as follows.
 
 ![UWP output PDF document](WordToPDF_images/OutputImage.png)
 
-N> As per MSDN announcement, the minimum version of UWP project must be Fall Creators Update (FCU).
+N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-uwp-support-for-net-standard-2-0/), the minimum version of UWP project must be Fall Creators Update (FCU).
