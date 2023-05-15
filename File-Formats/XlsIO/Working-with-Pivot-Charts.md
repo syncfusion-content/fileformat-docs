@@ -17,88 +17,7 @@ To create a pivot table, refer [Create Pivot Table](/file-formats/xlsio/working-
 The following code snippet illustrates how to create a PivotChart.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-  IPivotTable pivotTable = worksheet.PivotTables[0];
-
-  //Adding a chart to workbook
-  IChart pivotChart = workbook.Charts.Add();
-
-  //Set PivotTable as PivotSource to the chart
-  pivotChart.PivotSource = pivotTable;
-
-  //Set PivotChart type
-  pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
-
-  workbook.SaveAs("PivotChart.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = ExcelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
-
-  'Adding a chart to workbook
-  Dim pivotChart As IChart = workbook.Charts.Add()
-
-  'Set PivotTable as PivotSource to the chart
-  pivotChart.PivotSource = pivotTable
-
-  'Set PivotChart type
-  pivotChart.PivotChartType = ExcelChartType.Column_Clustered
-
-  workbook.SaveAs("PivotChart.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-  IPivotTable pivotTable = workbook.Worksheets[1].PivotTables[0];
-
-  //Adding a chart to workbook
-  IChart pivotChart = workbook.Charts.Add();
-
-  //Set PivotTable as PivotSource to the chart
-  pivotChart.PivotSource = pivotTable;
-
-  //Set PivotChart type
-  pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "PivotChart";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -126,18 +45,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
   IPivotTable pivotTable = worksheet.PivotTables[0];
 
@@ -150,27 +63,29 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set PivotChart type
   pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
-  string fileName = "PivotChart.xlsx";
-
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  //Save the stream as an Excel document and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
+  workbook.SaveAs("PivotChart.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = ExcelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+
+  'Adding a chart to workbook
+  Dim pivotChart As IChart = workbook.Charts.Add()
+
+  'Set PivotTable as PivotSource to the chart
+  pivotChart.PivotSource = pivotTable
+
+  'Set PivotChart type
+  pivotChart.PivotChartType = ExcelChartType.Column_Clustered
+
+  workbook.SaveAs("PivotChart.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -181,8 +96,19 @@ The following code snippet shows how to set field buttons in a pivot chart.
 N> The PivotChart properties are supported exclusively from Excel 2010 onwards.
 
 {% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Adding PivotChart to the workbook
+IChart pivotChart = workbook.Charts.Add();
 
-{% highlight c# tabtitle="C#" %}
+//Set Field Buttons
+pivotChart.ShowAllFieldButtons = false;
+pivotChart.ShowAxisFieldButtons = false;
+pivotChart.ShowLegendFieldButtons = false;
+pivotChart.ShowReportFilterFieldButtons = false;
+pivotChart.ShowValueFieldButtons = false;  
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 
@@ -194,7 +120,7 @@ pivotChart.ShowReportFilterFieldButtons = false;
 pivotChart.ShowValueFieldButtons = false;   
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Insert the PivotChart sheet to the workbook
 Dim pivotChartSheet As IChart = workbook.Charts.Add()
 
@@ -205,42 +131,6 @@ pivotChartSheet.ShowLegendFieldButtons = False
 pivotChartSheet.ShowReportFilterFieldButtons = False
 pivotChartSheet.ShowValueFieldButtons = False
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding PivotChart to the workbook
-IChart pivotChart = workbook.Charts.Add();
-
-//Set Field Buttons
-pivotChart.ShowAllFieldButtons = false;
-pivotChart.ShowAxisFieldButtons = false;
-pivotChart.ShowLegendFieldButtons = false;
-pivotChart.ShowReportFilterFieldButtons = false;
-pivotChart.ShowValueFieldButtons = false;  
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding PivotChart to the workbook
-IChart pivotChart = workbook.Charts.Add();
-
-//Set Field Buttons
-pivotChart.ShowAllFieldButtons = false;
-pivotChart.ShowAxisFieldButtons = false;
-pivotChart.ShowLegendFieldButtons = false;
-pivotChart.ShowReportFilterFieldButtons = false;
-pivotChart.ShowValueFieldButtons = false;  
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding PivotChart to the workbook
-IChart pivotChart = workbook.Charts.Add();
-
-//Set Field Buttons
-pivotChart.ShowAllFieldButtons = false;
-pivotChart.ShowAxisFieldButtons = false;
-pivotChart.ShowLegendFieldButtons = false;
-pivotChart.ShowReportFilterFieldButtons = false;
-pivotChart.ShowValueFieldButtons = false;   
-{% endhighlight %}
 {% endtabs %}  
   
 A complete working example to create pivot chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Charts/Create%20Pivot%20Chart). 
@@ -250,29 +140,19 @@ A complete working example to create pivot chart in C# is present on [this GitHu
 When pivot chart is created with pivot table as data source, Syncfusion XlsIO cannot create the series because the range of the pivot table is different from normal worksheet range. This is the limitation of XlsIO. To use any chart series formatting, the series should be added manually.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
 pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
+pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked)
 pivotChartSheet.Series(0).SerieFormat.CommonSerieOptions.Overlap = 100
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
-pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
-pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-pivotChartSheet.Series.Add(ExcelChartType.Column_Stacked);
-pivotChartSheet.Series[0].SerieFormat.CommonSerieOptions.Overlap = 100;
 {% endhighlight %}
 {% endtabs %} 
 
