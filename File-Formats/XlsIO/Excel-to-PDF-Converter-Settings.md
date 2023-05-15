@@ -17,7 +17,40 @@ This property enables the complex script validation for the text present in Exce
 The following complete code snippet explains how to enable [AutoDetectComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_AutoDetectComplexScript) property while converting an Excel document to PDF.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Initialize XlsIORendererSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Enable AutoDetectComplexScript property
+  settings.AutoDetectComplexScript = true;
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+  fileStreamResult.FileDownloadName = "Output.pdf";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -41,7 +74,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -63,134 +96,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enable AutoDetectComplexScript property
-  settings.AutoDetectComplexScript = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enable AutoDetectComplexScript property
-  settings.AutoDetectComplexScript = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Download the PDF file in the browser
-  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-  fileStreamResult.FileDownloadName = "Output.pdf";
-  return fileStreamResult;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enable AutoDetectComplexScript property
-  settings.AutoDetectComplexScript = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
 {% endtabs%}
 
 A complete working example to detect complex script in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Complex%20Script%20to%20PDF).
@@ -200,8 +105,42 @@ A complete working example to detect complex script in Excel to PDF conversion i
 This property helps to set the required paper size in inches. The default value is empty(i.e.,{Width = 0.0 Height = 0.0}).
 
 The following complete code snippet explains how to set [CustomPaperSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_CustomPaperSize) while converting Excel document to PDF.
+
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Initialize XlsIORendererSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Set CustomerPaperSize
+  settings.CustomPaperSize = new SizeF(10, 20);
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+  fileStreamResult.FileDownloadName = "Output.pdf";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -225,7 +164,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -247,76 +186,20 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with custom paper size in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Custom%20Paper%20Size).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Display Gridlines
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+This property helps to set the gridlines display style in Excel to PDF converted document. Three display styles are **Auto**, **Invisible** and **Visible**. These are maintained under [GridLinesDisplayStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.GridLinesDisplayStyle.html) enumeration.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+### Auto
 
-  //Set CustomerPaperSize
-  settings.CustomPaperSize = new SizeF(10, 20);
+Gridlines will not be rendered in the output PDF document, when display style is selected as **Auto**. Its default value is Invisible. The following code snippet explains how to select **Auto** display style for gridlines.
 
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -326,8 +209,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set CustomerPaperSize
-  settings.CustomPaperSize = new SizeF(10, 20);
+  //Set the gridlines display style as Auto
+  settings.DisplayGridLines = GridLinesDisplayStyle.Auto;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -349,53 +232,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set CustomerPaperSize
-  settings.CustomPaperSize = new SizeF(10, 20);
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with custom paper size in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Custom%20Paper%20Size).
-
-## Display Gridlines
-
-This property helps to set the gridlines display style in Excel to PDF converted document. Three display styles are **Auto**, **Invisible** and **Visible**. These are maintained under [GridLinesDisplayStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.GridLinesDisplayStyle.html) enumeration.
-
-### Auto
-
-Gridlines will not be rendered in the output PDF document, when display style is selected as **Auto**. Its default value is Invisible. The following code snippet explains how to select **Auto** display style for gridlines.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -419,7 +256,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -441,76 +278,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+### Invisible
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Gridlines will not be rendered in the output PDF document, when display style is selected as **Invisible**. The following code snippet explains how to select **Invisible** display style for gridlines.
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the gridlines display style as Auto
-  settings.DisplayGridLines = GridLinesDisplayStyle.Auto;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -520,8 +295,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set the gridlines display style as Auto
-  settings.DisplayGridLines = GridLinesDisplayStyle.Auto;
+  //Set the gridlines display style as Invisible
+  settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -543,47 +318,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the gridlines display style as Auto
-  settings.DisplayGridLines = GridLinesDisplayStyle.Auto;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Invisible
-
-Gridlines will not be rendered in the output PDF document, when display style is selected as **Invisible**. The following code snippet explains how to select **Invisible** display style for gridlines.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -607,7 +342,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -629,76 +364,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+### Visible
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Gridlines will be rendered in the output PDF document, when display style is selected as **Visible**. The following code snippet explains how to select **Visible** display style for gridlines.
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the gridlines display style as Invisible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -708,8 +381,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set the gridlines display style as Invisible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
+  //Set the gridlines display style as Visible
+  settings.DisplayGridLines = GridLinesDisplayStyle.Visible;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -731,47 +404,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the gridlines display style as Invisible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Visible
-
-Gridlines will be rendered in the output PDF document, when display style is selected as **Visible**. The following code snippet explains how to select **Visible** display style for gridlines.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -795,7 +428,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -817,76 +450,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to hide gridlines in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Gridlines%20in%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Embed Fonts
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+The Excel content will be rendered improperly when Arial Unicode MS Font is missing in the machine. In this case, enabling the [EmbedFonts](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_EmbedFonts) property renders the content properly.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following code snippet explains how to enable **EmbedFonts** property.
 
-  //Set the gridlines display style as Visible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Visible;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -896,8 +471,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set the gridlines display style as Visible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Visible;
+  //Enable EmbedFonts
+  settings.EmbedFonts = true;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -919,50 +494,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the gridlines display style as Visible
-  settings.DisplayGridLines = GridLinesDisplayStyle.Visible;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to hide gridlines in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Gridlines%20in%20PDF).
-
-## Embed Fonts
-
-The Excel content will be rendered improperly when Arial Unicode MS Font is missing in the machine. In this case, enabling the [EmbedFonts](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_EmbedFonts) property renders the content properly.
-
-The following code snippet explains how to enable **EmbedFonts** property.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -986,7 +518,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1008,75 +540,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to embed fonts in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Embed%20Fonts%20in%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Export Bookmarks
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+The default value of [ExportBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportBookmarks) property is TRUE and hence bookmarks are exported to PDF document by default, in Excel to PDF conversion. Disabling this property skips the bookmarks in conversion.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following code snippet explains how to disable **ExportBookmarks** property.
 
-  //Enable EmbedFonts
-  settings.EmbedFonts = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1086,8 +561,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Enable EmbedFonts
-  settings.EmbedFonts = true;
+  //Disable ExportBookmarks
+  settings.ExportBookmarks = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -1109,51 +584,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enable EmbedFonts
-  settings.EmbedFonts = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to embed fonts in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Embed%20Fonts%20in%20PDF).
-
-## Export Bookmarks
-
-The default value of [ExportBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportBookmarks) property is TRUE and hence bookmarks are exported to PDF document by default, in Excel to PDF conversion. Disabling this property skips the bookmarks in conversion.
-
-The following code snippet explains how to disable **ExportBookmarks** property.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1177,7 +608,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1199,75 +630,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to export bookmarks in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Bookmarks%20in%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Export Document Properties
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Excel document properties will be exported to PDF document by default, in Excel to PDF conversion. This can be skipped by disabling the [ExportDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportDocumentProperties).
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following complete code snippet explains how to disable **ExportDocumentProperties**.
 
-  //Disable ExportBookmarks
-  settings.ExportBookmarks = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1277,8 +651,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable ExportBookmarks
-  settings.ExportBookmarks = false;
+  //Disable ExportDocumentProperties
+  settings.ExportDocumentProperties = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -1300,50 +674,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable ExportBookmarks
-  settings.ExportBookmarks = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to export bookmarks in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Bookmarks%20in%20PDF).
-
-## Export Document Properties
-
-Excel document properties will be exported to PDF document by default, in Excel to PDF conversion. This can be skipped by disabling the [ExportDocumentProperties](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportDocumentProperties).
-
-The following complete code snippet explains how to disable **ExportDocumentProperties**.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1367,7 +698,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1389,75 +720,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to export document properties in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Document%20Properties%20to%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Export Quality Image
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+The default value of [ExportQualityImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportQualityImage) if FALSE. Enabling this property exports quality image to PDF document.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following complete code snippet explains how to enable **ExportQualityImage** property.
 
-  //Disable ExportDocumentProperties
-  settings.ExportDocumentProperties = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1467,8 +741,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable ExportDocumentProperties
-  settings.ExportDocumentProperties = false;
+  //Enable ExportQualityImage
+  settings.ExportQualityImage = true;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -1490,51 +764,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable ExportDocumentProperties
-  settings.ExportDocumentProperties = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to export document properties in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Document%20Properties%20to%20PDF).
-
-## Export Quality Image
-
-The default value of [ExportQualityImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_ExportQualityImage) if FALSE. Enabling this property exports quality image to PDF document.
-
-The following complete code snippet explains how to enable **ExportQualityImage** property.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1558,7 +788,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1580,75 +810,20 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to export quality image in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Quality%20Image%20in%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Header Footer Option
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Two properties available under [HeaderFooterOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_HeaderFooterOption) are **ShowHeader** and **ShowFooter**. 
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+### Show Header
 
-  //Enable ExportQualityImage
-  settings.ExportQualityImage = true;
+Document header will be rendered to PDF document by default. This can be skipped by disabling the [ShowHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowHeader) property.
 
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1658,8 +833,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Enable ExportQualityImage
-  settings.ExportQualityImage = true;
+  //Disable ShowHeader
+  settings.HeaderFooterOption.ShowHeader = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -1681,53 +856,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enable ExportQualityImage
-  settings.ExportQualityImage = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to export quality image in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Quality%20Image%20in%20PDF).
-
-## Header Footer Option
-
-Two properties available under [HeaderFooterOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_HeaderFooterOption) are **ShowHeader** and **ShowFooter**. 
-
-### Show Header
-
-Document header will be rendered to PDF document by default. This can be skipped by disabling the [ShowHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowHeader) property.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1751,7 +880,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1773,75 +902,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+### Show Footer
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Document footer will be rendered to PDF document by default. This can be skipped by disabling the [ShowFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowFooter) property.
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable ShowHeader
-  settings.HeaderFooterOption.ShowHeader = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1851,8 +919,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable ShowHeader
-  settings.HeaderFooterOption.ShowHeader = false;
+  //Disable ShowFooter
+  settings.HeaderFooterOption.ShowFooter = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -1874,47 +942,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable ShowHeader
-  settings.HeaderFooterOption.ShowHeader = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Show Footer
-
-Document footer will be rendered to PDF document by default. This can be skipped by disabling the [ShowFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.HeaderFooterOption.html#Syncfusion_ExcelToPdfConverter_HeaderFooterOption_ShowFooter) property.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1938,7 +966,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1960,75 +988,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to show or hide header and footer in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Show%20Header%20Footer%20in%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Convert Blank Page
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Blank pages in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank pages can be skipped by disabling the [IsConvertBlankPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_IsConvertBlankPage) property.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following code snippet explains this.
 
-  //Disable ShowFooter
-  settings.HeaderFooterOption.ShowFooter = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2038,8 +1009,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable ShowFooter
-  settings.HeaderFooterOption.ShowFooter = false;
+  //Disable IsConvertBlankPage
+  settings.IsConvertBlankPage = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -2061,51 +1032,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable ShowFooter
-  settings.HeaderFooterOption.ShowFooter = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to show or hide header and footer in Excel to PDF conversion in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Show%20Header%20Footer%20in%20PDF).
-
-## Convert Blank Page
-
-Blank pages in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank pages can be skipped by disabling the [IsConvertBlankPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_IsConvertBlankPage) property.
-
-The following code snippet explains this.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2129,7 +1056,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2151,75 +1078,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert blank page to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Blank%20Page%20to%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Convert Blank Sheet
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Blank worksheets in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank worksheets can be skipped by disabling the [IsConvertBlankSheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_IsConvertBlankSheet) property.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+The following code snippet explains this.
 
-  //Disable IsConvertBlankPage
-  settings.IsConvertBlankPage = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2229,8 +1099,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable IsConvertBlankPage
-  settings.IsConvertBlankPage = false;
+  //Disable IsConvertBlankSheet
+  settings.IsConvertBlankSheet = false;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -2252,51 +1122,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable IsConvertBlankPage
-  settings.IsConvertBlankPage = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert blank page to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Blank%20Page%20to%20PDF).
-
-## Convert Blank Sheet
-
-Blank worksheets in Excel document are rendered to PDF document by default, in Excel to PDF conversion. This blank worksheets can be skipped by disabling the [IsConvertBlankSheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_IsConvertBlankSheet) property.
-
-The following code snippet explains this.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2320,7 +1146,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2342,75 +1168,20 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert blank sheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Blank%20Sheet%20to%20PDF).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+## Layout Options
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+This property helps to select the layout option for the Excel document in Excel to PDF conversion. Five layout options available and maintained under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) enumeration are **Automatic**, **CustomScaling**, **FitAllColumnsOnOnePage**, **FitAllRowsOnOnePage**, **FitSheetOnOnePage** and **NoScaling**.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+### Automatic
 
-  //Disable IsConvertBlankSheet
-  settings.IsConvertBlankSheet = false;
+Selecting **Automatic** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. It's default value is **NoScaling**. The following code snippet explains how to select the layout option as **Automatic**.
 
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2420,8 +1191,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Disable IsConvertBlankSheet
-  settings.IsConvertBlankSheet = false;
+  //Set layout option as Automatic
+  settings.LayoutOptions = LayoutOptions.Automatic;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -2443,53 +1214,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Disable IsConvertBlankSheet
-  settings.IsConvertBlankSheet = false;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert blank sheet to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Blank%20Sheet%20to%20PDF).
-
-## Layout Options
-
-This property helps to select the layout option for the Excel document in Excel to PDF conversion. Five layout options available and maintained under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) enumeration are **Automatic**, **CustomScaling**, **FitAllColumnsOnOnePage**, **FitAllRowsOnOnePage**, **FitSheetOnOnePage** and **NoScaling**.
-
-### Automatic
-
-Selecting **Automatic** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. It's default value is **NoScaling**. The following code snippet explains how to select the layout option as **Automatic**.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2513,7 +1238,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2535,75 +1260,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with automatic layout in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Automatic%20Layout).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+### Custom Scaling
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Selecting **CustomScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at specified scaling, i.e., zoom value set in under page setup. The following code snippet explains how to use this.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as Automatic
-  settings.LayoutOptions = LayoutOptions.Automatic;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2613,8 +1279,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set layout option as Automatic
-  settings.LayoutOptions = LayoutOptions.Automatic;
+  //Set layout option as CustomScaling
+  settings.LayoutOptions = LayoutOptions.CustomScaling;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -2636,49 +1302,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as Automatic
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.Automatic;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with automatic layout in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Automatic%20Layout).
-
-### Custom Scaling
-
-Selecting **CustomScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at specified scaling, i.e., zoom value set in under page setup. The following code snippet explains how to use this.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2702,7 +1326,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2724,75 +1348,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with custom scaling in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Custom%20Scaling).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+### Fit All Columns On One Page
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Selecting **FitAllColumnsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all columns in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllColumnsOnOnePage**.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as CustomScaling
-  settings.LayoutOptions = LayoutOptions.CustomScaling;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2802,8 +1367,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set layout option as CustomScaling
-  settings.LayoutOptions = LayoutOptions.CustomScaling;
+  //Set layout option as FitAllColumnsOnOnePage
+  settings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -2825,49 +1390,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as CustomScaling
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.CustomScaling;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with custom scaling in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Custom%20Scaling).
-
-### Fit All Columns On One Page
-
-Selecting **FitAllColumnsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all columns in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllColumnsOnOnePage**.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2891,7 +1414,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -2913,75 +1436,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with fit all columns on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20All%20Columns%20On%20One%20Page).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+### Fit All Rows On One Page
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Selecting **FitAllRowsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all rows in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllRowsOnOnePage**.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitAllColumnsOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2991,8 +1455,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set layout option as FitAllColumnsOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
+  //Set layout option as FitAllRowsOnOnePage
+  settings.LayoutOptions = LayoutOptions.FitAllRowsOnOnePage;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -3014,49 +1478,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitAllColumnsOnOnePage
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.FitAllColumnsOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with fit all columns on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20All%20Columns%20On%20One%20Page).
-
-### Fit All Rows On One Page
-
-Selecting **FitAllRowsOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders all rows in Excel worksheet into single PDF page. The following code snippet explains how to select the layout option as **FitAllRowsOnOnePage**.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3080,7 +1502,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3102,75 +1524,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with fit all rows on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20All%20Rows%20On%20One%20Page).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+### Fit Sheet On One Page
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Selecting **FitSheetOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders every single worksheet in Excel workbook into, single PDF page. The following code snippet explains how to select the layout option as **FitSheetOnOnePage**.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitAllRowsOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitAllRowsOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3180,8 +1543,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set layout option as FitAllRowsOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitAllRowsOnOnePage;
+  //Set layout option as FitSheetOnOnePage
+  settings.LayoutOptions = LayoutOptions.FitSheetOnOnePage;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -3203,49 +1566,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitAllRowsOnOnePage
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.FitAllRowsOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with fit all rows on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20All%20Rows%20On%20One%20Page).
-
-### Fit Sheet On One Page
-
-Selecting **FitSheetOnOnePage** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) renders every single worksheet in Excel workbook into, single PDF page. The following code snippet explains how to select the layout option as **FitSheetOnOnePage**.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3269,7 +1590,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3291,75 +1612,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
+A complete working example to convert Excel to PDF with fit sheet on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20Sheet%20On%20One%20Page).
 
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+### No Scaling
 
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
+Selecting **NoScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. The following code snippet explains how to select the layout option as **NoScaling**.
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitSheetOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitSheetOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3369,8 +1631,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Initialize XlsIORendererSettings
   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-  //Set layout option as FitSheetOnOnePage
-  settings.LayoutOptions = LayoutOptions.FitSheetOnOnePage;
+  //Set layout option as NoScaling
+  settings.LayoutOptions = LayoutOptions.NoScaling;
 
   //Initialize XlsIORenderer
   XlsIORenderer renderer = new XlsIORenderer();
@@ -3392,49 +1654,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as FitSheetOnOnePage
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.FitSheetOnOnePage;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert Excel to PDF with fit sheet on one page in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fit%20Sheet%20On%20One%20Page).
-
-### No Scaling
-
-Selecting **NoScaling** under [LayoutOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_LayoutOptions) prints the worksheets at their actual size. The following code snippet explains how to select the layout option as **NoScaling**.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3458,7 +1678,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -3480,140 +1700,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Get input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as NoScaling
-  settings.LayoutOptions = LayoutOptions.NoScaling;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream.Dispose();
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as NoScaling
-  settings.LayoutOptions = LayoutOptions.NoScaling;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Saving the Excel to the MemoryStream 
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-
-  //Set the position as '0'
-  stream.Position = 0;
-
-  //Download the PDF file in the browser
-  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-  fileStreamResult.FileDownloadName = "Output.pdf";
-  return fileStreamResult;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set layout option as NoScaling
-  settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.NoScaling;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert Excel to PDF with no scaling in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/No%20Scaling).
@@ -3630,126 +1716,7 @@ N> 2. Pdf_X1A2001 is not supported for NETStandard.
 The following code illustrates  how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_PdfConformanceLevel) while converting  Excel workbook to PDF.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-  //Open the Excel document to Convert
-  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
-  //Initialize Excel to PDF converter settings
-  ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
-
-  // Set the conformance for PDF/A-1b conversion
-  settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
-
-  //Convert Excel document into PDF document
-  PdfDocument pdfDocument = converter.Convert(settings);
-
-  //Save the PDF file
-  pdfDocument.Save("ExcelToPDF.pdf");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
-  'Open the Excel document to convert
-  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-
-  'Initialize Excel to PDF converter settings
-  Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
-
-  'Set the conformance for PDF/A-1b conversion
-  settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B
-
-  'Convert Excel document into PDF document
-  Dim pdfDocument As PdfDocument = converter.Convert(settings)
-
-  'Save the PDF file
-  pdfDocument.Save("ExcelToPDF.pdf")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-
-#region Excel To PDF
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Initialize XlsIO renderer settings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the conformance for PDF/A-1b conversion
-  settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
-
-  //Convert Excel document into PDF document 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-
-  await pdfDocument.SaveAsync(stream);
-  Save(stream, "ExcelToPDF.pdf");
-  excelStream.Dispose();
-  stream.Dispose();
-}
-#endregion
-
-//Save the workbook stream as a file.
-
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Sample";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -3775,48 +1742,51 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  //Open the Excel document to Convert
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  //Gets input Excel document from an embedded resource collection
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Initialize XlsIO renderer settings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+  //Initialize Excel to PDF converter settings
+  ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
 
   // Set the conformance for PDF/A-1b conversion
   settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
 
-  //Convert Excel document into PDF document 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
+  //Convert Excel document into PDF document
+  PdfDocument pdfDocument = converter.Convert(settings);
 
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  pdfDocument.Save(stream);
-
-  stream.Position = 0;
-
-  //Save the stream into pdf file
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  excelStream.Dispose();
-  stream.Dispose();
+  //Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+  'Initialize Excel to PDF converter settings
+  Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
+
+  'Set the conformance for PDF/A-1b conversion
+  settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B
+
+  'Convert Excel document into PDF document
+  Dim pdfDocument As PdfDocument = converter.Convert(settings)
+
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -3831,141 +1801,7 @@ A complete working example to convert Excel to PDF with PDF conformance in C# is
 The following complete code snippet explains how to convert two Excel documents into a single PDF document using [TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_TemplateDocument) property.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook1 = application.Workbooks.Open("Sample1.xlsx");
-  IWorkbook workbook2 = application.Workbooks.Open("Sample2.xlsx");
-
-  //Load the Excel documents into ExcelToPdfConverter
-  ExcelToPdfConverter converter1 = new ExcelToPdfConverter(workbook1);
-  ExcelToPdfConverter converter2 = new ExcelToPdfConverter(workbook2);
-
-  //Convert the first Excel document to PDF
-  PdfDocument document = converter1.Convert();
-
-  //Initialize ExcelToPdfConverterSettings
-  ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
-
-  //Set the document as TemplateDocument
-  settings.TemplateDocument = document;
-
-  //Create a new PDF document and convert the second Excel document with settings
-  PdfDocument newDocument = new PdfDocument();
-  newDocument = converter2.Convert(settings);
-
-  //Save the new PDF Document
-  newDocument.Save("Output.pdf");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2016
-  Dim workbook1 As IWorkbook = application.Workbooks.Open("Sample1.xlsx")
-  Dim workbook2 As IWorkbook = application.Workbooks.Open("Sample2.xlsx")
-
-  'Load the Excel documents into ExcelToPdfConverter
-  Dim converter1 As ExcelToPdfConverter = New ExcelToPdfConverter(workbook1)
-  Dim converter2 As ExcelToPdfConverter = New ExcelToPdfConverter(workbook2)
-
-  'Convert the first Excel document to PDF
-  Dim document As PdfDocument = converter1.Convert
-
-  'Initialize ExcelToPdfConverterSettings
-  Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
-
-  'Set the document as TemplateDocument
-  settings.TemplateDocument = document
-
-  'Create a new PDF document and convert the second Excel document with settings
-  Dim newDocument As PdfDocument = New PdfDocument
-  newDocument = converter2.Convert(settings)
-
-  'Save the PDF document
-  document.Save("Output.pdf")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-
-  //Get assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel documents from an embedded resource collection
-  Stream excelStream1 = assembly.GetManifestResourceStream("UWPSample.Sample1.xlsx");
-  IWorkbook workbook1 = application.Workbooks.Open(excelStream1);
-
-  Stream excelStream2 = assembly.GetManifestResourceStream("UWPSample.Sample2.xlsx");
-  IWorkbook workbook2 = application.Workbooks.Open(excelStream2);
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the first Excel document to PDF
-  PdfDocument document = renderer.ConvertToPDF(workbook1);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the document as TemplateDocument
-  settings.TemplateDocument = document;
-
-  //Convert the second Excel document to PDF with renderer settings
-  PdfDocument newDocument = renderer.ConvertToPDF(workbook2, settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-
-  excelStream1.Dispose();
-  excelStream2.Dispose();
-}
-
-//Save the workbook stream as a file.
-
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Sample";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4004,44 +1840,63 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook1 = application.Workbooks.Open("Sample1.xlsx");
+  IWorkbook workbook2 = application.Workbooks.Open("Sample2.xlsx");
 
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel documents from an embedded resource collection
-  Stream excelStream1 = assembly.GetManifestResourceStream("XamarinSample.Sample1.xlsx");
-  IWorkbook workbook1 = application.Workbooks.Open(excelStream1);
-
-  Stream excelStream2 = assembly.GetManifestResourceStream("XamarinSample.Sample2.xlsx");
-  IWorkbook workbook2 = application.Workbooks.Open(excelStream2);
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
+  //Load the Excel documents into ExcelToPdfConverter
+  ExcelToPdfConverter converter1 = new ExcelToPdfConverter(workbook1);
+  ExcelToPdfConverter converter2 = new ExcelToPdfConverter(workbook2);
 
   //Convert the first Excel document to PDF
-  PdfDocument document = renderer.ConvertToPDF(workbook1);
+  PdfDocument document = converter1.Convert();
 
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
+  //Initialize ExcelToPdfConverterSettings
+  ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
 
   //Set the document as TemplateDocument
   settings.TemplateDocument = document;
 
-  //Convert the second Excel document to PDF with renderer settings
-  PdfDocument newDocument = renderer.ConvertToPDF(workbook2, settings);
+  //Create a new PDF document and convert the second Excel document with settings
+  PdfDocument newDocument = new PdfDocument();
+  newDocument = converter2.Convert(settings);
 
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  newDocument.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+  //Save the new PDF Document
+  newDocument.Save("Output.pdf");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook1 As IWorkbook = application.Workbooks.Open("Sample1.xlsx")
+  Dim workbook2 As IWorkbook = application.Workbooks.Open("Sample2.xlsx")
+
+  'Load the Excel documents into ExcelToPdfConverter
+  Dim converter1 As ExcelToPdfConverter = New ExcelToPdfConverter(workbook1)
+  Dim converter2 As ExcelToPdfConverter = New ExcelToPdfConverter(workbook2)
+
+  'Convert the first Excel document to PDF
+  Dim document As PdfDocument = converter1.Convert
+
+  'Initialize ExcelToPdfConverterSettings
+  Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
+
+  'Set the document as TemplateDocument
+  settings.TemplateDocument = document
+
+  'Create a new PDF document and convert the second Excel document with settings
+  Dim newDocument As PdfDocument = New PdfDocument
+  newDocument = converter2.Convert(settings)
+
+  'Save the PDF document
+  document.Save("Output.pdf")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -4052,7 +1907,52 @@ A complete working example to convert multiple workbooks to PDF in C# is present
 By using the [TemplateDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_TemplateDocument) property, multiple worksheets or selected worksheets can be converted into single PDF document. The following code snippet explains how to convert selected sheets into a single PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an Excel document
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Get the first worksheet
+  IWorksheet worksheet1 = workbook.Worksheets[0];
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Initailize PdfDocument and convert first worksheet to PDF
+  PdfDocument document = renderer.ConvertToPDF(worksheet1);
+
+  //Initailize ExcelToPdfConverterSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
+  settings.TemplateDocument = document;
+
+  //Get the third worksheet
+  IWorksheet worksheet3 = workbook.Worksheets[2];
+
+  //Initailize new PdfDocument and convert third worksheet to PDF with settings
+  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  newDocument.Save(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+  fileStreamResult.FileDownloadName = "Output.pdf";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4093,7 +1993,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -4132,165 +2032,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Open an Excel document
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream excelStream = assembly.GetManifestResourceStream("UWPSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Get the first worksheet
-  IWorksheet worksheet1 = workbook.Worksheets[0];
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Initailize PdfDocument and convert first worksheet to PDF
-  PdfDocument document = renderer.ConvertToPDF(worksheet1);
-
-  //Initailize ExcelToPdfConverterSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
-  settings.TemplateDocument = document;
-
-  //Get the third worksheet
-  IWorksheet worksheet3 = workbook.Worksheets[2];
-
-  //Initailize new PdfDocument and convert third worksheet to PDF with settings
-  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  newDocument.Save(stream);
-  Save(stream, "Output.pdf");
-  excelStream.Dispose();
-}
-
-//Save the workbook stream as a file.
-
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Sample";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-}
-#endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Open an Excel document
-  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Get the first worksheet
-  IWorksheet worksheet1 = workbook.Worksheets[0];
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Initailize PdfDocument and convert first worksheet to PDF
-  PdfDocument document = renderer.ConvertToPDF(worksheet1);
-
-  //Initailize ExcelToPdfConverterSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
-  settings.TemplateDocument = document;
-
-  //Get the third worksheet
-  IWorksheet worksheet3 = workbook.Worksheets[2];
-
-  //Initailize new PdfDocument and convert third worksheet to PDF with settings
-  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
-
-  //Saving the Excel to the MemoryStream 
-  MemoryStream stream = new MemoryStream();
-  newDocument.Save(stream);
-
-  //Set the position as '0'
-  stream.Position = 0;
-
-  //Download the PDF file in the browser
-  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-  fileStreamResult.FileDownloadName = "Output.pdf";
-  return fileStreamResult;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Open an Excel document
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream excelStream = assembly.GetManifestResourceStream("XamarinSample.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Get the first worksheet
-  IWorksheet worksheet1 = workbook.Worksheets[0];
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Initailize PdfDocument and convert first worksheet to PDF
-  PdfDocument document = renderer.ConvertToPDF(worksheet1);
-
-  //Initailize ExcelToPdfConverterSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Set the PdfDocument to TemplateDocument in ExcelToPdfConverterSettings
-  settings.TemplateDocument = document;
-
-  //Get the third worksheet
-  IWorksheet worksheet3 = workbook.Worksheets[2];
-
-  //Initailize new PdfDocument and convert third worksheet to PDF with settings
-  PdfDocument newDocument = renderer.ConvertToPDF(worksheet3, settings);
-
-  //Saving the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  newDocument.Save(stream);
-
-  stream.Position = 0;
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert selected worksheets to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Selected%20Worksheets%20to%20PDF).
@@ -4302,7 +2043,39 @@ The default value of [ThrowWhenExcelFileIsEmpty](https://help.syncfusion.com/cr/
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Initialize XlsIORendererSettings
+  XlsIORendererSettings settings = new XlsIORendererSettings();
+
+  //Enabling ThrowWhenExcelFileIsEmpty throws exception
+  settings.ThrowWhenExcelFileIsEmpty = true;
+
+  //Initialize XlsIORenderer
+  XlsIORenderer renderer = new XlsIORenderer();
+
+  //Convert the Excel document to PDF with renderer settings
+  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
+
+  //Saving the Excel to the MemoryStream 
+  MemoryStream stream = new MemoryStream();
+  document.Save(stream);
+
+  //Set the position as '0'
+  stream.Position = 0;
+
+  //Download the PDF file in the browser
+  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+  fileStreamResult.FileDownloadName = "Output.pdf";
+  return fileStreamResult;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -4326,7 +2099,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -4348,125 +2121,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   document.Save("Output.pdf")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enabling ThrowWhenExcelFileIsEmpty throws exception
-  settings.ThrowWhenExcelFileIsEmpty = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook,settings);
-
-  //Save the PDF document
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  Save(stream, "Output.pdf");
-}
-
-//Save the PDF stream as a file
-#region Setting output location
-async void Save(Stream stream, string filename)
-{
-  stream.Position = 0;
-
-  StorageFile stFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.DefaultFileExtension = ".pdf";
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-    stFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-  }
-  if (stFile != null)
-  {
-    Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-    Stream st = fileStream.AsStreamForWrite();
-    st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-    st.Flush();
-    st.Dispose();
-    fileStream.Dispose();
-  }
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enabling ThrowWhenExcelFileIsEmpty throws exception
-  settings.ThrowWhenExcelFileIsEmpty = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Saving the Excel to the MemoryStream 
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-
-  //Set the position as '0'
-  stream.Position = 0;
-
-  //Download the PDF file in the browser
-  FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-  fileStreamResult.FileDownloadName = "Output.pdf";
-  return fileStreamResult;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Initialize XlsIORendererSettings
-  XlsIORendererSettings settings = new XlsIORendererSettings();
-
-  //Enabling ThrowWhenExcelFileIsEmpty throws exception
-  settings.ThrowWhenExcelFileIsEmpty = true;
-
-  //Initialize XlsIORenderer
-  XlsIORenderer renderer = new XlsIORenderer();
-
-  //Convert the Excel document to PDF with renderer settings
-  PdfDocument document = renderer.ConvertToPDF(workbook, settings);
-
-  //Save the PDF document to stream
-  MemoryStream stream = new MemoryStream();
-  document.Save(stream);
-  stream.Position = 0;
-
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to through exception when file is empty in Excel to PDF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Empty%20Excel%20to%20PDF).
@@ -4483,227 +2137,7 @@ In addition, a decision to continue the conversion process can be done here by s
 
 The following code snippet shows how to capture warnings during Excel-to-PDF conversion.
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-using Syncfusion.ExcelToPdfConverter;
-using Syncfusion.Pdf;
-using Syncfusion.XlsIO;
-
-namespace CaptureWarnings
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      using(ExcelEngine excelEngine = new ExcelEngine())
-      {
-        IApplication application = excelEngine.Excel;
-        application.DefaultVersion = ExcelVersion.Excel2013;
-        IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-        //Open the Excel document to convert.
-        ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-
-        //Initialize warning class to capture warnings during the conversion.
-        Warning warning = new Warning();
-
-        //Initialize Excel-to-PDF converter settings.
-        ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
-
-        //Set the warning class that is implemented.
-        settings.Warning = warning;
-
-        //Convert Excel document into PDF document.
-        PdfDocument pdfDocument = converter.Convert(settings);
-
-        //If conversion process canceled null returned.
-        if(pdfDocument != null)
-
-        //Save the PDF file.
-        pdfDocument.Save("ExcelToPDF.pdf");
-      }
-    }
-  }
-
-  /// <summary>
-  /// A supporting class that implements IWarning.
-  /// </summary>
-  public class Warning : IWarning
-  {
-    public void ShowWarning(WarningInfo warning)
-    {
-      //Cancel the converion process if the warning type is conditional formatting.
-      if (warning.Type == WarningType.ConditionalFormatting)
-        Cancel = true;
-
-      //To view or log the warning, you can make use of warning.Description.
-    }
-    public bool Cancel { get; set; }
-  }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Imports Syncfusion.ExcelToPdfConverter
-Imports Syncfusion.Pdf
-Imports Syncfusion.XlsIO
-
-Namespace CaptureWarnings
-  Class Program
-    Private Shared Sub Main(ByVal args As String())
-      Using excelEngine As ExcelEngine = New ExcelEngine()
-
-        Dim application As IApplication = excelEngine.Excel
-        application.DefaultVersion = ExcelVersion.Excel2013
-        Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
-        'Open the Excel document to convert.
-        Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-
-        'Initialize warning class to capture warnings during the conversion.
-        Dim warning As Warning = New Warning()
-
-        'Initialize Excel-to-PDF converter settings.
-        Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
-
-        'Set the warning class that is implemented.
-        settings.Warning = warning
-
-        'Convert Excel document into PDF document.
-        Dim pdfDocument As PdfDocument = converter.Convert(settings)
-
-        'If conversion process canceled null returned.
-        If pdfDocument IsNot Nothing Then
-
-        'Save the PDF file.
-        pdfDocument.Save("ExcelToPDF.pdf")
-      End Using
-    End Sub
-  End Class
-
-  ''' <summary>
-  ''' A supporting class that implements IWarning.
-  ''' </summary>
-  Public Class Warning
-    Inherits IWarning
-
-    Public Sub ShowWarning(ByVal warning As WarningInfo)
-      'Cancel the converion process if the warning type is conditional formatting.
-      If warning.Type = WarningType.ConditionalFormatting Then Cancel = True
-
-      'To view or log the warning, you can make use of warning.Description.
-    End Sub
-
-    Public Property Cancel As Boolean
-  End Class
-End Namespace
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
-
-using Syncfusion.XlsIORenderer;
-using Syncfusion.Pdf;
-using Syncfusion.XlsIO;
-
-namespace CaptureWarnings
-{
-  class Program
-  {
-    void Button_Click(Object sender, EventArgs args)
-    {
-      using (ExcelEngine excelEngine = new ExcelEngine())
-      {
-      	IApplication application = excelEngine.Excel;
-
-      	//Gets assembly
-      	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-      	//Gets input Excel document from an embedded resource collection
-      	Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-      	IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-
-      	//Initialize warning class to capture warnings during the conversion.
-      	Warning warning = new Warning();
-
-      	//Initialize XlsIO renderer.
-      	XlsIORenderer renderer = new XlsIORenderer();
-
-      	//Initialize XlsIO renderer settings.
-      	XlsIORendererSettings settings = new XlsIORendererSettings();
-
-      	//Set the warning class that is implemented.
-      	settings.Warning = warning;
-
-      	//Convert Excel document into PDF document.
-      	PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
-
-        //If conversion process canceled null returned.
-        if(pdfDocument != null)
-        {
-      	  //Save the PDF document to stream.
-      	  MemoryStream stream = new MemoryStream();
-
-      	  await pdfDocument.SaveAsync(stream);
-      	  Save(stream, "ExcelToPDF.pdf");
-          stream.Dispose();
-        }
-        excelStream.Dispose();
-      }
-    }		
-
-    //Save the workbook stream as a file.
-
-    #region Setting output location
-    async void Save(Stream stream, string filename)
-    {
-      stream.Position = 0;
-
-      StorageFile stFile;
-      if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-      {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".pdf";
-        savePicker.SuggestedFileName = "Sample";
-        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-        stFile = await savePicker.PickSaveFileAsync();
-      }
-      else
-      {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-      }
-      if (stFile != null)
-      {
-        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-        Stream st = fileStream.AsStreamForWrite();
-        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-        st.Flush();
-        st.Dispose();
-        fileStream.Dispose();
-      }
-    }
-  }
-
-  /// <summary>
-  /// A supporting class that implements IWarning.
-  /// </summary>
-  public class Warning : IWarning
-  {
-    public void ShowWarning(WarningInfo warning)
-    {
-      //Cancel the converion process if the warning type is conditional formatting.
-      if (warning.Type == WarningType.ConditionalFormatting)
-        Cancel = true;
-
-      //To view or log the warning, you can make use of warning.Description.
-    }
-    public bool Cancel { get; set; }
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
@@ -4768,8 +2202,8 @@ namespace CaptureWarnings
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using Syncfusion.XlsIORenderer;
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using Syncfusion.ExcelToPdfConverter;
 using Syncfusion.Pdf;
 using Syncfusion.XlsIO;
 
@@ -4777,55 +2211,34 @@ namespace CaptureWarnings
 {
   class Program
   {
-    void Button_Click(Object sender, EventArgs args)
+    static void Main(string[] args)
     {
-      using (ExcelEngine excelEngine = new ExcelEngine())
+      using(ExcelEngine excelEngine = new ExcelEngine())
       {
         IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Excel2013;
+        IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-        //Gets assembly
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-        //Gets input Excel document from an embedded resource collection
-        Stream excelStream = assembly.GetManifestResourceStream("Sample.xlsx");
-        IWorkbook workbook = application.Workbooks.Open(excelStream);
+        //Open the Excel document to convert.
+        ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
         //Initialize warning class to capture warnings during the conversion.
         Warning warning = new Warning();
 
-        //Initialize XlsIO renderer.
-        XlsIORenderer renderer = new XlsIORenderer();
-
-        //Initialize XlsIO renderer settings.
-        XlsIORendererSettings settings = new XlsIORendererSettings();
+        //Initialize Excel-to-PDF converter settings.
+        ExcelToPdfConverterSettings settings = new ExcelToPdfConverterSettings();
 
         //Set the warning class that is implemented.
         settings.Warning = warning;
 
-        //Convert Excel document into PDF document 
-        PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
+        //Convert Excel document into PDF document.
+        PdfDocument pdfDocument = converter.Convert(settings);
 
         //If conversion process canceled null returned.
         if(pdfDocument != null)
-        {
-          //Save the PDF document to stream.
-          MemoryStream stream = new MemoryStream();
-          pdfDocument.Save(stream);
 
-          stream.Position = 0;
-
-          //Save the stream into pdf file
-          if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-          {
-            Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-          }
-          else
-          {
-            Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-          }
-          stream.Dispose();
-        }
-      	excelStream.Dispose();
+        //Save the PDF file.
+        pdfDocument.Save("ExcelToPDF.pdf");
       }
     }
   }
@@ -4846,6 +2259,62 @@ namespace CaptureWarnings
     public bool Cancel { get; set; }
   }
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Imports Syncfusion.ExcelToPdfConverter
+Imports Syncfusion.Pdf
+Imports Syncfusion.XlsIO
+
+Namespace CaptureWarnings
+  Class Program
+    Private Shared Sub Main(ByVal args As String())
+      Using excelEngine As ExcelEngine = New ExcelEngine()
+
+        Dim application As IApplication = excelEngine.Excel
+        application.DefaultVersion = ExcelVersion.Excel2013
+        Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+        'Open the Excel document to convert.
+        Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+        'Initialize warning class to capture warnings during the conversion.
+        Dim warning As Warning = New Warning()
+
+        'Initialize Excel-to-PDF converter settings.
+        Dim settings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings()
+
+        'Set the warning class that is implemented.
+        settings.Warning = warning
+
+        'Convert Excel document into PDF document.
+        Dim pdfDocument As PdfDocument = converter.Convert(settings)
+
+        'If conversion process canceled null returned.
+        If pdfDocument IsNot Nothing Then
+
+        'Save the PDF file.
+        pdfDocument.Save("ExcelToPDF.pdf")
+      End Using
+    End Sub
+  End Class
+
+  ''' <summary>
+  ''' A supporting class that implements IWarning.
+  ''' </summary>
+  Public Class Warning
+    Inherits IWarning
+
+    Public Sub ShowWarning(ByVal warning As WarningInfo)
+      'Cancel the converion process if the warning type is conditional formatting.
+      If warning.Type = WarningType.ConditionalFormatting Then Cancel = True
+
+      'To view or log the warning, you can make use of warning.Description.
+    End Sub
+
+    Public Property Cancel As Boolean
+  End Class
+End Namespace
 {% endhighlight %}
 {% endtabs %}
 
