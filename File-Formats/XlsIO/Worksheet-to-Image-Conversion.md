@@ -15,7 +15,7 @@ Refer to the following links for assemblies/nuget packages required based on pla
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-worksheet-to-image) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-worksheet-to-image)
 
-N> Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform. 
+N> Worksheet To Image conversion can be performed by referring [Syncfusion.XlsIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core) NuGet package in UWP platform. 
 
 ## Convert as bitmap
 
