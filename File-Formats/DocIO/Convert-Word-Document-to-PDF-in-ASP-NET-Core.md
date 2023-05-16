@@ -96,4 +96,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output PDF document in ASP.NET Core](ASP-NET-Core_images/OutputImage.png)
+![Output PDF document in ASP.NET Core](WordToPDF_images/OutputImage.png)
