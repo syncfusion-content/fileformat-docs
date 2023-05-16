@@ -79,10 +79,7 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
         {                       
             //Saves the PDF file
             MemoryStream outputStream = new MemoryStream();
-            pdfDocument.Save(outputStream);
-
-            //Closes the instance of PDF document object
-            pdfDocument.Close();
+            pdfDocument.Save(outputStream);        
             outputStream.Position = 0;
 
             //Save the PDF file
