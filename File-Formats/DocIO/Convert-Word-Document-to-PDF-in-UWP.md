@@ -81,7 +81,6 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
             MemoryStream outputStream = new MemoryStream();
             pdfDocument.Save(outputStream);        
             outputStream.Position = 0;
-
             //Save the PDF file
             SavePDF(outputStream);
         }                   
