@@ -67,7 +67,7 @@ using Syncfusion.Pdf;
 
 {% endtabs %}
 
-Step 6: Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+Step 6: Add a new action method **ConvertWordtoPDF** in MainPage.xaml.cs and include the below code snippet to **convert a Word document to PDF**.
 
 {% tabs %}
 

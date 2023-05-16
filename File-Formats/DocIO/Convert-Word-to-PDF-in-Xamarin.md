@@ -24,7 +24,7 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 
 Step 3: Install [Syncfusion.Xamarin.DocIORenderer ](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIORenderer) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO Xamarin NuGet package](Xamarin_images/Nuget-Package-WordtoPDF.png)
+![Install Syncfusion.Xamarin.DocIORenderer NuGet package](Xamarin_images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -205,4 +205,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the PDF document as follows.
 
-![Xamarin output Word document](WordToPDF_images/OutputImage.png)                     
+![Xamarin output PDF document](WordToPDF_images/OutputImage.png)                     
