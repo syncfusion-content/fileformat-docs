@@ -1,6 +1,6 @@
 ---
 title: Converting Presentation to PDF in Fileformat Presentation | Syncfusion
-description: This section illustrates how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion in Fileformat Presentation.
+description: Learn here about how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion in Fileformat Presentation.
 platform: file-formats
 control: PowerPoint
 documentation: UG

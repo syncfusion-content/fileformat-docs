@@ -1,6 +1,6 @@
 ---
 title: Working with Document Conversion in Fileformats PDF Control | Syncfusion
-description: This section explains converting other document Types (Word, Excel, RTF, TIFF, XPS and HTML) into PDF in Fileformat PDF.
+description: Learn here about Working with Document Conversion in Syncfusion Essential File Formats PDF Control, its elements, and more.
 platform: file-formats
 control: PDF
 documentation: UG
