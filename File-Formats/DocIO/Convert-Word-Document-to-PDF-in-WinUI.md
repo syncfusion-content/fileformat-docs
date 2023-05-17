@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to PDF in WinUI | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library
+title: Convert Word to PDF in WinUI | Syncfusion
+description: Convert Word to PDF without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library
 platform: file-formats
 control: DocIO
 documentation: UG
