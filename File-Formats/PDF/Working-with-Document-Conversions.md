@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Document Conversions in Fileformat PDF 
+# Working with Document Conversions in File Formats PDF 
 
 ## Converting Word documents to PDF
 

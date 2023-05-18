@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with PDF Conformance in Fileformat PDF
+# Working with PDF Conformance in File Formats PDF
 
 The Essential PDF currently supports the following PDF conformances:
 
