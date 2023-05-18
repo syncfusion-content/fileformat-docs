@@ -1,6 +1,6 @@
 ---
-title: Working with PDF conformance in Fileformat PDF | Syncfusion
-description: Learn here about to create a PDF conformance documents in Fileformat PDF.
+title: Working with PDF conformance in File Formats PDF control | Syncfusion
+description: This section explains how to create a PDF conformance documents and convert PDF to PDF/A conformance document.
 platform: file-formats
 control: PDF
 documentation: UG

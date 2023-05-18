@@ -1,5 +1,5 @@
 ---
-title: Working with Document Conversion in Fileformats PDF Control | Syncfusion
+title: Working with Document Conversion in File Formats PDF Control | Syncfusion
 description: Learn here about Working with Document Conversion in Syncfusion Essential File Formats PDF Control, its elements, and more.
 platform: file-formats
 control: PDF
