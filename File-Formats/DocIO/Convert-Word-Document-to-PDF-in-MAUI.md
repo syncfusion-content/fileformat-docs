@@ -75,7 +75,7 @@ Step 6: Add a new action method **ConvertWordtoPDF** in MainPage.xaml.cs and inc
 
 //Loading an existing Word document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;      
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_PDF.Template.Input.docx"), FormatType.Docx))
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_PDF.Assets.Input.docx"), FormatType.Docx))
 {
     //Instantiation of DocIORenderer for Word to PDF conversion
     using (DocIORenderer render = new DocIORenderer())
@@ -83,7 +83,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         //Converts Word document into PDF document
         using (PdfDocument pdfDocument = render.ConvertToPDF(document))
         {
-            //Saves the Word document to MemoryStream.
+            //Saves the PDF document to MemoryStream.
             MemoryStream stream = new MemoryStream();
             pdfDocument.Save(stream);
 
