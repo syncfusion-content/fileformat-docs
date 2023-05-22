@@ -98,7 +98,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI).
 
 By executing the program, you will get the **PDF document** as follows.
 
@@ -106,7 +106,7 @@ By executing the program, you will get the **PDF document** as follows.
 
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO-2028573617.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Refer the below helper files and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -122,50 +122,50 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    .NET MAUI Project
+    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF)'| markdownify }}
   </td>
   <td>
-    SaveService.cs
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/SaveServices/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
   <td>
-    Windows
+    {{'[Windows](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/Windows)'| markdownify }}
   </td>
   <td>
-    SaveWindows.cs
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/Windows/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for Windows.
   </td>
   </tr>
   <tr>
   <td>
-    Android
+    {{'[Android](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/Android)'| markdownify }}
   </td>
   <td>
-    SaveAndroid.cs
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device.
   </td>
   </tr>
   <tr>
   <td>
-    Mac Catalyst
+    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/MacCatalyst)'| markdownify }}
   </td>
   <td>
-    SaveMac.cs
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    iOS
+    {{'[iOS](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS)'| markdownify }}
   </td>
   <td>
-    SaveIOS.cs
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device

@@ -1,16 +1,16 @@
 ---
-title: Convert Word to PDF on Mac OS | Syncfusion
+title: Convert Word to PDF on macOS | Syncfusion
 description: Convert Word to PDF in ASP.NET Core application on macOS using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word document to PDF on Mac OS
+# Convert Word document to PDF on macOS
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read,  edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in .NET Core application on Mac OS**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read,  edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in .NET Core application on macOS**.
 
-## Steps to convert Word document to PDF in .NET Core application on Mac OS
+## Steps to convert Word document to PDF in .NET Core application on macOS
 
 Step 1: Create a new .NET Core console application project.
 
@@ -72,7 +72,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Te
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Mac).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Mac).
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in bin folder.
 

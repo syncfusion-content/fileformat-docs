@@ -114,7 +114,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 ## Helper files for Xamarin
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Refer the below helper files and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -130,20 +130,20 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    Portable project
+    {{'[Portable project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF)'| markdownify }}
   </td>
   <td>
-    ISave.cs
+    {{'[ISave.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF/ISave.cs)'| markdownify }}
   </td>
   <td>Represent the base interface for save operation
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    iOS Project
+    {{'[iOS Project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS)'| markdownify }}
   </td>
   <td>
-    SaveIOS.cs
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -151,7 +151,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS/PreviewControllerDS.cs)'| markdownify }}
   </td>
   <td>
     Helper class for viewing the <b>Word document</b> in iOS device
@@ -159,49 +159,29 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    Android project
+    {{'[Android project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.Android)'| markdownify }}
   </td>
   <td>
-    SaveAndroid.cs
+   {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device
   </td>
   </tr>
   <tr>
   <td>
-    WinPhone project
+    {{'[UWP project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.UWP)'| markdownify }}
   </td>
   <td>
-    SaveWinPhone.cs
-  </td>
-  <td>Save implementation for Windows Phone device
-  </td>
-  </tr>
-  <tr>
-  <td>
-    UWP project
-  </td>
-  <td>
-    SaveWindows.cs
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.UWP/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for UWP device.
-  </td>
-  </tr>
-  <tr>
-  <td>
-    Windows (8.1) project
-  </td>
-  <td>
-    SaveWindows81.cs
-  </td>
-  <td>Save implementation for WinRT device.
   </td>
   </tr>
 </table>
 
 Compile and execute the application. Now this application **convert a Word document to PDF**.
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Xamarin).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin).
 
 By executing the program, you will get the PDF document as follows.
 
