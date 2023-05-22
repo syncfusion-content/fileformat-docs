@@ -126,7 +126,7 @@ Install-Package Syncfusion.DocIO.UWP
 </tr>
 <tr>
 <td>
-{{'[Windows UI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui)'|  markdownify }} Library (WinUI)<br/> {{'[.NET Multi-platform App UI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui)'|  markdownify }} (.NET MAUI)
+{{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui)'|  markdownify }} <br/> {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui)'|  markdownify }} 
 </td>
 <td>
 Syncfusion.DocIO.NET.nupkg
