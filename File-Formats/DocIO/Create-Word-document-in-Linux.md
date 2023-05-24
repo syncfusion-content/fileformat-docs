@@ -24,7 +24,7 @@ dotnet new console
 
 {% endtabs %}
 
-![Create .NET Core console application on Linux](Linux-images/CreateNewProject1.png)
+![Create .NET Core console application on Linux](linux-images/createnewproject.png)
 
 Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
 
@@ -38,7 +38,7 @@ dotnet add package Syncfusion.DocIO.Net.Core -v 17.4.0.39 -s https://www.nuget.o
 
 {% endtabs %}
 
-![Install NuGet packages](Linux-images/InstallNuGetPackages1.png)
+![Install NuGet packages](file-format-linux-images/installnugetpackages.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
@@ -296,7 +296,7 @@ dotnet restore
 
 {% endtabs %}
 
-![Restore the NuGet packages](Linux-images/Restore.png)
+![Restore the NuGet packages](linux-images/restore.png)
 
 Step 6: Execute the following command in terminal to run the application.
 
@@ -310,10 +310,10 @@ dotnet run
 
 {% endtabs %}
 
-![Run the Applcation](Linux-images/Run.png)
+![Run the Applcation](linux-images/run.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Linux).
 
 By executing the program, you will get the **Word document** as follows. The output will be saved in parallel to program.cs file.
 
-![Word document generated on Linux](Linux-images/GettingStartedOutput.jpg)
+![Word document generated on Linux](linux-images/gettingStartedoutput.jpg)
