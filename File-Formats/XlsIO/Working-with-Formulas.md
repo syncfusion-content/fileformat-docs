@@ -3280,7 +3280,7 @@ Calculate engines provides certain options like calculation modes, Recalculate b
 
 ### Calculation Modes
 
-There are various [calculation modes](https://docs.microsoft.com/en-us/office/troubleshoot/excel/current-mode-of-calculation) that enable users to customize formula calculations according to their needs. They are:
+There are various [calculation modes](https://learn.microsoft.com/en-us/office/troubleshoot/excel/current-mode-of-calculation) that enable users to customize formula calculations according to their needs. They are:
 
 * Automatic
 * Automatic except for Data Tables
