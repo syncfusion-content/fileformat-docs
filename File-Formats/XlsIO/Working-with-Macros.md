@@ -222,7 +222,7 @@ The Vba project in the output looks like below.
 <img src="working-with-macros_images/file-formats-xlsio-vba-project.png" alt="working with in File Formats XLSIO VBA Project" width="100%" Height="Auto"/>
 
 The macro output in the Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-macro-output.png" alt="working with macros in File Formats XLSIO Macro" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-macro-output.png" alt="working with macros in File Formats XLSIO Macro" width="100%" Height="Auto"/>
 
 ### StdModule
 StdModule is the module created for whenever a macro process is recorded in Excel document.
@@ -426,10 +426,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to create macro as standard module in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20StdModule).    
 
 The Vba project in the output Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-stdmodule.png" alt="working with macros in File Formats XLSIO in StdModule" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-stdmodule.png" alt="working with macros in File Formats XLSIO in StdModule" width="100%" Height="Auto"/>
 
 The Macro output in the Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-macro-output-in-excel.png" alt="working with macros in File Formats XLSIO in macro output in excel" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-macro-output-in-excel.png" alt="working with macros in File Formats XLSIO in macro output in excel" width="100%" Height="Auto"/>
 
 ### Class
 Class module allows us to create our own object model to use it where same kind of objects needs to be added with different values such as creating the employee information list. XlsIO supports creating a class module in Excel document.
@@ -649,10 +649,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to create macro as class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Class).    
 
 The Vba project in the output Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-class-in-vba.png" alt="working with macros in File Formats XLSIO Class VBA" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-class-in-vba.png" alt="working with macros in File Formats XLSIO Class VBA" width="100%" Height="Auto"/>
 
 The Macro output in the Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-class-in-macro.png" alt="working with macros in File Formats XLSIO Class in Macro" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-class-in-macro.png" alt="working with macros in File Formats XLSIO Class in Macro" width="100%" Height="Auto"/>
 
 ### MsForm
 MsForm is the form module in which we can have form controls such as textbox, label, buttons etc. Form module cannot be created by XlsIO, but it allows to copy from a form module existing another workbook to new workbook.
@@ -920,7 +920,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to create macro as MS Form in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20MSForm).
 
 The Vba project in the output Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-msform.png" alt="working with macros in File Formats XLSIO MsForms" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-msform.png" alt="working with macros in File Formats XLSIO MsForms" width="100%" Height="Auto"/>
 
 ### Assigning Macro to Shapes
 XlsIO supports assigning macros to the shape controls in the Excel document through [OnAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape.html#Syncfusion_XlsIO_IShape_OnAction) property. 
@@ -1123,7 +1123,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to assign macro to shape in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Shapes%20with%20Macro).
 
 When the shape is clicked, the output looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-assign-to-shape.png" alt="working with macros in File Formats XLSIO Assign Macro to Shape" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-assign-to-shape.png" alt="working with macros in File Formats XLSIO Assign Macro to Shape" width="100%" Height="Auto"/>
 
 ### Saving macro enabled document into stream
 By default, while saving the Excel workbook into stream, the file type will be based on the Excel version used. For Excel97to2003 version, the file format will be XLS type.  Above this version, the document will be saved as XLSX format. So, while saving the macro enabled documents into XLSM and XLTM formats into stream, the [ExcelSaveType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelSaveType.html) should be provided as **SaveAsMacro** and **SaveAsMacroTemplate**. 
@@ -1461,10 +1461,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 A complete working example to edit macro in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Edit%20Macro).  
 
 The Vba project in the output Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-edditing-in-vba.png" alt="working with macros in File Formats XLSIO Edditing in VBA " width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-edditing-in-vba.png" alt="working with macros in File Formats XLSIO Edditing in VBA " width="100%" Height="Auto"/>
 
 The Macro output in the Excel document looks like below.
-<img src="Working-with-Macros_images/file-formats-xlsio-edditing-in-macro.png" alt="working with macros in File Formats XLSIO Edditing in Macro" width="100%" Height="Auto"/>
+<img src="working-with-macros_images/file-formats-xlsio-edditing-in-macro.png" alt="working with macros in File Formats XLSIO Edditing in Macro" width="100%" Height="Auto"/>
 
 N> Macros are parsed only when accessed. By default, opening and saving a macro file will preserve its macros.
 
