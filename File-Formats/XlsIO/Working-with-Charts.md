@@ -1749,7 +1749,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to create a custom chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Custom%20Chart).
 
-<img src="working-with-charts_images/properties.jpeg" alt="chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-properties.jpeg" alt="Working with charts in File Formats XLSIO Properties" width="100%" Height="Auto"/>
 
 ## Remove a chart 
 
@@ -1888,7 +1888,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 The following screen shot shows the elements of chart.
 
-<img src="working-with-charts_images/appearance-settings.jpeg" alt="chart elements" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-appearance-settings.jpeg" alt="Working with charts in File Formats XLSIO Elements" width="100%" Height="Auto"/>
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -3220,7 +3220,7 @@ A complete working example to show high low lines of chart in C# is present on [
 
 The following screen shot shows the high-low lines in the line chart.
 
-<img src="working-with-charts_images/highlowlines.jpg" alt="High-Low lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-highlowlines.jpg" alt="Working with charts in File Formats XLSIO High-Low lines" width="100%" Height="Auto"/>
 
 ### Add Drop Lines
 
@@ -3380,7 +3380,7 @@ A complete working example to add drop lines of chart in C# is present on [this 
 
 The following screen shot shows the drop lines in the line chart.
 
-<img src="working-with-charts_images/droplines.jpg" alt="Drop lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-droplines.jpg" alt="Working with charts in File Formats XLSIO Drop lines" width="100%" Height="Auto"/>
 
 ### Add Series Lines
 
@@ -3541,7 +3541,7 @@ A complete working example to add series lines of chart in C# is present on [thi
 
 The following screen shot shows the series lines in the stacker bar chart.
 
-<img src="working-with-charts_images/serieslines.jpg" alt="Series lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-serieslines.jpg" alt="Working with charts in File Formats XLSIO Series lines" width="100%" Height="Auto"/>
 
 ## Fill Chart Elements with Picture
 
@@ -6123,7 +6123,7 @@ A complete working example to create funnel chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/funnel.jpeg" alt="funnel chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-funnel.jpeg" alt="Working with charts in File Formats XLSIO Funnel Chart" width="100%" Height="Auto"/>
 
 ### Box and Whisker
 
@@ -6420,7 +6420,7 @@ A complete working example to create box and whisker chart in C# is present on [
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/boxandwhisker.jpeg" alt="box and whisker chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-boxandwhisker.jpeg" alt="Working with charts in File Formats XLSIO box and whisker chart" width="100%" Height="Auto"/>
 
 ### Waterfall
 
@@ -6657,7 +6657,7 @@ A complete working example to create waterfall chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/waterfall.jpeg" alt="waterfall chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-waterfall.jpeg" alt="Working with charts in File Formats XLSIO Waterfall Chart" width="100%" Height="Auto"/>
 
 ### Histogram
 
@@ -6889,7 +6889,7 @@ A complete working example to create histogram chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/histogram.jpeg" alt="histogram chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-histogram.jpeg" alt="Working with Charts in File Formats XLSIO Histogram Chart" width="100%" Height="Auto"/>
 
 ### Pareto
 
@@ -7127,7 +7127,7 @@ A complete working example to create pareto chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/pareto.jpeg" alt="pareto chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-pareto.jpeg" alt="Working with charts in File Formats XLSIO Pareto Chart" width="100%" Height="Auto"/>
 
 ### Treemap
 
@@ -7334,7 +7334,7 @@ A complete working example to create treemap chart in C# is present on [this Git
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/treemap.jpeg" alt="treemap chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-treemap.jpeg" alt="Working with charts in File Formats XLSIO Treemap Chart" width="100%" Height="Auto"/>
 
 ### Sunburst
 
@@ -7541,7 +7541,7 @@ A complete working example to create sunburst chart in C# is present on [this Gi
 
 The following screen shot shows the output of above code.
 
-<img src="working-with-charts_images/sunburst.jpeg" alt="sunburst chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-sunburst.jpeg" alt="Working with charts in File Formats XLSIO Sunburst Chart" width="100%" Height="Auto"/>
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
 
