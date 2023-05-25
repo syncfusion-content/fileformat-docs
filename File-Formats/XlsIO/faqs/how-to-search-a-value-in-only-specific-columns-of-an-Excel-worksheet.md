@@ -10,74 +10,7 @@ documentation: UG
 XlsIO allows searching for a value in different columns in an Excel worksheet through the [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_FindAll_System_String_Syncfusion_XlsIO_ExcelFindType_) method. The following code illustrates this.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  IRanges ranges = worksheet.CreateRangesCollection();
-
-  //Add different ranges to the Range collection.
-  ranges.Add(worksheet.Range["C1"].EntireColumn);
-  ranges.Add(worksheet.Range["Q1"].EntireColumn);
-  ranges.Add(worksheet.Range["AA1"].EntireColumn);
-
-  IRange[] result = ranges.FindAll(90, ExcelFindType.Number);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  'Access first worksheet from the workbook instance
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  Dim ranges As IRanges = worksheet.CreateRangesCollection()
-
-  'Add different ranges to the Range collection.
-  ranges.Add(worksheet.Range("C1").EntireColumn)
-  ranges.Add(worksheet.Range("Q1").EntireColumn)
-  ranges.Add(worksheet.Range("AA1").EntireColumn)
-
-  Dim result() As IRange = ranges.FindAll(90, ExcelFindType.Number)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-
-  //Creates a storage file from FileOpenPicker
-  StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-  //Loads or open an existing workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  IRanges ranges = worksheet.CreateRangesCollection();
-
-  //Add different ranges to the Range collection.
-  ranges.Add(worksheet.Range["C1"].EntireColumn);
-  ranges.Add(worksheet.Range["Q1"].EntireColumn);
-  ranges.Add(worksheet.Range["AA1"].EntireColumn);
-
-  IRange[] result = ranges.FindAll(90, ExcelFindType.Number);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -97,20 +30,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-
-  string resourcePath = "GettingStarted.Sample.xlsx";
-  //"App" is the class of Portable project.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-  //Opens the workbook 
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  //Access first worksheet from the workbook instance.
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
   IRanges ranges = worksheet.CreateRangesCollection();
@@ -122,6 +47,25 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   IRange[] result = ranges.FindAll(90, ExcelFindType.Number);
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  'Access first worksheet from the workbook instance
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim ranges As IRanges = worksheet.CreateRangesCollection()
+
+  'Add different ranges to the Range collection.
+  ranges.Add(worksheet.Range("C1").EntireColumn)
+  ranges.Add(worksheet.Range("Q1").EntireColumn)
+  ranges.Add(worksheet.Range("AA1").EntireColumn)
+
+  Dim result() As IRange = ranges.FindAll(90, ExcelFindType.Number)
+End Using
 {% endhighlight %}
 {% endtabs %}  
 

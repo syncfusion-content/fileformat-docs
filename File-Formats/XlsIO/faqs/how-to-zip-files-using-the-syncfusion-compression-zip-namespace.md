@@ -11,7 +11,7 @@ documentation: UG
 You can compress the file using **Syncfusion.Compression.Zip** namespace. The following code illustrate this.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.Compression.Zip;
 
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
@@ -25,7 +25,7 @@ zipArchive.Save("SyncfusionCompressFileSample.zip");
 zipArchive.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Imports Syncfusion.Compression.Zip
 
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()
@@ -47,7 +47,7 @@ For compressing directories, you can make use of the **AddDirectory** method whi
 The following code snippet illustrate how to add the file from the local drive.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 string fileName = @"SampleFile.cs";
 ZipArchive zipArchive = new Syncfusion.Compression.Zip.ZipArchive();
 zipArchive.DefaultCompressionLevel = CompressionLevel.Best;
@@ -59,7 +59,7 @@ zipArchive.Save(@"SyncfusionCompressFileSample.zip");
 zipArchive.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim fileName As String = "SampleFile.cs"
 Dim zipArchive As ZipArchive = New Syncfusion.Compression.Zip.ZipArchive()
 zipArchive.DefaultCompressionLevel = CompressionLevel.Best

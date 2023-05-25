@@ -11,60 +11,7 @@ documentation: UG
 Script commands are used to set header/ footer formatting. The following code snippet illustrate this. For more information on formatting the string, see [Inserting and Formatting Text in Headers and Footers](https://docs.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb225426(v=office.12))
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Format the header
-  worksheet.PageSetup.CenterHeader = @"&""Gothic,bold""Center Header Text";
-  workbook.SaveAs("HeaderFormat.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Format the header
-  worksheet.PageSetup.CenterHeader = "&""Gothic,bold""Center Header Text"
-  workbook.SaveAs("HeaderFormat.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Format the header
-  worksheet.PageSetup.CenterHeader = @"&""Gothic,bold""Center Header Text";
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "HeaderFormat";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -82,7 +29,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -92,14 +39,21 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Format the header
   worksheet.PageSetup.CenterHeader = @"&""Gothic,bold""Center Header Text";
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-  stream.Position = 0;
-
-  //Save the stream as a file in the device and invoke it for viewing
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HeaderFormat.xlsx", "application/msexcel", stream);
+  workbook.SaveAs("HeaderFormat.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Format the header
+  worksheet.PageSetup.CenterHeader = "&""Gothic,bold""Center Header Text"
+  workbook.SaveAs("HeaderFormat.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
