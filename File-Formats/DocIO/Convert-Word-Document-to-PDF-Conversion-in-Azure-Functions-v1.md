@@ -155,6 +155,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output image PDF document](WordToPDF_images/OutputImage.png)
+![Output image PDF document](WordToPDF_images/Output-Image-Azure-Fuctions.png)
 
 
