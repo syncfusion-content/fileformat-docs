@@ -11,7 +11,7 @@ documentation: UG
 Syncfusion XlsIO do not have direct support to apply rotation and transparency to background image. But this can be achieved through below workaround.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;

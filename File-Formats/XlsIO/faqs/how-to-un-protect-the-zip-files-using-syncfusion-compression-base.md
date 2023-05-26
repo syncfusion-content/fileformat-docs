@@ -11,7 +11,7 @@ documentation: UG
 The following complete code snippet explains how to unprotect the zip file.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.Compression.Zip;
 using System.IO;
 
@@ -34,7 +34,7 @@ class Program
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Imports Syncfusion.Compression.Zip
 Imports System.IO
 
