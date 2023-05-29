@@ -903,7 +903,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
 Dim table As IWTable = CType(document.LastSection.Body.ChildEntities(1), WTable)
