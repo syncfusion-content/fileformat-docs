@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word to PDF in Azure Functions v1
 
-Syncfusion  DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can perform **convert a Word document to PDF in Azure Functions v1**
+Syncfusion  DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Azure Functions v1**
 
 ## Steps to convert a Word document to PDF in Azure Functions v1
 
@@ -93,7 +93,7 @@ Step 8: Select the **Create new** button
 Step 9: Click **Create** button 
 ![Select the plan type](Azure_Images/Functions_v1/Subscription_detail_WordtoPDF.png)
 
-Step 10:After creating app service then click **Finish** button 
+Step 10: After creating app service then click **Finish** button 
 ![Creating app service](Azure_Images/Functions_v1/App_service_Created_WordtoPDF.png)
 
 
@@ -104,6 +104,9 @@ Step 12: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/After_Publish_WordtoPDF.png)
 
 Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to PDF conversion** using the template Word document). You will get the output PDF document as follows.
+
+![Output image PDF document](WordToPDF_images/Output-Image-Azure-Fuctions.png)
+
 
 ## Steps to post the request to Azure Functions:
 
@@ -152,9 +155,5 @@ catch (Exception ex)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v1).
 
-
-By executing the program, you will get the **PDF document** as follows.
-
-![Output image PDF document](WordToPDF_images/Output-Image-Azure-Fuctions.png)
-
+From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Console_Application) and [Azure Functions v1](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v1).
 
