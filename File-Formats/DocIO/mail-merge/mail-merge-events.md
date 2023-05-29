@@ -112,7 +112,7 @@ End Sub
 
 {% endtabs %}
 
-N> While executing mail merge, DocIO internally uses a copy of a particular region for populating the contents. Sometimes, unexpected problems may arise due to inserting multiple body items into the region through the mail merge process. So, to insert multiple body items using the merge field event handler, you are recommended to use this [approach](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge) at your side.
+N> While executing mail merge, DocIO internally uses a copy of a particular region for populating the contents. Sometimes, unexpected problems may arise due to inserting multiple body items into the region through the mail merge process. So, to insert multiple body items using the merge field event handler, you are recommended to use this [approach](https://support.syncfusion.com/kb/article/10252/how-to-replace-merge-field-with-html-string-using-mail-merge) at your side.
 
 The following code example shows GetDataTable method which is used to get data for mail merge.
 
@@ -906,6 +906,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 
-* [How to add QR code to word using C#, VB.NET](https://www.syncfusion.com/kb/12960/how-to-add-qr-code-to-word-using-c-vb-net-docx)
-* [How to replace merge field with chart in Word document using mail merge?](https://www.syncfusion.com/kb/13864/how-to-replace-merge-field-with-chart-in-word-document-using-mail-merge)
-* [How to perform mail merge in Word document using image from URL?](https://www.syncfusion.com/kb/13841/how-to-perform-mail-merge-in-word-document-using-image-from-url)
+* [How to add QR code to word using C#, VB.NET](https://support.syncfusion.com/kb/article/11491/how-to-add-qr-code-to-word-using-c-vb-net-docx)
+* [How to replace merge field with chart in Word document using mail merge?](https://support.syncfusion.com/kb/article/12285/how-to-replace-merge-field-with-chart-in-word-document-using-mail-merge)
+* [How to perform mail merge in Word document using image from URL?](https://support.syncfusion.com/kb/article/12199/how-to-perform-mail-merge-in-word-document-using-image-from-url)

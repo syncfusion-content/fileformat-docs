@@ -598,7 +598,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant Word document looks as follows.
 
-![Creating a new Word document from scratch with basic elements](GettingStarted_images/GettingStarted_img1.jpeg)
+![Creating a new Word document from scratch with basic elements](gettingstarted_images/file-formats-docio-create-document.jpeg)
 
 ## Modifying an existing Word document
 
@@ -723,7 +723,7 @@ Follow the given steps to perform simple Mail merge in a Word document.
 
 Let’s consider that you have a template Word document with merge fields as shown.
 
-![Performing Mail merge input document](GettingStarted_images/GettingStarted_img2.jpeg)
+![Performing Mail merge input document](gettingstarted_images/file-formats-docio-performing-mail-merge-input.jpeg)
 
 The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides various overloads for [Execute](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_String___System_String___) method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
 
@@ -782,7 +782,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant Word document look as follows.
 
-![Performing Mail merge output document](GettingStarted_images/GettingStarted_img3.jpeg)
+![Performing Mail merge output document](gettingstarted_images/file-formats-docio-performing-mail-merge-output.jpeg)
 
 ### Simple Mail merge with Group
 
@@ -795,7 +795,7 @@ The region between these two merge fields get repeated for every record from the
 
 For example – let’s consider that you have a template document as shown.
 
-![Simple Mail merge with Group input document](GettingStarted_images/GettingStarted_img4.jpeg)
+![Simple Mail merge with Group input document](gettingstarted_images/file-formats-docio-mail-merge-group-input.jpeg)
 
 Here, in this template, Employees is the group name and exact same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
 
@@ -1037,7 +1037,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant document looks as follows.
 
-![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
+![Simple Mail merge with Group output document](gettingstarted_images/file-formats-docio-mail-merge-group-output.jpeg)
 
 ## Converting Word document to PDF
 

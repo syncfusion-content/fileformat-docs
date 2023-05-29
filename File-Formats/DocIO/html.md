@@ -276,7 +276,7 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 **Frequently Asked Questions**
 
-* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/13053/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to get image from URL while opening HTML in .NET Core targeting applications?](https://support.syncfusion.com/kb/article/11339/how-to-get-image-from-url-while-opening-html-in-net-core-)
 
 ### Customizing the Word to HTML conversion
 
@@ -1072,6 +1072,6 @@ Underline types and colors are ignored.
 
 ## See Also
 
-* [How to get image from URL while opening HTML in ASP.NET Core](https://www.syncfusion.com/kb/13054/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
-* [How to convert HTML document to plain text in C# and VB.NET](https://www.syncfusion.com/kb/13194/how-to-convert-html-document-to-plain-text-in-c-and-vb-net)
-* [How to save images into a folder and use that path in Word to HTML?](https://www.syncfusion.com/kb/13949/how-to-save-images-into-a-folder-and-use-that-path-in-word-to-html)
+* [How to get image from URL while opening HTML in ASP.NET Core](https://support.syncfusion.com/kb/article/11340/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
+* [How to convert HTML document to plain text in C# and VB.NET](https://support.syncfusion.com/kb/article/11588/how-to-convert-html-document-to-plain-text-in-c-and-vb-net)
+* [How to save images into a folder and use that path in Word to HTML?](https://support.syncfusion.com/kb/article/12228/how-to-save-images-into-a-folder-and-use-that-path-in-word-to-html)

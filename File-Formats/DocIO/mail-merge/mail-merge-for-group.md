@@ -23,7 +23,7 @@ The region where the Mail merge operations are to be performed must be marked by
 
 For example, consider that you have a template document as shown.
 
-![Mail merge for a group](../MailMerge_images/Group_mail_merge_template.png)
+![Mail merge for a group in File Formats DOCIO](../mailmerge_images/file-formats-docio-group-mail-merge-template.png)
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
 
@@ -110,7 +110,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant document looks as follows.
 
-![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
+![Group resultant document in File Formats DOCIO](../mailmerge_images/file-formats-docio-group-mail-merge-output.png)
 
 ## Mail merge with .NET objects
 
