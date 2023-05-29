@@ -106,7 +106,7 @@ Step 12: Publish has been succeed.
 
 Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to PDF conversion** using the template Word document). You will get the output PDF document as follows.
 
-![Output image PDF document](WordToPDF_images/Output-Image-Azure-Fuctions.png)
+![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
 ## Steps to post the request to Azure Functions:
 
