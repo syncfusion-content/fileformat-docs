@@ -215,7 +215,10 @@ Step 9: Click the **Publish** button.
 Step 10: Now, Publish has been succeeded.
 ![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_WordtoPDF.png)
 
-Step 11: Now, the published webpage will open in the **browser**. Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.You will get the output PDF document as follows.
+Step 11: Now, the published webpage will open in the **browser**.
+![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoPDF.png)
+
+Step 12: Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.You will get the output PDF document as follows.
 
 ![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
