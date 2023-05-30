@@ -110,10 +110,6 @@ public HomeController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 /// <returns></returns>
 public IActionResult WordToPDF(string button)
 {
-    string fileLoadTime = "";
-    string domLoadTime = "";
-    string conversionTime = "";
-    string saveTime = "";
     if (button == null)
         return View("Index");
 
@@ -136,8 +132,7 @@ public IActionResult WordToPDF(string button)
                 //Open using Syncfusion
                 using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
                 {
-                    stream.Dispose();
-                    stream = null;                          
+                    stream.Dispose();                         
                     // Creates a new instance of DocIORenderer class.
                     using (DocIORenderer render = new DocIORenderer())
                     {
@@ -147,12 +142,7 @@ public IActionResult WordToPDF(string button)
                             MemoryStream memoryStream = new MemoryStream();
                             // Save the PDF document
                             pdf.Save(memoryStream);
-                            memoryStream.Position = 0;
-                            ViewBag.OS = string.Format(System.Environment.OSVersion.ToString());
-                            ViewBag.Load = string.Format("FileLoadTime\t" + fileLoadTime);
-                            ViewBag.DomLoad = "DomLoadTime\t" + domLoadTime;
-                            ViewBag.Conversion = "ConversionTime\t" + conversionTime;
-                            ViewBag.Save = "SaveTime\t" + saveTime;
+                            memoryStream.Position = 0;                       
                             return File(memoryStream, "application/pdf", "WordToPDF.pdf");
                         }                                                           
                     } 
