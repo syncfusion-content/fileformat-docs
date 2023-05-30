@@ -21,7 +21,7 @@ Step 2: Create a project name and select the location.
 Step 3: Click **Create** button
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
 
-Step 3: Install the following **Nuget packages**.
+Step 4: Install the following **Nuget packages**.
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
 * [SkiaSharp.NativeAssets.Linux](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
