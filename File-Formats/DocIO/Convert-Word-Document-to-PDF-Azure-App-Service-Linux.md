@@ -136,33 +136,40 @@ public IActionResult WordToPDF(string button)
         // Gets the extension from file.
         string extension = Path.GetExtension(Request.Form.Files[0].FileName).ToLower();
         // Compares extension with supported extensions.
-        if (extension == ".doc" || extension == ".docx" || extension == ".dot" || extension == ".dotx" || extension == ".dotm" || extension == ".docm" || extension == ".xml" || extension == ".rtf")
+        if (extension == ".docx")
         {
             MemoryStream stream = new MemoryStream();
             Request.Form.Files[0].CopyTo(stream);
             try
             {
                 //Open using Syncfusion
-                WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Automatic);
-                document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-                stream.Dispose();
-                stream = null;
-                // Creates a new instance of DocIORenderer class.
-                DocIORenderer render = new DocIORenderer();
-                // Converts Word document into PDF document.
-                PdfDocument pdf = render.ConvertToPDF(document);
-                document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
-                MemoryStream memoryStream = new MemoryStream();
-                // Save the PDF document.                    
-                //Save using Syncfusion
-                pdf.Save(memoryStream);
-                memoryStream.Position = 0;
-                ViewBag.OS = string.Format(System.Environment.OSVersion.ToString());
-                ViewBag.Load = string.Format("FileLoadTime\t" + fileLoadTime);
-                ViewBag.DomLoad = "DomLoadTime\t" + domLoadTime;
-                ViewBag.Conversion = "ConversionTime\t" + conversionTime;
-                ViewBag.Save = "SaveTime\t" + saveTime;
-                return File(memoryStream, "application/pdf", "WordToPDF.pdf");
+                using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
+                {
+                    stream.Dispose();
+                    stream = null;
+                    //Hooks the font substitution event
+                    document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+                    // Creates a new instance of DocIORenderer class.
+                    using (DocIORenderer render = new DocIORenderer())
+                    {
+                        // Converts Word document into PDF document
+                        using (PdfDocument pdf = render.ConvertToPDF(document))
+                        {                                                                     
+                            //Unhooks the font substitution event after converting to PDF
+                            document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+                            MemoryStream memoryStream = new MemoryStream();
+                            // Save the PDF document
+                            pdf.Save(memoryStream);
+                            memoryStream.Position = 0;
+                            ViewBag.OS = string.Format(System.Environment.OSVersion.ToString());
+                            ViewBag.Load = string.Format("FileLoadTime\t" + fileLoadTime);
+                            ViewBag.DomLoad = "DomLoadTime\t" + domLoadTime;
+                            ViewBag.Conversion = "ConversionTime\t" + conversionTime;
+                            ViewBag.Save = "SaveTime\t" + saveTime;
+                            return File(memoryStream, "application/pdf", "WordToPDF.pdf");
+                        }                                                           
+                    } 
+                }                                                
             }
             catch (Exception ex)
             {
@@ -189,12 +196,8 @@ public IActionResult WordToPDF(string button)
 private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     string filePath = string.Empty;
-
-    //Load the file from the disk
     FileStream fileStream = null;
     //Sets the alternate font when a specified font is not installed in the production environment
-    //If "Arial Unicode MS" font is not installed, then it uses the "Arial" font
-    //For other missing fonts, uses the "Times New Roman"
     if (args.OriginalFontName == "Calibri")
     {
         filePath = _env.WebRootPath + @"/Fonts/calibri.ttf";
@@ -254,4 +257,8 @@ Step 9: Click the **Publish** button.
 Step 10: Now, Publish has been succeeded.
 ![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_WordtoPDF.png)
 
-Step 11: Now, the published webpage will open in the **browser**. Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.
+Step 11: Now, the published webpage will open in the **browser**. Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.You will get the output PDF document as follows.
+
+![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v1).
