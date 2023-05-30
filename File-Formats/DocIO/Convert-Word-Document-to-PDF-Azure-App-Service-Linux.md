@@ -1,16 +1,16 @@
 ---
-title: Convert Word document to PDF in Azure App service on Linux | Syncfusion
-description: Convert Word document to PDF in Azure App service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word document to PDF in Azure App Service on Linux | Syncfusion
+description: Convert Word document to PDF in Azure App Service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word to PDF in Azure App service on Windows
+# Convert Word to PDF in Azure App Service on Linux
 
 Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Azure App service on Linux**
 
-## Steps to convert Word document to PDF in Azure App service on Linux:
+## Steps to convert Word document to PDF in Azure App Service on Linux:
 
 Step 1: Create a new ASP.NET Core Web App(Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Windows/Create-Project-WordtoPDF.png)
@@ -220,7 +220,7 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 {% endtabs %}
 
 
-## Refer the following steps to publish as Azure App service Linux
+## Refer the following steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
 ![Right-click the project and select the Publish option](Azure_Images/App_Service_Windows/Publish_WordtoPDF.png)
