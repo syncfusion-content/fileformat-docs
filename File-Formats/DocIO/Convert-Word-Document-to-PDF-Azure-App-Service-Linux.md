@@ -12,7 +12,7 @@ Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/docum
 
 ## Steps to convert Word document to PDF in Azure App Service on Linux:
 
-Step 1: Create a new ASP.NET Core Web App(Model-View-Controller).
+Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Linux/Create-Project-WordtoPDF.png)
 
 Step 2: Create a project name and select the location.
@@ -21,12 +21,11 @@ Step 2: Create a project name and select the location.
 Step 3: Click **Create** button
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
 
-Step 4: Install the following **Nuget packages**.
+Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
 * [SkiaSharp.NativeAssets.Linux](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
 
-NuGet package as a reference to your .NET Core application from [Nuget.org](https://www.nuget.org/).
  ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
  ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
 
@@ -43,41 +42,35 @@ Step 7: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-@{
-    Html.BeginForm("WordToPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
-
-    {
-        <div class="Common">
-            <div class="tablediv">
-                <div class="rowdiv">
-                    This sample illustrates how to convert Word document to PDF using Essential DocIO and Essential PDF.
-                </div>
-                &nbsp;
-                <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
-                    Click the button to view the resultant PDF document being converted from Word document using Essential DocIO and Essential PDF. Please note that PDF viewer is required to view the resultant PDF.
+@{Html.BeginForm("WordToPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
+ 
+{
+    <div class="Common">
+        <div class="tablediv">
+            <div class="rowdiv">
+                This sample illustrates how to convert Word document to PDF using .NET Word library (DocIO) and .NET PDF library (PDF).
+            </div>
+            &nbsp;
+            <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
+            Click the button to view the resultant PDF document being converted from Word document using DocIO. Please note that PDF viewer is required to view the resultant PDF.
                     <div class="rowdiv" style="margin-top: 10px">
                         <div class="celldiv">
                             Select Document :
-                            @Html.TextBox("file", "", new { type = "file", accept = ".doc,.docx,.rtf,.dot,.dotm,.dotx,docm,.xml" }) <br />
+                            @Html.TextBox("file", "", new { type = "file", accept = ".docx" }) <br />
                         </div>
-                        <div class="rowdiv" style="margin-top: 8px">
+                    <div class="rowdiv" style="margin-top: 8px">
                             <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px;height:27px" />
                             <br />
                             <div class="text-danger">
                                 @ViewBag.Message
                             </div>
-                        </div>
                     </div>
                 </div>
-                <br />
-                <div class="rowdiv" style="margin-top: 15px">
-                    More information about Word to PDF conversion can be found in this
-                    <a href="https://help.syncfusion.com/file-formats/docio/conversion#converting-word-document-to-pdf">documentation</a>
-                    section.
-                </div>
             </div>
+            <br />
         </div>
-        Html.EndForm();
+    </div>
+    Html.EndForm();
     }
 }
 {% endhighlight %}
@@ -110,7 +103,6 @@ public HomeController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 {
     _env = env;
 }
-
 /// <summary>
 /// Convert Word document to PDF
 /// </summary>
@@ -145,17 +137,13 @@ public IActionResult WordToPDF(string button)
                 using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
                 {
                     stream.Dispose();
-                    stream = null;
-                    //Hooks the font substitution event
-                    document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+                    stream = null;                          
                     // Creates a new instance of DocIORenderer class.
                     using (DocIORenderer render = new DocIORenderer())
                     {
                         // Converts Word document into PDF document
                         using (PdfDocument pdf = render.ConvertToPDF(document))
                         {                                                                     
-                            //Unhooks the font substitution event after converting to PDF
-                            document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
                             MemoryStream memoryStream = new MemoryStream();
                             // Save the PDF document
                             pdf.Save(memoryStream);
@@ -185,37 +173,8 @@ public IActionResult WordToPDF(string button)
         ViewBag.Message = string.Format("Browse a Word document and then click the button to convert as a PDF document");
     }
     return View("Index");
-}
+}      
 
-/// <summary>
-/// Sets the alternate font when a specified font is not installed in the production environment
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="args"></param>
-private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
-{
-    string filePath = string.Empty;
-    FileStream fileStream = null;
-    //Sets the alternate font when a specified font is not installed in the production environment
-    if (args.OriginalFontName == "Calibri")
-    {
-        filePath = _env.WebRootPath + @"/Fonts/calibri.ttf";
-        fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-        args.AlternateFontStream = fileStream;
-    }
-    else if (args.OriginalFontName == "Arial")
-    {
-        filePath = _env.WebRootPath + @"/Fonts/arial.ttf";
-        fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-        args.AlternateFontStream = fileStream;
-    }
-    else
-    {
-        filePath = _env.WebRootPath + @"/Fonts/times.ttf";
-        fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-        args.AlternateFontStream = fileStream;
-    }
-}
 
 {% endhighlight %}
 
