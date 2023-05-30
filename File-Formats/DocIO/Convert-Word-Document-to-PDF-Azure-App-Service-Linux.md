@@ -13,13 +13,13 @@ Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/docum
 ## Steps to convert Word document to PDF in Azure App Service on Linux:
 
 Step 1: Create a new ASP.NET Core Web App(Model-View-Controller).
-![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Windows/Create-Project-WordtoPDF.png)
+![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Linux/Create-Project-WordtoPDF.png)
 
 Step 2: Create a project name and select the location.
 ![Configure your new project](Azure_Images/App_Service_Linux/Configure_Project_WordtoPDF.png)
 
 Step 3: Click **Create** button
-![Additional Information](Azure_Images/App_Service_Windows/Additional_Information_WordtoPDF.png)
+![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
 
 Step 3: Install the following **Nuget packages**.
 
@@ -27,16 +27,16 @@ Step 3: Install the following **Nuget packages**.
 * [SkiaSharp.NativeAssets.Linux](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
 
 NuGet package as a reference to your .NET Core application from NuGet.org.
- ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Windows/Syncfusion_Nuget_Package_WordtoPDF.png)
- ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Windows/SkiaSharp_Nuget-Package_WordtoPDF.png)
+ ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
+ ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
 
 
 Step 5: Create a folder in the `wwwroot` folder of the project and copy the required **fonts** and include the files to the project.
 
-![Create a folder](Azure_Images/App_Service_Windows/Font-Folder-WordtoPDF.png)
+![Create a folder](Azure_Images/App_Service_Linux/Font-Folder-WordtoPDF.png)
 
 Step 6: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Change the property of the font](Azure_Images/App_Service_Windows/Font-Property-WordtoPDF.png)
+![Change the property of the font](Azure_Images/App_Service_Linux/Font-Property-WordtoPDF.png)
 
 Step 7: Add a new button in the **Index.cshtml** as shown below.
 
@@ -223,35 +223,35 @@ private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs 
 ## Refer the following steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_Images/App_Service_Windows/Publish_WordtoPDF.png)
+![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoPDF.png)
 
 Step 2: Click the **Add a Publish Profile** button
-![Click the Add a Publish Profile](Azure_Images/App_Service_Windows/Publish_Profile_WordtoPDF.png)
+![Click the Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile_WordtoPDF.png)
 
 Step 3: Select the publish target as **Azure**.
-![Select the publish target as Azure](Azure_Images/App_Service_Windows/Publish_Target_WordtoPDF.png)
+![Select the publish target as Azure](Azure_Images/App_Service_Linux/Publish_Target_WordtoPDF.png)
 
 Step 4: Select the Specific target as **Azure App Service (Linux)**.
 ![Select the publish target](Azure_Images/App_Service_Linux/Specific_Target_WordtoPDF.png)
 
 Step 5: To create a new app service, click **Create new** option.
 
-![Click create new option](Azure_Images/App_Service_Windows/Create_New_App_Service_WordtoPDF.png)
+![Click create new option](Azure_Images/App_Service_Linux/Create_New_App_Service_WordtoPDF.png)
 
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_Images/App_Service_Windows/Hosting_Plan_WordtoPDF.png)
+![Click the Create button](Azure_Images/App_Service_Linux/Hosting_Plan_WordtoPDF.png)
 
 Step 7: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_Images/App_Service_Windows/App_Service_WordtoPDF.png)
+![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_WordtoPDF.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core  Project](Azure_Images/App_Service_Windows/Publish_Finish_WordtoPDF.png)
+![Create a ASP.NET Core  Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoPDF.png)
 
 Step 9: Click the **Publish** button.
-![Click the Publish button](Azure_Images/App_Service_Windows/Before_Publish_WordtoPDF.png)
+![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_WordtoPDF.png)
 
 Step 10: Now, Publish has been succeeded.
-![Publish has been succeeded](Azure_Images/App_Service_Windows/After_Publish_WordtoPDF.png)
+![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_WordtoPDF.png)
 
 Step 11: Now, the published webpage will open in the **browser**. Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.
