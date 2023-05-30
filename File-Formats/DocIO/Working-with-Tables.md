@@ -16,7 +16,7 @@ N> Adding more than 63 columns not supported in Word document using Microsoft Wo
 
 The following image illustrates how a table in Word document is organized in EssentialDocIO’s DOM:
 
-![DocIO Table DOM Structure](WorkingwithTables_images/WTable_DOM.jpg)
+![DocIO Table DOM Structure in File Formats](workingwithtables_images/file-formats-docio-table-dom-structure.jpg)
 
 The following code example illustrates how to create a simple table with predefined number of rows and cells.
 
@@ -1008,7 +1008,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can automatically resize the table cell to fit its contents based on the given **autofit options** such as [FitToContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FitToWindow](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FixedColumnWidth](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html). 
 
-![AutoFit options in Word document](WorkingwithTables_images/ResizeTable.png)
+![AutoFit options in File Formats Word document ](workingwithtables_images/file-formats-docio-resizetable.png)
 
 The following code example shows how to resize the table in a Word document. 
 

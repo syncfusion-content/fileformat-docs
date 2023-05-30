@@ -35,7 +35,7 @@ You can create a template document with merge fields by using any Word editor ap
 
 The following screenshot shows how to insert a merge field in the Word document by **using the Microsoft Word.**
 
-![Word template document](MailMerge_images/MailMerge_template.png)
+![Word template document in File Formats](mailmerge_images/file-formats-docio-mailmerge-template.png)
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
 
@@ -140,7 +140,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the previous code example, it generates the resultant Word document as follows.
 
-![Mail merge Word document](MailMerge_images/MailMerge_output.png)
+![Mail merge Word document in File Formats](mailmerge_images/file-formats-docio-mailmerge-output.png)
 
 ## Simple Mail merge
 
@@ -220,10 +220,10 @@ You can restart the list numbering in a Word document during Mail merge. For fur
 
 ## See Also
 
-* [How to mail merge Word document in Azure functions v1](https://www.syncfusion.com/kb/10671/how-to-mail-merge-word-document-in-azure-functions-v1)
-* [How to display mail merge result using format switch in the Word document](https://www.syncfusion.com/kb/12849/how-to-display-mail-merge-result-using-format-switch-in-the-word-document)
-* [Is this possible to Mail Merge using csv data source](https://www.syncfusion.com/kb/293/is-this-possible-to-mail-merge-using-csv-data-source)
-* [How to mail merge Word document in Linux (Mono)](https://www.syncfusion.com/kb/10666/how-to-mail-merge-word-document-in-linux-mono)
-* [How to replace merge field with HTML string using Mail merge](https://www.syncfusion.com/kb/11701/how-to-replace-merge-field-with-html-string-using-mail-merge)
-* [How to mail merge Word document in Docker](https://www.syncfusion.com/kb/10769/how-to-mail-merge-word-document-in-docker)
-* [Is it possible to merge outer group fields placed within inner nested group using nested mail merge?](https://www.syncfusion.com/kb/13981/is-it-possible-to-merge-outer-group-fields-placed-within-inner-nested-group-using-nested)
+* [How to mail merge Word document in Azure functions v1](https://support.syncfusion.com/kb/article/9196/how-to-mail-merge-word-document-in-azure-functions-v1)
+* [How to display mail merge result using format switch in the Word document](https://support.syncfusion.com/kb/article/11272/how-to-display-mail-merge-result-using-format-switch-in-the-word-document)
+* [Is this possible to Mail Merge using csv data source](https://support.syncfusion.com/kb/article/1294/is-this-possible-to-mail-merge-using-csv-data-source)
+* [How to mail merge Word document in Linux (Mono)](https://support.syncfusion.com/kb/article/9194/how-to-mail-merge-word-document-in-linux-mono)
+* [How to replace merge field with HTML string using Mail merge](https://support.syncfusion.com/kb/article/10252/how-to-replace-merge-field-with-html-string-using-mail-merge)
+* [How to mail merge Word document in Docker](https://support.syncfusion.com/kb/article/9397/how-to-mail-merge-word-document-in-docker)
+* [Is it possible to merge outer group fields placed within inner nested group using nested mail merge?](https://support.syncfusion.com/kb/article/12362/is-it-possible-to-merge-outer-group-fields-placed-within-inner-nested-group-using-nested)
