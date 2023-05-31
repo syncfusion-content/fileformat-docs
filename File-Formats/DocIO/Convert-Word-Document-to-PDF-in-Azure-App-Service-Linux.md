@@ -122,7 +122,7 @@ public IActionResult WordToPDF(string button)
             try
             {
                 //Open using Syncfusion
-                using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
+                using (WordDocument document = new WordDocument(stream, FormatType.Docx))
                 {
                     stream.Dispose();                         
                     // Creates a new instance of DocIORenderer class.
