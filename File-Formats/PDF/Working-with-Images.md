@@ -365,12 +365,6 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
-
-{% endhighlight %}
-
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
