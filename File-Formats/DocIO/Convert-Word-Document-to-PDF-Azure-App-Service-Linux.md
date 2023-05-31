@@ -178,9 +178,7 @@ Step 4: Select the Specific target as **Azure App Service (Linux)**.
 ![Select the publish target](Azure_Images/App_Service_Linux/Specific_Target_WordtoPDF.png)
 
 Step 5: To create a new app service, click **Create new** option.
-
 ![Click create new option](Azure_Images/App_Service_Linux/Create_New_App_Service_WordtoPDF.png)
-
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
 ![Click the Create button](Azure_Images/App_Service_Linux/Hosting_Plan_WordtoPDF.png)
