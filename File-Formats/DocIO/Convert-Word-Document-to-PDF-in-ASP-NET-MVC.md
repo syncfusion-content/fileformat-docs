@@ -72,7 +72,7 @@ Step 7: Add a new action method **ConvertWordDocumentToPDF** in HomeController.c
 using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
     {
         //Instantiation of DocToPDFConverter for Word to PDF conversion
         using (DocToPDFConverter converter = new DocToPDFConverter())

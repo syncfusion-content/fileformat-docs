@@ -20,7 +20,7 @@ Step 2: Select a project template and required platforms to deploy the applicati
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Select the Template](Xamarin_images/Template-WordtoPDF.png)
+![Select the Template](Xamarin_images/Template_WordtoPDF.png)
 
 Step 3: Install [Syncfusion.Xamarin.DocIORenderer ](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIORenderer) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
