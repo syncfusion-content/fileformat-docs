@@ -173,7 +173,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
     Helper classes for viewing the <b>Word document</b> in iOS device
