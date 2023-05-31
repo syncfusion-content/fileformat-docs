@@ -175,7 +175,7 @@ Step 3: Select the publish target as **Azure**.
 ![Select the publish target as Azure](Azure_Images/App_Service_Linux/Publish_Target_WordtoPDF.png)
 
 Step 4: Select the Specific target as **Azure App Service (Windows)**.
-![Select the publish target](Azure_Images/App_Service_Windows/Specfic_Target_WordtoPDF.png)
+![Select the publish target](Azure_Images/App_Service_Windows/Specific_Target_WordtoPDF.png)
 
 Step 5: To create a new app service, click **Create new** option.
 
