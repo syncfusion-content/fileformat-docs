@@ -6,7 +6,6 @@ control: DocIO
 documentation: UG
 ---
 
-
 # Convert Word to PDF in Azure Platform 
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, **convert a Word document to a PDF in Azure services** within a few lines of code. 
