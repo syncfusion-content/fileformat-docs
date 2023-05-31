@@ -203,4 +203,4 @@ Step 12: Select the Word document and Click **Convert to PDF** to convert the gi
 
 ![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v1).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
