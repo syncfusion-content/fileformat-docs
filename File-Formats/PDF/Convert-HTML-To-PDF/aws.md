@@ -330,7 +330,7 @@ using System.IO;
 
 Step 5: Add a new button in index.cshtml as follows.
 
-% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 @{
     Html.BeginForm("BlinkToPDF", "Home", FormMethod.Get);
