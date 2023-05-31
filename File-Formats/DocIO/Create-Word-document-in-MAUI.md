@@ -17,11 +17,11 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
-![Create the MAUI app in Visual Studio](maui_images/create_Project.png)
+![Create the MAUI app in Visual Studio with File Format DOcIo MAUI](maui_Images/file-format-docio-create-word-document-maui-app.png)
 
 Step 2: Enter the project name and click **Create**.
 
-![Create a project name for your new project](maui_images/configure.png)
+![Create a project name for your new project in File Formats DOcIO MAUI](maui_Images/file-format-docio-create-word-document-maui-project-name.png)
 
 Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
