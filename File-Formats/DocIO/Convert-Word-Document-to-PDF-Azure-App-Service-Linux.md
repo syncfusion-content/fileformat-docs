@@ -29,15 +29,7 @@ Step 4: Install the following **Nuget packages** in your application from [Nuget
  ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
  ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
 
-
-Step 5: Create a folder in the `wwwroot` folder of the project and copy the required **fonts** and include the files to the project.
-
-![Create a folder](Azure_Images/App_Service_Linux/Font-Folder-WordtoPDF.png)
-
-Step 6: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Change the property of the font](Azure_Images/App_Service_Linux/Font-Property-WordtoPDF.png)
-
-Step 7: Add a new button in the **Index.cshtml** as shown below.
+Step 5: Add a new button in the **Index.cshtml** as shown below.
 
 {% tabs %}
 
@@ -77,7 +69,7 @@ Step 7: Add a new button in the **Index.cshtml** as shown below.
 
 {% endtabs %}
 
-Step 8: Include the following namespaces in **HomeController.cs**.
+Step 6: Include the following namespaces in **HomeController.cs**.
 
 {% tabs %}
 
@@ -92,7 +84,7 @@ using Syncfusion.Pdf;
 
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for  **convert the Word document to Pdf**.
+Step 7: Include the below code snippet in **HomeController.cs** for  **convert the Word document to Pdf**.
 
 {% tabs %}
 
