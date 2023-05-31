@@ -1,5 +1,5 @@
 ---
-title: Working with PDF conformance in .NET File Formats control | Syncfusion
+title: Working with PDF conformance in .NET File Formats Library | Syncfusion
 description: This section explains how to create a PDF conformance documents and convert PDF to PDF/A conformance document.
 platform: file-formats
 control: PDF
