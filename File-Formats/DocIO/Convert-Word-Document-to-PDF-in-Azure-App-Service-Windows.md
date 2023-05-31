@@ -76,7 +76,6 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
-using Microsoft.AspNetCore.Hosting;
 
 {% endhighlight %}
 
@@ -122,7 +121,7 @@ public IActionResult WordToPDF(string button)
             try
             {
                 //Open using Syncfusion
-                using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
+                using (WordDocument document = new WordDocument(stream, FormatType.Docx))
                 {
                     stream.Dispose();
 
