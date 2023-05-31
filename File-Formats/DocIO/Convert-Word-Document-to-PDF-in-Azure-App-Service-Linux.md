@@ -122,7 +122,7 @@ public IActionResult WordToPDF(string button)
             try
             {
                 //Open using Syncfusion
-                using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
+                using (WordDocument document = new WordDocument(stream, FormatType.Docx))
                 {
                     stream.Dispose();                         
                     // Creates a new instance of DocIORenderer class.
@@ -202,4 +202,4 @@ Step 12: Select the Word document and Click **Convert to PDF** to convert the gi
 
 ![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service/App_Service_Linux).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
