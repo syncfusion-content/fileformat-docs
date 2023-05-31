@@ -330,7 +330,7 @@ using System.IO;
 
 Step 5: Add a new button in index.cshtml as follows.
 
-% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C#" %}
 
 @{
     Html.BeginForm("BlinkToPDF", "Home", FormMethod.Get);
@@ -345,7 +345,6 @@ Step 5: Add a new button in index.cshtml as follows.
     }
     Html.EndForm();
 }
-
 
 {% endhighlight %}
 
@@ -402,7 +401,3 @@ Step 15: Now, the webpage will open in the browser. Click the button to convert 
 By executing the program, you will get a PDF document as follows.
 <img src="htmlconversion_images/AWS Elastic Beanstalk-14.png" alt="AWS Elastic Beanstalk Step16" width="100%" Height="Auto"/> 
 A complete working sample for converting an HTML to PDF using Linux docker in AWS Elastic Beanstalk can be downloaded from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/AWSElasticBeanstalkSample).
- 
-
-
-
