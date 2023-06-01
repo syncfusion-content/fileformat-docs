@@ -1476,4 +1476,4 @@ pdfDoc.Close()
 
 ## See Also
 
-* [How to convert PPTX to PDF in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13883/how-to-convert-pptx-to-pdf-in-blazor-webassembly-wasm)
+* [How to convert PPTX to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12120/how-to-convert-pptx-to-pdf-in-blazor-webassembly-wasm)
