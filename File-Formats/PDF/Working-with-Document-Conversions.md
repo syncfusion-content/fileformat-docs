@@ -1,6 +1,6 @@
 ---
 title: Working with Document Conversion in File Formats PDF | Syncfusion
-description: Learn here about working with document conversion in Syncfusion Essential File Formats PDF library, its elements, and more.
+description: This section explains converting other document Types such as Word, Excel, RTF, TIFF, XPS, and HTML to PDF.
 platform: file-formats
 control: PDF
 documentation: UG
