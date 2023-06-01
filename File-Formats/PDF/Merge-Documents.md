@@ -16,7 +16,30 @@ You can merge the multiple PDF document using [Merge](https://help.syncfusion.co
 Refer to the following code example to merge multiple documents from disk.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
+//Creates a PDF document.
+PdfDocument finalDoc = new PdfDocument();
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+//Creates a PDF stream for merging.
+Stream[] streams = { stream1, stream2 };
+//Merges PDFDocument.
+PdfDocumentBase.Merge(finalDoc, streams);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+finalDoc.Save(stream);
+//Close the document.
+finalDoc.Close(true);
+//Disposes the streams.
+stream1.Dispose();
+stream2.Dispose();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument finalDoc = new PdfDocument();
@@ -32,7 +55,7 @@ finalDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim finalDoc As New PdfDocument()
@@ -48,38 +71,13 @@ finalDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% endtabs %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
+You can merge the PDF document streams by using the following code example.
 
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Merge the document. 
-PdfDocumentBase.Merge(document, loadedDocument);
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples.
-Save(stream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 //Creates a PDF document.
 PdfDocument finalDoc = new PdfDocument();
 FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
@@ -92,58 +90,15 @@ PdfDocumentBase.Merge(finalDoc, streams);
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 finalDoc.Save(stream);
-stream.Position = 0;
 //Close the document.
 finalDoc.Close(true);
 //Disposes the streams.
 stream1.Dispose();
 stream2.Dispose();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
-//Loads the file as stream.
-Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
-//Creates a PDF stream for merging.
-Stream[] source = { stream1, stream2 };
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();            
-//Merge the documents.
-PdfDocumentBase.Merge(document, source);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the documents.
-document.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-{% endtabs %}
-
-You can merge the PDF document streams by using the following code example.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a PDF document.
 PdfDocument finalDoc = new PdfDocument();
 Stream stream1 = File.OpenRead("file1.pdf");
@@ -160,10 +115,9 @@ finalDoc.Close(true);
 //Disposes the streams.
 stream1.Dispose();
 stream2.Dispose();
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a PDF document.
 Dim finalDoc As New PdfDocument()
@@ -183,91 +137,6 @@ stream1.Dispose()
 stream2.Dispose()
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms. However, you can merge specified document using the following code snippet.
-//Load the PDF document as stream.
-Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file1.pdf");
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(pdfStream);
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Merge the document.
-PdfDocumentBase.Merge(document, loadedDocument);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the documents.
-document.Close(true);
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples.
-Save(stream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a PDF document.
-PdfDocument finalDoc = new PdfDocument();
-FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
-FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
-//Creates a PDF stream for merging.
-Stream[] streams = { stream1, stream2 };
-//Merges PDFDocument.
-PdfDocumentBase.Merge(finalDoc, streams);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-finalDoc.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-finalDoc.Close(true);
-//Disposes the streams.
-stream1.Dispose();
-stream2.Dispose();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Loads the file as stream.
-Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
-//Creates a PDF stream for merging.
-Stream[] source = { stream1, stream2 };
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();            
-//Merge the documents.
-PdfDocumentBase.Merge(document, source);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the documents.
-document.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/). 
@@ -277,7 +146,27 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Essential PDF provides support for importing the pages from one document to another document using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPage_Syncfusion_Pdf_Parsing_PdfLoadedDocument_Syncfusion_Pdf_PdfPageBase_) method. The following code illustrates this. The imported page is added to the end of the original document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}     
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+//Load the PDF document.
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Create a new document.
+PdfDocument document = new PdfDocument();
+//Imports the page at 1 from the lDoc.
+document.ImportPage(lDoc, 1);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document.
+document.Close(true);
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document.
 PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
@@ -294,7 +183,7 @@ lDoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document
 Dim lDoc As New PdfLoadedDocument("file1.pdf")
@@ -311,34 +200,14 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% endtabs %}
 
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await lDoc.OpenAsync(file);
-//Creates a new document.
-PdfDocument document = new PdfDocument();
-//Imports the page at 1 from the lDoc.
-document.ImportPage(lDoc, 1);
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Importing-pages-from-one-document-another-document/). 
 
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Closes the document.
-document.Close(true);
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "sample.pdf");
+You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPageRange_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_Int32_System_Int32_) method. The following code example illustrates this.
 
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document.
 FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
@@ -347,61 +216,18 @@ PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
 //Create a new document.
 PdfDocument document = new PdfDocument();
 //Imports the page at 1 from the lDoc.
-document.ImportPage(lDoc, 1);
+document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
 
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
 //Closes the document.
 document.Close(true);
 lDoc.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Creates a new document.
-PdfDocument document = new PdfDocument();
-//Imports the page at 1 from the lDoc.
-document.ImportPage(lDoc, 1);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Closes the document.
-document.Close(true);
-lDoc.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Importing-pages-from-one-document-another-document/). 
-
-You can import multiple pages from an existing document by using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPageRange_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_Int32_System_Int32_) method. The following code example illustrates this.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}      
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads PDF document.
 PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
@@ -418,7 +244,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads PDF document
 Dim lDoc As New PdfLoadedDocument("file1.pdf")
@@ -435,89 +261,6 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await lDoc.OpenAsync(file);
-//Create a new document.
-PdfDocument document = new PdfDocument();
-//Imports the page at 1 from the lDoc.
-document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Closes the document.
-document.Close(true);
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
-//Load the PDF document.
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Create a new document.
-PdfDocument document = new PdfDocument();
-//Imports the page at 1 from the lDoc.
-document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Closes the document.
-document.Close(true);
-lDoc.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Creates a new document.
-PdfDocument document = new PdfDocument();
-//Imports the page at 1 from the lDoc.
-document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Closes the document.
-document.Close(true);
-lDoc.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Import-multiple-pages-from-an-existing-PDF).
@@ -525,7 +268,33 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can also import pages from multiple documents and arrange the pages by using [ImportPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_ImportPage_Syncfusion_Pdf_Parsing_PdfLoadedDocument_Syncfusion_Pdf_PdfPageBase_) method. The following code example explains the same.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}      
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+//Load the PDF document.
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream1);
+//Load the PDF document.
+FileStream docStream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+//Load the PDF document.
+PdfLoadedDocument lDoc2 = new PdfLoadedDocument(docStream2);
+//Create the new document.
+PdfDocument document = new PdfDocument();
+//Imports and arranges the pages.
+document.ImportPage(lDoc, 1);
+document.ImportPage(lDoc2, 0);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the documents.
+document.Close(true);
+lDoc.Close(true);
+lDoc2.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads document.
 PdfLoadedDocument lDoc = new PdfLoadedDocument("file1.pdf");
@@ -546,7 +315,7 @@ lDoc2.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads a document
 Dim lDoc As New PdfLoadedDocument("file1.pdf")
@@ -566,101 +335,6 @@ lDoc2.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream pdfStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file1.pdf");
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument lDoc = new PdfLoadedDocument(pdfStream1);
-//Load the PDF document as stream.
-Stream pdfStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file2.pdf");
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument lDoc2 = new PdfLoadedDocument(pdfStream2);
-//Create the new document.
-PdfDocument document = new PdfDocument();
-//Imports and arranges the pages.
-document.ImportPage(lDoc, 2);
-document.ImportPage(lDoc2, 1);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Closes the documents.
-document.Close(true);
-lDoc.Close(true);
-lDoc2.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
-//Load the PDF document.
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream1);
-//Load the PDF document.
-FileStream docStream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
-//Load the PDF document.
-PdfLoadedDocument lDoc2 = new PdfLoadedDocument(docStream2);
-//Create the new document.
-PdfDocument document = new PdfDocument();
-//Imports and arranges the pages.
-document.ImportPage(lDoc, 1);
-document.ImportPage(lDoc2, 0);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Closes the documents.
-document.Close(true);
-lDoc.Close(true);
-lDoc2.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream.
-Stream docStream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream1);
-//Load the file as stream.
-Stream docStream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
-PdfLoadedDocument lDoc2 = new PdfLoadedDocument(docStream2);
-//Create the new document.
-PdfDocument document = new PdfDocument();
-//Imports and arranges the pages.
-document.ImportPage(lDoc, 1);
-document.ImportPage(lDoc2, 0);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Closes the documents.
-document.Close(true);
-lDoc.Close(true);
-lDoc2.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code sample.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Import-pages-from-multiple-documents-and-arrange-pages/). 
@@ -674,7 +348,13 @@ N> Note:  The parent PDF document has all the contents in run time memory. It re
 You can split a large PDF document into multiple documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_Split_System_String_) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}      
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support splitting the document into multiple documents C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("large.pdf");
@@ -685,7 +365,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the PDF document
 Dim loadedDocument As New PdfLoadedDocument("large.pdf")
@@ -696,23 +376,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Split-large-PDF-to-multiple-documents). 
@@ -720,65 +383,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code shows how to merge multiple PDF documents using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_Merge_Syncfusion_Pdf_PdfDocumentBase_System_Object___) method.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-//Input documents.
-string[] inputDocuments = Directory.GetFiles("../../Data/Split");
-//Creates a PDF document.
-PdfDocument document = new PdfDocument();
-//Merges the document.
-PdfDocumentBase.Merge(document, inputDocuments);
-
-//Save and close the document.
-document.Save("Output.pdf");
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Input documents
-Dim inputDocuments As String() = Directory.GetFiles("../../Data/Split")
-'Create a PDF document
-Dim document As New PdfDocument()
-'Merges the document
-PdfDocumentBase.Merge(document, inputDocuments)
-
-'Save and close the document
-document.Save("Output.pdf")
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Merge the document. 
-PdfDocumentBase.Merge(document, loadedDocument);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the documents.
-document.Close(true);
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples.
-Save(stream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
@@ -795,53 +400,44 @@ PdfDocumentBase.Merge(finalDoc, streams);
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 finalDoc.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
 //Close the document.
 finalDoc.Close(true);
 //Disposes the streams.
 stream1.Dispose();
 stream2.Dispose();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
+//Input documents.
+string[] inputDocuments = Directory.GetFiles("../../Data/Split");
+//Creates a PDF document.
+PdfDocument document = new PdfDocument();
+//Merges the document.
+PdfDocumentBase.Merge(document, inputDocuments);
 
-//Loads the file as stream.
-Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
-//Creates a PDF stream for merging.
-Stream[] source = { stream1, stream2 };
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();            
-//Merge the documents.
-PdfDocumentBase.Merge(document, source);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the documents.
+//Save and close the document.
+document.Save("Output.pdf");
 document.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
-}
 
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Input documents
+Dim inputDocuments As String() = Directory.GetFiles("../../Data/Split")
+'Create a PDF document
+Dim document As New PdfDocument()
+'Merges the document
+PdfDocumentBase.Merge(document, inputDocuments)
+
+'Save and close the document
+document.Save("Output.pdf")
+document.Close(True)
+
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Merge-multiple-documents-from-stream/). 
@@ -853,45 +449,7 @@ Essential PDF provides support to optimize the PDF resources when merging PDF do
 Refer to the following code example to optimize the PDF resources when merging PDF documents.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %} 
-
-//Create a new PDF document.
-PdfDocument finalDoc = new PdfDocument();
-//Creates a string array of source files to be merged.
-string[] source = { "file1.pdf", "file2.pdf" };
-PdfMergeOptions mergeOptions = new PdfMergeOptions();
-//Enable Optimize Resources.
-mergeOptions.OptimizeResources = true;
-//Merges PDFDocument.
-PdfDocument.Merge(finalDoc, mergeOptions, source);
-
-//Save the final document.
-finalDoc.Save("Sample.pdf");
-//Close the document.
-finalDoc.Close(true); 
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document
-Dim finalDoc As New PdfDocument()
-'Creates a string array of source files to be merged
-Dim source As String() = {"file1.pdf", "file2.pdf"}
-Dim mergeOptions As New PdfMergeOptions()
-'Enable Optimize Resources
-mergeOptions.OptimizeResources = True
-'Merges PDFDocument
-PdfDocument.Merge(finalDoc, mergeOptions, source)
-
-'Save the final document
-finalDoc.Save("Sample.pdf")
-'Close the document
-finalDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from stream using the following code snippet.
 //Create a PDF document.
@@ -910,55 +468,52 @@ PdfDocumentBase.Merge(finalDoc, mergeOptions, streams);
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 finalDoc.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
 //Close the document.
 finalDoc.Close(true);
 //Disposes the streams.
 stream1.Dispose();
 stream2.Dispose();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from stream using the following code snippet.
-//Loads the file as stream.
-Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
-Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
-//Creates a PDF stream for merging.
-Stream[] source = { stream1, stream2 };
 //Create a new PDF document.
-PdfDocument document = new PdfDocument();
+PdfDocument finalDoc = new PdfDocument();
+//Creates a string array of source files to be merged.
+string[] source = { "file1.pdf", "file2.pdf" };
 PdfMergeOptions mergeOptions = new PdfMergeOptions();
 //Enable Optimize Resources.
 mergeOptions.OptimizeResources = true;
-//Merge the documents.
-PdfDocumentBase.Merge(document, mergeOptions, source);
+//Merges PDFDocument.
+PdfDocument.Merge(finalDoc, mergeOptions, source);
 
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
+//Save the final document.
+finalDoc.Save("Sample.pdf");
 //Close the document.
-document.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
-}
+finalDoc.Close(true);
 
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document
+Dim finalDoc As New PdfDocument()
+'Creates a string array of source files to be merged
+Dim source As String() = {"file1.pdf", "file2.pdf"}
+Dim mergeOptions As New PdfMergeOptions()
+'Enable Optimize Resources
+mergeOptions.OptimizeResources = True
+'Merges PDFDocument
+PdfDocument.Merge(finalDoc, mergeOptions, source)
+
+'Save the final document
+finalDoc.Save("Sample.pdf")
+'Close the document
+finalDoc.Close(True)
+
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Merge%20PDFs/Optimize-the-PDF-resources-when-merging-PDF-documents/). 
@@ -970,56 +525,8 @@ The [Syncfusion PDF library](https://www.syncfusion.com/document-processing/pdf-
 The following code sample illustrates this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
  
-//Create a new PDF document.
-PdfDocument finalDoc = new PdfDocument();
-//Create new instance for the document margin.
-PdfMargins margin = new PdfMargins();
-margin.All = 40;
-//Set margin.
-finalDoc.PageSettings.Margins = margin;
-//Create a string array of source files to be merged.
-string[] source = { "file1.pdf", "file2.pdf" };
-PdfMergeOptions mergeOptions = new PdfMergeOptions();
-// Enable the Extend Margin Property.
-mergeOptions.ExtendMargin=true;
-//Merge PDFDocument.
-PdfDocument.Merge(finalDoc, mergeOptions, source);
-
-//Save the final document.
-finalDoc.Save("Sample.pdf");
-//Close the document.
-finalDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document
-Dim finalDoc As New PdfDocument()
-'Create new instance for the document margin
-Dim margin As PdfMargins = New PdfMargins()
-margin.All = 40
-'Set margin
-finalDoc.PageSettings.Margins = margin
-'Create a string array of source files to be merged
-Dim source As String() = {"file1.pdf", "file2.pdf"}
-Dim mergeOptions As New PdfMergeOptions()
-'Enable the Extend Margin Property
-mergeOptions.ExtendMargin=true
-'Merge PDFDocument
-PdfDocument.Merge(finalDoc, mergeOptions, source)
-
-'Save the final document
-finalDoc.Save("Sample.pdf")
-'Close the document
-finalDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
 //Due to platform limitations, the PDF file cannot be loaded from disk. However, you can optimize PDF resources when merging multiple documents from a stream using the following code snippet.
 //Create a PDF document.
 PdfDocument finalDoc = new PdfDocument();
@@ -1042,19 +549,59 @@ PdfDocumentBase.Merge(finalDoc, mergeOptions, streams);
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 finalDoc.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
 //Close the document.
 finalDoc.Close(true);
 //Dispose the stream.
 stream1.Dispose();
 stream2.Dispose();
-//Define the ContentType for the pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "sample.pdf";
-//Create a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new PDF document.
+PdfDocument finalDoc = new PdfDocument();
+//Create new instance for the document margin.
+PdfMargins margin = new PdfMargins();
+margin.All = 40;
+//Set margin.
+finalDoc.PageSettings.Margins = margin;
+//Create a string array of source files to be merged.
+string[] source = { "file1.pdf", "file2.pdf" };
+PdfMergeOptions mergeOptions = new PdfMergeOptions();
+// Enable the Extend Margin Property.
+mergeOptions.ExtendMargin=true;
+//Merge PDFDocument.
+PdfDocument.Merge(finalDoc, mergeOptions, source);
+
+//Save the final document.
+finalDoc.Save("Sample.pdf");
+//Close the document.
+finalDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document
+Dim finalDoc As New PdfDocument()
+'Create new instance for the document margin
+Dim margin As PdfMargins = New PdfMargins()
+margin.All = 40
+'Set margin
+finalDoc.PageSettings.Margins = margin
+'Create a string array of source files to be merged
+Dim source As String() = {"file1.pdf", "file2.pdf"}
+Dim mergeOptions As New PdfMergeOptions()
+'Enable the Extend Margin Property
+mergeOptions.ExtendMargin=true
+'Merge PDFDocument
+PdfDocument.Merge(finalDoc, mergeOptions, source)
+
+'Save the final document
+finalDoc.Save("Sample.pdf")
+'Close the document
+finalDoc.Close(True)
 
 {% endhighlight %}
 

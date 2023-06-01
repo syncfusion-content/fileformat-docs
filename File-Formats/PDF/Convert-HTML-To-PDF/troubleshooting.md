@@ -275,7 +275,7 @@ Check the HTML file or URL is rendered properly in Chrome browser’s print prev
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this issue, add suitable delay for the conversion using the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_AdditionalDelay) property of the HTMLConverter. 
+<td>To overcome this issue, add suitable delay for the conversion using the <a href="https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_AdditionalDelay">AdditionalDelay</a> property of the HTMLConverter. 
 <br><br/>
 {% highlight c# tabtitle="C#" %}
 
@@ -440,11 +440,24 @@ To install the Windows Server Essentials Media Pack, first install the Windows S
 6.	After successful installation, install the Windows Server Essentials Media Pack.<br>
 Go to the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40837">official website</a> to download and Install the Windows Server Essentials Media Pack.<br><br>
 
-> **_NOTE:_** This version is only applicable to Windows Server 2012 R2 Standard.
+{{'**Note:**'| markdownify }}This version is only applicable to Windows Server 2012 R2 Standard.
 
 </td>
 </tr>
 </table>
+
+## How to Exclude BlinkBinaries or Runtime Files in Build or Deployment
+
+The runtime files, or blink binaries, will be copied into a bin or published folder while building and publishing the application.
+
+By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the package reference of the csproj file, you can exclude the runtime files or blink binaries from being copied into the bin or publish folder while building and publishing the application. But you need to place the BlinkBinaries in the server disk and set the BlinkPath in the BlinkConverterSettings to perform the conversion. 
+
+{{'**Note:**'| markdownify }}Using this approach, you can reduce the deployment size on your own servers.
+
+Refer to the following package reference:
+
+<img src="htmlconversion_images/RemoveBlinkBinaries.png" alt="ExcludeAssets"><br>
+
 <table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
