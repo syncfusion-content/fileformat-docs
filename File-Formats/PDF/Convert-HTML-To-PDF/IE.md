@@ -368,7 +368,7 @@ The above issues may occur in the machines with IE9 or later versions installed.
 
 To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be updated in the registry as explained in the link below.
 <br/><br/>
-<a href="http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw">http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw</a>
+<a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/general-info/ee330732(v=vs.85)?redirectedfrom=MSDN#iviewobject_draw">https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/general-info/ee330732(v=vs.85)?redirectedfrom=MSDN#iviewobject_draw</a>
 <br/><br/>
 <ul>
 <li>Run the legacy drawing utility placed in <span style="color:gray;font-size:14px">($SystemDrive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing)</span> to perform the above changes automatically.</li>
