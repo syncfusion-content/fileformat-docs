@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to PDF in ASP.NET MVC | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in ASP.NET MVC application using .NET Word (DocIO) library.
+title: Convert Word to PDF in ASP.NET MVC | Syncfusion
+description: Convert Word to PDF without Microsoft Word or interop dependencies in ASP.NET MVC application using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -72,7 +72,7 @@ Step 7: Add a new action method **ConvertWordDocumentToPDF** in HomeController.c
 using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
     {
         //Instantiation of DocToPDFConverter for Word to PDF conversion
         using (DocToPDFConverter converter = new DocToPDFConverter())
@@ -100,4 +100,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output PDF document in ASP.NET MVC](ASP-NET-MVC_images/OutputImage.png)
+![Output PDF document in ASP.NET MVC](WordToPDF_images/OutputImage.png)

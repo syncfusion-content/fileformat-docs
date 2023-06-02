@@ -25,41 +25,57 @@ You can add a Vba module through [IVbaModules](https://help.syncfusion.com/cr/fi
 Document is the default module type which will be added for every worksheet and one for entire workbook while creating VbaProject. 
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Adding Document to the workbook
+IVbaProject project = workbook.VbaProject;
+IVbaModule module = project.Modules.Add("Document ", VbaModuleType. Document);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Adding Document to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Document", VbaModuleType.Document);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 //Adding Document to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Document ", VbaModuleType. Document)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding Document to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Document ", VbaModuleType. Document);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding Document to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Document ", VbaModuleType. Document);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding Document to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Document", VbaModuleType. Document);
 {% endhighlight %}
 {% endtabs %}   
 
 The following code illustrate how to use Document module in Excel document.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the excel application object.
+  IApplication application = excelEngine.Excel;
+
+  // Creating new workbook
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating Vba project
+  IVbaProject project = workbook.VbaProject;
+
+  //Accessing vba modules collection
+  IVbaModules vbaModules = project.Modules;
+
+  // Accessing sheet module
+  IVbaModule vbaModule = vbaModules[sheet.CodeName];
+
+  //Adding vba code to the module
+  vbaModule.Code = "Sub Auto_Open\n MsgBox \" Workbook Opened \" \n End Sub";
+
+  //Saving as macro document
+  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -86,7 +102,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -111,109 +127,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  // Accessing sheet module
-  IVbaModule vbaModule = vbaModules[sheet.CodeName];
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \" Workbook Opened \" \n End Sub";
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  // Accessing sheet module
-  IVbaModule vbaModule = vbaModules[sheet.CodeName];
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \" Workbook Opened \" \n End Sub";
-
-  //Saving as macro document
-  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Accessing sheet module
-  IVbaModule vbaModule = vbaModules[sheet.CodeName];
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Workbook Opened\" \n End Sub";
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSM file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to create macro as document in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Create%20Macro%20as%20Document).    
@@ -233,40 +146,56 @@ The following code illustrate how to add a StdModule using Add method. Here, the
 * StdModule – Type of the Vba module.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adding StdModule to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Adding StdModule to the workbook
+IVbaProject project = workbook.VbaProject;
+IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 //Adding StdModule to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Test", VbaModuleType.StdModule)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding StdModule to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding StdModule to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding StdModule to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.StdModule);
 {% endhighlight %}
 {% endtabs %}   
 
 The following code illustrate how to create a macro using StdModule in Excel document.
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the excel application object.
+  IApplication application = excelEngine.Excel;
+
+  // Creating new workbook
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating Vba project
+  IVbaProject project = workbook.VbaProject;
+
+  //Accessing vba modules collection
+  IVbaModules vbaModules = project.Modules;
+
+  //Adding a vba module
+  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
+
+  //Adding vba code to the module
+  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
+
+  //Saving as macro document
+  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -293,7 +222,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -317,109 +246,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Saving as macro document
   workbook.SaveAs("Output.xlsm")
 End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  //Saving as macro document
-  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -440,146 +266,28 @@ The following code illustrate how to add a class in XlsIO. Here, the parameters 
 * ClassModule – Type of Vba module
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Adding class module to the workbook
+IVbaProject project = workbook.VbaProject;
+IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 //Adding class module to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("Test", VbaModuleType.ClassModule)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("Test", VbaModuleType.ClassModule);
 {% endhighlight %}
 {% endtabs %}   
 
 The following code illustrate how to use class module to run a macro with another module in Excel document.
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a class module
-  IVbaModule clsModule = vbaModules.Add("Test", VbaModuleType.ClassModule);
-  clsModule.Code = "Public Sub Create()\n MsgBox \"Created a class module\" \n End Sub";
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("Module1", VbaModuleType.StdModule);
-
-  //Using class in StdModule
-  vbaModule.Code = "Sub Auto_Open()\n Dim obj As New test \n obj.Create \n End Sub";
-
-  //Saving as macro document
-  workbook.SaveAs("Output.xlsm");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the excel application object.
-  Dim application As IApplication = excelEngine.Excel
-
-  'Creating new Workbook
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creating Vba project
-  Dim project As IVbaProject = workbook.VbaProject
-
-  'Accessing vba modules collection
-  Dim vbaModules As IVbaModules = project.Modules
-
-  'Adding a vba module
-  Dim vbaModule As IVbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule)
-
-  'Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open" & vbLf & " MsgBox ""Macro Added"" " & vbLf & " End Sub"
-
-  'Saving as macro document
-  workbook.SaveAs("Output.xlsm")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a class module
-  IVbaModule clsModule = vbaModules.Add("Test", VbaModuleType.ClassModule);
-  clsModule.Code = "Public Sub Create()\n MsgBox \"Created a class module\" \n End Sub";
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("Module1", VbaModuleType.StdModule);
-
-  //Using class in StdModule
-  vbaModule.Code = "Sub Auto_Open()\n Dim obj As New test \n obj.Create \n End Sub";
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -611,15 +319,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  //Instantiate the excel application object.
   IApplication application = excelEngine.Excel;
 
-  //Creating new workbook
+  // Creating new workbook
   IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Creating Vba project
   IVbaProject project = workbook.VbaProject;
@@ -637,12 +345,35 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Using class in StdModule
   vbaModule.Code = "Sub Auto_Open()\n Dim obj As New test \n obj.Create \n End Sub";
 
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
+  //Saving as macro document
+  workbook.SaveAs("Output.xlsm");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the excel application object.
+  Dim application As IApplication = excelEngine.Excel
+
+  'Creating new Workbook
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creating Vba project
+  Dim project As IVbaProject = workbook.VbaProject
+
+  'Accessing vba modules collection
+  Dim vbaModules As IVbaModules = project.Modules
+
+  'Adding a vba module
+  Dim vbaModule As IVbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule)
+
+  'Adding vba code to the module
+  vbaModule.Code = "Sub Auto_Open" & vbLf & " MsgBox ""Macro Added"" " & vbLf & " End Sub"
+
+  'Saving as macro document
+  workbook.SaveAs("Output.xlsm")
+End Using
 {% endhighlight %}
 {% endtabs %}   
 
@@ -663,177 +394,29 @@ The following code illustrate how to add a class in XlsIO. Here, the parameters 
 * MsForm – Type of Vba module
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adding class module to the workbook
 IVbaProject project = workbook.VbaProject;
 IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Adding class module to the workbook
+IVbaProject project = workbook.VbaProject;
+IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 //Adding class module to the workbook
 Dim project As IVbaProject = workbook.VbaProject
 Dim [module] As IVbaModule = project.Modules.Add("UserForm", VbaModuleType.MsForm)
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding class module to the workbook
-IVbaProject project = workbook.VbaProject;
-IVbaModule module = project.Modules.Add("UserForm", VbaModuleType.MsForm);
 {% endhighlight %}
 {% endtabs %}   
 
 The following code illustrate how to copy a form from another workbook to new workbook.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Opening form module existing workbook
-  IWorkbook newBook = application.Workbooks.Open("Test.xls");
-  IVbaProject newProject = newBook.VbaProject;
-
-  //Accessing existing form module
-  IVbaModule form = newProject.Modules["UserForm1"];
-
-  //Adding a form module in new workbook
-  IVbaModule formModule = project.Modules.Add(form.Name, VbaModuleType.MsForm);
-
-  //Copying the form code behind
-  formModule.Code = form.Code;
-
-  //Copying the designer of the form
-  formModule.DesignerStorage = form.DesignerStorage;
-
-  //Saving as macro document
-  workbook.SaveAs("Output.xlsm");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the excel application object.
-  Dim application As IApplication = excelEngine.Excel
-
-  'Creating new Workbook
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creating Vba project
-  Dim project As IVbaProject = workbook.VbaProject
-
-  'Accessing vba modules collection
-  Dim vbaModules As IVbaModules = project.Modules
-
-  'Open form existing workbook
-  Dim newBook As IWorkbook = application.Workbooks.Open("Test.xls")
-  Dim newProject As IVbaProject = newBook.VbaProject
-
-  'Accessing existing form module
-  Dim form As IVbaModule = newProject.Modules("UserForm1")
-
-  'Adding a form module in new workbook
-  Dim formModule As IVbaModule = project.Modules.Add(form.Name, VbaModuleType.MsForm)
-
-  'Copying the form code behind
-  formModule.Code = form.Code
-
-  'Copying the designer of the form
-  formModule.DesignerStorage = form.DesignerStorage
-
-  'Saving as macro document
-  workbook.SaveAs("Output.xlsm")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Open form existing workbook
-  IWorkbook newBook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  IVbaProject newProject = newBook.VbaProject;
-
-  //Accessing existing form module
-  IVbaModule form = newProject.Modules["UserForm1"];
-
-  //Adding a form module in new workbook
-  IVbaModule formModule = project.Modules.Add(form.Name, VbaModuleType.MsForm);
-
-  //Copying the form code behind
-  formModule.Code = form.Code;
-
-  //Copying the designer of the form
-  formModule.DesignerStorage = form.DesignerStorage;
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -873,15 +456,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  //Instantiate the excel application object.
   IApplication application = excelEngine.Excel;
 
-  //Creating new workbook
+  // Creating new workbook
   IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Creating Vba project
   IVbaProject project = workbook.VbaProject;
@@ -889,12 +472,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Accessing vba modules collection
   IVbaModules vbaModules = project.Modules;
 
-  //"App2" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
   //Opening form module existing workbook
-  IWorkbook newBook = excelEngine.Excel.Workbooks.Open(inputStream);
+  IWorkbook newBook = application.Workbooks.Open("Test.xls");
   IVbaProject newProject = newBook.VbaProject;
 
   //Accessing existing form module
@@ -908,12 +487,46 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Copying the designer of the form
   formModule.DesignerStorage = form.DesignerStorage;
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
 
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
+  //Saving as macro document
+  workbook.SaveAs("Output.xlsm");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the excel application object.
+  Dim application As IApplication = excelEngine.Excel
+
+  'Creating new Workbook
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creating Vba project
+  Dim project As IVbaProject = workbook.VbaProject
+
+  'Accessing vba modules collection
+  Dim vbaModules As IVbaModules = project.Modules
+
+  'Open form existing workbook
+  Dim newBook As IWorkbook = application.Workbooks.Open("Test.xls")
+  Dim newProject As IVbaProject = newBook.VbaProject
+
+  'Accessing existing form module
+  Dim form As IVbaModule = newProject.Modules("UserForm1")
+
+  'Adding a form module in new workbook
+  Dim formModule As IVbaModule = project.Modules.Add(form.Name, VbaModuleType.MsForm)
+
+  'Copying the form code behind
+  formModule.Code = form.Code
+
+  'Copying the designer of the form
+  formModule.DesignerStorage = form.DesignerStorage
+
+  'Saving as macro document
+  workbook.SaveAs("Output.xlsm")
+End Using
 {% endhighlight %}
 {% endtabs %}   
 
@@ -927,7 +540,42 @@ XlsIO supports assigning macros to the shape controls in the Excel document thro
 
 The following code illustrate how to assign macros to shapes in Excel document.
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the excel application object.
+  IApplication application = excelEngine.Excel;
+
+  // Creating new workbook
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating Vba project
+  IVbaProject project = workbook.VbaProject;
+
+  //Accessing vba modules collection
+  IVbaModules vbaModules = project.Modules;
+
+  //Adding a vba module
+  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
+
+  //Adding vba code to the module
+  vbaModule.Code = "Sub Invoke()\n MsgBox \"Macro Added\" \n End Sub";
+
+  //Adding a auto shape
+  IShape shape = sheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 1, 2, 60, 70);
+  shape.Name = "Shape1";
+
+  //Assigning a Macro to shape
+  shape.OnAction = "StdModule.Invoke";
+
+  //Saving as macro document
+  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -961,7 +609,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -994,130 +642,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Invoke()\n MsgBox \"Macro Added\" \n End Sub";
-
-  //Adding a auto shape
-  IShape shape = sheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 1, 2, 60, 70);
-  shape.Name = "Shape1";
-
-  //Assigning a Macro to shape
-  shape.OnAction = "StdModule.Invoke";
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Invoke()\n MsgBox \"Macro Added\" \n End Sub";
-
-  //Adding a auto shape
-  IShape shape = sheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 1, 2, 60, 70);
-  shape.Name = "Shape1";
-
-  //Assigning a Macro to shape
-  shape.OnAction = "StdModule.Invoke";
-
-  //Saving as macro document
-  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-
-    //Creating new workbook
-    IWorkbook workbook = application.Workbooks.Create(1);
-    workbook.Version = ExcelVersion.Excel2016;
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Creating Vba project
-    IVbaProject project = workbook.VbaProject;
-
-    //Accessing vba modules collection
-    IVbaModules vbaModules = project.Modules;
-
-    //Adding a vba module
-    IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-    //Adding vba code to the module
-    vbaModule.Code = "Sub Invoke()\n MsgBox \"Macro Added\" \n End Sub";
-
-    //Adding a auto shape
-    IShape shape = sheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 1, 2, 60, 70);
-    shape.Name = "Shape1";
-
-    //Assigning a Macro to shape
-    shape.OnAction = "StdModule.Invoke";
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-    //Save the stream into XLSX file
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
-{% endhighlight %}
 {% endtabs %}   
 
 A complete working example to assign macro to shape in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Shapes%20with%20Macro).
@@ -1131,7 +655,36 @@ By default, while saving the Excel workbook into stream, the file type will be b
 The following code illustrate how to save macro-enabled documents into stream.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the excel application object.
+  IApplication application = excelEngine.Excel;
+
+  // Creating new workbook
+  IWorkbook workbook = application.Workbooks.Create(1);
+  workbook.Version = ExcelVersion.Excel2016;
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating Vba project
+  IVbaProject project = workbook.VbaProject;
+
+  //Accessing vba modules collection
+  IVbaModules vbaModules = project.Modules;
+
+  //Adding a vba module
+  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
+
+  //Adding vba code to the module
+  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
+
+  //Saving as Macro in XLTM format
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacroTemplate);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -1159,7 +712,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -1185,90 +738,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro)
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  //Saving as Macro in XLTM format
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacroTemplate);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  //Saving as Macro in XLTM format
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacroTemplate);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Creating new workbook
-  IWorkbook workbook = application.Workbooks.Create(1);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Adding a vba module
-  IVbaModule vbaModule = vbaModules.Add("StdModule", VbaModuleType.StdModule);
-
-  //Adding vba code to the module
-  vbaModule.Code = "Sub Auto_Open\n MsgBox \"Macro Added\" \n End Sub";
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-}
-{% endhighlight %}
 {% endtabs %} 
 
 A complete working example to save macro enabled document into stream in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Save%20as%20Stream).  
@@ -1279,117 +748,7 @@ XlsIO allows to edit the existing macros in the Excel documents. To edit macros 
 The following code illustrate how to edit existing macro in Excel document.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  // Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Opening a workbook
-  IWorkbook workbook = application.Workbooks.Open("Test.xls");
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Access a Vba Module
-  IVbaModule vbaModule = vbaModules["Module1"];
-
-  //Edit the macro
-  vbaModule.Name = "CreateData";
-  vbaModule.Code = "Sub Auto_Open()\n MsgBox \"Macro is edited\" \n End Sub ";
-
-  //Saving as macro document
-  workbook.SaveAs("Output.xlsm");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the excel application object.
-  Dim application As IApplication = excelEngine.Excel
-
-  'Opening a Workbook
-  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creating Vba project
-  Dim project As IVbaProject = workbook.VbaProject
-
-  'Accessing vba modules collection
-  Dim vbaModules As IVbaModules = project.Modules
-
-  'Accessing a vba module
-  Dim vbaModule As IVbaModule = vbaModules("Module1")
-
-  'Editing a module
-  vbaModule.Name = "CreateData"
-  vbaModule.Code = "Sub Auto_Open()" & vbLf & " MsgBox ""Macro is edited"" " & vbLf & " End Sub "
-
-  'Saving as macro document
-  workbook.SaveAs("Output.xlsm")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Access a Vba Module
-  IVbaModule vbaModule = vbaModules["Module1"];
-
-  //Edit the macro
-  vbaModule.Name = "CreateData";
-  vbaModule.Code = "Sub Auto_Open()\n MsgBox \"Macro is edited\" \n End Sub ";
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -1422,19 +781,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  // Instantiate the excel application object.
   IApplication application = excelEngine.Excel;
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  // Opening a workbook
+  IWorkbook workbook = application.Workbooks.Open("Test.xls");
   workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Accessing Vba project
   IVbaProject project = workbook.VbaProject;
@@ -1449,12 +805,36 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   vbaModule.Name = "CreateData";
   vbaModule.Code = "Sub Auto_Open()\n MsgBox \"Macro is edited\" \n End Sub ";
 
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
+  //Saving as macro document
+  workbook.SaveAs("Output.xlsm");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the excel application object.
+  Dim application As IApplication = excelEngine.Excel
+
+  'Opening a Workbook
+  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creating Vba project
+  Dim project As IVbaProject = workbook.VbaProject
+
+  'Accessing vba modules collection
+  Dim vbaModules As IVbaModules = project.Modules
+
+  'Accessing a vba module
+  Dim vbaModule As IVbaModule = vbaModules("Module1")
+
+  'Editing a module
+  vbaModule.Name = "CreateData"
+  vbaModule.Code = "Sub Auto_Open()" & vbLf & " MsgBox ""Macro is edited"" " & vbLf & " End Sub "
+
+  'Saving as macro document
+  workbook.SaveAs("Output.xlsm")
+End Using
 {% endhighlight %}
 {% endtabs %}   
 
@@ -1485,7 +865,36 @@ Macro process exist in the Vba project’s code modules. To remove a macro, the 
 
 The following code illustrate how to remove a module using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html#Syncfusion_Office_IVbaModules_Remove_System_String_) method.
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Instantiate the excel application object.
+  IApplication application = excelEngine.Excel;
+
+  //Opening form module existing workbook
+  FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
+  IWorkbook workbook = application.Workbooks.Open(input);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Accessing Vba project
+  IVbaProject project = workbook.VbaProject;
+
+  //Accessing vba modules collection
+  IVbaModules vbaModules = project.Modules;
+
+  //Remove macro module
+  vbaModules.Remove("Module1");
+
+  //Saving as macro document
+  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
+
+  input.Close();
+  output.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   // Instantiate the excel application object.
@@ -1510,7 +919,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -1532,58 +941,18 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
+{% endtabs %} 
 
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
+A complete working example to remove macro using name in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Name).    
 
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
+### RemoveAt(int index)
+Vba module can be removed using the position from the [IVbaModules](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html) collection.
 
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
+* Index – Position of the Vba module in the modules collection.
 
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove macro module
-  vbaModules.Remove("Module1");
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+The following code illustrate how to remove a macro using module index.
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -1601,59 +970,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IVbaModules vbaModules = project.Modules;
 
   //Remove macro module
-  vbaModules.Remove("Module1");
+  vbaModules.RemoveAt(0);
 
   //Saving as macro document
   FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
-
   input.Close();
   output.Close();
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove macro module
-  vbaModules.Remove("Module1");
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
-{% endhighlight %}
-{% endtabs %} 
-
-A complete working example to remove macro using name in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Name).    
-
-### RemoveAt(int index)
-Vba module can be removed using the position from the [IVbaModules](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html) collection.
-
-* Index – Position of the Vba module in the modules collection.
-
-The following code illustrate how to remove a macro using module index.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   // Instantiate the excel application object.
@@ -1678,7 +1005,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -1700,58 +1027,16 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
+{% endtabs %} 
 
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
+A complete working example to remove macro using index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Index).      
 
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
+### Clear()
+[Clear()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html#Syncfusion_Office_IVbaModules_Clear) method removes all the Vba modules at once by clearing the module collection.
 
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove macro module
-  vbaModules.RemoveAt(0);
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+The following code illustrate how to remove all macros using **Clear** method.
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -1768,8 +1053,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Accessing vba modules collection
   IVbaModules vbaModules = project.Modules;
 
-  //Remove macro module
-  vbaModules.RemoveAt(0);
+  //Remove all macros
+  vbaModules.Clear();
 
   //Saving as macro document
   FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
@@ -1779,47 +1064,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove macro module
-  vbaModules.RemoveAt(0);
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
-
-{% endhighlight %}
-{% endtabs %} 
-
-A complete working example to remove macro using index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Remove%20Macro%20with%20Index).      
-
-### Clear()
-[Clear()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Office.IVbaModules.html#Syncfusion_Office_IVbaModules_Clear) method removes all the Vba modules at once by clearing the module collection.
-
-The following code illustrate how to remove all macros using **Clear** method.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   // Instantiate the excel application object.
@@ -1844,7 +1089,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiate the excel application object.
   Dim application As IApplication = excelEngine.Excel
@@ -1866,115 +1111,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsm")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove all macros
-  vbaModules.Clear();
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsm" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsm", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsMacro);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  //Opening form module existing workbook
-  FileStream input = new FileStream("Test.xls", FileMode.Open, FileAccess.ReadWrite);
-  IWorkbook workbook = application.Workbooks.Open(input);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove all macros
-  vbaModules.Clear();
-
-  //Saving as macro document
-  FileStream output = new FileStream("Output.xlsm", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(output, ExcelSaveType.SaveAsMacro);
-  input.Close();
-  output.Close();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing Vba project
-  IVbaProject project = workbook.VbaProject;
-
-  //Accessing vba modules collection
-  IVbaModules vbaModules = project.Modules;
-
-  //Remove all macros
-  vbaModules.Clear();
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsMacro);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsm", "application/msexcel", stream);
-}
-{% endhighlight %}
 {% endtabs %}   
 
 A complete working example to remove all macros in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Macros/Clear%20All%20Macros).      
@@ -1985,87 +1121,7 @@ A complete working example to remove all macros in C# is present on [this GitHub
 The following code illustrate how to save the macro-enabled document into normal Excel document.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  // Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Opening a workbook
-  IWorkbook workbook = application.Workbooks.Open("Test.xls");
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Skip Macros while saving
-  application.SkipOnSave = SkipExtRecords.Macros;                
-
-  //Saving as Excel without macro
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the excel application object.
-  Dim application As IApplication = excelEngine.Excel
-
-  'Opening a Workbook
-  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  //Skip Macros while saving
-  application.SkipOnSave = SkipExtRecords.Macros             
-
-  'Saving as Excel without macro 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Skip Macros while saving
-  application.SkipOnSave = SkipExtRecords.Macros;                
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xlsx", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook without macro
-  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsXLS);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -2087,30 +1143,40 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  // Instantiate the excel application object.
   IApplication application = excelEngine.Excel;
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  // Opening a workbook
+  IWorkbook workbook = application.Workbooks.Open("Test.xls");
   workbook.Version = ExcelVersion.Excel2016;
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Skip Macros while saving
   application.SkipOnSave = SkipExtRecords.Macros;                
 
-  //Saving as Excel without macros
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream, ExcelSaveType.SaveAsXLS);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx", "application/msexcel", stream);
+  //Saving as Excel without macro
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the excel application object.
+  Dim application As IApplication = excelEngine.Excel
+
+  'Opening a Workbook
+  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  //Skip Macros while saving
+  application.SkipOnSave = SkipExtRecords.Macros             
+
+  'Saving as Excel without macro 
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %} 
 

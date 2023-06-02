@@ -19,9 +19,9 @@ Essential File Formats is a collection of .NET class libraries to create, edit, 
 
 ## Additional help resources
 
-The [Knowledge Base](http://www.syncfusion.com/kb/) section contains responses for common questions asked by the customers. This would be a good place to search for the topics that are not covered in the User Guide.
+The [Knowledge Base](https://support.syncfusion.com/kb) section contains responses for common questions asked by the customers. This would be a good place to search for the topics that are not covered in the User Guide.
 
-Similar to the Knowledge Base, the [Forum](http://www.syncfusion.com/forums/) section also contains responses to the questions that are asked by other customers.
+Similar to the Knowledge Base, the [Forum](https://www.syncfusion.com/forums/) section also contains responses to the questions that are asked by other customers.
 
 ## Create a support incident
 
