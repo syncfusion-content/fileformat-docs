@@ -18,7 +18,7 @@ To work with PowerPoint Presentations, install the following NuGet packages in y
 </tr>
 <tr>
 <td>
-Windows Forms, Console Application (Targeting .NET Framework)
+{{'[Windows Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-windows-forms)'| markdownify }}, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
@@ -26,7 +26,7 @@ Windows Forms, Console Application (Targeting .NET Framework)
 </tr>
 <tr>
 <td>
-WPF
+{{'[WPF](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-wpf)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
@@ -34,7 +34,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms
+{{'[ASP.NET Web Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-web-forms)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/)'| markdownify }}
@@ -42,7 +42,7 @@ ASP.NET Web Forms
 </tr>
 <tr>
 <td>
-ASP.NET MVC4
+{{'[ASP.NET MVC4](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4/)'| markdownify }}
@@ -50,7 +50,7 @@ ASP.NET MVC4
 </tr>
 <tr>
 <td>
-ASP.NET MVC5
+{{'[ASP.NET MVC5](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/)'| markdownify }}
@@ -58,7 +58,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP
+{{'[UWP](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-uwp)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.UWP.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/)'| markdownify }}
@@ -66,7 +66,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
+{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp)'| markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor]()'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
@@ -74,7 +74,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </tr>
 <tr>
 <td>
-Xamarin
+{{'[Xamarin](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Xamarin.Presentation.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/)'| markdownify }}
@@ -82,7 +82,7 @@ Xamarin
 </tr>
 <tr>
 <td>
-Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+{{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-winui)'| markdownify }} and {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-maui)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'|markdownify }}

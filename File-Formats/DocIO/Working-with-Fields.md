@@ -903,7 +903,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim document As WordDocument = CreateDocument()
 'Accesses sequence field in the document
 Dim table As IWTable = CType(document.LastSection.Body.ChildEntities(1), WTable)
@@ -1733,6 +1733,22 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens an exixting word document
+Dim document As WordDocument = New WordDocument("Template.docx")
+
+'Accesses sequence field in the document
+Dim paragraph As WParagraph = document.LastSection.Body.ChildEntities(4)
+Dim field As WSeqField = paragraph.ChildEntities(12)
+
+'Enables a flag to insert next number for sequence field
+field.InsertNextNumber = True
+
+'Updates the document fields
+document.UpdateDocumentFields()
+
+'Saves and closes the Word document.
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
 {% endhighlight %}
 
 {% endtabs %}

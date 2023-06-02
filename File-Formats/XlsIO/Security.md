@@ -10,6 +10,8 @@ documentation: UG
 
 You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook by [protecting a worksheet or workbook](https://support.microsoft.com/en-gb/office/protect-a-workbook-7e365a4d-3e89-4616-84ca-1931257c1517?redirectSourcePath=%252fen-us%252farticle%252fPassword-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
 
+N> Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform. 
+
 ## Protect Workbook
 
 To keep others from making structural changes to your documents such as moving, deleting and adding sheets, you can protect the workbook in the following ways. 
@@ -26,79 +28,7 @@ There are two different passwords to encrypt a document.
 The Following code snippets illustrate how to achieve the above options.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Encrypt the workbook with password
-  workbook.PasswordToOpen = "password";
-
-  //Set the password to modify the workbook
-  workbook.SetWriteProtectionPassword("modify_password");
-
-  //Set the workbook as read-only
-  workbook.ReadOnlyRecommended = true;
-
-  workbook.SaveAs("Encrypt.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-  'Encrypt the workbook with password
-  workbook.PasswordToOpen = "password"
-
-  'Set the password to modify the workbook
-  workbook.SetWriteProtectionPassword("modify_password")
-
-  'Set the workbook as read-only
-  workbook.ReadOnlyRecommended = True
-
-  workbook.SaveAs("Encrypt.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Encrypt the workbook with password
-  workbook.PasswordToOpen = "password";
-
-  //Set the password to modify the workbook
-  workbook.SetWriteProtectionPassword("modify_password");
-
-  //Set the workbook as read-only
-  workbook.ReadOnlyRecommended = true;               
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -121,7 +51,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -137,23 +67,27 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set the workbook as read-only
   workbook.ReadOnlyRecommended = true;
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Encrypt.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+  'Encrypt the workbook with password
+  workbook.PasswordToOpen = "password"
+
+  'Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password")
+
+  'Set the workbook as read-only
+  workbook.ReadOnlyRecommended = True
+
+  workbook.SaveAs("Encrypt.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -164,33 +98,7 @@ Now, the encrypted workbook can be saved. Refer [Save Excel file](https://help.s
 You can open an existing encrypted workbook (decrypting) from either the file system or the stream using the following overloads.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-//Creates a new instance for ExcelEngine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Loads or open an existing workbook through Open method of IWorkbooks
-IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new instance for ExcelEngine
-Dim excelEngine As New ExcelEngine()
-
-'Loads or open an existing workbook through Open method of IWorkbooks
-Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, False, "password")
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-//Creates a new instance for ExcelEngine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Loads or open an existing workbook through Open method of IWorkbooks
-IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -198,12 +106,20 @@ ExcelEngine excelEngine = new ExcelEngine();
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(workbookStream, ExcelParseOptions.Default, false, "password");
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
 //Loads or open an existing workbook through Open method of IWorkbooks
 IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creates a new instance for ExcelEngine
+Dim excelEngine As New ExcelEngine()
+
+'Loads or open an existing workbook through Open method of IWorkbooks
+Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, False, "password")
 {% endhighlight %}
 {% endtabs %}
 
@@ -212,69 +128,7 @@ IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOption
 The following code illustrates how to remove a protection for an encrypted document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, true, "password");
-
-  //Removing a protection
-  workbook.PasswordToOpen = string.Empty;
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, True, "password")
-
-  'Removing a protection
-  workbook.PasswordToOpen = String.Empty
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Removing a protection
-  workbook.PasswordToOpen = string.Empty;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -292,40 +146,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, true, "password");
 
   //Removing a protection
   workbook.PasswordToOpen = string.Empty;
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, True, "password")
+
+  'Removing a protection
+  workbook.PasswordToOpen = String.Empty
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -336,78 +181,7 @@ N> By default, Microsoft Excel uses AES-128 encryption for versions Excel 2007 a
 XlsIO provides options to protect and unprotect workbook elements with password. The following code example illustrates how to protect a workbook with a password.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-  bool isProtectWindow = true;
-  bool isProtectContent = true;
-
-  //Protect Workbook
-  workbook.Protect(isProtectWindow, isProtectContent, "password");
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectWorkbook.xlsx")
-
-  Dim isProtectWindow As Boolean = True
-  Dim isProtectContent As Boolean = True
-
-  'protect workbook
-  workbook.Protect(isProtectWindow, isProtectContent, "password")
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  bool isProtectWindow = true;
-  bool isProtectContent = true;
-
-  //Protect Workbook
-  workbook.Protect(isProtectWindow, isProtectContent, "password");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -428,19 +202,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
   bool isProtectWindow = true;
   bool isProtectContent = true;
@@ -448,23 +215,24 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Protect Workbook
   workbook.Protect(isProtectWindow, isProtectContent, "password");
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectWorkbook.xlsx")
+
+  Dim isProtectWindow As Boolean = True
+  Dim isProtectContent As Boolean = True
+
+  'protect workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -473,69 +241,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 You can unprotect or remove protection for a workbook as shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("ProtectedWorkbook.xlsx");
-
-  //Unprotect (unlock) Workbook using Password
-  workbook.Unprotect("password");
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
-
-  'Unprotect (unlock) Workbook using Password
-  workbook.Unprotect("password")
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Unprotect (unlock) Workbook using Password
-  workbook.Unprotect("password");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -553,40 +259,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
+  IWorkbook workbook = application.Workbooks.Open("ProtectedWorkbook.xlsx");
 
   //Unprotect (unlock) Workbook using Password
   workbook.Unprotect("password");
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
+
+  'Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -595,65 +292,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 XlsIO provides support for protecting and unprotecting elements in worksheets by using the [Protect](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITabSheet.html#Syncfusion_XlsIO_ITabSheet_Protect_System_String_) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html). The following code example illustrates how to protect a worksheet with a password. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Protecting the Worksheet by using a Password
-  sheet.Protect("syncfusion", ExcelSheetProtection.All);
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Protecting the Worksheet by using a Password
-  sheet.Protect("syncfusion", ExcelSheetProtection.All)
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Protecting the Worksheet by using a Password
-  sheet.Protect("syncfusion", ExcelSheetProtection.All);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -671,7 +310,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -682,23 +321,22 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Protecting the Worksheet by using a Password
   sheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All)
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -709,71 +347,7 @@ N> By using the [ExcelSheetProtection](https://help.syncfusion.com/cr/file-forma
 Essential XlsIO can also provide support to protect or unprotect a chart sheet.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
-  IChart chart = workbook.Charts[0];
-
-  //Protect chart sheet
-  chart.Protect("syncfusion", ExcelSheetProtection.All);
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim chart As IChart = workbook.Charts(0)
-
-  'Protect chart sheet
-  chart.Protect("syncfusion", ExcelSheetProtection.All)
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IChart chart = workbook.Charts[0];
-
-  //Protect chart sheet
-  chart.Protect("syncfusion", ExcelSheetProtection.All);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -792,40 +366,33 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
   IChart chart = workbook.Charts[0];
 
   //Protect chart sheet
   chart.Protect("syncfusion", ExcelSheetProtection.All);
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim chart As IChart = workbook.Charts(0)
+
+  'Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All)
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -834,71 +401,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 You can also unprotect the worksheet by using the [Unprotect](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITabSheet.html#Syncfusion_XlsIO_ITabSheet_Unprotect_System_String_) method of XlsIO. The following code example illustrates how to remove worksheet protection.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Unprotecting (unlocking) the Worksheet using the Password
-  sheet.Unprotect("syncfusion");
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx")
-  Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-  'Unprotecting (unlocking) the Worksheet using the Password
-  sheet.Unprotect("syncfusion")
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Unprotecting (unlocking) the Worksheet using the Password
-  sheet.Unprotect("syncfusion");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -917,40 +420,33 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet sheet = workbook.Worksheets[0];
 
   //Unprotecting (unlocking) the Worksheet using the Password
   sheet.Unprotect("syncfusion");
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx")
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
+
+  'Unprotecting (unlocking) the Worksheet using the Password
+  sheet.Unprotect("syncfusion")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -959,7 +455,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 You can remove the protection of a chart sheet as shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IChart chart = workbook.Charts[0];
+
+  //Unprotect chart sheet
+  chart.Unprotect("syncfusion");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -974,7 +489,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -987,96 +502,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IChart chart = workbook.Charts[0];
-
-  //Unprotect chart sheet
-  chart.Unprotect("syncfusion");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IChart chart = workbook.Charts[0];
-
-  //Unprotect chart sheet
-  chart.Unprotect("syncfusion");
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IChart chart = workbook.Charts[0];
-
-  //Unprotect chart sheet
-  chart.Unprotect("syncfusion");
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
 {% endtabs %}
 
 ## Protect Cell
@@ -1086,7 +511,26 @@ XlsIO supports locking and unlocking cells by using the cell's [Locked](https://
 N> By default, cells are locked. Lock or Unlock cell in an unprotected worksheet has no effect. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range["A1"].CellStyle.Locked = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1101,7 +545,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1113,97 +557,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   workbook.SaveAs("Output.xlsx")
 End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Unlocking a cell to edit in worksheet protection mode
-  worksheet.Range["A1"].CellStyle.Locked = false;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  workbook.SaveAs(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Unlocking a cell to edit in worksheet protection mode
-  worksheet.Range["A1"].CellStyle.Locked = false;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Unlocking a cell to edit in worksheet protection mode
-  worksheet.Range["A1"].CellStyle.Locked = false;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %}  
 
