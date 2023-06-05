@@ -11,7 +11,7 @@ documentation: UG
 You can compress and decompress the files with our Compression library. The following code snippet illustrates this.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.Compression.Zip;
 class Program
 {
@@ -127,7 +127,7 @@ class Program
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Imports Syncfusion.Compression.Zip
 Class Program
   Private Shared arrOfItems As New List(Of DirectoryInfo)()

@@ -11,85 +11,7 @@ You can check whether the Excel document contains macro using [HasMacros](https:
 
 The following code illustrate how to check whether an Excel document contains macro using XlsIO.
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  // Instantiate the excel application object.
-  IApplication application = excelEngine.Excel;
-
-  // Opening a workbook
-  IWorkbook workbook = application.Workbooks.Open("Test.xls");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Check macro exist
-  bool IsMacroEnabled = workbook.HasMacros;        
-
-  //Save the workbook
-  workbook.SaveAs("Output.xls");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the excel application object.
-  Dim application As IApplication = excelEngine.Excel
-
-  'Opening a Workbook
-  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Check macro exist
-  Dim IsMacroEnabled As Boolean = workbook.HasMacros            
-
-  ‘Save the workbook 
-  workbook.SaveAs("Output.xls")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsm");
-  openPicker.FileTypeFilter.Add(".xltm");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opening a workbook with a worksheet
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Check macro exist
-  bool IsMacroEnabled = workbook.HasMacros;   
-
-  // Save the Workbook
-  StorageFile storageFile;
-  if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-  {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xls" });
-    storageFile = await savePicker.PickSaveFileAsync();
-  }
-  else
-  {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("Output.xls", CreationCollisionOption.ReplaceExisting);
-  }
-  //Saving the workbook
-  await workbook.SaveAsAsync(storageFile);
-
-  // Launch the saved file
-  await Windows.System.Launcher.LaunchFileAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   //Instantiate the excel application object.
@@ -109,32 +31,41 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   input.Close();
   output.Close();
 }
-
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  // Instantiate the excel application object.
   IApplication application = excelEngine.Excel;
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("App.Test.xls");
-
-  //Opening the workbook
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
+  // Opening a workbook
+  IWorkbook workbook = application.Workbooks.Open("Test.xls");
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Check macro exist
-  bool IsMacroEnabled = workbook.HasMacros;     
+  bool IsMacroEnabled = workbook.HasMacros;        
 
-  //Saving as Excel without macros
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xls", "application/msexcel", stream);
+  //Save the workbook
+  workbook.SaveAs("Output.xls");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the excel application object.
+  Dim application As IApplication = excelEngine.Excel
+
+  'Opening a Workbook
+  Dim workbook As IWorkbook = application.Workbooks.Open("Test.xls")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Check macro exist
+  Dim IsMacroEnabled As Boolean = workbook.HasMacros            
+
+  ‘Save the workbook 
+  workbook.SaveAs("Output.xls")
+End Using
 {% endhighlight %}
 {% endtabs %}   
 

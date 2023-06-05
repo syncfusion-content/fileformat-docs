@@ -11,6 +11,9 @@ keywords: Assemblies
 
 The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or web pages to PDF document in ASP.NET Core application.  
 
+To quickly get started with converting HTML to PDF in ASP.NET Core using the HTML-to-PDF Library. Please, check this video:
+{% youtube "https://www.youtube.com/watch?v=8JPa9FSb1pg" %}
+
 ## Steps to convert HTML to PDF in ASP.NET Core application
 
 Step 1: Create a new C# ASP.NET Core Web Application project.

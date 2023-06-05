@@ -28,109 +28,7 @@ The [ITextBoxShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO
 The following code example illustrates how to add and manipulate a text box control.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creates a new Text Box
-  ITextBoxShape textbox = sheet.TextBoxes.AddTextBox(2, 2, 30, 200);
-  textbox.Text = "Text Box 1";
-  textbox = sheet.TextBoxes.AddTextBox(6, 2, 30, 200);
-  textbox.Text = "Text Box 2";
-
-  //Reads a Text Box
-  ITextBoxShape shape1 = sheet.TextBoxes[0];
-  shape1.Text = "TextBox";
-
-  //Format the control
-  shape1.Fill.ForeColor = Color.Gold;
-  shape1.Fill.BackColor = Color.Black;
-  shape1.Fill.Pattern = ExcelGradientPattern.Pat_90_Percent;
-
-  //Remove a Text Box
-  ITextBoxShape shape2 = sheet.TextBoxes[1];
-  shape2.Remove();
-
-  workbook.SaveAs("Textbox.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creates a new Text Box
-  Dim textbox As ITextBoxShape = sheet.TextBoxes.AddTextBox(2, 2, 30, 200)
-  textbox.Text = "Text Box 1"
-  textbox = sheet.TextBoxes.AddTextBox(6, 2, 30, 200)
-  textbox.Text = "Text Box 2"
-
-  'Reads a Text Box
-  Dim shape1 As ITextBoxShape = sheet.TextBoxes(0)
-  shape1.Text = "TextBox"
-
-  'Format the control
-  shape1.Fill.ForeColor = Color.Gold
-  shape1.Fill.BackColor = Color.Black
-  shape1.Fill.Pattern = ExcelGradientPattern.Pat_90_Percent
-
-  'Remove a Text Box
-  Dim shape2 As ITextBoxShape = sheet.TextBoxes(1)
-  shape2.Remove()
-
-  workbook.SaveAs("Textbox.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Creates a new Text Box
-  ITextBoxShape textbox = sheet.TextBoxes.AddTextBox(2, 2, 30, 200);
-  textbox.Text = "Text Box 1";
-  textbox = sheet.TextBoxes.AddTextBox(6, 2, 30, 200);
-  textbox.Text = "Text Box 2";
-
-  //Reads a Text Box
-  ITextBoxShape shape1 = sheet.TextBoxes[0];
-  shape1.Text = "TextBox";
-
-  //Format the control
-  shape1.Fill.ForeColor = Color.FromArgb(255, 255, 215, 0);
-  shape1.Fill.BackColor = Color.FromArgb(255, 0, 0, 0);
-  shape1.Fill.Pattern = ExcelGradientPattern.Pat_90_Percent;
-
-  //Remove a Text Box
-  ITextBoxShape shape2 = sheet.TextBoxes[1];
-  shape2.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "TextBox";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -164,7 +62,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -183,31 +81,46 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   shape1.Text = "TextBox";
 
   //Format the control
-  shape1.Fill.ForeColor = Syncfusion.Drawing.Color.Gold;
-  shape1.Fill.BackColor = Syncfusion.Drawing.Color.Black;
+  shape1.Fill.ForeColor = Color.Gold;
+  shape1.Fill.BackColor = Color.Black;
   shape1.Fill.Pattern = ExcelGradientPattern.Pat_90_Percent;
 
   //Remove a Text Box
   ITextBoxShape shape2 = sheet.TextBoxes[1];
   shape2.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TextBox.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Textbox.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creates a new Text Box
+  Dim textbox As ITextBoxShape = sheet.TextBoxes.AddTextBox(2, 2, 30, 200)
+  textbox.Text = "Text Box 1"
+  textbox = sheet.TextBoxes.AddTextBox(6, 2, 30, 200)
+  textbox.Text = "Text Box 2"
+
+  'Reads a Text Box
+  Dim shape1 As ITextBoxShape = sheet.TextBoxes(0)
+  shape1.Text = "TextBox"
+
+  'Format the control
+  shape1.Fill.ForeColor = Color.Gold
+  shape1.Fill.BackColor = Color.Black
+  shape1.Fill.Pattern = ExcelGradientPattern.Pat_90_Percent
+
+  'Remove a Text Box
+  Dim shape2 As ITextBoxShape = sheet.TextBoxes(1)
+  shape2.Remove()
+
+  workbook.SaveAs("Textbox.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -218,104 +131,7 @@ A complete working example to add a text box in C# is present on [this GitHub pa
 Syncfusion XlsIO supports creating and reading text box within Excel chart. The following code example illustrates this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Read the text 
-  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
-  {
-    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
-    {
-      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
-    }
-  }
-
-  //Creates a new text box in the chart 
-  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
-  textbox.Text = "Text Box in the chart";
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Xlsx
-
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  Dim chartIndex As Integer
-  Dim textBoxIndex As Integer
-
-  For chartIndex = 0 To worksheet.Charts.Count - 1 Step chartIndex + 1
-    For textBoxIndex = 0 To worksheet.Charts(chartIndex).TextBoxes.Count - 1 Step textBoxIndex + 1
-      Dim text As String = worksheet.Charts(chartIndex).TextBoxes(textBoxIndex).Text
-    Next
-  Next
-
-  Dim textbox As ITextBox = worksheet.Charts(0).TextBoxes.AddTextBox(2, 2, 80, 300)
-  textbox.Text = "Text Box in the chart"
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-
-  //Creates a storage file from FileOpenPicker
-  StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
-  //Loads or open an existing workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStorageFile);
-
-  //Access first worksheet from the workbook instance.
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
-  {                    
-    for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
-    {
-      String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
-    }
-  }
-  
-  //Creates a new text box in the chart 
-  ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
-  textbox.Text = "Text Box in the chart";
-
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile outputStorageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(outputStorageFile);
-
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -344,44 +160,54 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  //Set the default application version
-  plication application = excelEngine.Excel;
+  IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
 
-  string resourcePath = "XamarinSample.Sample.xlsx";
-  //"App" is the class of Portable project.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
-
-  //Opens the workbook 
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-
-  //Access first worksheet from the workbook instance.
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
+  //Read the text 
   for (int chartIndex = 0; chartIndex < worksheet.Charts.Count; chartIndex++)
-  {                 
+  {
     for (int textBoxIndex = 0; textBoxIndex < worksheet.Charts[chartIndex].TextBoxes.Count; textBoxIndex++)
     {
       String text = worksheet.Charts[chartIndex].TextBoxes[textBoxIndex].Text;
-    }          
+    }
   }
 
   //Creates a new text box in the chart 
   ITextBoxShape textbox = worksheet.Charts[0].TextBoxes.AddTextBox(2, 2, 80, 300);
   textbox.Text = "Text Box in the chart";
 
-  //Save the workbook to stream in xlsx format. 
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-  workbook.Close();
-
-  //Save the stream as a file in the device and invoke it for viewing
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim chartIndex As Integer
+  Dim textBoxIndex As Integer
+
+  For chartIndex = 0 To worksheet.Charts.Count - 1 Step chartIndex + 1
+    For textBoxIndex = 0 To worksheet.Charts(chartIndex).TextBoxes.Count - 1 Step textBoxIndex + 1
+      Dim text As String = worksheet.Charts(chartIndex).TextBoxes(textBoxIndex).Text
+    Next
+  Next
+
+  Dim textbox As ITextBox = worksheet.Charts(0).TextBoxes.AddTextBox(2, 2, 80, 300)
+  textbox.Text = "Text Box in the chart"
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -390,106 +216,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 [ICheckBoxShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICheckBoxShape.html) object represents a check box in a worksheet. The following code example illustrates how to insert and manipulate a check box control.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Create a check box with cell link
-  ICheckBoxShape checkBoxRed = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75);
-  checkBoxRed.Text = "Red";
-  checkBoxRed.CheckState = ExcelCheckState.Unchecked;
-  checkBoxRed.LinkedCell = sheet["B2"];
-  ICheckBoxShape checkBoxBlue = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75);
-  checkBoxBlue.Text = "Blue";
-  checkBoxBlue.CheckState = ExcelCheckState.Checked;
-  checkBoxBlue.LinkedCell = sheet["B4"];
-
-  //Read a check box
-  checkBoxRed = sheet.CheckBoxes[0];
-  checkBoxRed.CheckState = ExcelCheckState.Checked;
-
-  //Remove a check box
-  checkBoxBlue = sheet.CheckBoxes[1];
-  checkBoxBlue.Remove();
-
-  workbook.SaveAs("Checkbox.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Create a check box with cell link
-  Dim checkBoxRed As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75)
-  checkBoxRed.Text = "Red"
-  checkBoxRed.CheckState = ExcelCheckState.Unchecked
-  checkBoxRed.LinkedCell = sheet("B2")
-  Dim checkBoxBlue As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75)
-  checkBoxBlue.Text = "Blue"
-  checkBoxBlue.CheckState = ExcelCheckState.Checked
-  checkBoxBlue.LinkedCell = sheet("B4")
-
-  'Read a check box
-  checkBoxRed = sheet.CheckBoxes(0)
-  checkBoxRed.CheckState = ExcelCheckState.Checked
-
-  'Remove a check box
-  checkBoxBlue = sheet.CheckBoxes(1)
-  checkBoxBlue.Remove()
-
-  workbook.SaveAs("Checkbox.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Create a check box with cell link
-  ICheckBoxShape checkBoxRed = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75);
-  checkBoxRed.Text = "Red";
-  checkBoxRed.CheckState = ExcelCheckState.Unchecked;
-  checkBoxRed.LinkedCell = sheet["B2"];
-  ICheckBoxShape checkBoxBlue = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75);
-  checkBoxBlue.Text = "Blue";
-  checkBoxBlue.CheckState = ExcelCheckState.Checked;
-  checkBoxBlue.LinkedCell = sheet["B4"];
-
-  //Read a check box
-  checkBoxRed = sheet.CheckBoxes[0];
-  checkBoxRed.CheckState = ExcelCheckState.Checked;
-
-  //Remove a check box
-  checkBoxBlue = sheet.CheckBoxes[1];
-  checkBoxBlue.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "CheckBox";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -522,7 +249,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -548,23 +275,37 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   checkBoxBlue = sheet.CheckBoxes[1];
   checkBoxBlue.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CheckBox.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Checkbox.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create a check box with cell link
+  Dim checkBoxRed As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75)
+  checkBoxRed.Text = "Red"
+  checkBoxRed.CheckState = ExcelCheckState.Unchecked
+  checkBoxRed.LinkedCell = sheet("B2")
+  Dim checkBoxBlue As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75)
+  checkBoxBlue.Text = "Blue"
+  checkBoxBlue.CheckState = ExcelCheckState.Checked
+  checkBoxBlue.LinkedCell = sheet("B4")
+
+  'Read a check box
+  checkBoxRed = sheet.CheckBoxes(0)
+  checkBoxRed.CheckState = ExcelCheckState.Checked
+
+  'Remove a check box
+  checkBoxBlue = sheet.CheckBoxes(1)
+  checkBoxBlue.Remove()
+
+  workbook.SaveAs("Checkbox.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -575,139 +316,7 @@ A complete working example to add a check box in C# is present on [this GitHub p
 [IComboBoxShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IComboBoxShape.html) object represents a combo box in a worksheet. The following code example illustrates how to insert and manipulate a combo box control.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Filling Values
-  sheet["A2"].Text = "RGB colors";
-  sheet["A3"].Text = "Red";
-  sheet["A4"].Text = "Green";
-  sheet["A5"].Text = "Blue";
-  sheet["B5"].Text = "Selected Index";
-
-  //Create a Combo Box
-  IComboBoxShape comboBox1 = sheet.ComboBoxes.AddComboBox(2, 3, 20, 100);
-  //Assign a value to the Combo Box
-  comboBox1.ListFillRange = sheet["A3:A5"];
-  comboBox1.LinkedCell = sheet["C5"];
-  comboBox1.SelectedIndex = 2;
-
-  //Create a Combo Box
-  IComboBoxShape comboBox2 = sheet.ComboBoxes.AddComboBox(5, 3, 20, 100);
-  //Assign a value to the Combo Box
-  comboBox2.ListFillRange = sheet["A3:A5"];
-  comboBox2.LinkedCell = sheet["C5"];
-  comboBox2.SelectedIndex = 1;
-
-  //Read a Combo Box
-  comboBox1 = sheet.ComboBoxes[0];
-  comboBox1.SelectedIndex = 1;
-
-  //Remove a Combo Box
-  comboBox2 = sheet.ComboBoxes[1];
-  comboBox2.Remove();
-
-  workbook.SaveAs("Combobox.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Filling Values
-  sheet("A2").Text = "RGB colors"
-  sheet("A3").Text = "Red"
-  sheet("A4").Text = "Green"
-  sheet("A5").Text = "Blue"
-  sheet("B5").Text = "Selected Index"
-
-  'Create a Combo Box
-  Dim comboBox1 As IComboBoxShape = sheet.ComboBoxes.AddComboBox(2, 3, 20, 100)
-  'Assign a value to the Combo Box
-  comboBox1.ListFillRange = sheet("A3:A5")
-  comboBox1.LinkedCell = sheet("C5")
-  comboBox1.SelectedIndex = 2
-
-  'Create a Combo Box
-  Dim comboBox2 As IComboBoxShape = sheet.ComboBoxes.AddComboBox(5, 3, 20, 100)
-  'Assign a value to the Combo Box
-  comboBox2.ListFillRange = sheet("A3:A5")
-  comboBox2.LinkedCell = sheet("C5")
-  comboBox2.SelectedIndex = 1
-
-  'Read a Combo Box
-  comboBox1 = sheet.ComboBoxes(0)
-  comboBox1.SelectedIndex = 1
-
-  'Remove a Combo Box
-  comboBox2 = sheet.ComboBoxes(1)
-  comboBox2.Remove()
-
-  workbook.SaveAs("Combobox.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Filling Values
-  sheet["A2"].Text = "RGB colors";
-  sheet["A3"].Text = "Red";
-  sheet["A4"].Text = "Green";
-  sheet["A5"].Text = "Blue";
-  sheet["B5"].Text = "Selected Index";
-
-  //Create a Combo Box
-  IComboBoxShape comboBox1 = sheet.ComboBoxes.AddComboBox(2, 3, 20, 100);
-  //Assign a value to the Combo Box
-  comboBox1.ListFillRange = sheet["A3:A5"];
-  comboBox1.LinkedCell = sheet["C5"];
-  comboBox1.SelectedIndex = 2;
-
-  //Create a Combo Box
-  IComboBoxShape comboBox2 = sheet.ComboBoxes.AddComboBox(5, 3, 20, 100);
-  //Assign a value to the Combo Box
-  comboBox2.ListFillRange = sheet["A3:A5"];
-  comboBox2.LinkedCell = sheet["C5"];
-  comboBox2.SelectedIndex = 1;
-
-  //Read a Combo Box
-  comboBox1 = sheet.ComboBoxes[0];
-  comboBox1.SelectedIndex = 1;
-
-  //Remove a Combo Box
-  comboBox2 = sheet.ComboBoxes[1];
-  comboBox2.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "ComboBox";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -751,7 +360,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -788,23 +397,48 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   comboBox2 = sheet.ComboBoxes[1];
   comboBox2.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ComboBox.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Combobox.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Filling Values
+  sheet("A2").Text = "RGB colors"
+  sheet("A3").Text = "Red"
+  sheet("A4").Text = "Green"
+  sheet("A5").Text = "Blue"
+  sheet("B5").Text = "Selected Index"
+
+  'Create a Combo Box
+  Dim comboBox1 As IComboBoxShape = sheet.ComboBoxes.AddComboBox(2, 3, 20, 100)
+  'Assign a value to the Combo Box
+  comboBox1.ListFillRange = sheet("A3:A5")
+  comboBox1.LinkedCell = sheet("C5")
+  comboBox1.SelectedIndex = 2
+
+  'Create a Combo Box
+  Dim comboBox2 As IComboBoxShape = sheet.ComboBoxes.AddComboBox(5, 3, 20, 100)
+  'Assign a value to the Combo Box
+  comboBox2.ListFillRange = sheet("A3:A5")
+  comboBox2.LinkedCell = sheet("C5")
+  comboBox2.SelectedIndex = 1
+
+  'Read a Combo Box
+  comboBox1 = sheet.ComboBoxes(0)
+  comboBox1.SelectedIndex = 1
+
+  'Remove a Combo Box
+  comboBox2 = sheet.ComboBoxes(1)
+  comboBox2.Remove()
+
+  workbook.SaveAs("Combobox.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -817,124 +451,7 @@ A complete working example to add a combo box in C# is present on [this GitHub p
 N> XlsIO provides Option button support only for XLSX format.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Create an Option Button
-  IOptionButtonShape optionButton1 = sheet.OptionButtons.AddOptionButton(2, 3);
-  //Assign a value to the Option Button
-  optionButton1.Text = "Fed Ex";
-
-  //Format the control
-  optionButton1.Fill.FillType = ExcelFillType.SolidColor;
-  optionButton1.Fill.ForeColor = Color.Yellow;
-  //Change the check state
-  optionButton1.CheckState = ExcelCheckState.Checked;
-
-  //Create an Option Button
-  IOptionButtonShape optionButton2 = sheet.OptionButtons.AddOptionButton(5, 3);
-  //Assign a value to the Option Button
-  optionButton2.Text = "DHL";
-
-  //Read an Option Button
-  optionButton1 = sheet.OptionButtons[0];
-  optionButton1.CheckState = ExcelCheckState.Unchecked;
-
-  //Remove an Option Button
-  optionButton2 = sheet.OptionButtons[1];
-  optionButton2.Remove();
-
-  workbook.SaveAs("OptionButton.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Create an Option Button
-  Dim optionButton1 As IOptionButtonShape = sheet.OptionButtons.AddOptionButton(2, 3)
-  'Assign a value to the Option Button
-  optionButton1.Text = "Fed Ex"
-
-  'Format the control
-  optionButton1.Fill.FillType = ExcelFillType.SolidColor
-  optionButton1.Fill.ForeColor = Color.Yellow
-  'Change the check state
-  optionButton1.CheckState = ExcelCheckState.Checked
-
-  'Create an Option Button
-  Dim optionButton2 As IOptionButtonShape = sheet.OptionButtons.AddOptionButton(5, 3)
-  'Assign a value to the Option Button
-  optionButton2.Text = "DHL"
-
-  'Read an Option Button
-  optionButton1 = sheet.OptionButtons(0)
-  optionButton1.CheckState = ExcelCheckState.Unchecked
-
-  'Remove an Option Button
-  optionButton2 = sheet.OptionButtons(1)
-  optionButton2.Remove()
-
-  workbook.SaveAs("OptionButton.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Create an Option Button
-  IOptionButtonShape optionButton1 = sheet.OptionButtons.AddOptionButton(2, 3);
-  //Assign a value to the Option Button
-  optionButton1.Text = "Fed Ex";
-
-  //Format the control
-  optionButton1.Fill.FillType = ExcelFillType.SolidColor;
-  optionButton1.Fill.ForeColor = Color.FromArgb(255, 255, 255, 0);
-  //Change the check state
-  optionButton1.CheckState = ExcelCheckState.Checked;
-
-  //Create an Option Button
-  IOptionButtonShape optionButton2 = sheet.OptionButtons.AddOptionButton(5, 3);
-  //Assign a value to the Option Button
-  optionButton2.Text = "DHL";
-
-  //Read an Option Button
-  optionButton1 = sheet.OptionButtons[0];
-  optionButton1.CheckState = ExcelCheckState.Unchecked;
-
-  //Remove an Option Button
-  optionButton2 = sheet.OptionButtons[1];
-  optionButton2.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "OptionButton";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -973,7 +490,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -988,7 +505,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Format the control
   optionButton1.Fill.FillType = ExcelFillType.SolidColor;
-  optionButton1.Fill.ForeColor = Syncfusion.Drawing.Color.Yellow;
+  optionButton1.Fill.ForeColor = Color.Yellow;
   //Change the check state
   optionButton1.CheckState = ExcelCheckState.Checked;
 
@@ -1005,23 +522,43 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   optionButton2 = sheet.OptionButtons[1];
   optionButton2.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OptionButton.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("OptionButton.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create an Option Button
+  Dim optionButton1 As IOptionButtonShape = sheet.OptionButtons.AddOptionButton(2, 3)
+  'Assign a value to the Option Button
+  optionButton1.Text = "Fed Ex"
+
+  'Format the control
+  optionButton1.Fill.FillType = ExcelFillType.SolidColor
+  optionButton1.Fill.ForeColor = Color.Yellow
+  'Change the check state
+  optionButton1.CheckState = ExcelCheckState.Checked
+
+  'Create an Option Button
+  Dim optionButton2 As IOptionButtonShape = sheet.OptionButtons.AddOptionButton(5, 3)
+  'Assign a value to the Option Button
+  optionButton2.Text = "DHL"
+
+  'Read an Option Button
+  optionButton1 = sheet.OptionButtons(0)
+  optionButton1.CheckState = ExcelCheckState.Unchecked
+
+  'Remove an Option Button
+  optionButton2 = sheet.OptionButtons(1)
+  optionButton2.Remove()
+
+  workbook.SaveAs("OptionButton.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1032,94 +569,7 @@ A complete working example to add option button in C# is present on [this GitHub
 [ICommentShape](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ICommentShape.html) object represents a [comment](https://support.microsoft.com/en-gb/office/insert-comments-and-notes-in-excel-bdcc9f5d-38e2-45b4-9a92-0b2b5c7bf6f8?redirectsourcepath=%252fen-us%252farticle%252fannotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Adding comments to a cell
-  sheet.Range["A1"].AddComment().Text = "Comments";
-
-  //Add Rich Text Comments
-  IRange range = sheet.Range["A6"];
-  range.AddComment().RichText.Text = "RichText";
-  IRichTextString richText = range.Comment.RichText;
-
-  //Formatting first 4 characters
-  IFont redFont = workbook.CreateFont();
-  redFont.Bold = true;
-  redFont.Color = ExcelKnownColors.Red;
-  richText.SetFont(0, 3, redFont);
-
-  workbook.SaveAs("Comments.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Adding comments to a cell
-  sheet.Range("A1").AddComment().Text = "Comments"
-
-  'Add Rich Text Comments
-  Dim range As IRange = sheet.Range("A6")
-  range.AddComment().RichText.Text = "RichText"
-  Dim richText As IRichTextString = range.Comment.RichText
-
-  'Formatting first 4 characters
-  Dim redFont As IFont = workbook.CreateFont()
-  redFont.Bold = True
-  redFont.Color = ExcelKnownColors.Red
-  richText.SetFont(0, 3, redFont)
-
-  workbook.SaveAs("Comments.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Adding comments to a cell
-  sheet.Range["A1"].AddComment().Text = "Comments";
-
-  //Add Rich Text Comments
-  IRange range = sheet.Range["A6"];
-  range.AddComment().RichText.Text = "RichText";
-  IRichTextString richText = range.Comment.RichText;
-
-  //Formatting first 4 characters
-  IFont redFont = workbook.CreateFont();
-  redFont.Bold = true;
-  redFont.Color = ExcelKnownColors.Red;
-  richText.SetFont(0, 3, redFont);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Comments";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1148,7 +598,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1170,57 +620,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   redFont.Color = ExcelKnownColors.Red;
   richText.SetFont(0, 3, redFont);
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Comments.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to add comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Comment).
-
-You can also fill the comments with various types of fills by using the [IFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html) interface. Following code example illustrates how to fill the comment shape with a TwoColor gradient.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Adding comments to a cell
-  sheet.Range["A1"].AddComment().Text = "Comments";
-
-  //Accessing existing comment
-  ICommentShape shape = sheet.Range["A1"].Comment;
-
-  //Format the comment
-  shape.Fill.TwoColorGradient();
-  shape.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
-  shape.Fill.GradientColorType = ExcelGradientColor.TwoColor;
-  shape.Fill.ForeColorIndex = ExcelKnownColors.Red;
-  shape.Fill.BackColorIndex = ExcelKnownColors.White;
-
-  workbook.SaveAs("FormatComments.xlsx");
+  workbook.SaveAs("Comments.xlsx");
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1230,56 +634,28 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Adding comments to a cell
   sheet.Range("A1").AddComment().Text = "Comments"
 
-  'Accessing existing comment
-  Dim shape As ICommentShape = sheet.Range("A1").Comment
+  'Add Rich Text Comments
+  Dim range As IRange = sheet.Range("A6")
+  range.AddComment().RichText.Text = "RichText"
+  Dim richText As IRichTextString = range.Comment.RichText
 
-  'Format the comment
-  shape.Fill.TwoColorGradient()
-  shape.Fill.GradientStyle = ExcelGradientStyle.Horizontal
-  shape.Fill.GradientColorType = ExcelGradientColor.TwoColor
-  shape.Fill.ForeColorIndex = ExcelKnownColors.Red
-  shape.Fill.BackColorIndex = ExcelKnownColors.White
+  'Formatting first 4 characters
+  Dim redFont As IFont = workbook.CreateFont()
+  redFont.Bold = True
+  redFont.Color = ExcelKnownColors.Red
+  richText.SetFont(0, 3, redFont)
 
-  workbook.SaveAs("FormatComments.xlsx")
+  workbook.SaveAs("Comments.xlsx")
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+A complete working example to add comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Comment).
 
-  //Adding comments to a cell
-  sheet.Range["A1"].AddComment().Text = "Comments";
+You can also fill the comments with various types of fills by using the [IFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html) interface. Following code example illustrates how to fill the comment shape with a TwoColor gradient.
 
-  //Accessing existing comment
-  ICommentShape shape = sheet.Range["A1"].Comment;
-
-  //Format the comment
-  shape.Fill.TwoColorGradient();
-  shape.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
-  shape.Fill.GradientColorType = ExcelGradientColor.TwoColor;
-  shape.Fill.ForeColorIndex = ExcelKnownColors.Red;
-  shape.Fill.BackColorIndex = ExcelKnownColors.White;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "FormatComments";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1307,7 +683,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1328,23 +704,32 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   shape.Fill.ForeColorIndex = ExcelKnownColors.Red;
   shape.Fill.BackColorIndex = ExcelKnownColors.White;
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FormatComments.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("FormatComments.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding comments to a cell
+  sheet.Range("A1").AddComment().Text = "Comments"
+
+  'Accessing existing comment
+  Dim shape As ICommentShape = sheet.Range("A1").Comment
+
+  'Format the comment
+  shape.Fill.TwoColorGradient()
+  shape.Fill.GradientStyle = ExcelGradientStyle.Horizontal
+  shape.Fill.GradientColorType = ExcelGradientColor.TwoColor
+  shape.Fill.ForeColorIndex = ExcelKnownColors.Red
+  shape.Fill.BackColorIndex = ExcelKnownColors.White
+
+  workbook.SaveAs("FormatComments.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1355,91 +740,7 @@ A complete working example to fill comment in C# is present on [this GitHub page
 Comments in an Excel document can be shown or hidden using [IsVisible](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IComment.html#Syncfusion_XlsIO_IComment_IsVisible) property. The following code example illustrates this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding comments in the worksheet
-  worksheet.Range["E5"].AddComment();
-  worksheet.Range["E15"].AddComment();
-
-  //Adding text in comments
-  worksheet.Comments[0].Text = "Comment1";
-  worksheet.Comments[1].Text = "Comment2";
-
-  //Show comment
-  worksheet.Comments[0].IsVisible = true;
-  //Hide comment
-  worksheet.Comments[1].IsVisible = false;
-
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Adding comments in the worksheet
-  worksheet.Range("E5").AddComment()
-  worksheet.Range("E15").AddComment()
-
-  'Adding text in comments
-  worksheet.Comments(0).Text = "Comment1"
-  worksheet.Comments(1).Text = "Comment2"
-
-  'Show comment
-  worksheet.Comments(0).IsVisible = True
-  'Hide comment
-  worksheet.Comments(1).IsVisible = False
-
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding comments in the worksheet
-  worksheet.Range["E5"].AddComment();
-  worksheet.Range["E15"].AddComment();
-
-  //Adding text in comments
-  worksheet.Comments[0].Text = "Comment1";
-  worksheet.Comments[1].Text = "Comment2";
-
-  //Show comment
-  worksheet.Comments[0].IsVisible = true;
-  //Hide comment
-  worksheet.Comments[1].IsVisible = false;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1467,7 +768,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1488,23 +789,32 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Hide comment
   worksheet.Comments[1].IsVisible = false;
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding comments in the worksheet
+  worksheet.Range("E5").AddComment()
+  worksheet.Range("E15").AddComment()
+
+  'Adding text in comments
+  worksheet.Comments(0).Text = "Comment1"
+  worksheet.Comments(1).Text = "Comment2"
+
+  'Show comment
+  worksheet.Comments(0).IsVisible = True
+  'Hide comment
+  worksheet.Comments(1).IsVisible = False
+
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1513,70 +823,7 @@ A complete working example to show or hide comment in C# is present on [this Git
 Following code snippets illustrates how to remove all the comments in existing worksheet.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  IWorkbook workbook = application.Workbooks.Open("Comments.xlsx");
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Remove all the comments in worksheet
-  sheet.Comments.Clear();
-
-  workbook.Version = ExcelVersion.Excel2013;
-  workbook.SaveAs("RemoveComments.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  Dim workbook As IWorkbook = application.Workbooks.Open("Comments.xlsx")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Remove all the comments in worksheet
-  sheet.Comments.Clear()
-
-  workbook.Version = ExcelVersion.Excel2013
-  workbook.SaveAs("RemoveComments.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
-
-  //Opens the workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Remove all the comments in worksheet
-  worksheet.Comments.Clear();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "RemoveComments";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  workbook.Version = ExcelVersion.Excel2013;
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1595,38 +842,33 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Comments.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = application.Workbooks.Open("Comments.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
   //Remove all the comments in worksheet
-  worksheet.Comments.Clear();
+  sheet.Comments.Clear();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
   workbook.Version = ExcelVersion.Excel2013;
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RemoveComments.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("RemoveComments.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Comments.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Remove all the comments in worksheet
+  sheet.Comments.Clear()
+
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("RemoveComments.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1641,109 +883,7 @@ To learn more about various AutoShape types supported in XlsIO, refer to the [Au
 The following code example illustrates how to insert and format AutoShapes.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding an AutoShape
-  IShape shape1 = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192);
-  IShape shape2 = worksheet.Shapes.AddAutoShapes(AutoShapeType.CircularArrow, 8, 7, 60, 192);
-
-  //Set the value inside the shape
-  shape1.TextFrame.TextRange.Text = "AutoShape";
-
-  //Format the shape
-  shape1.Fill.ForeColorIndex = ExcelKnownColors.Light_blue;
-  shape1.TextFrame.VerticalAlignment = ExcelVerticalAlignment.MiddleCentered;
-
-  //Read an AutoShape
-  shape1 = worksheet.Shapes[0];
-  shape1.TextFrame.TextRange.Text = "RoundedRectangle";
-
-  //Remove an AutoShape
-  shape2 = worksheet.Shapes[1];
-  shape2.Remove();
-
-  workbook.SaveAs("Autoshapes.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Adding an AutoShape
-  Dim shape1 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192)
-  Dim shape2 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.CircularArrow, 8, 7, 60, 192)
-
-  'Set the value inside the shape.
-  shape1.TextFrame.TextRange.Text = "AutoShape"
-
-  'Format the shape
-  shape1.Fill.ForeColorIndex = ExcelKnownColors.Light_blue
-  shape1.TextFrame.VerticalAlignment = ExcelVerticalAlignment.MiddleCentered
-
-  'Read an AutoShape
-  shape1 = worksheet.Shapes(0)
-  shape1.TextFrame.TextRange.Text = "RoundedRectangle"
-
-  'Remove an AutoShape
-  shape2 = worksheet.Shapes(1)
-  shape2.Remove()
-
-  workbook.SaveAs("Autoshapes.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding an AutoShape
-  IShape shape1 = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192);
-  IShape shape2 = worksheet.Shapes.AddAutoShapes(AutoShapeType.CircularArrow, 8, 7, 60, 192);
-
-  //Set the value inside the shape
-  shape1.TextFrame.TextRange.Text = "AutoShape";
-
-  //Format the shape
-  shape1.Fill.ForeColorIndex = ExcelKnownColors.Light_blue;
-  shape1.TextFrame.VerticalAlignment = ExcelVerticalAlignment.MiddleCentered;
-
-  //Read an AutoShape
-  shape1 = worksheet.Shapes[0];
-  shape1.TextFrame.TextRange.Text = "RoundedRectangle";
-
-  //Remove an AutoShape
-  shape2 = worksheet.Shapes[1];
-  shape2.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "AutoShapes";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1777,7 +917,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1804,23 +944,38 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   shape2 = worksheet.Shapes[1];
   shape2.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AutoShapes.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("Autoshapes.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding an AutoShape
+  Dim shape1 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192)
+  Dim shape2 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.CircularArrow, 8, 7, 60, 192)
+
+  'Set the value inside the shape.
+  shape1.TextFrame.TextRange.Text = "AutoShape"
+
+  'Format the shape
+  shape1.Fill.ForeColorIndex = ExcelKnownColors.Light_blue
+  shape1.TextFrame.VerticalAlignment = ExcelVerticalAlignment.MiddleCentered
+
+  'Read an AutoShape
+  shape1 = worksheet.Shapes(0)
+  shape1.TextFrame.TextRange.Text = "RoundedRectangle"
+
+  'Remove an AutoShape
+  shape2 = worksheet.Shapes(1)
+  shape2.Remove()
+
+  workbook.SaveAs("Autoshapes.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1838,83 +993,7 @@ The shapes in the worksheet can be grouped into a single shape by creating group
 The following code example illustrates how to create a group shape.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Select the shapes you want to group	
-IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
-
-// Group the selected shapes
-IGroupShape GroupShape = shapes.Group(groupItems);
-
-workbook.SaveAs("GroupShape.xlsx");
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-	
-Dim shapes As IShapes = worksheet.Shapes
-
-' Select the shapes you want to group	
-Dim groupItems As IShape() = New IShape() {shapes(0), shapes(1)}
-
-' Group the selected shapes
-Dim GroupShape As IGroupShape = shapes.Group(groupItems)
-	
-workbook.SaveAs("GroupShape.xlsx")	
-workbook.Close()	
-excelEngine.Dispose()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".xlsx");
-openPicker.FileTypeFilter.Add(".xls");
-StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-//Opens the workbook
-IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Select the shapes you want to group	
-IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
-
-// Group the selected shapes
-IGroupShape GroupShape = shapes.Group(groupItems);
-
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "GroupShape";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
@@ -1936,12 +1015,10 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-IWorkbook workbook = application.Workbooks.Open(fileStream);
+IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IShapes shapes = worksheet.Shapes;
@@ -1953,24 +1030,27 @@ IShape[] groupItems = new IShape[] { shapes[0], shapes[1] };
 IGroupShape GroupShape = shapes.Group(groupItems);
 
 workbook.SaveAs("GroupShape.xlsx");
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
 workbook.Close();
-
-stream.Position = 0;
-
-//Save the document as file and view the saved document
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-else
-{
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-
 excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Dim excelEngine As ExcelEngine = New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+Dim shapes As IShapes = worksheet.Shapes
+
+' Select the shapes you want to group	
+Dim groupItems As IShape() = New IShape() {shapes(0), shapes(1)}
+
+' Group the selected shapes
+Dim GroupShape As IGroupShape = shapes.Group(groupItems)
+	
+workbook.SaveAs("GroupShape.xlsx")	
+workbook.Close()	
+excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1983,7 +1063,26 @@ Group shape can be ungrouped, and its inner shapes are added to worksheet as an 
 The following code example illustrates how to ungroup the shape.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(inputStream);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+IShapes shapes = worksheet.Shapes;
+
+// Ungroup the selected specified group shape
+shapes.Ungroup(shapes[0] as IGroupShape);
+
+FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(file);
+file.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
@@ -1999,7 +1098,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 Dim application As IApplication = excelEngine.Excel
 Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
@@ -2014,94 +1113,6 @@ workbook.SaveAs("GroupShape.xlsx")
 workbook.Close()	
 excelEngine.Dispose()
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".xlsx");
-openPicker.FileTypeFilter.Add(".xls");
-StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-//Opens the workbook
-IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape
-shapes.Ungroup(shapes[0] as IGroupShape);
-
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "GroupShape";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape
-shapes.Ungroup(shapes[0] as IGroupShape);
-
-FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(file);
-file.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape
-shapes.Ungroup(shapes[0] as IGroupShape);
-
-workbook.SaveAs("GroupShape.xlsx");
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
-workbook.Close();
-stream.Position = 0;
-
-//Save the document as file and view the saved document
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-else
-{
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-
-excelEngine.Dispose();
-{% endhighlight %}
 {% endtabs %} 
 
 A complete working example to ungroup shapes in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20Shapes/Ungroup%20Shapes). 
@@ -2114,7 +1125,26 @@ In [Ungroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IShape
 The following code example illustrates how to ungroup the group shape and its inner shapes.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(inputStream);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+IShapes shapes = worksheet.Shapes;
+
+// Ungroup the selected specified group shape and its inner shapes by specifying isAll property
+shapes.Ungroup(shapes[0] as IGroupShape, true);
+
+FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(file);
+file.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 IWorkbook workbook = application.Workbooks.Open("GroupShape.xlsx");
@@ -2130,7 +1160,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 Dim application As IApplication = excelEngine.Excel
 Dim workbook As IWorkbook = application.Workbooks.Open("GroupShape.xlsx")
@@ -2144,94 +1174,6 @@ shapes.Ungroup(TryCast(shapes(0), IGroupShape), True)
 workbook.SaveAs("GroupShape.xlsx")	
 workbook.Close()	
 excelEngine.Dispose()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-
-//Instantiates the File Picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".xlsx");
-openPicker.FileTypeFilter.Add(".xls");
-StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-//Opens the workbook
-IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-shapes.Ungroup(shapes[0] as IGroupShape, true);
-
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "GroupShape";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-FileStream inputStream = new FileStream("GroupShape.xlsx", FileMode.Open, FileAccess.Read);
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-shapes.Ungroup(shapes[0] as IGroupShape, true);
-
-FileStream file = new FileStream("GroupShape.xlsx", FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(file);
-file.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("GroupShape.xlsx");
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IShapes shapes = worksheet.Shapes;
-
-// Ungroup the selected specified group shape and its inner shapes by specifying isAll property
-shapes.Ungroup(shapes[0] as IGroupShape, true);
-
-workbook.SaveAs("GroupShape.xlsx");
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
-workbook.Close();
-stream.Position = 0;
-
-//Save the document as file and view the saved document
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-else
-{
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GroupShape.xlsx", "application/msexcel", stream);
-}
-
-excelEngine.Dispose();
 {% endhighlight %}
 {% endtabs %} 
 
@@ -2257,69 +1199,7 @@ Linked objects remains as a separate files. When the file is opened in another m
 The following sample code illustrates how to link an OLE Object to an Excel document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  Image image = Image.FromFile("image.png");
-  //Select the object, image for the display icon and the type of the OLEObject to insert
-  IOleObject ole2 = sheet.OleObjects.Add("Document.docx", image, OleLinkType.Link);
-
-  workbook.SaveAs("LinkedObjects.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  Dim image As Image = Image.FromFile("image.png")
-  'Select the object, image for the display icon and the type of the OLEObject to insert
-  Dim ole2 As IOleObject = sheet.OleObjects.Add("Document.docx", image, OleLinkType.Link)
-
-  workbook.SaveAs("LinkedObjects.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.png");
-  //Get image from stream
-  Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
-
-  //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.AddLink("../../Data/Document.docx", image);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "LinkedObjects";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2342,40 +1222,35 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
   IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
-  //Get image from stream
-  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
+  Image image = Image.FromFile("image.png");
+  //Select the object, image for the display icon and the type of the OLEObject to insert
+  IOleObject ole2 = sheet.OleObjects.Add("Document.docx", image, OleLinkType.Link);
 
-  //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.AddLink("../../Data/Document.docx", image);
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("LinkedObjects.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("LinkedObjects.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim image As Image = Image.FromFile("image.png")
+  'Select the object, image for the display icon and the type of the OLEObject to insert
+  Dim ole2 As IOleObject = sheet.OleObjects.Add("Document.docx", image, OleLinkType.Link)
+
+  workbook.SaveAs("LinkedObjects.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
@@ -2386,71 +1261,7 @@ Embedded objects are stored in the document. When the file is opened in another 
 The following sample code illustrates how to embed an OLE Object to an Excel document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  Image image = Image.FromFile("image.png");
-  // Select the object, image for the display icon and the type of the OLEObject to insert
-  IOleObject ole1 = sheet.OleObjects.Add("Test.pptx", image, OleLinkType.Embed);
-
-  workbook.SaveAs("EmbeddedObjects.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  Dim image As Image = Image.FromFile("image.png")
-  'Select the object, image for the display icon and the type of the OLEObject to insert
-  Dim ole1 As IOleObject = sheet.OleObjects.Add("Test.pptx", image, OleLinkType.Embed)
-
-  workbook.SaveAs("EmbeddedObjects.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("UWP.Data.Test.pptx");
-  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.png");
-
-  //Get image from stream
-  Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
-
-  //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.Add(inputStream, image, OleObjectType.PowerPointPresentation);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "EmbeddedObjects";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2475,48 +1286,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Test.pptx");
-  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
-  //Get image from stream
-  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
-
-  //Add ole object
-  IOleObject oleObject = worksheet.OleObjects.Add(inputStream, image, OleObjectType.PowerPointPresentation);
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EmbeddedObjects.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}  
-
-The following code example illustrates how to insert and manipulate OLEObjects with their properties through [IOleObjects](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IOleObjects.html) interface.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2524,132 +1294,34 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet sheet = workbook.Worksheets[0];
 
-  //Icon image
-  Image image = Image.FromFile("Images.png");
+  Image image = Image.FromFile("image.png");
+  // Select the object, image for the display icon and the type of the OLEObject to insert
+  IOleObject ole1 = sheet.OleObjects.Add("Test.pptx", image, OleLinkType.Embed);
 
-  //Select the object, image for the display icon and the type of the OLEObject to insert
-  IOleObject oleObject1 = sheet.OleObjects.Add("Employee.docx", image, OleLinkType.Embed);
-
-  //Select the object, image for the display icon and the type of the OLEObject to insert
-  IOleObject oleObject2 = sheet.OleObjects.Add("Customer.docx", image, OleLinkType.Embed);
-
-  //Displays image as icon
-  oleObject1.DisplayAsIcon = true;
-
-  //Set the location of the OleObject
-  oleObject1.Location = sheet["K8"];
-
-  //Reads icon as a image
-  Image image1 = oleObject1.Picture;
-
-  //Reads OleObject as a IPictureShape
-  IPictureShape shape = oleObject1.Shape;
-
-  //Set the size of the OleObject
-  oleObject1.Size = new Size(30, 30);
-
-  //Remove OleObjects
-  oleObject2 = sheet.OleObjects[1];
-  oleObject2.Shape.Remove();
-
-  workbook.SaveAs("OleObjects.xlsx");
+  workbook.SaveAs("EmbeddedObjects.xlsx");
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
   Dim workbook As IWorkbook = application.Workbooks.Create(1)
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-  'Icon image
-  Dim image As Image = Image.FromFile("Images.png")
-
+  Dim image As Image = Image.FromFile("image.png")
   'Select the object, image for the display icon and the type of the OLEObject to insert
-  Dim oleObject1 As IOleObject = sheet.OleObjects.Add("Employee.docx", image, OleLinkType.Embed)
+  Dim ole1 As IOleObject = sheet.OleObjects.Add("Test.pptx", image, OleLinkType.Embed)
 
-  'Select the object, image for the display icon and the type of the OLEObject to insert
-  Dim oleObject2 As IOleObject = sheet.OleObjects.Add("Customer.docx", image, OleLinkType.Embed)
-
-  'Displays image as icon
-  oleObject1.DisplayAsIcon = True
-
-  'Set the location of the OleObject
-  oleObject1.Location = sheet("K8")
-
-  'Reads icon as a image
-  Dim image1 As Image = oleObject1.Picture
-
-  'Reads OleObject as a IPictureShape
-  Dim shape As IPictureShape = oleObject1.Shape
-
-  'Set the size of the OleObject
-  oleObject1.Size = New Size(30, 30)
-
-  'Remove OleObjects
-  oleObject2 = sheet.OleObjects(1)
-  oleObject2.Shape.Remove()
-
-  workbook.SaveAs("OleObjects.xlsx")
+  workbook.SaveAs("EmbeddedObjects.xlsx")
 End Using
 {% endhighlight %}
+{% endtabs %}  
 
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
+The following code example illustrates how to insert and manipulate OLEObjects with their properties through [IOleObjects](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IOleObjects.html) interface.
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream1 = assembly.GetManifestResourceStream("UWP.Data.Employee.docx");
-  Stream inputStream2 = assembly.GetManifestResourceStream("UWP.Data.Customer.docx");
-  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.Images.png");
-
-  //Get image from stream
-  Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
-
-  //Add ole object
-  IOleObject oleObject1 = worksheet.OleObjects.Add(inputStream1, image, OleObjectType.WordDocument);
-  IOleObject oleObject2 = worksheet.OleObjects.Add(inputStream2, image, OleObjectType.WordDocument);
-
-  //Displays image as icon
-  oleObject1.DisplayAsIcon = true;
-
-  //Set the location of the OleObject
-  oleObject1.Location = worksheet["K8"];
-
-  //Reads icon as a image
-  Syncfusion.XlsIO.Image image1 = oleObject1.Picture;
-
-  //Reads OleObject as a IPictureShape
-  IPictureShape shape = oleObject1.Shape;
-
-  //Set the size of the OleObject
-  oleObject1.Size = new Size(30, 30);
-
-  //Remove OleObjects
-  oleObject2 = worksheet.OleObjects[1];
-  oleObject2.Shape.Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "OleObjects";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -2695,62 +1367,83 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
   IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet sheet = workbook.Worksheets[0];
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream1 = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Employee.docx");
-  Stream inputStream2 = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Customer.docx");
-  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Images.png");
-  //Get image from stream
-  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
+  //Icon image
+  Image image = Image.FromFile("Images.png");
 
-  //Add ole object
-  IOleObject oleObject1 = worksheet.OleObjects.Add(inputStream1, image, OleObjectType.WordDocument);
-  IOleObject oleObject2 = worksheet.OleObjects.Add(inputStream2, image, OleObjectType.WordDocument);
+  //Select the object, image for the display icon and the type of the OLEObject to insert
+  IOleObject oleObject1 = sheet.OleObjects.Add("Employee.docx", image, OleLinkType.Embed);
+
+  //Select the object, image for the display icon and the type of the OLEObject to insert
+  IOleObject oleObject2 = sheet.OleObjects.Add("Customer.docx", image, OleLinkType.Embed);
 
   //Displays image as icon
   oleObject1.DisplayAsIcon = true;
 
   //Set the location of the OleObject
-  oleObject1.Location = worksheet["K8"];
+  oleObject1.Location = sheet["K8"];
 
   //Reads icon as a image
-  Syncfusion.Drawing.Image image1 = oleObject1.Picture;
+  Image image1 = oleObject1.Picture;
 
   //Reads OleObject as a IPictureShape
   IPictureShape shape = oleObject1.Shape;
 
   //Set the size of the OleObject
-  oleObject1.Size = new Syncfusion.Drawing.Size(30, 30);
+  oleObject1.Size = new Size(30, 30);
 
   //Remove OleObjects
-  oleObject2 = worksheet.OleObjects[1];
+  oleObject2 = sheet.OleObjects[1];
   oleObject2.Shape.Remove();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("OleObjects.xlsx", "application/msexcel", stream);
-  }
+  workbook.SaveAs("OleObjects.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Icon image
+  Dim image As Image = Image.FromFile("Images.png")
+
+  'Select the object, image for the display icon and the type of the OLEObject to insert
+  Dim oleObject1 As IOleObject = sheet.OleObjects.Add("Employee.docx", image, OleLinkType.Embed)
+
+  'Select the object, image for the display icon and the type of the OLEObject to insert
+  Dim oleObject2 As IOleObject = sheet.OleObjects.Add("Customer.docx", image, OleLinkType.Embed)
+
+  'Displays image as icon
+  oleObject1.DisplayAsIcon = True
+
+  'Set the location of the OleObject
+  oleObject1.Location = sheet("K8")
+
+  'Reads icon as a image
+  Dim image1 As Image = oleObject1.Picture
+
+  'Reads OleObject as a IPictureShape
+  Dim shape As IPictureShape = oleObject1.Shape
+
+  'Set the size of the OleObject
+  oleObject1.Size = New Size(30, 30)
+
+  'Remove OleObjects
+  oleObject2 = sheet.OleObjects(1)
+  oleObject2.Shape.Remove()
+
+  workbook.SaveAs("OleObjects.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 

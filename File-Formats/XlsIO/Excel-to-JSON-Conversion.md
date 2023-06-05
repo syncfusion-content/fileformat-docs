@@ -21,8 +21,29 @@ Essential XlsIO supports to convert Excel data as JSON files by simply saving th
 The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream as schema.
 
 {% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-{% highlight c# tabtitle="C#" %}
+  //Saves the workbook to a JSON filestream, as schema by default
+  FileStream stream = new FileStream("Excel-Workbook-To-JSON-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream);
+
+  //Saves the workbook to a JSON filestream as schema
+  FileStream stream1 = new FileStream("Excel-Workbook-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream1, true);
+
+  stream.Dispose();
+  stream1.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -45,7 +66,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -66,6 +87,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAsJson(stream1, true)
 End Using
 {% endhighlight %}
+
 {% highlight c# tabtitle="UWP" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -132,64 +154,6 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the workbook to a JSON filestream, as schema by default
-  FileStream stream = new FileStream("Excel-Workbook-To-JSON-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream);
-
-  //Saves the workbook to a JSON filestream as schema
-  FileStream stream1 = new FileStream("Excel-Workbook-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream1, true);
-
-  stream.Dispose();
-  stream1.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");  
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the workbook as JSON filestream, as schema default 
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schema.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-as-schmea.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert Excel to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20with%20Schema). 
@@ -199,7 +163,24 @@ A complete working example to convert Excel to JSON with schema in C# is present
 The following code illustrates how to convert an Excel workbook to the JSON file or JSON file stream without schema.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Saves the workbook to a JSON filestream without schema
+  FileStream stream = new FileStream("Excel-Workbook-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, false);
+
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -215,7 +196,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -295,58 +276,6 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the workbook to a JSON filestream without schema
-  FileStream stream = new FileStream("Excel-Workbook-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, false);
-
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the workbook to JSON filestream without schema
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream, false);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Workbook-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert Excel to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Workbook%20to%20JSON%20without%20Schema). 
@@ -356,7 +285,29 @@ A complete working example to convert Excel to JSON without schema in C# is pres
 The following code illustrates how to convert an Excel worksheet to the JSON file or JSON file stream with schema.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Saves the worksheet to a JSON filestream, as schema by default
+  FileStream stream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, worksheet);
+
+  //Saves the worksheet to a JSON filestream as schema
+  FileStream stream1 = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream1, worksheet, true);
+
+  stream.Dispose();
+  stream1.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -382,7 +333,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -470,63 +421,6 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the worksheet to a JSON filestream, as schema by default
-  FileStream stream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, worksheet);
-
-  //Saves the worksheet to a JSON filestream as schema
-  FileStream stream1 = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream1, worksheet, true);
-
-  stream.Dispose();
-  stream1.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the worksheet as JSON filestream, as schema by default 
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream, worksheet);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert Excel worksheet to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20with%20Schema). 
@@ -536,7 +430,23 @@ A complete working example to convert Excel worksheet to JSON with schema in C# 
 The following code illustrates how to convert an Excel worksheet to the JSON file or file stream without schema.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion =ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Saves the worksheet to a JSON filestream without schema
+  FileStream stream = new FileStream("Excel-Worksheet-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, worksheet, false);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -555,7 +465,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -638,57 +548,6 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion =ExcelVersion.Xlsx;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the worksheet to a JSON filestream without schema
-  FileStream stream = new FileStream("Excel-Worksheet-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, worksheet, false);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Saves the worksheet to a JSON filestream without schema
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream, worksheet, false);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Worksheet-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
-{% endhighlight %}
 {% endtabs %}
 
 A complete working example to convert Excel worksheet to JSON without schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Worksheet%20to%20JSON%20without%20Schema). 
@@ -698,7 +557,32 @@ A complete working example to convert Excel worksheet to JSON without schema in 
 The following code illustrates how to convert an Excel Custom Range to the JSON file or file stream as schema.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Custom range
+  IRange range = worksheet.Range["A2:A5"];
+
+  //Saves the Range to a JSON filestream, as schema by default
+  FileStream stream = new FileStream("Excel-Range-To-JSON-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, range);
+
+  //Saves the Range to a JSON filestream as schema
+  FileStream stream = new FileStream("Excel-Range-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, range, true);
+
+  stream.Dispose();
+  stream1.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -727,7 +611,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -821,8 +705,16 @@ async void Save(Stream stream, string filename)
 }
 #endregion
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+A complete working example to convert range to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20with%20Schema). 
+
+## Range to JSON without schema
+
+The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -834,65 +726,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Custom range
   IRange range = worksheet.Range["A2:A5"];
 
-  //Saves the Range to a JSON filestream, as schema by default
-  FileStream stream = new FileStream("Excel-Range-To-JSON-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, range);
-
-  //Saves the Range to a JSON filestream as schema
-  FileStream stream = new FileStream("Excel-Range-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, range, true);
-
+  //Saves the Range to a JSON filestream without schema
+  FileStream stream = new FileStream("Excel-Range-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(stream, range, false);
   stream.Dispose();
-  stream1.Dispose();
 }
 {% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
 
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");  
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Custom range
-  IRange range = worksheet.Range["A2:A5"];
-
-  //Saves the Range to a JSON filestream, as schema by default
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream, range);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-as-schema-default.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to convert range to JSON with schema in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Convert%20Excel%20to%20JSON/Range%20to%20JSON%20with%20Schema). 
-
-## Range to JSON without schema
-
-The following code illustrates how to convert an Excel Custom Range to the JSON file or JSON file stream without schema.
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -914,7 +755,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
@@ -1000,62 +841,6 @@ async void Save(Stream stream, string filename)
   }
 }
 #endregion
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Custom range
-  IRange range = worksheet.Range["A2:A5"];
-
-  //Saves the Range to a JSON filestream without schema
-  FileStream stream = new FileStream("Excel-Range-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAsJson(stream, range, false);
-  stream.Dispose();
-}
-{% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Custom range
-  IRange range = worksheet.Range["A2:A5"];
-
-  //Saves the Range to a JSON filestream without schema
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAsJson(outputStream, range, false);
-
-  //Save the stream as JSON document and view the saved document    
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Excel-Range-To-JSON-filestream-without-schema.json", "application/notepad", outputStream);
-  }
-
-  //Dispose the input and output stream instances
-  inputStream.Dispose();
-  outputStream.Dispose();
-}
 {% endhighlight %}
 {% endtabs %}
 

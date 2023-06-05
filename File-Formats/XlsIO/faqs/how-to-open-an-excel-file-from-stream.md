@@ -11,55 +11,7 @@ documentation: UG
 XlsIO provides support for opening a file that is stored as a stream. The following code snippet illustrates this.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Opening a File from a Stream
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  workbook.SaveAs("Output.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-
-  'Opening a File from a Stream
-  Dim fileStream As New FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-  Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Opening a File from a Stream
-  Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -72,25 +24,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.Close();
   excelEngine.Dispose();
 }
-
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
   //Opening a File from a Stream
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-  stream.Position = 0;
-  //Save the stream as a file in the device and invoke it for viewing
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  workbook.SaveAs("Output.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  'Opening a File from a Stream
+  Dim fileStream As New FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+  Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 

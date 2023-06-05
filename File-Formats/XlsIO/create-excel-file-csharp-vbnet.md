@@ -41,24 +41,17 @@ N> Syncfusion components are available in nuget.org
 Include the following namespaces in your .cs or .vb file as shown as follows.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using Syncfusion.XlsIO;
+{% endhighlight %}
+ 
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.XlsIO;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Imports Syncfusion.XlsIO
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using Syncfusion.XlsIO;
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using Syncfusion.XlsIO;
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using Syncfusion.XlsIO;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -67,99 +60,7 @@ using Syncfusion.XlsIO;
 The following code example explains how to create a hello world sample.
 
 {% tabs %} 
-{% highlight c# tabtitle="C#" %}
-using Syncfusion.XlsIO;
-
-//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the Excel application object
-  IApplication application = excelEngine.Excel;
-
-  //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //A new workbook is created equivalent to creating a new workbook in Excel
-  //Create a workbook with 1 worksheet
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Access first worksheet from the workbook
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding text to a cell
-  worksheet.Range["A1"].Text = "Hello World";
-
-  //Saving the workbook to disk in XLSX format
-  workbook.SaveAs("Sample.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Imports Syncfusion.XlsIO
-
-'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-'Instantiate the spreadsheet creation engine
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  'Instantiate the Excel application object
-  Dim application As IApplication = excelEngine.Excel
-
-  'Assigns default application version
-  application.DefaultVersion = ExcelVersion.Xlsx
-
-  'A new workbook is created equivalent to creating a new workbook in Excel
-  'Create a workbook with 1 worksheet
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-  'Access first worksheet from workbook
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Adding text to a cell
-  worksheet.Range("A1").Text = "Hello World"
-
-  'Saving the workbook to disk in XLSX format
-  workbook.SaveAs("Sample.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using Syncfusion.XlsIO;
-
-//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  //Instantiate the Excel application object
-  IApplication application = excelEngine.Excel;
-
-  //Assigns default application version
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //A new workbook is created equivalent to creating a new workbook in Excel
-  //Create a workbook with 1 worksheet
-  IWorkbook workbook = application.Workbooks.Create(1);
-
-  //Access first worksheet from the workbook
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Adding text to a cell
-  worksheet.Range["A1"].Text = "Hello World";
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Sample";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -191,7 +92,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.XlsIO;
 
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
@@ -214,23 +115,36 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Adding text to a cell
   worksheet.Range["A1"].Text = "Hello World";
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-  }
+  //Saving the workbook to disk in XLSX format
+  workbook.SaveAs("Sample.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Imports Syncfusion.XlsIO
+
+'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
+'Instantiate the spreadsheet creation engine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  'Instantiate the Excel application object
+  Dim application As IApplication = excelEngine.Excel
+
+  'Assigns default application version
+  application.DefaultVersion = ExcelVersion.Xlsx
+
+  'A new workbook is created equivalent to creating a new workbook in Excel
+  'Create a workbook with 1 worksheet
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+  'Access first worksheet from workbook
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding text to a cell
+  worksheet.Range("A1").Text = "Hello World"
+
+  'Saving the workbook to disk in XLSX format
+  workbook.SaveAs("Sample.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -243,7 +157,7 @@ The output screen-shot of the above code.
 An instance of the [ExcelEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelEngine.html) gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 //Instantiate the spreadsheet creation engine
 ExcelEngine excelEngine = new ExcelEngine();
@@ -252,7 +166,16 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
+//Instantiate the spreadsheet creation engine
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Instantiate the Excel application object
+IApplication application = excelEngine.Excel;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
 'Instantiate the spreadsheet creation engine
 Dim excelEngine As ExcelEngine = New ExcelEngine
@@ -260,68 +183,31 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 'Instantiate the Excel application object
 Dim application As IApplication = excelEngine.Excel
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Instantiate the Excel application object
-IApplication application = excelEngine.Excel;
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Instantiate the Excel application object
-IApplication application = excelEngine.Excel;
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Instantiate the Excel application object
-IApplication application = excelEngine.Excel;
-{% endhighlight %}
 {% endtabs %}  
 
 By default, the Excel version 97 to 2003 (*.xls) is associated with application object. XlsIO writes the excel files in the respective format depending on this excel version. You can modify the default Excel version to Xlsx as shown as follows.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Assigns default application version
 application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Assigns default application version
+application.DefaultVersion = ExcelVersion.Xlsx;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Assigns default application version
 application.DefaultVersion = ExcelVersion.Xlsx
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Assigns default application version
-application.DefaultVersion = ExcelVersion.Xlsx;
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Assigns default application version
-application.DefaultVersion = ExcelVersion.Xlsx;
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Assigns default application version
-application.DefaultVersion = ExcelVersion.Xlsx;
 {% endhighlight %}
 {% endtabs %}  
 
 The workbook contains a collection of worksheets and various workbook-level properties. Each worksheet has cells, which can contain text, numbers, dates, formulas and more. The following code snippet illustrates how to create a workbook and access worksheet instance.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //A new workbook is created equivalent to creating a new workbook in Excel
 //Create a workbook with 1 worksheet
 IWorkbook workbook = application.Workbooks.Create(1);
@@ -330,7 +216,16 @@ IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//A new workbook is created equivalent to creating a new workbook in Excel
+//Create a workbook with 1 worksheet
+IWorkbook workbook = application.Workbooks.Create(1);
+
+//Access a worksheet from workbook
+IWorksheet worksheet = workbook.Worksheets[0];
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'A new workbook is created equivalent to creating a new workbook in Excel
 'Create a workbook with 1 worksheet
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
@@ -338,37 +233,10 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 'Access a worksheet from workbook
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//A new workbook is created equivalent to creating a new workbook in Excel
-//Create a workbook with 1 worksheet
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Access a worksheet from workbook
-IWorksheet worksheet = workbook.Worksheets[0];
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//A new workbook is created equivalent to creating a new workbook in Excel
-//Create a workbook with 1 worksheet
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Access a worksheet from workbook
-IWorksheet worksheet = workbook.Worksheets[0];
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//A new workbook is created equivalent to creating a new workbook in Excel
-//Create a workbook with 1 worksheet
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Access a worksheet from workbook
-IWorksheet worksheet = workbook.Worksheets[0];
-{% endhighlight %}
 {% endtabs %}
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Adding text data
 worksheet.Range["A1"].Text = "Month";
 worksheet.Range["B1"].Text = "Sales";
@@ -394,7 +262,33 @@ worksheet.Range["B4"].Number = 72808;
 worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Adding text data
+worksheet.Range["A1"].Text = "Month";
+worksheet.Range["B1"].Text = "Sales";
+worksheet.Range["A6"].Text = "Total";
+
+//Adding DateTime data
+worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+
+//Applying number format for date value cells A2 to A4
+worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+
+//Auto-size the first column to fit the content
+worksheet.AutofitColumn(1);
+
+//Adding numeric data
+worksheet.Range["B2"].Number = 68878;
+worksheet.Range["B3"].Number = 71550;
+worksheet.Range["B4"].Number = 72808;
+
+//Adding formula
+worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Adding text data
 worksheet.Range("A1").Text = "Month"
 worksheet.Range("B1").Text = "Sales"
@@ -419,168 +313,32 @@ worksheet.Range("B4").Number = 72808
 'Adding formula
 worksheet.Range("B6").Formula = "SUM(B2:B4)"
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Adding text data
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A6"].Text = "Total";
-
-//Adding DateTime data
-worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-//Applying number format for date value cells A2 to A4
-worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-//Auto-size the first column to fit the content
-worksheet.AutofitColumn(1);
-
-//Adding numeric data
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B4"].Number = 72808;
-
-//Adding formula
-worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Adding text data
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A6"].Text = "Total";
-
-//Adding DateTime data
-worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-//Applying number format for date value cells A2 to A4
-worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-//Auto-size the first column to fit the content
-worksheet.AutofitColumn(1);
-
-//Adding numeric data
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B4"].Number = 72808;
-
-//Adding formula
-worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Adding text data
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A6"].Text = "Total";
-
-//Adding DateTime data
-worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-//Applying number format for date value cells A2 to A4
-worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-//Auto-size the first column to fit the content
-worksheet.AutofitColumn(1);
-
-//Adding numeric data
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B4"].Number = 72808;
-
-//Adding formula
-worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-{% endhighlight %}
 {% endtabs %}  
 
 The following code snippet shows how to add an image into the worksheet.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-//Inserting image
-worksheet.Pictures.AddPicture(10, 2, "image.jpg");
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Inserting image
-worksheet.Pictures.AddPicture(10, 2, "image.jpg")
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Inserting image
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
-worksheet.Pictures.AddPicture(10, 2, imageStream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Inserting image
 FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Inserting image
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateExcel.image.jpg");
-worksheet.Pictures.AddPicture(10, 2, imageStream);
+worksheet.Pictures.AddPicture(10, 2, "image.jpg");
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Inserting image
+worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 {% endhighlight %}
 {% endtabs %}  
 
 Finally, save the document in file system and close/dispose the instance of [IWorkbook](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorkbook.html) and [ExcelEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelEngine.html).
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-//Saving the workbook to disk in XLSX format
-workbook.SaveAs("Sample.xlsx");
-
-//Closing the workbook
-workbook.Close();
-
-//Dispose the Excel engine
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Saving the workbook to disk in XLSX format
-workbook.SaveAs("Sample.xlsx")
-
-'Closing the workbook
-workbook.Close()
-
-'Dispose the Excel engine
-excelEngine.Dispose()
-{% endhighlight %}
-
-{% highlight  UWP %}
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-//Closing the workbook
-workbook.Close();
-
-//Dispose the Excel engine
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Save the workbook as stream
 FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
 workbook.SaveAs(stream);
@@ -595,228 +353,33 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-//Saving the workbook as stream
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Saving the workbook to disk in XLSX format
+workbook.SaveAs("Sample.xlsx");
 
 //Closing the workbook
 workbook.Close();
 
 //Dispose the Excel engine
 excelEngine.Dispose();
+{% endhighlight %}
 
-stream.Position = 0;
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Saving the workbook to disk in XLSX format
+workbook.SaveAs("Sample.xlsx")
 
-//Save the document as file and view the saved document
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-}
-else
-{
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-}
+'Closing the workbook
+workbook.Close()
+
+'Dispose the Excel engine
+excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
 The complete code to create a simple Excel document is given below.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using Syncfusion.XlsIO;
-namespace ExcelCreation
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-      //Instantiate the spreadsheet creation engine
-      using (ExcelEngine excelEngine = new ExcelEngine())
-      {
-        //Instantiate the Excel application object
-        IApplication application = excelEngine.Excel;
-
-        //Assigns default application version
-        application.DefaultVersion = ExcelVersion.Xlsx;
-
-        //A new workbook is created equivalent to creating a new workbook in Excel
-        //Create a workbook with 1 worksheet
-        IWorkbook workbook = application.Workbooks.Create(1);
-
-        //Access a worksheet from workbook
-        IWorksheet worksheet = workbook.Worksheets[0];
-
-        //Adding text data
-        worksheet.Range["A1"].Text = "Month";
-        worksheet.Range["B1"].Text = "Sales";
-        worksheet.Range["A6"].Text = "Total";
-
-        //Adding DateTime data
-        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-        //Applying number format for date value cells A2 to A4
-        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-        //Auto-size the first column to fit the content
-        worksheet.AutofitColumn(1);
-
-        //Adding numeric data
-        worksheet.Range["B2"].Number = 68878;
-        worksheet.Range["B3"].Number = 71550;
-        worksheet.Range["B4"].Number = 72808;
-
-        //Adding formula
-        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-
-        //Inserting image
-        worksheet.Pictures.AddPicture(10, 2, "image.jpg");
-
-        //Saving the workbook to disk in XLSX format
-        workbook.SaveAs("Sample.xlsx");
-      }
-    }
-  }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Imports Syncfusion.XlsIO
-Namespace ExcelCreation
-  Module Program
-    Sub Main(args As String())
-      'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-      'Instantiate the spreadsheet creation engine
-      Using excelEngine As ExcelEngine = New ExcelEngine()
-        'Instantiate the Excel application object
-        Dim application As IApplication = excelEngine.Excel
-
-        'Assigns default application version
-        application.DefaultVersion = ExcelVersion.Xlsx
-
-        'A new workbook is created equivalent to creating a new workbook in Excel
-        'Create a workbook with 1 worksheet
-        Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-        'Access a worksheet from workbook
-        Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-        'Adding text data
-        worksheet.Range("A1").Text = "Month"
-        worksheet.Range("B1").Text = "Sales"
-        worksheet.Range("A6").Text = "Total"
-
-        'Adding DateTime data
-        worksheet.Range("A2").DateTime = New DateTime(2015, 1, 10)
-        worksheet.Range("A3").DateTime = New DateTime(2015, 2, 10)
-        worksheet.Range("A4").DateTime = New DateTime(2015, 3, 10)
-
-        'Applying number format for date value cells A2 to A4
-        worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
-
-        'Auto-size the first column to fit the content
-        worksheet.AutofitColumn(1)
-
-        'Adding numeric data
-        worksheet.Range("B2").Number = 68878
-        worksheet.Range("B3").Number = 71550
-        worksheet.Range("B4").Number = 72808
-
-        'Adding formula
-        worksheet.Range("B6").Formula = "SUM(B2:B4)"
-
-        'Inserting image
-        worksheet.Pictures.AddPicture(10, 2, "image.jpg")
-
-        'Saving the workbook to disk in XLSX format
-        workbook.SaveAs("Sample.xlsx")
-      End Using
-    End Sub
-  End Module
-End Namespace
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using Syncfusion.XlsIO;
-namespace ExcelCreation
-{
-  public sealed partial class MainPage : Page
-  {
-    public MainPage()
-    {
-      this.InitializeComponent();
-    }
-    private async void OnButtonClicked(object sender, RoutedEventArgs e)
-    {
-      //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-      //Instantiate the spreadsheet creation engine
-      using (ExcelEngine excelEngine = new ExcelEngine())
-      {
-        //Instantiate the Excel application object
-        IApplication application = excelEngine.Excel;
-
-        //Assigns default application version
-        application.DefaultVersion = ExcelVersion.Xlsx;
-
-        //A new workbook is created equivalent to creating a new workbook in Excel
-        //Create a workbook with 1 worksheet
-        IWorkbook workbook = application.Workbooks.Create(1);
-
-        //Access a worksheet from workbook
-        IWorksheet worksheet = workbook.Worksheets[0];
-
-        //Adding text data
-        worksheet.Range["A1"].Text = "Month";
-        worksheet.Range["B1"].Text = "Sales";
-		worksheet.Range["A6"].Text = "Total";
-
-        //Adding DateTime data
-        worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-        worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-        worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-        //Applying number format for date value cells A2 to A4
-        worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-        //Auto-size the first column to fit the content
-        worksheet.AutofitColumn(1);
-
-        //Adding numeric data
-        worksheet.Range["B2"].Number = 68878;
-        worksheet.Range["B3"].Number = 71550;
-        worksheet.Range["B4"].Number = 72808;
-
-        //Adding formula
-        worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-
-        //Inserting image
-        //"App" is the class of Portable project
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
-        worksheet.Pictures.AddPicture(10, 2, imageStream);
-
-        //Initializes FileSavePicker
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-        savePicker.SuggestedFileName = "Sample";
-        savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-        //Creates a storage file from FileSavePicker
-        StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-        //Saves changes to the specified storage file
-        await workbook.SaveAsAsync(storageFile);
-      }
-    }
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -881,7 +444,7 @@ namespace ExcelCreation
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
@@ -931,31 +494,70 @@ namespace ExcelCreation
         worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
         //Inserting image
-        //"App" is the class of Portable project
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-        Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
-        worksheet.Pictures.AddPicture(10, 2, imageStream);
+        worksheet.Pictures.AddPicture(10, 2, "image.jpg");
 
-        //Saving the workbook as stream
-        MemoryStream stream = new MemoryStream();
-        workbook.SaveAs(stream);
-
-        stream.Position = 0;
-
-        //Save the document as file and view the saved document
-        //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-        if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-        {
-          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-        }
-        else
-        {
-          Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-        }
+        //Saving the workbook to disk in XLSX format
+        workbook.SaveAs("Sample.xlsx");
       }
     }
   }
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Imports Syncfusion.XlsIO
+Namespace ExcelCreation
+  Module Program
+    Sub Main(args As String())
+      'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
+      'Instantiate the spreadsheet creation engine
+      Using excelEngine As ExcelEngine = New ExcelEngine()
+        'Instantiate the Excel application object
+        Dim application As IApplication = excelEngine.Excel
+
+        'Assigns default application version
+        application.DefaultVersion = ExcelVersion.Xlsx
+
+        'A new workbook is created equivalent to creating a new workbook in Excel
+        'Create a workbook with 1 worksheet
+        Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+        'Access a worksheet from workbook
+        Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+        'Adding text data
+        worksheet.Range("A1").Text = "Month"
+        worksheet.Range("B1").Text = "Sales"
+        worksheet.Range("A6").Text = "Total"
+
+        'Adding DateTime data
+        worksheet.Range("A2").DateTime = New DateTime(2015, 1, 10)
+        worksheet.Range("A3").DateTime = New DateTime(2015, 2, 10)
+        worksheet.Range("A4").DateTime = New DateTime(2015, 3, 10)
+
+        'Applying number format for date value cells A2 to A4
+        worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
+
+        'Auto-size the first column to fit the content
+        worksheet.AutofitColumn(1)
+
+        'Adding numeric data
+        worksheet.Range("B2").Number = 68878
+        worksheet.Range("B3").Number = 71550
+        worksheet.Range("B4").Number = 72808
+
+        'Adding formula
+        worksheet.Range("B6").Formula = "SUM(B2:B4)"
+
+        'Inserting image
+        worksheet.Pictures.AddPicture(10, 2, "image.jpg")
+
+        'Saving the workbook to disk in XLSX format
+        workbook.SaveAs("Sample.xlsx")
+      End Using
+    End Sub
+  End Module
+End Namespace
 {% endhighlight %}
 {% endtabs %}  
 
@@ -976,72 +578,7 @@ The screen-shot of the output for above code is given below.
 The following code snippet shows how to export data from objects.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //GetEmployees method returns list of customers
-  IList<Employee> employees = GetEmployees();
-
-  //Import data to worksheet
-  worksheet.ImportData(employees, 2, 1, false);
-
-  //Saving the workbook
-  workbook.SaveAs("Sample.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'GetEmployees method returns list of customers
-  Dim employees As IList(Of Employee) = GetEmployees()
-
-  'Import data to worksheet
-  worksheet.ImportData(employees, 2, 1, False)
-
-  'Saving the workbook
-  workbook.SaveAs("Sample.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //GetEmployees method returns list of customers
-  IList<Employee> employees = GetEmployees();
-
-  //Import data to worksheet
-  worksheet.ImportData(employees, 2, 1, false);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Sample";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1062,7 +599,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1076,30 +613,71 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Import data to worksheet
   worksheet.ImportData(employees, 2, 1, false);
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-  }
+  //Saving the workbook
+  workbook.SaveAs("Sample.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'GetEmployees method returns list of customers
+  Dim employees As IList(Of Employee) = GetEmployees()
+
+  'Import data to worksheet
+  worksheet.ImportData(employees, 2, 1, False)
+
+  'Saving the workbook
+  workbook.SaveAs("Sample.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Gets a list of Employee details
+private static List<Employee> GetEmployees()
+{
+  List<Employee> employees = new List<Employee>();
+  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+  return employees;
+}
+
+//Employee details
+public class Employee
+{
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Address { get; set; }
+  public string City { get; set; }
+  public string Region { get; set; }
+  public string Country { get; set; }
+  public string Title { get; set; }
+
+  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+  {
+    FirstName = firstName;
+    LastName = lastName;
+    Title = title;
+    Address = address;
+    City = city;
+    Region = region;
+    Country = country;
+  }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets a list of Employee details
 private static IList<Employee> GetEmployees()
 {
@@ -1136,7 +714,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets a list Employee details
 Private Function GetEmployees() As List(Of Employee)
   Dim employees As New List(Of Employee)()
@@ -1232,117 +810,6 @@ Public Class Employee
   End Sub
 End Class
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Gets a list of Employee details
-private static List<Employee> GetEmployees()
-{
-  List<Employee> employees = new List<Employee>();
-  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-  return employees;
-}
-
-//Employee details
-public class Employee
-{
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public string Address { get; set; }
-  public string City { get; set; }
-  public string Region { get; set; }
-  public string Country { get; set; }
-  public string Title { get; set; }
-
-  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-  {
-    FirstName = firstName;
-    LastName = lastName;
-    Title = title;
-    Address = address;
-    City = city;
-    Region = region;
-    Country = country;
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Gets a list of Employee details
-private static List<Employee> GetEmployees()
-{
-  List<Employee> employees = new List<Employee>();
-  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-  return employees;
-}
-
-//Employee details
-public class Employee
-{
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public string Address { get; set; }
-  public string City { get; set; }
-  public string Region { get; set; }
-  public string Country { get; set; }
-  public string Title { get; set; }
-
-  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-  {
-    FirstName = firstName;
-    LastName = lastName;
-    Title = title;
-    Address = address;
-    City = city;
-    Region = region;
-    Country = country;
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Gets a list of Employee details
-private static List<Employee> GetEmployees()
-{
-  List<Employee> employees = new List<Employee>();
-  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-  return employees;
-}
-
-//Employee details
-public class Employee
-{
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
-  public string Address { get; set; }
-  public string City { get; set; }
-  public string Region { get; set; }
-  public string Country { get; set; }
-  public string Title { get; set; }
-
-  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-  {
-    FirstName = firstName;
-    LastName = lastName;
-    Title = title;
-    Address = address;
-    City = city;
-    Region = region;
-    Country = country;
-  }
-}
-{% endhighlight %}
 {% endtabs %}  
 
 You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
@@ -1354,7 +821,28 @@ The worksheet data can be exported to a data table using the [ExportDataTable()]
 The following code demonstrates how to export data from a worksheet to a data table with the **ColumnNames** and **DetectColumnTypes** options.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//XlsIO supports exporting of data from worksheet to data table from .NET Standard 2.0
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream inputStream = new FileStream("WorkbookWithData.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export data from worksheet used range to a DataTable
+  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.DetectColumnTypes);
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1371,7 +859,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("WorkbookWithData.xlsx")
@@ -1480,27 +968,6 @@ public class Sales
       change = value;
     }
   }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//XlsIO supports exporting of data from worksheet to data table from .NET Standard 2.0
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("WorkbookWithData.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Export data from worksheet used range to a DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.DetectColumnTypes);
-
-  //Saving the workbook as stream
-  FileStream file = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(file);
-  file.Dispose();
 }
 {% endhighlight %}
 
@@ -1640,102 +1107,7 @@ For example – let’s consider that you have a template document as shown belo
 The following code snippet shows how to use template markers with objects.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Create template marker processor for the workbook
-  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
-  //GetSalesReports method returns list of sales persons and their reports
-  IList<Report> reports = GetSalesReports();
-
-  //Adding reports collection to marker variables
-  //Where the name should match with the input template
-  marker.AddVariable("Reports", reports);
-
-  //Applying Markers
-  marker.ApplyMarkers();
-
-  //Saving the workbook
-  workbook.SaveAs("TemplateMarkerResult.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("TemplateMarker.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Create template marker processor for the workbook
-  Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
-
-  'GetSalesReports method returns list of sales persons and their reports
-  Dim reports As IList(Of Report) = GetSalesReports()
-
-  'Adding reports collection to marker variables
-  'Where the name should match with the input template
-  marker.AddVariable("Reports", reports)
-
-  'Applying Markers
-  marker.ApplyMarkers()
-
-  'Saving the workbook
-  workbook.SaveAs("TemplateMarkerResult.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-  //Opens the workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Create template marker processor for the workbook
-  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
-
-  //GetSalesReports method returns list of sales persons and their reports
-  IList<Report> reports = GetSalesReports();
-
-  //Adding reports collection to marker variables
-  //Where the name should match with the input template
-  marker.AddVariable("Reports", reports);
-
-  //Applying Markers
-  marker.ApplyMarkers();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "TemplateMarkerResult";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1763,14 +1135,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("FillData.TemplateMarker.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
   //Create template marker processor for the workbook
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
@@ -1785,30 +1156,74 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Applying Markers
   marker.ApplyMarkers();
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
-  }
+  //Saving the workbook
+  workbook.SaveAs("TemplateMarkerResult.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("TemplateMarker.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create template marker processor for the workbook
+  Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
+
+  'GetSalesReports method returns list of sales persons and their reports
+  Dim reports As IList(Of Report) = GetSalesReports()
+
+  'Adding reports collection to marker variables
+  'Where the name should match with the input template
+  marker.AddVariable("Reports", reports)
+
+  'Applying Markers
+  marker.ApplyMarkers()
+
+  'Saving the workbook
+  workbook.SaveAs("TemplateMarkerResult.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
 The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Gets a list of sales reports
+private static List<Report> GetSalesReports()
+{
+  List<Report> reports = new List<Report>();
+  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
+  return reports;
+}
+
+//Sales report
+public class Report
+{
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+  public int Change { get; set; }
+  public byte[] Image { get; set; }
+  
+  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
+  {
+    SalesPerson = name;
+    SalesJanJun = janToJun;
+    SalesJulDec = julToDec;
+    Change = change;
+    Image = File.ReadAllBytes(imagePath);
+  }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
@@ -1841,7 +1256,7 @@ public class Report
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Gets a list of sales reports
 Private Function GetSalesReports() As List(Of Report)
   Dim reports As New List(Of Report)()
@@ -1914,125 +1329,6 @@ Public Class Report
     Image = File.ReadAllBytes(imagePath)
   End Sub
 End Class
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Gets a list of sales reports
-private static List<Report> GetSalesReports()
-{
-  List<Report> reports = new List<Report>();
-  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-  return reports;
-}
-
-//Sales report
-public class Report
-{
-  public string SalesPerson { get; set; }
-  public string SalesJanJun { get; set; }
-  public string SalesJulDec { get; set; }
-  public int Change { get; set; }
-  public byte[] Image { get; set; }
-
-  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-  {
-    SalesPerson = name;
-    SalesJanJun = janToJun;
-    SalesJulDec = julToDec;
-    Change = change;
-    Image = GetImage(imagePath);			
-  }
-
-  private byte[] GetImage(string imagePath)
-  {
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
-    using (BinaryReader br = new BinaryReader(imageStream))
-    {
-      return br.ReadBytes((int)imageStream.Length);
-    }
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Gets a list of sales reports
-private static List<Report> GetSalesReports()
-{
-  List<Report> reports = new List<Report>();
-  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-  return reports;
-}
-
-//Sales report
-public class Report
-{
-  public string SalesPerson { get; set; }
-  public string SalesJanJun { get; set; }
-  public string SalesJulDec { get; set; }
-  public int Change { get; set; }
-  public byte[] Image { get; set; }
-  
-  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-  {
-    SalesPerson = name;
-    SalesJanJun = janToJun;
-    SalesJulDec = julToDec;
-    Change = change;
-    Image = File.ReadAllBytes(imagePath);
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Gets a list of sales reports
-private static List<Report> GetSalesReports()
-{
-  List<Report> reports = new List<Report>();
-  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-  return reports;
-}
-
-//Sales report
-public class Report
-{
-  public string SalesPerson { get; set; }
-  public string SalesJanJun { get; set; }
-  public string SalesJulDec { get; set; }
-  public int Change { get; set; }
-  public byte[] Image { get; set; }
-
-  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-  {
-    SalesPerson = name;
-    SalesJanJun = janToJun;
-    SalesJulDec = julToDec;
-    Change = change;
-    Image = GetImage(imagePath);
-  }
-
-  private byte[] GetImage(string imagePath)
-  {
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream imageStream = assembly.GetManifestResourceStream("FillData." + imagePath);
-    using (BinaryReader reader = new BinaryReader(imageStream))
-    {
-      return reader.ReadBytes((int)imageStream.Length);
-    }
-  }
-}
 {% endhighlight %}
 {% endtabs %}  
 
