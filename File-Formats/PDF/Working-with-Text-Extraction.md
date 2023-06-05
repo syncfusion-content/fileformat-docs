@@ -11,7 +11,7 @@ Essential PDF allows you to extract the text from a particular page or the entir
 
 ## Working with basic text extraction
 
-You can extract the text from a page using [ExtractText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText().html) method in [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html) class.
+You can extract the text from a page using [ExtractText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText) method in [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html) class.
 
 The following code snippet explains how to extract the texts from a page.
 
@@ -134,7 +134,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Working with layout based text extraction
 
-You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText().html) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
+You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText_System_Boolean_) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
 
 Please refer the following code snippet to extract the text with layout.
 

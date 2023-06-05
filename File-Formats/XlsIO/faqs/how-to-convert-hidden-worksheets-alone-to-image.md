@@ -13,7 +13,30 @@ Worksheet hiding and unhiding can be achieved easily through [Visibility](https:
 Conversion of only hidden worksheets to image can be achieved using condition check for worksheet visibility. The following complete code example illustrates how to convert hidden worksheets alone to image.
 
 {% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.XlsIORenderer = new XlsIORenderer();
+
+  //Opening workbook with hidden worksheets
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Converting only hidden worksheets to image
+  foreach (IWorksheet worksheet in workbook.Worksheets)
+  {
+    if (worksheet.Visibility == WorksheetVisibility.Hidden)
+    {
+	  MemoryStream stream = new MemoryStream();
+      worksheet.ConvertToImage(1, 1, 5, 5, stream);
+    }
+  }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -34,7 +57,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013

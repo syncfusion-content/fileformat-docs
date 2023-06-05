@@ -16,98 +16,7 @@ Refer to the following links for assemblies/nuget packages required based on pla
 The following code snippet shows how to convert an Excel chart to an image using the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelChartToImageConverter.ChartToImageConverter.html) class.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  application.ChartToImageConverter = new ChartToImageConverter();
-  application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
-
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-  IChart chart = worksheet.Charts[0];
-
-  //Creating the memory stream for chart image
-  MemoryStream stream = new MemoryStream();
-
-  //Saving the chart as image
-  chart.SaveAsImage(stream);
-  Image image = Image.FromStream(stream);
-
-  //Saving image stream to file
-  image.Save("Output.png");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Xlsx
-
-  Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
-  application.ChartToImageConverter = ChartToImageConverter
-  application.ChartToImageConverter.ScalingMode = ScalingMode.Best
-
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-  Dim chart As IChart = worksheet.Charts(0)
-
-  'Creating the memory stream for chart image
-  Dim stream As New MemoryStream()
-
-  'Saving the chart as image
-  chart.SaveAsImage(stream)
-  Dim image As Image = Image.FromStream(stream)
-
-  'Saving image stream to file
-  image.Save("Output.png")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Chart To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  //Initializing XlsIORenderer
-  application.XlsIORenderer = new XlsIORenderer();
-
-  //Set converter chart image format to PNG
-  application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-  IWorksheet sheet = workbook.Worksheets[0];
-  IChart chart = worksheet.Charts[0];  
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Image Files", new List<string>() { ".png",".jpeg",".jpg" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Converts and save to stream
-  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
-  Stream stream = file.AsStreamForWrite();
-  chart.SaveAsImage(stream);
-  await file.FlushAsync();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -135,45 +44,54 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  //Initializing XlsIORenderer
-  application.XlsIORenderer = new XlsIORenderer();
 
-  //Set converter chart image format to PNG
-  application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
+  application.ChartToImageConverter = new ChartToImageConverter();
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
-  IChart chart = worksheet.Charts[0];  
-  
+  IChart chart = worksheet.Charts[0];
+
   //Creating the memory stream for chart image
   MemoryStream stream = new MemoryStream();
 
   //Saving the chart as image
   chart.SaveAsImage(stream);
+  Image image = Image.FromStream(stream);
 
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Test.png", "image/png", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
-  }
+  //Saving image stream to file
+  image.Save("Output.png");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+
+  Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
+  application.ChartToImageConverter = ChartToImageConverter
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChart = worksheet.Charts(0)
+
+  'Creating the memory stream for chart image
+  Dim stream As New MemoryStream()
+
+  'Saving the chart as image
+  chart.SaveAsImage(stream)
+  Dim image As Image = Image.FromStream(stream)
+
+  'Saving image stream to file
+  image.Save("Output.png")
+End Using
 {% endhighlight %}
 {% endtabs %}  
 

@@ -21,69 +21,7 @@ N> In XlsIO, tables are supported only for Excel 2007 and later formats (*.xlsx 
 The following code sample explains the creation of a simple table by the range of data from an existing worksheet.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Create table with the data in given range
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  string fileName = "Output.xlsx";
-  workbook.SaveAs(fileName);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Create table with the data in given range
-  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
-
-  Dim fileName As String = "Output.xlsx"
-  workbook.SaveAs(fileName)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Create table with the data in given range
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Initializes FileSavePicker      
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker            
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -104,41 +42,35 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Create table with the data in given range
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
   string fileName = "Output.xlsx";
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
+  workbook.SaveAs(fileName);
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create table with the data in given range
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -149,7 +81,31 @@ A complete working example to create a table in C# is present on [this GitHub pa
 The existing tables in the worksheet can be accessed, as follows. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Accessing first table in the sheet
+  IListObject table = worksheet.ListObjects[0];
+
+  //Modifying table name
+  table.Name = "SalesTable";
+
+  string fileName = "Output.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -168,7 +124,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -185,105 +141,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs(fileName)
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing first table in the sheet
-  IListObject table = worksheet.ListObjects[0];
-
-  //Modifying table name
-  table.Name = "SalesTable";
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing first table in the sheet
-  IListObject table = worksheet.ListObjects[0];
-
-  //Modifying table name
-  table.Name = "SalesTable";
-
-  string fileName = "Output.xlsx";
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Accessing first table in the sheet
-  IListObject table = worksheet.ListObjects[0];
-
-  //Modifying table name
-  table.Name = "SalesTable";
-
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  string fileName = "Output.xlsx";
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-}
-{% endhighlight %}
 {% endtabs %}  
 
 A complete working example for accessing a table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Table/Read%20Table).
@@ -295,8 +152,31 @@ You can apply built-in styles to the table using XlsIO. You can also customize t
 The following code snippet illustrates how to apply built-in table style.
 
 {% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-{% highlight c# tabtitle="C#" %}
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+
+  //Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
+
+  string fileName = "Output.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -315,7 +195,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -332,104 +212,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs(fileName)
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Formatting table with a built-in style
-  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Formatting table with a built-in style
-  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
-
-  string fileName = "Output.xlsx";
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Formatting table with a built-in style
-  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
-
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  string fileName = "Output.xlsx";
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-}
-{% endhighlight %}
 {% endtabs %}  
 
 A complete working example for formatting a table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Table/Format%20Table).
@@ -440,300 +222,7 @@ You can apply custom table style to the table using XlsIO. You can create custom
 The below code example shows how to apply custom table style in XlsIO.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Create data
-  worksheet[1, 1].Text = "Products";
-  worksheet[1, 2].Text = "Qtr1";
-  worksheet[1, 3].Text = "Qtr2";
-  worksheet[1, 4].Text = "Qtr3";
-  worksheet[1, 5].Text = "Qtr4";
-
-  worksheet[2, 1].Text = "Alfreds Futterkiste";
-  worksheet[2, 2].Number = 744.6;
-  worksheet[2, 3].Number = 162.56;
-  worksheet[2, 4].Number = 5079.6;
-  worksheet[2, 5].Number = 1249.2;
-
-  worksheet[3, 1].Text = "Antonio Moreno";
-  worksheet[3, 2].Number = 5079.6;
-  worksheet[3, 3].Number = 1249.2;
-  worksheet[3, 4].Number = 943.89;
-  worksheet[3, 5].Number = 349.6;
-
-  worksheet[4, 1].Text = "Around the Horn";
-  worksheet[4, 2].Number = 1267.5;
-  worksheet[4, 3].Number = 1062.5;
-  worksheet[4, 4].Number = 744.6;
-  worksheet[4, 5].Number = 162.56;
-
-  worksheet[5, 1].Text = "Bon app";
-  worksheet[5, 2].Number = 1418;
-  worksheet[5, 3].Number = 756;
-  worksheet[5, 4].Number = 1267.5;
-  worksheet[5, 5].Number = 1062.5;
-
-  worksheet[6, 1].Text = "Eastern Connection";
-  worksheet[6, 2].Number = 4728;
-  worksheet[6, 3].Number = 4547.92;
-  worksheet[6, 4].Number = 1418;
-  worksheet[6, 5].Number = 756;
-
-  worksheet[7, 1].Text = "Ernst Handel";
-  worksheet[7, 2].Number = 943.89;
-  worksheet[7, 3].Number = 349.6;
-  worksheet[7, 4].Number = 4728;
-  worksheet[7, 5].Number = 4547.92;
-
-  //Create style for table number format
-  IStyle style = workbook.Styles.Add("CurrencyFormat");
-  style.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* \" - \"??_);_(@_)";
-  worksheet["B2:E8"].CellStyleName = "CurrencyFormat";
-
-  //Create table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:E7"]);
-
-  //Apply custom table style
-  ITableStyles tableStyles = workbook.TableStyles;
-  ITableStyle tableStyle = tableStyles.Add("Table Style 1");
-  ITableStyleElements tableStyleElements = tableStyle.TableStyleElements;
-  ITableStyleElement tableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.SecondColumnStripe);
-  tableStyleElement.BackColorRGB = Color.FromArgb(217, 225, 242);
-
-  ITableStyleElement tableStyleElement1 = tableStyleElements.Add(ExcelTableStyleElementType.FirstColumn);
-  tableStyleElement1.FontColorRGB = Color.FromArgb(128, 128, 128);
-
-  ITableStyleElement tableStyleElement2 = tableStyleElements.Add(ExcelTableStyleElementType.HeaderRow);
-  tableStyleElement2.FontColor = ExcelKnownColors.White;
-  tableStyleElement2.BackColorRGB = Color.FromArgb(0, 112, 192);
-
-  ITableStyleElement tableStyleElement3 = tableStyleElements.Add(ExcelTableStyleElementType.TotalRow);
-  tableStyleElement3.BackColorRGB = Color.FromArgb(0, 112, 192);
-  tableStyleElement3.FontColor = ExcelKnownColors.White;
-
-  table.TableStyleName = tableStyle.Name;
-
-  //Total row
-  table.ShowTotals = true;
-  table.ShowFirstColumn = true;
-  table.ShowTableStyleColumnStripes = true;
-  table.ShowTableStyleRowStripes = true;
-  table.Columns[0].TotalsRowLabel = "Total";
-  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[3].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[4].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-  //Save the workbook
-  workbook.SaveAs("CustomTableStyle.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2016
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Create data
-  worksheet(1, 1).Text = "Products"
-  worksheet(1, 2).Text = "Qtr1"
-  worksheet(1, 3).Text = "Qtr2"
-  worksheet(1, 4).Text = "Qtr3"
-  worksheet(1, 5).Text = "Qtr4"
-
-  worksheet(2, 1).Text = "Alfreds Futterkiste"
-  worksheet(2, 2).Number = 744.6
-  worksheet(2, 3).Number = 162.56
-  worksheet(2, 4).Number = 5079.6
-  worksheet(2, 5).Number = 1249.2
-  
-  worksheet(3, 1).Text = "Antonio Moreno"
-  worksheet(3, 2).Number = 5079.6
-  worksheet(3, 3).Number = 1249.2
-  worksheet(3, 4).Number = 943.89
-  worksheet(3, 5).Number = 349.6
-
-  worksheet(4, 1).Text = "Around the Horn"
-  worksheet(4, 2).Number = 1267.5
-  worksheet(4, 3).Number = 1062.5
-  worksheet(4, 4).Number = 744.6
-  worksheet(4, 5).Number = 162.56
-
-  worksheet(5, 1).Text = "Bon app"
-  worksheet(5, 2).Number = 1418
-  worksheet(5, 3).Number = 756
-  worksheet(5, 4).Number = 1267.5
-  worksheet(5, 5).Number = 1062.5
-
-  worksheet(6, 1).Text = "Eastern Connection"
-  worksheet(6, 2).Number = 4728
-  worksheet(6, 3).Number = 4547.92
-  worksheet(6, 4).Number = 1418
-  worksheet(6, 5).Number = 756
-  
-  worksheet(7, 1).Text = "Ernst Handel"
-  worksheet(7, 2).Number = 943.89
-  worksheet(7, 3).Number = 349.6
-  worksheet(7, 4).Number = 4728
-  worksheet(7, 5).Number = 4547.92
-
-'Ceate style for table number format
-  Dim style As IStyle = workbook.Styles.Add("CurrencyFormat")
-  style.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* "" - ""??_);_(@_)"
-  worksheet("B2:E8").CellStyleName = "CurrencyFormat"
-  
-  'Create table 
-  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:E7"))
-
-  //Apply custom table style
-  Dim tableStyles As ITableStyles = workbook.TableStyles
-  Dim tableStyle As ITableStyle = tableStyles.Add("Table Style 1")
-  Dim tableStyleElements As ITableStyleElements = tableStyle.TableStyleElements
-  Dim tableStyleElement As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.SecondColumnStripe)
-  tableStyleElement.BackColorRGB = Color.FromArgb(217, 225, 242)
-  
-  Dim tableStyleElement1 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.FirstColumn)
-  tableStyleElement1.FontColorRGB = Color.FromArgb(128, 128, 128)
-  
-  Dim tableStyleElement2 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.HeaderRow)
-  tableStyleElement2.FontColor = ExcelKnownColors.White
-  tableStyleElement2.BackColorRGB = Color.FromArgb(0, 112, 192)
-  
-  Dim tableStyleElement3 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.TotalRow)
-  tableStyleElement3.BackColorRGB = Color.FromArgb(0, 112, 192)
-  tableStyleElement3.FontColor = ExcelKnownColors.White
-  
-  table.TableStyleName = tableStyle.Name    
-
-  'Total row 
-  table.ShowTotals = True
-  table.ShowFirstColumn = True
-  table.ShowTableStyleColumnStripes = True
-  table.ShowTableStyleRowStripes = True
-  table.Columns(0).TotalsRowLabel = "Total"
-  table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
-  table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
-  table.Columns(3).TotalsCalculation = ExcelTotalsCalculation.Sum
-  table.Columns(4).TotalsCalculation = ExcelTotalsCalculation.Sum
-
-  'Save the workbook
-  workbook.SaveAs("CustomTableStyle.xlsx")
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  // Create data
-  worksheet[1, 1].Text = "Products";
-  worksheet[1, 2].Text = "Qtr1";
-  worksheet[1, 3].Text = "Qtr2";
-  worksheet[1, 4].Text = "Qtr3";
-  worksheet[1, 5].Text = "Qtr4";
-
-  worksheet[2, 1].Text = "Alfreds Futterkiste";
-  worksheet[2, 2].Number = 744.6;
-  worksheet[2, 3].Number = 162.56;
-  worksheet[2, 4].Number = 5079.6;
-  worksheet[2, 5].Number = 1249.2;
-
-  worksheet[3, 1].Text = "Antonio Moreno";
-  worksheet[3, 2].Number = 5079.6;
-  worksheet[3, 3].Number = 1249.2;
-  worksheet[3, 4].Number = 943.89;
-  worksheet[3, 5].Number = 349.6;
-
-  worksheet[4, 1].Text = "Around the Horn";
-  worksheet[4, 2].Number = 1267.5;
-  worksheet[4, 3].Number = 1062.5;
-  worksheet[4, 4].Number = 744.6;
-  worksheet[4, 5].Number = 162.56;
-
-  worksheet[5, 1].Text = "Bon app";
-  worksheet[5, 2].Number = 1418;
-  worksheet[5, 3].Number = 756;
-  worksheet[5, 4].Number = 1267.5;
-  worksheet[5, 5].Number = 1062.5;
-
-  worksheet[6, 1].Text = "Eastern Connection";
-  worksheet[6, 2].Number = 4728;
-  worksheet[6, 3].Number = 4547.92;
-  worksheet[6, 4].Number = 1418;
-  worksheet[6, 5].Number = 756;
-
-  worksheet[7, 1].Text = "Ernst Handel";
-  worksheet[7, 2].Number = 943.89;
-  worksheet[7, 3].Number = 349.6;
-  worksheet[7, 4].Number = 4728;
-  worksheet[7, 5].Number = 4547.92;
-
-  //Create style for table number format
-  IStyle style = workbook.Styles.Add("CurrencyFormat");
-  style.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* \" - \"??_);_(@_)";
-  worksheet["B2:E8"].CellStyleName = "CurrencyFormat";
-
-  //Create table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:E7"]);
-
-  //Apply custom table style
-  ITableStyles tableStyles = workbook.TableStyles;
-  ITableStyle tableStyle = tableStyles.Add("Table Style 1");
-  ITableStyleElements tableStyleElements = tableStyle.TableStyleElements;
-  ITableStyleElement tableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.SecondColumnStripe);
-  tableStyleElement.BackColorRGB = Color.FromArgb(217, 225, 242);
-
-  ITableStyleElement tableStyleElement1 = tableStyleElements.Add(ExcelTableStyleElementType.FirstColumn);
-  tableStyleElement1.FontColorRGB = Color.FromArgb(128, 128, 128);
-
-  ITableStyleElement tableStyleElement2 = tableStyleElements.Add(ExcelTableStyleElementType.HeaderRow);
-  tableStyleElement2.FontColor = ExcelKnownColors.White;
-  tableStyleElement2.BackColorRGB = Color.FromArgb(0, 112, 192);
-
-  ITableStyleElement tableStyleElement3 = tableStyleElements.Add(ExcelTableStyleElementType.TotalRow);
-  tableStyleElement3.BackColorRGB = Color.FromArgb(0, 112, 192);
-  tableStyleElement3.FontColor = ExcelKnownColors.White;
-
-  table.TableStyleName = tableStyle.Name;
-
-  //Total row
-  table.ShowTotals = true;
-  table.ShowFirstColumn = true;
-  table.ShowTableStyleColumnStripes = true;
-  table.ShowTableStyleRowStripes = true;
-  table.Columns[0].TotalsRowLabel = "Total";
-  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[3].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[4].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "CustomTableStyle";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-  
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-  
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -830,7 +319,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -838,7 +327,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Create(1);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  // Create data
+  //Create data
   worksheet[1, 1].Text = "Products";
   worksheet[1, 2].Text = "Qtr1";
   worksheet[1, 3].Text = "Qtr2";
@@ -920,24 +409,103 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   table.Columns[3].TotalsCalculation = ExcelTotalsCalculation.Sum;
   table.Columns[4].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS
-  platforms. Please refer xlsio/xamarin section for respective code samples.   
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CustomTableStyle.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CustomTableStyle.xlsx", "application/msexcel", stream);
-  }
+  //Save the workbook
+  workbook.SaveAs("CustomTableStyle.xlsx");
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create data
+  worksheet(1, 1).Text = "Products"
+  worksheet(1, 2).Text = "Qtr1"
+  worksheet(1, 3).Text = "Qtr2"
+  worksheet(1, 4).Text = "Qtr3"
+  worksheet(1, 5).Text = "Qtr4"
+
+  worksheet(2, 1).Text = "Alfreds Futterkiste"
+  worksheet(2, 2).Number = 744.6
+  worksheet(2, 3).Number = 162.56
+  worksheet(2, 4).Number = 5079.6
+  worksheet(2, 5).Number = 1249.2
+  
+  worksheet(3, 1).Text = "Antonio Moreno"
+  worksheet(3, 2).Number = 5079.6
+  worksheet(3, 3).Number = 1249.2
+  worksheet(3, 4).Number = 943.89
+  worksheet(3, 5).Number = 349.6
+
+  worksheet(4, 1).Text = "Around the Horn"
+  worksheet(4, 2).Number = 1267.5
+  worksheet(4, 3).Number = 1062.5
+  worksheet(4, 4).Number = 744.6
+  worksheet(4, 5).Number = 162.56
+
+  worksheet(5, 1).Text = "Bon app"
+  worksheet(5, 2).Number = 1418
+  worksheet(5, 3).Number = 756
+  worksheet(5, 4).Number = 1267.5
+  worksheet(5, 5).Number = 1062.5
+
+  worksheet(6, 1).Text = "Eastern Connection"
+  worksheet(6, 2).Number = 4728
+  worksheet(6, 3).Number = 4547.92
+  worksheet(6, 4).Number = 1418
+  worksheet(6, 5).Number = 756
+  
+  worksheet(7, 1).Text = "Ernst Handel"
+  worksheet(7, 2).Number = 943.89
+  worksheet(7, 3).Number = 349.6
+  worksheet(7, 4).Number = 4728
+  worksheet(7, 5).Number = 4547.92
+
+'Ceate style for table number format
+  Dim style As IStyle = workbook.Styles.Add("CurrencyFormat")
+  style.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* "" - ""??_);_(@_)"
+  worksheet("B2:E8").CellStyleName = "CurrencyFormat"
+  
+  'Create table 
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:E7"))
+
+  //Apply custom table style
+  Dim tableStyles As ITableStyles = workbook.TableStyles
+  Dim tableStyle As ITableStyle = tableStyles.Add("Table Style 1")
+  Dim tableStyleElements As ITableStyleElements = tableStyle.TableStyleElements
+  Dim tableStyleElement As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.SecondColumnStripe)
+  tableStyleElement.BackColorRGB = Color.FromArgb(217, 225, 242)
+  
+  Dim tableStyleElement1 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.FirstColumn)
+  tableStyleElement1.FontColorRGB = Color.FromArgb(128, 128, 128)
+  
+  Dim tableStyleElement2 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.HeaderRow)
+  tableStyleElement2.FontColor = ExcelKnownColors.White
+  tableStyleElement2.BackColorRGB = Color.FromArgb(0, 112, 192)
+  
+  Dim tableStyleElement3 As ITableStyleElement = tableStyleElements.Add(ExcelTableStyleElementType.TotalRow)
+  tableStyleElement3.BackColorRGB = Color.FromArgb(0, 112, 192)
+  tableStyleElement3.FontColor = ExcelKnownColors.White
+  
+  table.TableStyleName = tableStyle.Name    
+
+  'Total row 
+  table.ShowTotals = True
+  table.ShowFirstColumn = True
+  table.ShowTableStyleColumnStripes = True
+  table.ShowTableStyleRowStripes = True
+  table.Columns(0).TotalsRowLabel = "Total"
+  table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
+  table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
+  table.Columns(3).TotalsCalculation = ExcelTotalsCalculation.Sum
+  table.Columns(4).TotalsCalculation = ExcelTotalsCalculation.Sum
+
+  'Save the workbook
+  workbook.SaveAs("CustomTableStyle.xlsx")
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -952,87 +520,7 @@ The following screenshot represents generated Excel file with custom table style
 [IListObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObject.html) is a collection of columns, whereas a single column is represented by an instance of [IListObjectColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IListObjectColumn.html). XlsIO supports to insert or remove columns from the table using worksheet, as follows.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Inserting a column in the table
-  worksheet.InsertColumn(2, 2);
-
-  // Removing a column from the table
-  worksheet.DeleteColumn(2, 1);
-
-  string fileName = "Output.xlsx";
-  workbook.SaveAs(fileName);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creating table
-  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
-
-  'Inserting a column in the table
-  worksheet.InsertColumn(2, 2)
-
-  'Removing a column from the table
-  worksheet.DeleteColumn(2, 1)
-
-  Dim fileName As String = "Output.xlsx"
-  workbook.SaveAs(fileName)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Inserting a column in the table
-  worksheet.InsertColumn(2, 2);
-
-  //Removing a column from the table
-  worksheet.DeleteColumn(2, 1);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from the FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1059,18 +547,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Creating a table
@@ -1079,27 +561,33 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Inserting a column in the table
   worksheet.InsertColumn(2, 2);
 
-  //Removing a column from the table
+  // Removing a column from the table
   worksheet.DeleteColumn(2, 1);
 
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
   string fileName = "Output.xlsx";
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
+  workbook.SaveAs(fileName);
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creating table
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
+
+  'Inserting a column in the table
+  worksheet.InsertColumn(2, 2)
+
+  'Removing a column from the table
+  worksheet.DeleteColumn(2, 1)
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 {% endtabs %} 
 
@@ -1114,88 +602,7 @@ N> Inserting rows or columns in a worksheet within the table range modifies tabl
 The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the total row cells by using the [ExcelTotalsCalculation](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelTotalsCalculation.html) enumerator. These cells are updated after they are calculated.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Adding total row
-  table.ShowTotals = true;
-  table.Columns[0].TotalsRowLabel = "Total";
-  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-  string fileName = "Output.xlsx";
-  workbook.SaveAs(fileName);
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Creating a table
-  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
-
-  'Adding total row
-  table.ShowTotals = True
-  table.Columns(0).TotalsRowLabel = "Total"
-  table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
-  table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
-
-  Dim fileName As String = "Output.xlsx"
-  workbook.SaveAs(fileName)
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Creating a table
-  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-  //Adding total row
-  table.ShowTotals = true;
-  table.Columns[0].TotalsRowLabel = "Total";
-  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1222,18 +629,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Creating a table
@@ -1245,24 +646,30 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
   table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
   string fileName = "Output.xlsx";
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-  }
+  workbook.SaveAs(fileName);
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Creating a table
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
+
+  'Adding total row
+  table.ShowTotals = True
+  table.Columns(0).TotalsRowLabel = "Total"
+  table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
+  table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 {% endtabs %}
 
@@ -1275,7 +682,11 @@ External connection support allows to work with most recent data right in the wo
 The following code snippet explains the method of importing data through an external connection in the workbook.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1318,7 +729,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
@@ -1358,18 +769,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim fileName As String = "Output.xlsx"
   workbook.SaveAs(fileName)
 End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}
 
@@ -1427,7 +826,11 @@ Excel tables (i.e., ListObjects) that are connected to external data connection 
 The following code example shows how to access existing data connection of Excel tables in a sheet and refresh data of all the tables.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1449,7 +852,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2016
@@ -1468,32 +871,47 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   workbook.SaveAs(fileName)
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//XlsIO supports accessing existing data connections in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
 {% endtabs %}
 
 ## Adding parameters to query in Excel table
 
 Excel tables can be created by importing data from SQL Server through Excel data connections. The queries used to fetch data from SQL Server can be modified at run-time with the help of its parameters. There are three types of parameters which are applied to the WHERE clause of the SQL query. Let's see the types in detail and how to implement them. 
 
-N> Excel table must be refreshed to obtain the filtered result with parameters. Table refresh operation is not supported in UWP, ASP.NET Core and Xamarin platforms.
+N> Excel table must be refreshed to obtain the filtered result with parameters. Table refresh operation is not supported in UWP, C# [Cross-platform] and Xamarin platforms.
 
 ### Set parameter as Prompt
 
 The following code example illustrates how to set parameter through **prompt** event.
  
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("QueryTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  ///Get query table from list objects.
+  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+
+  //Set SQL query to the query table Add parameters to the query table.
+  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+
+  //Add parameters to the query table.
+  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+
+  //Set parameter value through prompt.
+  parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("PromptParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1528,7 +946,7 @@ private void SetParameter(object sender, PromptEventArgs args)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
@@ -1560,116 +978,6 @@ Private Sub SetParameter(ByVal sender As Object, ByVal args As PromptEventArgs)
     args.Value = 20
 End Sub
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set parameter value through prompt.
-  parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "PromptParameter";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  FileStream fileStream = new FileStream("QueryTable.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  ///Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set parameter value through prompt.
-  parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("PromptParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");  
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  ///Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set parameter value through prompt.
-  parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
-
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document  
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("PromptParameter.xlsx", "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PromptParameter.xlsx", "application/msexcel", outputStream);
-  }
-}
-{% endhighlight %}
 {% endtabs %}
 
 ### Set parameter as Constant
@@ -1677,99 +985,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 The following code example illustrates how to set parameter through **constant** type.
  
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set constant to the parameter value.
-  parameter.SetParam(ExcelParameterType.Constant, 30);
-
-  //Refresh the listobject
-  worksheet.ListObjects[0].Refresh();
-
-  workbook.SaveAs("ConstantParameter.xlsx");
-  workbook.Close();
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Get query table from list objects.
-  Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
-
-  'Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;"
-
-  'Add parameters to the query table.
-  Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
-
-  'Set constant to the parameter value.
-  parameter.SetParam(ExcelParameterType.Constant, 30)
-
-  'Refresh the listobject
-  worksheet.ListObjects(0).Refresh()
-
-  workbook.SaveAs("ConstantParameter.xlsx")
-  workbook.Close()
-End Using
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set constant to the parameter value.
-  parameter.SetParam(ExcelParameterType.Constant, 30);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "ConstantParameter";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1796,18 +1012,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");
-
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Get query table from list objects.
@@ -1822,59 +1031,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set constant to the parameter value.
   parameter.SetParam(ExcelParameterType.Constant, 30);
 
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
-
-  outputStream.Position = 0;
-  
-  //Save the document as file and view the saved document  
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.  
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConstantParameter.xlsx", "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConstantParameter.xlsx", "application/msexcel", outputStream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Set parameter as Range
-
-The following code example illustrates how to set parameter type to a specific **range**.
- 
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set range to the parameter value.
-  parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
-
   //Refresh the listobject
   worksheet.ListObjects[0].Refresh();
 
-  workbook.SaveAs("RangeParameter.xlsx");
+  workbook.SaveAs("ConstantParameter.xlsx");
   workbook.Close();
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
@@ -1884,62 +1049,29 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
 
   'Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;"
+  queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;"
 
   'Add parameters to the query table.
   Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
 
-  'Set range to the parameter value.
-  parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"])
+  'Set constant to the parameter value.
+  parameter.SetParam(ExcelParameterType.Constant, 30)
 
   'Refresh the listobject
   worksheet.ListObjects(0).Refresh()
 
-  workbook.SaveAs("RangeParameter.xlsx")
+  workbook.SaveAs("ConstantParameter.xlsx")
   workbook.Close()
 End Using
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
+### Set parameter as Range
 
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Get query table from list objects.
-  QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
-
-  //Set SQL query to the query table Add parameters to the query table.
-  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
-
-  //Add parameters to the query table.
-  IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
-
-  //Set range to the parameter value.
-  parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "RangeParameter";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+The following code example illustrates how to set parameter type to a specific **range**.
+ 
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -1966,17 +1098,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-
-  //Gets assembly
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-  //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");  
-  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Get query table from list objects.
@@ -1991,22 +1117,37 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Set range to the parameter value.
   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
 
-  //Saving the workbook as stream
-  MemoryStream outputStream = new MemoryStream();
-  workbook.SaveAs(outputStream);
+  //Refresh the listobject
+  worksheet.ListObjects[0].Refresh();
 
-  outputStream.Position = 0;
-
-  //Save the document as file and view the saved document  
-  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.  
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RangeParameter.xlsx", "application/msexcel", outputStream);
-  }
-  else
-  {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RangeParameter.xlsx", "application/msexcel", outputStream);
-  }
+  workbook.SaveAs("RangeParameter.xlsx");
+  workbook.Close();
 }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Get query table from list objects.
+  Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
+
+  'Set SQL query to the query table Add parameters to the query table.
+  queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;"
+
+  'Add parameters to the query table.
+  Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
+
+  'Set range to the parameter value.
+  parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"])
+
+  'Refresh the listobject
+  worksheet.ListObjects(0).Refresh()
+
+  workbook.SaveAs("RangeParameter.xlsx")
+  workbook.Close()
+End Using
 {% endhighlight %}
 {% endtabs %}

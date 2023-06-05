@@ -254,7 +254,6 @@ document.Close()
 
 {% highlight c# tabtitle="UWP" %}
 //DocIO supports Table of contents in WPF, Windows Forms platforms alone
-{% endhighlight %}
 
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
