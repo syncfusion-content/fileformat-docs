@@ -1,11 +1,11 @@
 ---
-title: Converting PowerPoint Presentation to PDF |Syncfusion|
-description: This section illustrates how to convert PowerPoint Presentation document to PDF; PowerPoint Presentation conversion
+title: .NET PowerPoint Framework - Convert PowerPoint to PDF | Syncfusion
+description: This section illustrates how to convert PowerPoint Presentation document to PDF in .NET PowerPoint Framework.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Presentation to PDF conversion
+# PowerPoint Presentation to PDF conversion in File Formats
 
 PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to [convert PowerPoint document into PDF](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-to-pdf-conversion).
 
@@ -1188,4 +1188,4 @@ pdfDoc.Close()
 
 ## See Also
 
-* [How to convert PPTX to PDF in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13883/how-to-convert-pptx-to-pdf-in-blazor-webassembly-wasm)
+* [How to convert PPTX to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12120/how-to-convert-pptx-to-pdf-in-blazor-webassembly-wasm)

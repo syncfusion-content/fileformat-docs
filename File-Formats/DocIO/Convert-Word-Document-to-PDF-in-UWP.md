@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to PDF in UWP | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library
+title: Convert Word to PDF in UWP | Syncfusion
+description: Convert Word to PDF without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library
 platform: file-formats
 control: DocIO
 documentation: UG
