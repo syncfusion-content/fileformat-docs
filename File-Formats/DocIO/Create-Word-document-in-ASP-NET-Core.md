@@ -14,15 +14,15 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 Step 1: Create a new ASP.NET Core Web application project.
 
-![Create ASP.NET Core Web application in Visual Studio with File Format DocOI](aspnet-core_images/file-format-docio-aspnet-core-web-application.png)
+![Create ASP.NET Core Web application in Visual Studio with File Format DocOI](create-word-in-aspnet-core-web-application_images/file-format-docio-aspnet-core-web-application.png)
 
 Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
-![Select ASP.NET Core Web Application pattern in File Format DOcIO](aspnet-core_images/file-format-docio-aspnet-core-select-web-application.png)
+![Select ASP.NET Core Web Application pattern in File Format DOcIO](create-word-in-aspnet-core-web-application_images/file-format-docio-aspnet-core-select-web-application.png)
 
 Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install File-Format DocIO .NET Core NuGet package](aspnet-core_images/file-format-docio-aspnet-core-install-nuget-packages.png)
+![Install File-Format DocIO .NET Core NuGet package](create-word-in-aspnet-core-web-application_images/file-format-docio-aspnet-core-install-nuget-packages.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -295,4 +295,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![ASP.Net Core output Word document in File Format DoCIO](aspnet-core_images/file-format-docio-aspnet-core-getting-started-output.jpg)
+![ASP.Net Core output Word document in File Format DoCIO](create-word-in-aspnet-core-web-application_images/file-format-docio-aspnet-core-getting-started-output.jpg)
