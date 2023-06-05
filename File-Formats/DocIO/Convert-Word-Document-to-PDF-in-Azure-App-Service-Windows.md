@@ -162,7 +162,7 @@ public IActionResult WordToPDF(string button)
 {% endtabs %}
 
 
-## Refer the following steps to publish as Azure App Service on Windows
+## Steps to publish as Azure App Service on Windows
 
 Step 1: Right-click the project and select **Publish** option.
 ![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoPDF.png)
