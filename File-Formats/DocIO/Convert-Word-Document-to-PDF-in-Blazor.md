@@ -194,7 +194,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/WASM_Project_Name.png)
 
-Step 3: Install Following Nuget Packages to **convert the Word document to PDF in WASM app**,.
+Step 3: Install following nuget Packages to **convert the Word document to PDF in WASM app**,.
 * [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
 
 * [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
@@ -207,7 +207,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 Step 4: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
 {% tabs %}
 
-{% highlight xaml tabtitle="XAML" %}
+{% highlight XAML  %}
 <ItemGroup>
     <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
 </ItemGroup>
@@ -220,7 +220,7 @@ N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload ins
 Step 5: Enable the following property in the Blazor WASM csproj file.
 
 {% tabs %}
-{% highlight xaml tabtitle="XAML" %}
+{% highlight XAML %}
 <PropertyGroup>
     <WasmNativeStrip>true</WasmNativeStrip>
 </PropertyGroup>
@@ -346,7 +346,7 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight CSHTML %}
 
 <li class="nav-item px-3">
     <NavLink class="nav-link" href="docio">
