@@ -194,13 +194,40 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/WASM_Project_Name.png)
 
-Step 3: To **convert the Word document to PDF in WASM app**, install [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
+Step 3: Install Following Nuget Packages to **convert the Word document to PDF in WASM app**,.
+* [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
+
+* [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/NugetPackage.png)
+![Install SkiaSharp.NativeAssets.WebAssembly NuGet Package](Blazor_Images/SkiaSharp-Nuget-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 4: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+Step 4: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
+{% tabs %}
+
+{% highlight xaml tabtitle="XAML" %}
+<ItemGroup>
+    <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
+</ItemGroup>
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime.
+
+Step 5: Enable the following property in the Blazor WASM csproj file.
+
+{% tabs %}
+{% highlight xaml tabtitle="XAML" %}
+<PropertyGroup>
+    <WasmNativeStrip>true</WasmNativeStrip>
+</PropertyGroup>
+{% endhighlight %}
+{% endtabs %}
+
+Step 6: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 
@@ -216,7 +243,7 @@ Step 4: Create a razor file with name as ``DocIO`` under ``Pages`` folder and ad
 
 {% endtabs %}
 
-Step 5: Add the following code to create a new button.
+Step 7: Add the following code to create a new button.
 
 {% tabs %}
 
@@ -230,7 +257,7 @@ Step 5: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 6: Create a new async method with name as ``WordToPDF`` and include the following code snippet to **create a Word document in Blazor** WASM app.
+Step 8: Create a new async method with name as ``WordToPDF`` and include the following code snippet to **create a Word document in Blazor** WASM app.
 
 {% tabs %}
 
@@ -263,7 +290,7 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"
 
 {% endtabs %}
 
-Step 7: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 9: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
@@ -282,7 +309,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-Step 8: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+Step 10: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
@@ -315,7 +342,7 @@ Step 8: Add the following JavaScript function in the Index.html file present und
 
 {% endtabs %}
 
-Step 9: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+Step 11: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
 
 {% tabs %}
 
