@@ -1,20 +1,20 @@
 ---
-title: Convert Word to PDF in Amazon Web Service | Syncfusion
-description: Convert Word document to PDF in  Amazon Web Service on Lambda using .NET Core Word (DocIO) and  PDF library, without Microsoft Word or interop dependencies.
+title: Convert Word to PDF in Amazon Web Services | Syncfusion
+description: Convert Word document to PDF in  Amazon Web Services on Lambda using .NET Core Word (DocIO) and  PDF library, without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word to PDF in Amazon Web Service 
+# Convert Word to PDF in Amazon Web Services 
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, **convert a Word document to PDF in Amazon Web Service** within a few lines of code. 
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, **convert a Word document to PDF in Amazon Web Services** within a few lines of code. 
 
-N> If this is your first time working with Amazon Web Service, please refer to the dedicated Amazon Web Service resources. This section explains how to convert Word documents to PDF in C# using the .NET Core Word (DocIO) library in Amazon Web Service (AWS). 
+N> If this is your first time working with Amazon Web Services, please refer to the dedicated Amazon Web Services resources. This section explains how to convert Word documents to PDF in C# using the .NET Core Word (DocIO) library in Amazon Web Services (AWS). 
 
 ## Prerequisites 
 
-* An active **Amazon Web Service account** is required. If you don’t have one, please create a account before starting.
+* An active **Amazon Web Services account** is required. If you don’t have one, please create a account before starting.
 
 ## Nuget package required
 
@@ -22,7 +22,7 @@ N> If this is your first time working with Amazon Web Service, please refer to t
 <thead>
 <tr>
 <th>
-Amazon Web Service<br/></th><th>
+Amazon Web Services<br/></th><th>
 Nuget package name<br/></th></tr></thead>
 <tr>
 <td>
