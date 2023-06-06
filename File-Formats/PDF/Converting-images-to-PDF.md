@@ -26,74 +26,7 @@ The following code example shows how to convert image to PDF document.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document
-PdfDocument doc = new PdfDocument();
-//Add a page to the document
-PdfPage page = doc.Pages.Add();
-
-//Create PDF graphics for the page
-PdfGraphics graphics = page.Graphics;
-//Load the image from the disk
-PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
-//Draw the image
-graphics.DrawImage(image, 0, 0);
-
-//Save the document
-doc.Save("Output.pdf");
-//Close the document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document
-Dim doc As New PdfDocument()
-'Add a page to the document
-Dim page As PdfPage = doc.Pages.Add()
-
-'Create PDF graphics for the page
-Dim graphics As PdfGraphics = page.Graphics
-'Load the image from the disk
-Dim image As New PdfBitmap("Autumn Leaves.jpg")
-'Draw the image
-graphics.DrawImage(image, 0, 0)
-
-'Save the document
-doc.Save("Output.pdf")
-'Close the document
-doc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document
-PdfDocument doc = new PdfDocument();
-//Add a page to the document
-PdfPage page = doc.Pages.Add();
-
-//Create PDF graphics for the page
-PdfGraphics graphics = page.Graphics;
-//Load the image as stream from the disk
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
-PdfBitmap image = new PdfBitmap(imageStream);
-//Draw the image
-graphics.DrawImage(image, 0, 0);
-
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-await doc.SaveAsync(stream);
-//Close the document
-doc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
@@ -117,16 +50,9 @@ stream.Position = 0;
 //Close the document
 doc.Close(true);
 
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
@@ -135,28 +61,36 @@ PdfPage page = doc.Pages.Add();
 
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
-//Load the image as stream
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
-PdfBitmap image = new PdfBitmap(imageStream);
+//Load the image from the disk
+PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 //Draw the image
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
+//Save the document
+doc.Save("Output.pdf");
 //Close the document
 doc.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document
+Dim doc As New PdfDocument()
+'Add a page to the document
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+'Load the image from the disk
+Dim image As New PdfBitmap("Autumn Leaves.jpg")
+'Draw the image
+graphics.DrawImage(image, 0, 0)
+
+'Save the document
+doc.Save("Output.pdf")
+'Close the document
+doc.Close(True)
 
 {% endhighlight %}
 
@@ -179,7 +113,13 @@ The [PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Gra
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support inserting a vector image C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF Document
 PdfDocument doc = new PdfDocument();
@@ -205,7 +145,7 @@ doc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF Document
 Dim doc As New PdfDocument()
@@ -228,24 +168,6 @@ metaChart.Draw(page, PointF.Empty, format)
 doc.Save("Output.pdf")
 'Close the document
 doc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
