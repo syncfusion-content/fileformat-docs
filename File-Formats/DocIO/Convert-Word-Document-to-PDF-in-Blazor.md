@@ -194,8 +194,8 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/WASM_Project_Name.png)
 
-Step 3: Install following nuget Packages to **convert the Word document to PDF in WASM app**,.
-* [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
+Step 3:Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
+* [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
 
 * [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
 
