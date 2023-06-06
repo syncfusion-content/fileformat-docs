@@ -196,7 +196,6 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 Step 3:Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
-
 * [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/NugetPackage.png)
