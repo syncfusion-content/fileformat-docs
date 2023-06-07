@@ -325,7 +325,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
             //Replace the text.
             textPart.Text = "Service";
         }
-        //Save the Presentation.
+        //Saves the Presentation.
         using (FileStream outputStream = new(Path.GetFullPath("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
@@ -366,7 +366,7 @@ Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
         'Replaces the text.
         textPart.Text = "Service"
     Next
-    'Saves the Presentation	.
+    'Saves the Presentation.
     pptxDoc.Save("Output.pptx")
 End Using
 } 
@@ -550,7 +550,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
                 textPart.Font.HighlightColor = ColorObject.Yellow;
             }
         }
-        //Save the Presentation.
+        //Saves the Presentation.
         using (FileStream outputStream = new("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
