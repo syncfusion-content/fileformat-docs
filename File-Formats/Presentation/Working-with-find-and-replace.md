@@ -525,9 +525,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and highlight using Regex pattern 
 
-You can find all occurrences of a pattern of text in a PowerPoint presentation using the FindAll method and  highlight the found pattern of  text.
+You can find all occurrences of a pattern of text in a PowerPoint presentation using the FindAll method and  highlight the found pattern of text.
 
-The following code example illustrates how to find all occurrences of a pattern of text and highlight the found pattern of  text in a PowerPoint presentation using Regex pattern.
+The following code example illustrates how to find all occurrences of a pattern of text and highlight the found pattern of text in a PowerPoint presentation using Regex pattern.
 
 {% tabs %}
 
