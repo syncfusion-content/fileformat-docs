@@ -356,8 +356,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Opens an existing presentation.
-Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
-{
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
     'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
@@ -366,10 +365,9 @@ Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
         'Replaces the text.
         textPart.Text = "Service"
     Next
-    'Saves the Presentation.
+    'Saves the Presentation.	
     pptxDoc.Save("Output.pptx")
 End Using
-} 
 
 {% endhighlight %}
 
@@ -584,9 +582,8 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Opens an existing presentation.
-Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
-{
-'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
         'Gets the found text containing text parts.
@@ -595,10 +592,9 @@ Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
             textPart.Font.HighlightColor = ColorObject.Yellow
         Next
     Next
-    'Saves the Presentation.
+    'Saves the Presentation.	
     pptxDoc.Save("Output.pptx")
 End Using
-} 
     
 {% endhighlight %}
 
