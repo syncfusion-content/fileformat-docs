@@ -552,7 +552,7 @@ using (FileStream inputStream = new FileStream ("Input.pptx", FileMode.Open, Fil
             }
         }
         //Save the modified PPTX file
-        using (FileStream outputStream = new(Path.GetFullPath(@"../../../Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputStream = new("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
         }    
