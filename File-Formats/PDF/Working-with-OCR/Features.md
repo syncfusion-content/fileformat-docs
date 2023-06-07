@@ -26,7 +26,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR language.
     processor.Settings.Language = Languages.English;
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
     {
@@ -49,7 +49,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set OCR language. 
     processor.Settings.Language = Languages.English
     'Perform OCR with input document and tessdata (Language packs). 
-    processor.PerformOCR(document, "@Tessdata/")
+    processor.PerformOCR(document)
     'Create file stream.
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
         'Save the PDF document to file stream.
@@ -99,7 +99,7 @@ using (OCRProcessor processor = new OCRProcessor())
     processor.Settings.Regions = pageRegions;
 
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -138,7 +138,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     processor.Settings.Regions = pageRegions
 
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream.
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -167,8 +167,8 @@ The following code sample demonstrates the OCR processor with Tesseract version 
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -179,7 +179,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
     //Set tesseract OCR Engine.
     processor.Settings.TesseractVersion = TesseractVersion.Version3_05;
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -206,7 +206,7 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.05/")
     'Set tesseract OCR Engine. 
     processor.Settings.TesseractVersion = TesseractVersion.Version3_05
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -233,8 +233,8 @@ The following code sample explains the OCR processor with Tesseract version 4.0 
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -245,7 +245,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/4.0/"))
     //Set tesseract OCR Engine.
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -272,7 +272,7 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/4.0/")
     'Set tesseract OCR Engine. 
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -303,7 +303,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR language.
     processor.Settings.Language = Languages.English;
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    String OCRText = processor.PerformOCR(imageStream, @"Tessdata/");
+    String OCRText = processor.PerformOCR(imageStream);
 }
 
 {% endhighlight %}
@@ -317,7 +317,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set OCR language.
     processor.Settings.Language = Languages.English
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    Dim ocrText As String = processor.PerformOCR(imageStream, "Tessdata/")
+    Dim ocrText As String = processor.PerformOCR(imageStream)
 End Using
 
 {% endhighlight %}
@@ -347,7 +347,7 @@ using (OCRProcessor processor = new OCRProcessor())
     processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
 
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    String OCRText = processor.PerformOCR(imageStream, @"Tessdata/");
+    String OCRText = processor.PerformOCR(imageStream);
 }
 
 {% endhighlight %}
@@ -385,7 +385,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR language.
     processor.Settings.Language = Languages.English;
     //Perform OCR with input document, tessdata (Language packs) and enable isMemoryOptimized property.
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -409,7 +409,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set OCR language. 
     processor.Settings.Language = Languages.English
     'Perform OCR with input document, tessdata (Language packs) and enable isMemoryOptimized property. 
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -444,7 +444,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR page auto detection rotation.
     processor.Settings.PageSegment = PageSegMode.AutoOsd;
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -474,7 +474,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     processor.Settings.PageSegment = PageSegMode.AutoOsd
 
     'Perform OCR with input document and tessdata (Language packs). 
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -574,7 +574,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 Enabling native calls will not launch any temporary process for OCR processing; instead, it will invoke the native calls.
 
-N> The starting supported version of tesseract in ASP.NET Core is 4.0. So, the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` in ASP.NET Core platform. 
+N> The starting supported version of tesseract in ASP.NET Core is 4.0. So, the lower tesseract versions 3.02 and 3.05 are not supported and we don't have the property called ``TesseractVersion`` and ``EnableNativeCall ``  in ASP.NET Core platform. 
 
 ### Tesseract 3.02
 
@@ -588,8 +588,8 @@ The following code sample demonstrates the OCR processor with native call suppor
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.02/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -599,7 +599,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.02/"))
     //Set tesseract OCR Engine.
     processor.Settings.TesseractVersion = TesseractVersion.Version3_02;
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -615,8 +615,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.02/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.02/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -626,7 +626,7 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.02/")
     'Set tesseract OCR Engine. 
     processor.Settings.TesseractVersion = TesseractVersion.Version3_02
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -657,8 +657,8 @@ The following code sample demonstrates the OCR processor with native call suppor
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -670,7 +670,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
     //Set enable native call.
     processor.Settings.EnableNativeCall = true;
     //Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -687,7 +687,7 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/3.05/"))
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.05/")
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -699,7 +699,7 @@ Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/3.05/")
     'Set enable native call
     processor.Settings.EnableNativeCall = True
     'Perform OCR with input document, tessdata (Language packs) and enabling isMemoryOptimized property.
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -738,7 +738,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set custom temp file path location.
     processor.Settings.TempFolder = "D:/Temp/";
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
     {
@@ -764,7 +764,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set custom temp file path location.
     processor.Settings.TempFolder = "D:/Temp/"
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -804,7 +804,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR Page segment mode to process.
     processor.Settings.PageSegment = PageSegMode.AutoOsd;
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -833,7 +833,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set OCR Page segment mode to process.
     processor.Settings.PageSegment = PageSegMode.AutoOsd
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -868,7 +868,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set OCR engine mode to process.
     processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly;
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -897,7 +897,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set OCR engine mode to process.
     processor.Settings.OCREngineMode = OCREngineMode.LSTMOnly
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -937,7 +937,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set WhiteList Property.
     processor.Settings.WhiteList = "PDF";
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -968,7 +968,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set WhiteList Property.
     processor.Settings.WhiteList = "PDF"
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -1004,7 +1004,7 @@ using (OCRProcessor processor = new OCRProcessor())
     //Set BlackList Property.
     processor.Settings.BlackList = "PDF";
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
@@ -1034,7 +1034,7 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Set BlackList Property.
     processor.Settings.BlackList = "PDF"
     'Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, "Tessdata/")
+    processor.PerformOCR(document)
 
     'Create file stream. 
     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
@@ -1140,7 +1140,7 @@ using (OCRProcessor processor = new OCRProcessor())
     FileStream fontStream = new FileStream(@"ARIALUNI.ttf", FileMode.Open);
     processor.UnicodeFont = new PdfTrueTypeFont(fontStream, 8);
     //Perform OCR with input document and tessdata (Language packs).
-    processor.PerformOCR(document, @"Tessdata/");
+    processor.PerformOCR(document);
 
     //Create file stream.
     using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
