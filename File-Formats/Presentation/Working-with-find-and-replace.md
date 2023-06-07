@@ -311,7 +311,7 @@ The following code example illustrates how to find all occurrences of a pattern 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load or open an PowerPoint Presentation.
-using (FileStream inputStream = new(Path.GetFullPath("Sample.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open an existing PowerPoint presentation.
     using (IPresentation pptxDoc = Presentation.Open(inputStream))
