@@ -17,8 +17,8 @@ To perform OCR for an entire PDF document using [PerformOCR](https://help.syncfu
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -41,8 +41,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path.
-Using processor As OCRProcessor = New OCRProcessor("@TesseractBinaries/")
+'Initialize the OCR processor.
+Using processor As OCRProcessor = New OCRProcessor()
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
@@ -75,8 +75,8 @@ To perform OCR on a particular region or several regions of a PDF page with the 
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -115,8 +115,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
@@ -295,8 +295,8 @@ The below code example illustrates how to perform OCR on image file using [Perfo
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load the input image. 
     FileStream imageStream = new FileStream("Input.jpg", FileMode.Open);
@@ -310,8 +310,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
     'Load the input image. 
     Dim imageStream As FileStream = New FileStream("Input.jpg", FileMode.Open)
     'Set OCR language.
@@ -332,8 +332,8 @@ You can get the OCRed Unicode text from an image file by using the ``UnicodeFont
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load the input image. 
     FileStream imageStream = new FileStream("Input.jpg", FileMode.Open);
@@ -376,8 +376,8 @@ N> Memory optimization for performing OCR on large PDF documents is not supporte
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -393,7 +393,6 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
         //Save the PDF document to file stream.
         document.Save(outputFileStream);
     }
-
     //Close the document.
     document.Close(true);
 }
@@ -401,8 +400,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -434,8 +433,8 @@ You can get the OCRed text from the rotated page of PDF document using the [Page
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -461,8 +460,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -500,8 +499,8 @@ You can get the OCRed text and its bounds from a scanned PDF document by using t
 {% tabs %} 
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -536,8 +535,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -728,8 +727,8 @@ While performing OCR on an existing scanned PDF document, the OCR Processor will
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -754,8 +753,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -792,8 +791,8 @@ N> The page segmentation mode is supported only in the Tesseract version 4.0 and
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -821,8 +820,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -856,8 +855,8 @@ The [OCREngineMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRPr
 {% tabs %} 
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -885,8 +884,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -923,8 +922,8 @@ The [WhiteList](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProces
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -954,8 +953,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -990,8 +989,8 @@ The [BlackList](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProces
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -1020,8 +1019,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor with tesseract binaries folder path. 
-Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor. 
+Using processor As OCRProcessor = New OCRProcessor()
 
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
@@ -1062,7 +1061,7 @@ The following code sample illustrates how to OCR an image to a PDF document:
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor by providing the path of the tesseract binaries.
+//Initialize the OCR processor.
 using (OCRProcessor processor = new OCRProcessor())
 {
     //Get stream from an image file. 
@@ -1091,7 +1090,7 @@ using (OCRProcessor processor = new OCRProcessor())
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor by providing the path of the tesseract binaries. 
+'Initialize the OCR processor. 
 Using processor As OCRProcessor = New OCRProcessor()
 
     'Get stream from an image file.  
@@ -1119,6 +1118,8 @@ End Using
 {% endhighlight %}
 {% endtabs %} 
 
+You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/OCR_Image_to_PDF).
+
 ## Performing OCR with Unicode characters
 
 You can perform OCR on Images with Unicode characters. To preserve the Unicode characters in the PDF document, use the ``UnicodeFont`` property. For more information, refer to the following code sample.
@@ -1127,8 +1128,8 @@ You can perform OCR on Images with Unicode characters. To preserve the Unicode c
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
-//Initialize the OCR processor with tesseract binaries folder path.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open);
@@ -1192,20 +1193,20 @@ Refer to the following code sample to set the performance of the OCR.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Initialize the OCR processor by providing the path of the tesseract binaries
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
+//Initialize the OCR processor
+OCRProcessor processor = new OCRProcessor()
 
 //set the OCR performance
 processor.Settings.Performance = Performance.Fast;
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the OCR processor by providing the path of the tesseract binaries
-Dim processor As New OCRProcessor("TesseractBinaries/")
+'Initialize the OCR processor
+Dim processor As New OCRProcessor()
 
 'Set the OCR performance
 processor.Settings.Performance = Performance.Fast
