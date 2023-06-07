@@ -325,7 +325,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
             //Replace the text.
             textPart.Text = "Service";
         }
-        //Save the modified PPTX file
+        //Save the Presentation.
         using (FileStream outputStream = new(Path.GetFullPath("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
@@ -343,12 +343,12 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
     ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
     foreach (ITextSelection textSelection in textSelections)
     {
-        //Gets the found text as a single text part
+        //Gets the found text as a single text part.
         ITextPart textPart = textSelection.GetAsOneTextPart();
-        //Replaces the text
+        //Replaces the text.
         textPart.Text = "Service";
     }
-    //Saves the Presentation
+    //Saves the Presentation.
     pptxDoc.Save("Output.pptx");
 }
 
@@ -358,15 +358,15 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 'Opens an existing presentation.
 Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
 {
-    'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex
+    'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
-        'Gets the found text as a single text part
+        'Gets the found text as a single text part.
         Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
-        'Replaces the text
+        'Replaces the text.
         textPart.Text = "Service"
     Next
-    'Saves the Presentation	
+    'Saves the Presentation	.
     pptxDoc.Save("Output.pptx")
 End Using
 } 
@@ -374,7 +374,6 @@ End Using
 {% endhighlight %}
 
 {% endtabs %} 
-You can download a complete working sample from [GitHub]()
   
 ## Find and replace in specific slide
 
@@ -551,7 +550,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
                 textPart.Font.HighlightColor = ColorObject.Yellow;
             }
         }
-        //Save the modified PPTX file
+        //Save the Presentation.
         using (FileStream outputStream = new("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
@@ -570,14 +569,14 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
     ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
     foreach (ITextSelection textSelection in textSelections)
     {
-        //Gets the found text containing text parts
+        //Gets the found text containing text parts.
         foreach (ITextPart textPart in textSelection.GetTextParts())
         {
-            //Sets highlight color
+            //Sets highlight color.
             textPart.Font.HighlightColor = ColorObject.Yellow;
         }
     }
-    //Saves the Presentation	
+    //Saves the Presentation.	
     pptxDoc.Save("Output.pptx");
 }
 {% endhighlight %}
@@ -590,13 +589,13 @@ Using(pptxDoc As IPresentation = Presentation.Open("Sample.pptx"))
 'Finds all the occurrences of a particular pattern text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
-        'Gets the found text containing text parts
+        'Gets the found text containing text parts.
         For Each textPart As ITextPart In textSelection.GetTextParts()
-            'Sets highlight color
+            'Sets highlight color.
             textPart.Font.HighlightColor = ColorObject.Yellow
         Next
     Next
-    'Saves the Presentation	
+    'Saves the Presentation.
     pptxDoc.Save("Output.pptx")
 End Using
 } 
@@ -604,8 +603,6 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
-
-You can download a complete working sample from [GitHub]()
 
 ## Find and highlight in a specific slide
 
