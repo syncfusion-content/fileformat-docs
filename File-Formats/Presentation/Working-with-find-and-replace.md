@@ -326,7 +326,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
             textPart.Text = "Service";
         }
         //Saves the Presentation.
-        using (FileStream outputStream = new(Path.GetFullPath("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
         }      
@@ -549,7 +549,7 @@ using (FileStream inputStream = new FileStream ("Sample.pptx", FileMode.Open, Fi
             }
         }
         //Saves the Presentation.
-        using (FileStream outputStream = new("Output.pptx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create, FileAccess.ReadWrite))
         {
             pptxDoc.Save(outputStream);
         }    
