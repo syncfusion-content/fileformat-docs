@@ -607,7 +607,6 @@ End Using
 
 You can download a complete working sample from [GitHub]()
 
-
 ## Find and highlight in a specific slide
 
 You can find all the occurrences of a text in a specific PowerPoint slide (slide, notes slide, master slide, or layout slide) and highlight the found text.
