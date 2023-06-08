@@ -303,19 +303,19 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and replace it with other text.
 
-The following code example illustrates how to find all the occurrences of a pattern of text using Regex pattern and replace it with other text.
+The following code example illustrates how to find all the occurrences of a pattern of text using the Regex pattern and replace it with other text.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Load or open an PowerPoint Presentation.
+//Load or open a PowerPoint Presentation.
 using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open an existing PowerPoint presentation.
     using (IPresentation pptxDoc = Presentation.Open(inputStream))
     {
-        //Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+        //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
         ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
         foreach (ITextSelection textSelection in textSelections)
         {
@@ -338,7 +338,7 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, Fil
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-    //Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+    //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
     ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
     foreach (ITextSelection textSelection in textSelections)
     {
@@ -524,7 +524,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and highlight it.
 
-The following code example illustrates how to find all the occurrences of a pattern of text using Regex pattern and highlight it.
+The following code example illustrates how to find all the occurrences of a pattern of text using a Regex pattern and highlight it.
 
 {% tabs %}
 
@@ -536,7 +536,7 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, Fil
     //Open an existing PowerPoint presentation.
     using (IPresentation pptxDoc = Presentation.Open(inputStream))
     {
-        //Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+        //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
         ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
         foreach (ITextSelection textSelection in textSelections)
         {
@@ -562,7 +562,7 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, Fil
 //Opens an existing presentation.
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-    //Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+    //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
     ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
     foreach (ITextSelection textSelection in textSelections)
     {
