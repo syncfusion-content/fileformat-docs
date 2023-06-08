@@ -356,7 +356,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-    'Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+    'Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
         'Gets the found text as a single text part.
@@ -582,7 +582,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 'Opens an existing presentation.
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-    'Find all the occurrences of given pattern of text in the PowerPoint presentation using Regex.
+    'Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
     Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
     For Each textSelection As ITextSelection In textSelections
         'Gets the found text containing text parts.
