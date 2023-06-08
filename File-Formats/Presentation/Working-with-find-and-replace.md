@@ -530,7 +530,7 @@ The following code example illustrates how to find all the occurrences of a patt
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Load or open an PowerPoint Presentation.
+//Load or open a PowerPoint Presentation.
 using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open an existing PowerPoint presentation.
