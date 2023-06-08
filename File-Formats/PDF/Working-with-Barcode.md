@@ -1533,6 +1533,100 @@ else
 
 {% endtabs %}
 
+## Create QR code with logo 
+The `QRCodeLogo` class serves as a representation of a logo image that can be utilized in a QR code, and the `Logo` property is employed to set the logo image in the QR barcode. By leveraging these functionalities, users gain the capability to generate QR codes that seamlessly incorporate custom logos or images, resulting in a visually appealing and branded QR code experience. 
+
+The following code example demonstrates how to generate a QR barcode with a logo positioned at the center of it. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}		
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page.
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF QR barcode.
+PdfQRBarcode qrBarcode = new PdfQRBarcode();
+//Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/";
+//Set the logo image to QR barcode. 
+FileStream imageStream = new FileStream("logo.png", FileMode.Open, FileAccess.Read);
+//Create QR barcode logo.
+QRCodeLogo qRCodeLogo = new QRCodeLogo(imageStream);
+//Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo;
+//Set the dimention of the barcode.
+qrBarcode.XDimension = 5;
+//Draw the barcode to PDF page.
+qrBarcode.Draw(page);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document into stream
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page.
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF QR barcode.
+PdfQRBarcode qrBarcode = new PdfQRBarcode();
+//Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/";
+//Create QR barcode logo.
+QRCodeLogo qRCodeLogo = new QRCodeLogo("logo.png");
+//Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo;
+//Set the dimention of the barcode. 
+qrBarcode.XDimension = 5;
+//Draw the barcode to PDF page.
+qrBarcode.Draw(page);
+
+//Save the document.
+document.Save("Output.pdf");
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document.
+Dim document As PdfDocument = New PdfDocument()
+'Creates a new page.
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates a new PDF QR barcode.
+Dim qrBarcode As PdfQRBarcode = New PdfQRBarcode()
+'Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/"
+'Create QR barcode logo.
+Dim qRCodeLogo As QRCodeLogo = New QRCodeLogo("logo.png")
+'Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo
+'Set the dimention of the barcode. 
+qrBarcode.XDimension = 5
+'Draw the barcode to PDF page.
+qrBarcode.Draw(page)
+
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Supported barcode types
 
 The following table contains the supported types and associated valid characters.
