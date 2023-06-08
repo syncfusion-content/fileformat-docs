@@ -1,6 +1,6 @@
 ---
 title: Perform OCR on PDF and image files | Syncfusion
-description: Learn how to perform OCR on scanned PDF documents and images with different tesseract version using Syncfusion .NET OCR library. 
+description: Learn how to perform OCR on scanned PDF documents and images with different tesseract version using Syncfusion .NET OCR library.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -466,13 +466,10 @@ Using processor As OCRProcessor = New OCRProcessor()
     'Load an existing PDF document. 
     Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
-
     'Set OCR language. 
     processor.Settings.Language = Languages.English
-
     'Set OCR page auto detection rotation. 
     processor.Settings.PageSegment = PageSegMode.AutoOsd
-
     'Perform OCR with input document and tessdata (Language packs). 
     processor.PerformOCR(document)
 
@@ -1196,7 +1193,7 @@ Refer to the following code sample to set the performance of the OCR.
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the OCR processor
-OCRProcessor processor = new OCRProcessor()
+OCRProcessor processor = new OCRProcessor();
 
 //set the OCR performance
 processor.Settings.Performance = Performance.Fast;
