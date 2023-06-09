@@ -43,7 +43,7 @@ Step 5: Add the following code snippet in Program.cs file.
 
 {% highlight c# tabtitle="C#" %}
 //Open the file as Stream
-using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read))
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Loads an existing  Word document
     using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
@@ -56,7 +56,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Te
             //Reset the stream position.
             imageStream.Position = 0;
             //Save the stream as file.
-            using (FileStream fileStreamOutput = File.Create("Sample.jpeg"))
+            using (FileStream fileStreamOutput = File.Create("wordtoimage.jpeg"))
             {
                 imageStream.CopyTo(fileStreamOutput);
             }

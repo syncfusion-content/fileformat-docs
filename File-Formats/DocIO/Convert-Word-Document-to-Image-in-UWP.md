@@ -111,7 +111,7 @@ private async void SaveImage(Stream outputStream)
     else
     {
         StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync("Sample.jpeg", CreationCollisionOption.ReplaceExisting);
+        stFile = await local.CreateFileAsync("wordtoimage.jpeg", CreationCollisionOption.ReplaceExisting);
     }
     if (stFile != null)
     {

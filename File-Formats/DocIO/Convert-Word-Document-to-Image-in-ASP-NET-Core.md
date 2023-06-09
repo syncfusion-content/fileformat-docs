@@ -66,7 +66,7 @@ Step 7: Add a new action method **ConvertWordtoImage** in HomeController.cs and 
 {% highlight c# tabtitle="C#" %}
 
 //Open the file as Stream
-using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
+using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
     using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
@@ -79,7 +79,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.doc
             //Reset the stream position.
             imageStream.Position = 0;
             //Save the image file.
-            return File(imageStream, "application/jpeg", "sample.jpeg");
+            return File(imageStream, "application/jpeg", "wordtoimage.jpeg");
         }
     }
 }

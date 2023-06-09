@@ -91,7 +91,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         imageStream.Position = 0;
         //save and Launch the Image 
         SaveService saveService = new();
-        saveService.SaveAndView("Sample.jpeg", "application/jpeg", imageStream as MemoryStream);
+        saveService.SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);
     }
 }
 

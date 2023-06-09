@@ -103,7 +103,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         //Reset the stream position.
         imageStream.Position = 0;
         //Save the stream as file.
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.jpeg", "application/jpeg", imageStream as MemoryStream);                  
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);                  
     }
 }
 

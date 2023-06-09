@@ -85,7 +85,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
         //Reset the stream position.
         imageStream.Position = 0;
-        SaveHelper.SaveAndLaunch("Sample.jpeg", imageStream as MemoryStream);
+        // Saves and launch the file.
+        SaveHelper.SaveAndLaunch("wordtoimage.jpeg", imageStream as MemoryStream);
     }
 }
 

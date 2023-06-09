@@ -80,7 +80,7 @@ Step 7: Include the below code snippet in the click event of the button in **Mai
 protected void OnButtonClicked(object sender, EventArgs e)
 {
     //Open existing Word document.
-    using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Template.docx"), FileMode.Open, FileAccess.Read))
+    using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Input.docx"), FileMode.Open, FileAccess.Read))
     {
         //Loads file stream into Word document
         using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
@@ -88,7 +88,7 @@ protected void OnButtonClicked(object sender, EventArgs e)
             //Convert the first page of the Word document into an image.
             System.Drawing.Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
             //Save the image as jpeg.
-            ExportAsImage(image, "WordToImage.jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
+            ExportAsImage(image, "wordtoimage.jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
         }
     }
 }
