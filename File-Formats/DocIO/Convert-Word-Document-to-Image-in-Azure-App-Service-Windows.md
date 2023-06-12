@@ -16,7 +16,7 @@ Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Linux/Create-Project-WordtoPDF.png)
 
 Step 2: Create a project name and select the location.
-![Configure your new project](Azure_Images/App_Service_Windows/Configure_Your_Project_WordtoPDF.png)
+![Configure your new project](Azure_Images/App_Service_Linux/Configure_Project_WordtoImage.png)
 
 Step 3: Click **Create** button
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
@@ -159,7 +159,7 @@ public IActionResult WordToImage(string button)
 ## Steps to publish as Azure App Service on Windows
 
 Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoPDF.png)
+![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoImage.png)
 
 Step 2: Click the **Add a Publish Profile** button
 ![Click the Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile_WordtoPDF.png)
@@ -176,25 +176,25 @@ Step 5: To create a new app service, click **Create new** option.
 
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_Images/App_Service_Linux/Hosting_Plan_WordtoPDF.png)
+![Click the Create button](Azure_Images/App_Service_Linux/Hosting_Plan_WordtoImage.png)
 
 Step 7: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_WordtoPDF.png)
+![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_WordtoImage.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core  Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoPDF.png)
+![Create a ASP.NET Core  Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoImage.png)
 
 Step 9: Click the **Publish** button.
 ![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_WordtoPDF.png)
 
 Step 10: Now, Publish has been succeeded.
-![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_WordtoPDF.png)
+![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_WordtoImage.png)
 
 Step 11: Now, the published webpage will open in the browser. 
-![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoPDF.png)
+![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoImage.png)
 
-Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a Image.You will get the output PDF document as follows.
+Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a Image.You will get the output Image as follows.
 
-![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
+![Output image document](WordToPDF_images/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
