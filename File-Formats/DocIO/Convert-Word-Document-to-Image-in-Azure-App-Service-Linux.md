@@ -195,6 +195,6 @@ Step 11: Now, the published webpage will open in the browser.
 
 Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a Image.You will get the output PDF document as follows.
 
-![Output image document](WordToPDF_images/Output-WordtoImage.png)
+![Output image document](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
