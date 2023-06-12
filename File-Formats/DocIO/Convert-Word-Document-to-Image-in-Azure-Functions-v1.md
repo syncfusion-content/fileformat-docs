@@ -24,7 +24,7 @@ Step 3: Select function worker as **.NET Framework**.
 Step 4: Install the [Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 ![Install Syncfusion.DocIO.AspNet NuGet package](Azure_Images/Functions_v1/Nuget-Package_WordtoImage.png)
 
-Step 4: Include the following namespaces in the **Function1.cs** file.
+Step 5: Include the following namespaces in the **Function1.cs** file.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -34,7 +34,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 5: Add the following code snippet in **Run** method of **Function1** class to perform **Word to Image conversion** in Azure Functions and return the resultant **Image** to client end.
+Step 6: Add the following code snippet in **Run** method of **Function1** class to perform **Word to Image conversion** in Azure Functions and return the resultant **Image** to client end.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -71,32 +71,32 @@ using (WordDocument document = new WordDocument(stream))
 
 {% endtabs %}
 
-Step 6: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
+Step 7: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
 ![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish_WordtoImage.png)
 
 
-Step 7: Select the target as **Azure** and click **Next** button
+Step 8: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_WordtoPDF.png)
 
 
-Step 8: Select the **Create new** button
+Step 9: Select the **Create new** button.
 ![Configure Hosting Plan](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
 
 
-Step 9: Click **Create** button 
+Step 10: Click **Create** button. 
 ![Select the plan type](Azure_Images/Functions_v1/Subscription_detail_WordtoImage.png)
 
-Step 10: After creating app service then click **Finish** button 
+Step 11: After creating app service then click **Finish** button.
 ![Creating app service](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
 
 
-Step 11: Click the **Publish** button
+Step 12: Click the **Publish** button.
 ![Click Publish Button](Azure_Images/Functions_v1/Before_Publish_WordtoPDF.png)
 
-Step 12: Publish has been succeed.
+Step 13: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/Published_WordtoImage.png)
 
-Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to Image conversion** using the template Word document). You will get the output Image as follows.
+Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to Image conversion** using the template Word document). You will get the output Image as follows.
 
 ![Output image document](Azure_Images/Functions_v1/Output-WordtoImage.png)
 
