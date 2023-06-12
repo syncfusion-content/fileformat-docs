@@ -101,7 +101,7 @@ Step 13: Now, go to Azure portal and select the App Services. After running the 
 ![Output image document](Azure_Images/Functions_v1/Output-WordtoImage.png)
 
 
-## Steps to post the request to Azure Functions:
+## Steps to post the request to Azure Functions
 
 Step 1: Create a console application to request the Azure Functions API.
 

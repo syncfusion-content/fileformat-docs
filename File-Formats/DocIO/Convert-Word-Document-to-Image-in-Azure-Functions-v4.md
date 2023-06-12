@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read,  edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Azure Functions v4**
 
-## Steps to convert a Word document to Image in Azure Functions v4:
+## Steps to convert a Word document to Image in Azure Functions v4
 
 Step 1: Create a new Azure Functions project.
 ![Create a Azure functions project](Azure_Images/Functions_v1/Azure_Function_WordtoPDF.png)
@@ -106,7 +106,7 @@ Step 13: Now, go to Azure portal and select the App Services. After running the 
 
 ![Output image document](Azure_Images/Functions_v1/Output-WordtoImage.png)
 
-## Steps to post the request to Azure Functions:
+## Steps to post the request to Azure Functions
 
 Step 1: Create a console application to request the Azure Functions API.
 
