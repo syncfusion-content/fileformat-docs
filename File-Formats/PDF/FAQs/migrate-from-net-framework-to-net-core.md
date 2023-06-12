@@ -845,3 +845,189 @@ N> * [Syncfusion.Pdf.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf)
 N> * [Syncfusion.Pdf.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc4) 
 N> * [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5)
 N> * But this is not a recommended approach.  
+
+
+## Migrate System.Drawing.Common to SkiaSharp package 
+<table>
+<tr>
+<thead>
+<th>API Name</th>
+<th>Alternative API/Return Type</th>
+</thead>
+</tr>
+<tr>
+<td>
+{{'[ToImage()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html#Syncfusion_Pdf_Barcode_Pdf417Barcode_ToImage)'| markdownify }}
+</td>
+<td> 
+Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage(System.drawing.SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html#Syncfusion_Pdf_Barcode_Pdf417Barcode_ToImage)'| markdownify }}
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage(System.drawing.SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfDataMatrixBarcode.html#Syncfusion_Pdf_Barcode_PdfDataMatrixBarcode_ToImage)'| markdownify }}
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html#Syncfusion_Pdf_Barcode_PdfEan13Barcode_ToImage)'| markdownify }}
+</td>
+<td> 
+Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage(System.drawing.SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html#Syncfusion_Pdf_Barcode_PdfEan13Barcode_ToImage_System_Drawing_SizeF_)'| markdownify }}
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html#Syncfusion_Pdf_Barcode_PdfEan8Barcode_ToImage)'| markdownify }}
+</td>
+<td> 
+Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage(System.drawing.SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html#Syncfusion_Pdf_Barcode_PdfEan8Barcode_ToImage_System_Drawing_SizeF_)'| markdownify }}
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+ToImage(this PdfBidimensionalBarcode barcode)
+</td>
+<td> 
+Stream 
+</td>
+</tr>
+<tr>
+<td>
+ToImage(this PdfBidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+ToImage(this PdfUnidimensionalBarcode barcode) 
+</td>
+<td> 
+Stream
+</td>
+</tr>
+<tr>
+<td>
+ToImage(this PdfUnidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+{{'[Image](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Exporting.PdfImageInfo.html#Syncfusion_Pdf_Exporting_PdfImageInfo_Image)'| markdownify }}
+</td>
+<td> 
+ImageStream 
+Return Type: Stream 
+</td>
+</tr>
+<tr>
+<td>
+PdfTiffImage(Image image) 
+</td>
+<td> 
+PdfTiffImage(Stream image) 
+</td>
+</tr>
+<tr>
+<td>
+ExtractImages(this PdfPageBase page) 
+</td>
+<td> 
+Stream[]  
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html#Syncfusion_Pdf_Barcode_PdfUnidimensionalBarcode_ToImage)'| markdownify }}
+</td>
+<td> 
+Stream  
+</td>
+</tr>
+<tr>
+<td>
+{{'[ToImage(System.drawing.SizeF size)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html#Syncfusion_Pdf_Barcode_PdfUnidimensionalBarcode_ToImage_System_Drawing_SizeF_)'| markdownify }}
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+Return Type: Stream  
+</td>
+</tr>
+<tr>
+<td>
+RenderToImage(this PdfBidimensionalBarcode barcode) 
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode) 
+</td>
+</tr>
+<tr>
+<td>
+RenderToImage(this PdfBidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+</td>
+</tr>
+<tr>
+<td>
+RenderToImage(this PdfUnidimensionalBarcode barcode) 
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode)
+</td>
+</tr>
+<td>
+RenderToImage(this PdfUnidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+</td>
+</tr>
+</tr>
+<td>
+{{'[Bounds](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Exporting.PdfImageInfo.html#Syncfusion_Pdf_Exporting_PdfImageInfo_Image)'| markdownify }}
+</td>
+<td> 
+Syncfusion.drawing.RectangleF 
+</td>
+</tr>
+</table>
