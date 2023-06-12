@@ -13,6 +13,8 @@ The Syncfusion [.NET Core PDF library](https://www.syncfusion.com/document-proce
 
 To include the .NET Core PDF library into your ASP.NET Core application, please refer to the [NuGet Package Required](/file-formats/pdf/nuget-packages-required) or [Assemblies Required](/file-formats/pdf/assemblies-required) documentation.
 
+N> Beginning with our Volume 2, 2023 release, we have eliminated the dependency on the System.Drawing.Common package from our Syncfusion.Pdf.Imaging.Net.Core package. Instead, we have introduced SkiaSharp as the alternative library.
+
 ## Steps to create PDF document in ASP.NET Core
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
