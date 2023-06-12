@@ -80,19 +80,22 @@ Refer to the following code example to split a range of pages.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Due to platform limitations, Essential PDF supports splitting a range of pages into separate PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
-//Load the PDF document
-FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Import the range of pages from the existing PDF
-loadedDocument.ImportPageRange(loadedDocument, 2, 8);
+//Load the existing PDF file.
+PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
+//Subscribe to the document split event.
+loadDocument.DocumentSplitEvent += LoadDocument_DocumentSplitEvent;
+void LoadDocument_DocumentSplitEvent(object sender, PdfDocumentSplitEventArgs args)
+{
+    //Save the resulting document.
+    FileStream outputStream = new FileStream(Guid.NewGuid().ToString() + ".pdf", FileMode.CreateNew);
+    args.PdfDocumentData.CopyTo(outputStream);
+    outputStream.Close();
+}
+//Spit the document by ranges.
+loadDocument.SplitByRanges(new int[,] { { 0, 5 }, { 5, 10 } });
 
-//Create a memory stream 
-MemoryStream stream = new MemoryStream();
-//Save the document to stream
-loadedDocument.Save(stream);
-//Close the document
-loadedDocument.Close(true);
+//Close the document.
+loadDocument.Close(true);
 
 {% endhighlight %}
 
@@ -136,7 +139,22 @@ Refer to the following code example to split by a fixed number of pages.
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//PDF doesn't support split by fixed number on the C#.NET Cross platforms.
+//Load the existing PDF file.
+PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
+//Subscribe to the document split event.
+loadDocument.DocumentSplitEvent += LoadDocument_DocumentSplitEvent;
+void LoadDocument_DocumentSplitEvent(object sender, PdfDocumentSplitEventArgs args)
+{
+    //Save the resulting document.
+    FileStream outputStream = new FileStream(Guid.NewGuid().ToString() + ".pdf", FileMode.CreateNew);
+    args.PdfDocumentData.CopyTo(outputStream);
+    outputStream.Close();
+}
+//Spit the document by a fixed number.
+loadDocument.SplitByFixedNumber(2);
+
+//Close the document.
+loadDocument.Close(true);
 
 {% endhighlight %}
 
