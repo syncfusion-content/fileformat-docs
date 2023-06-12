@@ -81,7 +81,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-<img src="working-with-template-markers_images/file-formats-xlsio-bind-from-array-templale.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array Template" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/template-markers-in-excel-spreadsheet-templates.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array Template" width="100%" Height="Auto"/>
 
 Following code example illustrates how to bind the data from an array to a marker.
 
@@ -257,7 +257,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-<img src="working-with-template-markers_images/file-formats-xlsio-bind-from-array-file.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array File" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/bind-data-from-array-to-excel-spreadsheet-template.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array File" width="100%" Height="Auto"/>
 
 You can also add or insert template markers using XlsIO APIs as follows.
 
@@ -475,7 +475,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
 The following screenshot represents the input template which has a template marker.
 
-<img src="working-with-template-markers_images/file-formats-xlsio-bind-from-datatable.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Datatable" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/bind-data-from-datatable-to-excel-spreadsheet-template.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Datatable" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
