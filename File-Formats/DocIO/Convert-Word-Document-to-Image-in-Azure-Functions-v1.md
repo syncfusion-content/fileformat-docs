@@ -74,21 +74,17 @@ using (WordDocument document = new WordDocument(stream))
 Step 7: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
 ![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish_WordtoImage.png)
 
-
 Step 8: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_WordtoPDF.png)
 
-
 Step 9: Select the **Create new** button.
 ![Configure Hosting Plan](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
-
 
 Step 10: Click **Create** button. 
 ![Select the plan type](Azure_Images/Functions_v1/Subscription_detail_WordtoImage.png)
 
 Step 11: After creating app service then click **Finish** button.
 ![Creating app service](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
-
 
 Step 12: Click the **Publish** button.
 ![Click Publish Button](Azure_Images/Functions_v1/Before_Publish_WordtoPDF.png)
@@ -99,7 +95,6 @@ Step 13: Publish has been succeed.
 Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to Image conversion** using the template Word document). You will get the output Image as follows.
 
 ![Output image document](Azure_Images/Functions_v1/Output-WordtoImage.png)
-
 
 ## Steps to post the request to Azure Functions
 
