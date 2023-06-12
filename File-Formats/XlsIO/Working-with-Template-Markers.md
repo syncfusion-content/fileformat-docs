@@ -81,7 +81,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-<img src="working-with-template-markers_images/template-markers-in-excel-spreadsheet-templates.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array Template" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/template-markers-in-excel-spreadsheet.jpeg" alt="Working with Template Markers in File Formats XLSIO Bind from Array Template" width="100%" Height="Auto"/>
 
 Following code example illustrates how to bind the data from an array to a marker.
 
