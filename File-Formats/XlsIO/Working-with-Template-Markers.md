@@ -648,7 +648,7 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-<img src="working-with-template-markers_images/file-formats-xlsio-imput-template-default.jpeg" alt="Working with Template Markers in File Formats XLSIO Imput Template Default" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-default.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Default" width="100%" Height="Auto"/>
 
 Generated output
 
@@ -658,7 +658,7 @@ Generated output
 
 Input template
 
-<img src="working-with-template-markers_images/file-formats-xlsio-imput-template-attribute.jpeg" alt="Working with Template Markers in File Formats XLSIO Imput Template Attribute" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-attribute.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Attribute" width="100%" Height="Auto"/>
 
 Generated output
 
@@ -668,17 +668,17 @@ Generated output
 
 Input template
 
-<img src="working-with-template-markers_images/file-formats-xlsio-imput-template-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Imput Template Size" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Size" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="working-with-template-markers_images/file-formats-xlsio-general-output-Size.jpeg" alt="Working with Template Markers in File Formats XLSIO General Output Size" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-size.jpeg" alt="Working with Template Markers in File Formats XLSIO General Output Size" width="100%" Height="Auto"/>
 
 **Image** **with** **Position**
 
 Input template
 
-<img src="working-with-template-markers_images/file-formats-xlsio-imput-template-position.jpeg" alt="Working with Template Markers in File Formats XLSIO Imput Template Position" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-position.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Position" width="100%" Height="Auto"/>
 
 Generated output
 
@@ -688,7 +688,7 @@ Generated output
 
 Input template
 
-<img src="working-with-template-markers_images/file-formats-xlsio-imput-template-position-and-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Imput Template Position and Size" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-position-and-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Position and Size" width="100%" Height="Auto"/>
 
 Generated output
 
