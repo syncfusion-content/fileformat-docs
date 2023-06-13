@@ -18,11 +18,19 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
+![Create the WinUI Desktop app in Visual Studio](WinUI_Images/Create_Desktop_Project.png)
+
 Step 2: Enter the project name and click **Create**.
+
+![Create a project name for your new project](WinUI_Images/Desktop_Configure.png)
 
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
+![Set the target version](WinUI_Images/Target_Version.png)
+
 Step 4: Install the [Syncfusion.DocIO.NET](https://www.nuget.org/packages/Syncfusion.DocIO.Net) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+
+![Install Syncfusion.DocIO.NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -116,13 +124,21 @@ By executing the program, you will get the **Word document** as follows.
 
 Step 1: Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
 
+![Create the WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
+
 N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftProjectReunionPreview) for Visual Studio.
 
 Step 2: Enter the project name and click **Create**.
 
+![Create a project name for your new project](WinUI_Images/UWP_Configure.png)
+
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 
+![Set the target version](WinUI_Images/Target_Version.png)
+
 Step 4: Install the [Syncfusion.DocIO.NET](https://www.nuget.org/packages/Syncfusion.DocIO.Net) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+
+![Install Syncfusion.DocIO.NET NuGet package](WinUI_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
