@@ -15,7 +15,7 @@ N> If this is your first time working with Azure, please refer to the dedicated 
 ## Prerequisites 
 * An active **Microsoft Azure subscription** is required. If you don’t have one, please create a free account before starting.
 
-## NuGet Packages Required
+## Azure Services
 <table>
 <thead>
 <tr>
