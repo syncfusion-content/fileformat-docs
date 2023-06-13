@@ -848,6 +848,9 @@ N> * But this is not a recommended approach.
 
 
 ## Migrate System.Drawing.Common to SkiaSharp package 
+
+Starting from our volume 2, 2023 release, we have removed the System.Drawing.Common package as a dependency from our Syncfusion.Pdf.Imaging.Net.Core package. In its place, we have introduced SkiaSharp as the replacement library. This migration brings some API breaking changes that need to be considered: 
+
 <table>
 <tr>
 <thead>
