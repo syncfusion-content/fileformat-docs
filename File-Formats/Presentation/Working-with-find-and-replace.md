@@ -299,11 +299,11 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-first-occurance).
 
-## Find and replace using Regex pattern 
+## Find and replace using Regex 
 
 You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and replace it with other text.
 
-The following code example illustrates how to find all the occurrences of a pattern of text using the Regex pattern and replace it with other text.
+The following code example illustrates how to find all the occurrences of a pattern of text using the Regex and replace it with other text.
 
 {% tabs %}
 
@@ -520,11 +520,11 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-PowerPoint).
 
-## Find and highlight using Regex pattern 
+## Find and highlight using Regex 
 
 You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and highlight it.
 
-The following code example illustrates how to find all the occurrences of a pattern of text using a Regex pattern and highlight it.
+The following code example illustrates how to find all the occurrences of a pattern of text using a Regex and highlight it.
 
 {% tabs %}
 
