@@ -21,6 +21,7 @@ Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (
 ![Create the WinUI Desktop app in Visual Studio](WinUI_Images/Create_Desktop_Project.png)
 
 Step 2: Enter the project name and click **Create**.
+
 ![Create a project name for your new project](WinUI_Images/Desktop_Configure.png)
 
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
@@ -125,13 +126,11 @@ Step 1: Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the
 
 ![Create the WinUI UWP app in Visual Studio](WinUI_Images/Create_UWP_Project.png)
 
-
 N> To get the UWP Experimental project templates and build UWP apps with WinUI 3, you should download the [Windows App SDK Experimental Extension](https://marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftProjectReunionPreview) for Visual Studio.
 
 Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/UWP_Configure.png)
-
 
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 

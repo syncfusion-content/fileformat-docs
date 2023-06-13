@@ -13,9 +13,11 @@ Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/docume
 ## Steps to open and save Word document programmatically:
 
 Step 1: Create a new ASP.NET Core Web application project.
+
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProject.png)
 
 Step 2: Select Web Application pattern (Model-View-Controller) for the project.
+
 ![Select Web Application pattern](ASP-NET-Core_images/SelectWebMVC.png)
 
 Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
