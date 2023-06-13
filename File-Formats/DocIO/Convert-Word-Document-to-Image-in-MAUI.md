@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to Image in .NET MAUI | Syncfusion
-description: Convert Word document to Image without Microsoft Word or interop dependencies in .NET MAUI application using .NET MAUI Word (DocIO) library.
+title: Convert Word to Image in .NET MAUI | Syncfusion
+description: Convert Word to Image without Microsoft Word or interop dependencies in .NET MAUI application using .NET MAUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -91,7 +91,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         imageStream.Position = 0;
         //save and Launch the Image 
         SaveService saveService = new();
-        saveService.SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);
+        saveService.SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);
     }
 }
 

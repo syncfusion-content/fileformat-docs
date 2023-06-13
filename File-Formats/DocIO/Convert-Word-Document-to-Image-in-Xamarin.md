@@ -1,6 +1,6 @@
 ---
-title: Convert Word Document to Image in Xamarin | Syncfusion
-description: Convert Word Document to Image without Microsoft Word or interop dependencies in Xamarin application using Xamarin Word (DocIO) library.
+title: Convert Word to Image in Xamarin | Syncfusion
+description: Convert Word to Image without Microsoft Word or interop dependencies in Xamarin application using Xamarin Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -93,7 +93,7 @@ Step 7: Include the below code snippet in the click event of the button in MainX
 //Loading an existing Word document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert-Word-Document-to-Image.Assets.Input.docx"), FormatType.Docx))
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert-Word-Document-to-Image.Assets.Input.docx", FormatType.Docx))
 {
     //Instantiation of DocIORenderer for Word to Image conversion
     using (DocIORenderer render = new DocIORenderer())
@@ -103,7 +103,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         //Reset the stream position.
         imageStream.Position = 0;
         //Save the stream as file.
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);                  
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);                  
     }
 }
 

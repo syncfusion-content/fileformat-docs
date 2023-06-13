@@ -88,7 +88,7 @@ protected void OnButtonClicked(object sender, EventArgs e)
             //Convert the first page of the Word document into an image.
             System.Drawing.Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
             //Save the image as jpeg.
-            ExportAsImage(image, "wordtoimage.jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
+            ExportAsImage(image, "WordToImage.Jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
         }
     }
 }

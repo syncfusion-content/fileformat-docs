@@ -79,7 +79,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Input.docx")
             //Reset the stream position.
             imageStream.Position = 0;
             //Save the image file.
-            return File(imageStream, "application/jpeg", "wordtoimage.jpeg");
+            return File(imageStream, "application/jpeg", "WordToImage.Jpeg");
         }
     }
 }

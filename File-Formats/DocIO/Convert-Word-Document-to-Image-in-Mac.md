@@ -56,7 +56,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
             //Reset the stream position.
             imageStream.Position = 0;
             //Save the stream as file.
-            using (FileStream fileStreamOutput = File.Create("wordtoimage.jpeg"))
+            using (FileStream fileStreamOutput = File.Create("WordToImage.Jpeg"))
             {
                 imageStream.CopyTo(fileStreamOutput);
             }

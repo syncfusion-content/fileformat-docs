@@ -70,12 +70,12 @@ Step 5: Add the following code in **btnConvert_Click** to **convert Word documen
 
 {% highlight c# tabtitle="C#" %}
 
-using (WordDocument document = new WordDocument("Input.docx"), FormatType.Docx))
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
     //Convert the first page of the Word document into an image.
     System.Drawing.Image image = document.RenderAsImages(0, ImageType.Bitmap);
     //Save the image as jpeg.
-    image.Save("wordtoimage.jpeg"));
+    image.Save("WordToImage.Jpeg");
 }
 
 {% endhighlight %}

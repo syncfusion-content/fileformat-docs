@@ -91,7 +91,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     //Convert the first page of the Word document into an image.
     Image image = document.RenderAsImages(0, ImageType.Bitmap);
     //Save the image as jpeg.
-    image.Save("wordtoimage.jpeg");
+    image.Save("WordToImage.Jpeg");
 }
 
 {% endhighlight %}

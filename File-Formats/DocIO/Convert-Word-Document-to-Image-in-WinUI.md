@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in WinUI | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library
+description: Convert Word to Image without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -86,7 +86,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
         //Reset the stream position.
         imageStream.Position = 0;
         // Saves and launch the file.
-        SaveHelper.SaveAndLaunch("wordtoimage.jpeg", imageStream as MemoryStream);
+        SaveHelper.SaveAndLaunch("WordToImage.Jpeg", imageStream as MemoryStream);
     }
 }
 
@@ -114,7 +114,7 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
     if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
     {
         FileSavePicker savePicker = new();
-        if (extension == ".jpeg")
+        if (extension == ".Jpeg")
         {
             savePicker.DefaultFileExtension = ".jpeg";
             savePicker.SuggestedFileName = filename;

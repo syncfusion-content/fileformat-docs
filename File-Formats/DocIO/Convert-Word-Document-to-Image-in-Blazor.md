@@ -65,7 +65,7 @@ Step 6: Add the following code in **DocIO.razor** file to create and download th
     protected async void ConvertWordtoImage()
     {
         documentStream = service.ConvertWordtoImage();
-        await JS.SaveAs("wordtoimage.jpeg", documentStream.ToArray());
+        await JS.SaveAs("WordToImage.Jpeg", documentStream.ToArray());
     }
 }
 {% endhighlight %}
@@ -262,22 +262,19 @@ Step 8: Create a new async method with name as ``WordToImage`` and include the f
 
 {% highlight c# tabtitle="C#" %}
 
-using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
+//Open the file as Stream
+using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open an existing Word document.
-    using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+    using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     {
-        //Initialize the DocIORenderer for Word to Image conversion.
+        //Instantiation of DocIORenderer for Word to Image conversion
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Convert an entire Word document to images.
-            Stream[] imageStreams = document.RenderAsImages();
-            for (int i = 0; i < imageStreams.Length; i++)
-            {
-                imageStreams[i].Position = 0;
-                //Download image file in the browser.
-                await JS.SaveAs("WordToImage_" + i + ".jpeg", (imageStreams[i] as MemoryStream).ToArray());
-            }
+            Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
+            //Reset the stream position.
+            imageStream.Position = 0;
+            return (MemoryStream)imageStream;
         }
     }
 }
