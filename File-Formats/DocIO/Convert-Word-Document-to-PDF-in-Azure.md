@@ -15,7 +15,7 @@ N> If this is your first time working with Azure, please refer to the dedicated 
 ## Prerequisites 
 * An active **Microsoft Azure subscription** is required. If you don’t have one, please create a free account before starting.
 
-## NuGet Packages Required
+## Azure Services
 <table>
 <thead>
 <tr>
@@ -31,7 +31,7 @@ NuGet package name<br/></th></tr></thead>
 <td>
 {{'[App Service (Linux)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-azure-app-service-linux)' | markdownify}}<br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}<br/>
-{{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux)' |markdownify}} <br/></td></tr>
+{{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
 {{'[Azure Functions v1](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-azure-functions-v1)' | markdownify}} <br/></td><td>
