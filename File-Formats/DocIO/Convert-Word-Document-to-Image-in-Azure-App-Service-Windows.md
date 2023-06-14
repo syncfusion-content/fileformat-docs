@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to Image in Azure App Service on Windows | Syncfusion
-description: Convert Word document to Image in Azure App Service on Windows using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word to Image in Azure App Service on Windows | Syncfusion
+description: Convert Word to Image in Azure App Service on Windows using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word to Image in Azure App Service on Windows
 
-Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Azure App Service on Windows**
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Azure App Service on Windows**
 
 ## Steps to convert Word document to Image in Azure App Service on Windows:
 
@@ -18,7 +18,7 @@ Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 Step 2: Create a project name and select the location.
 ![Configure your new project](Azure_Images/App_Service_Linux/Configure_Project_WordtoImage.png)
 
-Step 3: Click **Create** button
+Step 3: Click **Create** button.
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
 
 Step 4: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
@@ -30,8 +30,7 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-@{Html.BeginForm("WordToImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
- 
+@{Html.BeginForm("WordToImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }); 
 {
     <div class="Common">
         <div class="tablediv">
@@ -74,17 +73,15 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 
-
 {% endhighlight %}
 
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for  **convert the Word document to Image**. 
+Step 7: Include the below code snippet in **HomeController.cs** for **convert the Word document to Image**. 
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 private Microsoft.AspNetCore.Hosting.IHostingEnvironment _env;
 public HomeController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 {
@@ -161,7 +158,7 @@ public IActionResult WordToImage(string button)
 Step 1: Right-click the project and select **Publish** option.
 ![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoImage.png)
 
-Step 2: Click the **Add a Publish Profile** button
+Step 2: Click the **Add a Publish Profile** button.
 ![Click the Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile_WordtoPDF.png)
 
 Step 3: Select the publish target as **Azure**.
@@ -171,9 +168,7 @@ Step 4: Select the Specific target as **Azure App Service (Windows)**.
 ![Select the publish target](Azure_Images/App_Service_Windows/Specific_Target_WordtoPDF.png)
 
 Step 5: To create a new app service, click **Create new** option.
-
 ![Click create new option](Azure_Images/App_Service_Linux/Create_New_App_Service_WordtoPDF.png)
-
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
 ![Click the Create button](Azure_Images/App_Service_Linux/Hosting_Plan_WordtoImage.png)
@@ -182,7 +177,7 @@ Step 7: Click the **Finish** button to finalize the **App Service** creation.
 ![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_WordtoImage.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core  Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoImage.png)
+![Create a ASP.NET Core Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoImage.png)
 
 Step 9: Click the **Publish** button.
 ![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_WordtoPDF.png)
@@ -195,6 +190,6 @@ Step 11: Now, the published webpage will open in the browser.
 
 Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a Image.You will get the output Image as follows.
 
-![Output image document](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
+![Word to Image in Azure App Service on Windows](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
