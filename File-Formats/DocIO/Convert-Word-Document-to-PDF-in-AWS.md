@@ -14,9 +14,9 @@ N> If this is your first time working with Amazon Web Services (AWS), please ref
 
 ## Prerequisites 
 
-* An active **Amazon Web Services (AWS) account** is required. If you don’t have one, please [create a account](https://aws.amazon.com/) before starting.
+* An active **Amazon Web Services (AWS) account** is required. If you don’t have one, please [create an account](https://aws.amazon.com/) before starting.
 
-* Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/). The Toolkit can be installed from Tools/Extension and updates options in Visual Studio.
+* Download and install the **AWS Toolkit** for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/). The Toolkit can be installed from Tools/Extension and updates options in Visual Studio.
 
 ## Amazon Web Services (AWS)
 
