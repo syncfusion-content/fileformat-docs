@@ -129,20 +129,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Portable project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF)'| markdownify }}
+    {{'[Portable project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image)'| markdownify }}
   </td>
   <td>
-    {{'[ISave.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF/ISave.cs)'| markdownify }}
+    {{'[ISave.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image/ISave.cs)'| markdownify }}
   </td>
   <td>Represent the base interface for save operation
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS Project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS)'| markdownify }}
+    {{'[iOS Project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS/SaveIOS.cs)'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -150,7 +150,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.iOS/PreviewControllerDS.cs)'| markdownify }}
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.iOS/PreviewControllerDS.cs)'| markdownify }}
   </td>
   <td>
     Helper class for viewing the <b>Word document</b> in iOS device
@@ -158,20 +158,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Android project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.Android)'| markdownify }}
+    {{'[Android project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.Android)'| markdownify }}
   </td>
   <td>
-   {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.Android/SaveAndroid.cs)'| markdownify }}
+   {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device
   </td>
   </tr>
   <tr>
   <td>
-    {{'[UWP project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.UWP)'| markdownify }}
+    {{'[UWP project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.UWP)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin/Convert-Word-Document-to-PDF/Convert-Word-Document-to-PDF.UWP/SaveWindows.cs)'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin/Convert-Word-Document-to-Image/Convert-Word-Document-to-Image.UWP/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for UWP device.
   </td>
@@ -180,7 +180,7 @@ Refer the below helper files and add them into the mentioned project. These help
 
 Compile and execute the application. Now this application **convert a Word document to Image**.
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Xamarin).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin).
 
 By executing the program, you will get the Image as follows.
 

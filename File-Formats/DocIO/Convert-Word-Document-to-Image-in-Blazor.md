@@ -179,7 +179,7 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Blazor/Server-app).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Blazor/Server-app).
 
 By executing the program, you will get the **Image** as follows.
 
@@ -351,7 +351,7 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Blazor/WASM-app).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Blazor/Client-side-application).
 
 By executing the program, you will get the **Image** as follows.
 

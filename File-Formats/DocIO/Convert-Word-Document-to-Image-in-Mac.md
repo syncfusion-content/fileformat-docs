@@ -68,7 +68,7 @@ using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAc
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Mac).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Mac).
 
 By executing the program, you will get the **Image** as follows. The output will be saved in bin folder.
 
