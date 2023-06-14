@@ -1,16 +1,16 @@
 ---
-title: Convert Word to PDF in Amazon Web Services on Lambda | Syncfusion
-description: Convert Word document to PDF in  Amazon Web Services on Lambda using .NET Core Word (DocIO) and  PDF library, without Microsoft Word or interop dependencies.
+title: Convert Word to PDF in AWS Lambda | Syncfusion
+description:  Convert Word document to PDF in AWS Lambda using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word Document to PDF in Amazon Web Services on Lambda
+# Convert Word Document to PDF in AWS Lambda
 
-Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Amazon Web Services on Lambda**
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in AWS Lambda**.
 
-## Steps to convert Word document to PDF in Amazon Web Services on Lambda
+## Steps to convert Word document to PDF in AWS Lambda
 
 Step 1: Create a new **AWS Lambda project** as follows.
 ![AWS Lambda project](AWS_Images/Lambda_Images/Project-Template-WordtoPDF.png)
@@ -21,7 +21,7 @@ Step 2: Select Blueprint as Empty Function and click **Finish**.
 Step 3: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.Linux](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
+* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 
 ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
 ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
@@ -29,7 +29,7 @@ Step 3: Install the following **Nuget packages** in your application from [Nuget
 Step 4: Create a folder and copy the required data files and include the files to the project.
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-WordtoPDF.png)
 
-Step 5: Set the copy to output directory to **Copy if newer** to all the data files.
+Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
 ![Property change for data files](AWS_Images/Lambda_Images/Property-WordtoPDF.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
@@ -85,13 +85,13 @@ public string FunctionHandler(string input, ILambdaContext context)
 
 {% endtabs %}
 
-Step 8: Right-click the project and select **Publish** to AWS Lambda.
+Step 8: Right-click the project and select **Publish to AWS Lambda**.
 ![Publish to AWS Lambda](AWS_Images/Lambda_Images/Publish-WordtoPDF.png)
 
-Step 9: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click Next.
+Step 9: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click **Next**.
 ![Upload Lambda Function](AWS_Images/Lambda_Images/Upload-Lampda-WordtoPDF.png)
 
-Step 10: In the Advanced Function Details window, specify the Role Name as based on AWS Managed policy. After selecting the role, click the Upload button to deploy your application.
+Step 10: In the Advanced Function Details window, specify the **Role Name** as based on AWS Managed policy. After selecting the role, click the **Upload** button to deploy your application.
 ![Advance Function Details](AWS_Images/Lambda_Images/Advanced-AWS-WordtoPDF.png)
 
 Step 11: After deploying the application, you can see the published Lambda function in **AWS console**.
@@ -100,7 +100,7 @@ Step 11: After deploying the application, you can see the published Lambda funct
 Step 12: Edit Memory size and Timeout as maximum in Basic settings of the AWS Lambda function.
 ![AWS Lambda Function](AWS_Images/Lambda_Images/Basic-Settings-WordtoPDF.png)
 
-## Refer to the following steps to invoke the AWS Lambda function from console application:
+## Steps to post the request to AWS Lambda
 
 Step 1: Create a new console project.
 ![Create a console project](AWS_Images/Lambda_Images/Console-APP-WordtoPDF.png)
@@ -113,6 +113,7 @@ step 2: Install the following **Nuget packages** in your application from [Nuget
 ![Install AWSSDK.Core Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Core-WordtoPDF.png)
 ![Install AWSSDK.Lambda Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Lambda-WordtoPDF.png)
 ![Install Newtonsoft.Json Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-Newton-Json-WordtoPDF.png)
+
 Step 3: Include the following namespaces in **Program.cs** file.
 
 {% tabs %}
@@ -166,6 +167,5 @@ System.Diagnostics.Process.Start("Sample.pdf");
 By executing the program, you will get the **PDF document** as follows.
 
 ![Install SkiaSharp.NativeAssets.Linux Nuget Package](WordToPDF_images/WordToPDF_Output_Cloud.png)
-
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/AWS-Lambda/Console-App-.NET-Core) and [AWS Lambda](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/AWS-Lambda/MyLamdaProject) project.

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in Amazon Web Services | Syncfusion
-description: Convert Word document to PDF in  Amazon Web Services on Lambda using .NET Core Word (DocIO) and  PDF library, without Microsoft Word or interop dependencies.
+description: Learn how to convert a Word document to a PDF in Amazon Web Services using Syncfusion .NET Core Word (DocIO) library in C#.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -16,17 +16,19 @@ N> If this is your first time working with Amazon Web Services, please refer to 
 
 * An active **Amazon Web Services account** is required. If you don’t have one, please create a account before starting.
 
-## Nuget package required
+## Amazon Web Services
 
 <table>
 <thead>
 <tr>
 <th>
 Amazon Web Services<br/></th><th>
-Nuget package name<br/></th></tr></thead>
+NuGet package name<br/></th></tr></thead>
 <tr>
 <td>
-Lambda <br/></td><td>
+AWS Lambda <br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}<br/>
-{{'[SkiaSharp.NativeAssets.Linux v2.8.2.3](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)' | markdownify}} <br/></td></tr>
+{{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)' | markdownify}} <br/>
+{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)' | markdownify}}<br/> 
+</td></tr>
 </table>
