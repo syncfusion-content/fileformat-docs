@@ -1,28 +1,30 @@
 ---
-title: Convert Word to PDF in Amazon Web Services | Syncfusion
-description: Learn how to convert a Word document to a PDF in Amazon Web Services using Syncfusion .NET Core Word (DocIO) library in C#.
+title: Convert Word to PDF in AWS | Syncfusion
+description: Learn how to convert a Word document to a PDF in Amazon Web Services (AWS) using Syncfusion .NET Core Word (DocIO) library in C#.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word to PDF in Amazon Web Services 
+# Convert Word to PDF in Amazon Web Services (AWS)
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, **convert a Word document to PDF in Amazon Web Services** within a few lines of code. 
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, **convert a Word document to PDF in Amazon Web Services (AWS)** within a few lines of code. 
 
-N> If this is your first time working with Amazon Web Services, please refer to the dedicated Amazon Web Services resources. This section explains how to convert Word documents to PDF in C# using the .NET Core Word (DocIO) library in Amazon Web Services (AWS). 
+N> If this is your first time working with Amazon Web Services (AWS), please refer to the dedicated AWS resources. This section explains how to convert Word documents to PDF in C# using the .NET Core Word (DocIO) library in AWS. 
 
 ## Prerequisites 
 
-* An active **Amazon Web Services account** is required. If you don’t have one, please create a account before starting.
+* An active **Amazon Web Services (AWS) account** is required. If you don’t have one, please [create a account](https://aws.amazon.com/) before starting.
 
-## Amazon Web Services
+* Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/). The Toolkit can be installed from Tools/Extension and updates options in Visual Studio.
+
+## Amazon Web Services (AWS)
 
 <table>
 <thead>
 <tr>
 <th>
-Amazon Web Services<br/></th><th>
+Amazon Web Services (AWS)<br/></th><th>
 NuGet package name<br/></th></tr></thead>
 <tr>
 <td>

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in AWS Lambda | Syncfusion
-description:  Convert Word document to PDF in AWS Lambda using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+description:  Convert Word to PDF in AWS Lambda using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -42,7 +42,6 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
-using Syncfusion.Drawing;
 
 {% endhighlight %}
 
@@ -76,8 +75,13 @@ public string FunctionHandler(string input, ILambdaContext context)
 
     //Save the PDF document  
     pdf.Save(stream);
+
+    //Releases all resources used by the Word document and DocIO Renderer objects
     document.Close();
     render.Dispose();
+
+    //Closes the PDF document
+    pdf.Close();
     return Convert.ToBase64String(stream.ToArray());
 }
 
@@ -166,6 +170,6 @@ System.Diagnostics.Process.Start("Sample.pdf");
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Install SkiaSharp.NativeAssets.Linux Nuget Package](WordToPDF_images/WordToPDF_Output_Cloud.png)
+![Word to PDF in AWS Lambda](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/AWS-Lambda/Console-App-.NET-Core) and [AWS Lambda](https://github.com/SyncfusionExamples/Word-To-PDF-Examples/tree/master/AWS-Lambda/MyLamdaProject) project.
