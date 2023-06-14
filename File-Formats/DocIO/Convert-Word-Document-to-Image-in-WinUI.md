@@ -49,7 +49,6 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
     </StackPanel>
 </Window>
 
-
 {% endhighlight %}
 
 {% endtabs %}

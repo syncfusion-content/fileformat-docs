@@ -20,7 +20,6 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/Configuration-WordtoImage.png)
 
-
 Step 3: To **convert a Word document to Image in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
@@ -28,7 +27,6 @@ Step 3: To **convert a Word document to Image in server app**, install [Syncfusi
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
-
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

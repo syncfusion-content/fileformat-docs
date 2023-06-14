@@ -20,7 +20,6 @@ Step 2: Select the Empty project
 
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/ASPNET.png)
 
-
 Step 3: Install the [Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install Syncfusion.DocIO.AspNet NuGet package](ASP-NET_images/Nuget-Package-WordtoImage.png)
@@ -51,8 +50,6 @@ Step 5: Add a new button in the **MainPage.aspx** as shown below.
     </form>
 </body>
 </html>
-
-
 
 {% endhighlight %}
 

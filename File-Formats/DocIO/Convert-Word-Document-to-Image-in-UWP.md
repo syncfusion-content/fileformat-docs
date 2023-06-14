@@ -43,7 +43,6 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
     </Grid>
 </Page>
 
-
 {% endhighlight %}
 
 {% endtabs %}
