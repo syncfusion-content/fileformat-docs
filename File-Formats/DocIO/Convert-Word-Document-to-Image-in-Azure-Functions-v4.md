@@ -122,7 +122,6 @@ try
 {
     Console.WriteLine("Please enter your Azure Functions URL :");
     string functionURL = Console.ReadLine();
-
     //Create HttpWebRequest with hosted azure functions URL.                
     HttpWebRequest req = (HttpWebRequest)WebRequest.Create(functionURL);
     //Set request method as POST
