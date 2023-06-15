@@ -27,11 +27,19 @@ Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/docume
 
 Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
+![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
+
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+
+![Create a project name for your new project](Blazor_Images/Blazor_images_Server_ProjectName.png)
 
 Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server app for .NET Core 3.0.0-preview9.
 
+![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
+
 Step 4: To **open and save a Word document in Blazor Server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+
+![Install Syncfusion.DocIO.Net.Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -212,11 +220,19 @@ By executing the program, you will get the **Word document** as follows.
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
+![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
+
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+
+![Create a project name for your new project](Blazor_Images/Blazor_image_Client_ProjectName.png)
 
 Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor WASM app for .NET Core 3.0.0-preview9.
 
+![Select .NET Core, ASP.NET Core 3.0 and Blazor WASM.](Blazor_Images/Select_Client.png)
+
 Step 4: To **open and save a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+
+![Install Syncfusion.DocIO.Net.Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
