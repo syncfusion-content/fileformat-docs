@@ -195,7 +195,7 @@ Step 2: Now, the project configuration window will popup. Click **Create** butto
 
 Step 3: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
-* [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
+* [SkiaSharp.NativeAssets.WebAssembly v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly/2.88.2)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
 ![Install SkiaSharp.NativeAssets.WebAssembly NuGet Package](Blazor_Images/SkiaSharp-Nuget-WordtoPDF.png)
