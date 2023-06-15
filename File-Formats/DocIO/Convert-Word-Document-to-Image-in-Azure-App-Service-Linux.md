@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Azure App Service on Linux | Syncfusion
-description: Convert Word to Image in Azure App Service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+description: Convert Word to image in Azure App Service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word to Image in Azure App Service on Linux
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Azure App Service on Linux**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in Azure App Service on Linux**.
 
 ## Steps to convert Word document to Image in Azure App Service on Linux
 
@@ -39,7 +39,7 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
     <div class="Common">
         <div class="tablediv">
             <div class="rowdiv">
-                This sample illustrates how to convert Word document to Image using .NET Word library (DocIO).
+                This sample illustrates how to convert Word document to image using .NET Word library (DocIO).
             </div>
             &nbsp;
             <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">             
@@ -81,7 +81,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 7: Include the below code snippet in **HomeController.cs** for **convert the Word document to Image**. 
+Step 7: Include the below code snippet in **HomeController.cs** for **convert the Word document to image**. 
 
 {% tabs %}
 
@@ -94,7 +94,7 @@ public HomeController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 }
 
 /// <summary>
-/// Convert Word document to Image
+/// Convert Word document to image
 /// </summary>
 /// <param name="button"></param>
 /// <returns></returns>
@@ -143,12 +143,12 @@ public IActionResult WordToImage(string button)
         }
         else
         {
-            ViewBag.Message = string.Format("Please choose Word format document to convert to Image");
+            ViewBag.Message = string.Format("Please choose Word format document to convert to image");
         }
     }
     else
     {
-        ViewBag.Message = string.Format("Browse a Word document and then click the button to convert as a Image document");
+        ViewBag.Message = string.Format("Browse a Word document and then click the button to convert as a image document");
     }
     return View("Index");
 }
@@ -188,7 +188,7 @@ Step 10: Now, Publish has been succeeded.
 Step 11: Now, the published webpage will open in the browser. 
 ![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoImage.png)
 
-Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a Image.You will get the output PDF document as follows.
+Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a image.You will get the output **image** as follows.
 ![Word to Image in Azure App Service on Linux](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Azure/Azure_App_Service).
