@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to Image in Azure Functions v4
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read,  edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Azure Functions v4**
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in Azure Functions v4**.
 
 ## Steps to convert a Word document to Image in Azure Functions v4
 
@@ -35,7 +35,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 6: Add the following code snippet in **Run** method of **Function1** class to perform **convert Word to Image** in Azure Functions and return the resultant **Image** to client end.
+Step 6: Add the following code snippet in **Run** method of **Function1** class to perform **convert Word to image** in Azure Functions and return the resultant **image** to client end.
 
 {% tabs %}
 
@@ -64,7 +64,7 @@ using (WordDocument document = new WordDocument(stream, FormatType.Docx))
         //Set the contentDisposition as attachment
         response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
         {
-            FileName = "wordtoimage.jpeg"
+            FileName = "WordToImage.Jpeg"
         };
         //Set the content type as Word document mime type
         response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/jpeg");
@@ -98,15 +98,15 @@ Step 12: Click the **Publish** button.
 Step 13: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/Published_WordtoImage.png)
 
-Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to Image conversion** using the template Word document). You will get the output Image as follows.
+Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to image conversion** using the template Word document). You will get the output **image** as follows.
 
-![Output image document](Azure_Images/Functions_v1/Output-WordtoImage.png)
+![Word to Image in Azure Functions v4](Azure_Images/Functions_v1/Output-WordtoImage.png)
 
 ## Steps to post the request to Azure Functions
 
 Step 1: Create a console application to request the Azure Functions API.
 
-Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template Word document and get the resultant Image.
+Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template Word document and get the resultant image.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -118,7 +118,6 @@ fs.Position = 0;
 MemoryStream inputStream = new MemoryStream();
 fs.CopyTo(inputStream);
 inputStream.Position = 0;
-
 try
 {
     Console.WriteLine("Please enter your Azure Functions URL :");
@@ -134,8 +133,8 @@ try
     stream.Write(inputStream.ToArray(), 0, inputStream.ToArray().Length);
     //Gets the responce from the Azure Functions.
     HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-    //Saves the Image stream.
-    FileStream fileStream = File.Create("wordtoimage.jpeg");
+    //Saves the image stream.
+    FileStream fileStream = File.Create("WordToImage.Jpeg");
     res.GetResponseStream().CopyTo(fileStream);
     //Dispose the streams
     inputStream.Dispose();
@@ -149,5 +148,5 @@ catch (Exception ex)
 
 {% endtabs %}
 
-From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Console_Application) and [Azure Functions v4](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v4).
+From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Azure/Azure_Functions/Console_Application) and [Azure Functions v4](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Azure/Azure_Functions/Azure_Functions_v4).
 
