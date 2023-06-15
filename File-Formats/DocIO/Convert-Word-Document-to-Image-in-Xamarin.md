@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Xamarin | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in Xamarin application using Xamarin Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in Xamarin application using Xamarin Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word Document to Image in Xamarin
 
-Syncfusion DocIO is a [Xamarin Word library](https://www.syncfusion.com/document-processing/word-framework/xamarin/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or **interop** dependencies. Using this library, you can **convert a Word document to Image in Xamarin**.
+Syncfusion DocIO is a [Xamarin Word library](https://www.syncfusion.com/document-processing/word-framework/xamarin/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or **interop** dependencies. Using this library, you can **convert a Word document to image in Xamarin**.
 
-## Steps to convert Word document to Image in Xamarin:
+## Steps to convert Word document to Image in Xamarin
 
 Step 1: Create a new Xamarin.Forms application project.
 
@@ -43,8 +43,8 @@ In App class of <b>portable project</b> (App.cs), replace the existing construct
 {% highlight c# tabtitle="C#" %}
 public App()
 {
-    // The root page of your application
-    MainPage = new MainXamlPage();
+  // The root page of your application
+  MainPage = new MainXamlPage();
 }
 {% endhighlight %}
 
@@ -61,7 +61,7 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Convert_Word_Document_to_Image.MainPage">
 
-    <StackLayout  VerticalOptions="Center">
+    <StackLayout VerticalOptions="Center">
         <Button Text="Convert WordtoImage" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
     </StackLayout>
 </ContentPage>
@@ -70,7 +70,7 @@ Step 5: In the MainXamlPage.xaml add new button as shown below.
 
 {% endtabs %}
 
-Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
+Step 6: Include the following namespace in the **MainXamlPage.xaml.cs** file.
 
 {% tabs %}
 
@@ -84,7 +84,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to **convert Word document to Image**.
+Step 7: Include the below code snippet in the click event of the button in **MainXamlPage.xaml.cs** to **convert Word document to image**.
 
 {% tabs %}
 
@@ -95,16 +95,16 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert-Word-Document-to-Image.Assets.Input.docx", FormatType.Docx))
 {
-    //Instantiation of DocIORenderer for Word to Image conversion
-    using (DocIORenderer render = new DocIORenderer())
-    {
-        //Convert the first page of the Word document into an image.
-        Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
-        //Reset the stream position.
-        imageStream.Position = 0;
-        //Save the stream as file.
-        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);                  
-    }
+  //Instantiation of DocIORenderer for Word to image conversion
+   using (DocIORenderer render = new DocIORenderer())
+  {
+    //Convert the first page of the Word document into an image.
+    Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
+    //Reset the stream position.
+    imageStream.Position = 0;
+    //Save the stream as file.
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);                  
+  }
 }
 
 {% endhighlight %}
@@ -178,10 +178,10 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
 </table>
 
-Compile and execute the application. Now this application **convert a Word document to Image**.
+Compile and execute the application. Now this application **convert a Word document to image**.
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Xamarin).
 
-By executing the program, you will get the Image as follows.
+By executing the program, you will get the **image** as follows.
 
-![Xamarin output Image](WordToPDF_images/Output-WordtoImage.png)                     
+![Word to Image in Xamarin](WordToPDF_images/Output-WordtoImage.png)                     

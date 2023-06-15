@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in WinUI | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word document to Image in WinUI
 
-Syncfusion DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to Image in WinUI**.
+Syncfusion DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to image in WinUI**.
 
-**Prerequisites:**
+## Prerequisites
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
 
 ## WinUI Desktop app
@@ -23,13 +23,13 @@ Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/Configuration-WordtoImage.png)
 
-Step 4: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
+Step 3: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
 
 ![Install Syncfusion.DocIORenderer.NET NuGet package](WinUI_Images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
-Step 5: Add a new button to the **MainWindow.xaml** as shown below.
+Step 4: Add a new button to the **MainWindow.xaml** as shown below.
 
 {% tabs %}
 
@@ -53,7 +53,7 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
 {% endtabs %}
 
-Step 6: Include the following namespaces in the **MainWindow.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% tabs %}
 
@@ -67,7 +67,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordtoImage** in MainWindow.xaml.cs and include the below code snippet to **convert the Word document to Image**.
+Step 6: Add a new action method **ConvertWordtoImage** in MainWindow.xaml.cs and include the below code snippet to **convert the Word document to image**.
 
 {% tabs %}
 
@@ -77,7 +77,7 @@ Step 7: Add a new action method **ConvertWordtoImage** in MainWindow.xaml.cs and
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_Image.Assets.Input.docx"), FormatType.Docx))
 {
-    //Instantiation of DocIORenderer for Word to Image conversion
+    //Instantiation of DocIORenderer for Word to image conversion
     using (DocIORenderer render = new DocIORenderer())
     {
         //Convert the first page of the Word document into an image.
@@ -189,6 +189,6 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/WinUI).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![WinUI Desktop output Image](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in WinUI](WordToPDF_images/Output-WordtoImage.png)

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in ASP.NET MVC | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in ASP.NET MVC application using .NET Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in ASP.NET MVC application using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,15 +8,15 @@ documentation: UG
 
 # Convert Word document to Image in ASP.NET MVC
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in ASP.NET MVC**.
+Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in ASP.NET MVC**.
 
-## Steps to convert Word document to Image in C#:
+## Steps to convert Word document to Image in C#
 
-Step 1: Create a new ASP.NET Web Application  project.
+Step 1: Create a new ASP.NET Web Application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/CreateProjectforConversion.png)
 
-Step 2: Select the MVC application
+Step 2: Select the **MVC** application.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/MVC.png)
 
@@ -61,7 +61,7 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 
 {% endtabs %}
 
-Step 7: Add the below code snippet in **HomeController.cs** to **convert the Word document to Image** and download it.
+Step 7: Add the below code snippet in **HomeController.cs** to **convert the Word document to image** and download it.
 
 {% tabs %}
 
@@ -77,7 +77,7 @@ public void ConvertWordtoImage()
         {                 
             //Convert the first page of the Word document into an image.
             Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
-            //Save the image as jpeg.           
+            //Save the image as jpeg. 
             ExportAsImage(image, "WordToImage.Jpeg", ImageFormat.Jpeg, HttpContext.ApplicationInstance.Response);
         }
     }
@@ -100,6 +100,6 @@ protected void ExportAsImage(Image image, string fileName, ImageFormat imageForm
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/ASP.NET-MVC).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Output Image in ASP.NET MVC](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in ASP.NET MVC](WordToPDF_images/Output-WordtoImage.png)

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in .NET MAUI | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in .NET MAUI application using .NET MAUI Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in .NET MAUI application using .NET MAUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,10 @@ documentation: UG
 
 # Convert Word document to Image in .NET MAUI
 
-Syncfusion DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in .NET MAUI**.
+Syncfusion DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in .NET MAUI**.
 
-**Prerequisites:**
+## Prerequisites
+
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin).
 
 ## Steps to convert Word document to Image in .NET MAUI
@@ -39,7 +40,6 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Convert_Word_Document_to_Image.MainPage">
-
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
             Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
@@ -72,7 +72,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 6: Add a new action method **ConvertWordtoImage** in MainPage.xaml.cs and include the below code snippet to **convert a Word document to Image**.
+Step 6: Add a new action method **ConvertWordtoImage** in MainPage.xaml.cs and include the below code snippet to **convert a Word document to image**.
 
 {% tabs %}
 
@@ -82,14 +82,14 @@ Step 6: Add a new action method **ConvertWordtoImage** in MainPage.xaml.cs and i
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_Image.Template.Input.docx"), FormatType.Docx))
 {
-    //Instantiation of DocIORenderer for Word to Image conversion
+    //Instantiation of DocIORenderer for Word to image conversion
     using (DocIORenderer render = new DocIORenderer())
     {
         //Convert the first page of the Word document into an image.
         Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
         //Reset the stream position.
         imageStream.Position = 0;
-        //save and Launch the Image 
+        //save and Launch the image 
         SaveService saveService = new();
         saveService.SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);
     }
@@ -101,9 +101,9 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/.NET-MAUI).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![MAUI output Image](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in .NET MAUI](WordToPDF_images/Output-WordtoImage.png)
 
 ## Helper files for .NET MAUI
 

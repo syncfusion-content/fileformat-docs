@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in WPF | Syncfusion 
-description: Convert Word to Image without Microsoft Word or interop dependencies in WPF application using .NET Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in WPF application using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to Image in WPF
 
-Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in WPF**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in WPF**.
 
 ## Steps to convert Word document to Image in WPF:
 
@@ -22,7 +22,7 @@ Step 2: Install the [Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfu
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
+Step 3: Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% tabs %}
 
@@ -35,7 +35,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 4: Add a new button in **MainWindow.xaml** to convert Word document to Image file as follows.
+Step 4: Add a new button in **MainWindow.xaml** to **convert Word document to image** file as follows.
 
 {% tabs %}
 
@@ -64,7 +64,7 @@ Step 4: Add a new button in **MainWindow.xaml** to convert Word document to Imag
 
 {% endtabs %}
 
-Step 5: Add the following code in **btnConvert_Click** to **convert Word document to Image** with simple text.
+Step 5: Add the following code in **btnConvert_Click** to **convert Word document to image** with simple text.
 
 {% tabs %}
 
@@ -75,7 +75,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
     //Convert the first page of the Word document into an image.
     System.Drawing.Image image = document.RenderAsImages(0, ImageType.Bitmap);
     //Save the image as jpeg.
-    image.Save("WordToImage.Jpeg");
+    image.Save("WordToImage.Jpeg", ImageFormat.Jpeg);
 }
 
 {% endhighlight %}
@@ -84,6 +84,6 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/WPF).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![WPF output Image file](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in WPF](WordToPDF_images/Output-WordtoImage.png)

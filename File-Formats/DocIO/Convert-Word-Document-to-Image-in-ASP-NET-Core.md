@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in ASP.NET Core | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in ASP.NET Core application using .NET Core Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in ASP.NET Core application using .NET Core Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word document to Image in ASP.NET Core
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in ASP.NET Core**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in ASP.NET Core**.
 
-## Steps to convert word document to Image in C#:
+## Steps to convert word document to Image in C#
 
 Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) project.
 
@@ -58,7 +58,7 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordtoImage** in HomeController.cs and include the below code snippet to **convert the Word document to Image**.
+Step 7: Add a new action method **ConvertWordtoImage** in HomeController.cs and include the below code snippet to **convert the Word document to image**.
 
 {% tabs %}
 
@@ -89,6 +89,6 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Input.docx")
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/ASP.NET-Core).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Output Image in ASP.NET Core](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in ASP.NET Core](WordToPDF_images/Output-WordtoImage.png)

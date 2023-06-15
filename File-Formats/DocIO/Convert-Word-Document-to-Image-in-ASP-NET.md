@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in ASP.NET | Syncfusion 
-description: Convert Word to Image without Microsoft Word or interop dependencies in ASP.NET application using .NET Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in ASP.NET application using .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,15 +8,15 @@ documentation: UG
 
 # Convert Word document to Image in ASP.NET
 
-Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in ASP.NET Web Forms**.
+Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in ASP.NET Web Forms**.
 
-## Steps to convert Word document to Image in C#:
+## Steps to convert Word document to Image in C#
 
 Step 1: Create a new ASP.NET Web application project.
 
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/CreateProjectforConversion.png)
 
-Step 2: Select the Empty project
+Step 2: Select the Empty project.
 
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/ASPNET.png)
 
@@ -37,10 +37,9 @@ Step 5: Add a new button in the **MainPage.aspx** as shown below.
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Convert_Word_Document_to_Image.MainPage" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+<title></title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,7 +54,7 @@ Step 5: Add a new button in the **MainPage.aspx** as shown below.
 
 {% endtabs %}
 
-Step 6. Include the following namespace in your **MainPage.aspx.cs** file.
+Step 6: Include the following namespace in your **MainPage.aspx.cs** file.
 
 {% tabs %}
 
@@ -68,7 +67,7 @@ using Syncfusion.DocIO.DLS;
 
 {% endtabs %}
 
-Step 7: Include the below code snippet in the click event of the button in **MainPage.aspx.cs**, to **convert the Word document to Image** and download it.
+Step 7: Include the below code snippet in the click event of the button in **MainPage.aspx.cs**, to **convert the Word document to image** and download it.
 
 {% tabs %}
 
@@ -90,7 +89,7 @@ protected void OnButtonClicked(object sender, EventArgs e)
     }
 }
 
-//Download the Image file
+//Download the image file
 protected void ExportAsImage(System.Drawing.Image image, string fileName, ImageFormat imageFormat, HttpResponse response)
 {
     string disposition = "content-disposition";
@@ -106,7 +105,7 @@ protected void ExportAsImage(System.Drawing.Image image, string fileName, ImageF
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/ASP.NET).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Output Image in ASP.NET ](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in ASP.NET](WordToPDF_images/Output-WordtoImage.png)
 

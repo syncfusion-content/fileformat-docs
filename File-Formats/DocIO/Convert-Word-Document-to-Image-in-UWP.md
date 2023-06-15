@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in UWP | Syncfusion
-description: Convert Word to Image without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word document to Image in UWP
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in UWP**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in UWP**.
 
-## Steps to convert Word document to Image in UWP:
+## Steps to convert Word document to Image in UWP
 
 Step 1: Create a new C# Blank App (Universal Windows) project.
 
@@ -37,7 +37,6 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
         <Button x:Name="button" Content="Convert Word to Image" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
@@ -47,7 +46,7 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 
 {% endtabs %}
 
-Step 4: Include the following namespaces in the MainPage.xaml.cs file.
+Step 4: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% tabs %}
 
@@ -61,7 +60,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **convert the Word document to Image** and save the **Image** as a physical file and open the file for viewing.
+Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to **convert the Word document to image** and save the **image** as a physical file and open the file for viewing.
 
 {% tabs %}
 
@@ -71,7 +70,7 @@ Step 5: Include the below code snippet in the click event of the button in MainP
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResourceStream("Convert_Word_Document_to_Image.Assets.Input.docx"), FormatType.Docx))
 {
-    //Instantiation of DocIORenderer for Word to Image conversion
+    //Instantiation of DocIORenderer for Word to image conversion
     using (DocIORenderer render = new DocIORenderer())
     {
         //Convert the first page of the Word document into an image.
@@ -94,7 +93,7 @@ using (WordDocument wordDocument = new WordDocument(assembly.GetManifestResource
 {% highlight c# tabtitle="C#" %}
 
 /// <summary>
-/// Save the Image to the desired file location
+/// Save the image to the desired file location
 /// </summary>
 private async void SaveImage(Stream outputStream)
 {
@@ -141,8 +140,8 @@ private async void SaveImage(Stream outputStream)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/UWP).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![UWP output Image](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in UWP](WordToPDF_images/Output-WordtoImage.png)
 
 N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-uwp-support-for-net-standard-2-0/), the minimum version of UWP project must be Fall Creators Update (FCU).

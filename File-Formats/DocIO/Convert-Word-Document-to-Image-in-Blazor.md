@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Blazor | DocIO | Syncfusion 
-description: Convert Word to Image without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
+description: Convert Word to image without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Word document to Image in Blazor
 
-Syncfusion DocIO is a [Blazor Word library](https://www.syncfusion.com/document-processing/word-framework/blazor/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to Image in Blazor**.
+Syncfusion DocIO is a [Blazor Word library](https://www.syncfusion.com/document-processing/word-framework/blazor/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in Blazor**.
 
 ## Word to Image in Blazor Server app
 
@@ -20,7 +20,7 @@ Step 2: Now, the project configuration window will popup. Click Create button to
 
 ![Create a project name for your new project](Blazor_Images/Configuration-WordtoImage.png)
 
-Step 3: To **convert a Word document to Image in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
+Step 3: To **convert a Word document to image in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
 
@@ -51,14 +51,14 @@ Step 5: Add the following code in **DocIO.razor** file to create a new button.
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add the following code in **DocIO.razor** file to create and download the **Image**.
+Step 6: Add the following code in **DocIO.razor** file to create and download the **image**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 @code {
     MemoryStream documentStream;
     /// <summary>
-    /// Convert Word to Image and download the Image file
+    /// Convert Word to image and download the image file
     /// </summary>
     protected async void ConvertWordtoImage()
     {
@@ -83,7 +83,7 @@ using Syncfusion.DocIORenderer;
 
 {% endtabs %}
 
-Step 8: Create a new MemoryStream method with name as **ConvertWordtoImage** in **WordService** class and include the following code snippet to **convert the Word document to Image** in Server app.
+Step 8: Create a new MemoryStream method with name as **ConvertWordtoImage** in **WordService** class and include the following code snippet to **convert the Word document to image** in Server app.
 
 {% tabs %}
 
@@ -95,7 +95,7 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", Fi
     //Open an existing Word document.
     using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     {
-        //Instantiation of DocIORenderer for Word to Image conversion
+        //Instantiation of DocIORenderer for Word to image conversion
         using (DocIORenderer render = new DocIORenderer())
         {
             Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
@@ -179,17 +179,17 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Blazor/Server-app).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Blazor Server app output Image](WordToPDF_images/Output-WordtoImage.png)
+![Word to Image in Blazor Server app](WordToPDF_images/Output-WordtoImage.png)
 
 ## Word to Image in Blazor WASM app
 
-Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the **Next** button.
 
-![Create  Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
+![Create Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
 
-Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+Step 2: Now, the project configuration window will popup. Click **Create** button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Web_Assembly_WordtoImage.png)
 
@@ -254,7 +254,7 @@ Step 7: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 8: Create a new async method with name as ``WordToImage`` and include the following code snippet to **convert a Word document to Image in Blazor** WASM app.
+Step 8: Create a new async method with name as ``WordToImage`` and include the following code snippet to **convert a Word document to image in Blazor** WASM app.
 
 {% tabs %}
 
@@ -266,13 +266,14 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", Fi
     //Open an existing Word document.
     using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
     {
-        //Instantiation of DocIORenderer for Word to Image conversion
+        //Instantiation of DocIORenderer for Word to image conversion
         using (DocIORenderer render = new DocIORenderer())
         {
-            Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
+            MemoryStream imageStream = (MemoryStream)document.RenderAsImages(0, ExportImageFormat.Jpeg);
             //Reset the stream position.
             imageStream.Position = 0;
-            return (MemoryStream)imageStream;
+            //Download PDF file in the browser.
+            await JS.SaveAs("WordToImage.Jpeg", imageStream.ToArray());
         }
     }
 }
@@ -351,8 +352,8 @@ Step 11: Add the following code snippet in the razor file of Navigation menu in 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Blazor/Client-side-application).
 
-By executing the program, you will get the **Image** as follows.
+By executing the program, you will get the **image** as follows.
 
 ![Blazor WASM app output](WordToPDF_images/Output-WordtoImage.png)
 
-N> To convert Word to Image, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to Image conversion works in a WASM app.
+N> To convert Word to image, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to image conversion works in a WASM app.
