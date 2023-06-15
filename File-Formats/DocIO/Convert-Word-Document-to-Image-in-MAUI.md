@@ -126,7 +126,7 @@ Refer the below helper files and add them into the mentioned project. These help
     {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/.NET-MAUI/Convert-Word-Document-to-Image)'| markdownify }}
   </td>
   <td>
-    {{'[SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/.NET-MAUI/Convert-Word-Document-to-Image/SaveServices)'| markdownify }}
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-Image-conversion/Convert-Word-to-image/.NET-MAUI/Convert-Word-Document-to-Image/SaveServices/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
