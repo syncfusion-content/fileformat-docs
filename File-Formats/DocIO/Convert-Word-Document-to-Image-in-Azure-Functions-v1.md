@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to Image in Azure Functions v1 | Syncfusion
-description: Convert Word document to Image in Azure Functions v1 using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word to Image in Azure Functions v1 | Syncfusion
+description: Convert Word to image in Azure Functions v1 using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -99,7 +99,7 @@ Step 14: Now, go to Azure portal and select the App Services. After running the 
 
 Step 1: Create a console application to request the Azure Functions API.
 
-Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template Word document and get the resultant image document.
+Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template Word document and get the resultant **image** document.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
