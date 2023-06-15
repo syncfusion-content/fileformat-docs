@@ -31,19 +31,19 @@ To quickly get started with creating a Word document in Blazor, check this video
 
 Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
+![Create ASP.NET Core Web application in Visual Studio with File Format DOcIO](blazor_images/fiel-format-docio-blazor-create-word-document-web-application.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create a project name for your new project](Blazor_Images/Blazor_images_Server_ProjectName.png)
+![Create a project name for your new project in Blazor File Format DOcIO](blazor_images/fiel-format-docio-blazor-create-word-document-server-name.png)
 
 Step 3: Choose **Blazor Server App** and click Create button to create a new Blazor Server app for .NET Core 3.0.0-preview9.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor File Format DOcIO from Server side.](blazor_images/fiel-format-docio-blazor-create-word-document-selected-server.png)
 
 Step 4: To **create a Word document in Blazor Server app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
-![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
+![Install File Format DocIO.NET Core NuGet Package in Blazor](blazor_images/fiel-format-docio-blazor-create-word-document-package-installation.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -248,25 +248,25 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor Server app output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor Server app output Word document in File Format DOcIO](blazor_images/fiel-format-docio-blazor-create-word-document-app-output.png)
 
 ## WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
+![Create ASP.NET Core Web application in Visual Studio and Blazor File Format DOcIo](blazor_images/fiel-format-docio-blazor-create-word-document-web-application.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
-![Create a project name for your new project](Blazor_Images/Blazor_image_Client_ProjectName.png)
+![Create a project name for your new project in Blazor File Format DOcIO](blazor_images/fiel-format-docio-blazor-create-word-document-project-name.png)
 
 Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor WASM app for .NET Core 3.0.0-preview9.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor WASM.](Blazor_Images/Select_Client.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor File Format DOcIO WASM.](blazor_images/fiel-format-docio-blazor-create-word-document-web-assembly-app.png)
 
 Step 4: To **create a Word document in WASM app**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
 
-![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
+![Install Blazor File Format DocIO.NET Core NuGet Package](blazor_imiages/fiel-format-docio-blazor-create-word-document-install-nuget-packages.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -451,7 +451,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Blazor WASM output Word document](Blazor_Images/Blazor_Output.png)
+![Blazor WASM output Word document in File Format DOcIO](blazor_images/fiel-format-docio-blazor-create-word-document-wasm-output.png)
 
 N> Even though Word library works in WASM, it is recommended to use server  deployment. Since the WASM deployment increases the application payload size.
 
