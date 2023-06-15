@@ -226,7 +226,7 @@ Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-asp-net-core)'|  markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor]()'|  markdownify }}
+{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-asp-net-core)'|  markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-blazor)'|  markdownify }}
 </td>
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg<br/>
