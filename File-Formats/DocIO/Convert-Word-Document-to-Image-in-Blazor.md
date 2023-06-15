@@ -272,7 +272,7 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", Fi
             MemoryStream imageStream = (MemoryStream)document.RenderAsImages(0, ExportImageFormat.Jpeg);
             //Reset the stream position.
             imageStream.Position = 0;
-            //Download PDF file in the browser.
+            //Download image file in the browser.
             await JS.SaveAs("WordToImage.Jpeg", imageStream.ToArray());
         }
     }
