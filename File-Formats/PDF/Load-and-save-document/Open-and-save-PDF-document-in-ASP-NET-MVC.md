@@ -14,8 +14,10 @@ The [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing
 ## Steps to open and save PDF document programatically:
 
 Step 1: Create a new ASP.NET MVC application project.
+![Create ASP.NET MVC application in Visual Studio](Images/Create_MVC_app.png)
 
 Step 2: Install the [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC application using [NuGet.org](https://www.nuget.org/).
+![NuGet package installation](Images/MVC_NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering the Syncfusion license key in your application to use our components.
 
@@ -116,4 +118,4 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 You can download a complete working sample from [GitHub]().
 
 By executing the program, you will get the **PDF document** as follows.
-![ASP.Net MVC open and save PDF document](Images/open_and_save_core.png)
+![ASP.Net MVC open and save PDF document](Images/Open_and_save_output.png)
