@@ -115,7 +115,7 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/ASP.NET%20MVC/Load_and_save_PDF_document_MVC).
 
 By executing the program, you will get the **PDF document** as follows.
 ![ASP.Net MVC open and save PDF document](Images/Open_and_save_output.png)
