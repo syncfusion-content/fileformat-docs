@@ -24,7 +24,11 @@ dotnet new console
 
 {% endtabs %}
 
+![Create .NET Core console application on Linux](Linux-images/CreateNewProject1.png)
+
 Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+
+![Install Syncfusion.DocIO.Net.Core NuGet packages](Linux-images/InstallNuGetPackages1.png)
 
 {% tabs %}
 
