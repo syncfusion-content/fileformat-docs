@@ -14,10 +14,13 @@ The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-proce
 ## Steps to open and save the PDF documents programmatically:
 
 Step 1: Create a new .NET Core console application project.
-
+![Mac OS console application](Images/Mac_OS_Console.png)
 Step 2: Select the project version.
 
 Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+![Mac OS NuGet path](Images/Mac_OS_NuGet_path.png)
+Step 2: Select the project version.
+
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -98,5 +101,4 @@ document.Save(outputStream);
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/Mac/Open_and_Save_PDF_Mac).
 
 By executing the program, you will get the **PDF document** as follows.
-<img src="Images/OutputResult.png" alt="Result" width="100%" Height="Auto"/>
-
+![Mac OS output PDF document](Images/Open_and_save_output.png)

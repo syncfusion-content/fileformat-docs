@@ -112,6 +112,8 @@ dotnet restore
 
 {% endhighlight %}
 
+![Linux Build](Images/Linux_Build.png)
+
 Step 8: Execute the following command in terminal to run the application.
 {% highlight c# tabtitle="C#" %}
 
@@ -119,6 +121,9 @@ dotnet run
 
 {% endhighlight %}
 
+![Linux Run](Images/Linux_Run.png)
+
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/Linux/Open_and_Save_PDF_Linux).
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in parallel to program.cs file.
+![Linux output PDF document](Images/Open_and_save_output.png)
