@@ -25,6 +25,8 @@ Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the
 
 Step 4: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 
+![WinUI NuGet package](Images/NET_NuGet_Package.png)
+
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
 Step 5: Add a new button to the **MainWindow.xaml** as shown below.
@@ -134,3 +136,4 @@ document.Save(outputStream);
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/WinUI/Load_and_Save_PDF_WinUI_Desktop).
 
 By executing the program, you will get the **PDF document** as follows.
+![WinUI output PDF document](Images/Open_and_save_output.png)
