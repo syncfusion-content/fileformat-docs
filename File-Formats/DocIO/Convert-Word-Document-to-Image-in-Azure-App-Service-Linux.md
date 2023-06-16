@@ -153,6 +153,10 @@ public IActionResult WordToImage(string button)
     return View("Index");
 }
 
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
