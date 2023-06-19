@@ -116,3 +116,53 @@ using (MemoryStream outputStream = new MemoryStream())
 }
 {% endhighlight %}
 {% endtabs %}
+
+## Helper Code Snippets
+
+Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public static class FileUtils
+{
+    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
+        => js.InvokeAsync<object>(
+           "saveAsFile",
+           filename,
+           Convert.ToBase64String(data));
+}
+{% endhighlight %}
+{% endtabs %}
+
+Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+<script type="text/javascript">
+  function saveAsFile(filename, bytesBase64) {
+
+  if (navigator.msSaveBlob) 
+  {
+    //Download document in Edge browser
+    var data = window.atob(bytesBase64);
+    var bytes = new Uint8Array(data.length);
+    for (var i = 0; i < data.length; i++) 
+    {
+      bytes[i] = data.charCodeAt(i);
+    }
+    var blob = new Blob([bytes.buffer], { type: "application/octet-stream" });
+    navigator.msSaveBlob(blob, filename);
+  }
+  else 
+  {
+    var link = document.createElement('a');
+    link.download = filename;
+    link.href = "data:application/octet-stream;base64," + bytesBase64;
+    document.body.appendChild(link); // Needed for Firefox
+    link.click();
+    document.body.removeChild(link);
+  }
+}
+</script>
+{% endhighlight %}
+{% endtabs %}

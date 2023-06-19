@@ -59,6 +59,14 @@ workbook.SaveAs(outputStream);
 outputStream.Position = 0;
 
 //Saves the memory stream as a file.
-DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/excel", outputStream);
+SaveService saveService = new SaveService();
+saveService.SaveAndView("Output.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ms);
 {% endhighlight %}
 {% endtabs %} 
+
+The code for SaveService helper class is present in below pages.
+[https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-service-class-in-portable-project](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-service-class-in-portable-project)
+[https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-windows](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-windows)
+[https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-android](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-android)
+[https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-ios](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-ios)
+[https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-maccatalyst](https://help.syncfusion.com/file-formats/xlsio/create-read-edit-excel-files-in-maui-c-sharp#save-and-view-the-excel-document-in-maccatalyst)
