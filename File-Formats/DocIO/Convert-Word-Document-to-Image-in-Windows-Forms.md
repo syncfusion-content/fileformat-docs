@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Windows Forms | Syncfusion 
-description: Convert Word to image without Microsoft Word or interop dependencies in Windows Forms application using .NET Word (DocIO) library.
+description: Convert Word to image in Windows Forms using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
