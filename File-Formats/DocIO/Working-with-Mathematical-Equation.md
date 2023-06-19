@@ -1431,7 +1431,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can create a radical equation in Word document. The following example shows how to create a radical equation.
 
-{% tabs %
+{% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document
