@@ -133,7 +133,7 @@ using Newtonsoft.Json;
 
 {% endtabs %}
 
-Step 4:Add the following code snippet in **Program.cs** to invoke the published AWS Lambda function using the function name and access keys.
+Step 4: Add the following code snippet in **Program.cs** to invoke the published AWS Lambda function using the function name and access keys.
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}

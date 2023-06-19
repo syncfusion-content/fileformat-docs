@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in WPF | Syncfusion 
-description: Convert Word to image without Microsoft Word or interop dependencies in WPF application using .NET Word (DocIO) library.
+description: Convert Word to image in WPF using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

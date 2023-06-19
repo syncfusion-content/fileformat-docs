@@ -24,23 +24,23 @@ Azure Services<br/></th><th>
 NuGet packages required<br/></th></tr></thead>
 <tr>
 <td>
-App Service (Windows)
+{{'[App Service (Windows)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-azure-app-service-windows)' | markdownify}}
 <br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}</td></tr>
 <tr>
 <td>
-App Service (Linux)
+{{'[App Service (Linux)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-azure-app-service-linux)' | markdownify}}
 <br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}<br/>
 {{'[SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
-Azure Functions v1
+{{'[Azure Functions v1](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-azure-functions-v1)' | markdownify}}
  <br/></td><td>
 {{'[Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
-Azure Functions v4
+{{'[Azure Functions v4](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-azure-functions-v4)' | markdownify}}
 <br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify }}<br/></td></tr>
 </table>

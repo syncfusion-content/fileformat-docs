@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Blazor | DocIO | Syncfusion 
-description: Convert Word to image without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
+description: Convert Word to image in Blazor using Blazor Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

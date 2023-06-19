@@ -1,6 +1,6 @@
 ---
-title: Convert Word document to PDF in Azure App Service on Linux | Syncfusion
-description: Convert Word document to PDF in Azure App Service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word to PDF in Azure App Service on Linux | Syncfusion
+description: Convert Word to PDF in Azure App Service on Linux using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies. 
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert Word to PDF in Azure App Service on Linux
 
-Syncfusion  DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Azure App service on Linux**
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Azure App service on Linux**.
 
-## Steps to convert Word document to PDF in Azure App Service on Linux:
+## Steps to convert Word document to PDF in Azure App Service on Linux
 
 Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Linux/Create-Project-WordtoPDF.png)
@@ -18,7 +18,7 @@ Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 Step 2: Create a project name and select the location.
 ![Configure your new project](Azure_Images/App_Service_Linux/Configure_Project_WordtoPDF.png)
 
-Step 3: Click **Create** button
+Step 3: Click **Create** button.
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_WordtoPDF.png)
 
 Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
@@ -84,7 +84,7 @@ using Syncfusion.Pdf;
 
 {% endtabs %}
 
-Step 7: Include the below code snippet in **HomeController.cs** for  **convert the Word document to Pdf**.
+Step 7: Include the below code snippet in **HomeController.cs** for **convert the Word document to Pdf**.
 
 {% tabs %}
 
@@ -162,13 +162,12 @@ public IActionResult WordToPDF(string button)
 
 {% endtabs %}
 
-
 ## Steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
 ![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_WordtoPDF.png)
 
-Step 2: Click the **Add a Publish Profile** button
+Step 2: Click the **Add a Publish Profile** button.
 ![Click the Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile_WordtoPDF.png)
 
 Step 3: Select the publish target as **Azure**.
@@ -187,7 +186,7 @@ Step 7: Click the **Finish** button to finalize the **App Service** creation.
 ![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_WordtoPDF.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core  Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoPDF.png)
+![Create a ASP.NET Core Project](Azure_Images/App_Service_Linux/Publish_Finish_WordtoPDF.png)
 
 Step 9: Click the **Publish** button.
 ![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_WordtoPDF.png)
@@ -200,6 +199,6 @@ Step 11: Now, the published webpage will open in the **browser**.
 
 Step 12: Select the Word document and Click **Convert to PDF** to convert the given Word document to a PDF.You will get the output PDF document as follows.
 
-![Output image PDF document](WordToPDF_images/WordToPDF_Output_Cloud.png)
+![Word to PDF in Azure App Service on Linux](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in Xamarin | Syncfusion
-description: Convert Word to image without Microsoft Word or interop dependencies in Xamarin application using Xamarin Word (DocIO) library.
+description: Convert Word to image in Xamarin using Xamarin Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
