@@ -1,5 +1,5 @@
 ---
-title: Convert Word document to PDF in Azure Functions v1 | Syncfusion
+title: Convert Word to PDF in Azure Functions v1 | Syncfusion
 description: Convert Word to PDF in Azure Functions v1 using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
