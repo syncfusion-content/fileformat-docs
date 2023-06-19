@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in Blazor | DocIO | Syncfusion 
-description: Convert Word to PDF without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
+description: Convert Word to PDF in Blazor using Blazor Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -19,7 +19,6 @@ Step 1: Create a new C# Blazor Server app project. Select Blazor Server App from
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Project-Name-WordtoPDF.png)
-
 
 Step 3: To **convert a Word document to PDF in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
@@ -182,13 +181,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor Server app output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in Blazor Server app](WordToPDF_images/OutputImage.png)
 
 ## Word to PDF in Blazor WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create  Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
+![Create Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -361,6 +360,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor WASM app output Word document](WordToPDF_images/OutputImage.png)
+![Word to PDF in Blazor WASM app](WordToPDF_images/OutputImage.png)
 
 N> To convert Word to PDF, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to PDF conversion works in a WASM app.

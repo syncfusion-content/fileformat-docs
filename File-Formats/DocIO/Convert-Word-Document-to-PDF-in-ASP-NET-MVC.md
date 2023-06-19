@@ -1,22 +1,22 @@
 ---
 title: Convert Word to PDF in ASP.NET MVC | Syncfusion
-description: Convert Word to PDF without Microsoft Word or interop dependencies in ASP.NET MVC application using .NET Word (DocIO) library.
+description: Convert Word to PDF in ASP.NET MVC using .NET Word (DocIO) library library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
----
+--- ]
 
 # Convert Word document to PDF in ASP.NET MVC
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in ASP.NET MVC**.
 
-## Steps to convert Word document to PDF in C#:
+## Steps to convert Word document to PDF in C#
 
-Step 1: Create a new ASP.NET Web Application  project.
+Step 1: Create a new ASP.NET Web Application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/CreateProjectforConversion.png)
 
-Step 2: Select the MVC application
+Step 2: Select the MVC application.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/MVC.png)
 
@@ -100,4 +100,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output PDF document in ASP.NET MVC](WordToPDF_images/OutputImage.png)
+![Word to PDF in ASP.NET MVC](WordToPDF_images/OutputImage.png)
