@@ -14,17 +14,17 @@ Syncfusion Essential DocIO is a [Xamarin Word library](https://www.syncfusion.co
 
 Step 1: Create a new Xamarin.Forms application project.
 
-![Create Xamarin application in File Formats Visual Studio](xamarin_images/file-formats-docio-create-application.png)
+![Create Xamarin application in Visual Studio](xamarin_images/create-application-in-xamarin-word.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Create Xamarin CodeSharing Option in File Formats DOCIO](xamarin_images/file-formats-docio-codesharing.png)
+![Create Xamarin CodeSharing Option](xamarin_images/codesharing-in-xamarin-word.png)
 
 Step 3: Install [Syncfusion.Xamarin.DocIO](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIO) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO Xamarin NuGet package in File Formats](xamarin_images/file-formats-docio-install-nuget.png)
+![Install DocIO Xamarin NuGet package](xamarin_images/install-nuget-in-xamarin-word.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -408,4 +408,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the Word document as follows.
 
-![Xamarin output Word document in File Formats](xamarin_images/file-formats-docio-gettingstarted-output.jpg)
+![Xamarin output Word document](xamarin_images/xamarin-word-gettingstarted-output.jpg)
