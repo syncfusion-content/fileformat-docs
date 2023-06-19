@@ -14,14 +14,14 @@ The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-proce
 ## Steps to open and save PDF document programatically: 
 
 Step 1: Create a new ASP.NET Core Web application project. 
+![Create ASP.NET Core Web application in Visual Studio](Images/Create_ASP_NET_Core_application.png)
 
-Step 2: Select the Web Application pattern (Model-View-Controller) for the project. 
-
-Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 2: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+![Install NuGet package](Images/NuGet_package_ASP_NET_Core.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering the Syncfusion license key in your application to use our components.
 
-Step 4: Include the following namespaces in the HomeController.cs file. 
+Step 3: Include the following namespaces in the HomeController.cs file. 
 
 {% tabs %}
 
@@ -37,9 +37,9 @@ using Syncfusion.Drawing;
 
 {% endtabs %}
 
-Step 5: A default action method named Index will be present in HomeController.cs file. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+Step 4: A default action method named Index will be present in HomeController.cs file. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-Step 6: Add a new button in the Index.cshtml as shown in the following.
+Step 5: Add a new button in the Index.cshtml as shown in the following.
 
 {% tabs %}
 
@@ -59,7 +59,7 @@ Step 6: Add a new button in the Index.cshtml as shown in the following.
 
 {% endtabs %}
 
-Step 7: Add a new action method **OpenAndSaveDocument** in HomeController.cs and include the following code sample to **open an existing PDF document in ASP.NET Core**. 
+Step 6: Add a new action method **OpenAndSaveDocument** in HomeController.cs and include the following code sample to **open an existing PDF document in ASP.NET Core**. 
 
 {% tabs %}
 
@@ -74,7 +74,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 {% endtabs %}
 
-Step 8: Add the below code example to add a table in the PDF document. 
+Step 7: Add the below code example to add a table in the PDF document. 
 
 {% tabs %}
 
@@ -108,7 +108,7 @@ pdfGrid.Draw(graphics, new RectangleF(40, 400, loadedPage.Size.Width - 80, 0));
 
 {% endtabs %}
 
-Step 9: Add below code example to **save the PDF document in ASP.NET Core**. 
+Step 8: Add below code example to **save the PDF document in ASP.NET Core**. 
 
 {% tabs %}
 
