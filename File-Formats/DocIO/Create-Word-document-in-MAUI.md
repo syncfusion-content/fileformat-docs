@@ -25,7 +25,7 @@ Step 2: Enter the project name and click **Create**.
 
 Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIO .NET NuGet package in File Formats DOCIO](maui_images/file-formats-docio-install-nuget.png)
+![Install the DocIO .NET NuGet package](maui_images/install-nuget-in-maui-word.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -305,7 +305,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![MAUI output Word document in File Formats DOCIO](maui_images/file-formats-docio-gettingstarted-output.jpg)
+![MAUI output Word document](maui_images/gettingstarted-output-in-maui-word.jpg)
 
 ## Helper files for .NET MAUI
 
