@@ -2018,7 +2018,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates the resultant Word document as follows.
 
-![Output Word document of start at new page](../mailmerge_images/file-formats-docio-startat-newpage-output.png)
+![Output Word document of start at new page](../mailmerge_images/file-formats-word-startat-newpage-output.png)
 
 N> This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is valid for group mail merge and also that the corresponding group start and group end should be present in the text body of the Word document. This [StartAtNewPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_StartAtNewPage) property is not valid when the group start and group end are present in the table, headers, and footers.
 
@@ -2028,7 +2028,7 @@ To **restore a Word mail merge main document to a normal Word document** using M
 
 For example, consider that you have a template Word document linked with the data source for mail merge process. When opening the document using Microsoft Word application, it prompts a window as shown. You can remove the mail merge settings (unlink the data source) to open it as a normal Word document without this pop-up.
 
-![Prompt window in Microsoft Word application](../mailmerge_images/file-formats-docio-remove-mail-merge-settings.png)
+![Prompt window in Microsoft Word application](../mailmerge_images/file-formats-word-remove-mail-merge-settings.png)
 
 The following code example shows how to remove the mail merge settings from the Word document.
 
