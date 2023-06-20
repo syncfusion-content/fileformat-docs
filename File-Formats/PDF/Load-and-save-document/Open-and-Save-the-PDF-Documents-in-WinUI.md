@@ -19,7 +19,11 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 
 Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
+![WinUI App](Images/WinUI_APP.png)
+
 Step 2: Enter the project name and click **Create**.
+
+![WinUI Create](Images/WinUI_Create.png)
 
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
 

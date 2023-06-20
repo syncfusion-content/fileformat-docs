@@ -20,6 +20,8 @@ N> Our PDF library is currently supported in .NET MAUI applications on the Andro
 
 Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
+![.NET MAUI App](Images/MAUI_App.png)
+
 Step 2: Enter the project name and click **Create**.
 
 Step 3: Install the [Syncfusion.Pdf.NET](https://www.nuget.org/packages/Syncfusion.Pdf.NET) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
