@@ -1,22 +1,22 @@
 ---
-title: Convert PPTX to PDF in Azure App Service on Linux | Syncfusion
-description: Convert PPTX to PDF in Azure App Service on Linux using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PPTX to Image in Azure App Service on Linux | Syncfusion
+description: Convert PPTX to image in Azure App Service on Linux using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint Presentation to PDF in Azure App Service on Linux
+# Convert PowerPoint Presentation to Image in Azure App Service on Linux
 
-Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
+Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
 
-## Steps to convert PowerPoint Presentation to PDF in Azure App Service on Linux
+## Steps to convert PowerPoint Presentation to Image in Azure App Service on Linux
 
 Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_Images/App_Service_Linux/Create-PowerPoint-Presentation-to-PDF.png)
 
 Step 2: Create a project name and select the location.
-![Configure your new project](Azure_Images/App_Service_Linux/Configure-PowerPoint-Presentation-to-PDF.png)
+![Configure your new project](Azure_Images/App_Service_Linux/Configure-PowerPoint-Presentation-to-Image.png)
 
 Step 3: Click **Create** button.
 ![Additional Information](Azure_Images/App_Service_Linux/Additional_Information_PowerPoint_Presentation_to_PDF.png)
@@ -39,24 +39,24 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 
 {% highlight c# tabtitle="C#" %}
 @{
-    Html.BeginForm("ConvertPPTXtoPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
+    Html.BeginForm("ConvertPPTXtoImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
 
     {
         <div class="Common">
             <div class="tablediv">
                 <div class="rowdiv">
-                    This sample illustrates how to convert PowerPoint document to PDF using PowerPoint library.
+                    This sample illustrates how to convert PowerPoint document to image using PowerPoint library.
                 </div>
                 &nbsp;
                 <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
-                    Click the button to view the resultant PDF document being converted from PowerPoint document.
+                    Click the button to view the resultant image document being converted from PowerPoint document.
                     <div class="rowdiv" style="margin-top: 10px">
                         <div class="celldiv">
                             Select Document :
                             @Html.TextBox("file", "", new { type = "file", accept = ".pptx" }) <br />
                         </div>
                         <div class="rowdiv" style="margin-top: 8px">
-                            <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px;height:27px" />
+                            <input class="buttonStyle" type="submit" value="Convert to image" name="button" style="width:150px;height:27px" />
                             <br />
                             <div class="text-danger">
                                 @ViewBag.Message
@@ -70,7 +70,6 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
         Html.EndForm();
     }
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -82,12 +81,11 @@ Step 6: Include the following namespaces in **HomeController.cs**.
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
-using Syncfusion.Pdf;
 {% endhighlight %}
 
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for **convert the PowerPoint Presentation to PDF**. 
+Step 9: Include the below code snippet in **HomeController.cs** for **convert the PowerPoint Presentation to image**. 
 
 {% tabs %}
 
@@ -100,11 +98,11 @@ public HomeController(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 }
 
 /// <summary>
-/// Convert Presentation to PDF
+/// Convert Presentation to image
 /// </summary>
 /// <param name="button"></param>
 /// <returns></returns>
-public ActionResult ConvertPPTXtoPDF(string button)
+public ActionResult ConvertPPTXtoImage(string button)
 {
     if (button == null)
         return View("Index");
@@ -113,7 +111,7 @@ public ActionResult ConvertPPTXtoPDF(string button)
     {
         if (Request.Form.Files.Count == 0)
         {
-            ViewBag.Message = string.Format("Browse a PowerPoint Presentation and then click the button to convert as a PDF document");
+            ViewBag.Message = string.Format("Browse a PowerPoint Presentation and then click the button to convert as a image");
             return View("Index");
         }
         // Gets the extension from file.
@@ -121,25 +119,23 @@ public ActionResult ConvertPPTXtoPDF(string button)
         // Compares extension with supported extensions.
         if (extension == ".pptx")
         {
-            MemoryStream stream = new MemoryStream();
-            Request.Form.Files[0].CopyTo(stream);
+            MemoryStream memoryStream = new MemoryStream();
+            Request.Form.Files[0].CopyTo(memoryStream);
             try
             {
                 //Open the existing PowerPoint presentation with loaded stream.
-                using (IPresentation pptxDoc = Presentation.Open(stream))
+                using (IPresentation pptxDoc = Presentation.Open(memoryStream))
                 {
-                    //Convert the PowerPoint document to PDF document.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                    {
-                        //Create the MemoryStream to save the converted PDF.      
-                        MemoryStream pdfStream = new MemoryStream();
-                        //Save the converted PDF document to MemoryStream.
-                        pdfDocument.Save(pdfStream);
-                        pdfStream.Position = 0;
 
-                        //Download PDF document in the browser.
-                        return File(pdfStream, "application/pdf", "Sample.pdf");
-                    }
+                    //Initialize the PresentationRenderer to perform image conversion.
+                    pptxDoc.PresentationRenderer = new PresentationRenderer();
+                    //Convert PowerPoint slide to image as stream.
+                    Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+                    //Reset the stream position
+                    stream.Position = 0;
+
+                    //Download image in the browser.
+                    return File(stream, "application/jpeg", "PPTXtoImage.Jpeg");                                
                 }
             }
             catch (Exception ex)
@@ -149,14 +145,14 @@ public ActionResult ConvertPPTXtoPDF(string button)
         }
         else
         {
-            ViewBag.Message = string.Format("Please choose PowerPoint document to convert to PDF");
+            ViewBag.Message = string.Format("Please choose PowerPoint document to convert to image");
         }
     }
     else
     {
-        ViewBag.Message = string.Format("Browse a PowerPoint document and then click the button to convert as a PDF document");
+        ViewBag.Message = string.Format("Browse a PowerPoint document and then click the button to convert as a image");
     }
-    return View("Index");         
+    return View("Index");
 }
 
 {% endhighlight %}
@@ -166,7 +162,7 @@ public ActionResult ConvertPPTXtoPDF(string button)
 ## Steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_Images/App_Service_Linux/Publish_PowerPoint_Presentation_to_PDF.png)
+![Right-click the project and select the Publish option](Azure_Images/App_Service_Windows/Publish_PowerPoint_Presentation_to_Image.png)
 
 Step 2: Click the **Add a Publish Profile** button.
 ![Click the Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile_PowerPoint_Presentation_to_PDF.png)
@@ -181,25 +177,25 @@ Step 5: To create a new app service, click **Create new** option.
 ![Click create new option](Azure_Images/App_Service_Linux/Create_New_App_Service_PowerPoint_Presentation_to_PDF.png)
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_Images/App_Service_Windows/Hosting_PowerPoint_Presentation_to_PDF.png)
+![Click the Create button](Azure_Images/App_Service_Windows/Hosting_PowerPoint_Presentation_to_Image.png)
 
 Step 7: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_Images/App_Service_Linux/App_Service_PowerPoint_Presentation_to_PDF.png)
+![Click the Finish button](Azure_Images/App_Service_Windows/App_Service_PowerPoint_Presentation_to_Image.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core Project](Azure_Images/App_Service_Linux/Publish_Finish_PowerPoint_Presentation_to_PDF.png)
+![Create a ASP.NET Core Project](Azure_Images/App_Service_Windows/Publish_Finish_PowerPoint_Presentation_to_Image.png)
 
 Step 9: Click the **Publish** button.
-![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_PowerPoint_Presentation_to_PDF.png)
+![Click the Publish button](Azure_Images/App_Service_Linux/Before_Publish_PowerPoint_Presentation_to_Image.png)
 
 Step 10: Now, Publish has been succeeded.
-![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_PowerPoint_Presentation_to_PDF.png)
+![Publish has been succeeded](Azure_Images/App_Service_Linux/After_Publish_PowerPoint_Presentation_to_Image.png)
 
 Step 11: Now, the published webpage will open in the browser. 
-![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_PowerPoint_Presentation_to_PDF.png)
+![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_PowerPoint_Presentation_to_Image.png)
 
-Step 12: Select the **PowerPoint Presentation** and Click **Convert to PDF** to convert the given PowerPoint Presentation to PDF.You will get the output **PDF** document as follows.
+Step 12: Select the **PowerPoint Presentation** and Click **Convert to Image** to convert the given PowerPoint Presentation to PDF.You will get the output **image** document as follows.
 
-![PowerPoint Presentation to PDF in Azure App Service on Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PowerPoint Presentation to Image in Azure App Service on Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
