@@ -614,7 +614,7 @@ Save implementation for WinRT device.
 
 The respective code snippets are given below also, for reference.
 
-### Helper class for Portable project
+### ISave class in portable project
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -629,7 +629,7 @@ public interface ISave
 {% endhighlight %}
 {% endtabs %} 
 
-### Helper class for Windows project
+### Save and View the Excel document in windows
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -705,7 +705,7 @@ class SaveWindows: ISave
 {% endhighlight %}
 {% endtabs %} 
 
-### Helper class for Android project
+### Save and View the Excel document in Android
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -797,7 +797,7 @@ Add the following code to the **AndroidManifest.xml** file located under Propert
 {% endhighlight %}
 {% endtabs %}
 
-### Helper class for iOS project
+### Save and View the Excel document in iOS
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -942,7 +942,7 @@ public class QLPreviewItemBundle : QLPreviewItem
 {% endhighlight %}
 {% endtabs %} 
 
-### Helper class for Windows Phone
+### Save and View the Excel document in Windows Phone
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
