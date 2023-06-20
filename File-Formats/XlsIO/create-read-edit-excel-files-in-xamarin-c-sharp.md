@@ -467,7 +467,62 @@ End Using
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-8. Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8. Compile and execute the application. Now this application creates a simple Excel document.
+
+A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
+
+By executing the program, you will get the Excel file as below.
+<img src="XAMARIN_images/XAMARIAN_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
+
+## Read and Edit Excel file
+
+The below code illustrates how to read and edit an Excel file in Xamarin.
+
+N> Please include the Excel document in the Xamarin project and set the Build Action property of the document as Embedded Resource.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+void btnCreate_Click(object sender, System.EventArgs e)
+{
+  ExcelEngine excelEngine = new ExcelEngine();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+  //"App" is the class of Portable project.
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+
+  //Opens the workbook 
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+  //Access first worksheet from the workbook.
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set Text in cell A3.
+  worksheet.Range["A3"].Text ="Hello World";
+
+  //Access a cell value from Excel
+  var value = worksheet.Range["A1"].Value;
+
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
+
+  //Save the stream into XLSX file
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
+
+N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+
+## Helper Files
+
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing. 
 
 <table>
 <tr>
@@ -557,121 +612,110 @@ Save implementation for WinRT device.
 </tbody>
 </table>
 
-9. Compile and execute the application. Now this application creates a simple Excel document.
+The respective code snippets are given below also, for reference.
 
-A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
+### Helper class for Portable project
 
-By executing the program, you will get the Excel file as below.
-<img src="XAMARIN_images/XAMARIAN_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
-
-## Read and Edit Excel file
-
-The below code illustrates how to read and edit an Excel file in Xamarin.
-
-N> Please include the Excel document in the Xamarin project and set the Build Action property of the document as Embedded Resource.
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-void btnCreate_Click(object sender, System.EventArgs e)
-{
-  ExcelEngine excelEngine = new ExcelEngine();
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Xlsx;
-
-  string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-  //"App" is the class of Portable project.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-  //Opens the workbook 
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-  //Access first worksheet from the workbook.
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Set Text in cell A3.
-  worksheet.Range["A3"].Text ="Hello World";
-
-  //Access a cell value from Excel
-  var value = worksheet.Range["A1"].Value;
-
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-  workbook.Close();
-  excelEngine.Dispose();
-
-  //Save the stream into XLSX file
-  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using System.IO;
 using System.Threading.Tasks;
 
-private interface ISave
+public interface ISave
 {
   //Method to save document as a file and view the saved document
-  void SaveAndView(string filename, string contentType, MemoryStream stream);
+  Task SaveAndView(string filename, string contentType, MemoryStream stream);
 }
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %} 
 
-A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
+### Helper class for Windows project
 
-N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
-
-### Windows Phone
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage;
-using System.IO;
 using Xamarin.Forms;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Xamarin.Forms.Platform.UWP;
 
-[assembly: Dependency(typeof(SaveWindowsPhone))]
+[assembly: Dependency(typeof(SaveWindows))]
 
-class SaveWindowsPhone: ISave
+class SaveWindows: ISave
 {
-  //Method to save document as a file in Windows Phone and view the saved document.
   public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
   {
-    //Save the stream to a file. 
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+    //save the stream into the file. 
+    if (Device.Idiom != TargetIdiom.Desktop)
     {
-	  outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+      StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+      StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+      using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+      {
+        outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+      }
+      if (contentType != "application/html")
+        await Windows.System.Launcher.LaunchFileAsync(outFile);
     }
+    else
+    {
+      StorageFile storageFile = null;
+      FileSavePicker savePicker = new FileSavePicker();
+      savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+      savePicker.SuggestedFileName = filename;
+      switch (contentType)
+      {
+        case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+          savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", });
+          break;
 
-    //Launch the saved file for viewing in default viewer.
-    await Windows.System.Launcher.LaunchFileAsync(outFile);
+        case "application/msexcel":
+          savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", });
+          break;
+
+        case "application/msword":
+          savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx" });
+          break;
+
+        case "application/pdf":
+          savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+          break;
+
+        case "application/html":
+          savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
+          break;
+      }
+      storageFile = await savePicker.PickSaveFileAsync();
+
+      using (Stream outStream = await storageFile.OpenStreamForWriteAsync())
+      {
+        outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+      }
+
+      //Invoke the saved file for Viewing.
+      await Windows.System.Launcher.LaunchFileAsync(storageFile);
+    }
   }
 }
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %} 
 
-### Android
+### Helper class for Android project
 
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using System;
 using System.IO;
+using GettingStarted.Droid;
 using Android.Content;
 using Java.IO;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using Android;
-using Android.Content.PM;
-using AndroidX.Core.Content;
-using AndroidX.Core.App;
 
 [assembly: Dependency(typeof(SaveAndroid))]
 
@@ -681,12 +725,6 @@ class SaveAndroid: ISave
   public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
   {
     string root = null;
-
-    if (ContextCompat.CheckSelfPermission(Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
-    {
-      ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new String[] { Manifest.Permission.WriteExternalStorage }, 1);
-    }
-
     //Get the root path in android device.
     if (Android.OS.Environment.IsExternalStorageEmulated)
     {
@@ -701,28 +739,30 @@ class SaveAndroid: ISave
 
     Java.IO.File file = new Java.IO.File(myDir, fileName);
 
+    //Remove if the file exists
+    if (file.Exists()) file.Delete();
+
     //Write the stream into the file
     FileOutputStream outs = new FileOutputStream(file);
     outs.Write(stream.ToArray());
+
     outs.Flush();
     outs.Close();
 
     //Invoke the created file for viewing
     if (file.Exists())
-	{
+    {
+      Android.Net.Uri path = Android.Net.Uri.FromFile(file);
       string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
       string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
       Intent intent = new Intent(Intent.ActionView);
-      intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-      Android.Net.Uri path = FileProvider.GetUriForFile(Forms.Context, Android.App.Application.Context.PackageName + ".provider", file);
       intent.SetDataAndType(path, mimeType);
-      intent.AddFlags(ActivityFlags.GrantReadUriPermission);
       Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-	}
+    }
   }
 }
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %} 
 
 N> Introduced a new runtime permission model for the Android SDK version 23 and above. So, include the following code for enabling the Android file provider to save and view the generated PDF document.
 
@@ -757,10 +797,10 @@ Add the following code to the **AndroidManifest.xml** file located under Propert
 {% endhighlight %}
 {% endtabs %}
 
-### iOS
+### Helper class for iOS project
 
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -776,10 +816,10 @@ using QuickLook;
 
 class SaveIOS: ISave
 {
-  //Method to save document as a file in iOS and view the saved document.
+  //Method to save document as a file and view the saved document
   public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
   {
-    //Get the root path of iOS device.
+    //Get the root path in iOS device.
     string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
     string filePath = Path.Combine(path, filename);
 
@@ -787,68 +827,68 @@ class SaveIOS: ISave
     FileStream fileStream = File.Open(filePath, FileMode.Create);
     stream.Position = 0;
     stream.CopyTo(fileStream);
-
     fileStream.Flush();
     fileStream.Close();
 
-    //Launch the saved file for viewing in default viewer.
+    //Invoke the saved document for viewing
     UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
     while (currentController.PresentedViewController != null)
       currentController = currentController.PresentedViewController;
     UIView currentView = currentController.View;
 
-    QLPreviewController preview = new QLPreviewController();
+    QLPreviewController qlPreview = new QLPreviewController();
     QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-    preview.DataSource = new PreviewControllerDS(item);
+    qlPreview.DataSource = new PreviewControllerDS(item);
 
-    currentController.PresentViewController(preview, true, null);
+    currentController.PresentViewController(qlPreview, true, null);
   }
 }
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %} 
 
-N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using System;
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using Foundation;
 using QuickLook;
+using System;
+using System.IO;
 
 public class PreviewControllerDS : QLPreviewControllerDataSource
 {
+  //Document cache
   private QLPreviewItem _item;
 
+  //Setting the document
   public PreviewControllerDS(QLPreviewItem item)
   {
     _item = item;
   }
 
+  //Setting document count to 1
   public override nint PreviewItemCount (QLPreviewController controller)
   {
-    return (nint)1;
+    return 1;
   }
 
+  //Return the document
   public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
   {
     return _item;
   }
 }
 
-using System;
-using QuickLook;
-using Foundation;
-using System.IO;
-
 public class QLPreviewItemFileSystem : QLPreviewItem
 {
   string _fileName, _filePath;
 
+  //Setting file name and path
   public QLPreviewItemFileSystem(string fileName, string filePath)
   {
     _fileName = fileName;
     _filePath = filePath;
   }
 
+  //Return file name
   public override string ItemTitle
   {
     get
@@ -856,6 +896,8 @@ public class QLPreviewItemFileSystem : QLPreviewItem
       return _fileName;
     }
   }
+
+  //Retun file path as NSUrl
   public override NSUrl ItemUrl
   {
     get
@@ -868,19 +910,24 @@ public class QLPreviewItemFileSystem : QLPreviewItem
 public class QLPreviewItemBundle : QLPreviewItem
 {
   string _fileName, _filePath;
+
+  //Setting file name and path
   public QLPreviewItemBundle(string fileName, string filePath)
   {
     _fileName = fileName;
     _filePath = filePath;
   }
 
+  //Return file name
   public override string ItemTitle
   {
     get
-	{
+    {
       return _fileName;
     }
   }
+
+  //Retun file path as NSUrl
   public override NSUrl ItemUrl
   {
     get
@@ -892,7 +939,41 @@ public class QLPreviewItemBundle : QLPreviewItem
     }
   }
 }
+{% endhighlight %}
+{% endtabs %} 
 
+### Helper class for Windows Phone
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.Storage;
+using System.IO;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(SaveWindowsPhone))]
+
+class SaveWindowsPhone: ISave
+{
+  //Method to save document as a file in Windows Phone and view the saved document.
+  public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+  {
+    //Save the stream to a file. 
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+    {
+	  outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+    }
+
+    //Launch the saved file for viewing in default viewer.
+    await Windows.System.Launcher.LaunchFileAsync(outFile);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 

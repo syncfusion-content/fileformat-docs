@@ -166,3 +166,23 @@ Add the following JavaScript function in the ``index.html`` file present under `
 </script>
 {% endhighlight %}
 {% endtabs %}
+
+Add the following code under ``NavMenu.razor`` file present under ``Shared`` folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+<li class="nav-item px-3">
+  <NavLink class="nav-link" href="Excel">
+    <span class="oi oi-list-rich" aria-hidden="true"></span> Create Excel
+  </NavLink>
+</li>
+{% endhighlight %}
+{% endtabs %}
+
+Add the service to services collection in ``ConfigureServices`` method of ``Startup.cs`` file.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+services.AddSingleton<ExcelService>();
+{% endhighlight %}
+{% endtabs %}

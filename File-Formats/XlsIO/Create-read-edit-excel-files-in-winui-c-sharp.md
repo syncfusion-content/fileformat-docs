@@ -27,7 +27,6 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 4. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](WinUI_images/WinUI_images_img4.png)
 <img src="WinUI_images/WinUI_images_img4.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
 5. Add a new button to the **MainWindow.xaml** as shown below.
