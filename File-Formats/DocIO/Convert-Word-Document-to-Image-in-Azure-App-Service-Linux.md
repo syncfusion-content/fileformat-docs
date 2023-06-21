@@ -25,9 +25,11 @@ Step 4: Install the following **Nuget packages** in your application from [Nuget
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
 * [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
+* [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
  ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
  ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
+ ![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz-Nuget-WordtoImage.png)
 
 Step 5: Add a new button in the **Index.cshtml** as shown below.
 
@@ -193,6 +195,6 @@ Step 11: Now, the published webpage will open in the browser.
 ![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoImage.png)
 
 Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to a image.You will get the output **image** as follows.
-![Word to Image in Azure App Service on Linux](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
+![Word to Image in Azure App Service on Linux](WordToPDF_images/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Azure/Azure_App_Service).
