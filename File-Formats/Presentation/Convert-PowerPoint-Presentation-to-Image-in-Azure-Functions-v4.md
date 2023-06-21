@@ -1,16 +1,16 @@
 ---
-title: Convert PPTX to Image in Azure Functions v1 | Syncfusion
-description: Convert PPTX to image in Azure Functions v1 using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PPTX to Image in Azure Functions v4 | Syncfusion
+description: Convert PPTX to image in Azure Functions v4 using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert PowerPoint Presentation to Image in Azure Functions v1
+# Convert PowerPoint Presentation to Image in Azure Functions v4
 
-Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
 
-## Steps to convert a PowerPoint Presentation to Image in Azure Functions v1
+## Steps to convert a PowerPoint Presentation to Image in Azure Functions v4
 
 Step 1: Create a new Azure Functions project.
 ![Create a Azure Functions project](Azure_Images/Functions_v1/Azure_PowerPoint_Presentation_to_PDF.png)
@@ -18,20 +18,20 @@ Step 1: Create a new Azure Functions project.
 Step 2: Create a project name and select the location.
 ![Create a project name](Azure_Images/Functions_v1/Configure_PowerPoint_Presentation_to_Image.png)
 
-Step 3: Select function worker as **.NET Framework**. 
-![Select function worker](Azure_Images/Functions_v1/Additional_Information_PowerPoint_Presentation_to_PDF.png)
+Step 3: Select function worker as **.NET 6.0 (Long Term Support)**. 
+![Select function worker](Azure_Images/Functions_v4/Additional_Information_PowerPoint_Presentation_to_PDF.png)
 
-Step 4: Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-![Install Syncfusion.Presentation.AspNet NuGet package](Azure_Images/Functions_v1/Nuget_Package_PowerPoint_Presentation_to_Image.png)
+Step 4: Install the [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+![Install Syncfusion.PresentationRenderer.Net.Core NuGet package](Azure_Images/Functions_v4/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
 
 Step 5: Include the following namespaces in the **Function1.cs** file.
-
 {% tabs %}
+
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.Presentation;
-
+using Syncfusion.PresentationRenderer;
 {% endhighlight %}
+
 {% endtabs %}
 
 Step 6: Add the following code snippet in **Run** method of **Function1** class to perform **PowerPoint Presentation to image conversion** in Azure Functions and return the resultant **image** to client end.
@@ -41,15 +41,21 @@ Step 6: Add the following code snippet in **Run** method of **Function1** class 
 
 //Gets the input PowerPoint document as stream from request.
 Stream stream = req.Content.ReadAsStreamAsync().Result;
-//Loads an existing PowerPoint Presentation document.
+//Loads an existing PowerPoint document
 using (IPresentation pptxDoc = Presentation.Open(stream))
 {
-    //Converts the first slide into image
-    System.Drawing.Image image = pptxDoc.Slides[0].ConvertToImage(ImageType.Metafile);
-    //initializes a new instance of the MemoryStream.
+    //Initialize the PresentationRenderer to perform image conversion.
+    pptxDoc.PresentationRenderer = new PresentationRenderer();
+    //Convert PowerPoint slide to image as stream.
+    Stream imageStream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Png);
+    //Reset the stream position.
+    imageStream.Position = 0;
+    // Create a new memory stream.
     MemoryStream memoryStream = new MemoryStream();
-    //Saves the image document
-    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+    // Copy the contents of the image stream to the memory stream.
+    imageStream.CopyTo(memoryStream);
+    //Reset the stream position.
+    memoryStream.Position = 0;
     //Create the response to return.
     HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
     //Set the image document saved stream as content of response.
@@ -57,13 +63,12 @@ using (IPresentation pptxDoc = Presentation.Open(stream))
     //Set the contentDisposition as attachment.
     response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
     {
-        FileName = "PPTXtoImage.Jpeg"
+        FileName = "PPTXtoImage.jpeg"
     };
-    //Set the content type as image document mime type.
+    //Set the content type as image mime type.
     response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/jpeg");
     //Return the response with output image stream.
     return response;
-}
 
 {% endhighlight %}
 {% endtabs %}
@@ -89,15 +94,15 @@ Step 12: Click the **Publish** button.
 Step 13: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/After_Publish_PowerPoint_Presentation_to_Image.png)
 
-Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **PowerPoint Presentation to image conversion** using the template PowerPoint document). You will get the output image as follows.
+Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **PowerPoint Presentation to image conversion** using the template PowerPoint document). You will get the output **image** as follows.
 
-![PowerPoint to Image in Azure Functions v1](Azure_Images/Functions_v1/Output_PowerPoint_Presentation_to-Image.png)
+![PowerPoint to PDF in Azure Functions v4](Azure_Images/Functions_v1/Output_PowerPoint_Presentation_to-Image.png)
 
 ## Steps to post the request to Azure Functions
 
-Step 1: Create a console application to request the Azure Functions API.
+Step 1: Create a **console application** to request the Azure Functions API.
 
-Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template PowerPoint document and get the resultant image.
+Step 2: Add the following code snippet into **Main** method to post the request to Azure Functions with template PowerPoint document and get the resultant **image**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

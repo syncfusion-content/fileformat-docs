@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to PDF in Azure Functions v4
 
-Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
 
 ## Steps to convert a PowerPoint Presentation to PDF in Azure Functions v4
 
@@ -18,7 +18,7 @@ Step 1: Create a new Azure Functions project.
 Step 2: Create a project name and select the location.
 ![Create a project name](Azure_Images/Functions_v1/Configure_PowerPoint_Presentation_to_PDF.png)
 
-Step 3: Select function worker as **.NET Framework**. 
+Step 3: Select function worker as **.NET 6.0 (Long Term Support)**. 
 ![Select function worker](Azure_Images/Functions_v4/Additional_Information_PowerPoint_Presentation_to_PDF.png)
 
 Step 4: Install the [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
