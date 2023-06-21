@@ -1,6 +1,6 @@
 ---
 title: Convert Word to Image in UWP | Syncfusion
-description: Convert Word to image without Microsoft Word or interop dependencies in UWP application using .NET Core Word (DocIO) library.
+description: Convert Word to image in UWP using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG

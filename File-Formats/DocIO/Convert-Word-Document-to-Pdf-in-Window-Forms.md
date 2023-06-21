@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in Windows Forms | Syncfusion 
-description: Convert Word to PDF without Microsoft Word or interop dependencies in Windows Forms application using .NET Word (DocIO) library.
+description: Convert Word to PDF in Windows Forms using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Windows Forms**.
 
-## Steps to convert Word document to PDF in Windows Forms:
+## Steps to convert Word document to PDF in Windows Forms
 
 Step 1: Create a new Windows Forms application project.
 
@@ -101,4 +101,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Windows Forms output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in Windows Forms](WordToPDF_images/OutputImage.png)
