@@ -189,6 +189,6 @@ Step 11: Now, the published webpage will open in the browser.
 ![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_WordtoImage.png)
 
 Step 12: Select the Word document and Click **Convert to Image** to convert the given Word document to image.You will get the output **image** as follows.
-![Word to Image in Azure App Service on Windows](Azure_Images/App_Service_Linux/Output-WordtoImage.png)
+![Word to Image in Azure App Service on Windows](WordToPDF_images/Output-WordtoImage.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Azure/Azure_App_Service).
