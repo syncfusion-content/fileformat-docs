@@ -33,52 +33,10 @@ You can compress all the images of an existing PDF document by enabling the [Com
 The following example code snippet illustrates how to compress the images in existing PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Load the existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
-//Create a new compression option.
-PdfCompressionOptions options = new PdfCompressionOptions();
-//Enable the compress image.
-options.CompressImages = true;
-//Set the image quality.
-options.ImageQuality = 50;
-
-//Assign the compression option to the document
-loadedDocument.CompressionOptions = options;
-
-//Save the PDF document
-loadedDocument.Save("Output.pdf");
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
-'Create a new compression option.
-Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-'Enable the compress image.
-options.CompressImages = True
-'Set the image quality.
-options.ImageQuality = 50
-
-'Assign the compression option to the document
-loadedDocument.CompressionOptions = options
-
-'Save the PDF document
-loadedDocument.Save("Output.pdf")
-'Close the document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load an existing PDF
+//Load an existing PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
@@ -90,10 +48,10 @@ options.CompressImages = true;
 //Set the image quality.
 options.ImageQuality = 50;
 
-//Assign the compression option to the document
+//Assign the compression option to the document.
 loadedDocument.Compress(options);
 
-//Creating the stream object
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
 //Save the document into stream.
 loadedDocument.Save(stream);
@@ -101,12 +59,56 @@ loadedDocument.Save(stream);
 loadedDocument.Close(true);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-//Defining the ContentType for pdf file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name. 
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+//Enable the compress image.
+options.CompressImages = true;
+//Set the image quality.
+options.ImageQuality = 50;
+
+//Assign the compression option to the document.
+loadedDocument.CompressionOptions = options;
+
+//Save the PDF document.
+loadedDocument.Save("Output.pdf");
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Create a new compression option.
+Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+'Enable the compress image.
+options.CompressImages = True
+'Set the image quality.
+options.ImageQuality = 50
+
+'Assign the compression option to the document.
+loadedDocument.CompressionOptions = options
+
+'Save the PDF document.
+loadedDocument.Save("Output.pdf")
+'Close the document.
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -121,61 +123,23 @@ You can optimize the embedded fonts in an existing PDF document by enabling the 
 The following example code snippet illustrates how to optimize embedded font in existing PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Load the existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
-//Create a new compression option.
-PdfCompressionOptions options = new PdfCompressionOptions();
-//Enable the optimize font option
-options.OptimizeFont = true;
-
-//Assign the compression option to the document
-loadedDocument.CompressionOptions = options;
-
-//Save the PDF document
-loadedDocument.Save("Output.pdf");
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
-'Create a new compression option.
-Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-'Enable the optimize font option
-options.OptimizeFont = True
-
-'Assign the compression option to the document
-loadedDocument.CompressionOptions = options
-
-'Save the PDF document
-loadedDocument.Save("Output.pdf")
-'Close the document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load an existing PDF
+//Load an existing PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-//Load the existing PDF document
+//Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Create a new compression option.
 PdfCompressionOptions options = new PdfCompressionOptions();
-//Enable the optimize font option
+//Enable the optimize font option.
 options.OptimizeFont = true;
 
-//Assign the compression option to the document
+//Assign the compression option to the document.
 loadedDocument.Compress(options);
 
-//Creating the stream object
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
 //Save the document into stream.
 loadedDocument.Save(stream);
@@ -183,12 +147,52 @@ loadedDocument.Save(stream);
 loadedDocument.Close(true);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-//Defining the ContentType for pdf file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name. 
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+//Enable the optimize font option.
+options.OptimizeFont = true;
+
+//Assign the compression option to the document.
+loadedDocument.CompressionOptions = options;
+
+//Save the PDF document.
+loadedDocument.Save("Output.pdf");
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Create a new compression option.
+Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+'Enable the optimize font option.
+options.OptimizeFont = True
+
+'Assign the compression option to the document.
+loadedDocument.CompressionOptions = options
+
+'Save the PDF document.
+loadedDocument.Save("Output.pdf")
+'Close the document.
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -205,50 +209,12 @@ You can compress the page contents in an existing PDF document by enabling the [
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Load the existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Create a new compression option.
-PdfCompressionOptions options = new PdfCompressionOptions();
-//Enable the optimize page contents.
-options.OptimizePageContents = true;
-
-//Assign the compression option to the document
-loadedDocument.CompressionOptions = options;
-
-//Save the PDF document
-loadedDocument.Save("Output.pdf");
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
-'Create a new compression option.
-Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-'Enable the optimize page contents.
-options.OptimizePageContents = True
-
-'Assign the compression option to the document
-loadedDocument.CompressionOptions = options
-
-'Save the PDF document
-loadedDocument.Save("Output.pdf")
-'Close the document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load an existing PDF
+//Load an existing PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-//Load the existing PDF document
+//Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Create a new compression option.
@@ -256,10 +222,10 @@ PdfCompressionOptions options = new PdfCompressionOptions();
 //Enable the optimize page contents.
 options.OptimizePageContents = true;
 
-//Assign the compression option to the document
+//Assign the compression option to the document.
 loadedDocument.Compress(options);
 
-//Creating the stream object
+//Creating the stream object.
 MemoryStream stream = new MemoryStream();
 //Save the document into stream.
 loadedDocument.Save(stream);
@@ -267,12 +233,52 @@ loadedDocument.Save(stream);
 loadedDocument.Close(true);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-//Defining the ContentType for pdf file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
-//Define the file name. 
+//Define the file name.
 string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name. 
+//Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+//Enable the optimize page contents.
+options.OptimizePageContents = true;
+
+//Assign the compression option to the document.
+loadedDocument.CompressionOptions = options;
+
+//Save the PDF document.
+loadedDocument.Save("Output.pdf");
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Create a new compression option.
+Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+'Enable the optimize page contents.
+options.OptimizePageContents = True
+
+'Assign the compression option to the document.
+loadedDocument.CompressionOptions = options
+
+'Save the PDF document.
+loadedDocument.Save("Output.pdf")
+'Close the document.
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -287,50 +293,12 @@ You can reduce the PDF file size by removing the PDF document metadata informati
 The following example code snippet illustrates how to optimize page contents in existing PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Load the existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
-//Create a new compression option.
-PdfCompressionOptions options = new PdfCompressionOptions();
-//Set to remove the metadata information.
-options.RemoveMetadata = true;
-
-//Assign the compression option to the document
-loadedDocument.CompressionOptions = options;
-
-//Save the PDF document
-loadedDocument.Save("Output.pdf");
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-
-'Create a new compression option.
-Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-'Set to remove the metadata information.
-options.RemoveMetadata = True
-
-'Assign the compression option to the document
-loadedDocument.CompressionOptions = options
-
-'Save the PDF document
-loadedDocument.Save("Output.pdf")
-'Close the document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load an existing PDF
+//Load an existing PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-//Load the existing PDF document
+//Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 
 //Create a new compression option.
@@ -338,7 +306,7 @@ PdfCompressionOptions options = new PdfCompressionOptions();
 //Set to remove the metadata information.
 options.RemoveMetadata = true;
 
-//Assign the compression option to the document
+//Assign the compression option to the document.
 loadedDocument.Compress(options);
 
 //Creating the stream object
@@ -349,12 +317,52 @@ loadedDocument.Save(stream);
 loadedDocument.Close(true);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
-//Defining the ContentType for pdf file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name. 
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name. 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Create a new compression option.
+PdfCompressionOptions options = new PdfCompressionOptions();
+//Set to remove the metadata information.
+options.RemoveMetadata = true;
+
+//Assign the compression option to the document.
+loadedDocument.CompressionOptions = options;
+
+//Save the PDF document.
+loadedDocument.Save("Output.pdf");
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Create a new compression option.
+Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+'Set to remove the metadata information.
+options.RemoveMetadata = True
+
+'Assign the compression option to the document.
+loadedDocument.CompressionOptions = options
+
+'Save the PDF document.
+loadedDocument.Save("Output.pdf")
+'Close the document.
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -374,11 +382,50 @@ Content compression involves,
 The following code snippet illustrates how to compress the content of the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
-//Set the compression level to best
+//Set the compression level to best.
+document.Compression = PdfCompressionLevel.Best;
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+//Set the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+string text = "Hello World!!!";
+PdfTextElement textElement = new PdfTextElement(text, font);
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, font.MeasureString(text).Width, page.GetClientSize().Height));
+for (int i = 0; i < 1000; i++)
+{
+    result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom + 10, font.MeasureString(text).Width, page.GetClientSize().Height));
+}
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+//Save the document into stream.
+document.Save(stream);
+//Close the documents.
+document.Close(true);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Defining the content type for PDF file.
+string contentType = "application/pdf";
+//Define the file name. 
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Set the compression level to best.
 document.Compression = PdfCompressionLevel.Best;
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
@@ -402,7 +449,8 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -429,50 +477,13 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Set the compression level to best
-document.Compression = PdfCompressionLevel.Best;
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-
-//Create PDF graphics for the page.
-PdfGraphics graphics = page.Graphics;
-//Set the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-string text = "Hello World!!!";
-PdfTextElement textElement = new PdfTextElement(text, font);
-PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, font.MeasureString(text).Width, page.GetClientSize().Height));
-for (int i = 0; i < 1000; i++)
-{
-    result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom + 10, font.MeasureString(text).Width, page.GetClientSize().Height));
-}
-
-//Creating the stream object
-MemoryStream stream = new MemoryStream();
-//Save the document into stream.
-document.Save(stream);
-//Close the documents.
-document.Close(true);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name. 
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name. 
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can compress the existing PDF document by specifying the [PdfCompressionLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfCompressionLevel.html) and setting the [IncrementalUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html#Syncfusion_Pdf_PdfFileStructure_IncrementalUpdate) property in [FileStructure](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html) class. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -488,7 +499,8 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
@@ -514,7 +526,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Essential PDF allows you to compress/change the quality of the image in the PDF document by assigning [Quality](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_Quality) property available in the [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) class. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -536,7 +549,8 @@ document.Save("Output.pdf");
 document.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -566,11 +580,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can compress the images in an existing PDF document by extract the images using [ExtractImages]() method and assigning the image quality using [Quality](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html#Syncfusion_Pdf_Graphics_PdfBitmap_Quality) property available in the [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) class. 
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Load the PDF document which c images
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the PDF document with images
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
-
 //Disable the incremental update
 loadedDocument.FileStructure.IncrementalUpdate = false;
 
@@ -589,16 +603,15 @@ image.Quality = 50;
 //replace the compressed image with old image in the PDF document
 page.ReplaceImage(j, image);
 }
-
 }
 
 //Save and close the document
 loadedDocument.Save("Output.pdf");
-
 loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document which consist of images
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
