@@ -15,80 +15,7 @@ The below code illustrates how to draw the text watermark in new PDF document us
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document.
-PdfDocument pdfDocument = new PdfDocument();
-//Add a page to the PDF document.
-PdfPage pdfPage = pdfDocument.Pages.Add();
-//Create PDF graphics for the page.
-PdfGraphics graphics = pdfPage.Graphics;
-
-//Set the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Add watermark text.
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-graphics.RotateTransform(-40);
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
-
-//Save and close the document.
-pdfDocument.Save("Watermark.pdf");
-pdfDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document.
-Dim pdfDocument As New PdfDocument()
-'Add a page to the PDF document.
-Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
-'Create PDF graphics for the page.
-Dim graphics As PdfGraphics = pdfPage.Graphics
-
-'Set the font.
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
-'Add watermark text.
-Dim state As PdfGraphicsState = graphics.Save()
-graphics.SetTransparency(0.25F)
-graphics.RotateTransform(-40)
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, New PointF(-150, 450))
-
-'Save and close the document.
-pdfDocument.Save("Watermark.pdf")
-pdfDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument pdfDocument = new PdfDocument();
-//Add a page to the PDF document.
-PdfPage pdfPage = pdfDocument.Pages.Add();
-//Create PDF graphics for the page.
-PdfGraphics graphics = pdfPage.Graphics;
-
-//Set the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Watermark text.
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-graphics.RotateTransform(-40);
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await pdfDocument.SaveAsync(stream);
-//Close the document.
-pdfDocument.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "Watermark.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF document.
 PdfDocument pdfDocument = new PdfDocument();
@@ -111,7 +38,7 @@ pdfDocument.Save(stream);
 stream.Position = 0;
 //Close the document.
 pdfDocument.Close(true);
-//Defining the ContentType for PDF file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name.
 string fileName = "Watermark.pdf";
@@ -120,7 +47,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument pdfDocument = new PdfDocument();
@@ -137,21 +64,32 @@ graphics.SetTransparency(0.25f);
 graphics.RotateTransform(-40);
 graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-//Closes the document.
+//Save and close the document.
+pdfDocument.Save("Watermark.pdf");
 pdfDocument.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document.
+Dim pdfDocument As New PdfDocument()
+'Add a page to the PDF document.
+Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
+'Create PDF graphics for the page.
+Dim graphics As PdfGraphics = pdfPage.Graphics
+
+'Set the font.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+'Add watermark text.
+Dim state As PdfGraphicsState = graphics.Save()
+graphics.SetTransparency(0.25F)
+graphics.RotateTransform(-40)
+graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, New PointF(-150, 450))
+
+'Save and close the document.
+pdfDocument.Save("Watermark.pdf")
+pdfDocument.Close(True)
 
 {% endhighlight %}
 
@@ -166,90 +104,7 @@ The below code illustrates how to draw the text watermark in an existing PDF doc
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load an existing PDF document.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-//Get first page from document.
-PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page.
-PdfGraphics graphics = loadedPage.Graphics;
-
-//Set the standard font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Add watermark text.
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-graphics.RotateTransform(-40);
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
-
-//Save and close the document.
-loadedDocument.Save("watermark.pdf");
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load an existing PDF document.
-Dim loadedDocument As New PdfLoadedDocument(fileName)
-'Get first page from document.
-Dim loadedPage As PdfPageBase = loadedDocument.Pages(0)
-'Create PDF graphics for the page.
-Dim graphics As PdfGraphics = loadedPage.Graphics
-
-'Set the font.
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
-
-'Add watermark text.
-Dim state As PdfGraphicsState = graphics.Save()
-graphics.SetTransparency(0.25F)
-graphics.RotateTransform(-40)
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, New PointF(-150, 450))
-
-'Save and close the document.
-loadedDocument.Save("watermark.pdf")
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-
-//Get first page from document
-PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page
-PdfGraphics graphics = loadedPage.Graphics;
-
-//Set the standard font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-
-//Add watermark text.
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-graphics.RotateTransform(-40);
-graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document.
-loadedDocument.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load an existing PDF document.
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -274,48 +129,59 @@ loadedDocument.Save(stream);
 stream.Position = 0;
 //Close the document.
 loadedDocument.Close(true);
-//Defining the ContentType for pdf file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name.
-string fileName = "watermark.pdf";
+string fileName = "Watermark.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get first page from document
+//Load an existing PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+//Get first page from document.
 PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = loadedPage.Graphics;
 
-//Set the standard font
+//Set the standard font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-//Add the watermark text
+//Add watermark text.
 PdfGraphicsState state = graphics.Save();
 graphics.SetTransparency(0.25f);
 graphics.RotateTransform(-40);
 graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, new PointF(-150, 450));
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Closes the document
+//Save and close the document.
+loadedDocument.Save("Watermark.pdf");
 loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document.
+Dim loadedDocument As New PdfLoadedDocument(fileName)
+'Get first page from document.
+Dim loadedPage As PdfPageBase = loadedDocument.Pages(0)
+'Create PDF graphics for the page.
+Dim graphics As PdfGraphics = loadedPage.Graphics
+
+'Set the font.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+
+'Add watermark text.
+Dim state As PdfGraphicsState = graphics.Save()
+graphics.SetTransparency(0.25F)
+graphics.RotateTransform(-40)
+graphics.DrawString("Imported using Essential PDF", font, PdfPens.Red, PdfBrushes.Red, New PointF(-150, 450))
+
+'Save and close the document.
+loadedDocument.Save("Watermark.pdf")
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -332,79 +198,7 @@ The below code sample illustrates how to add image watermark in PDF document, us
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document.
-PdfDocument pdfDocument = new PdfDocument();
-//Add a page to the PDF document.
-PdfPage pdfPage = pdfDocument.Pages.Add();
-//Create PDF graphics for the page.
-PdfGraphics graphics = pdfPage.Graphics;
-
-//Add image watermark.
-PdfImage image = new PdfBitmap("Image.jpeg");
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-//Draw the image
-graphics.DrawImage(image, new PointF(0, 0), pdfPage.Graphics.ClientSize);
-
-//Save and close the document.
-pdfDocument.Save("Watermark.pdf");
-pdfDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document.
-Dim pdfDocument As New PdfDocument()
-'Add a page to the PDF document.
-Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
-'Create PDF graphics for the page
-Dim graphics As PdfGraphics = pdfPage.Graphics
-
-'Add image watermark.
-Dim image As PdfImage = New PdfBitmap("Image.jpeg")
-Dim state As PdfGraphicsState = graphics.Save()
-graphics.SetTransparency(0.25F)
-'Draw the image.
-graphics.DrawImage(image, New PointF(0, 0), pdfPage.Graphics.ClientSize)
-
-'Save and close the document.
-pdfDocument.Save("Watermark.pdf")
-pdfDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument pdfDocument = new PdfDocument();
-//Add a page to the PDF document.
-PdfPage pdfPage = pdfDocument.Pages.Add();
-//Create PDF graphics for the page.
-PdfGraphics graphics = pdfPage.Graphics;
-
-//Load the image as stream.
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpeg");
-//Image watermark.
-PdfImage image = new PdfBitmap(imageStream);
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-//Draw the image. 
-graphics.DrawImage(image, new PointF(0, 0), pdfPage.Graphics.ClientSize);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDocument.SaveAsync(stream);
-//Close the document.
-pdfDocument.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "Watermark.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Create a new PDF document.
 PdfDocument pdfDocument = new PdfDocument();
@@ -428,7 +222,7 @@ pdfDocument.Save(stream);
 stream.Position = 0;
 //Close the document.
 pdfDocument.Close(true);
-//Defining the ContentType for PDF file.
+//Defining the content type for PDF file.
 string contentType = "application/pdf";
 //Define the file name.
 string fileName = "Watermark.pdf";
@@ -437,7 +231,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument pdfDocument = new PdfDocument();
@@ -446,29 +240,38 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = pdfPage.Graphics;
 
-//Load the image as stream.
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpeg");
-PdfImage image = new PdfBitmap(imageStream);
+//Add image watermark.
+PdfImage image = new PdfBitmap("Image.jpeg");
 PdfGraphicsState state = graphics.Save();
 graphics.SetTransparency(0.25f);
-//Draw the image.
+//Draw the image
 graphics.DrawImage(image, new PointF(0, 0), pdfPage.Graphics.ClientSize);
 
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-//Closes the document.
+//Save and close the document.
+pdfDocument.Save("Watermark.pdf");
 pdfDocument.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document.
+Dim pdfDocument As New PdfDocument()
+'Add a page to the PDF document.
+Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = pdfPage.Graphics
+
+'Add image watermark.
+Dim image As PdfImage = New PdfBitmap("Image.jpeg")
+Dim state As PdfGraphicsState = graphics.Save()
+graphics.SetTransparency(0.25F)
+'Draw the image.
+graphics.DrawImage(image, New PointF(0, 0), pdfPage.Graphics.ClientSize)
+
+'Save and close the document.
+pdfDocument.Save("Watermark.pdf")
+pdfDocument.Close(True)
 
 {% endhighlight %}
 
@@ -483,86 +286,7 @@ The below code illustrates how to draw the image watermark in existing PDF docum
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load an existing document.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-//Get first page from document.
-PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page.
-PdfGraphics graphics = loadedPage.Graphics;
-
-//Add image watermark.
-PdfImage image = new PdfBitmap("Image.jpeg");
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-//Draw the image. 
-graphics.DrawImage(image, new PointF(0, 0), loadedPage.Graphics.ClientSize);
-
-//Save and close the document.
-loadedDocument.Save("watermark.pdf");
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the document.
-Dim loadedDocument As New PdfLoadedDocument(fileName)
-'Get first page from document.
-Dim loadedPage As PdfPageBase = loadedDocument.Pages(0)
-'Create PDF graphics for the page
-Dim graphics As PdfGraphics = loadedPage.Graphics
-
-'Add image watermark.
-Dim image As PdfImage = New PdfBitmap("Image.jpeg")
-Dim state As PdfGraphicsState = graphics.Save()
-graphics.SetTransparency(0.25F)
-'Draw the image.
-graphics.DrawImage(image, New PointF(0, 0), loadedPage.Graphics.ClientSize)
-
-'Save and close the document.
-loadedDocument.Save("watermark.pdf")
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-//Get first page from document.
-PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page.
-PdfGraphics graphics = loadedPage.Graphics;
-
-//Load the image as stream.
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpeg");
-//Add image watermark.
-PdfImage image = new PdfBitmap(imageStream);
-PdfGraphicsState state = graphics.Save();
-graphics.SetTransparency(0.25f);
-//Draw the image. 
-graphics.DrawImage(image, new PointF(0, 0), loadedPage.Graphics.ClientSize);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -586,48 +310,56 @@ loadedDocument.Save(stream);
 stream.Position = 0;
 //Close the document
 loadedDocument.Close(true);
-//Defining the ContentType for PDF file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
-string fileName = "watermark.pdf";
+string fileName = "Watermark.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get first page from document
+//Load an existing document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+//Get first page from document.
 PdfPageBase loadedPage = loadedDocument.Pages[0];
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = loadedPage.Graphics;
 
-//Load the image as stream.
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpeg");
-PdfImage image = new PdfBitmap(imageStream);
+//Add image watermark.
+PdfImage image = new PdfBitmap("Image.jpeg");
 PdfGraphicsState state = graphics.Save();
 graphics.SetTransparency(0.25f);
 //Draw the image. 
 graphics.DrawImage(image, new PointF(0, 0), loadedPage.Graphics.ClientSize);
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Closes the document
+//Save and close the document.
+loadedDocument.Save("watermark.pdf");
 loadedDocument.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the document.
+Dim loadedDocument As New PdfLoadedDocument(fileName)
+'Get first page from document.
+Dim loadedPage As PdfPageBase = loadedDocument.Pages(0)
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = loadedPage.Graphics
+
+'Add image watermark.
+Dim image As PdfImage = New PdfBitmap("Image.jpeg")
+Dim state As PdfGraphicsState = graphics.Save()
+graphics.SetTransparency(0.25F)
+'Draw the image.
+graphics.DrawImage(image, New PointF(0, 0), loadedPage.Graphics.ClientSize)
+
+'Save and close the document.
+loadedDocument.Save("watermark.pdf")
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
