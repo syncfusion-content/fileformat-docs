@@ -17,7 +17,35 @@ Please refer the below code snippet for navigating to the web page.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+//Create the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
+
+//Create the Text Web Link.
+PdfTextWebLink textLink = new PdfTextWebLink();
+//Set the hyperlink.
+textLink.Url = "http://www.syncfusion.com";
+//Set the link text.
+textLink.Text = "Syncfusion .NET components and controls";
+//Set the font.
+textLink.Font = font;
+//Draw the hyperlink in PDF page.
+textLink.DrawTextWebLink(page, new PointF(10, 40));
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -44,7 +72,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -71,110 +99,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in PDF page.
-textLink.DrawTextWebLink(page, new PointF(10, 40));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in PDF page.
-textLink.DrawTextWebLink(page, new PointF(10, 40));
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-document.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Add a page to the document.
-PdfPage page = document.Pages.Add();
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in PDF page.
-textLink.DrawTextWebLink(page, new PointF(10, 40));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Closes the document.
-document.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Navigate-to-specific-URL-from-a-PDF-document/). 
@@ -183,7 +107,36 @@ To add a web hyperlink to an existing document, please refer the below code snip
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Load the page.
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+//Create the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
+
+//Create the Text Web Link.
+PdfTextWebLink textLink = new PdfTextWebLink();
+//Set the hyperlink.
+textLink.Url = "http://www.syncfusion.com";
+//Set the link text.
+textLink.Text = "Syncfusion .NET components and controls";
+//Set the font.
+textLink.Font = font;
+//Draw the hyperlink in loaded page graphics.
+textLink.DrawTextWebLink(loadedPage.Graphics, new PointF(10, 40));
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"Filename.pdf");
@@ -210,7 +163,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document.
 Dim loadedDocument As New PdfLoadedDocument("fileName.pdf")
@@ -237,117 +190,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in loaded page graphics.
-textLink.DrawTextWebLink(loadedPage.Graphics, new PointF(10, 40));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in loaded page graphics.
-textLink.DrawTextWebLink(loadedPage.Graphics, new PointF(10, 40));
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create the font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
-
-//Create the Text Web Link.
-PdfTextWebLink textLink = new PdfTextWebLink();
-//Set the hyperlink.
-textLink.Url = "http://www.syncfusion.com";
-//Set the link text.
-textLink.Text = "Syncfusion .NET components and controls";
-//Set the font.
-textLink.Font = font;
-//Draw the hyperlink in loaded page graphics.
-textLink.DrawTextWebLink(loadedPage.Graphics, new PointF(10, 40));
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Add-a-web-hyperlink-to-an-existing-PDF-document). 
@@ -358,7 +200,43 @@ To allow the users to navigate to any other part of the same document, [PdfDocum
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Create a new page. 
+PdfPage page = document.Pages.Add();
+//Create a new rectangle.
+RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
+
+//Create a new document link annotation.
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
+//Set the annotation flags.
+documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
+//Set the annotation text.
+documentLinkAnnotation.Text = "Document link annotation";
+//Set the annotation's color.
+documentLinkAnnotation.Color = new PdfColor(Color.Navy);
+//Creates another page. 
+PdfPage navigationPage = document.Pages.Add();
+//Set the destination.
+documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
+//Set the document link annotation location.
+documentLinkAnnotation.Destination.Location = new PointF(10, 0);
+//Set the document annotation zoom level.
+documentLinkAnnotation.Destination.Zoom = 5;
+//Add this annotation to a new page.
+page.Annotations.Add(documentLinkAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -393,7 +271,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.
 Dim document As New PdfDocument()
@@ -428,134 +306,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page. 
-PdfPage page = document.Pages.Add();
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation flags.
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the annotation's color.
-documentLinkAnnotation.Color = new PdfColor(System.Drawing.Color.FromArgb(0, 0, 0, 128));
-//Creates another page. 
-PdfPage navigationPage = document.Pages.Add();
-//Set the destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-//Set the document annotation zoom level.
-documentLinkAnnotation.Destination.Zoom = 5;
-//Add this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "DocumentLinkAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page. 
-PdfPage page = document.Pages.Add();
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation flags.
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the annotation's color.
-documentLinkAnnotation.Color = new PdfColor(Color.Navy);
-//Creates another page. 
-PdfPage navigationPage = document.Pages.Add();
-//Set the destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-//Set the document annotation zoom level.
-documentLinkAnnotation.Destination.Zoom = 5;
-//Add this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-document.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "DocumentLinkAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page. 
-PdfPage page = document.Pages.Add();
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation flags.
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the annotation's color.
-documentLinkAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Navy);
-//Creates another page. 
-PdfPage navigationPage = document.Pages.Add();
-//Set the destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-//Set the document annotation zoom level.
-documentLinkAnnotation.Destination.Zoom = 5;
-//Add this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Add-the-hyperlink-for-internal-document-navigation/). 
@@ -564,7 +314,38 @@ To add a [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream("fileName.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Load the page.
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+//Create a new rectangle.
+RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
+
+//Create a new document link annotation.
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
+//Set the annotation text.
+documentLinkAnnotation.Text = "Document link annotation";
+//Set the existing page for navigation.
+PdfLoadedPage navigationPage = loadedDocument.Pages[1] as PdfLoadedPage;
+//Set the pdf destination.
+documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
+//Set the document link annotation location.
+documentLinkAnnotation.Destination.Location = new PointF(10, 0);
+//Add this annotation to respective page.
+loadedPage.Annotations.Add(documentLinkAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"fileName.pdf");
@@ -593,7 +374,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document.
 Dim loadedDocument As New PdfLoadedDocument("fileName.pdf")
@@ -622,125 +403,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker.
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file.
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class.
-await loadedDocument.OpenAsync(file);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the existing page for navigation.
-PdfLoadedPage navigationPage = loadedDocument.Pages[1] as PdfLoadedPage;
-//Set the pdf destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new System.Drawing.PointF(10, 0);
-//Add this annotation to respective page.
-loadedPage.Annotations.Add(documentLinkAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "DocumentLinkAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream("fileName.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the existing page for navigation.
-PdfLoadedPage navigationPage = loadedDocument.Pages[1] as PdfLoadedPage;
-//Set the pdf destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-//Add this annotation to respective page.
-loadedPage.Annotations.Add(documentLinkAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "DocumentLinkAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Load the page.
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-//Create a new rectangle.
-RectangleF docLinkAnnotationBounds = new RectangleF(10, 40, 30, 30);
-
-//Create a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationBounds);
-//Set the annotation text.
-documentLinkAnnotation.Text = "Document link annotation";
-//Set the existing page for navigation.
-PdfLoadedPage navigationPage = loadedDocument.Pages[1] as PdfLoadedPage;
-//Set the pdf destination.
-documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
-//Set the document link annotation location.
-documentLinkAnnotation.Destination.Location = new Syncfusion.Drawing.PointF(10, 0);
-//Add this annotation to respective page.
-loadedPage.Annotations.Add(documentLinkAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Hyperlinks/Internal-document-navigation-to-an-existing-PDF/). 
@@ -753,55 +415,7 @@ Please refer the below code snippet for navigating to external documents.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Create the PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page. 
-PdfPage page = document.Pages.Add();
-//Create a new rectangle.
-RectangleF bounds = new RectangleF(10, 40, 30, 30);
-
-//Create a link for image file. 
-PdfFileLinkAnnotation fileLinkAnnotation = new PdfFileLinkAnnotation(bounds, @"..\..\Data\logo.png");
-//Add this annotation to a page.
-page.Annotations.Add(fileLinkAnnotation);
-
-//Save the document to disk.
-document.Save("FileLinkAnnotation.pdf");
-//close the document.
-document.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create the PDF document
-Dim document As New PdfDocument()
-'Creates a new page and adds it as the last page of the document
-Dim page As PdfPage = document.Pages.Add()
-'Create a new rectangle
-Dim rectangle As New RectangleF(10, 40, 30, 30)
-
-'Create a link for image file 
-Dim fileLinkAnnotation As New PdfFileLinkAnnotation(rectangle, "..\..\Data\logo.png")
-'Add this annotation to a page
-page.Annotations.Add(fileLinkAnnotation)
-
-'Save the document to disk
-document.Save("FileLinkAnnotation.pdf")
-'close the document
-document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create the PDF document.
 PdfDocument document = new PdfDocument();
@@ -818,22 +432,50 @@ page.Annotations.Add(fileLinkAnnotation);
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
 //Close the document.
 document.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//Create the PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page. 
+PdfPage page = document.Pages.Add();
+//Create a new rectangle.
+RectangleF bounds = new RectangleF(10, 40, 30, 30);
+
+//Create a link for image file. 
+PdfFileLinkAnnotation fileLinkAnnotation = new PdfFileLinkAnnotation(bounds, @"..\..\Data\logo.png");
+//Add this annotation to a page.
+page.Annotations.Add(fileLinkAnnotation);
+
+//Save the document to disk.
+document.Save("FileLinkAnnotation.pdf");
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create the PDF document
+Dim document As New PdfDocument()
+'Creates a new page and adds it as the last page of the document
+Dim page As PdfPage = document.Pages.Add()
+'Create a new rectangle
+Dim rectangle As New RectangleF(10, 40, 30, 30)
+
+'Create a link for image file 
+Dim fileLinkAnnotation As New PdfFileLinkAnnotation(rectangle, "..\..\Data\logo.png")
+'Add this annotation to a page
+page.Annotations.Add(fileLinkAnnotation)
+
+'Save the document to disk
+document.Save("FileLinkAnnotation.pdf")
+'Close the document
+document.Close()
 
 {% endhighlight %}
 
@@ -847,6 +489,12 @@ To open a file in relative path, the [PdfLaunchAction](https://help.syncfusion.c
 
 {% tabs %}  
 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support external document navigation in C# .NET Cross platforms. 
+
+{% endhighlight %}
+
 {% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
@@ -859,7 +507,7 @@ PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
 submitButton.Bounds = new RectangleF(100, 160, 100, 20);
 submitButton.Text = "Launch";
 //Create a the PdfLaunchAction.
-PdfLaunchAction launchAction = new PdfLaunchAction(@"..\..\Data\ Document.txt", PdfFilePathType.Relative);
+PdfLaunchAction launchAction = new PdfLaunchAction(@"Document.txt", PdfFilePathType.Relative);
 //Set the launchAction to the submitButton.
 submitButton.Actions.GotFocus = launchAction;
 //Add the form field.
@@ -867,7 +515,7 @@ document.Form.Fields.Add(submitButton);
 
 //Save the document to disk.
 document.Save("output.pdf");
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
@@ -884,7 +532,7 @@ Dim submitButton As New PdfButtonField(page, "submitButton")
 submitButton.Bounds = New RectangleF(25, 160, 100, 20)
 submitButton.Text = "Launch"
 'Create a the PdfLaunchAction
-Dim launchAction As New PdfLaunchAction("..\..\Data\Document.txt", PdfFilePathType.Relative)
+Dim launchAction As New PdfLaunchAction("Document.txt", PdfFilePathType.Relative)
 'Set the launch Action to the submitButton
 submitButton.Actions.GotFocus = launchAction
 'Add the form field
@@ -892,26 +540,8 @@ document.Form.Fields.Add(submitButton)
 
 'Save the document to disk
 document.Save("output.pdf")
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//PDF supports external document navigation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
