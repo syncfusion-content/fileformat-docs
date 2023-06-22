@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in WPF**.
 
-## Steps to convert Word document to Image in WPF:
+## Steps to convert Word document to Image in WPF
 
 Step 1: Create a new WPF application project.
 
