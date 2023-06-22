@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in ASP.NET | Syncfusion 
-description: Convert Word to PDF without Microsoft Word or interop dependencies in ASP.NET application using .NET Word (DocIO) library.
+description: Convert Word to PDF in ASP.NET using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,16 +10,15 @@ documentation: UG
 
 Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in ASP.NET Web Forms**.
 
-## Steps to convert Word document to PDF in C#:
+## Steps to convert Word document to PDF in C#
 
 Step 1: Create a new ASP.NET Web application project.
 
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/CreateProjectforConversion.png)
 
-Step 2: Select the Empty project
+Step 2: Select the Empty project.
 
 ![Create ASP.NET Web application in Visual Studio](ASP-NET_images/ASPNET.png)
-
 
 Step 3: Install the [Syncfusion.DocToPDFConverter.AspNet](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
@@ -106,5 +105,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output PDF document in ASP.NET ](WordToPDF_images/OutputImage.png)
+![Word to PDF in ASP.NET ](WordToPDF_images/OutputImage.png)
 
