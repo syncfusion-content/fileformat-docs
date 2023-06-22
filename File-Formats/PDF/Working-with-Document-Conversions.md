@@ -87,7 +87,29 @@ For ASP.NET Core and Xamarin applications
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+// Open the file as Stream.
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+//Loads file stream into Word document.
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Instantiation of DocIORenderer for Word to PDF conversion.
+DocIORenderer render = new DocIORenderer();
+//Converts Word document into PDF document.
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Releases all resources used by the Word document and DocIO Renderer objects.
+render.Dispose();
+wordDocument.Dispose();
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+//Close the document.
+pdfDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load an existing Word document.
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
@@ -106,7 +128,8 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
@@ -122,70 +145,6 @@ pdfDocument.Save("WordtoPDF.pdf")
 'Close the instance of document objects
 pdfDocument.Close(True)
 wordDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-// Open the file as Stream.
-FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
-//Loads file stream into Word document.
-WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-//Instantiation of DocIORenderer for Word to PDF conversion.
-DocIORenderer render = new DocIORenderer();
-//Converts Word document into PDF document.
-PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-//Releases all resources used by the Word document and DocIO Renderer objects.
-render.Dispose();
-wordDocument.Dispose();
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document.
-pdfDocument.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = " WordtoPDF.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the Word document as stream.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
-//Load the stream into word document.
-WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-//Instantiation of DocIORenderer for Word to PDF conversion.
-DocIORenderer render = new DocIORenderer();
-//Converts Word document into PDF document.
-PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-//Releases all resources used by the Word document and DocIO Renderer objects.
-render.Dispose();
-wordDocument.Dispose();
-
-//Save the document into memory stream.
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-//Set the position as '0'.
-stream.Position = 0;
-//Close the document. 
-pdfDocument.Close();
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WordtoPDF.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("WordtoPDF.pdf", "application/pdf", stream);
-}
 
 {% endhighlight %}
 
@@ -208,7 +167,13 @@ Essential DocIO allows you to customize the Word to PDF conversion using [DocToP
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support customizing the Word document C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads an existing Word document.
 WordDocument wordDocument = new WordDocument("Sample_Image.docx", FormatType.Docx);
@@ -236,7 +201,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads an existing Word document
 Dim wordDocument As New WordDocument("Sample_Image.docx", FormatType.Docx)
@@ -264,18 +229,6 @@ wordDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Word-to-PDF/Customizing-the-Word-to-PDF-conversion).
@@ -295,73 +248,7 @@ The following code illustrates how to convert a workbook to PDF Document using [
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  //Open the Excel document to Convert.
-  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-  //Initialize PDF document.
-  PdfDocument pdfDocument = new PdfDocument();
-  //Convert Excel document into PDF document.
-  pdfDocument = converter.Convert();
-
-  //Save the PDF file.
-  pdfDocument.Save("ExcelToPDF.pdf");
-}
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-  'Open the Excel document to convert
-  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-  'Initialize the PDF document
-  Dim pdfDocument As PdfDocument = New PdfDocument()
-  'Convert Excel document into PDF document
-  pdfDocument = converter.Convert()
-
-  'Save the PDF file
-  pdfDocument.Save("ExcelToPDF.pdf")
-End Using
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");	
-  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Convert Excel document into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  await doc.SaveAsync(stream);
-  //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-  Save(stream, "ExcelToPDF.pdf");
-  //Dispose the stream.
-  excelStream.Dispose();
-  stream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -384,39 +271,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-using (ExcelEngine excelEngine = new ExcelEngine())
+using(ExcelEngine excelEngine = new ExcelEngine())
 {
-  IApplication application = excelEngine.Excel;   
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Convert Excel document into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Open the Excel document to Convert.
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+  //Initialize PDF document.
+  PdfDocument pdfDocument = new PdfDocument();
+  //Convert Excel document into PDF document.
+  pdfDocument = converter.Convert();
 
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  doc.Save(stream);
-  //Set the position as '0'.
-  stream.Position = 0;
-  //Save the stream into pdf file.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  else
-  {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  //Dispose the stream.
-  excelStream.Dispose();
-  stream.Dispose();
-}       
+  //Save the PDF file.
+  pdfDocument.Save("ExcelToPDF.pdf");
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Open the Excel document to convert
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  'Initialize the PDF document
+  Dim pdfDocument As PdfDocument = New PdfDocument()
+  'Convert Excel document into PDF document
+  pdfDocument = converter.Convert()
+
+  'Save the PDF file
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 
 {% endhighlight %}
 
@@ -430,79 +320,7 @@ The following code shows how to convert a particular sheet to PDF Document using
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-Using(ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //convert the sheet to PDF.
-  ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
-  //Initialize PDF document.
-  PdfDocument pdfDocument= new PdfDocument();
-  //Convert Excel document into PDF document.
-  pdfDocument = converter.Convert();
-
-  //Save the PDF file.
-  pdfDocument.Save("ExcelToPDF.pdf");       
-}
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Converts the particular sheet. 
-  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
-  'Initialize PDF document.
-  Dim pdfDocument As PdfDocument = New PdfDocument()
-  'Convert Excel document into PDF document.
-  pdfDocument = converter.Convert()
-
-  'Save the PDF file.
-  pdfDocument.Save("ExcelToPDF.pdf")
-End Using
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;    
-    //Gets assembly.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    //Gets input Excel document from an embedded resource collection.
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	  IWorksheet worksheet = workbook.Worksheets[0];
-	
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
-    //Convert Excel document into PDF document. 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
-
-    //Save the PDF document to stream.
-    MemoryStream stream = new MemoryStream();
-    await doc.SaveAsync(stream);
-    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-    Save(stream, "ExcelToPDF.pdf");
-    //Dispose the stream.
-    excelStream.Dispose();
-    stream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -526,40 +344,46 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-using (ExcelEngine excelEngine = new ExcelEngine())
+Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Convert Excel document into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+  //convert the sheet to PDF.
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+  //Initialize PDF document.
+  PdfDocument pdfDocument= new PdfDocument();
+  //Convert Excel document into PDF document.
+  pdfDocument = converter.Convert();
 
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  doc.Save(stream);
-  //Set the position as '0'.
-  stream.Position = 0;
-  //Save the stream into pdf file.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  else
-  {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  excelStream.Dispose();
-  stream.Dispose();
+  //Save the PDF file.
+  pdfDocument.Save("ExcelToPDF.pdf");       
 }
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Converts the particular sheet. 
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
+  'Initialize PDF document.
+  Dim pdfDocument As PdfDocument = New PdfDocument()
+  'Convert Excel document into PDF document.
+  pdfDocument = converter.Convert()
+
+  'Save the PDF file.
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
 
 {% endhighlight %}
 
@@ -573,7 +397,32 @@ The following code snippet shows how to create an individual PDF document for ea
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+   
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
+  //Create a new PDF document.
+  PdfDocument pdfDocument = new PdfDocument();         	
+  foreach (IWorksheet sheet in workbook.Worksheets)
+  {
+    pdfDocument = renderer.ConvertToPDF(sheet);
+   
+    //Save the PDF file.
+    Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+    stream.Dispose();
+  }
+  excelStream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -597,7 +446,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -619,103 +468,6 @@ End Using
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;    
-    //Gets assembly.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    //Gets input Excel document from an embedded resource collection.
-    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");	
-    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
-    //Create a new PDF document.
-	  PdfDocument pdfDocument = new PdfDocument();         	
-    foreach (IWorksheet sheet in workbook.Worksheets)
-    {
-      pdfDocument = renderer.ConvertToPDF(sheet);
-    
-	    //Save the PDF file.
-	    MemoryStream stream = new MemoryStream();
-	    await doc.SaveAsync(stream);	  
-	    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-      Save(stream, sheet.Name+".pdf");
-	    stream.Dispose();
-    }	
-    excelStream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-   
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Create a new PDF document.
-  PdfDocument pdfDocument = new PdfDocument();         	
-  foreach (IWorksheet sheet in workbook.Worksheets)
-  {
-    pdfDocument = renderer.ConvertToPDF(sheet);
-   
-    //Save the PDF file.
-    Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
-    stream.Dispose();
-  }
-  excelStream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;   
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Create a new PDF document.
-  PdfDocument pdfDocument = new PdfDocument();          	
-  foreach (IWorksheet sheet in workbook.Worksheets)
-  {
-    pdfDocument = renderer.ConvertToPDF(sheet);
-    
-    //Save the PDF file.
-    Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);
-    //Set the position as '0'.
-	  stream.Position = 0;
-	  //Save the stream into pdf file.
-    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    {
-        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    else
-    {
-        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-    }
-    stream.Dispose();
-  }    
-  excelStream.Dispose();
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Excel-to-PDF/Creating-individual-PDF-document-for-each-worksheet).
@@ -726,7 +478,30 @@ To preserve the charts during Excel to PDF conversion, you should initialize the
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;   
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
+  //Load the document as stream.
+  FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+  //Convert Excel document with charts into PDF document. 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+  //Save the PDF document.
+  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  pdfDocument.Save(stream);
+  //Dispose the stream.
+  excelStream.Dispose();
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -752,7 +527,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
@@ -774,95 +549,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Save the PDF file.
   pdfDocument.Save("ExcelToPDF.pdf")
 End Using
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;    
-	//Initializing XlsIORenderer.
-	XlsIORenderer renderer = new XlsIORenderer();	
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
-  IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
-	    
-	//Convert Excel document with charts into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
-	
-	//Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  await doc.SaveAsync(stream);
-  //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-  Save(stream, "ExcelToPDF.pdf");
-  //Dispose the stream.
-  excelStream.Dispose();
-  stream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;   
-  //Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Load the document as stream.
-  FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-
-  //Convert Excel document with charts into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-
-  //Save the PDF document.
-  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-  pdfDocument.Save(stream);
-  //Dispose the stream.
-  excelStream.Dispose();
-  stream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-	//Initialize XlsIO renderer.
-  XlsIORenderer renderer = new XlsIORenderer();
-  //Gets assembly.
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  //Gets input Excel document from an embedded resource collection.
-  Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-    
-  //Convert Excel document into PDF document. 
-  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-
-  //Save the PDF document to stream.
-  MemoryStream stream = new MemoryStream();
-  doc.Save(stream);
-  //Set the position as '0'.
-  stream.Position = 0;
-  //Save the stream into pdf file.
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  else
-  {
-      Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-  }
-  //Dispose the stream.
-  excelStream.Dispose();
-  stream.Dispose();
-}
 
 {% endhighlight %}
 
@@ -952,41 +638,7 @@ For ASP.NET Core and Xamarin applications
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load an existing RTF document.
-WordDocument rtfDocument = new WordDocument(inputFileName);
-//Create an instance of DocToPDFConverter.
-DocToPDFConverter converter = new DocToPDFConverter();
-//Convert Word document into PDF document.
-PdfDocument pdfDocument = converter.ConvertToPDF(rtfDocument);
-
-//Save the PDF file.
-pdfDocument.Save("RTFToPDF.pdf");
-//Close the instance of document objects.
-pdfDocument.Close(true);
-rtfDocument.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load an existing Word document
-Dim rtfDocument As New WordDocument(inputFileName)
-'Create an instance of DocToPDFConverter
-Dim converter As New DocToPDFConverter()
-'Convert Word document into PDF document
-Dim pdfDocument As PdfDocument = converter.ConvertToPDF(rtfDocument)
-
-'Save the PDF file
-pdfDocument.Save("RTFToPDF.pdf")
-'Close the instance of document objects
-pdfDocument.Close(True)
-rtfDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Open the file as Stream
 FileStream docStream = new FileStream(@"Input.rtf", FileMode.Open, FileAccess.Read);
@@ -1004,51 +656,43 @@ wordDocument.Dispose();
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
 pdfDocument.Save(stream);
-//Set the position as '0'
-stream.Position = 0;
 //Close the document
 pdfDocument.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = " RTFToPDF.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the Word document as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.rtf");
-//Load an existing Word document
-WordDocument rtfDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
-//Instantiation of DocIORenderer for Word to PDF conversion
-DocIORenderer render = new DocIORenderer();
-//Converts Word document into PDF document
-PdfDocument pdfDocument = render.ConvertToPDF(rtfDocument);
+//Load an existing RTF document.
+WordDocument rtfDocument = new WordDocument(inputFileName);
+//Create an instance of DocToPDFConverter.
+DocToPDFConverter converter = new DocToPDFConverter();
+//Convert Word document into PDF document.
+PdfDocument pdfDocument = converter.ConvertToPDF(rtfDocument);
 
-//Releases all resources used by the Word document and DocIO Renderer objects
-render.Dispose();
-rtfDocument.Dispose();
+//Save the PDF file.
+pdfDocument.Save("RTFToPDF.pdf");
+//Close the instance of document objects.
+pdfDocument.Close(true);
+rtfDocument.Close();
 
-//Save the document into memory stream
-MemoryStream stream = new MemoryStream();
-pdfDocument.Save(stream);
-//Set the position as '0'
-stream.Position = 0;
-//Close the document 
-pdfDocument.Close();
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RTFToPDF.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("RTFToPDF.pdf", "application/pdf", stream);
-}
+{% endhighlight %}
+
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing Word document
+Dim rtfDocument As New WordDocument(inputFileName)
+'Create an instance of DocToPDFConverter
+Dim converter As New DocToPDFConverter()
+'Convert Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(rtfDocument)
+
+'Save the PDF file
+pdfDocument.Save("RTFToPDF.pdf")
+'Close the instance of document objects
+pdfDocument.Close(True)
+rtfDocument.Close()
 
 {% endhighlight %}
 
@@ -1067,7 +711,12 @@ Essential DocIO allows you to customize the RTF to PDF conversion using [DocToPD
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support customizing the RTF to PDF conversion C#.NET Cross platforms.
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads an existing Word document
 WordDocument rtfDocument = new WordDocument(inputFileName);
@@ -1090,7 +739,7 @@ rtfDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads an existing Word document
 Dim rtfDocument As New WordDocument(inputFileName)
@@ -1112,19 +761,6 @@ pdfDocument.Close(True)
 rtfDocument.Close()
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/RTF-to-PDF/Customizing-the-RTF-to-PDF-document).
@@ -1139,7 +775,48 @@ The code snippet to illustrate the same is given below.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Load the multi frame TIFF image from the disk
+FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
+PdfTiffImage tiffImage = new PdfTiffImage(imageStream);
+//Get the frame count
+int frameCount = tiffImage.FrameCount;
+//Access each frame and draw into the page
+for (int i = 0; i < frameCount; i++)
+{
+	//Add a section to the PDF document
+	PdfSection section = document.Sections.Add();
+	//Set page margins
+	section.PageSettings.Margins.All = 0;
+	tiffImage.ActiveFrame = i;
+	//Create a PDF unit converter instance
+	PdfUnitConvertor converter = new PdfUnitConvertor();
+	//Convert to point
+	Syncfusion.Drawing.SizeF size = converter.ConvertFromPixels(tiffImage.PhysicalDimension, PdfGraphicsUnit.Point);
+	//Set page orientation
+	section.PageSettings.Orientation = (size.Width > size.Height) ? PdfPageOrientation.Landscape : PdfPageOrientation.Portrait;
+	//Set page size
+	section.PageSettings.Size = size;
+	//Add a page to the section
+	PdfPage page = section.Pages.Add();
+	//Draw TIFF image into the PDF page
+	page.Graphics.DrawImage(tiffImage, Syncfusion.Drawing.PointF.Empty, size);
+}
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document as stream
+document.Save(stream);
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1176,7 +853,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF document
 Dim pdfDocument As New PdfDocument()
@@ -1211,104 +888,6 @@ pdfDocument.Save("Sample.pdf")
 pdfDocument.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDocument = new PdfDocument();
-
-//Load multi frame TIFF image
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.tiff");
-PdfBitmap tiffImage = new PdfBitmap(imageStream);
-//Get the frame count
-int frameCount = tiffImage.FrameCount;
-//Access each frame and draw into the page
-for (int i = 0; i < frameCount; i++)
-{
-  tiffImage.ActiveFrame = i;
-  //Add a section to the PDF document
-	PdfSection section = pdfDocument.Sections.Add();
-	//Set page margins
-	section.PageSettings.Margins.All = 0;
-	//Create a PDF unit converter instance
-	PdfUnitConvertor converter = new PdfUnitConvertor();
-	//Convert to point
-	SizeF size = converter.ConvertFromPixels(tiffImage.PhysicalDimension, PdfGraphicsUnit.Point);
-	//Set page orientation
-	section.PageSettings.Orientation = (size.Width > size.Height) ? PdfPageOrientation.Landscape : PdfPageOrientation.Portrait;
-	//Set page size
-	section.PageSettings.Size = size;
-	//Add a page to the section
-	PdfPage page = section.Pages.Add();
-	//Draw TIFF image into the PDF page
-	page.Graphics.DrawImage(tiffImage, PointF.Empty, size);
-}
-
-//Saving the PDF to the MemoryStream
-MemoryStream memoryStream = new MemoryStream();
-await pdfDocument.SaveAsync(memoryStream);
-//Close the document
-pdfDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(memoryStream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-
-//Load the multi frame TIFF image from the disk
-FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-PdfTiffImage tiffImage = new PdfTiffImage(imageStream);
-//Get the frame count
-int frameCount = tiffImage.FrameCount;
-//Access each frame and draw into the page
-for (int i = 0; i < frameCount; i++)
-{
-	//Add a section to the PDF document
-	PdfSection section = document.Sections.Add();
-	//Set page margins
-	section.PageSettings.Margins.All = 0;
-	tiffImage.ActiveFrame = i;
-	//Create a PDF unit converter instance
-	PdfUnitConvertor converter = new PdfUnitConvertor();
-	//Convert to point
-	Syncfusion.Drawing.SizeF size = converter.ConvertFromPixels(tiffImage.PhysicalDimension, PdfGraphicsUnit.Point);
-	//Set page orientation
-	section.PageSettings.Orientation = (size.Width > size.Height) ? PdfPageOrientation.Landscape : PdfPageOrientation.Portrait;
-	//Set page size
-	section.PageSettings.Size = size;
-	//Add a page to the section
-	PdfPage page = section.Pages.Add();
-	//Draw TIFF image into the PDF page
-	page.Graphics.DrawImage(tiffImage, Syncfusion.Drawing.PointF.Empty, size);
-}
-
-//Creating the stream object
-MemoryStream stream = new MemoryStream();
-//Save the document as stream
-document.Save(stream);
-//If the position is not set to '0' then the PDF will be empty
-stream.Position = 0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Converting-multipage-TIFF-to-PDF-document).
@@ -1323,7 +902,13 @@ Refer the below code snippet to draw a single frame monochrome TIFF image with J
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support compressing monochrome images C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
 PdfDocument pdfDocument = new PdfDocument();
@@ -1343,7 +928,7 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF document
 Dim pdfDocument As New PdfDocument()
@@ -1362,25 +947,6 @@ pdfDocument.Save("Sample.pdf")
 pdfDocument.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/TIFF-to-PDF/Compression-in-monochrome-images).
@@ -1398,7 +964,25 @@ The below code illustrates how to convert XPS to PDF.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize XPS to PDF converter.
+XPSToPdfConverter converter = new XPSToPdfConverter();
+//Open the XPS file as stream.
+FileStream fileStream = new FileStream("Input.xps", FileMode.Open, FileAccess.ReadWrite);
+//Convert the XPS to PDF.
+PdfDocument document = converter.Convert(fileStream);
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream(); 
+//Save the document into stream.
+document.Save(stream); 
+//Close the documents.
+document.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create converter class
 XPSToPdfConverter converter = new XPSToPdfConverter();
@@ -1411,7 +995,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create converter class
 Dim converter As New XPSToPdfConverter()
@@ -1421,57 +1005,6 @@ Dim document As PdfDocument = converter.Convert(xpsFileName)
 'Save and close the document
 document.Save("Sample.pdf")
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create converter class
-XPSToPdfConverter converter = new XPSToPdfConverter();
-//Load the XPS file
-Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.xps");
-//Convert the XPS to PDF
-PdfDocument document = converter.Convert(fileStream);
-
-//Save the PDF document to stream
-MemoryStream memoryStream = new MemoryStream();
-await document.SaveAsync(memoryStream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(memoryStream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize XPS to PDF converter.
-XPSToPdfConverter converter = new XPSToPdfConverter();
-//Open the XPS file as stream.
-FileStream fileStream = new FileStream(“Input.xps", FileMode.Open, FileAccess.ReadWrite);
-//Convert the XPS to PDF.
-PdfDocument document = converter.Convert(fileStream);
-
-//Creating the stream object.
-MemoryStream stream = new MemoryStream(); 
-//Save the document into stream.
-document.Save(stream); 
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the documents.
-document.Close(true); 
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name. 
-string fileName = "Output.pdf"; 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 
@@ -1677,7 +1210,21 @@ The following code snippet illustrates how to convert PDF page into image using 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Uses the Syncfusion.EJ2.PdfViewer assembly
+PdfRenderer pdfExportImage = new PdfRenderer();
+//Loads the PDF document
+pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
+//Exports the PDF document pages into images
+Bitmap bitmapimage = pdfExportImage.ExportAsImage(0);
+
+//Save the exported image in disk
+bitmapimage.Save(@"Images\" + "bitmapImage" + ".png");
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize the PdfViewer Control.
 PdfViewerControl pdfViewer = new PdfViewerControl();
@@ -1706,8 +1253,7 @@ if (image != null)
 loadedDocument.Close(true);
 
 {% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the PdfViewer Control
 Dim pdfViewer As PdfViewerControl = New PdfViewerControl()
@@ -1736,20 +1282,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Uses the Syncfusion.EJ2.PdfViewer assembly
-PdfRenderer pdfExportImage = new PdfRenderer();
-//Loads the PDF document
-pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
-//Exports the PDF document pages into images
-Bitmap bitmapimage = pdfExportImage.ExportAsImage(0);
-
-//Save the exported image in disk
-bitmapimage.Save(@"Images\" + "bitmapImage" + ".png");
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
@@ -1758,7 +1290,24 @@ The following code snippet illustrates how to convert a specific range of pages 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Uses the Syncfusion.EJ2.PdfViewer assembly
+PdfRenderer pdfExportImage = new PdfRenderer();
+//Loads the PDF document
+pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
+
+//Exports the PDF document pages into images
+Bitmap[] bitmapimage = pdfExportImage.ExportAsImage(0, pdfExportImage.PageCount-1);
+for (int i =0; i < pdfExportImage.PageCount; i++)
+{
+  //Save the exported image in disk
+  bitmapimage[i].Save(@"Images\" + "bitmapImage" + i.ToString() + ".png");
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize the PdfViewer Control
 PdfViewerControl pdfViewer = new PdfViewerControl();
@@ -1791,7 +1340,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the PdfViewer Control
 Dim pdfViewer As PdfViewerControl = New PdfViewerControl()
@@ -1821,24 +1370,6 @@ End If
 loadedDocument.Close()
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Uses the Syncfusion.EJ2.PdfViewer assembly
-PdfRenderer pdfExportImage = new PdfRenderer();
-//Loads the PDF document
-pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
-
-//Exports the PDF document pages into images
-Bitmap[] bitmapimage = pdfExportImage.ExportAsImage(0, pdfExportImage.PageCount-1);
-for (int i =0; i < pdfExportImage.PageCount; i++)
-{
-  //Save the exported image in disk
-  bitmapimage[i].Save(@"Images\" + "bitmapImage" + i.ToString() + ".png");
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
@@ -1856,8 +1387,20 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-{% highlight c# tabtitle="C#" %}
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert MHTML to PDF
+PdfDocument document = htmlConverter.Convert(@"input.mhtml");
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1869,7 +1412,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter()
@@ -1878,40 +1421,6 @@ Dim document As PdfDocument = htmlConverter.Convert("input.mhtml")
 'Save and close the document
 document.Save("Sample.pdf")
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert MHTML to PDF
-PdfDocument document = htmlConverter.Convert(@"input.mhtml");
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//If the position is not set to '0' then the PDF will be empty
-stream.Position = 0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = " Sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
 
 {% endhighlight %}
 
@@ -1929,7 +1438,13 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support converting HTML to MHTML C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1938,30 +1453,12 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml");
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter()      
 'Convert URL to MHTML
 htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1978,36 +1475,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 *Troubleshooting:* [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/troubleshooting)
 
 {% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert URL to Image
-Image[] image = htmlConverter.ConvertToImage("http://www.syncfusion.com");
-//Save the image
-image[0].Save("Sample.jpg");
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Initialize HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter()
-'Convert URL to Image
-Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com")
-'Save the image
-image(0).Save("Sample.jpg")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2019,9 +1487,25 @@ File.WriteAllBytes("Sample.jpg", imageByte);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to Image
+Image[] image = htmlConverter.ConvertToImage("http://www.syncfusion.com");
+//Save the image
+image[0].Save("Sample.jpg");
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
+'Convert URL to Image
+Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com")
+'Save the image
+image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
@@ -2039,40 +1523,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-string htmlString = "<html><body>Hello World!!!</body></html>";
-string baseURL = "";
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert HTML string to Image
-Image[] image = htmlConverter.ConvertToImage(htmlString, baseURL);
-//Save the image
-image[0].Save("Sample.jpg");
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-Dim htmlString As String = "<html><body>Hello World!!!</body></html>"
-Dim baseURL As String = ""
-'Initialize HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter()
-'Convert HTML string to Image
-Dim image As Image() = htmlConverter.ConvertToImage(htmlString, baseURL)
-'Save the image
-image(0).Save("Sample.jpg")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //HTML string and Base URL
@@ -2086,9 +1537,28 @@ File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+string htmlString = "<html><body>Hello World!!!</body></html>";
+string baseURL = "";
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert HTML string to Image
+Image[] image = htmlConverter.ConvertToImage(htmlString, baseURL);
+//Save the image
+image[0].Save("Sample.jpg");
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Dim htmlString As String = "<html><body>Hello World!!!</body></html>"
+Dim baseURL As String = ""
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter()
+'Convert HTML string to Image
+Dim image As Image() = htmlConverter.ConvertToImage(htmlString, baseURL)
+'Save the image
+image(0).Save("Sample.jpg")
 
 {% endhighlight %}
 
@@ -2106,7 +1576,19 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert Partial HTML to Image
+Image image = htmlConverter.ConvertPartialHtmlToImage("http://www.google.com", "lga");
+byte[] imageByte = image.ImageData;
+//Save the image
+File.WriteAllBytes("Output.jpg", imageByte);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2117,7 +1599,7 @@ image[0].Save("Output.jpg");
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter()
@@ -2147,30 +1629,6 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert Partial HTML to Image
-Image image = htmlConverter.ConvertPartialHtmlToImage("http://www.google.com", "lga");
-byte[] imageByte = image.ImageData;
-//Save the image
-File.WriteAllBytes("Output.jpg", imageByte);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-raster-image).
@@ -2185,31 +1643,7 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//Convert URL to SVG
-htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Initialize HTML to PDF converter
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-'Convert URL to SVG
-htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2225,9 +1659,22 @@ using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+//Convert URL to SVG
+htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
+
+{% endhighlight %}
+
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+'Convert URL to SVG
+htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 {% endhighlight %}
 
@@ -2248,7 +1695,22 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+//Initialize the memory stream
+MemoryStream stream = new MemoryStream();
+//Convert a partial HTML to SVG
+htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", stream);
+//Save the document
+using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
+{
+    stream.CopyTo(output);
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
@@ -2257,7 +1719,7 @@ htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
@@ -2285,34 +1747,6 @@ Hello world
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//Initialize the memory stream
-MemoryStream stream = new MemoryStream();
-//Convert a partial HTML to SVG
-htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", stream);
-//Save the document
-using (FileStream output = new FileStream("Sample.svg", FileMode.Create))
-{
-    stream.CopyTo(output);
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/Convert-partial-webpage-to-SVG/.NET-Standard).
@@ -2326,7 +1760,21 @@ The [HTML to PDF converter library](https://www.syncfusion.com/document-processi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to PDF document. 
+PdfDocument document = htmlConverter.Convert("inputSVG.svg");
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -2338,7 +1786,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter 
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -2347,40 +1795,6 @@ Dim document As PdfDocument = htmlConverter.Convert("inputSVG.svg")
 'Save and close the PDF document
 document.Save("SVGToPDF.pdf")
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports converting SVG to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert URL to PDF document. 
-PdfDocument document = htmlConverter.Convert("inputSVG.svg");
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//If the position is not set to '0' then the PDF will be empty
-stream.Position = 0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "SVGToPDF.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting SVG to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core (Windows) platforms.
 
 {% endhighlight %}
 

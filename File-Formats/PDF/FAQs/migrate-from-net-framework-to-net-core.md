@@ -845,3 +845,383 @@ N> * [Syncfusion.Pdf.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf)
 N> * [Syncfusion.Pdf.AspNet.Mvc4](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc4) 
 N> * [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5)
 N> * But this is not a recommended approach.  
+
+
+## Migrate System.Drawing.Common to SkiaSharp package 
+
+Starting from our volume 2, 2023 release, we have removed the System.Drawing.Common package as a dependency from our Syncfusion.Pdf.Imaging.Net.Core package. In its place, we have introduced SkiaSharp as the replacement library. This migration brings some API breaking changes that need to be considered: 
+
+<table>
+<tr>
+<thead>
+<th>API Name</th>
+<th>Class</th>
+<th>Return Type</th>
+<th>Alternative API/Return Type</th>
+
+</thead>
+</tr>
+<tr>
+<td>
+ToImage()
+</td>
+<td> 
+Pdf417Barcode
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+Pdf417Barcode
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+PdfDataMatrixBarcode
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage() 
+</td>
+<td> 
+PdfEan13Barcode 
+</td>
+<td>
+Image
+</td>
+<td> 
+Stream  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+PdfEan13Barcode 
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+PdfEan8Barcode 
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage() 
+</td>
+<td> 
+PdfEan8Barcode 
+</td>
+<td>
+Image
+</td>
+<td> 
+Stream 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+PdfQRBarcode 
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(this PdfBidimensionalBarcode barcode) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+Stream
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(this PdfBidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(this PdfUnidimensionalBarcode barcode) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+Stream
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(this PdfUnidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+Image
+</td>
+<td> 
+PdfImageInfo
+</td>
+<td>
+Image
+</td>
+<td> 
+ImageStream 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+PdfTiffImage(Image image) 
+</td>
+<td> 
+PdfTiffImage
+</td>
+<td>
+Image
+</td>
+<td> 
+PdfTiffImage(Stream image) 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ExtractImages(this PdfPageBase page) 
+</td>
+<td> 
+PdfImageExtractor
+</td>
+<td>
+Image[] 
+</td>
+<td> 
+Stream[] 
+
+Return Type: Stream[]
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage() 
+</td>
+<td> 
+PdfUnidimensionalBarcode
+</td>
+<td>
+Image
+</td>
+<td> 
+Stream 
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+ToImage(System.drawing.SizeF size) 
+</td>
+<td> 
+PdfUnidimensionalBarcode
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(Syncfusion.drawing.SizeF size)  
+
+Return Type: Stream 
+</td>
+</tr>
+
+<tr>
+<td>
+RenderToImage(this PdfBidimensionalBarcode barcode) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode)  
+</td>
+</tr>
+
+<tr>
+<td>
+RenderToImage(this PdfBidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfBidimensionalBarcode barcode, Syncfusion.drawing.SizeF size)  
+</td>
+</tr>
+
+<tr>
+<td>
+RenderToImage(this PdfUnidimensionalBarcode barcode) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode) 
+</td>
+</tr>
+
+<tr>
+<td>
+RenderToImage(this PdfUnidimensionalBarcode barcode, System.drawing.SizeF size) 
+</td>
+<td> 
+PdfBarcodeExtension
+</td>
+<td>
+Image
+</td>
+<td> 
+ToImage(this PdfUnidimensionalBarcode barcode, Syncfusion.drawing.SizeF size) 
+</td>
+</tr>
+
+<tr>
+<td>
+Bounds 
+</td>
+<td> 
+PdfImageInfo 
+</td>
+<td>
+System.drawing.RectangleF 
+</td>
+<td> 
+Syncfusion.drawing.RectangleF 
+</td>
+</tr>
+</table>
