@@ -299,6 +299,79 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-first-occurance).
 
+## Find and replace using Regex 
+
+You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and replace it with other text.
+
+The following code example illustrates how to find all the occurrences of a pattern of text using the Regex and replace it with other text.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load or open a PowerPoint Presentation.
+using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+    //Open an existing PowerPoint presentation.
+    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+    {
+        //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+        ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
+        foreach (ITextSelection textSelection in textSelections)
+        {
+            //Get the found text as a single text part.
+            ITextPart textPart = textSelection.GetAsOneTextPart();
+            //Replace the text.
+            textPart.Text = "Service";
+        }
+        //Saves the Presentation.
+        using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create, FileAccess.ReadWrite))
+        {
+            pptxDoc.Save(outputStream);
+        }      
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Opens an existing presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+    //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+    ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text as a single text part.
+        ITextPart textPart = textSelection.GetAsOneTextPart();
+        //Replaces the text.
+        textPart.Text = "Service";
+    }
+    //Saves the Presentation.
+    pptxDoc.Save("Output.pptx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Opens an existing presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text as a single text part.
+        Dim textPart As ITextPart = textSelection.GetAsOneTextPart()
+        'Replaces the text.
+        textPart.Text = "Service"
+    Next
+    'Saves the Presentation.	
+    pptxDoc.Save("Output.pptx")
+End Using
+
+{% endhighlight %}
+
+{% endtabs %} 
+
 ## Find and replace in specific slide
 
 You can find all occurrences of a text in a specific PowerPoint slide (slide, notes slide, master slide, or layout slide) and replace it with other text.
@@ -446,6 +519,85 @@ End Using
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-PowerPoint).
+
+## Find and highlight using Regex 
+
+You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and highlight it.
+
+The following code example illustrates how to find all the occurrences of a pattern of text using a Regex and highlight it.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load or open a PowerPoint Presentation.
+using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+    //Open an existing PowerPoint presentation.
+    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+    {
+        //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+        ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
+        foreach (ITextSelection textSelection in textSelections)
+        {
+            //Get the found text containing text parts.
+            foreach (ITextPart textPart in textSelection.GetTextParts())
+            {
+                //Set highlight color.
+                textPart.Font.HighlightColor = ColorObject.Yellow;
+            }
+        }
+        //Saves the Presentation.
+        using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create, FileAccess.ReadWrite))
+        {
+            pptxDoc.Save(outputStream);
+        }    
+    }
+}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Opens an existing presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+    //Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+    ITextSelection[] textSelections = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"));
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts.
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color.
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the Presentation.	
+    pptxDoc.Save("Output.pptx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Opens an existing presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    'Find all the occurrences of a given pattern of text in the PowerPoint presentation using Regex.
+    Dim textSelections As ITextSelection() = pptxDoc.FindAll(new Regex("{[A-Za-z]+}"))
+    For Each textSelection As ITextSelection In textSelections
+        'Gets the found text containing text parts.
+        For Each textPart As ITextPart In textSelection.GetTextParts()
+            'Sets highlight color.
+            textPart.Font.HighlightColor = ColorObject.Yellow
+        Next
+    Next
+    'Saves the Presentation.	
+    pptxDoc.Save("Output.pptx")
+End Using
+    
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Find and highlight in a specific slide
 
