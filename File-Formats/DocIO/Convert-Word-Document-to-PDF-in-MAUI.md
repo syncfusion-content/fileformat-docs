@@ -1,6 +1,6 @@
 ---
 title: Convert Word document to PDF in .NET MAUI | Syncfusion
-description: Convert Word document to PDF without Microsoft Word or interop dependencies in .NET MAUI application using .NET MAUI Word (DocIO) library.
+description: Convert Word to PDF in .NET MAUI using .NET MAUI Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in .NET MAUI**.
 
-**Prerequisites:**
+## Prerequisites
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin).
 
 ## Steps to convert Word document to PDF in .NET MAUI
@@ -102,7 +102,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![MAUI output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in .NET MAUI](WordToPDF_images/OutputImage.png)
 
 ## Helper files for .NET MAUI
 
@@ -173,7 +173,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI/Convert-Word-Document-to-PDF/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
     Helper classes for viewing the <b>Word document</b> in iOS device

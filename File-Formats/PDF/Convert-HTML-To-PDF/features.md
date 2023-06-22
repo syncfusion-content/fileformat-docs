@@ -14,7 +14,7 @@ To convert website URL or local HTML file to PDF document using [Convert](https:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -28,7 +28,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -61,7 +61,7 @@ To convert the HTML string to PDF using [Convert](https://help.syncfusion.com/cr
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -79,7 +79,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -116,7 +116,19 @@ To convert website URL or local HTML file to Image using [ConvertToImage](https:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Convert URL to Image
+Image image = htmlConverter.ConvertToImage("https://www.google.com");
+byte[] imageByte = image.ImageData;
+//Save the image
+File.WriteAllBytes("Output.jpg", imageByte);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -128,7 +140,7 @@ image[0].Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -138,18 +150,6 @@ Dim image As Image[] = htmlConverter.ConvertToImage("https://www.google.com")
 image[0].Save("Output.jpg")
 
 image[0].Dispose(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-//Convert URL to Image
-Image image = htmlConverter.ConvertToImage("https://www.google.com");
-byte[] imageByte = image.ImageData;
-//Save the image
-File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -173,7 +173,24 @@ To convert the HTML string to Image using [ConvertToImage](https://help.syncfusi
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+//HTML string and Base URL
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Convert HTML string to Image
+Image image = htmlConverter.ConvertToImage(htmlText, baseUrl);
+byte[] imageByte = image.ImageData;
+//Save the image
+File.WriteAllBytes("Output.jpg", imageByte);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -190,7 +207,7 @@ image[0].Dispose();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -204,23 +221,6 @@ Dim image As Image[] = htmlConverter.Convert(htmlText, baseUrl)
 'Save and dispose the image file
 image[0].Save("Output.jpg")
 image[0].Dispose(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize HTML to PDF converter.
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-//HTML string and Base URL
-string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
-string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Convert HTML string to Image
-Image image = htmlConverter.ConvertToImage(htmlText, baseUrl);
-byte[] imageByte = image.ImageData;
-//Save the image
-File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -245,7 +245,7 @@ The Blink HTML converter supports enabling or disabling the JavaScript using [En
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -265,7 +265,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -294,7 +294,7 @@ The Blink HTML converter provides an option to set the [AdditionalDelay](https:/
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -314,7 +314,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{%  highlight vb.net %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -344,7 +344,7 @@ The Blink HTML converter support preserving URL links from HTML to PDF using [En
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -364,7 +364,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = NewHtmlToPdfConverter()
@@ -397,7 +397,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -416,7 +416,7 @@ document.Save(fileStream);
 document.Close(true);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -492,7 +492,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -512,7 +512,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -586,7 +586,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -613,7 +613,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -692,7 +692,7 @@ The Blink HTML Converter allows selection of media type while converting HTML to
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -712,7 +712,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -743,7 +743,7 @@ Blink rendering engine provides support for converting HTML forms to PDF fillabl
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -763,7 +763,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -792,7 +792,7 @@ The webpage you want to convert may protected with windows authentication. Blink
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -812,7 +812,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -841,7 +841,7 @@ The Blink HTML converter provides support for form authentication by using [Cook
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -862,7 +862,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -892,7 +892,7 @@ The Blink HTML converter supports token-based authentication by using the [HttpR
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -912,7 +912,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter 
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -945,7 +945,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -965,7 +965,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -995,7 +995,7 @@ Refer to the following code snippet to access a webpage using HTTP POST.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1016,7 +1016,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1044,7 +1044,7 @@ Use the following code snippet to access a webpage using HTTP GET.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1064,7 +1064,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1107,7 +1107,7 @@ You can specify the manual proxy settings for the conversion using the [ProxySet
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 
@@ -1130,7 +1130,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1160,7 +1160,7 @@ Refer to the following code snippet to adjust Blink viewport.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1180,7 +1180,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1209,7 +1209,7 @@ The Blink rendering engine provides support for converting only the part of an H
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1223,7 +1223,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1273,7 +1273,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1293,7 +1293,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1320,7 +1320,7 @@ Getting height of the HTML content in PDF document is possible by using the [Pdf
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1338,7 +1338,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1369,7 +1369,7 @@ Refer to the following code snippet.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1389,7 +1389,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
@@ -1442,7 +1442,7 @@ The temporary path can be changed by using the [TempPath](https://help.syncfusio
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -1462,7 +1462,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
