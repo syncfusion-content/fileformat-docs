@@ -301,7 +301,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and replace using Regex 
 
-You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and replace it with other text.
+You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Find_System_Text_RegularExpressions_Regex_) or [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_FindAll_System_Text_RegularExpressions_Regex_) method and replace it with other text.
 
 The following code example illustrates how to find all the occurrences of a pattern of text using the Regex and replace it with other text.
 
@@ -371,6 +371,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %} 
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-Replace-in-Powerpoint-using-Regex).
 
 ## Find and replace in specific slide
 
@@ -522,7 +524,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Find and highlight using Regex 
 
-You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the `Find` or `FindAll` method and highlight it.
+You can find either the first occurrence or all the occurrences of a pattern of text in a PowerPoint presentation using the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_Find_System_Text_RegularExpressions_Regex_) or [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.IPresentation.html#Syncfusion_Presentation_IPresentation_FindAll_System_Text_RegularExpressions_Regex_) method and highlight it.
 
 The following code example illustrates how to find all the occurrences of a pattern of text using a Regex and highlight it.
 
@@ -598,6 +600,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-Powerpoint-using-Regex).
 
 ## Find and highlight in a specific slide
 
