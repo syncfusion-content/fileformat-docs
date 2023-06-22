@@ -9,7 +9,7 @@ documentation: UG
 
 XFA stands for XML Forms Architecture, dynamic forms are based on a XML specification. Essential PDF supports both the dynamic and static XFA forms.
 
-* In a static form the form’s appearance and layout is fixed, regardless of the field content.
+* In a static form the form's appearance and layout is fixed, regardless of the field content.
 * Dynamic forms can change in appearance in several ways in response to changes in the data.
 
 ## Creating a new XFA form
@@ -22,7 +22,31 @@ The following code example explains how to add a new page using [PdfXfaPage](htt
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
+//Add the field to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -45,7 +69,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -68,100 +92,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Add the field to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Add the field to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Add the field to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-new-page-in-a-PDF-XFA-document).
@@ -178,7 +108,35 @@ The below sample illustrates how to create a new PDF document with XFA page size
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Set the page size.
+document.PageSettings.PageSize = PdfPageSize.A4;
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -200,141 +158,35 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create a new PDF XFA document
+'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
-'Set the page size
+'Set the page size.
 document.PageSettings.PageSize = PdfPageSize.A4
-'Add a new XFA page
+'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 
-'Create a new PDF XFA form
+'Create a new PDF XFA form.
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
-'Create a text element and add the properties
+'Create a text element and add the properties.
 Dim textElement As New PdfXfaTextElement("Hello World!!!")
-'Set font
+'Set font.
 textElement.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold)
-'Add the text element to the XFA form
+'Add the text element to the XFA form.
 mainForm.Fields.Add(textElement)
-'Add the XFA form to the document
+'Add the XFA form to the document.
 document.XfaForm = mainForm
 
-'Save the document
+'Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document.
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -346,7 +198,35 @@ You can create a custom page size to the PDF document by using following code sn
  
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Set the page size.
+document.PageSettings.PageSize = new SizeF(500, 700);
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -368,12 +248,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -395,114 +275,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -512,9 +286,39 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can change page orientation from portrait to landscape by using [PdfXfaPageOrientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaPageOrientation.html) Enum. The below code snippet explains this.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Set the page size.
+document.PageSettings.PageSize = new SizeF(500, 700);
+//Change the page orientation to landscape.
+document.PageSettings.PageOrientation = PdfXfaPageOrientation.Landscape;
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -538,12 +342,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -567,120 +371,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Change the page orientation to landscape.
-document.PageSettings.PageOrientation = PdfXfaPageOrientation.Landscape;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Change the page orientation to landscape.
-document.PageSettings.PageOrientation = PdfXfaPageOrientation.Landscape;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = new SizeF(500, 700);
-//Change the page orientation to landscape.
-document.PageSettings.PageOrientation = PdfXfaPageOrientation.Landscape;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -694,7 +386,35 @@ To create a dynamic XFA forms using [PdfXfaType](https://help.syncfusion.com/cr/
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Set the page size.
+document.PageSettings.PageSize = PdfPageSize.A4;
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -716,12 +436,12 @@ document.XfaForm = mainForm;
 
 //Save the document dynamic form.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -743,114 +463,8 @@ document.XfaForm = mainForm
 
 'Save the document dynamic form
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -862,9 +476,37 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 To create a static XFA forms using [PdfXfaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaType.html) Enum and save the static form document using below example code.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Set the page size.
+document.PageSettings.PageSize = PdfPageSize.A4;
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Static);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -886,12 +528,12 @@ document.XfaForm = mainForm;
 
 //Save the document with static form.
 document.Save("XfaForm.pdf",PdfXfaType.Static);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -913,114 +555,8 @@ document.XfaForm = mainForm
 
 'Save the document with static form
 document.Save("XfaForm.pdf",PdfXfaType.Static)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Static);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Static);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Set the page size.
-document.PageSettings.PageSize = PdfPageSize.A4;
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!!!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Static);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -1036,7 +572,35 @@ The below code snippet illustrates how to add a textbox field to a new PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "First Name";
+//Set the tool tip.
+textBoxField.ToolTip = "First Name";
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -1058,141 +622,35 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create a new PDF XFA document
+'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
-'Add a new XFA page
+'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 
-'Create a new PDF XFA form
+'Create a new PDF XFA form.
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
 'Create a textbox field and add the properties
 Dim textBoxField As New PdfXfaTextBoxField("FirstName",New SizeF(200,20))
-'Set the caption text
+'Set the caption text.
 textBoxField.Caption.Text = "First Name"
-'Set the tool tip
+'Set the tool tip.
 textBoxField.ToolTip = "First Name"
-'Add the field to the XFA form
+'Add the field to the XFA form.
 mainForm.Fields.Add(textBoxField)
-'Add the XFA form to the document
+'Add the XFA form to the document.
 document.XfaForm = mainForm
 
-'Save the document
+'Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document.
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -1204,82 +662,7 @@ The below code snippet illustrates how to add a textbox field to an existing PDF
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(textBoxField);
-
-//Save the document.
-loadedDocument.Save("XfaForm.pdf");
-//Close the document.
-loadedDocument.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing XFA document
-Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
-'Load the existing XFA form
-Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
-
-'Create a textbox field and add the properties
-Dim textBoxField As New PdfXfaTextBoxField("FirstName", New SizeF(200, 20))
-'Set the caption text
-textBoxField.Caption.Text = "First Name"
-'Set the tool tip
-textBoxField.ToolTip = "First Name"
-'Add the field to the existing XFA form
-loadedForm.Fields.Add(textBoxField)
-
-'Save the document
-loadedDocument.Save("XfaForm.pdf")
-'Close the document
-loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(textBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -1301,25 +684,15 @@ loadedForm.Fields.Add(textBoxField);
 MemoryStream stream = new MemoryStream();
 //Save the document.
 loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
 //Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 
@@ -1332,24 +705,33 @@ textBoxField.ToolTip = "First Name";
 //Add the field to the existing XFA form.
 loadedForm.Fields.Add(textBoxField);
 
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
 //Save the document.
-loadedDocument.Save(stream);
+loadedDocument.Save("XfaForm.pdf");
 //Close the document.
 loadedDocument.Close();
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing XFA document.
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
+'Load the existing XFA form.
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
+
+'Create a textbox field and add the properties.
+Dim textBoxField As New PdfXfaTextBoxField("FirstName", New SizeF(200, 20))
+'Set the caption text.
+textBoxField.Caption.Text = "First Name"
+'Set the tool tip.
+textBoxField.ToolTip = "First Name"
+'Add the field to the existing XFA form.
+loadedForm.Fields.Add(textBoxField)
+
+'Save the document.
+loadedDocument.Save("XfaForm.pdf")
+'Close the document.
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1363,7 +745,33 @@ The below code snippet illustrates how to add a numeric field to a new PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a numeric field and add the properties.
+PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
+//Set the caption text.
+numericField.Caption.Text = "Numeric Field";
+//Add the field to the XFA form.
+mainForm.Fields.Add(numericField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -1383,133 +791,33 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create a new PDF XFA document
+'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
-'Add a new XFA page
+'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 
-'Create a new PDF XFA form
+'Create a new PDF XFA form.
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
-'Create a numeric field and add the properties
+'Create a numeric field and add the properties.
 Dim numericField As New PdfXfaNumericField("numericField",New SizeF(200,20))
-'Set the caption text
+'Set the caption text.
 numericField.Caption.Text = "Numeric Field"
-'Add the field to the XFA form
+'Add the field to the XFA form.
 mainForm.Fields.Add(numericField)
-'Add the XFA form to the document
+'Add the XFA form to the document.
 document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -1521,7 +829,32 @@ The below code snippet illustrates how to add the numeric field to an existing P
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a numeric field and add the properties.
+PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
+//Set the caption text.
+numericField.Caption.Text = "Numeric Field";
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(numericField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -1542,7 +875,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -1563,103 +896,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(numericField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(numericField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(numericField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-numeric-field-to-an-existing-PDF-document).
@@ -1668,9 +904,41 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The below code snippet illustrates how to add a combo box field to a new PDF document using [PdfXfaComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaComboBoxField.html) class.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a combo box field and add the properties.
+PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
+//Set the caption text.
+comboBoxField.Caption.Text = "Job Title";
+
+//Add the combo box items.
+comboBoxField.Items.Add("Development.");
+comboBoxField.Items.Add("Support.");
+comboBoxField.Items.Add("Documentation.");
+//Add the field to the XFA form.
+mainForm.Fields.Add(comboBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -1694,12 +962,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As PdfXfaDocument = New PdfXfaDocument()
@@ -1728,122 +996,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the XFA form.
-mainForm.Fields.Add(comboBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the XFA form.
-mainForm.Fields.Add(comboBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the XFA form.
-mainForm.Fields.Add(comboBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-a-combobox-field-to-a-new-PDF-document).
@@ -1852,7 +1004,36 @@ The below code snippet illustrates how to add the combo box field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a combo box field and add the properties.
+PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
+//Set the caption text.
+comboBoxField.Caption.Text = "Job Title";
+//Add the combo box items.
+comboBoxField.Items.Add("Development.");
+comboBoxField.Items.Add("Support.");
+comboBoxField.Items.Add("Documentation.");
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(comboBoxField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -1877,7 +1058,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -1902,115 +1083,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(comboBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(comboBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
-//Set the caption text.
-comboBoxField.Caption.Text = "Job Title";
-//Add the combo box items.
-comboBoxField.Items.Add("Development.");
-comboBoxField.Items.Add("Support.");
-comboBoxField.Items.Add("Documentation.");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(comboBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-combobox-field-to-an-existing-PDF-document).
@@ -2021,7 +1093,40 @@ The below code snippet illustrates how to add a list box field to a new PDF docu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a list box field and add the properties.
+PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
+//Set the caption text.
+listBoxField.Caption.Text = "Known Languages";
+listBoxField.Caption.Position = PdfXfaPosition.Top;
+listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
+//Add the list box items.
+listBoxField.Items.Add("English");
+listBoxField.Items.Add("French");
+listBoxField.Items.Add("German");
+//Add the field to the XFA form.
+mainForm.Fields.Add(listBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -2047,12 +1152,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -2078,129 +1183,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the XFA form.
-mainForm.Fields.Add(listBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the XFA form.
-mainForm.Fields.Add(listBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the XFA form.
-mainForm.Fields.Add(listBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -2210,9 +1194,40 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The below code snippet illustrates how to add the list box field to an existing PDF document.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a list box field and add the properties.
+PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
+//Set the caption text.
+listBoxField.Caption.Text = "Known Languages";
+listBoxField.Caption.Position = PdfXfaPosition.Top;
+listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
+//Add the list box items.
+listBoxField.Items.Add("English");
+listBoxField.Items.Add("French");
+listBoxField.Items.Add("German");
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(listBoxField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -2239,7 +1254,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -2266,121 +1281,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(listBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(listBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
-//Set the caption text.
-listBoxField.Caption.Text = "Known Languages";
-listBoxField.Caption.Position = PdfXfaPosition.Top;
-listBoxField.Caption.HorizontalAlignment = PdfXfaHorizontalAlignment.Center;
-//Add the list box items.
-listBoxField.Items.Add("English");
-listBoxField.Items.Add("French");
-listBoxField.Items.Add("German");
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(listBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-listbox-field-to-an-existing-PDF-document).
@@ -2391,7 +1291,35 @@ The below code snippet illustrates how to add a check box field to a new PDF doc
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a check box field and add the properties.
+PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
+//Set the caption text.
+checkBoxField.Caption.Text = "Check box Field";
+checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
+//Add the field to the XFA form.
+mainForm.Fields.Add(checkBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -2412,12 +1340,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -2438,114 +1366,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the XFA form.
-mainForm.Fields.Add(checkBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the XFA form.
-mainForm.Fields.Add(checkBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the XFA form.
-mainForm.Fields.Add(checkBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -2557,7 +1379,33 @@ The below code snippet illustrates how to add the check box field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a check box field and add the properties.
+PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
+//Set the caption text.
+checkBoxField.Caption.Text = "Check box Field";
+checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(checkBoxField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -2579,7 +1427,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -2601,106 +1449,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(checkBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(checkBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
-//Set the caption text.
-checkBoxField.Caption.Text = "Check box Field";
-checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(checkBoxField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
  
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-checkbox-field-to-an-existing-PDF-document).
@@ -2711,7 +1459,43 @@ The below code snippet illustrates how to add a radio button field to a new PDF 
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a radio button group.
+PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
+group.FlowDirection = PdfXfaFlowDirection.Vertical;
+//Create a radio button field and add the properties.
+PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
+//Set the caption text.
+radioButtonField1.Caption.Text = "Male";
+//Create a radio button field and add the properties.
+PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
+radioButtonField2.Caption.Text = "Female";
+//Add the radio button fields to the radio button group.
+group.Items.Add(radioButtonField1);
+group.Items.Add(radioButtonField2);
+//Add the field to the XFA form.
+mainForm.Fields.Add(group);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -2745,7 +1529,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -2779,136 +1563,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(group);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(group);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(group);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-radio-button-field-to-a-new-PDF-document).
@@ -2917,7 +1571,41 @@ The below code snippet illustrates how to add the radio button field to an exist
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a radio button group.
+PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
+group.FlowDirection = PdfXfaFlowDirection.Vertical;
+//Create a radio button field and add the properties.
+PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
+//Set the caption text.
+radioButtonField1.Caption.Text = "Male";
+//Create a radio button field and add the properties.
+PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
+radioButtonField2.Caption.Text = "Female";
+//Add the radio button fields to the radio button group.
+group.Items.Add(radioButtonField1);
+group.Items.Add(radioButtonField2);
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(group);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -2947,7 +1635,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -2977,130 +1665,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(group);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(group);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a radio button group.
-PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
-group.FlowDirection = PdfXfaFlowDirection.Vertical;
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField1 = new PdfXfaRadioButtonField("r1", new SizeF(80, 20));
-//Set the caption text.
-radioButtonField1.Caption.Text = "Male";
-//Create a radio button field and add the properties.
-PdfXfaRadioButtonField radioButtonField2 = new PdfXfaRadioButtonField("r2", new SizeF(80, 20));
-radioButtonField2.Caption.Text = "Female";
-//Add the radio button fields to the radio button group.
-group.Items.Add(radioButtonField1);
-group.Items.Add(radioButtonField2);
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(group);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-radio-button-field-to-an-existing-PDF-document).
@@ -3111,7 +1675,36 @@ The below code snippet illustrates how to add a date time field to a new PDF doc
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a date time field and add the properties.
+PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
+//Set the caption text.
+dateTimeField.Caption.Text = "Date Time Field";
+//Set the tool tip.
+dateTimeField.ToolTip = "Date Time";
+//Add the field to the XFA form.
+mainForm.Fields.Add(dateTimeField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -3133,12 +1726,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -3160,119 +1753,10 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
 
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
+{% endhighlight %}s
 
 {% endtabs %}
 
@@ -3282,7 +1766,34 @@ The below code snippet illustrates how to add the date time field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a date time field and add the properties.
+PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
+//Set the caption text.
+dateTimeField.Caption.Text = "Date Time Field";
+//Set the tool tip.
+dateTimeField.ToolTip = "Date Time";
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(dateTimeField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -3305,7 +1816,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -3328,109 +1839,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(dateTimeField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(dateTimeField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date Time Field";
-//Set the tool tip.
-dateTimeField.ToolTip = "Date Time";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(dateTimeField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-datetime-field-in-an-existing-PDF-document).
@@ -3441,7 +1849,34 @@ The below code snippet illustrates how to add a button field to a new PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a button field and add the properties.
+PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
+//Set the caption text.
+buttonField.Content = "Click";
+//Add the field to the XFA form.
+mainForm.Fields.Add(buttonField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -3461,12 +1896,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -3486,111 +1921,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the XFA form.
-mainForm.Fields.Add(buttonField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the XFA form.
-mainForm.Fields.Add(buttonField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the XFA form.
-mainForm.Fields.Add(buttonField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -3600,9 +1932,34 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The below code snippet illustrates how to add the button field to an existing PDF document.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a button field and add the properties.
+PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
+//Set the caption text.
+buttonField.Content = "Click";
+//Add the field to the existing XFA form.
+loadedForm.Fields.Add(buttonField);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -3623,7 +1980,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -3644,103 +2001,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(buttonField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(buttonField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
-//Set the caption text.
-buttonField.Content = "Click";
-//Add the field to the existing XFA form.
-loadedForm.Fields.Add(buttonField);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 ### Adding the XFA text element
@@ -3749,7 +2009,34 @@ The below code snippet illustrates how to add a text element to a new PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the XFA form.
+mainForm.Fields.Add(textElement);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -3769,12 +2056,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -3794,111 +2081,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the XFA form.
-mainForm.Fields.Add(textElement);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -3908,9 +2092,34 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The below code snippet illustrates how to add a text element to an existing PDF document.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a text element and add the properties.
+PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
+//Set font.
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+//Add the text element to the existing XFA form.
+loadedForm.Fields.Add(textElement);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -3931,7 +2140,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -3952,103 +2161,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the existing XFA form.
-loadedForm.Fields.Add(textElement);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the existing XFA form.
-loadedForm.Fields.Add(textElement);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a text element and add the properties.
-PdfXfaTextElement textElement = new PdfXfaTextElement("Hello World!");
-//Set font.
-textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
-//Add the text element to the existing XFA form.
-loadedForm.Fields.Add(textElement);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-text-element-to-an-existing-PDF-document).
@@ -4059,7 +2171,34 @@ The below code snippet illustrates how to add the rectangle field to a new PDF d
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a rectangle field and add the properties.
+PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
+//Set the fill color.
+rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
+//Add the rectangle field to the XFA form.
+mainForm.Fields.Add(rectangle);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -4079,12 +2218,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -4104,111 +2243,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the rectangle field to the XFA form.
-mainForm.Fields.Add(rectangle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf"); 
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the rectangle field to the XFA form.
-mainForm.Fields.Add(rectangle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the rectangle field to the XFA form.
-mainForm.Fields.Add(rectangle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -4220,7 +2256,32 @@ The below code snippet illustrates how to add the rectangle field to an existing
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a rectangle field and add the properties.
+PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
+//Set the fill color.
+rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
+//Add the rectangle to the existing XFA form.
+loadedForm.Fields.Add(rectangle);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -4241,7 +2302,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -4262,103 +2323,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the rectangle to the existing XFA form.
-loadedForm.Fields.Add(rectangle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the rectangle to the existing XFA form.
-loadedForm.Fields.Add(rectangle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a rectangle field and add the properties.
-PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
-//Set the fill color.
-rectangle.Border.FillColor = new PdfXfaSolidBrush(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the rectangle to the existing XFA form.
-loadedForm.Fields.Add(rectangle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-the-XFA-rectangle-field-to-an-existing-PDF-document).
@@ -4369,7 +2333,34 @@ The below code snippet illustrates how to add the circle field to a new PDF docu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a circle field and add the properties.
+PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
+//Set the fill color.
+circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
+//Add the text element to the XFA form.
+mainForm.Fields.Add(circle);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -4389,12 +2380,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -4414,111 +2405,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the text element to the XFA form.
-mainForm.Fields.Add(circle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the text element to the XFA form.
-mainForm.Fields.Add(circle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the text element to the XFA form.
-mainForm.Fields.Add(circle);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -4530,7 +2418,32 @@ The below code snippet illustrates how to add the circle field to an existing PD
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a circle field and add the properties.
+PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
+//Set the fill color.
+circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
+//Add the circle to the existing XFA form.
+loadedForm.Fields.Add(circle);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -4551,7 +2464,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -4572,103 +2485,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the circle to the existing XFA form.
-loadedForm.Fields.Add(circle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Color.FromArgb(0,255,0,0));
-//Add the circle to the existing XFA form.
-loadedForm.Fields.Add(circle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a circle field and add the properties.
-PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
-//Set the fill color.
-circle.Border.FillColor = new PdfXfaSolidBrush(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the circle to the existing XFA form.
-loadedForm.Fields.Add(circle);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-circle-field-to-an-existing-PDF-document).
@@ -4679,7 +2495,34 @@ The below code snippet illustrates how to add a line to a new PDF document using
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add a new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form.
+PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
+//Create a line and add the properties.
+PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
+//Set the line color.
+line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+//Add the text line to the XFA form.
+mainForm.Fields.Add(line);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream, PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();   
@@ -4699,12 +2542,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -4724,111 +2567,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-//Add the text line to the XFA form.
-mainForm.Fields.Add(line);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf"); 
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-//Add the text line to the XFA form.
-mainForm.Fields.Add(line);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName); 
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the text line to the XFA form.
-mainForm.Fields.Add(line);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -4840,7 +2580,32 @@ The below code snippet illustrates how to add a line to an existing PDF document
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Create a line and add the properties.
+PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
+//Set the line color.
+line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+//Add the line to the existing XFA form.
+loadedForm.Fields.Add(line);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
@@ -4861,7 +2626,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
@@ -4882,103 +2647,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-//Add the line to the existing XFA form.
-loadedForm.Fields.Add(line);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-//Add the line to the existing XFA form.
-loadedForm.Fields.Add(line);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Create a line and add the properties.
-PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
-//Set the line color.
-line.Color = new PdfColor(Syncfusion.Drawing.Color.FromArgb(0,255,0,0));
-//Add the line to the existing XFA form.
-loadedForm.Fields.Add(line);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Add-XFA-line-to-an-existing-PDF-document).
@@ -4989,82 +2657,7 @@ The below code snippet illustrates how to add an image to a new PDF document usi
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();   
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
-//Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("image1", "image.jpg");
-//Add the image to the XFA form.
-mainForm.Fields.Add(image);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Save the document.
-document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
-//close the document.
-document.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF XFA document
-Dim document As New PdfXfaDocument()
-'Add a new XFA page
-Dim xfaPage As PdfXfaPage = document.Pages.Add()
-
-'Create a new PDF XFA form
-Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
-'Create a image and add the properties
-Dim image As New PdfXfaImage("image1", "image.jpg")
-'Add the image to the XFA form
-mainForm.Fields.Add(image)
-'Add the XFA form to the document
-document.XfaForm = mainForm
-
-'Save the document
-document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
-'close the document
-document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add a new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Load the image as stream.
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.image.jpg");
-//Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("image1", imageStream);
-//Add the image to the XFA form.
-mainForm.Fields.Add(image);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -5086,55 +2679,54 @@ document.XfaForm = mainForm;
 MemoryStream stream = new MemoryStream();
 //Save the document to memory stream.
 document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
+PdfXfaDocument document = new PdfXfaDocument();   
 //Add a new XFA page.
 PdfXfaPage xfaPage = document.Pages.Add();
 
 //Create a new PDF XFA form.
-PdfXfaForm mainForm = new PdfXfaForm("subform1", xfaPage, xfaPage.GetClientSize().Width);
-//Load the image as stream.
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.jpg");
+PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("image1", imageStream);
+PdfXfaImage image = new PdfXfaImage("image1", "image.jpg");
 //Add the image to the XFA form.
 mainForm.Fields.Add(image);
 //Add the XFA form to the document.
 document.XfaForm = mainForm;
 
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream, PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
+//Save the document.
+document.Save("XfaForm.pdf",PdfXfaType.Dynamic);
 //Close the document.
 document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF XFA document
+Dim document As New PdfXfaDocument()
+'Add a new XFA page
+Dim xfaPage As PdfXfaPage = document.Pages.Add()
+
+'Create a new PDF XFA form
+Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
+'Create a image and add the properties
+Dim image As New PdfXfaImage("image1", "image.jpg")
+'Add the image to the XFA form
+mainForm.Fields.Add(image)
+'Add the XFA form to the document
+document.XfaForm = mainForm
+
+'Save the document
+document.Save("XfaForm.pdf",PdfXfaType.Dynamic)
+'Close the document
+document.Close()
 
 {% endhighlight %}
 
@@ -5146,7 +2738,32 @@ The below code snippet illustrates how to add an image to an existing PDF docume
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Load the image as stream.
+MemoryStream imageStream = new MemoryStream(File.ReadAllBytes(imageFileName));
+//Create a image and add the properties.
+PdfXfaImage image = new PdfXfaImage("imgage1", imageStream);
+//Add the image to the existing XFA form.
+loadedForm.Fields.Add(image);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing XFA document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm1.pdf");
@@ -5165,7 +2782,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing XFA document
 Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm1.pdf")
@@ -5181,103 +2798,6 @@ loadedForm.Fields.Add(image)
 loadedDocument.Save("XfaForm.pdf")
 'Close the document
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.XfaForm.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Load the image as stream.
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.image.jpg");
-//Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("imgage1", imageStream);
-//Add the image to the existing XFA form.
-loadedForm.Fields.Add(image);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Load the image as stream.
-MemoryStream imageStream = new MemoryStream(File.ReadAllBytes(imageFileName));
-//Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("imgage1", imageStream);
-//Add the image to the existing XFA form.
-loadedForm.Fields.Add(image);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Load the image as stream.
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.jpg");
-//Create a image and add the properties.
-PdfXfaImage image = new PdfXfaImage("imgage1", imageStream);
-//Add the image to the existing XFA form.
-loadedForm.Fields.Add(image);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5298,7 +2818,42 @@ You can set the flow direction to an XFA form while creating, using [PdfXfaFlowD
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "First Name";
+//Set the tool tip.
+textBoxField.ToolTip = "First Name";
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField1.Caption.Text = "Last Name";
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField1);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Add the field to the XFA form.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -5326,12 +2881,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -5359,135 +2914,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Add the field to the XFA form.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5501,8 +2929,43 @@ You can set the flow direction to an XFA form while creating, using [PdfXfaFlowD
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with vertical flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Vertical, xfaPage.GetClientSize().Width);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "First Name";
+//Set the tool tip.
+textBoxField.ToolTip = "First Name";
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField1.Caption.Text = "Last Name";
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField1);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+                                                                                              
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Add new XFA page.
@@ -5529,12 +2992,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -5562,135 +3025,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with vertical flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Vertical, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with vertical flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Vertical, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with vertical flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Vertical, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField1 = new PdfXfaTextBoxField("LastName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField1.Caption.Text = "Last Name";
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5704,7 +3040,38 @@ You can rotate a form field in XFA document, using [PdfXfaRotateAngle](https://h
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a textbox field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "First Name";
+//Set the tool tip.
+textBoxField.ToolTip = "First Name";
+//Set the fields rotation.
+textBoxField.Rotate = PdfXfaRotateAngle.RotateAngle90;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -5728,12 +3095,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -5757,123 +3124,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Set the fields rotation.
-textBoxField.Rotate = PdfXfaRotateAngle.RotateAngle90;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Set the fields rotation.
-textBoxField.Rotate = PdfXfaRotateAngle.RotateAngle90;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a textbox field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "First Name";
-//Set the tool tip.
-textBoxField.ToolTip = "First Name";
-//Set the fields rotation.
-textBoxField.Rotate = PdfXfaRotateAngle.RotateAngle90;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5885,9 +3137,40 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can validate the date time fields of the input text by enabling the [RequireValidation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html#Syncfusion_Pdf_Xfa_PdfXfaDateTimeField_RequireValidation) property of [PdfXfaDateTimeField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfXfaDateTimeField.html). The following code snippet illustrates this.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a date time field and add the properties.
+PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dateTimeField", new SizeF(200, 20));
+//Set the caption text.
+dateTimeField.Caption.Text = "Date of Birth";
+//Set the date pattern.
+dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY;
+//Enable the validation.
+dateTimeField.RequireValidation = true;
+//Add the field to the XFA form.
+mainForm.Fields.Add(dateTimeField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -5911,12 +3194,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -5940,123 +3223,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dateTimeField", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date of Birth";
-//Set the date pattern.
-dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY;
-//Enable the validation.
-dateTimeField.RequireValidation = true;
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dateTimeField", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date of Birth";
-//Set the date pattern.
-dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY;
-//Enable the validation.
-dateTimeField.RequireValidation = true;
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dateTimeField", new SizeF(200, 20));
-//Set the caption text.
-dateTimeField.Caption.Text = "Date of Birth";
-//Set the date pattern.
-dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY;
-//Enable the validation.
-dateTimeField.RequireValidation = true;
-//Add the field to the XFA form.
-mainForm.Fields.Add(dateTimeField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -6070,7 +3238,36 @@ You can customize the numeric field input value to the specific pattern through 
 Please refer the below link for numeric pattern format in detail,
 [Numeric Pattern](http://help.adobe.com/en_US/livecycle/10.0/DesignerHelp/WS92d06802c76abadb-56c02439129b8b00ebc-7ecf.html).
 
-{% tabs %}  
+{% tabs %} 
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a numeric field and add the properties.
+PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
+//Set the caption text.
+numericField.Caption.Text = "Numeric Field";
+//Set the pattern string.
+numericField.PatternString = "zzzzzzzzz9";
+//Add the field to the XFA form.
+mainForm.Fields.Add(numericField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
 
 {% highlight c# tabtitle="C#" %}
 
@@ -6126,115 +3323,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Set the pattern string.
-numericField.PatternString = "zzzzzzzzz9";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Set the pattern string.
-numericField.PatternString = "zzzzzzzzz9";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("numericField", new SizeF(200, 20));
-//Set the caption text.
-numericField.Caption.Text = "Numeric Field";
-//Set the pattern string.
-numericField.PatternString = "zzzzzzzzz9";
-//Add the field to the XFA form.
-mainForm.Fields.Add(numericField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Customizing-the-XFA-numeric-field-in-a-PDF-document).
@@ -6245,7 +3333,47 @@ You can add the nested sub forms by using [PdfXfaForm](https://help.syncfusion.c
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text element.
+PdfXfaTextElement element = new PdfXfaTextElement("Main Form", font, 400, 20);
+//Add the field to the XFA form.
+mainForm.Fields.Add(element);
+//Create a form.
+PdfXfaForm form1 = new PdfXfaForm(PdfXfaFlowDirection.Vertical, 400);
+//Create a text element.
+PdfXfaTextElement element1 = new PdfXfaTextElement("First Form", font, 400, 20);
+form1.Fields.Add(element1);
+//Create a form.
+PdfXfaForm form2 = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, 400);
+//Create a text element.
+PdfXfaTextElement element2 = new PdfXfaTextElement("Second Form", font, 400, 20);
+form2.Fields.Add(element2);
+form1.Fields.Add(form2);
+//Add the field to the XFA form.
+mainForm.Fields.Add(form1);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -6278,12 +3406,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Static);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -6316,150 +3444,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Static)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text element.
-PdfXfaTextElement element = new PdfXfaTextElement("Main Form", font, 400, 20);
-//Add the field to the XFA form.
-mainForm.Fields.Add(element);
-//Create a form.
-PdfXfaForm form1 = new PdfXfaForm(PdfXfaFlowDirection.Vertical, 400);
-//Create a text element.
-PdfXfaTextElement element1 = new PdfXfaTextElement("First Form", font, 400, 20);
-form1.Fields.Add(element1);
-//Create a form.
-PdfXfaForm form2 = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, 400);
-//Create a text element.
-PdfXfaTextElement element2 = new PdfXfaTextElement("Second Form", font, 400, 20);
-form2.Fields.Add(element2);
-form1.Fields.Add(form2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(form1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text element.
-PdfXfaTextElement element = new PdfXfaTextElement("Main Form", font, 400, 20);
-//Add the field to the XFA form.
-mainForm.Fields.Add(element);
-//Create a form.
-PdfXfaForm form1 = new PdfXfaForm(PdfXfaFlowDirection.Vertical, 400);
-//Create a text element.
-PdfXfaTextElement element1 = new PdfXfaTextElement("First Form", font, 400, 20);
-form1.Fields.Add(element1);
-//Create a form.
-PdfXfaForm form2 = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, 400);
-//Create a text element.
-PdfXfaTextElement element2 = new PdfXfaTextElement("Second Form", font, 400, 20);
-form2.Fields.Add(element2);
-form1.Fields.Add(form2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(form1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a font.
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text element.
-PdfXfaTextElement element = new PdfXfaTextElement("Main Form", font, 400, 20);
-//Add the field to the XFA form.
-mainForm.Fields.Add(element);
-//Create a form.
-PdfXfaForm form1 = new PdfXfaForm(PdfXfaFlowDirection.Vertical, 400);
-//Create a text element.
-PdfXfaTextElement element1 = new PdfXfaTextElement("First Form", font, 400, 20);
-form1.Fields.Add(element1);
-//Create a form.
-PdfXfaForm form2 = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, 400);
-//Create a text element.
-PdfXfaTextElement element2 = new PdfXfaTextElement("Second Form", font, 400, 20);
-form2.Fields.Add(element2);
-form1.Fields.Add(form2);
-//Add the field to the XFA form.
-mainForm.Fields.Add(form1);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -6479,7 +3465,36 @@ You can add the horizontal alignments in XFA form fields through [HorizontalAlig
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Set the horizontal alignment.
+textBoxField.HorizontalAlignment = PdfXfaHorizontalAlignment.Right;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -6501,12 +3516,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -6528,117 +3543,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the horizontal alignment.
-textBoxField.HorizontalAlignment = PdfXfaHorizontalAlignment.Right;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the horizontal alignment.
-textBoxField.HorizontalAlignment = PdfXfaHorizontalAlignment.Right;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the horizontal alignment.
-textBoxField.HorizontalAlignment = PdfXfaHorizontalAlignment.Right;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -6652,7 +3558,36 @@ You can add the vertical alignments in XFA form fields through [VerticalAlignmen
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Set the vertical alignment.
+textBoxField.VerticalAlignment = PdfXfaVerticalAlignment.Bottom;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -6674,12 +3609,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -6701,117 +3636,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the vertical alignment.
-textBoxField.VerticalAlignment = PdfXfaVerticalAlignment.Bottom;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the vertical alignment.
-textBoxField.VerticalAlignment = PdfXfaVerticalAlignment.Bottom;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the vertical alignment.
-textBoxField.VerticalAlignment = PdfXfaVerticalAlignment.Bottom;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -6825,7 +3651,37 @@ You can add margin to the XFA form fields by using [Margins](https://help.syncfu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Set the margins.
+textBoxField.Margins.Left = 10;
+textBoxField.Margins.Right = 5;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -6848,12 +3704,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -6876,120 +3732,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the margins.
-textBoxField.Margins.Left = 10;
-textBoxField.Margins.Right = 5;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the margins.
-textBoxField.Margins.Left = 10;
-textBoxField.Margins.Right = 5;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the margins.
-textBoxField.Margins.Left = 10;
-textBoxField.Margins.Right = 5;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -7003,7 +3747,36 @@ You can add padding to the XFA form fields by using [padding](https://help.syncf
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Set the paddings.
+textBoxField.Padding.All = 2;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -7030,7 +3803,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -7052,117 +3825,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the paddings.
-textBoxField.Padding.All = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the paddings.
-textBoxField.Padding.All = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the paddings.
-textBoxField.Padding.All = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -7176,7 +3840,37 @@ You can add border to the XFA fields by using [Border](https://help.syncfusion.c
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Set the border color and width.
+textBoxField.Border.Color = new PdfColor(200, 123, 0);
+textBoxField.Border.Width = 2;
+//Add the field to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -7199,12 +3893,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -7227,120 +3921,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the border color and width.
-textBoxField.Border.Color = new PdfColor(200, 123, 0);
-textBoxField.Border.Width = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "XfaForm.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the border color and width.
-textBoxField.Border.Color = new PdfColor(200, 123, 0);
-textBoxField.Border.Width = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(xfaPage, PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Set the border color and width.
-textBoxField.Border.Color = new PdfColor(200, 123, 0);
-textBoxField.Border.Width = 2;
-//Add the field to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -7358,7 +3940,30 @@ Please refer the below sample for filling the XFA text box field using [PdfLoade
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded text box field.
+PdfLoadedXfaTextBoxField loadedTextBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+//fill the text box.
+loadedTextBox.Text = "First Name";
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -7377,7 +3982,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -7396,97 +4001,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded text box field.
-PdfLoadedXfaTextBoxField loadedTextBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//fill the text box.
-loadedTextBox.Text = "First Name";
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded text box field.
-PdfLoadedXfaTextBoxField loadedTextBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//fill the text box.
-loadedTextBox.Text = "First Name";
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded text box field.
-PdfLoadedXfaTextBoxField loadedTextBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//fill the text box.
-loadedTextBox.Text = "First Name";
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-textbox-field-in-an-existing-PDF-document).
@@ -7497,7 +4011,30 @@ You can fill the XFA numeric field by using [PdfLoadedXfaNumericField](https://h
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded numeric field.
+PdfLoadedXfaNumericField loadedNumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
+//fill the numeric field.
+loadedNumericField.NumericValue = 945322;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -7516,7 +4053,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -7535,97 +4072,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded numeric field.
-PdfLoadedXfaNumericField loadedNumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
-//fill the numeric field.
-loadedNumericField.NumericValue = 945322;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded numeric field.
-PdfLoadedXfaNumericField loadedNumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
-//fill the numeric field.
-loadedNumericField.NumericValue = 945322;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded numeric field.
-PdfLoadedXfaNumericField loadedNumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
-//fill the numeric field.
-loadedNumericField.NumericValue = 945322;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-numeric-field-in-an-existing-PDF-document).
@@ -7636,7 +4082,30 @@ You can fill the XFA combo box field by using [PdfLoadedXfaComboBoxField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded combo box field.
+PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
+//Set the combo box selected index.
+loadedComboBoxField.SelectedIndex = 1;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -7655,7 +4124,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -7674,32 +4143,15 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% endtabs %}
 
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-combobox-field-in-an-existing-PDF-document).
 
-//Get the loaded combo box field.
-PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index.
-loadedComboBoxField.SelectedIndex = 1;
+You can fill and save hidden items in XFA combo box field by using [HiddenItems](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaComboBoxField.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaComboBoxField_HiddenItems) property. The below code snippet explains this.
 
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
+{% tabs %}  
 
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -7710,70 +4162,22 @@ PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 
 //Get the loaded combo box field.
 PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index.
-loadedComboBoxField.SelectedIndex = 1;
+//Set the combo box selected index using hidden items.
+loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems[0];
+//Save the combo box field hidden values.
+List<string> hiddenValues = new List<string>();
+hiddenValues = loadedComboBoxField.HiddenItems;
 
 //Create memory stream.
 MemoryStream stream = new MemoryStream();
 //Save the document to memory stream.
 loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded combo box field.
-PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index.
-loadedComboBoxField.SelectedIndex = 1;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Filling-the-XFA-combobox-field-in-an-existing-PDF-document).
-
-You can fill and save hidden items in XFA combo box field by using [HiddenItems](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaComboBoxField.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaComboBoxField_HiddenItems) property. The below code snippet explains this.
-
-{% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("Input.pdf");
@@ -7789,13 +4193,13 @@ List<string> hiddenValues = new List<string>();
 hiddenValues = loadedComboBoxField.HiddenItems;
 
 //Save the document.
-loadedDocument.Save("output.pdf");
+loadedDocument.Save("Output.pdf");
 //Close the document.
 loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("Input.pdf")
@@ -7811,109 +4215,9 @@ Dim hiddenValues As New List(Of String)()
 hiddenValues = loadedComboBoxField.HiddenItems
 
 'Save the document
-loadedDocument.Save("output.pdf")
+loadedDocument.Save("Output.pdf")
 'Close the document
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded combo box field.
-PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index using hidden items.
-loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems[0];
-//Save the combo box field hidden values.
-List<string> hiddenValues = new List<string>();
-hiddenValues = loadedComboBoxField.HiddenItems;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded combo box field.
-PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index using hidden items.
-loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems[0];
-//Save the combo box field hidden values.
-List<string> hiddenValues = new List<string>();
-hiddenValues = loadedComboBoxField.HiddenItems;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded combo box field.
-PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
-//Set the combo box selected index using hidden items.
-loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems[0];
-//Save the combo box field hidden values.
-List<string> hiddenValues = new List<string>();
-hiddenValues = loadedComboBoxField.HiddenItems;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -7927,7 +4231,30 @@ You can fill the XFA list box field by using [PdfLoadedXfaListBoxField](https://
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded list box field.
+PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+//Set the list box selected index.
+loadedListBoxField.SelectedIndex = 1;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -7940,13 +4267,13 @@ PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] 
 loadedListBoxField.SelectedIndex = 1;
 
 //Save the document.
-loadedDocument.Save("output.pdf");
+loadedDocument.Save("Output.pdf");
 //Close the document.
 loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -7959,100 +4286,9 @@ Dim loadedListBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm
 loadedListBoxField.SelectedIndex = 1
 
 'Save the document 
-loadedDocument.Save("output.pdf")
+loadedDocument.Save("Output.pdf")
 'Close the document
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected index.
-loadedListBoxField.SelectedIndex = 1;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected index.
-loadedListBoxField.SelectedIndex = 1;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected index.
-loadedListBoxField.SelectedIndex = 1;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -8064,7 +4300,30 @@ You can also select the multiple values by using [SelectedItems](https://help.sy
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded list box field.
+PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+//Set the list box selected items.
+loadedListBoxField.SelectedItems = new string[] { "English", "Spanish" };
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -8077,13 +4336,13 @@ PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] 
 loadedListBoxField.SelectedItems =new string[] {"English","Spanish"};
 
 //Save the document.
-loadedDocument.Save("output.pdf");
+loadedDocument.Save("Output.pdf");
 //Close the document.
 loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -8096,100 +4355,9 @@ Dim loadedListBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm
 loadedListBoxField.SelectedItems = New String() {"English","Spanish"}
 
 'Save the document 
-loadedDocument.Save("output.pdf")
+loadedDocument.Save("Output.pdf")
 'Close the document
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected items.
-loadedListBoxField.SelectedItems = new string[] { "English", "Spanish" };
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected items.
-loadedListBoxField.SelectedItems = new string[] { "English", "Spanish" };
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded list box field.
-PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
-//Set the list box selected items.
-loadedListBoxField.SelectedItems = new string[] { "English", "Spanish" };
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -8203,70 +4371,7 @@ You can fill the XFA date time field by using [PdfLoadedXfaDateTimeField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the existing PDF document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded date time field.
-PdfLoadedXfaDateTimeField loadedDateTimeField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
-//Set the value.
-loadedDateTimeField.Value = DateTime.Now;
-
-//Save the document.
-loadedDocument.Save("output.pdf");
-//Close the document.
-loadedDocument.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
-'Load the existing XFA form
-Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
-
-'Get the loaded date time field
-Dim loadedDateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
-'Set the value           
-loadedDateTimeField.Value = Date.Now
-
-'Save the document 
-loadedDocument.Save("output.pdf")
-'Close the document
-loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded date time field.
-PdfLoadedXfaDateTimeField loadedDateTimeField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
-//Set the value.
-loadedDateTimeField.Value = DateTime.Now;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -8284,25 +4389,15 @@ loadedDateTimeField.Value = DateTime.Now;
 MemoryStream stream = new MemoryStream();
 //Save the document to memory stream.
 loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing PDF document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 
@@ -8311,24 +4406,29 @@ PdfLoadedXfaDateTimeField loadedDateTimeField = (loadedForm.Fields["subform1[0]"
 //Set the value.
 loadedDateTimeField.Value = DateTime.Now;
 
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
+//Save the document.
+loadedDocument.Save("Output.pdf");
 //Close the document.
 loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document
+Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
+'Load the existing XFA form
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
+
+'Get the loaded date time field
+Dim loadedDateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
+'Set the value           
+loadedDateTimeField.Value = Date.Now
+
+'Save the document 
+loadedDocument.Save("Output.pdf")
+'Close the document
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -8342,7 +4442,30 @@ You can fill the XFA check box field by using [PdfLoadedXfaCheckBoxField](https:
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the loaded check box field.
+PdfLoadedXfaCheckBoxField loadedCheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
+//Check the check box.          
+loadedCheckBox.IsChecked = true;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -8361,7 +4484,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -8380,97 +4503,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded check box field.
-PdfLoadedXfaCheckBoxField loadedCheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
-//Check the check box.          
-loadedCheckBox.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded check box field.
-PdfLoadedXfaCheckBoxField loadedCheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
-//Check the check box.          
-loadedCheckBox.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "XfaForm.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the loaded check box field.
-PdfLoadedXfaCheckBoxField loadedCheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
-//Check the check box.          
-loadedCheckBox.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-checkbox-field-in-an-existing-PDF-document).
@@ -8481,7 +4513,32 @@ You can fill the XFA radio button field by using [PdfLoadedXfaRadioButtonField](
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the radio button group.
+PdfLoadedXfaRadioButtonGroup loadedRadioButtonGroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
+//Get the radio button field.
+PdfLoadedXfaRadioButtonField loadedRadioButtonField = loadedRadioButtonGroup.Fields[0] as PdfLoadedXfaRadioButtonField;
+//Check the radio button.
+loadedRadioButtonField.IsChecked = true;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -8502,7 +4559,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -8523,103 +4580,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the radio button group.
-PdfLoadedXfaRadioButtonGroup loadedRadioButtonGroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
-//Get the radio button field.
-PdfLoadedXfaRadioButtonField loadedRadioButtonField = loadedRadioButtonGroup.Fields[0] as PdfLoadedXfaRadioButtonField;
-//Check the radio button.
-loadedRadioButtonField.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the radio button group.
-PdfLoadedXfaRadioButtonGroup loadedRadioButtonGroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
-//Get the radio button field.
-PdfLoadedXfaRadioButtonField loadedRadioButtonField = loadedRadioButtonGroup.Fields[0] as PdfLoadedXfaRadioButtonField;
-//Check the radio button.
-loadedRadioButtonField.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the radio button group.
-PdfLoadedXfaRadioButtonGroup loadedRadioButtonGroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
-//Get the radio button field.
-PdfLoadedXfaRadioButtonField loadedRadioButtonField = loadedRadioButtonGroup.Fields[0] as PdfLoadedXfaRadioButtonField;
-//Check the radio button.
-loadedRadioButtonField.IsChecked = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Fill-the-XFA-radiobutton-field-in-an-existing-PDF-document).
@@ -8632,7 +4592,36 @@ The below code snippet illustrates how to set the [ReadOnly](https://help.syncfu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a new PDF XFA document.
+PdfXfaDocument document = new PdfXfaDocument();
+//Add new XFA page.
+PdfXfaPage xfaPage = document.Pages.Add();
+
+//Create a new PDF XFA form with horizontal flow direction.
+PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
+//Create a text box field and add the properties.
+PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
+//Set the caption text.
+textBoxField.Caption.Text = "Fist Name";
+//Add the text box to the XFA form.
+mainForm.Fields.Add(textBoxField);
+//Set the form as read only.
+mainForm.ReadOnly = true;
+//Add the XFA form to the document.
+document.XfaForm = mainForm;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+document.Save(stream,PdfXfaType.Dynamic);
+//Close the document.
+document.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
@@ -8654,12 +4643,12 @@ document.XfaForm = mainForm;
 
 //Save the document.
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic);
-//close the document.
+//Close the document.
 document.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF XFA document
 Dim document As New PdfXfaDocument()
@@ -8681,117 +4670,8 @@ document.XfaForm = mainForm
 
 'Save the document
 document.Save("XfaForm.pdf", PdfXfaType.Dynamic)
-'close the document
+'Close the document
 document.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Add the text box to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Set the form as read only.
-mainForm.ReadOnly = true;
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//Close the document.
-document.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Add the text box to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Set the form as read only.
-mainForm.ReadOnly = true;
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF XFA document.
-PdfXfaDocument document = new PdfXfaDocument();
-//Add new XFA page.
-PdfXfaPage xfaPage = document.Pages.Add();
-
-//Create a new PDF XFA form with horizontal flow direction.
-PdfXfaForm mainForm = new PdfXfaForm(PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width);
-//Create a text box field and add the properties.
-PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("textBoxField", new SizeF(200, 20));
-//Set the caption text.
-textBoxField.Caption.Text = "Fist Name";
-//Add the text box to the XFA form.
-mainForm.Fields.Add(textBoxField);
-//Set the form as read only.
-mainForm.ReadOnly = true;
-//Add the XFA form to the document.
-document.XfaForm = mainForm;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-document.Save(stream,PdfXfaType.Dynamic);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-document.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -8803,7 +4683,27 @@ The below code snippet illustrates how to set the [ReadOnly](https://help.syncfu
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+//Set the form as read only.
+loadedForm.ReadOnly = true;
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -8819,7 +4719,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document 
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -8835,88 +4735,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-//Set the form as read only.
-loadedForm.ReadOnly = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-//Set the form as read only.
-loadedForm.ReadOnly = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-//Set the form as read only.
-loadedForm.ReadOnly = true;
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Remove-editing-capability-to-an-existing-form-fields).
@@ -8927,9 +4745,15 @@ The form field editing or filling capabilities can be removed by flattening the 
 The Essential PDF flattens a form field by removing the existing form field and replacing it with graphical objects that will resemble the form field and cannot be edited. This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaDocument_Flatten) property of [PdfLoadedXfaDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaDocument.html).
 The following code snippet illustrates how to flatten the XFA form field.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}			
+
+//PDF doesn't support flattening XFA form fields in C# .NET Cross platforms. 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing document.
 PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("input.pdf");
@@ -8943,7 +4767,7 @@ ldoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing document
 Dim ldoc As New PdfLoadedXfaDocument("input.pdf")
@@ -8957,12 +4781,6 @@ ldoc.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports flattening XFA form fields only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Flattening-XFA-form-fields).
@@ -8971,9 +4789,32 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can remove the dynamic XFA form fields by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html#Syncfusion_Pdf_Xfa_PdfLoadedXfaFieldCollection_Remove_Syncfusion_Pdf_Xfa_PdfLoadedXfaField_) method of [PdfLoadedXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html) class. The below code snippet explained this.
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the existing field.
+PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+//Remove the field.
+loadedForm.Fields.Remove(loadedText);
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -8992,7 +4833,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document 
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -9011,97 +4852,6 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Remove the field.
-loadedForm.Fields.Remove(loadedText);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Remove the field.
-loadedForm.Fields.Remove(loadedText);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Remove the field.
-loadedForm.Fields.Remove(loadedText);
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/XFA/Removing-the-dynamic-form-fields-from-an-existing-PDF).
@@ -9112,7 +4862,33 @@ You can modify the existing dynamic XFA fields like Width, Height and Text by us
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document.
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA form.
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+
+//Get the existing field.
+PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+//Set the width and height of the field.
+loadedText.Width = 200;
+loadedText.Height = 30;
+//Set the caption text.
+loadedText.Caption.Text = "Second Name";
+
+//Create memory stream.
+MemoryStream stream = new MemoryStream();
+//Save the document to memory stream.
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
@@ -9128,13 +4904,13 @@ loadedText.Height = 30;
 loadedText.Caption.Text = "Second Name";
 
 //Save the document.
-loadedDocument.Save("output.pdf");
+loadedDocument.Save("Output.pdf");
 //Close the document.
 loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document 
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
@@ -9150,109 +4926,9 @@ loadedText.Height = 30
 loadedText.Caption.Text = "Second Name"
 
 'Save the document 
-loadedDocument.Save("output.pdf")
+loadedDocument.Save("Output.pdf")
 'Close the document
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Set the width and height of the field.
-loadedText.Width = 200;
-loadedText.Height = 30;
-//Set the caption text.
-loadedText.Caption.Text = "Second Name";
-
-//Create to memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Set the width and height of the field.
-loadedText.Width = 200;
-loadedText.Height = 30;
-//Set the caption text.
-loadedText.Caption.Text = "Second Name";
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Load the existing XFA form.
-PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
-
-//Get the existing field.
-PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
-//Set the width and height of the field.
-loadedText.Width = 200;
-loadedText.Height = 30;
-//Set the caption text.
-loadedText.Caption.Text = "Second Name";
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -9268,59 +4944,7 @@ The following sample illustrates how to clear the date time field in an existing
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the existing XFA PDF document.
-PdfLoadedXfaDocument loadedXfaDocument = new PdfLoadedXfaDocument("input.pdf");
-//Get the date time field.
-PdfLoadedXfaDateTimeField dateTimeField = loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
-//Clear the date time field value.
-dateTimeField.ClearValue(); 
-
-//Save and close the document.
-loadedXfaDocument.Save("output.pdf");
-loadedXfaDocument.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing XFA PDF document
-Dim loadedXfaDocument As PdfLoadedXfaDocument = New PdfLoadedXfaDocument("input.pdf")
-'Get the date time field
-Dim dateTimeField As PdfLoadedXfaDateTimeField = TryCast(loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]"), PdfLoadedXfaDateTimeField)
-'Clear the date time field value
-dateTimeField.ClearValue()
-
-'Save and close the document
-loadedXfaDocument.Save("output.pdf")
-loadedXfaDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Load the PDF document as stream.
-Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
-//Get the date time field.
-PdfLoadedXfaDateTimeField dateTimeField = loadedDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
-//Clear the date time field value.
-dateTimeField.ClearValue();
-
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close();
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Load the PDF document.
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -9335,48 +4959,38 @@ dateTimeField.ClearValue();
 MemoryStream stream = new MemoryStream();
 //Save the document to memory stream.
 loadedDocument.Save(stream);
-//If the position is not set to '0', then the PDF will be empty.
-stream.Position = 0;
 //Close the document.
 loadedDocument.Close();
-//Defining the ContentType for PDF file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the PDF document.
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-//Load the existing XFA document.
-PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Load the existing XFA PDF document.
+PdfLoadedXfaDocument loadedXfaDocument = new PdfLoadedXfaDocument("input.pdf");
 //Get the date time field.
-PdfLoadedXfaDateTimeField dateTimeField = loadedDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
+PdfLoadedXfaDateTimeField dateTimeField = loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
 //Clear the date time field value.
-dateTimeField.ClearValue();
+dateTimeField.ClearValue(); 
 
-//Create memory stream.
-MemoryStream stream = new MemoryStream();
-//Save the document to memory stream.
-loadedDocument.Save(stream);
-//If the position is not set to '0', then the PDF will be empty.
-stream.Position = 0;
-//Close the document.
-loadedDocument.Close();
-//Save the stream into XFDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("XfaForm.pdf", "application/pdf", fdfStream);
-}
+//Save and close the document.
+loadedXfaDocument.Save("Output.pdf");
+loadedXfaDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing XFA PDF document
+Dim loadedXfaDocument As PdfLoadedXfaDocument = New PdfLoadedXfaDocument("input.pdf")
+'Get the date time field
+Dim dateTimeField As PdfLoadedXfaDateTimeField = TryCast(loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]"), PdfLoadedXfaDateTimeField)
+'Clear the date time field value
+dateTimeField.ClearValue()
+
+'Save and close the document
+loadedXfaDocument.Save("Output.pdf")
+loadedXfaDocument.Close()
 
 {% endhighlight %}
 
@@ -9396,7 +5010,7 @@ The following XFA fields are supported in creating, filling, and flattening the 
 * List box field
 * Check box field
 * Text Element
-* Button
+* Buttons
 * Line
 * Rectangle
 * Circle
