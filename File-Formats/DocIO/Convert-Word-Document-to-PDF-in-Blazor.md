@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in Blazor | DocIO | Syncfusion 
-description: Convert Word to PDF without Microsoft Word or interop dependencies in Blazor application using Blazor Word (DocIO) library.
+description: Convert Word to PDF in Blazor using Blazor Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -19,7 +19,6 @@ Step 1: Create a new C# Blazor Server app project. Select Blazor Server App from
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Project-Name-WordtoPDF.png)
-
 
 Step 3: To **convert a Word document to PDF in server app**, install [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
 
@@ -182,25 +181,51 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor Server app output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in Blazor Server app](WordToPDF_images/OutputImage.png)
 
 ## Word to PDF in Blazor WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create  Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
+![Create Blazor WebAssembly app ](Blazor_Images/Blazor_WASM.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/WASM_Project_Name.png)
 
-Step 3: To **convert the Word document to PDF in WASM app**, install [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) to the Blazor project.
+Step 3:Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
+* [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
+* [SkiaSharp.NativeAssets.WebAssembly](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/NugetPackage.png)
+![Install SkiaSharp.NativeAssets.WebAssembly NuGet Package](Blazor_Images/SkiaSharp-Nuget-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 4: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+Step 4: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
+{% tabs %}
+
+{% highlight XAML  %}
+<ItemGroup>
+    <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
+</ItemGroup>
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime.
+
+Step 5: Enable the following property in the Blazor WASM csproj file.
+
+{% tabs %}
+{% highlight XAML %}
+<PropertyGroup>
+    <WasmNativeStrip>true</WasmNativeStrip>
+</PropertyGroup>
+{% endhighlight %}
+{% endtabs %}
+
+Step 6: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 
@@ -216,7 +241,7 @@ Step 4: Create a razor file with name as ``DocIO`` under ``Pages`` folder and ad
 
 {% endtabs %}
 
-Step 5: Add the following code to create a new button.
+Step 7: Add the following code to create a new button.
 
 {% tabs %}
 
@@ -230,7 +255,7 @@ Step 5: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 6: Create a new async method with name as ``WordToPDF`` and include the following code snippet to **create a Word document in Blazor** WASM app.
+Step 8: Create a new async method with name as ``WordToPDF`` and include the following code snippet to **create a Word document in Blazor** WASM app.
 
 {% tabs %}
 
@@ -263,7 +288,7 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"
 
 {% endtabs %}
 
-Step 7: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 9: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
@@ -282,7 +307,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-Step 8: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+Step 10: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
@@ -315,11 +340,11 @@ Step 8: Add the following JavaScript function in the Index.html file present und
 
 {% endtabs %}
 
-Step 9: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+Step 11: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight CSHTML %}
 
 <li class="nav-item px-3">
     <NavLink class="nav-link" href="docio">
@@ -335,6 +360,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Blazor WASM app output Word document](WordToPDF_images/OutputImage.png)
+![Word to PDF in Blazor WASM app](WordToPDF_images/OutputImage.png)
 
 N> To convert Word to PDF, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to PDF conversion works in a WASM app.

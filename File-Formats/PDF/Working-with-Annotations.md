@@ -16,7 +16,34 @@ You can add, delete and modify the annotation from the PDF documents.
 You can add a popup annotation to the page using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class. The following code example explains this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page .
+PdfPage page = document.Pages.Add();
+//Creates a rectangle.
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+popupAnnotation.Border.Width = 4;
+popupAnnotation.Border.HorizontalRadius = 20;
+popupAnnotation.Border.VerticalRadius = 30;
+//Sets the pdf popup icon.
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+//Adds this annotation to the created page.
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -41,7 +68,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -66,12 +93,18 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% endtabs %}
 
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page 
-PdfPage page = document.Pages.Add();
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-the-PDF-document).
+
+To add [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 //Creates a rectangle
 RectangleF rectangle = new RectangleF(10, 40, 30, 30);
 
@@ -82,100 +115,18 @@ popupAnnotation.Border.HorizontalRadius = 20;
 popupAnnotation.Border.VerticalRadius = 30;
 //Sets the pdf popup icon.
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to the created page.
-page.Annotations.Add(popupAnnotation);
+//Adds the annotation to loaded page
+document.Pages[0].Annotations.Add(popupAnnotation);
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "PopupAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page .
-PdfPage page = document.Pages.Add();
-//Creates a rectangle.
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the pdf popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to the created page.
-page.Annotations.Add(popupAnnotation);
-
-//Save the document into stream.
+//Save the document into stream
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
-stream.Position = 0;
-//Closes the document.
+//Closes the document
 document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "PopupAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page.
-PdfPage page = document.Pages.Add();
-//Creates a rectangle.
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation();
-popupAnnotation.Bounds = rectangle;
-popupAnnotation.Text = "Test popup annotation";
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the pdf popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to the created page.
-page.Annotations.Add(popupAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-the-PDF-document).
-
-To add [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfLoadedDocument document = new PdfLoadedDocument("input.pdf");
@@ -198,7 +149,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}      
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}   
 
 'Creates a new PDF document.
 Dim document As New PdfLoadedDocument("input.pdf")
@@ -220,110 +171,6 @@ document.Save("PopupAnnotation.pdf")
 document.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument document = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await document.OpenAsync(file);
-//Creates a rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the pdf popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds the annotation to loaded page
-document.Pages[0].Annotations.Add(popupAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "PopupAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument document = new PdfLoadedDocument(docStream);
-//Creates a rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the pdf popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds the annotation to loaded page
-document.Pages[0].Annotations.Add(popupAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "PopupAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument document = new PdfLoadedDocument(docStream);
-//Creates a rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the pdf popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds the annotation to loaded page
-document.Pages[0].Annotations.Add(popupAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-popup-annotation-to-an-existing-PDF-document).
@@ -335,7 +182,28 @@ Annotations can be flattened by removing the existing annotation and replacing i
 This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) property. Please refer the sample for flattening all the annotations in the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    loadedPage.Annotations.Flatten = true;
+}
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Closes the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages.
@@ -351,7 +219,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}      
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %} 
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -367,90 +235,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    loadedPage.Annotations.Flatten = true;
-}
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    loadedPage.Annotations.Flatten = true;
-}
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Closes the document
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    loadedPage.Annotations.Flatten = true;
-}
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-the-annotations-in-an-existing-PDF-document).
@@ -458,7 +242,35 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 To flatten the specific annotation in the PDF document, use the below code example.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        //Check for the circle annotation
+        if (annotation is PdfLoadedCircleAnnotation)
+        {
+            //Flatten the circle annotation
+            annotation.Flatten = true;
+        }
+    }
+}
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Closes the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages
@@ -475,14 +287,13 @@ annotation.Flatten = true;
 }
 }
 }
-
 //Save and close the PDF document instance
 loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}      
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}   
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -504,115 +315,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        //Check for the circle annotation
-        if (annotation is PdfLoadedCircleAnnotation)
-        {
-            //Flatten the circle annotation
-            annotation.Flatten = true;
-        }
-    }
-}
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        //Check for the circle annotation
-        if (annotation is PdfLoadedCircleAnnotation)
-        {
-            //Flatten the circle annotation
-            annotation.Flatten = true;
-        }
-    }
-}
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Closes the document
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    //Flatten all the annotations in the page
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        //Check for the circle annotation
-        if (annotation is PdfLoadedCircleAnnotation)
-        {
-            //Flatten the circle annotation
-            annotation.Flatten = true;
-        }
-    }
-}
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-the-specific-annotaiton-in-the-PDF-document).
@@ -620,7 +322,35 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 To flatten pop-up annotation [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) property to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("PopupAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        if (annotation is PdfLoadedPopupAnnotation)
+        {
+            //Enable the flatten annotation
+            annotation.Flatten = true;
+            //Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = true;
+        }
+    }
+}
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document as stream
+loadedDocument.Save(stream);
+//Close the document
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PopupAnnotation.pdf");
@@ -646,7 +376,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("PopupAnnotation.pdf")
@@ -668,118 +398,6 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document using Open method of the PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get all the page
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        if (annotation is PdfLoadedPopupAnnotation)
-        {
-            //Enable the flatten annotation
-            annotation.Flatten = true;
-            //Enable flatten for the pop-up window annotation
-            annotation.FlattenPopUps = true;
-        }
-    }
-}
-
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document instances
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("PopupAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        if (annotation is PdfLoadedPopupAnnotation)
-        {
-            //Enable the flatten annotation
-            annotation.Flatten = true;
-            //Enable flatten for the pop-up window annotation
-            annotation.FlattenPopUps = true;
-        }
-    }
-}
-
-//Creating the stream object
-MemoryStream stream = new MemoryStream();
-//Save the document as stream
-loadedDocument.Save(stream);
-//If the position is not set to '0', then the PDF will be empty
-stream.Position = 0;
-//Close the document
-loadedDocument.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates the FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PopupAnnotation.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get all the pages
-foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
-{
-    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
-    {
-        if (annotation is PdfLoadedPopupAnnotation)
-        {
-            //Enable the flatten annotation
-            annotation.Flatten = true;
-            //Enable flatten for the pop-up window annotation
-            annotation.FlattenPopUps = true;
-        }
-    }
-}
-
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document instances
-loadedDocument.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flatten-popup-annotation-in-the-PDF-document).
@@ -790,7 +408,36 @@ To flatten the redaction annotation in PDF document, use the following code exam
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Get stream from an existing PDF document. 
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+//Load the PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the annotation from annotation collection. 
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+    //Check for the Redaction annotation.
+    if (annot is PdfLoadedRedactionAnnotation)
+    {
+        //Get the redaction annotation. 
+        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+
+        //Flatten the redaction annotation. 
+        redactAnnot.Flatten = true;
+    }
+}
+loadedDocument.Redact();
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream(); 
+loadedDocument.Save(stream); 
+//Close the document.
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -812,13 +459,12 @@ foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
 
 //Save the document.
 loadedDocument.Save("Output.pdf");
-
 //Close the document.
 loadedDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document. 
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Input.pdf")
@@ -841,65 +487,8 @@ Next
 
 'Save the PDF document. 
 loadedDocument.Save("Output.pdf")
-
 'Close the PDF document. 
 loadedDocument.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Get stream from an existing PDF document. 
-FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-
-//Load the PDF document.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Get the annotation from annotation collection. 
-foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
-{
-    //Check for the Redaction annotation.
-    if (annot is PdfLoadedRedactionAnnotation)
-    {
-        //Get the redaction annotation. 
-        PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
-
-        //Flatten the redaction annotation. 
-        redactAnnot.Flatten = true;
-    }
-}
-
-loadedDocument.Redact();
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream(); 
-loadedDocument.Save(stream); 
-
-stream.Position = 0; 
-
-//Close the document.
-loadedDocument.Close(true);
-
-//Defining the ContentType for PDF file.
-string contentType = "application/pdf"; 
-
-//Define the file name.
-string fileName = "output.pdf";
-
-//Create a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-Essential PDF supports flattening redaction annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms.
 
 {% endhighlight %}
 
@@ -916,7 +505,24 @@ This can be achieved by calling the [FlattenAnnotations](https://help.syncfusion
 To flatten the annotation without pop-ups [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations) method to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Flatten all the annotations without popups in the document
+loadedDocument.FlattenAnnotations();
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Closes the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -930,7 +536,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}      
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}     
 
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -944,82 +550,6 @@ loadedDocument.Save("output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations();
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations();
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Closes the document
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations();
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Flattening-annotations-without-calling-save-method).
@@ -1027,7 +557,23 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 To flatten the annotation with pop-ups [FlattenAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_FlattenAnnotations_System_Boolean_) method to an existing PDF document using [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Flatten all the annotations without popups in the document
+loadedDocument.FlattenAnnotations(true);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Closes the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -1039,88 +585,15 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}      
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}  
 
 'Load the existing PDF document
-Dim loadedDocument As New PdfLoadedDocument(“input.pdf”)
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
 'Flatten all the annotations without popups in the document 
 loadedDocument.FlattenAnnotations(true)
 'Save and close the PDF document instance
 loadedDocument.Save("output.pdf")
 loadedDocument.Close(true)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations(true);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations(true);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Closes the document
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Flatten all the annotations without popups in the document
-loadedDocument.FlattenAnnotations(true);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
-}
 
 {% endhighlight %}
 
@@ -1136,8 +609,33 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can add a 3D annotation in PDF document using [Pdf3DAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html) class. The following example illustrates this.
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
+
+//Creates a new pdf 3d annotation.
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+//Handles the activation of the 3d annotation
+Pdf3DActivation activation = new Pdf3DActivation();
+activation.ActivationMode = Pdf3DActivationMode.ExplicitActivation;
+activation.ShowToolbar = true;
+pdf3dAnnotation.Activation = activation;
+//Adds annotation to page
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1160,7 +658,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -1183,82 +681,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
-
-//Creates a new pdf 3d annotation.
-Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
-//Handles the activation of the 3d annotation
-Pdf3DActivation activation = new Pdf3DActivation();
-activation.ActivationMode = Pdf3DActivationMode.ExplicitActivation;
-activation.ShowToolbar = true;
-pdf3dAnnotation.Activation = activation;
-//Adds annotation to page
-page.Annotations.Add(pdf3dAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "3DAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.3DAnnotation.u3d");
-
-//Creates a new PDF 3d annotation
-Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
-//Handles the activation of the 3d annotation
-Pdf3DActivation activation = new Pdf3DActivation();
-activation.ActivationMode = Pdf3DActivationMode.ExplicitActivation;
-activation.ShowToolbar = true;
-pdf3dAnnotation.Activation = activation;
-//Adds annotation to page
-page.Annotations.Add(pdf3dAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("3DAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("3DAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-3D-annotation-in-PDF-document).
@@ -1267,7 +689,30 @@ You can add the JavaScript script to the 3D annotation using the [OnInstantiate]
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
+
+//Creates a new PDF 3D annotation
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+//Assign JavaScript script
+pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";
+//Adds annotation to page
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1288,7 +733,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -1308,76 +753,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
-
-//Creates a new PDF 3D annotation
-Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
-//Assign JavaScript script
-pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";
-//Adds annotation to page
-page.Annotations.Add(pdf3dAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "3DAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.3DAnnotation.u3d");
-
-//Creates a new PDF 3d annotation
-Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
-//Assign JavaScript script
-pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";          
-//Adds annotation to page
-page.Annotations.Add(pdf3dAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("3DAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("3DAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-the-JavaScript-script-to-the-3D-annotation-in-a-PDF).
@@ -1388,7 +763,14 @@ Links for external files can be added in a PDF document by using the [PdfFileLin
 
 The following code example explains how to add a file link annotation in PDF.
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support File Link Annotation C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -1408,7 +790,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -1425,24 +807,6 @@ page.Annotations.Add(fileLinkAnnotation)
 'Saves the document to disk.
 document.Save("FileLinkAnnotation.pdf")
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
 
 {% endhighlight %}
 
@@ -1463,7 +827,37 @@ The following rich media types are supported:
 The following code examples explain how to add a rich media annotation in a PDF document using the [PdfRichMediaAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRichMediaAnnotation.html).
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document.
+FileStream inputStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+//Get the page. 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create the PDF richmedia annotation. 
+PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
+//Set properties to the annotation. 
+richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
+richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
+//Set the richmedia content.
+FileStream fileStream = new FileStream("video.mp4", FileMode.Open, FileAccess.Read);
+PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
+richMediaAnnotation.Content = content;
+//Create the appearance of the richmedia. 
+richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+//Add the annotation to the page. 
+lpage.Annotations.Add(richMediaAnnotation);
+
+//Save the document into the stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document. 
+loadedDocument.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document.
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -1489,7 +883,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document.
  Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -1513,116 +907,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-  
-//Load the file as stream
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page.
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create the PDF richmedia annotation.
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
-//Set properties to the annotation.
-richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
-richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
-//Set the richmedia content.
-Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
-PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
-richMediaAnnotation.Content = content;
-//Create the appearance of the richmedia. 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Add the annotation to the page. 
-lpage.Annotations.Add(richMediaAnnotation);
-
-//Save a PDF document to the stream.
-MemoryStream stream = new MemoryStream(); 
-await loadedDocument.SaveAsync(stream);
-//Close the document. 
-loadedDocument.Close(true);
-//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for the respective code samples. 
-Save(stream, "RichMediaAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document.
-FileStream inputStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page. 
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create the PDF richmedia annotation. 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
-//Set properties to the annotation. 
-richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
-richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
-//Set the richmedia content.
-FileStream fileStream = new FileStream("video.mp4", FileMode.Open, FileAccess.Read);
-PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
-richMediaAnnotation.Content = content;
-//Create the appearance of the richmedia. 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Add the annotation to the page. 
-lpage.Annotations.Add(richMediaAnnotation);
-
-//Save the document into the stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Close the document. 
-loadedDocument.Close(true); 
-//Defining the ContentType for a pdf file.
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "RichMediaAnnotation.pdf";
-//Create the FileContentResult object by using the file contents, content type, and file name. 
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Document.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page. 
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create the PDF richmedia annotation. 
-PdfRichMediaAnnotation richMediaAnnotation = new PdfRichMediaAnnotation(new RectangleF(0, 0, 200, 100));
-//Set properties to the annotation. 
-richMediaAnnotation.ActivationMode = PdfRichMediaActivationMode.Click;
-richMediaAnnotation.PresentationStyle = PdfRichMediaPresentationStyle.Windowed;
-//Set the richmedia content.
-Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.video.mp4");
-PdfRichMediaContent content = new PdfRichMediaContent("video", fileStream, "mp4");
-richMediaAnnotation.Content = content;
-//Create the appearance of the richmedia. 
-richMediaAnnotation.Appearance.Normal.Graphics.DrawString("Click here to play video...", new PdfStandardFont(PdfFontFamily.Helvetica, 15), PdfBrushes.Blue, new RectangleF(0, 0, 200, 100), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Add the annotation to the page. 
-lpage.Annotations.Add(richMediaAnnotation);
-
-//Save the document into the stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Close the document. 
-loadedDocument.Close(true);
-//Save the stream into a pdf file.
-//The operation in Save under the Xamarin varies between the Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{ 
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RichMediaAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("RichMediaAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-rich-media-annotation-to-PDF-document).
@@ -1634,7 +918,40 @@ Free text annotation enables you to display the text directly on the page. When 
 The following code example explains how to add a free text annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new pdf document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+
+//Creates PDF free text annotation
+PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
+//Sets properties to the annotation
+freeText.MarkupText = "Free Text with Callout";
+freeText.TextMarkupColor = new PdfColor(Color.Black);
+freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
+freeText.Color = new PdfColor(Color.Yellow);
+freeText.BorderColor = new PdfColor(Color.Red);
+freeText.Border = new PdfAnnotationBorder(.5f);
+freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
+freeText.AnnotationFlags = PdfAnnotationFlags.Default;
+freeText.Text = "Free Text";
+freeText.Opacity = 0.5f;
+PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
+freeText.CalloutLines = points;
+//Adds the annotation to page
+page.Annotations.Add(freeText);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new pdf document
 PdfDocument document = new PdfDocument();
@@ -1665,7 +982,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new pdf document
 Dim document As New PdfDocument()
@@ -1696,124 +1013,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new pdf document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates PDF free text annotation
-PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation
-freeText.MarkupText = "Free Text with Callout";
-freeText.TextMarkupColor = new PdfColor(0, 0, 0);
-freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
-freeText.Color = new PdfColor(255, 255, 0);
-freeText.BorderColor = new PdfColor(255, 0, 0);
-freeText.Border = new PdfAnnotationBorder(.5f);
-freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
-freeText.AnnotationFlags = PdfAnnotationFlags.Default;
-freeText.Text = "Free Text";
-freeText.Opacity = 0.5f;
-PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
-freeText.CalloutLines = points;
-//Adds the annotation to page
-page.Annotations.Add(freeText);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respect
-Save(stream, "FreeTextAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new pdf document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates PDF free text annotation
-PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation
-freeText.MarkupText = "Free Text with Callout";
-freeText.TextMarkupColor = new PdfColor(Color.Black);
-freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
-freeText.Color = new PdfColor(Color.Yellow);
-freeText.BorderColor = new PdfColor(Color.Red);
-freeText.Border = new PdfAnnotationBorder(.5f);
-freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
-freeText.AnnotationFlags = PdfAnnotationFlags.Default;
-freeText.Text = "Free Text";
-freeText.Opacity = 0.5f;
-PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
-freeText.CalloutLines = points;
-//Adds the annotation to page
-page.Annotations.Add(freeText);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "FreeTextAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new pdf document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates PDF free text annotation
-PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation
-freeText.MarkupText = "Free Text with Callout";
-freeText.TextMarkupColor = new PdfColor(Syncfusion.Drawing.Color.Black);
-freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
-freeText.Color = new PdfColor(Syncfusion.Drawing.Color.Yellow);
-freeText.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Red);
-freeText.Border = new PdfAnnotationBorder(.5f);
-freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
-freeText.AnnotationFlags = PdfAnnotationFlags.Default;
-freeText.Text = "Free Text";
-freeText.Opacity = 0.5f;
-PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
-freeText.CalloutLines = points;
-//Adds the annotation to page
-page.Annotations.Add(freeText);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("FreeTextAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("FreeTextAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-free-text-annotation-in-the-PDF-document).
@@ -1824,8 +1023,48 @@ Line annotation displays a single straight line on the page. When you open it, i
 
 [PdfLineAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineAnnotation.html) is used to create and set the properties of the Line annotation.
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+//Specifies the line end points
+int[] points = new int[] { 80, 420, 150, 420 };
+
+//Creates a new line annotation.
+PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
+//Creates pdf line border
+LineBorder lineBorder = new LineBorder();
+lineBorder.BorderStyle = PdfBorderStyle.Solid;
+lineBorder.BorderWidth = 1;
+lineAnnotation.lineBorder = lineBorder;
+lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
+//Assigns the line ending style
+lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
+lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
+lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
+//Assigns the line color
+lineAnnotation.InnerLineColor = new PdfColor(Color.Green);
+lineAnnotation.BackColor = new PdfColor(Color.Green);
+//Assigns the leader line
+lineAnnotation.LeaderLineExt = 0;
+lineAnnotation.LeaderLine = 0;
+//Assigns the Line caption type
+lineAnnotation.LineCaption = true;
+lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
+//Adds this annotation to a new page.
+page.Annotations.Add(lineAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1864,7 +1103,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -1903,148 +1142,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Specifies the line end points
-int[] points = new int[] { 80, 420, 150, 420 };
-
-//Creates a new line annotation.
-PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
-//Creates pdf line border
-LineBorder lineBorder = new LineBorder();
-lineBorder.BorderStyle = PdfBorderStyle.Solid;
-lineBorder.BorderWidth = 1;
-lineAnnotation.lineBorder = lineBorder;
-lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
-//Assigns the line ending style
-lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
-lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
-lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
-//Assigns the line color
-lineAnnotation.InnerLineColor = new PdfColor(0, 128, 0);
-lineAnnotation.BackColor = new PdfColor(0, 128, 0);
-//Assigns the leader line
-lineAnnotation.LeaderLineExt = 0;
-lineAnnotation.LeaderLine = 0;
-//Assigns the Line caption type
-lineAnnotation.LineCaption = true;
-lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
-//Adds this annotation to a new page.
-page.Annotations.Add(lineAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "LineAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Specifies the line end points
-int[] points = new int[] { 80, 420, 150, 420 };
-
-//Creates a new line annotation.
-PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
-//Creates pdf line border
-LineBorder lineBorder = new LineBorder();
-lineBorder.BorderStyle = PdfBorderStyle.Solid;
-lineBorder.BorderWidth = 1;
-lineAnnotation.lineBorder = lineBorder;
-lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
-//Assigns the line ending style
-lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
-lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
-lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
-//Assigns the line color
-lineAnnotation.InnerLineColor = new PdfColor(Color.Green);
-lineAnnotation.BackColor = new PdfColor(Color.Green);
-//Assigns the leader line
-lineAnnotation.LeaderLineExt = 0;
-lineAnnotation.LeaderLine = 0;
-//Assigns the Line caption type
-lineAnnotation.LineCaption = true;
-lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
-//Adds this annotation to a new page.
-page.Annotations.Add(lineAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document.
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "LineAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page.
-PdfPage page = document.Pages.Add();
-//Specifies the line end points.
-int[] points = new int[] { 80, 420, 150, 420 };
-
-//Creates a new line annotation.
-PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
-//Creates pdf line border
-LineBorder lineBorder = new LineBorder();
-lineBorder.BorderStyle = PdfBorderStyle.Solid;
-lineBorder.BorderWidth = 1;
-lineAnnotation.lineBorder = lineBorder;
-lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
-//Assigns the line ending style
-lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
-lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
-lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
-//Assigns the line color.
-lineAnnotation.InnerLineColor = new PdfColor(Syncfusion.Drawing.Color.Green);
-lineAnnotation.BackColor = new PdfColor(Syncfusion.Drawing.Color.Green);
-//Assigns the leader line.
-lineAnnotation.LeaderLineExt = 0;
-lineAnnotation.LeaderLine = 0;
-//Assigns the Line caption type.
-lineAnnotation.LineCaption = true;
-lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
-//Adds this annotation to a new page.
-page.Annotations.Add(lineAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("LineAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("LineAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-line-annotation-to-the-PDF-document).
@@ -2058,7 +1155,30 @@ When opened, it displays a pop-up window containing the text of the associated n
 [PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) is used to create rubber stamp annotation.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+
+//Creates a new pdf rubber stamp annotation.
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+//Adds annotation to the page
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -2079,7 +1199,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -2100,94 +1220,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates a new pdf rubber stamp annotation.
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Adds annotation to the page
-page.Annotations.Add(rubberStampAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "RubberStamp.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates a new pdf rubber stamp annotation.
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Adds annotation to the page
-page.Annotations.Add(rubberStampAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "RubberStamp.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-
-//Creates a new pdf rubber stamp annotation.
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Adds annotation to the page
-page.Annotations.Add(rubberStampAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RubberStamp.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("RubberStamp.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-rubberstamp-annotation-to-the-PDF-document).
@@ -2201,7 +1233,30 @@ When you open it, it displays a pop-up window containing text of the associated 
 [PdfInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfInkAnnotation.html) is used to create ink annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
+
+//Creates a new ink annotation
+RectangleF rectangle = new RectangleF(0, 0, 300, 400);
+PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
+inkAnnotation.Color = new PdfColor(Color.Red);
+//Adds annotation to the page
+page.Annotations.Add(inkAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -2222,7 +1277,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -2243,103 +1298,39 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
-
-//Creates a new ink annotation
-RectangleF rectangle = new RectangleF(0, 0, 300, 400);
-PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
-inkAnnotation.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-//Adds annotation to the page
-page.Annotations.Add(inkAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "InkAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
-
-//Creates a new ink annotation
-RectangleF rectangle = new RectangleF(0, 0, 300, 400);
-PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
-inkAnnotation.Color = new PdfColor(Color.Red);
-//Adds annotation to the page
-page.Annotations.Add(inkAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "InkAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
-
-//Creates a new ink annotation
-RectangleF rectangle = new RectangleF(0, 0, 300, 400);
-PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
-inkAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Adds annotation to the page
-page.Annotations.Add(inkAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("InkAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("InkAnnotation.pdf", "application/pdf", stream);
-}
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-ink-annotation-to-the-PDF-document).
-
-{% endhighlight %}
-
-{% endtabs %}
 
 You can get ink list points from the [PdfLoadedInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedInkAnnotation.html), represented by [InkPointsCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLoadedInkAnnotation.html#Syncfusion_Pdf_Interactive_PdfLoadedInkAnnotation_InkPointsCollection). The following code illustrate this.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Gets the first page from the document
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+//Gets the annotation collection
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first ink annotation
+PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
+//Gets the ink points collection
+List<List<float>> points = inkAnnotation.InkPointsCollection;
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document as stream
+lDoc.Save(stream);
+//Close the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
@@ -2360,7 +1351,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document
 Dim lDoc As New PdfLoadedDocument("Input.pdf")
@@ -2381,102 +1372,6 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document using the Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first ink annotation
-PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
-//Gets the ink points collection
-List<List<float>> points = inkAnnotation.InkPointsCollection;
-
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document instances
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first ink annotation
-PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
-//Gets the ink points collection
-List<List<float>> points = inkAnnotation.InkPointsCollection;
-
-//Creating the stream object
-MemoryStream stream = new MemoryStream();
-//Save the document as stream
-lDoc.Save(stream);
-//If the position is not set to '0', the PDF will be empty.
-stream.Position = 0;
-//Close the document
-lDoc.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first ink annotation
-PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
-//Gets the ink points collection
-List<List<float>> points = inkAnnotation.InkPointsCollection;
-
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document instances
-lDoc.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Get-the-ink-list-points-from-the-existing-PDF-document).
@@ -2490,7 +1385,34 @@ It typically does not appear alone, but is associated with markup annotation, it
 [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) is used to add pop-up annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create new PDF document
+PdfDocument document = new PdfDocument();
+//Create a new PDF page
+PdfPage page = document.Pages.Add();
+//Creates a new rectangle
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+popupAnnotation.Border.Width = 4;
+popupAnnotation.Border.HorizontalRadius = 20;
+popupAnnotation.Border.VerticalRadius = 30;
+//Sets the PDF popup icon.
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+//Adds this annotation to a new page.
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create new PDF document.
 PdfDocument document = new PdfDocument();
@@ -2515,7 +1437,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document.
 Dim document As New PdfDocument()
@@ -2537,107 +1459,6 @@ page.Annotations.Add(popupAnnotation)
 'Saves the document to disk.
 document.Save("PopupAnnotation.pdf")
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new PDF page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the PDF popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to a new page.
-page.Annotations.Add(popupAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected c
-Save(stream, "PopupAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new PDF page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the PDF popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to a new page.
-page.Annotations.Add(popupAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "PopupAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new PDF page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new popup annotation.
-PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
-popupAnnotation.Border.Width = 4;
-popupAnnotation.Border.HorizontalRadius = 20;
-popupAnnotation.Border.VerticalRadius = 30;
-//Sets the PDF popup icon.
-popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
-//Adds this annotation to a new page.
-page.Annotations.Add(popupAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -2651,7 +1472,33 @@ File attachment annotation contains reference to a file that typically is embedd
 [PdfAttachmentAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachmentAnnotation.html) is used to add a file attachment annotation in a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF Document.
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+//Creates a new rectangle
+RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
+//Load the PDF document
+FileStream inputStream = new FileStream("logo.png", FileMode.Open, FileAccess.Read);
+
+//Creates a new attachment annotation.
+PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
+//Sets the attachment icon to attachment annotation.
+attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
+//Adds this annotation to a new page.
+page.Annotations.Add(attachmentAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF Document.
 PdfDocument document = new PdfDocument();
@@ -2673,7 +1520,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF Document.
 Dim document As New PdfDocument()
@@ -2695,103 +1542,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF Document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
-//Load the file as stream
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Logo.png");
-
-//Creates a new attachment annotation.
-PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
-//Sets the attachment icon to attachment annotation.
-attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
-//Adds this annotation to a new page.
-page.Annotations.Add(attachmentAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "AttachmentAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF Document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
-//Load the PDF document
-FileStream inputStream = new FileStream("logo.png", FileMode.Open, FileAccess.Read);
-
-//Creates a new attachment annotation.
-PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
-//Sets the attachment icon to attachment annotation.
-attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
-//Adds this annotation to a new page.
-page.Annotations.Add(attachmentAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "PopupAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF Document.
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
-//Load the file as stream
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Logo.png");
-
-//Creates a new attachment annotation.
-PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
-//Sets the attachment icon to attachment annotation.
-attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
-//Adds this annotation to a new page.
-page.Annotations.Add(attachmentAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AttachmentAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("AttachmentAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-file-attachment-annotation-in-a-PDF-document).
@@ -2802,7 +1552,36 @@ Sound annotation is used to play the sound clip in the PDF Document.
 
 The following code example explains how to add a sound annotation in a PDF document using [PdfSoundAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfSoundAnnotation.html).
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+//Creates a new rectangle
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new sound annotation.
+FileStream inputStream = new FileStream("Startup.wav", FileMode.Open, FileAccess.Read);
+PdfSoundAnnotation soundAnnotation = new PdfSoundAnnotation(rectangle, inputStream);
+soundAnnotation.Sound.Encoding = PdfSoundEncoding.Signed;
+soundAnnotation.Sound.Channels = PdfSoundChannels.Stereo;
+soundAnnotation.Sound.Bits = 16;
+soundAnnotation.Color = new PdfColor(Color.Red);
+//Sets the pdf sound icon.
+soundAnnotation.Icon = PdfSoundIcon.Speaker;
+//Adds this annotation to a new page.
+page.Annotations.Add(soundAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2827,7 +1606,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -2853,88 +1632,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports Sound Annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new sound annotation.
-FileStream inputStream = new FileStream("Startup.wav", FileMode.Open, FileAccess.Read);
-PdfSoundAnnotation soundAnnotation = new PdfSoundAnnotation(rectangle, inputStream);
-soundAnnotation.Sound.Encoding = PdfSoundEncoding.Signed;
-soundAnnotation.Sound.Channels = PdfSoundChannels.Stereo;
-soundAnnotation.Sound.Bits = 16;
-soundAnnotation.Color = new PdfColor(Color.Red);
-//Sets the pdf sound icon.
-soundAnnotation.Icon = PdfSoundIcon.Speaker;
-//Adds this annotation to a new page.
-page.Annotations.Add(soundAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "SoundIcon.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new sound annotation.
-//Load the file as stream
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.Startup.wav");
-PdfSoundAnnotation soundAnnotation = new PdfSoundAnnotation(rectangle, inputStream);
-soundAnnotation.Sound.Encoding = PdfSoundEncoding.Signed;
-soundAnnotation.Sound.Channels = PdfSoundChannels.Stereo;
-soundAnnotation.Sound.Bits = 16;
-soundAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Sets the pdf sound icon.
-soundAnnotation.Icon = PdfSoundIcon.Speaker;
-//Adds this annotation to a new page.
-page.Annotations.Add(soundAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SoundIcon.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("SoundIcon.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-sound-annotation-in-a-PDF-document).
@@ -2945,7 +1642,30 @@ URI annotation is used to navigate to a particular web URI
 
 The following code example explains how to add URI annotation in a PDF document using [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfUriAnnotation.html).
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+//Creates a new rectangle
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new Uri Annotation
+PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
+//Sets Text to uriAnnotation
+uriAnnotation.Text = "Uri Annotation";
+//Adds this annotation to a new page
+page.Annotations.Add(uriAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -2967,7 +1687,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -2989,97 +1709,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new Uri Annotation
-PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
-//Sets Text to uriAnnotation
-uriAnnotation.Text = "Uri Annotation";
-//Adds this annotation to a new page
-page.Annotations.Add(uriAnnotation);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code sample.
-Save(stream, "UriAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new Uri Annotation
-PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
-//Sets Text to uriAnnotation
-uriAnnotation.Text = "Uri Annotation";
-//Adds this annotation to a new page
-page.Annotations.Add(uriAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "UriAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a new rectangle
-RectangleF rectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new Uri Annotation
-PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
-//Sets Text to uriAnnotation
-uriAnnotation.Text = "Uri Annotation";
-//Adds this annotation to a new page
-page.Annotations.Add(uriAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("UriAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("UriAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-URI-annotation-in-a-PDF-document).
@@ -3090,7 +1719,38 @@ This annotation is used to navigate to a specific destination within the documen
 
 [PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) is used to add a document link annotation in PDF document.
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+//Creates a page
+PdfPage page2 = document.Pages.Add();
+//Creates a new rectangle
+RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new document link annotation.
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle);
+documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
+documentLinkAnnotation.Text = "Document link annotation";
+documentLinkAnnotation.Color = new PdfColor(Color.Navy);
+//Sets the destination.
+documentLinkAnnotation.Destination = new PdfDestination(page2);
+documentLinkAnnotation.Destination.Location = new PointF(10, 0);
+documentLinkAnnotation.Destination.Zoom = 5;
+//Adds this annotation to a new page.
+page.Annotations.Add(documentLinkAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -3119,7 +1779,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -3148,118 +1808,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a page
-PdfPage page2 = document.Pages.Add();
-//Creates a new rectangle
-RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle)
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-documentLinkAnnotation.Text = "Document link annotation";
-documentLinkAnnotation.Color = new PdfColor(Color.FromArgb(0,0,0,128));
-//Sets the destination.
-documentLinkAnnotation.Destination = new PdfDestination(page2);
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-documentLinkAnnotation.Destination.Zoom = 5;
-//Adds this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "DocumentLinkAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a page
-PdfPage page2 = document.Pages.Add();
-//Creates a new rectangle
-RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle);
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-documentLinkAnnotation.Text = "Document link annotation";
-documentLinkAnnotation.Color = new PdfColor(Color.Navy);
-//Sets the destination.
-documentLinkAnnotation.Destination = new PdfDestination(page2);
-documentLinkAnnotation.Destination.Location = new PointF(10, 0);
-documentLinkAnnotation.Destination.Zoom = 5;
-//Adds this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document.
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name.
-string fileName = "DocumentLinkAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-//Creates a page
-PdfPage page2 = document.Pages.Add();
-//Creates a new rectangle
-RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
-
-//Creates a new document link annotation.
-PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle);
-documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
-documentLinkAnnotation.Text = "Document link annotation";
-documentLinkAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Navy);
-//Sets the destination.
-documentLinkAnnotation.Destination = new PdfDestination(page2);
-documentLinkAnnotation.Destination.Location = new Syncfusion.Drawing.PointF(10, 0);
-documentLinkAnnotation.Destination.Zoom = 5;
-//Adds this annotation to a new page.
-page.Annotations.Add(documentLinkAnnotation); 
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-document-link-annotation-in-PDF-document).
@@ -3269,7 +1817,44 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The essential PDF supports removing or redacting the sensitive text and images from the PDF documents. The redaction is the process of permanently removing sensitive information from the PDF document, use the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html) class to remove content. Using the [PdfRedactionAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfRedactionAnnotation.html) class, you can mark the content to redact or remove it from the PDF pages. The content will be redacted when performing the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedAnnotationCollection_Flatten) operation.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();			
+//Create a new page.		
+PdfPage page = document.Pages.Add();
+			
+//Create a new Redaction annotation.	
+PdfRedactionAnnotation annot = new PdfRedactionAnnotation();	
+//Assign the Bounds value	
+annot.Bounds = new Rectangle(100, 120, 100, 100);	
+//Assign the InnerColor	
+annot.InnerColor = Color.Black;
+//Assign the Bordercolor
+annot.BorderColor = Color.Yellow;
+//Assign the Textcolor
+annot.TextColor = Color.Blue;
+//Assign the font
+annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);	
+//Assign the OverlayText		
+annot.OverlayText = "REDACTION";		
+//Assign the TextAlignment		
+annot.TextAlignment = PdfTextAlignment.Right;		
+//Assign the RepeatText
+annot.RepeatText = true;
+annot.SetAppearance(true);
+//Add the annotation to the page.
+page.Annotations.Add(annot);
+			
+//Save the document into stream.		
+MemoryStream stream = new MemoryStream();		
+document.Save(stream);
+//Close the document. 	
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -3306,7 +1891,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.     
 Dim document As PdfDocument = New PdfDocument()
@@ -3342,127 +1927,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page.
-PdfPage page = document.Pages.Add();
-
-//Create a new Redaction annotation.
-PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
-//Assign the Bounds value
-annot.Bounds = new Rectangle(100, 120, 100, 100);
-//Assign the InnerColor
-annot.InnerColor = Color.Black;
-//Assign the Bordercolor
-annot.BorderColor = Color.Yellow;
-//Assign the Textcolor
-annot.TextColor = Color.Blue;
-//Assign the font
-annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
-//Assign the OverlayText
-annot.OverlayText = "REDACTION";
-//Assign the TextAlignment
-annot.TextAlignment = PdfTextAlignment.Right;
-//Assign the RepeatText
-annot.RepeatText = true;
-annot.SetAppearance(true);
-//Add the annotation to the page.
-page.Annotations.Add(annot);
-
-//Save the PDF document to stream 
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream); 
-//Close the document 
-document.Close(true); 
-Save(stream, "RedactionAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();			
-//Create a new page.		
-PdfPage page = document.Pages.Add();
-			
-//Create a new Redaction annotation.	
-PdfRedactionAnnotation annot = new PdfRedactionAnnotation();	
-//Assign the Bounds value	
-annot.Bounds = new Rectangle(100, 120, 100, 100);	
-//Assign the InnerColor	
-annot.InnerColor = Color.Black;
-//Assign the Bordercolor
-annot.BorderColor = Color.Yellow;
-//Assign the Textcolor
-annot.TextColor = Color.Blue;
-//Assign the font
-annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);	
-//Assign the OverlayText		
-annot.OverlayText = "REDACTION";		
-//Assign the TextAlignment		
-annot.TextAlignment = PdfTextAlignment.Right;		
-//Assign the RepeatText
-annot.RepeatText = true;
-annot.SetAppearance(true);
-//Add the annotation to the page.
-page.Annotations.Add(annot);
-			
-//Save the document into stream.		
-MemoryStream stream = new MemoryStream();		
-document.Save(stream);		
-stream.Position = 0;	
-//Close the document. 	
-document.Close(true);
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";	
-//Define the file name .
-String fileName = "RedactionAnnotation.pdf";	
-//Create a FileContentResult object by using the file contents, content type, and file name.		
-return File(stream, contentType, fileName);
-			
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page.
-PdfPage page = document.Pages.Add();
-
-//Create a new Redaction annotation.
-PdfRedactionAnnotation annot = new PdfRedactionAnnotation();
-//Assign the Bounds value
-annot.Bounds = new Rectangle(100, 120, 100, 100);
-//Assign the InnerColor
-annot.InnerColor = Color.Black;
-//Assign the Bordercolor
-annot.BorderColor = Color.Yellow;
-//Assign the Textcolor
-annot.TextColor = Color.Blue;
-//Assign the font
-annot.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
-//Assign the OverlayText
-annot.OverlayText = "REDACTION";
-//Assign the TextAlignment
-annot.TextAlignment = PdfTextAlignment.Right;
-//Assign the RepeatText
-annot.RepeatText = true;
-annot.SetAppearance(true);
-//Add the annotation to the page.
-page.Annotations.Add(annot);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
-//Close the document. 
-document.Close(true); 
-//Save the stream into pdf file .
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RedactionAnnotation.pdf", "application/pdf", stream);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Removing-the-sensitive-text-and-images-from-PDF-document).
@@ -3477,7 +1941,41 @@ Cloud border style can be added to the [PdfRectangleAnnotation](https://help.syn
 The following code sample explains how to add cloud border styled rectangle annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document.Pages.Add();
+
+// create a rectangle annotation
+PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
+//Assign the borderWidth value.
+annotation.Border.BorderWidth = 1;
+//Assign the color
+annotation.Color = Color.Red;
+//Assign the InnerColor
+annotation.InnerColor = Color.Blue;
+//Create a new PdfBorderEffect class.
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+//Assign the intensity value
+bordereffect.Intensity = 2;
+//Assign the cloud style
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+//Assign the BorderEffect.
+annotation.BorderEffect = bordereffect;
+// Adds the annotation to the page.
+page.Annotations.Add(annotation);
+
+//Save the document into stream 
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document 
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument ();
@@ -3510,7 +2008,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document.
 Dim document As PdfDocument = New PdfDocument()
@@ -3542,118 +2040,6 @@ document.Save("Output.pdf")
 document.Close(True) 
 
 {% endhighlight %}
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page.
-PdfPage page = document.Pages.Add();
-
-//Create a new rectangle annotation.
-PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color.
-annotation.Color = Color.Red;
-//Assign the InnerColor.
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value.
-bordereffect.Intensity =2;
-//Assign the cloud style.
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-//Add the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream(); 
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true); 
-//save the stream.
-Save(stream, "CloudRectangleAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-// create a rectangle annotation
-PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color
-annotation.Color = Color.Red;
-//Assign the InnerColor
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value
-bordereffect.Intensity = 2;
-//Assign the cloud style
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-// Adds the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the document into stream 
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Close the document 
-document.Close(true);
-//Defining the ContentType for pdf file 
-string contentType = "application/pdf";
-//Define the file name.
-String fileName = "cloudRectangleAnnotation.pdf";
-//Create a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page.
-PdfPage page = document.Pages.Add();
-
-//Create a new rectangle annotation.
-PdfRectangleAnnotation annotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 200, 100), "rectangle");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color
-annotation.Color = Color.Red;
-//Assign the InnerColor
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value
-bordereffect.Intensity =2;
-//Assign the cloud style
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-//Add the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
-//Close the document.
-document.Close(true); 
-//Save the stream into pdf file 
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pdf", "application/pdf", stream);
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-cloud-border-styled-rectangle-annotation-in-the-PDF).
@@ -3664,7 +2050,43 @@ Cloud border style can be added to the [PdfPolygonAnnotation](https://help.syncf
 The following code sample explains how to add cloud border styled polygon annotation in the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document. Pages. Add ();
+//Create points
+int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
+
+//Create a new polygon annotation.
+PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
+//Assign the borderWidth value.
+annotation.Border.BorderWidth = 1;
+//Assign the color
+annotation.Color = Color.Red;
+//Assign the InnerColor
+annotation.InnerColor = Color.Blue;
+//Create a new PdfBorderEffect class.
+PdfBorderEffect bordereffect = new PdfBorderEffect();
+//Assign the intensity value
+bordereffect.Intensity =2;
+//Assign the cloud style
+bordereffect.Style = PdfBorderEffectStyle.Cloudy;
+//Assign the BorderEffect.
+annotation.BorderEffect = bordereffect;
+//Add the annotation to the page.
+page.Annotations.Add(annotation);
+
+//Save the document into stream 
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document 
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -3699,7 +2121,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a New PDF document.
 Dim document As PdfDocument = New PdfDocument()
@@ -3734,125 +2156,6 @@ document.Close(True)
 		
 {% endhighlight %}		
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-//Create points
-int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
-
-//Create a new polygon annotation.
-PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color
-annotation.Color = Color.Red;
-//Assign the InnerColor
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value
-bordereffect.Intensity =2;
-//Assign the cloud style
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-/Add the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the PDF document to stream 
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream); 
-//Close the document 
-document.Close(true);
-//saves the stream
-Save(stream, "CloudPolygonAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document. Pages. Add ();
-//Create points
-int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
-
-//Create a new polygon annotation.
-PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points,"polygon");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color
-annotation.Color = Color.Red;
-//Assign the InnerColor
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value
-bordereffect.Intensity =2;
-//Assign the cloud style
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-//Add the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the document into stream 
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Close the document 
-document.Close(true);
-//Defining the ContentType for pdf file 
-string contentType = "application/pdf"; 
-//Define the file name 
-String fileName = "cloudpolygonAnnotation.pdf"; 
-//Create a FileContentResult object by using the file contents, content type, and file name 
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-//Create points
-int[] points = new int[] { 100, 300, 150, 200, 300, 200, 350, 300, 300, 400, 150, 400 };
-
-//Create a new polygon annotation
-PdfPolygonAnnotation annotation = new PdfPolygonAnnotation(points, "polygon");
-//Assign the borderWidth value.
-annotation.Border.BorderWidth = 1;
-//Assign the color
-annotation.Color = Color.Red;
-//Assign the InnerColor
-annotation.InnerColor = Color.Blue;
-//Create a new PdfBorderEffect class.
-PdfBorderEffect bordereffect = new PdfBorderEffect();
-//Assign the intensity value
-bordereffect.Intensity =2;
-//Assign the cloud style
-bordereffect.Style = PdfBorderEffectStyle.Cloudy;
-//Assign the BorderEffect.
-annotation.BorderEffect = bordereffect;
-//Adds the annotation to the page.
-page.Annotations.Add(annotation);
-
-//Save the PDF document to stream 
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
-//Close the document. 
-document.Close(true); 
-//Save the stream into pdf file 
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("polygonAnnotation.pdf", "application/pdf", stream);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-cloud-border-styled-polygon-annotation-in-the-PDF).
@@ -3863,7 +2166,32 @@ A watermark annotation is used to represent graphics that are expected to be pri
 The following code example explains how to add a watermark annotation in the PDF document
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get the page 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+//Sets properties to the annotation 
+watermark.Opacity = 0.5f; 
+//Create the appearance of watermark 
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+//Adds the annotation to page 
+lpage.Annotations.Add(watermark);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document 
+loadedDocument.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -3885,7 +2213,7 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
  Dim loadedDocument As New PdfLoadedDocument("input.pdf")
@@ -3906,105 +2234,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get the page 
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Creates PDF watermark annotation 
-PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation 
-watermark.Opacity = 0.5f; 
-//Create the appearance of watermark 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Adds the annotation to page 
-lpage.Annotations.Add(watermark);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream(); 
-await loadedDocument.SaveAsync(stream);
-//Close the document 
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples 
-Save(stream, "WatermarkAnnotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get the page 
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Creates PDF watermark annotation 
-PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation 
-watermark.Opacity = 0.5f; 
-//Create the appearance of watermark 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Adds the annotation to page 
-lpage.Annotations.Add(watermark);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Close the document 
-loadedDocument.Close(true); 
-//Defining the ContentType for pdf file
- string contentType = "application/pdf"; 
-//Define the file name
- string fileName = "WatermarkAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get the page 
-PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Creates PDF watermark annotation 
-PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
-//Sets properties to the annotation 
-watermark.Opacity = 0.5f; 
-//Create the appearance of watermark 
-watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0,0,200,50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
-//Adds the annotation to page
-lpage.Annotations.Add(watermark);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-stream.Position = 0;
-//Close the document 
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{ 
-   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WatermarkAnnotation.pdf", "application/pdf", stream);
-}
- else
-{
-   Xamarin.Forms.DependencyService.Get<ISave>().Save("WatermarkAnnotation.pdf", "application/pdf", stream);
-}
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-watermark-annotation-in-the-PDF-document).
@@ -4022,7 +2251,43 @@ The line measurement annotation is displayed as the straight line in the page. T
 [PdfLineMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfLineMeasurementAnnotation.html) to add a line measurement annotation to the page.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
+//Specifies the line end points
+int[] points = new int[] { 100, 750, 500, 750 };
+
+//Creates the line measurement annotation
+PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
+//Assign author to the line measurement annotation
+lineMeasureAnnotation.Author = "Syncfusion";
+//Assign subject to the line measurement annotation
+lineMeasureAnnotation.Subject = "LineAnnotation";
+//Assign unit to the line measurement annotation
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
+//Assign borderWidth to the line measurement annotation
+lineMeasureAnnotation.lineBorder.BorderWidth = 2;
+//Assign font to the line measurement annotation
+lineMeasureAnnotation.Font = font;
+//Assign color to the line measurement annotation
+lineMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+//Adds the line measurement annotation to a new page
+page.Annotations.Add(lineMeasureAnnotation);
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+document.Save(stream);
+stream.Position=0;
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document.
 PdfDocument document= new PdfDocument();
@@ -4056,7 +2321,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 //Creates a new PDF document
 Dim document As PdfDocument = New PdfDocument
@@ -4090,128 +2355,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
-//Specifies the line end point
-int[] points = new int[] { 100, 750, 500, 750 };
-
-//Creates the line measurement annotation
-PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
-//Assign author to the line measurement annotation
-lineMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the line measurement annotation
-lineMeasureAnnotation.Subject = "LineAnnotation";
-//Assign unit to the line measurement annotation
-lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
-//Assign borderWidth to the line measurement annotation
-lineMeasureAnnotation.lineBorder.BorderWidth = 2;
-//Assign font to the line measurement annotation
-lineMeasureAnnotation.Font = font;
-//Assign color to the line measurement annotation
-lineMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
-//Adds the line measurement annotation to a new page
-page.Annotations.Add(lineMeasureAnnotation);
-MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-document.Save(stream);
-//Close the document
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
-//Specifies the line end points
-int[] points = new int[] { 100, 750, 500, 750 };
-
-//Creates the line measurement annotation
-PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
-//Assign author to the line measurement annotation
-lineMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the line measurement annotation
-lineMeasureAnnotation.Subject = "LineAnnotation";
-//Assign unit to the line measurement annotation
-lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
-//Assign borderWidth to the line measurement annotation
-lineMeasureAnnotation.lineBorder.BorderWidth = 2;
-//Assign font to the line measurement annotation
-lineMeasureAnnotation.Font = font;
-//Assign color to the line measurement annotation
-lineMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Adds the line measurement annotation to a new page
-page.Annotations.Add(lineMeasureAnnotation);
-MemoryStream stream = new MemoryStream();
-
-//Save the PDF document to stream
-document.Save(stream);
-stream.Position=0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "LineMeasurementAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
-//Specifies the line end points
-int[] points = new int[] { 100, 750, 500, 750 };
-
-//Creates the line measurement annotation
-PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
-//Assign author to the line measurement annotation
-lineMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the line measurement annotation
-lineMeasureAnnotation.Subject = "LineAnnotation";
-//Assign unit to the line measurement annotation
-lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
-//Assign borderWidth to the line measurement annotation
-lineMeasureAnnotation.lineBorder.BorderWidth = 2;
-//Assign font to the line measurement annotation
-lineMeasureAnnotation.Font = font;
-//Assign color to the line measurement annotation
-lineMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Adds the line measurement annotation to a new page
-page.Annotations.Add(lineMeasureAnnotation);
-MemoryStream stream = new MemoryStream();
-
-//Save the document into stream.
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("LineMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("LineMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-line-measurement-annotation-to-the-PDF-document).
@@ -4224,7 +2367,37 @@ The square measurement annotation is displayed as square shape in the page. The 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the square measurement annotation
+PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
+//Assign author to the square measurement annotation
+squareMeasureAnnotation.Author = "Syncfusion";
+//Assign subject to the square measurement annotation
+squareMeasureAnnotation.Subject = "Square measurement annotation";
+//Assign color to the square measurement annotation
+squareMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+//Assign measurement unit to the square measurement annotation
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+//Adds the square measurement annotation to a page
+page.Annotations.Add(squareMeasureAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position=0;
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document= new PdfDocument();
@@ -4252,7 +2425,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -4280,110 +2453,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-RectangleF rect = new RectangleF(10, 100, 100, 100);
-
-//Creates the square measurement annotation
-PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
-//Assign author to the square measurement annotation
-squareMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the square measurement annotation
-squareMeasureAnnotation.Subject = "Square measurement annotation";
-//Assign color to the square measurement annotation
-squareMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
-//Assign measurement unit to the square measurement annotation
-squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Adds the square measurement annotation to a page
-page.Annotations.Add(squareMeasureAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
-
-//Creates the square measurement annotation
-PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
-//Assign author to the square measurement annotation
-squareMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the square measurement annotation
-squareMeasureAnnotation.Subject = "Square measurement annotation";
-//Assign color to the square measurement annotation
-squareMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Assign measurement unit to the square measurement annotation
-squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Adds the square measurement annotation to a page
-page.Annotations.Add(squareMeasureAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position=0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "SquareMeasurementAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
-
-//Creates the square measurement annotation
-PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
-//Assign author to the square measurement annotation
-squareMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the square measurement annotation
-squareMeasureAnnotation.Subject = "Square measurement annotation";
-//Assign color to the square measurement annotation
-squareMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Assign measurement unit to the square measurement annotation
-squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Adds the square measurement annotation to a page
-page.Annotations.Add(squareMeasureAnnotation);
-
-//Saves the document to disk
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SquareMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("SquareMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-square-measurement-annotation-to-PDF-document).
@@ -4396,7 +2465,38 @@ The circle measurement annotation is displayed as circle shape in the page. The 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page
+PdfPage page = document.Pages.Add();
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the circle measurement annotation
+PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
+//Assign author to the circle measurement annotation
+circleMeasureAnnotation.Author = "Syncfusion";
+//Assign subject to the circle measurement annotation
+circleMeasureAnnotation.Subject = "Circle measurement annotation";
+//Assign color to the square measurement annotation
+circleMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+//Assign measurement unit to the circle measurement annotation
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+//Sets the measurementType to the circle measurement annotation
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
+//Adds the circle measurement annotation to a page
+page.Annotations.Add(circleMeasureAnnotation);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -4426,7 +2526,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -4456,117 +2556,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-RectangleF rect = new RectangleF(10, 100, 100, 100);
-
-//Creates the circle measurement annotation
-PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
-//Assign author to the circle measurement annotation
-circleMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the circle measurement annotation
-circleMeasureAnnotation.Subject = "Circle measurement annotation";
-//Assign color to the square measurement annotation
-circleMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
-//Assign measurement unit to the circle measurement annotation
-circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Sets the measurementType to the circle measurement annotation
-circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
-//Adds the circle measurement annotation to a page
-page.Annotations.Add(circleMeasureAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
-
-//Creates the circle measurement annotation
-PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
-//Assign author to the circle measurement annotation
-circleMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the circle measurement annotation
-circleMeasureAnnotation.Subject = "Circle measurement annotation";
-//Assign color to the square measurement annotation
-circleMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Assign measurement unit to the circle measurement annotation
-circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Sets the measurementType to the circle measurement annotation
-circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
-//Adds the circle measurement annotation to a page
-page.Annotations.Add(circleMeasureAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Close the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "CircleMeasurementAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page
-PdfPage page = document.Pages.Add();
-Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
-
-//Creates the circle measurement annotation
-PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
-//Assign author to the circle measurement annotation
-circleMeasureAnnotation.Author = "Syncfusion";
-//Assign subject to the circle measurement annotation
-circleMeasureAnnotation.Subject = "Circle measurement annotation";
-//Assign color to the square measurement annotation
-circleMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-//Assign measurement unit to the circle measurement annotation
-circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
-//Sets the measurementType to the circle measurement annotation
-circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
-//Adds the circle measurement annotation to a page
-page.Annotations.Add(circleMeasureAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Close the document
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("CircleMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("CircleMeasurementAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-circle-measurement-annotation-to-the-PDF-document).
@@ -4579,7 +2568,13 @@ The angle measurement annotation calculates the angle between three points and d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//PDF doesn't support angle measurement annotation C#.NET Cross platforms.
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -4602,7 +2597,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As New PdfDocument()
@@ -4625,24 +2620,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-angle-measurement-annotation-to-PDF-document).
@@ -4652,7 +2629,31 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Essential PDF allows you to modify the annotation of existing document. The following code illustrates this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Gets the first page from the document
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+//Gets the annotation collection
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first annotation and modify the properties
+PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
+popUp.Border = new PdfAnnotationBorder(4, 0, 0);
+popUp.Color = new PdfColor(Color.Red);
+popUp.Text = "Modified annotation";
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("inputAnnotation.pdf");
@@ -4673,7 +2674,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document
 Dim lDoc As New PdfLoadedDocument("inputAnnotation.pdf")
@@ -4694,103 +2695,6 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first annotation and modify the properties
-PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
-popUp.Border = new PdfAnnotationBorder(4, 0, 0);
-popUp.Color = new PdfColor(Color.FromArgb(0,255,0,0));
-popUp.Text = "Modified annotation";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first annotation and modify the properties
-PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
-popUp.Border = new PdfAnnotationBorder(4, 0, 0);
-popUp.Color = new PdfColor(Color.Red);
-popUp.Text = "Modified annotation";
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-lDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page from the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-
-//Gets the first annotation and modify the properties
-PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
-popUp.Border = new PdfAnnotationBorder(4, 0, 0);
-popUp.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
-popUp.Text = "Modified annotation";
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document.
-lDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modifying-annotation-of-existing-PDF-document/.NET).
@@ -4801,7 +2705,46 @@ The redaction annotations from the existing document can be modified using the E
 The following code sample explains this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document 
+FileStream docStream = new FileStream("input.pdf", FileMode.Open,FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
+{
+//Check for the Redaction annotation
+if (annot is PdfLoadedRedactionAnnotation)
+{
+PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
+//Assign the Bounds values
+redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
+//Assign the OverlayText
+redactAnnot.OverlayText = "Redaction";
+//Assign the InnerColor
+redactAnnot.InnerColor = Color.Yellow;
+//Assign the BorderColor
+redactAnnot.BorderColor = Color.Green;
+//Assign the TextColor
+redactAnnot.TextColor = Color.Red; 
+//Assign the TextAlignment
+redactAnnot.TextAlignment = PdfTextAlignment.Right;
+//Assign the RepeatText
+redactAnnot.RepeatText = true;
+//Flatten the annotations in the page
+redactAnnot.Flatten = true;
+}
+}
+loadedDocument.Redact();
+
+//Save the document into stream 
+MemoryStream stream = new MemoryStream(); 
+loadedDocument.Save(stream); 
+//Close the document 
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
@@ -4830,7 +2773,6 @@ redactAnnot.RepeatText = true;
 redactAnnot.Flatten = true;  
 }
 }
-
 //save the document
 ldoc.Save("output.pdf");
 //Close the document
@@ -4838,7 +2780,7 @@ ldoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("output.pdf")	
@@ -4872,135 +2814,6 @@ ldoc.Save("output.pdf")
 ldoc.Close()
 		
 {% endhighlight %}		
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker 
-var picker = new FileOpenPicker(); 
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file 
-StorageFile file = await picker.PickSingleFileAsync();
-//Create an empty PDF loaded document instance 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Load or open an existing PDF document through Open method of PdfLoadedDocument class 
-await loadedDocument.OpenAsync(file);
-foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
-{
-//Check for the Redaction annotation
-if (annot is PdfLoadedRedactionAnnotation)
-{
-PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
-//Assign the Bounds values
-redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
-//Assign the OverlayText
-redactAnnot.OverlayText = "Redaction";
-//Assign the InnerColor
-redactAnnot.InnerColor = Color.Yellow;
-//Assign the BorderColor
-redactAnnot.BorderColor = Color.Green;
-//Assign the TextColor
-redactAnnot.TextColor = Color.Red;
-//Assign the TextAlignment
-redactAnnot.TextAlignment = PdfTextAlignment.Right;
-//Assign the RepeatText
-redactAnnot.RepeatText = true;
-//Flatten the annotations in the page
-redactAnnot.Flatten = true;
-}
-}
-
-//Save the PDF document to stream 
-MemoryStream stream = new MemoryStream(); 
-loadedDocument.Save(stream); 
-//Close the document loadedDocument.Close(true); 
-//Save the stream as PDF document file in the local machine. Refer to PDF or UWP section for respective code samples 
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document 
-FileStream docStream = new FileStream("input.pdf", FileMode.Open,FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-foreach (PdfAnnotation annot in loadedDocument.Pages[0].Annotations)
-{
-//Check for the Redaction annotation
-if (annot is PdfLoadedRedactionAnnotation)
-{
-PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
-//Assign the Bounds values
-redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
-//Assign the OverlayText
-redactAnnot.OverlayText = "Redaction";
-//Assign the InnerColor
-redactAnnot.InnerColor = Color.Yellow;
-//Assign the BorderColor
-redactAnnot.BorderColor = Color.Green;
-//Assign the TextColor
-redactAnnot.TextColor = Color.Red; 
-//Assign the TextAlignment
-redactAnnot.TextAlignment = PdfTextAlignment.Right;
-//Assign the RepeatText
-redactAnnot.RepeatText = true;
-//Flatten the annotations in the page
-redactAnnot.Flatten = true;
-}
-}
-
-loadedDocument.Redact();
-
-//Save the document into stream 
-MemoryStream stream = new MemoryStream(); 
-loadedDocument.Save(stream); 
-stream.Position = 0; 
-//Close the document 
-loadedDocument.Close(true);
-//Defining the ContentType for pdf file 
-string contentType = "application/pdf"; 
-//Define the file name 
-string fileName = "output.pdf";
-//Create a FileContentResult object by using the file contents, content type, and file name 
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as a stream 
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf"); 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-foreach (PdfAnnotation annot in ldoadedDocument.Pages[0].Annotations)
-{
-//Check for the Redaction annotation
-if (annot is PdfLoadedRedactionAnnotation)
-{
-PdfLoadedRedactionAnnotation redactAnnot = annot as PdfLoadedRedactionAnnotation;
-//Assign the Bounds values
-redactAnnot.Bounds = new RectangleF(50, 50, 100, 100);
-//Assign the OverlayText
-redactAnnot.OverlayText = "Redaction";
-//Assign the InnerColor
-redactAnnot.InnerColor = Color.Yellow;
-//Assign the BorderColor
-redactAnnot.BorderColor = Color.Green;
-//Assign the TextColor
-redactAnnot.TextColor = Color.Red; 
-//Assign the TextAlignment
-redactAnnot.TextAlignment = PdfTextAlignment.Right;
-//Assign the RepeatText
-redactAnnot.RepeatText = true;
-//Flatten the annotations in the page
-redactAnnot.Flatten = true;
-}
-}
-
-//Save the document into a stream.
-MemoryStream stream = new MemoryStream(); 
-loadedDocument.Save(stream); 
-//Close the document. 
-loadedDocument.Close(true); 
-//Save the stream into pdf file
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("rectangleAnnotation.pdf", "application/pdf", stream);
-
-{% endhighlight %}
 
 {% endtabs %}
 
@@ -5013,7 +2826,27 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can remove the annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) of the loaded page. The following code illustrates this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Gets the first page of the document
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+//Gets the annotation collection
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+//Removes the first annotation
+annotations.RemoveAt(0);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("inputAnnotation.pdf");
@@ -5029,7 +2862,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document
 Dim lDoc As New PdfLoadedDocument("inputAnnotation.pdf")
@@ -5045,91 +2878,6 @@ lDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Gets the first page of the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-//Removes the first annotation
-annotations.RemoveAt(0);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page of the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-//Removes the first annotation
-annotations.RemoveAt(0);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-lDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "sample.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Gets the first page of the document
-PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-//Gets the annotation collection
-PdfLoadedAnnotationCollection annotations = page.Annotations;
-//Removes the first annotation
-annotations.RemoveAt(0);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document.
-lDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Removing-annotations-from-an-existing-PDF-document).
@@ -5140,57 +2888,7 @@ FDF stands for Forms Data Format. FDF is a file format for representing annotati
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Loads the document
-PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-//Import annotation data from FDF file
-lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf);
-//Saves the document
-lDoc.Save("Annotation.pdf");
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Loads the document
-Dim lDoc As New PdfLoadedDocument("input.pdf")
-'Import annotation data from FDF file
-lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf)
-'Saves the document
-lDoc.Save("Annotation.pdf")
-lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Load the FDF file stream from the disk
-Stream fdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.fdf");
-//Import annotation data from FDF stream
-lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Annotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -5202,42 +2900,31 @@ lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
 lDoc.Save(stream);
-stream.Position = 0;
 //Closes the document
 lDoc.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Annotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Loads the document
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+//Import annotation data from FDF file
+lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf);
+//Saves the document
+lDoc.Save("Annotation.pdf");
+lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Import annotation data from FDF stream
-Stream fdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.fdf");
-lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotation.pdf", "application/pdf", stream);
-}
+'Loads the document
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+'Import annotation data from FDF file
+lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf)
+'Saves the document
+lDoc.Save("Annotation.pdf")
+lDoc.Close(True)
 
 {% endhighlight %}
 
@@ -5251,57 +2938,7 @@ XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for repres
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Loads the document
-PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-//Import annotation data from XFDF file
-lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf);
-//Saves the document
-lDoc.Save("Annotation.pdf");
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Loads the document
-Dim lDoc As New PdfLoadedDocument("input.pdf")
-'Import annotation data from XFDF file
-lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf)
-'Saves the document
-lDoc.Save("Annotation.pdf")
-lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Load the XFDF file stream from the disk
-Stream xfdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.xfdf");
-'Import annotation data from XFDF stream
-lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Annotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -5313,42 +2950,32 @@ lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
 lDoc.Save(stream);
-stream.Position = 0;
 //Closes the document
 lDoc.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Annotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Import annotation data from XFDF stream
-Stream xfdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.xfdf");
-lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document
+//Loads the document
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+//Import annotation data from XFDF file
+lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf);
+//Saves the document
+lDoc.Save("Annotation.pdf");
 lDoc.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotation.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Loads the document
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+'Import annotation data from XFDF file
+lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf)
+'Saves the document
+lDoc.Save("Annotation.pdf")
+lDoc.Close(True)
 
 {% endhighlight %}
 
@@ -5362,58 +2989,7 @@ JSON stands for JavaScript Object Notation. It is a collection of key or value p
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Loads the document 
-PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
-//Import the annotation data from the JSON file 
-lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json); 
-//Saves the document 
-lDoc.Save("Annotation.pdf"); 
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Loads the document 
-Dim lDoc As New PdfLoadedDocument("input.pdf") 
-'Import the annotation data from the JSON file 
-lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
-'Saves the document 
-lDoc.Save("Annotation.pdf") 
-'close the document 
-lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker 
-var picker = new FileOpenPicker(); 
-picker.FileTypeFilter.Add(".pdf"); 
-//Browse and choose the file 
-StorageFile file = await picker.PickSingleFileAsync(); 
-//Creates an empty PDF loaded document instance 
-PdfLoadedDocument lDoc = new PdfLoadedDocument(); 
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class 
-await lDoc.OpenAsync(file); 
-//Load the JSON file stream from the disk 
-Stream jsonStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.Json"); 
-//Import annotation data from json stream 
-lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream(); 
-await lDoc.SaveAsync(stream); 
-//Close the document 
-lDoc.Close(true); 
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for the respective code samples 
-Save(stream, "Annotation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document 
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
@@ -5425,32 +3001,33 @@ lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json);
 //Save the document into the stream 
 MemoryStream stream = new MemoryStream(); 
 lDoc.Save(stream); 
-stream.Position = 0; 
 //Closes the document 
 lDoc.Close(true); 
-//Defining the ContentType for PDF file 
-string contentType = "application/pdf"; 
-//Define the file name 
-string fileName = "Annotation.pdf"; 
-//Creates a FileContentResult object by using the file contents, content type, and file name 
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as a stream 
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf"); 
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
-//Import the annotation data from the JSON stream 
-Stream jsonStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.Json"); 
-lDoc.ImportAnnotations(jsonStream, AnnotationDataFormat.Json); 
-//Save the document into the stream 
-MemoryStream stream = new MemoryStream(); 
-lDoc.Save(stream); 
-//Close the document 
-lDoc.Close(true); 
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportAnnotation.pdf", "application/pdf", stream);
+//Loads the document 
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
+//Import the annotation data from the JSON file 
+lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json); 
+//Saves the document 
+lDoc.Save("Annotation.pdf"); 
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Loads the document 
+Dim lDoc As New PdfLoadedDocument("input.pdf") 
+'Import the annotation data from the JSON file 
+lDoc.ImportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
+'Saves the document 
+lDoc.Save("Annotation.pdf") 
+'close the document 
+lDoc.Close(True)
 
 {% endhighlight %}
 
@@ -5464,7 +3041,20 @@ To export annotation data to the FDF file from PDF document, you can use the [Ex
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Export annotation data from FDF stream
+Stream fdfStream = new MemoryStream();
+lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+//Close the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
@@ -5475,7 +3065,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document
 Dim lDoc As New PdfLoadedDocument("input.pdf")
@@ -5483,72 +3073,6 @@ Dim lDoc As New PdfLoadedDocument("input.pdf")
 lDoc.ExportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf)
 'Close the document
 lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Load the FDF file stream from the disk
-Stream fdfStream = new MemoryStream();
-//Export annotation data from FDF stream
-lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf);
-
-//Save the fdfStream as FDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(fdfStream, "Annotations.fdf");
-//Close the document
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Export annotation data from FDF stream
-Stream fdfStream = new MemoryStream();
-lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
-//Close the document
-lDoc.Close(true);
-fdfStream.Position = 0;
-//Defining the ContentType for FDF file
-string contentType = "application/fdf";
-//Define the file name
-string fileName = "Annotations.fdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(fdfStream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Export annotation data from FDF stream
-Stream fdfStream = new MemoryStream();
-lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
-//Close the document
-lDoc.Close(true);
-//Save the stream into FDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotations.fdf", "application/fdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotations.fdf", "application/fdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5562,7 +3086,20 @@ To export annotation data to the XFDF file from PDF document, you can use the [E
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Export annotation data from XFDF stream
+Stream xfdfStream = new MemoryStream();
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
+//Close the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document
 PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
@@ -5573,7 +3110,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document
 Dim lDoc As New PdfLoadedDocument("input.pdf")
@@ -5581,72 +3118,6 @@ Dim lDoc As New PdfLoadedDocument("input.pdf")
 lDoc.ExportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf)
 'Close the document
 lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Load the XFDF file stream from the disk
-Stream xfdfStream = new MemoryStream();
-//Export annotation data from XFDF stream
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
-
-//Save the xfdfStream as XFDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(xfdfStream, "Annotations.xfdf");
-//Close the document
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Export annotation data from XFDF stream
-Stream xfdfStream = new MemoryStream();
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
-//Close the document
-lDoc.Close(true);
-xfdfStream.Position = 0;
-//Defining the ContentType for XFDF file
-string contentType = "application/xfdf";
-//Define the file name
-string fileName = "Annotations.xfdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(xfdfStream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Export annotation data from XFDF stream
-Stream xfdfStream = new MemoryStream();
-lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf);
-//Close the document
-lDoc.Close(true);
-//Save the stream into XFDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotations.xfdf", "application/xfdf", fdfStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotations.xfdf", "application/xfdf", fdfStream);
-}
 
 {% endhighlight %}
 
@@ -5660,7 +3131,20 @@ To export annotation data to the JSON file from PDF document, you can use the [E
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document 
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
+//Export the annotation data from the JSON stream 
+Stream jsonStream = new MemoryStream(); 
+lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
+//Close the document 
+lDoc.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Loads the document 
 PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
@@ -5671,7 +3155,7 @@ lDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loads the document 
 Dim lDoc As New PdfLoadedDocument("input.pdf") 
@@ -5679,66 +3163,6 @@ Dim lDoc As New PdfLoadedDocument("input.pdf")
 lDoc.ExportAnnotations("Annotations.Json", AnnotationDataFormat.Json) 
 'Close the document 
 lDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker 
-var picker = new FileOpenPicker(); 
-picker.FileTypeFilter.Add(".pdf"); 
-//Browse and choose the file 
-StorageFile file = await picker.PickSingleFileAsync(); 
-//Creates an empty PDF loaded document instance 
-PdfLoadedDocument lDoc = new PdfLoadedDocument(); 
-//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class 
-await lDoc.OpenAsync(file); 
-//Load the JSON file stream from the disk 
-Stream jsonStream = new MemoryStream(); 
-//Export the annotation data from the JSON stream 
-lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
-//Save the jsonStream as a JSON document file in the local machine. Refer to the PDF/UWP section for the respective code samples 
-Save(jsonStream, "Annotations.Json"); 
-//Close the document 
-lDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document 
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read); 
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream); 
-//Export the annotation data from the JSON stream 
-Stream jsonStream = new MemoryStream(); 
-lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json) 
-//Close the document 
-lDoc.Close(true); 
-jsonStream.Position = 0; 
-//Defining the ContentType for Json file 
-string contentType = "application/Json"; 
-//Define the file name 
-string fileName = "Annotations.Json"; 
-//Creates a FileContentResult object by using the file contents, content type, and file name 
-return File(jsonStream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as a stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Export the annotation data from the JSON stream
-Stream jsonStream = new MemoryStream();
-lDoc.ExportAnnotations(jsonStream, AnnotationDataFormat.Json);
-
-//Save the document into the stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document
-lDoc.Close(true);
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ExportAnnotation.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
@@ -5758,7 +3182,45 @@ The following code example explains how to add comments to the PDF annotation.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+//Set author
+rectangleAnnotation.Author = "Syncfusion";
+rectangleAnnotation.Border.BorderWidth = 1;
+rectangleAnnotation.Color = Color.Red;
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new comment annotation
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+//Set author
+comment.Author = "John";
+//Set Text
+comment.Text = "This is first comment";
+//Set modification date
+comment.ModifiedDate = DateTime.Now;
+//Set subject
+comment.Subject = "Annotation Comments";
+//Add the comment to the annotation
+rectangleAnnotation.Comments.Add(comment);
+//Add the annotation to the PDF page
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -5795,7 +3257,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
@@ -5832,140 +3294,6 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new comment annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comment to the annotation
-rectangleAnnotation.Comments.Add(comment);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Saves the document
-MemoryStream stream = new MemoryStream();
-//Save the PDF document to stream
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new comment annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comment to the annotation
-rectangleAnnotation.Comments.Add(comment);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new comments annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comment to the annotation
-rectangleAnnotation.Comments.Add(comment);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-comments-to-the-PDF-annotation).
@@ -5974,7 +3302,40 @@ To add comments [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Get the existing PDF page
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+//Get the existing annotations
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+//Get the existing rectangle annotation
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new comment annotation
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+//Set author
+comment.Author = "John";
+//Set Text
+comment.Text = "This is first comment";
+//Set modification date
+comment.ModifiedDate = DateTime.Now;
+//Set subject
+comment.Subject = "Annotation Comments";
+//Add the comments to the annotation
+loadedRectangleAnnotation.Comments.Add(comment);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -6005,7 +3366,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
@@ -6036,130 +3397,6 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new comment annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comments to the annotation
-loadedRectangleAnnotation.Comments.Add(comment);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new comment annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comments to the annotation
-loadedRectangleAnnotation.Comments.Add(comment);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-lDoc.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new comment annotation
-PdfPopupAnnotation comment = new PdfPopupAnnotation();
-//Set author
-comment.Author = "John";
-//Set Text
-comment.Text = "This is first comment";
-//Set modification date
-comment.ModifiedDate = DateTime.Now;
-//Set subject
-comment.Subject = "Annotation Comments";
-//Add the comment to the annotation
-loadedRectangleAnnotation.Comments.Add(comment);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-comments-to-the-existing-PDF-annotation).
@@ -6169,7 +3406,45 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 You can add a review status in a newly created PDF annotation using [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum as shown the following code snippet.
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+//Set author
+rectangleAnnotation.Author = "Syncfusion";
+rectangleAnnotation.Border.BorderWidth = 1;
+rectangleAnnotation.Color = Color.Red;
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new review annotation
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+//Set author
+review.Author = "John";
+//Set review state model
+review.StateModel = PdfAnnotationStateModel.Review;
+//Set review state
+review.State = PdfAnnotationState.Accepted;
+//Set modification date
+review.ModifiedDate = DateTime.Now;
+//Add the review to the annotation
+rectangleAnnotation.ReviewHistory.Add(review);
+//Add the annotation to the PDF page
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document
 PdfDocument document = new PdfDocument();
@@ -6206,7 +3481,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument
@@ -6243,140 +3518,6 @@ document.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document 
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-rectangleAnnotation.ReviewHistory.Add(review);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Save the document
-MemoryStream stream = new MemoryStream();
-//Save the PDF document to stream
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples 
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-rectangleAnnotation.ReviewHistory.Add(review);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "PopupAnnotation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document
-PdfDocument document = new PdfDocument();
-//Create a new page
-PdfPage page = document.Pages.Add();
-
-//Create new rectangle annotation
-PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
-//Set author
-rectangleAnnotation.Author = "Syncfusion";
-rectangleAnnotation.Border.BorderWidth = 1;
-rectangleAnnotation.Color = Color.Red;
-rectangleAnnotation.ModifiedDate = DateTime.Now;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-rectangleAnnotation.ReviewHistory.Add(review);
-//Add the annotation to the PDF page
-page.Annotations.Add(rectangleAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-a-review-status-in-a-newly-created-PDF-annotation).
@@ -6384,7 +3525,40 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 To add the review status  [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.The following code example explain this.
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Get the existing PDF page
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+//Get the existing annotations
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+//Get the existing rectangle annotation
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new review annotation
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+//Set author
+review.Author = "John";
+//Set review state model
+review.StateModel = PdfAnnotationStateModel.Review;
+//Set review state
+review.State = PdfAnnotationState.Accepted;
+//Set modification date
+review.ModifiedDate = DateTime.Now;
+//Add the review to the annotation
+loadedRectangleAnnotation.ReviewHistory.Add(review);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -6415,7 +3589,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
@@ -6446,129 +3620,6 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument lDoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await lDoc.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-loadedRectangleAnnotation.ReviewHistory.Add(review);
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await lDoc.SaveAsync(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-loadedRectangleAnnotation.ReviewHistory.Add(review);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-lDoc.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-
-//Create a new review annotation
-PdfPopupAnnotation review = new PdfPopupAnnotation();
-//Set author
-review.Author = "John";
-//Set review state model
-review.StateModel = PdfAnnotationStateModel.Review;
-//Set review state
-review.State = PdfAnnotationState.Accepted;
-//Set modification date
-review.ModifiedDate = DateTime.Now;
-//Add the review to the annotation
-loadedRectangleAnnotation.ReviewHistory.Add(review);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-//Close the document
-lDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-the-review-status-to-the-existing-PDF-annotation).
@@ -6581,7 +3632,30 @@ The following code example explains how to remove comments using [RemoveAt](http
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+//Get the existing PDF page
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+//Get the existing annotations
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+//Get the existing rectangle annotation
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+//Get the annotation comments collection
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+// Remove comments by index 
+commentsCollection.RemoveAt(0);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+ldoc.Save(stream);
+//Closes the document
+ldoc.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -6603,7 +3677,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")'Load the PDF page
@@ -6625,40 +3699,14 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
+{% endtabs %}
 
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-commets-from-the-existing-PDF-annotation).
 
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument ldoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await ldoc.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation comments collection
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-// Remove comments by index 
-commentsCollection.RemoveAt(0);
+To remove review status [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_RemoveAt_System_Int32_) method to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code example explain this.
+{% tabs %}
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await ldoc.SaveAsync(stream);
-//Close the document
-ldoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
@@ -6669,64 +3717,20 @@ PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
 PdfLoadedAnnotationCollection annots = lpage.Annotations;
 //Get the existing rectangle annotation
 PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation comments collection
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-// Remove comments by index 
-commentsCollection.RemoveAt(0);
+//Get the annotation  reviewcollection
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+//Remove review status by index 
+reviewCollection.RemoveAt(0);
 
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
-ldoc.Save(stream);
-stream.Position = 0;
+lDoc.Save(stream);
 //Closes the document
 ldoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation comments collection
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-// Remove comments by index 
-commentsCollection.RemoveAt(0);
-
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-
-{% endhighlight %}
-
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-commets-from-the-existing-PDF-annotation).
-
-To remove review status [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedPageCollection.html#Syncfusion_Pdf_Parsing_PdfLoadedPageCollection_RemoveAt_System_Int32_) method to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code example explain this.
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -6748,7 +3752,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loaded the PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
@@ -6769,100 +3773,6 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument ldoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await ldoc.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-// Get the annotation review collection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-//Remove review status by index 
-reviewCollection.RemoveAt(0);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await ldoc.SaveAsync(stream);
-//Close the document
-ldoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation  reviewcollection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-//Remove review status by index 
-reviewCollection.RemoveAt(0);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-ldoc.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation review collection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-//Remove review status by index 
-reviewCollection.RemoveAt(0);
-
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Remove-review-status-to-the-existing-PDF-document).
@@ -6874,8 +3784,31 @@ The Essential PDF supports modifying comments using [Comments](https://help.sync
 The following code example explains how to modify comments in the existing PDF annotation.
 
 {% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-{% highlight c# tabtitle="C#" %}
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+//Load the PDF document page
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+//Load the annotation
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+//Get the annotation comments collection
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+//Get the modified comment
+PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
+//Modify the comment Text
+loadedComments.Text = "This is the modified comments";
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+ldoc.Save(stream);
+//Closes the document
+ldoc.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -6899,7 +3832,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
@@ -6923,103 +3856,6 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument ldoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await ldoc.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Load the annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the existing rectangle annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-// Get the modified comment
-PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-// Modify the comment Text
-loadedComments.Text = "This is the modified comment";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await ldoc.SaveAsync(stream);
-//Close the document
-ldoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Load the PDF document page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Load the annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation comments collection
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-//Get the modified comment
-PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-//Modify the comment Text
-loadedComments.Text = "This is the modified comments";
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-ldoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-ldoc.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Load the PDF document page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Load the annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation comments collection
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
-//Get the modified comment
-PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
-//Modify the comments Text
-loadedComments.Text = "This is Modify comments";
-
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-comments-in-the-existing-PDF-annotation).
@@ -7027,7 +3863,32 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 To modify review status [PdfAnnotationState](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAnnotationState.html) Enum to an existing PDF document using [PDFLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.  The following code example explain this.
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+//Get the existing PDF page
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+//Get the existing annotations
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+//Get the existing rectangle annotation
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+//Get the annotation review collection
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+// Get the modified review state
+PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
+// Modify the review State
+loadedReview.State = PdfAnnotationState.Rejected;
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+ldoc.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the PDF document
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
@@ -7051,7 +3912,7 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Loaded the PDF document
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
@@ -7074,105 +3935,6 @@ ldoc.Close(true)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument ldoc = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await ldoc.OpenAsync(file);
-//Get the existing annotations
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing PDF page
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation review collection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-// Get the modified review state
-PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-// Modify the review State
-loadedReview.State = PdfAnnotationState.Rejected;
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await ldoc.SaveAsync(stream);
-//Close the document
-ldoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation review collection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-// Get the modified review state
-PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-// Modify the review State
-loadedReview.State = PdfAnnotationState.Rejected;
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-lDoc.Save(stream);
-stream.Position = 0;
-//Closes the document
-ldoc.Close(true);
-//Defining the Content Type for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
-PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing annotations
-PdfLoadedAnnotationCollection annots = lpage.Annotations;
-//Get the existing rectangle annotation
-PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
-//Get the annotation review collection
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
-// Get the modified review state
-PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
-// Modify the review State
-loadedReview.State = PdfAnnotationState.Rejected;
-
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Modify-review-status-to-the-existing-PDF-annotation).
@@ -7189,7 +3951,30 @@ You can retrieve the annotation review history from the existing PDF document an
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get the existing PDF page
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+//Get the annotation
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+//Get the review history collection for the annotation
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
+//Get annotation state
+PdfAnnotationState state = reviewCollection[0].State;
+//Get annotation state model
+PdfAnnotationStateModel model = reviewCollection[0].StateModel;
+//Get the comments of the annotation
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+//Get the review history of the comment
+PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
+//Closes the document
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
@@ -7211,8 +3996,7 @@ PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].Rev
 loadedDocument.Close(true);
 
 {% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load the existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
@@ -7235,84 +4019,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-//Get the annotation
-PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-//Get the review history collection for the annotation
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-//Get annotation state
-PdfAnnotationState state = reviewCollection[0].State;
-//Get annotation state model
-PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-//Get the comments of the annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Get the review history of the comment
-PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Load the PDF document
-FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-//Get the annotation
-PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-//Get the review history collection for the annotation
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-//Get annotation state
-PdfAnnotationState state = reviewCollection[0].State;
-//Get annotation state model
-PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-//Get the comments of the annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Get the review history of the comment
-PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-//Closes the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-//Get the existing PDF page
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-//Get the annotation
-PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-//Get the review history collection for the annotation
-PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
-//Get annotation state
-PdfAnnotationState state = reviewCollection[0].State;
-//Get annotation state model
-PdfAnnotationStateModel model = reviewCollection[0].StateModel;
-//Get the comments of the annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Get the review history of the comment
-PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
-//Closes the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Retrieve-review-status-from-the-existing-PDF-annotations).
@@ -7323,60 +4029,7 @@ The following code example explains how to retrieve the annotation comments from
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
-//Get the existing PDF page
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-//Get the annotation
-PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-//Get the comments of the annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Close the PDF document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the existing PDF document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-'Get the existing PDF page
-Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
-'Get the annotation
-Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
-'Get the comments of the annotation
-Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
-'Close the PDF document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and choose the file
-StorageFile file = await picker.PickSingleFileAsync();
-
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-//Get the existing PDF page
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
-//Get the annotation
-PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
-//Get the comments of the annotation
-PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -7392,18 +4045,33 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get the existing PDF page
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
 //Get the annotation
 PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
 //Get the comments of the annotation
 PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
-//Closes the document
+//Close the PDF document
 loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+'Get the existing PDF page
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+'Get the annotation
+Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
+'Get the comments of the annotation
+Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
+'Close the PDF document
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -7419,7 +4087,30 @@ The following code example illustrates how to print annotation in the PDF docume
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Creates a new page 
+PdfPage page = document.Pages.Add();
+//Creates a new PDF rubber stamp annotation
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+//Set the AnnotationFlags to print 
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
+//Adds annotation to the page 
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Closes the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PDF document
 PdfDocument document = new PdfDocument();
@@ -7442,7 +4133,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Creates a new PDF document
 Dim document As PdfDocument = New PdfDocument()
@@ -7463,97 +4154,6 @@ page.Annotations.Add(rubberStampAnnotation)
 document.Save("RubberStamp.pdf")
 'Close the document
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page 
-PdfPage page = document.Pages.Add();
-//Creates a new PDF rubber stamp annotation
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Set the AnnotationFlags to print 
-rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-//Adds annotation to the page 
-page.Annotations.Add(rubberStampAnnotation);
-
-//Saves the document
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page 
-PdfPage page = document.Pages.Add();
-//Creates a new PDF rubber stamp annotation
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Set the AnnotationFlags to print 
-rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-//Adds annotation to the page 
-page.Annotations.Add(rubberStampAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-stream.Position = 0;
-//Closes the document
-document.Close(true);
-//Defining the ContentType for PDF file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "RubberStamp.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Creates a new PDF document
-PdfDocument document = new PdfDocument();
-//Creates a new page 
-PdfPage page = document.Pages.Add();
-//Creates a new PDF rubber stamp annotation
-RectangleF rectangle = new RectangleF(40, 60, 80, 20);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
-rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Set the AnnotationFlags to print 
-rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
-//Adds annotation to the page 
-page.Annotations.Add(rubberStampAnnotation);
-
-//Save the document into stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
-document.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RubberStamp.pdf", "application/pdf", stream);
-}
-else
-{
-   Xamarin.Forms.DependencyService.Get<ISave>().Save("RubberStamp.pdf", "application/pdf", stream);
-}
 
 {% endhighlight %}
 
@@ -7620,7 +4220,67 @@ The following code snippet explains how to add custom stamp in an existing PDF d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Load an existing PDF document
+FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+//Get the page from loaded PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a new pdf rubber stamp annotation
+RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
+//Custom stamp the rubber stamp annotation
+PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
+PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
+//Add text in rubber stamp annotation
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
+//Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+//Add annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation);
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the instance of PdfLoadedDocument
+loadedDocument.Close(true);
+
+public static PdfPath RoundedRect(RectangleF bounds, int radius)
+{
+    int diameter = radius * 2;
+    SizeF size = new SizeF(diameter, diameter);
+    RectangleF arc = new RectangleF(bounds.Location, size);
+    PdfPath path = new PdfPath();
+    if (radius == 0)
+    {
+        path.AddRectangle(bounds);
+        return path;
+    }
+    //Draw the top left arc  
+    path.AddArc(arc, 180, 90);
+    //Draw the top right arc  
+    arc.X = bounds.Right - diameter;
+    path.AddArc(arc, 270, 90);
+    //Draw the bottom right arc  
+    arc.Y = bounds.Bottom - diameter;
+    path.AddArc(arc, 0, 90);
+    //Draw the bottom left arc 
+    arc.X = bounds.Left;
+    path.AddArc(arc, 90, 90);
+
+    //Close the figure
+    path.CloseFigure();
+    //Return the path
+    return path;
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
 //Load an existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 //Get the page from loaded PDF document
@@ -7675,9 +4335,10 @@ public static PdfPath RoundedRect(RectangleF bounds, int radius)
     //Return the path
     return path;
 }
+
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load an existing PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 'Get the page from loaded PDF document
@@ -7731,200 +4392,6 @@ Private Function RoundedRect(bounds As RectangleF, radius As Integer) As PdfPath
     Return path
 End Function
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Load an existing PDF document
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page from loaded PDF document
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create a new pdf rubber stamp annotation
-RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-//Custom stamp the rubber stamp annotation
-PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
-PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-//Add text in rubber stamp annotation
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-//Set the content of annotation
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Add annotation to the page
-loadedPage.Annotations.Add(rubberStampAnnotation);
-
-//Create memory stream
-MemoryStream ms = new MemoryStream();
-//Open the document in browser after saving it
-loadedDocument.Save(ms);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code sample
-Save(ms, "Output.pdf");
-
-private PdfPath RoundedRect(RectangleF bounds, int radius)
-{
-    int diameter = radius * 2;
-    SizeF size = new SizeF(diameter, diameter);
-    RectangleF arc = new RectangleF(bounds.Location, size);
-    PdfPath path = new PdfPath();
-    if (radius == 0)
-    {
-        path.AddRectangle(bounds);
-        return path;
-    }
-    //Draw the top left arc  
-    path.AddArc(arc, 180, 90);
-    //Draw the top right arc  
-    arc.X = bounds.Right - diameter;
-    path.AddArc(arc, 270, 90);
-    //Draw the bottom right arc  
-    arc.Y = bounds.Bottom - diameter;
-    path.AddArc(arc, 0, 90);
-    //Draw the bottom left arc 
-    arc.X = bounds.Left;
-    path.AddArc(arc, 90, 90);
-
-    //Close the figure
-    path.CloseFigure();
-    //Return the path
-    return path;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Load an existing PDF document
-FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page from loaded PDF document
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create a new pdf rubber stamp annotation
-RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-//Custom stamp the rubber stamp annotation
-PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
-PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-//Add text in rubber stamp annotation
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-//Set the content of annotation
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Add annotation to the page
-loadedPage.Annotations.Add(rubberStampAnnotation);
-
-//Saving the PDF to the MemoryStream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Set the position as '0'
-stream.Position = 0;
-//Download the PDF document in the browser
-FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
-fileStreamResult.FileDownloadName = "Output.pdf";
-return fileStreamResult;
-
-private PdfPath RoundedRect(RectangleF bounds, int radius)
-{
-    int diameter = radius * 2;
-    SizeF size = new SizeF(diameter, diameter);
-    RectangleF arc = new RectangleF(bounds.Location, size);
-    PdfPath path = new PdfPath();
-    if (radius == 0)
-    {
-        path.AddRectangle(bounds);
-        return path;
-    }
-    //Draw the top left arc  
-    path.AddArc(arc, 180, 90);
-    //Draw the top right arc  
-    arc.X = bounds.Right - diameter;
-    path.AddArc(arc, 270, 90);
-    //Draw the bottom right arc  
-    arc.Y = bounds.Bottom - diameter;
-    path.AddArc(arc, 0, 90);
-    //Draw the bottom left arc 
-    arc.X = bounds.Left;
-    path.AddArc(arc, 90, 90);
-
-    //Close the figure
-    path.CloseFigure();
-    //Return the path
-    return path;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Load an existing PDF document
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
-//Get the page from loaded PDF document
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
-
-//Create a new pdf rubber stamp annotation
-RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
-PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
-//Custom stamp the rubber stamp annotation
-PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Syncfusion.Drawing.Color.FromArgb(255, 173, 216, 230)));
-PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
-//Add text in rubber stamp annotation
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
-//Set the content of annotation
-rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
-//Add annotation to the page
-loadedPage.Annotations.Add(rubberStampAnnotation);
-
-//Save the document to the stream
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
-
-private PdfPath RoundedRect(RectangleF bounds, int radius)
-{
-    int diameter = radius * 2;
-    SizeF size = new SizeF(diameter, diameter);
-    RectangleF arc = new RectangleF(bounds.Location, size);
-    PdfPath path = new PdfPath();
-    if (radius == 0)
-    {
-        path.AddRectangle(bounds);
-        return path;
-    }
-    //Draw the top left arc  
-    path.AddArc(arc, 180, 90);
-    //Draw the top right arc  
-    arc.X = bounds.Right - diameter;
-    path.AddArc(arc, 270, 90);
-    //Draw the bottom right arc  
-    arc.Y = bounds.Bottom - diameter;
-    path.AddArc(arc, 0, 90);
-    //Draw the bottom left arc 
-    arc.X = bounds.Left;
-    path.AddArc(arc, 90, 90);
-
-    //Close the figure
-    path.CloseFigure();
-    //Return the path
-    return path;
-}
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-custom-stamp-in-an-existing-PDF-document).
@@ -7935,7 +4402,38 @@ You can highlight the Markup Text using the [PdfTextMarkupAnnotationType](https:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Create a new page.
+PdfPage page = document.Pages.Add();
+FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
+PdfFont pdfFont = new PdfTrueTypeFont(fontStream, 14);
+//Create a new PDF brush.
+PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
+//Draw text in the new page.
+page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
+string markupText = "Text Markup";
+SizeF size = pdfFont.MeasureString(markupText);
+RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
+page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
+
+//Create a PDF text markup annotation.
+PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
+markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
+markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
+//Add this annotation to a new page.
+page.Annotations.Add(markupAnnotation);
+
+//Save the document to disk.
+Save(document, "Output.pdf");
+//close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -7967,7 +4465,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new PDF document.
 Dim document As New PdfDocument()
 'Create a new page.
@@ -7997,114 +4495,6 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page. 
-PdfPage page = document.Pages.Add();
-//Create a PDF font and font style.
-Font font = new Font("Calibri", 10, FontStyle.Bold);
-PdfFont pdfFont = new PdfTrueTypeFont(font, false);
-//Create a new PDF brush.
-PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-//Draw text in the new page.
-page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
-string markupText = "Text Markup";
-SizeF size = pdfFont.MeasureString(markupText);
-RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
-page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
-
-//Create a PDF text markup annotation.
-PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
-markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
-markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-//Add this annotation to a new page.
-page.Annotations.Add(markupAnnotation);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);
-//Save the stream as a PDF document file in the local machine. Refer to the PDF/UWP section for respected code samples.
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page.
-PdfPage page = document.Pages.Add();
-FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
-PdfFont pdfFont = new PdfTrueTypeFont(fontStream, 14);
-//Create a new PDF brush.
-PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-//Draw text in the new page.
-page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
-string markupText = "Text Markup";
-SizeF size = pdfFont.MeasureString(markupText);
-RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
-page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
-
-//Create a PDF text markup annotation.
-PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
-markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
-markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-//Add this annotation to a new page.
-page.Annotations.Add(markupAnnotation);
-
-//Save the document to disk.
-Save(document, "Output.pdf");
-//close the document.
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Create a new page. 
-PdfPage page = document.Pages.Add();
-//Create a PDF font and font style .
-Font font = new Font("Calibri", 10, FontStyle.Bold);
-PdfFont pdfFont = new PdfTrueTypeFont(font, false);
-//Create a new PDF brush.
-PdfBrush pdfBrush = new PdfSolidBrush(Color.Black);
-//Draw text in the new page.
-page.Graphics.DrawString("Text Markup Annotation Demo", pdfFont, pdfBrush, new PointF(150, 10));
-string markupText = "Text Markup";
-SizeF size = pdfFont.MeasureString(markupText);
-RectangleF rectangle = new RectangleF(175, 40, size.Width, size.Height);
-page.Graphics.DrawString(markupText, pdfFont, pdfBrush, rectangle);
-
-//Create a PDF text markup annotation.
-PdfTextMarkupAnnotation markupAnnotation = new PdfTextMarkupAnnotation("Markup annotation", "Markup annotation with highlight style", markupText, new PointF(175, 40), pdfFont);
-markupAnnotation.TextMarkupColor = new PdfColor(Color.BlueViolet);
-markupAnnotation.TextMarkupAnnotationType = PdfTextMarkupAnnotationType.Highlight;
-//Add this annotation to a new page.
-page.Annotations.Add(markupAnnotation);
-
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document.
-document.Close(true);
-//Save the stream into pdf file.
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer to the PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
-}
-
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Highlight-text-in-the-newly-created-PDF-document).
@@ -8115,43 +4505,7 @@ You can get the images from the custom rubber stamp annotation appearance using 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the existing PDF document.
-PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
-//Get the existing PDF page.
-PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
-//Get the existing rubber stamp annotation.
-PdfLoadedRubberStampAnnotation rubberStampAnnotation = lpage.Annotations[0] as PdfLoadedRubberStampAnnotation;
-//Get the custom images used for the rubber stamp annotation.
-Image[] images = rubberStampAnnotation.GetImages();
-//Close the PDF document.
-ldoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-' Load an existing document.
-Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-'Get the existing PDF page.
-Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0), PdfLoadedPage)
-'Get the existing rubber stamp annotation.
-Dim rubberStampAnnotation As PdfLoadedRubberStampAnnotation = CType(lpage.Annotations(0), PdfLoadedRubberStampAnnotation)
-'Get the custom images used for the rubber stamp annotation.
-Dim images As Image() = rubberStampAnnotation.GetImages()
-'Close the PDF document.
-ldoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports getting the images from custom rubber stamp annotation only in WinForms, WPF and ASP.NET Core platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the existing PDF file.
 FileStream fileStream = new FileStream("input.pdf", FileMode.Open);
@@ -8167,9 +4521,33 @@ ldoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//PDF supports getting the images from custom rubber stamp annotation only in WinForms, WPF and ASP.NET Core platforms.
+//Load the existing PDF document.
+PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
+//Get the existing PDF page.
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+//Get the existing rubber stamp annotation.
+PdfLoadedRubberStampAnnotation rubberStampAnnotation = lpage.Annotations[0] as PdfLoadedRubberStampAnnotation;
+//Get the custom images used for the rubber stamp annotation.
+Image[] images = rubberStampAnnotation.GetImages();
+//Close the PDF document.
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Load an existing document.
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Get the existing PDF page.
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0), PdfLoadedPage)
+'Get the existing rubber stamp annotation.
+Dim rubberStampAnnotation As PdfLoadedRubberStampAnnotation = CType(lpage.Annotations(0), PdfLoadedRubberStampAnnotation)
+'Get the custom images used for the rubber stamp annotation.
+Dim images As Image() = rubberStampAnnotation.GetImages()
+'Close the PDF document.
+ldoc.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
