@@ -14,11 +14,11 @@ Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/
 
 Step 1: Create a new C# WPF application project.
 
-![Create WPF project](Workingwith_WPF/CreateWPF.png)
+![Create WPF project](Workingwith_WPF/Project-Open-and-Save.png)
 
 Step 2: Install the [Syncfusion.Presentation.Wpf](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Presentation.Wpf Nuget Package](Workingwith_WPF/Install_Nuget.png)
+![Install Syncfusion.Presentation.Wpf Nuget Package](Workingwith_WPF/Nuget-Package-Open-and-Save.png)
 
 Step 3: Add a new button in the **MainWindow.xaml** as shown below.
 

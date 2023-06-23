@@ -14,15 +14,15 @@ Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/
 
 Step 1: Create a new C# ASP.NET web application project.
 
-![Create ASP.NET Web project](Workingwith_Web/CreateProject.png)
+![Create ASP.NET Web project](Workingwith_Web/Project-Open-and-Save.png)
 
-Step 2: Select the **Web Forms** template to create the project.
+Step 2: Select the **Empty** template to create the project.
 
-![Select Web Forms template](Workingwith_Web/SelectWeb.png)
+![Select Web Forms template](Workingwith_Web/Empty-Open-and-Save.png)
 
 Step 3: Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Presentation.AspNet Nuget package](Workingwith_Web/InstallNuget.png)
+![Install Syncfusion.Presentation.AspNet Nuget package](Workingwith_Web/Nuget-Open-and-Save.png)
 
 Step 4: Include the following namespaces in **MainPage.aspx.cs**.
 

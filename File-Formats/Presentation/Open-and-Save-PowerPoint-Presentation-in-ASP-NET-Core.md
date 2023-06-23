@@ -14,17 +14,13 @@ Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion
 
 Step 1: Create a new C# ASP.NET Core web application project.
 
-![Create ASP.NET Core Web project for PowerPoint file](Workingwith_Core/CreateCore.png)
+![Create ASP.NET Core Web project for PowerPoint file](Workingwith_Core/Create-Project-Open-and-Save.png)
 
-Step 2: Select Web Application pattern (Model-View-Controller) for the project.
+Step 2: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Select Web Application pattern for PowerPoint file](Workingwith_Core/MVC.png)
+![Install Syncfusion.Presentation.Net.Core Nuget Package](Workingwith_Core/Nuget-Package_Open_and_Save.png)
 
-Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
-
-![Install Syncfusion.Presentation.Net.Core Nuget Package](Workingwith_Core/install_nuget.png)
-
-Step 4: Include the following namespaces in **HomeController.cs**.
+Step 3: Include the following namespaces in **HomeController.cs**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -34,9 +30,9 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: A default action method named Index will be present in **HomeController.cs**. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+Step 4: A default action method named Index will be present in **HomeController.cs**. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-Step 6: Add a new button in the **Index.cshtml** as shown below.
+Step 5: Add a new button in the **Index.cshtml** as shown below.
 
 {% tabs %}
 {% highlight HTML %}
@@ -54,7 +50,7 @@ Step 6: Add a new button in the **Index.cshtml** as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **CreatePowerPoint** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET Core**.
+Step 6: Add a new action method **CreatePowerPoint** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET Core**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -66,7 +62,7 @@ IPresentation pptxDoc = Presentation.Open(fileStreamPath);
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 7: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -82,7 +78,7 @@ shape.TextBody.Text = "Company Profile";
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PowerPoint Presentation in ASP.NET Core**.
+Step 8: Add below code example to **save the PowerPoint Presentation in ASP.NET Core**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

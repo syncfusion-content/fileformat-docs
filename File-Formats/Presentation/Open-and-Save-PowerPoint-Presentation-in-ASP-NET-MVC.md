@@ -14,15 +14,15 @@ Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/
 
 Step 1: Create a new C# ASP.NET MVC application project.
 
-![Create ASP.NET MVC project](Workingwith_MVC/CreateMVC.png)
+![Create ASP.NET MVC project](Workingwith_MVC/Project-Open-and-Save.png)
 
 Step 2: Select the **MVC** template to create the project.
 
-![Select MVC template](Workingwith_MVC/Select_template.png)
+![Select MVC template](Workingwith_MVC/MVC-Open-and-Save.png)
 
 Step 3: Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Presentation.AspNet.Mvc5 Nuget Package](Workingwith_MVC/Install_Nuget.png)
+![Install Syncfusion.Presentation.AspNet.Mvc5 Nuget Package](Workingwith_MVC/Nuget-Open-and-Save.png)
 
 Step 4: Include the following namespace in that **HomeController.cs** file.
 

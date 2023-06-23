@@ -14,15 +14,15 @@ Syncfusion PowerPoint is a [Xamarin PowerPoint library](https://www.syncfusion.c
 
 Step 1: Create a new C# **Xamarin.Forms** application project.
 
-![Create Xamarin project](Workingwith_Xamarin/CreateProject.png)
+![Create Xamarin project](Workingwith_Xamarin/Project-Open-and-Save.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
-![Create Xamarin CodeSharing Option](Workingwith_Xamarin/CodeSharing.png)
+![Create Xamarin CodeSharing Option](Workingwith_Xamarin/Template-Project-Open-and-Save.png)
 
 Step 3: Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Xamarin.Presentation Nuget Package](Workingwith_Xamarin/InstallNuget.png)
+![Install Syncfusion.Xamarin.Presentation Nuget Package](Workingwith_Xamarin/Nuget-Package-Project-Open-and-Save.png)
 
 Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>

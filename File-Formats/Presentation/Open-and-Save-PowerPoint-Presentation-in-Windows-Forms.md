@@ -14,11 +14,11 @@ Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/
 
 Step 1: Create a new C# Windows Forms application project.
 
-![Create Windows Forms project](Workingwith_Windows/Create_Windows.png)
+![Create Windows Forms project](Workingwith_Windows/Project-Open-and-Save.png)
 
 Step 2: Install the [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Presentation.WinForms Nuget Package](Workingwith_Windows/Install_Nuget.png)
+![Install Syncfusion.Presentation.WinForms Nuget Package](Workingwith_Windows/Nuget-Package-Open-and-Save.png)
 
 Step 3: Include the following namespaces in the **Form1.Designer.cs** file.
 
