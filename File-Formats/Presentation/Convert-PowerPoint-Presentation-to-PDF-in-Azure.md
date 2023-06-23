@@ -2,13 +2,13 @@
 title: Convert PPTX to PDF in Microsoft Azure | Syncfusion
 description: Learn how to convert a PPTX to PDF in Azure services using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
 # Convert PowerPoint Presentation to PDF in Azure Platform 
 
-Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
+Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
 
 N> If this is your first time working with Azure, please refer to the dedicated Azure development resources. This section explains how to convert PowerPoint Presentation to PDF in C# using the PowerPoint library (Presentation) in Azure. 
 
