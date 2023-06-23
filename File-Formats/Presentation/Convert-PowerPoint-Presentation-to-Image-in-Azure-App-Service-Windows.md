@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to Image in Azure App Service on Windows
 
-Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
 
 ## Steps to convert PowerPoint Presentation to Image in Azure App Service on Windows
 
@@ -185,7 +185,7 @@ Step 10: Now, Publish has been succeeded.
 ![Publish has been succeeded](Azure_Images/App_Service_Windows/After_Publish_PowerPoint_Presentation_to_Image.png)
 
 Step 11: Now, the published webpage will open in the browser. 
-![Browser will open after publish](Azure_Images/App_Service_Linux/Browser_PowerPoint_Presentation_to_Image.png)
+![Browser will open after publish](Azure_Images/App_Service_Windows/Browser_PowerPoint_Presentation_to_Image.png)
 
 Step 12: Select the **PowerPoint Presentation** and Click **Convert to Image** to convert the given PowerPoint Presentation to image.You will get the output **image** document as follows.
 
