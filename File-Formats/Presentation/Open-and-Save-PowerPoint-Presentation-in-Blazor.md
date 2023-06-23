@@ -1,6 +1,6 @@
 ---
 title: Open and save Presentation in Blazor | Syncfusion
-description: Open and save Presentation in Blazor using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Open and save Presentation in Blazor using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -76,7 +76,7 @@ Step 7: Add the following code in **Presentation.razor** file to create and down
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Create a new cs file with name as **PresentationService** under Data folder and include the following namespaces in the file.
+Step 8: Create a new cs file with name as **PowerPointService** under Data folder and include the following namespaces in the file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -86,36 +86,50 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server app.
+Step 9: Create a new MemoryStream method with name as **CreatePowerPoint** in **PowerPointService** class and include the following code snippet to **open an existing PowerPoint Presentation in Blazor Server app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-{
-    //Open an existing PowerPoint Presentation.
-    using (IPresentation pptxDoc = Presentation.Open(sourceStreamPath))
-    {
-        //Get the first slide from the PowerPoint Presentation.
-        ISlide slide = pptxDoc.Slides[0];
-        //Get the first shape of the slide.
-        IShape shape = slide.Shapes[0] as IShape;
-        //Change the text of the shape.
-        if (shape.TextBody.Text == "Company History")
-            shape.TextBody.Text = "Company Profile";
-        //Save the PowerPoint Presentation as stream.
-        MemoryStream pptxStream = new();
-        pptxDoc.Save(pptxStream);
-        pptxStream.Position = 0;
-        //Download Powerpoint document in the browser.
-        return pptxStream;
-    }         
-}         
+using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open(sourceStreamPath));
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 10: Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 10: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Get the first slide from the PowerPoint Presentation.
+ISlide slide = pptxDoc.Slides[0];
+//Get the first shape of the slide.
+IShape shape = slide.Shapes[0] as IShape;
+//Change the text of the shape.
+if (shape.TextBody.Text == "Company History")
+    shape.TextBody.Text = "Company Profile";
+
+{% endhighlight %}
+{% endtabs %}
+
+Step 11: Add below code example to **save the PowerPoint Presentation in Blazor Server app**.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Save the PowerPoint Presentation as stream.
+MemoryStream pptxStream = new();
+pptxDoc.Save(pptxStream);
+pptxStream.Position = 0;
+//Download Powerpoint document in the browser.
+return pptxStream;
+
+{% endhighlight %}
+{% endtabs %}
+            
+Step 12: Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -132,7 +146,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-Step 11: Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+Step 13: Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 {% highlight HTML %}
@@ -216,36 +230,50 @@ Step 6: Add the following code to create a new button.
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** WASM app.
+Step 7: Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **open an existing PowerPoint Presentation in Blazor WASM app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-using (Stream inputStream = await client.GetStreamAsync("Data/Template.pptx"))
-{
-    //Open an existing PowerPoint Presentation.
-    using (IPresentation pptxDoc = Syncfusion.Presentation.Presentation.Open(inputStream))
-    {
-        //Get the first slide from the PowerPoint Presentation.
-        ISlide slide = pptxDoc.Slides[0];
-        //Get the first shape of the slide.
-        IShape shape = slide.Shapes[0] as IShape;
-        //Change the text of the shape.
-        if (shape.TextBody.Text == "Company History")
-            shape.TextBody.Text = "Company Profile";
-        //Save the PowerPoint Presentation as stream.
-        MemoryStream pptxStream = new();
-        pptxDoc.Save(pptxStream);
-        pptxStream.Position = 0;
-        //Download Powerpoint document in the browser.
-        await JS.SaveAs("Sample.pptx", pptxStream.ToArray());
-    }
-}
+using (Stream inputStream = await client.GetStreamAsync("Data/Template.pptx"));
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Syncfusion.Presentation.Presentation.Open(inputStream));
+
+{% endhighlight %}
+{% endtabs %}
+      
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Get the first slide from the PowerPoint Presentation.
+ISlide slide = pptxDoc.Slides[0];
+//Get the first shape of the slide.
+IShape shape = slide.Shapes[0] as IShape;
+//Change the text of the shape.
+if (shape.TextBody.Text == "Company History")
+    shape.TextBody.Text = "Company Profile";
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 9: Add below code example to **save the PowerPoint Presentation in Blazor WASM app**.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Save the PowerPoint Presentation as stream.
+MemoryStream pptxStream = new();
+pptxDoc.Save(pptxStream);
+pptxStream.Position = 0;
+//Download Powerpoint document in the browser.
+await JS.SaveAs("Sample.pptx", pptxStream.ToArray());
+
+{% endhighlight %}
+{% endtabs %}
+
+Step 10: To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -262,7 +290,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+Step 11: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
