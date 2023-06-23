@@ -45,7 +45,6 @@ Step 5: Create a razor file with name as **Presentation** under **Pages** folder
 Step 6: Add the following code to create a new button.
 
 {% tabs %}
-
 {% highlight CSHTML %}
 
 <h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
@@ -53,7 +52,6 @@ Step 6: Add the following code to create a new button.
 <button class="btn btn-primary" @onclick="@GeneratePPTX">Generate Presentation</button>
 
 {% endhighlight %}
-
 {% endtabs %}
 
 Step 7: Add the following code in **Presentation.razor** file to create and download the **Presentation document**.
