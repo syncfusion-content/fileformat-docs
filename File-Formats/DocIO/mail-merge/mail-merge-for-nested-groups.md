@@ -16,7 +16,7 @@ Nested Mail merge operation automatically replaces the merge field with immediat
   
 To execute nested mail merge, design your Word document template as follow.
 
-![Word document template for nested groups](../mailmerge_images/file-formats-word-nested-group-mail-merge-template.png)
+![Word document template for nested groups](../mailmerge_images/file-formats-word-document-template.png)
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
 
