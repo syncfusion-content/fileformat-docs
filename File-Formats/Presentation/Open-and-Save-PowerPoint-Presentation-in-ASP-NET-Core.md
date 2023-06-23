@@ -6,7 +6,7 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Open and save Presentation in ASP.NET Core
+# Open and save PowerPoint Presentation in ASP.NET Core
 
 Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **open and save a Presentation in ASP.NET Core**.
 
@@ -66,7 +66,7 @@ IPresentation pptxDoc = Presentation.Open(fileStreamPath);
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

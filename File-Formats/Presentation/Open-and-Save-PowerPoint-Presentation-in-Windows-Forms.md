@@ -30,7 +30,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Add a new button in **Form1.Designer.cs** to create Word file as follows.
+Step 4: Add a new button in **Form1.Designer.cs** file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -75,7 +75,7 @@ private void InitializeComponent()
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add the following code in **btnCreate_Click** to **open an existing PowerPoint Presentation in Windows-Forms**.
+Step 5: Add the following code in **btnCreate_Click** to **open an existing PowerPoint Presentation in Windows Forms**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -86,7 +86,7 @@ IPresentation pptxDoc = Presentation.Open("../../Data/Template.pptx");
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 6: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -119,4 +119,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
-![ASP.Net output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![Windows Forms output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)

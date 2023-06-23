@@ -78,17 +78,15 @@ using IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStre
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 7: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
 //Gets the first slide from the PowerPoint presentation.
 ISlide slide = pptxDoc.Slides[0];
-
 //Gets the first shape of the slide.
 Syncfusion.Presentation.IShape shape = slide.Shapes[0] as Syncfusion.Presentation.IShape;
-
 //Modifies the text of the shape.
 if (shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";

@@ -66,7 +66,7 @@ IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Re
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 6: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

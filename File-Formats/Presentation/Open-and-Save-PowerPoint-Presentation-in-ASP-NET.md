@@ -68,17 +68,15 @@ IPresentation pptxDoc = Presentation.Open(Server.MapPath("~/App_Data/Template.pp
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 7: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
 //Gets the first slide from the PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Gets the first shape of the slide
 IShape shape = slide.Shapes[0] as IShape;
-
 //Change the text of the shape
 if (shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
@@ -93,7 +91,6 @@ Step 8: Add below code example to **save the PowerPoint Presentation in ASP.NET*
 
 //Save the PowerPoint presentation
 pptxDoc.Save("Result.pptx", FormatType.Pptx, Response);
-
 //Close the PowerPoint presentation
 pptxDoc.Close();
 

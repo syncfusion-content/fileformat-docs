@@ -83,7 +83,7 @@ IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Re
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -99,7 +99,7 @@ if (shape.TextBody.Text == "Company History")
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PowerPoint Presentation in ASP.NET**.
+Step 9: Add below code example to **save the PowerPoint Presentation in Xamarin**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -188,6 +188,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
-![Word to PDF in PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)      
+![Xamarin output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)      
 
 

@@ -62,8 +62,7 @@ IPresentation pptxDoc = Presentation.Open("Data/Template.pptx");
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
-
+Step 6: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -95,4 +94,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
-![ASP.Net output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![WPF output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)

@@ -79,7 +79,7 @@ Stream stream = assembly.GetManifestResourceStream("Read_and_edit_PowerPoint_pre
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -255,7 +255,7 @@ IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Re
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -271,7 +271,7 @@ if (shape.TextBody.Text == "Company History")
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PowerPoint Presentation in WinUI Desktop app**.
+Step 9: Add below code example to **save the PowerPoint Presentation in WinUI UWP app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -285,7 +285,7 @@ Save(stream);
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-Desktop-app/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-UWP-app/Read-and-edit-PowerPoint-presentation).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 

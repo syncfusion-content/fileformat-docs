@@ -57,7 +57,7 @@ Html.EndForm();
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **CreatePowerPoint** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET Core**.
+Step 7: Add a new action method **CreatePowerPoint** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET MVC**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -69,7 +69,7 @@ IPresentation pptxDoc = Presentation.Open(fileStreamPath)
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add below code example to edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+Step 8: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -85,7 +85,7 @@ if (shape.TextBody.Text == "Company History")
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PowerPoint Presentation in ASP.NET Core**.
+Step 9: Add below code example to **save the PowerPoint Presentation in ASP.NET MVC**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
