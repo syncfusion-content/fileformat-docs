@@ -597,7 +597,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 A Chart is composed of various elements such as plot area, chart area, title area, legend, data labels, axis etc. The following screenshot illustrates the various elements of chart.
 
-![Illustrates the various elements of chart](workingwithchartsimages/workingwithcharts-in-file-formats-word.jpeg)
+![Illustrates the various elements of chart](workingwithchartsimages/elements-of-charts-in-file-formats-word.jpeg)
 
 
 1. The chart area of the chart.

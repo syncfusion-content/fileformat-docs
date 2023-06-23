@@ -756,7 +756,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates output Word document as follows.
 
-![Output document after applied Number format for SEQ field](workingwithfields_images/file-formats-word-seqlfield-numberformat-output.png)
+![Output document after applied Number format for SEQ field](workingwithfields_images/file-formats-word-seql-field-number-format-output.png)
 
 ### Refer Bookmark
 You can refer the sequence field elsewhere in the document by including bookmark name through [BookmarkName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_BookmarkName) property. The referred sequence field may be present anywhere in the Word document, but not beyond the respective bookmark end.
@@ -836,7 +836,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates output Word document as follows.
 
-![Output document of Bookmark referred in SEQ field](workingwithfields_images/file-formats-word-seqlfield-bookmark-output.png)
+![Output document of Bookmark referred in SEQ field](workingwithfields_images/file-formats-word-seql-field-bookmark-output.png)
 
 ### Reset numbering 
 You can reset the numbering for sequence field (\r) using [ResetNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetNumber) property and reset the numbering based on heading level (\s) in the Word document using [ResetHeadingLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_ResetHeadingLevel) property. 
@@ -1216,7 +1216,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates output Word document as follows.
 
-![Output of reset numbering in SEQ field](workingwithfields_images/file-formats-word-seqlfield-resetnumbering-output.png)
+![Output of reset numbering in SEQ field](workingwithfields_images/file-formats-word-seql-field-reset-numbering-output.png)
 
 ### Repeat nearest number 
 You can insert the closest preceding sequence number (\c) using [RepeatNearestNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_RepeatNearestNumber) property.
@@ -1456,7 +1456,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates output Word document as follows.
 
-![Output of repeating Nearest number of SEQ field](workingwithfields_images/file-formats-word-seqlfield-repeatnearestnumber-output.png)
+![Output of repeating Nearest number of SEQ field](workingwithfields_images/file-formats-word-seql-field-repeat-nearest-number.png)
 
 ### Hide
 You can hide the field result of the sequence field using [HideResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_HideResult) property.
@@ -1690,7 +1690,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates output Word document as follows.
 
-![Output after hiding the sequence field](workingwithfields_images/file-formats-word-seqlfield-hide-output.png)
+![Output after hiding the sequence field](workingwithfields_images/file-formats-word-seql-field-hide.png)
 
 ### Next Sequence number
 You can insert the next sequence number for the specified items using [InsertNextNumber](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSeqField.html#Syncfusion_DocIO_DLS_WSeqField_InsertNextNumber) property. This is the default.
