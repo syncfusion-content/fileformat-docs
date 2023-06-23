@@ -305,7 +305,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![MAUI output Word document](maui_images/gettingstarted-output-in-maui-word.jpg)
+![MAUI output Word document](maui_images/generated-word-document-in-maui.jpg)
 
 ## Helper files for .NET MAUI
 
