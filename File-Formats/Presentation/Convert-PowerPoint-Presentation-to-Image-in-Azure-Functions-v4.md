@@ -2,7 +2,7 @@
 title: Convert PPTX to Image in Azure Functions v4 | Syncfusion
 description: Convert PPTX to image in Azure Functions v4 using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 

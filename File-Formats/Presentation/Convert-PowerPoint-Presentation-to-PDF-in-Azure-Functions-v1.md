@@ -2,7 +2,7 @@
 title: Convert PPTX to PDF in Azure Functions v1 | Syncfusion
 description: Convert PPTX to PDF in Azure Functions v1 using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
