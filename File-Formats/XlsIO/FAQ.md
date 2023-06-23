@@ -76,3 +76,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to open an Excel file with encoding in .NET Core?](faqs/how-to-open-an-excel-file-with-encoding-in-net-core)
 * [How to convert image from URL in Excel to PDF?](faqs/how-to-convert-image-from-url-in-excel-to-pdf)
 * [How to change the shape text font?](faqs/how-to-change-the-shape-text-font)
+* [Why cone chart shows itself as column or bar chart?](faqs/why-cone-chart-shows-itself-as-colum-or-bar-chart)
