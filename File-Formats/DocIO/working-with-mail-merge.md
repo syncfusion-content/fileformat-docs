@@ -35,7 +35,7 @@ You can create a template document with merge fields by using any Word editor ap
 
 The following screenshot shows how to insert a merge field in the Word document by **using the Microsoft Word.**
 
-![Word template document in File Formats](mailmerge_images/file-formats-docio-mailmerge-template.png)
+![Word template document in File Formats](mailmerge_images/file-formats-docio-template-document.png)
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
 
@@ -140,7 +140,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the previous code example, it generates the resultant Word document as follows.
 
-![Mail merge Word document in File Formats](mailmerge_images/file-formats-docio-mailmerge-output.png)
+![Mail merge Word document in File Formats](mailmerge_images/file-formats-docio-mail-merge.png)
 
 ## Simple Mail merge
 

@@ -1008,7 +1008,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can automatically resize the table cell to fit its contents based on the given **autofit options** such as [FitToContent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FitToWindow](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html), [FixedColumnWidth](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.AutoFitType.html). 
 
-![AutoFit options in File Formats Word document ](workingwithtables_images/file-formats-docio-resizetable.png)
+![AutoFit options in File Formats Word document ](workingwithtables_images/file-formats-docio-resize-table.png)
 
 The following code example shows how to resize the table in a Word document. 
 
