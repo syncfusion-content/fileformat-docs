@@ -1,6 +1,6 @@
 ---
 title: Open and save Presentation in UWP | Syncfusion
-description: Open and save Presentation in UWP using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Open and save Presentation in UWP using UWP PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
