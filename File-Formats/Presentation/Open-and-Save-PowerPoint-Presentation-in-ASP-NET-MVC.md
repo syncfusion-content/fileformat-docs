@@ -51,8 +51,6 @@ Step 6: Add a new button in the Index.cshtml as shown below.
     }
     Html.EndForm();
 }
-Html.EndForm();
-}
 
 {% endhighlight %}
 {% endtabs %}
