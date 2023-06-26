@@ -13,11 +13,9 @@ Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion
 ## Steps to open and save PowerPoint Presentation programmatically
 
 Step 1: Create a new C# .NET Core console application.
-
 ![Create .NET Core console project](Workingwith_Mac/CreateProject.png)
 
 Step 2: Select the project version.
-
 ![Select project version](Workingwith_Mac/selectprojectverion.png)
 
 Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
@@ -37,7 +35,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add the following code snippet in **Program.cs** file to **open an existing Presentation in .NET Core application on  macOS**.
+Step 5: Add the following code snippet in **Program.cs** file to **open an existing Presentation in .NET Core application on macOS**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -64,7 +62,7 @@ if(shape.TextBody.Text == "Company History")
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add below code example to **save the PowerPoint Presentation in .NET Core application on  macOS**.
+Step 7: Add below code example to **save the PowerPoint Presentation in .NET Core application on macOS**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
