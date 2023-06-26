@@ -1,6 +1,6 @@
 ---
 title: Convert PPTX to Image in Azure App Service on Linux | Syncfusion
-description: Convert PPTX to image in Azure App Service on Linux using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Convert PPTX to image in Azure App Service on Linux using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to Image in Azure App Service on Linux
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in Azure App Service on Linux**.
 
 ## Steps to convert PowerPoint Presentation to Image in Azure App Service on Linux
 
@@ -40,7 +40,6 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% highlight c# tabtitle="C#" %}
 @{
     Html.BeginForm("ConvertPPTXtoImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
-
     {
         <div class="Common">
             <div class="tablediv">
@@ -85,7 +84,7 @@ using Syncfusion.PresentationRenderer;
 
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for **convert the PowerPoint Presentation to image**. 
+Step 9: Include the below code snippet in **HomeController.cs** for **convert a PowerPoint Presentation to image**. 
 
 {% tabs %}
 
@@ -126,14 +125,12 @@ public ActionResult ConvertPPTXtoImage(string button)
                 //Open the existing PowerPoint presentation with loaded stream.
                 using (IPresentation pptxDoc = Presentation.Open(memoryStream))
                 {
-
                     //Initialize the PresentationRenderer to perform image conversion.
                     pptxDoc.PresentationRenderer = new PresentationRenderer();
                     //Convert PowerPoint slide to image as stream.
                     Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
                     //Reset the stream position
                     stream.Position = 0;
-
                     //Download image in the browser.
                     return File(stream, "application/jpeg", "PPTXtoImage.Jpeg");                                
                 }
@@ -156,7 +153,6 @@ public ActionResult ConvertPPTXtoImage(string button)
 }
 
 {% endhighlight %}
-
 {% endtabs %}
 
 ## Steps to publish as Azure App Service on Linux
@@ -198,4 +194,4 @@ Step 12: Select the **PowerPoint Presentation** and Click **Convert to Image** t
 
 ![PowerPoint Presentation to Image in Azure App Service on Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Azure/Azure_App_Service).

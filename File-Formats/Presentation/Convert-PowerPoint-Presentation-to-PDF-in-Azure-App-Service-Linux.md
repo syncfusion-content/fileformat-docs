@@ -1,6 +1,6 @@
 ---
 title: Convert PPTX to PDF in Azure App Service on Linux | Syncfusion
-description: Convert PPTX to PDF in Azure App Service on Linux using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Convert PPTX to PDF in Azure App Service on Linux using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to PDF in Azure App Service on Linux
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in Azure App Service on Linux**.
 
 ## Steps to convert PowerPoint Presentation to PDF in Azure App Service on Linux
 
@@ -40,7 +40,6 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% highlight c# tabtitle="C#" %}
 @{
     Html.BeginForm("ConvertPPTXtoPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
-
     {
         <div class="Common">
             <div class="tablediv">
@@ -72,25 +71,23 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 }
 
 {% endhighlight %}
-
 {% endtabs %}
 
 Step 6: Include the following namespaces in **HomeController.cs**.
 
 {% tabs %}
-
 {% highlight c# tabtitle="C#" %}
+
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 using Syncfusion.Pdf;
-{% endhighlight %}
 
+{% endhighlight %}
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for **convert the PowerPoint Presentation to PDF**. 
+Step 9: Include the below code snippet in **HomeController.cs** for **convert a PowerPoint Presentation to PDF**. 
 
 {% tabs %}
-
 {% highlight c# tabtitle="C#" %}
 
 private Microsoft.AspNetCore.Hosting.IHostingEnvironment _env;
@@ -160,7 +157,6 @@ public ActionResult ConvertPPTXtoPDF(string button)
 }
 
 {% endhighlight %}
-
 {% endtabs %}
 
 ## Steps to publish as Azure App Service on Linux
@@ -202,4 +198,4 @@ Step 12: Select the **PowerPoint Presentation** and Click **Convert to PDF** to 
 
 ![PowerPoint Presentation to PDF in Azure App Service on Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Azure/Azure_App_Service).
