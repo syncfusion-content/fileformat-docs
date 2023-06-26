@@ -14,7 +14,7 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/d
 
 Step 1: Create a new Windows Forms application project.
 
-![Create Windows Forms application in Visual Studio](windows-forms_images/create-project-in-windows-forms-word.jpg)
+![Create Windows Forms application in Visual Studio](windows-forms_images/create-windows-forms-project.jpg)
 
 Step 2: Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
@@ -297,4 +297,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Windows Forms output Word document](windows-forms_images/windows-forms-word-gettingstarted-output.jpg)
+![Windows Forms output Word document](windows-forms_images/generated-word-document-in-windows-forms.jpg)

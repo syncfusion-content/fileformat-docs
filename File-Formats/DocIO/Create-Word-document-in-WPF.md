@@ -280,4 +280,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![WPF output Word document](wpf_images/gettingstarted-output-in-wpf-word.jpg)
+![WPF output Word document](wpf_images/generated-word-document-in-wpf.jpg)
