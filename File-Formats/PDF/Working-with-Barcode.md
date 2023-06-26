@@ -17,78 +17,8 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 The below code example shows how to add Code39 barcode using the [PdfCode39Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfCode39Barcode.html) class to a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creating new PDF Document
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = doc.Pages.Add();
-
-//Drawing Code39 barcode 
-PdfCode39Barcode barcode = new PdfCode39Barcode(); 
-//Setting height of the barcode 
-barcode.BarHeight = 45; 
-barcode.Text = "CODE39$"; 
-//Printing barcode to the PDF document.s
-barcode.Draw(page, new PointF(25, 70 ));
-
-//Saving the Document
-doc.Save("CODE39.pdf");
-//Close the PDF document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creating new PDF Document
-Dim doc As New PdfDocument()
-'Adding new page to PDF document
-Dim page As PdfPage = doc.Pages.Add()
-
-'Drawing Code39 barcode 
-Dim barcode As New PdfCode39Barcode()
-'Setting height of the barcode 
-barcode.BarHeight = 45
-barcode.Text = "CODE39$"
-
-'Printing barcode to the PDF document. 
-barcode.Draw(page, New PointF(25, 70))
-
-'Save the Document
-doc.Save("CODE39.pdf")           
-'Close the PDF document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creating new PDF Document
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = doc.Pages.Add();
-
-//Drawing Code39 barcode 
-PdfCode39Barcode barcode = new PdfCode39Barcode();
-//Setting height of the barcode 
-barcode.BarHeight = 45;
-barcode.Text = "CODE39$";
-
-//Printing barcode to the PDF document
-barcode.Draw(page, new PointF(25, 70));
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await doc.SaveAsync(stream);
-//Close the document
-doc.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creating new PDF Document
 PdfDocument doc = new PdfDocument();
@@ -119,7 +49,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creating new PDF Document
 PdfDocument doc = new PdfDocument();
@@ -127,29 +57,40 @@ PdfDocument doc = new PdfDocument();
 PdfPage page = doc.Pages.Add();
 
 //Drawing Code39 barcode 
-PdfCode39Barcode barcode = new PdfCode39Barcode();
+PdfCode39Barcode barcode = new PdfCode39Barcode(); 
 //Setting height of the barcode 
-barcode.BarHeight = 45;
-barcode.Text = "CODE39$";
+barcode.BarHeight = 45; 
+barcode.Text = "CODE39$"; 
+//Printing barcode to the PDF document.s
+barcode.Draw(page, new PointF(25, 70 ));
 
-//Printing barcode to the PDF document
-barcode.Draw(page, new PointF(25, 70));
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-//Closes the document
+//Saving the Document
+doc.Save("CODE39.pdf");
+//Close the PDF document
 doc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creating new PDF Document
+Dim doc As New PdfDocument()
+'Adding new page to PDF document
+Dim page As PdfPage = doc.Pages.Add()
+
+'Drawing Code39 barcode 
+Dim barcode As New PdfCode39Barcode()
+'Setting height of the barcode 
+barcode.BarHeight = 45
+barcode.Text = "CODE39$"
+
+'Printing barcode to the PDF document. 
+barcode.Draw(page, New PointF(25, 70))
+
+'Save the Document
+doc.Save("CODE39.pdf")           
+'Close the PDF document
+doc.Close(true);
 
 {% endhighlight %}
 
@@ -160,82 +101,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The below code snippet shows how to add PdfEan13 barcode using the [PdfEan13Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan13Barcode.html) class to a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creates a new PdfEan13 Barcode.
-PdfEan13Barcode barcode = new PdfEan13Barcode ();
-//Set height of the barcode.
-barcode.BarHeight = 50;
-//Set the barcode text.
-barcode.Text = "400638133393";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add(); 
-
-//Printing barcode to the PDF document.
-barcode.Draw(page, new PointF(25,70));
-
-//Saving the document.
-document.Save("EAN13Barcode.pdf");
-//Close the document.
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creates a new PdfEan13 Barcode.
-Dim barcode As New PdfEan13Barcode () 
-'Set height of the barcode.
-barcode.BarHeight = 50
-'Set the barcode text
-barcode.Text = "400638133393"
-
-'Creating new PDF document.
-Dim document As New PdfDocument()
-'Adding new page to PDF document.
-Dim page As PdfPage = document.Pages.Add()
-
-'Printing barcode to the PDF document. 
-barcode.Draw(page, New PointF(25, 70))
-
-'Saving the document.
-document.Save("EAN13Barcode.pdf")
-'Close the document.
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PdfEan13 Barcode.
-PdfEan13Barcode barcode = new PdfEan13Barcode ();
-//Set height of the barcode.
-barcode.BarHeight = 50;
-//Set the barcode text.
-barcode.Text = "400638133393";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
-
-//Printing barcode to the PDF document.
-barcode.Draw(page, new PointF(25,70));
-      
-//Save the PDF document to stream .
-MemoryStream stream = new MemorySteam(); 
-document.Save(stream);
-//Close the document.
-document.Close(true); 
-//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples.
-Save(stream, "EAN13Barcode.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creates a new PdfEan13 Barcode.
 PdfEan13Barcode barcode = new PdfEan13Barcode ();
@@ -269,29 +136,51 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PdfEan13 Barcode.
 PdfEan13Barcode barcode = new PdfEan13Barcode ();
-//Set height and text of the barcode.
+//Set height of the barcode.
 barcode.BarHeight = 50;
+//Set the barcode text.
 barcode.Text = "400638133393";
 
 //Creating new PDF document.
 PdfDocument document = new PdfDocument();
 //Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
+PdfPage page = document.Pages.Add(); 
 
-//Printing barcode on to the Pdf
+//Printing barcode to the PDF document.
 barcode.Draw(page, new PointF(25,70));
 
-//Save the PDF document to stream 
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
-//Close the document 
-document.Close(true); 
-//Save the stream into pdf file 
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN13Barcode.pdf", "application/pdf", stream);
+//Saving the document.
+document.Save("EAN13Barcode.pdf");
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creates a new PdfEan13 Barcode.
+Dim barcode As New PdfEan13Barcode () 
+'Set height of the barcode.
+barcode.BarHeight = 50
+'Set the barcode text
+barcode.Text = "400638133393"
+
+'Creating new PDF document.
+Dim document As New PdfDocument()
+'Adding new page to PDF document.
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode to the PDF document. 
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+document.Save("EAN13Barcode.pdf")
+'Close the document.
+document.Close(True)
 
 {% endhighlight %}
 
@@ -302,82 +191,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The below code example shows how to add PdfEan8 barcode using the [PdfEan8Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfEan8Barcode.html) class to a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creates a new PdfEan8 Barcode.
-PdfEan8Barcode barcode = new PdfEan8Barcode ();
-//Set height of the barcode.
-barcode.BarHeight = 50;
-//Set the barcode text
-barcode.Text = "1234567";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add(); 
-
-//Printing barcode to the PDF document. 
-barcode.Draw(page, new PointF(25,70));
-
-//Saving the document.
-document.Save("EAN8Barcode.pdf");
-//Close the document
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creates a new PdfEan8 Barcode.
-Dim barcode As New PdfEan8Barcode () 
-'Set height of the barcode.
-barcode.BarHeight = 50
-'Set the barcode text.
-barcode.Text = "1234567"
-
-'Creating new PDF document.
-Dim document As New PdfDocument()
-'Adding new page to PDF document.
-Dim page As PdfPage = document.Pages.Add()
-
-'Printing barcode to the PDF document.
-barcode.Draw(page, New PointF(25, 70))
-
-'Saving the document.
-document.Save("EAN8Barcode.pdf")
-Close the document.
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new PdfEan8 Barcode.
-PdfEan8Barcode barcode = new PdfEan8Barcode ();
-//Set height of the barcode.
-barcode.BarHeight = 50;
-//Set the barcode text
-barcode.Text = "1234567";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
-
-//Printing barcode to the PDF document. 
-barcode.Draw(page, new PointF(25,70)); 
-     
-//Save the PDF document to stream.
-MemoryStream stream = new MemorySteam();
-document.Save(stream); 
-//Close the document.
-document.Close(true); 
-//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples.
-Save(stream, "EAN8Barcode.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Creates a new PdfEan8 Barcode.
 PdfEan8Barcode barcode = new PdfEan8Barcode ();
@@ -411,29 +226,51 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new PdfEan8 Barcode.
 PdfEan8Barcode barcode = new PdfEan8Barcode ();
-//Set height and text of the barcode.
+//Set height of the barcode.
 barcode.BarHeight = 50;
+//Set the barcode text
 barcode.Text = "1234567";
 
 //Creating new PDF document.
 PdfDocument document = new PdfDocument();
 //Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
+PdfPage page = document.Pages.Add(); 
 
 //Printing barcode to the PDF document. 
 barcode.Draw(page, new PointF(25,70));
 
-//Save the PDF document to stream. 
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
-//Close the document. 
-document.Close(true); 
-//Save the stream into PDF file.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EAN8Barcode.pdf", "application/pdf", stream);
+//Saving the document.
+document.Save("EAN8Barcode.pdf");
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creates a new PdfEan8 Barcode.
+Dim barcode As New PdfEan8Barcode () 
+'Set height of the barcode.
+barcode.BarHeight = 50
+'Set the barcode text.
+barcode.Text = "1234567"
+
+'Creating new PDF document.
+Dim document As New PdfDocument()
+'Adding new page to PDF document.
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode to the PDF document.
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+document.Save("EAN8Barcode.pdf")
+'Close the document.
+document.Close(True)
 
 {% endhighlight %}
 
@@ -446,84 +283,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The below code snippet shows how to add a QR code using [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) class to the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Drawing QR Barcode
-PdfQRBarcode barcode = new PdfQRBarcode();
-//Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
-//Set XDimension
-barcode.XDimension = 3;
-barcode.Text = "http://www.syncfusion.com";
-
-//Creating new PDF Document
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = doc.Pages.Add();
-//Printing barcode to the PDF document
-barcode.Draw(page, new PointF(25, 70));
-
-//Saving the document
-doc.Save("QRBarcode.pdf");
-//Close the document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Drawing QR Barcode
-Dim barcode As New PdfQRBarcode()
-'Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High
-'Set XDimension
-barcode.XDimension = 3
-barcode.Text = "http://www.syncfusion.com"
-
-'Creating new PDF Document
-Dim doc As New PdfDocument()
-'Adding new page to PDF document
-Dim page As PdfPage = doc.Pages.Add()
-
-'Printing barcode to the PDF document  
-barcode.Draw(page, New PointF(25, 70))
-
-'Saving the document
-doc.Save("QRBarcode.pdf")
-'Close the document
-doc.Close(true)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Drawing QR Barcode
-PdfQRBarcode barcode = new PdfQRBarcode();
-//Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
-//Set XDimension
-barcode.XDimension = 3;
-barcode.Text = "http://www.syncfusion.com";
-
-//Creating new PDF Document
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = doc.Pages.Add();
-
-//Printing barcode to the PDF document 
-barcode.Draw(page, new PointF(25, 70));
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await doc.SaveAsync(stream);
-//Close the document
-doc.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Drawing QR Barcode
 PdfQRBarcode barcode = new PdfQRBarcode();
@@ -557,7 +318,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Drawing QR Barcode
 PdfQRBarcode barcode = new PdfQRBarcode();
@@ -571,25 +332,38 @@ barcode.Text = "http://www.syncfusion.com";
 PdfDocument doc = new PdfDocument();
 //Adding new page to PDF document
 PdfPage page = doc.Pages.Add();
-
-//Printing barcode on to the Pdf. 
+//Printing barcode to the PDF document
 barcode.Draw(page, new PointF(25, 70));
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-//Closes the document
+//Saving the document
+doc.Save("QRBarcode.pdf");
+//Close the document
 doc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Drawing QR Barcode
+Dim barcode As New PdfQRBarcode()
+'Set Error Correction Level
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High
+'Set XDimension
+barcode.XDimension = 3
+barcode.Text = "http://www.syncfusion.com"
+
+'Creating new PDF Document
+Dim doc As New PdfDocument()
+'Adding new page to PDF document
+Dim page As PdfPage = doc.Pages.Add()
+
+'Printing barcode to the PDF document  
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document
+doc.Save("QRBarcode.pdf")
+'Close the document
+doc.Close(true)
 
 {% endhighlight %}
 
@@ -600,88 +374,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The below code example shows how to add a Pdf417 barcode code using [Pdf417Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.Pdf417Barcode.html) class to the PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creates a new Pdf417 Barcode.
-Pdf417Barcode barcode = new Pdf417Barcode();
-//Set error correction level.
-barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
-//Set XDimension
-barcode.XDimension = 2;
-//Set the barcode text.
-barcode.Text = "http://www.syncfusion.com";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
-
-//Printing barcode on to the PDF.
-barcode.Draw(page, new PointF(25,70));
-
-//Saving the document.
-document.Save("417Barcode.pdf");
-//Close the document.
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creates a new Pdf417 Barcode.
-Dim barcode As New Pdf417Barcode()
-'Set error correction level.
-barcode.ErrorCorrectionLevel = Pdf417ErrorCorrectionLevel.Auto
-'Set XDimension.
-barcode.XDimension = 2
-'Set the barcode text.
-barcode.Text = "http://www.syncfusion.com"
-
-'Creating new PDF document.
-Dim document As New PdfDocument()
-'Adding new page to PDF document.
-Dim page As PdfPage = document.Pages.Add()
-
-'Printing barcode on to the PDF.
-barcode.Draw(page, New PointF(25, 70))
-
-'Saving the document.
-document.Save("417Barcode.pdf")
-'Close the document.
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creates a new Pdf417 Barcode.
-Pdf417Barcode barcode = new Pdf417Barcode();
-//Set error correction level.
-barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
-//Set XDimension.
-barcode.XDimension = 2;
-//Set the barcode text.
-barcode.Text = "http://www.syncfusion.com";
-
-//Creating new PDF document.
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = document.Pages.Add();
-
-//Printing barcode on to the PDF.
-barcode.Draw(page, new PointF(25,70)); 
-     
-//Save the PDF document to stream.
-MemoryStream stream = new MemorySteam(); 
-document.Save(stream); 
-//Close the document.
-document.Close(true);
-//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples.
-Save(stream, "417Barcode.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creates a new Pdf417 Barcode.
 Pdf417Barcode barcode = new Pdf417Barcode();
@@ -717,14 +411,15 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates a new Pdf417 Barcode.
 Pdf417Barcode barcode = new Pdf417Barcode();
 //Set error correction level.
 barcode.ErrorCorrectionLevel= Pdf417ErrorCorrectionLevel.Auto;
-//Set XDimension.
+//Set XDimension
 barcode.XDimension = 2;
+//Set the barcode text.
 barcode.Text = "http://www.syncfusion.com";
 
 //Creating new PDF document.
@@ -735,13 +430,36 @@ PdfPage page = document.Pages.Add();
 //Printing barcode on to the PDF.
 barcode.Draw(page, new PointF(25,70));
 
-//Save the PDF document to stream. 
-MemoryStream stream = new MemoryStream(); 
-document.Save(stream);
+//Saving the document.
+document.Save("417Barcode.pdf");
 //Close the document.
-document.Close(true); 
-//Save the stream into PDF file.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("417Barcode.pdf", "application/pdf", stream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creates a new Pdf417 Barcode.
+Dim barcode As New Pdf417Barcode()
+'Set error correction level.
+barcode.ErrorCorrectionLevel = Pdf417ErrorCorrectionLevel.Auto
+'Set XDimension.
+barcode.XDimension = 2
+'Set the barcode text.
+barcode.Text = "http://www.syncfusion.com"
+
+'Creating new PDF document.
+Dim document As New PdfDocument()
+'Adding new page to PDF document.
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode on to the PDF.
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the document.
+document.Save("417Barcode.pdf")
+'Close the document.
+document.Close(True)
 
 {% endhighlight %}
 
@@ -754,83 +472,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code snippets show how to set [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfBarcode.html#Syncfusion_Pdf_Barcode_PdfBarcode_size) and [Location](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfBarcode.html#Syncfusion_Pdf_Barcode_PdfBarcode_Location) for Codabar barcode using [PdfCodabarBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfCodabarBarcode.html) class to a PDF document.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creating new PDF document.
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = doc.Pages.Add();
-
-//Create new instance for Codabar barcode.
-PdfCodabarBarcode barcode = new PdfCodabarBarcode();
-//Setting location of the barcode. 
-barcode.Location = new PointF(100, 100);
-//Setting size of the barcode.
-barcode.Size = new SizeF(200, 100);
-barcode.Text = "123456789$";
-
-//Printing barcode on to the PDF.
-barcode.Draw(page);
-
-//Save and close the document.
-doc.Save("CODABAR.pdf");
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creating new PDF document.
-Dim doc As New PdfDocument()
-'Adding new page to PDF document.
-Dim page As PdfPage = doc.Pages.Add()
-
-'Create new instance for Codabar barcode.
-Dim barcode As PdfCodabarBarcode = New PdfCodabarBarcode()
-'Setting location of the barcode.
-barcode.Location = New PointF(100, 100)
-'Setting size of the barcode.
-barcode.Size = New SizeF(200, 100)
-barcode.Text = "123456789$"
-
-'Printing barcode on to the PDF.
-barcode.Draw(page)
-
-'Save and close the document.
-doc.Save("CODABAR.pdf")
-doc.Close(True)      
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creating new PDF document.
-PdfDocument doc = new PdfDocument();
-//Adding new page to PDF document.
-PdfPage page = doc.Pages.Add();
-
-//Create new instance for Codabar barcode.
-PdfCodabarBarcode barcode = new PdfCodabarBarcode();
-//Setting location of the barcode.
-barcode.Location = new PointF(100, 100);
-//Setting size of the barcode.
-barcode.Size = new SizeF(200, 100);
-barcode.Text = "123456789$";
-
-//Printing barcode on to the PDF.
-barcode.Draw(page);
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await doc.SaveAsync(stream);
-//Close the document.
-doc.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creating new PDF document
 PdfDocument doc = new PdfDocument();
@@ -863,7 +506,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creating new PDF document.
 PdfDocument doc = new PdfDocument();
@@ -872,7 +515,7 @@ PdfPage page = doc.Pages.Add();
 
 //Create new instance for Codabar barcode.
 PdfCodabarBarcode barcode = new PdfCodabarBarcode();
-//Setting location of the barcode.
+//Setting location of the barcode. 
 barcode.Location = new PointF(100, 100);
 //Setting size of the barcode.
 barcode.Size = new SizeF(200, 100);
@@ -881,21 +524,33 @@ barcode.Text = "123456789$";
 //Printing barcode on to the PDF.
 barcode.Draw(page);
 
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-//Closes the document.
+//Save and close the document.
+doc.Save("CODABAR.pdf");
 doc.Close(true);
-//Save the stream into PDF file.
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creating new PDF document.
+Dim doc As New PdfDocument()
+'Adding new page to PDF document.
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create new instance for Codabar barcode.
+Dim barcode As PdfCodabarBarcode = New PdfCodabarBarcode()
+'Setting location of the barcode.
+barcode.Location = New PointF(100, 100)
+'Setting size of the barcode.
+barcode.Size = New SizeF(200, 100)
+barcode.Text = "123456789$"
+
+'Printing barcode on to the PDF.
+barcode.Draw(page)
+
+'Save and close the document.
+doc.Save("CODABAR.pdf")
+doc.Close(True)      
 
 {% endhighlight %}
 
@@ -908,88 +563,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following code example shows how to add a barcode to the PDF document without displaying the barcode text by specifying the [TextDisplayLocation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html#Syncfusion_Pdf_Barcode_PdfUnidimensionalBarcode_TextDisplayLocation) as **None** through the [TextLocation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.TextLocation.html) Enum.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Creating a new PDF document
-PdfDocument doc = new PdfDocument();
-//Adding a new page to the PDF document 
-PdfPage page = doc.Pages.Add();
-
-//Create a new instance for the Codabar barcode 
-PdfCode39Barcode barcode = new PdfCode39Barcode();
-//Set the barcode location
-barcode.Location = new PointF(10, 10);
-//Set the barcode text
-barcode.Text = "123456789";
-//Disable the barcode text  
-barcode.TextDisplayLocation = TextLocation.None;
-
-//Printing barcode on to the PDF 
-barcode.Draw(page);
-
-//Save the PDF document
-doc.Save("Output.pdf");
-//Close the PDF document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creating a new PDF document 
-Dim doc As PdfDocument = New PdfDocument()
-'Adding a new page to the PDF document 
-Dim page As PdfPage = doc.Pages.Add()
-
-'Create a new instance for the Codabar barcode 
-Dim barcode As PdfCode39Barcode = New PdfCode39Barcode()
-'Set the barcode location
-barcode.Location = New PointF(10, 10)
-'Set the barcode text
-barcode.Text = "123456789"
-'Disable the barcode text  
-barcode.TextDisplayLocation = TextLocation.None
-
-'Printing barcode on to the PDF 
-barcode.Draw(page)
-
-'Save the PDF document 
-doc.Save("Output.pdf")
-'Close the PDF document
-doc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creating a new PDF document 
-PdfDocument doc = new PdfDocument();
-//Adding a new page to the PDF document 
-PdfPage page = doc.Pages.Add();
-
-//Create a new instance for the Codabar barcode 
-PdfCode39Barcode barcode = new PdfCode39Barcode();
-//Set the barcode location
-barcode.Location = new PointF(10, 10);
-//Set the barcode text
-barcode.Text = "123456789";
-//Disable the barcode text  
-barcode.TextDisplayLocation = TextLocation.None;
-
-//Printing barcode on to the PDF 
-barcode.Draw(page);
-
-//Save the document
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the PDF document
-document.Close(true);
-//Save the stream as a PDF document file in the local machine. Refer to the PDF or UWP section for the respected code samples
-Save(stream, "Output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creating new PDF document 
 PdfDocument doc = new PdfDocument();
@@ -1025,9 +600,9 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Creating a new PDF document 
+//Creating a new PDF document
 PdfDocument doc = new PdfDocument();
 //Adding a new page to the PDF document 
 PdfPage page = doc.Pages.Add();
@@ -1041,25 +616,39 @@ barcode.Text = "123456789";
 //Disable the barcode text  
 barcode.TextDisplayLocation = TextLocation.None;
 
-//Printing barcode on to the Pdf 
+//Printing barcode on to the PDF 
 barcode.Draw(page);
 
-//Save the document to the stream
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-//Close the document
+//Save the PDF document
+doc.Save("Output.pdf");
+//Close the PDF document
 doc.Close(true);
-stream.Position = 0;
-//Save the stream into a pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creating a new PDF document 
+Dim doc As PdfDocument = New PdfDocument()
+'Adding a new page to the PDF document 
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a new instance for the Codabar barcode 
+Dim barcode As PdfCode39Barcode = New PdfCode39Barcode()
+'Set the barcode location
+barcode.Location = New PointF(10, 10)
+'Set the barcode text
+barcode.Text = "123456789"
+'Disable the barcode text  
+barcode.TextDisplayLocation = TextLocation.None
+
+'Printing barcode on to the PDF 
+barcode.Draw(page)
+
+'Save the PDF document 
+doc.Save("Output.pdf")
+'Close the PDF document
+doc.Close(True)
 
 {% endhighlight %}
 
@@ -1076,45 +665,8 @@ N> To export barcode as image in .NET Core, the following assembly should be ref
 The below code example shows how to convert one dimensional barcode to
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Initialize a new PdfCode39Barcode instance
-PdfCode39Barcode barcode = new PdfCode39Barcode();
-//Set the height and text for barcode
-barcode.BarHeight = 45;
-barcode.Text = "CODE39$";
-
-//Convert the barcode to image
-Image barcodeImage = barcode.ToImage(new SizeF(300, 200));
-
-//Save the image
-barcodeImage.Save("Image.png", ImageFormat.Png);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Initialize a new PdfCode39Barcode instance
-Dim barcode As PdfCode39Barcode = New PdfCode39Barcode
-'Set the height and text for barcode
-barcode.BarHeight = 45
-barcode.Text = "CODE39$"
-
-'Convert the barcode to image
-Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 200))
-
-'Save the image
-barcodeImage.Save("Image.png", ImageFormat.Png)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Initialize a new PdfCode39Barcode instance
 PdfCode39Barcode barcode = new PdfCode39Barcode();
@@ -1134,11 +686,38 @@ using (MemoryStream stream = new MemoryStream())
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Initialize a new PdfCode39Barcode instance
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+//Set the height and text for barcode
+barcode.BarHeight = 45;
+barcode.Text = "CODE39$";
+
+//Convert the barcode to image
+Image barcodeImage = barcode.ToImage(new SizeF(300, 200));
+
+//Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png);
 
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize a new PdfCode39Barcode instance
+Dim barcode As PdfCode39Barcode = New PdfCode39Barcode
+'Set the height and text for barcode
+barcode.BarHeight = 45
+barcode.Text = "CODE39$"
+
+'Convert the barcode to image
+Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 200))
+
+'Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png)
+
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-one-dimensional-barcode-as-image/).
@@ -1146,45 +725,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Essential PDF supports converting two-dimensional barcodes such as QR Code and Data Matrix barcode to image. The following code snippet explains how to convert a QR code to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html#Syncfusion_Pdf_Barcode_PdfQRBarcode_ToImage) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
 
-//Initialize a new PdfQRBarcode instance
-PdfQRBarcode barcode = new PdfQRBarcode();
-//Set the XDimension and text for barcode
-barcode.XDimension = 3;
-barcode.Text = "http://www.google.com";
-
-//Convert the barcode to image
-Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
-
-//Save the image
-barcodeImage.Save("Image.png", ImageFormat.Png);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Initialize a new PdfQRBarcode instance
-Dim barcode As PdfQRBarcode = New PdfQRBarcode
-'Set the XDimension and text for barcode
-barcode.XDimension = 3
-barcode.Text = "http://www.google.com"
-
-'Convert the barcode to image
-Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 300))
-
-'Save the image
-barcodeImage.Save("Image.jpg", ImageFormat.Png)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Initialize a new PdfQRBarcode instance 
 PdfQRBarcode barcode = new PdfQRBarcode();
@@ -1204,11 +746,38 @@ using (MemoryStream stream = new MemoryStream())
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Initialize a new PdfQRBarcode instance
+PdfQRBarcode barcode = new PdfQRBarcode();
+//Set the XDimension and text for barcode
+barcode.XDimension = 3;
+barcode.Text = "http://www.google.com";
+
+//Convert the barcode to image
+Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
+
+//Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png);
 
 {% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize a new PdfQRBarcode instance
+Dim barcode As PdfQRBarcode = New PdfQRBarcode
+'Set the XDimension and text for barcode
+barcode.XDimension = 3
+barcode.Text = "http://www.google.com"
+
+'Convert the barcode to image
+Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 300))
+
+'Save the image
+barcodeImage.Save("Image.jpg", ImageFormat.Png)
+
+{% endhighlight %}
+
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Barcode/Export-two-dimensional-barcode-as-image/).
@@ -1223,82 +792,7 @@ The following code sample explains how to customize the one-dimensional barcode 
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page.
-PdfPage page = document.Pages.Add();
-
-//Creates a new PdfCode93Barcode.
-PdfCode93Barcode code93 = new PdfCode93Barcode("CODE93");
-//Set the barcode height.
-code93.BarHeight = 40;
-//Set the barcode color. 
-code93.BarColor = Color.Blue;
-
-//Draws a barcode on the new Page.
-code93.Draw(page, new PointF(25, 500));
-
-//Save document to disk.
-document.Save("Output.pdf");
-//Close the document. 
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document. 
-Dim document As PdfDocument = New PdfDocument()
-'Creates a new page.
-Dim page As PdfPage = document.Pages.Add()
-
-'Creates a new PdfCode93Barcode.
-Dim code93 As PdfCode93Barcode = New PdfCode93Barcode("CODE93")
-'Set the barcode height.
-code93.BarHeight = 40
-'Set the barcode color. 
-code93.BarColor = Color.Blue
-
-'Draws a barcode on the new Page. 
-code93.Draw(page, New PointF(25, 500))
-
-'Save document to disk.
-document.Save("Output.pdf")
-'Close the document. 
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a new PDF document.
-PdfDocument document = new PdfDocument();
-//Creates a new page.
-PdfPage page = document.Pages.Add();
-
-//Creates a new PdfCode93Barcode.
-PdfCode93Barcode code93 = new PdfCode93Barcode("CODE93");
-//Set the barcode height.
-code93.BarHeight = 40;
-//Set the barcode color. 
-code93.BarColor = Color.Blue;
-
-//Draws a barcode on the new Page.
-code93.Draw(page, new PointF(25, 500));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1332,7 +826,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
@@ -1349,22 +843,34 @@ code93.BarColor = Color.Blue;
 //Draws a barcode on the new Page.
 code93.Draw(page, new PointF(25, 500));
 
-//Save the document to the stream.
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-//Close the document.
-doc.Close(true);
-stream.Position = 0;
-//Save the stream into a pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+//Save document to disk.
+document.Save("Output.pdf");
+//Close the document. 
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document. 
+Dim document As PdfDocument = New PdfDocument()
+'Creates a new page.
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates a new PdfCode93Barcode.
+Dim code93 As PdfCode93Barcode = New PdfCode93Barcode("CODE93")
+'Set the barcode height.
+code93.BarHeight = 40
+'Set the barcode color. 
+code93.BarColor = Color.Blue
+
+'Draws a barcode on the new Page. 
+code93.Draw(page, New PointF(25, 500))
+
+'Save document to disk.
+document.Save("Output.pdf")
+'Close the document. 
+document.Close(True)
 
 {% endhighlight %}
 
@@ -1374,91 +880,7 @@ The following code example shows how to customize the two-dimensional barcode su
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Drawing QR Barcode
-PdfQRBarcode barcode = new PdfQRBarcode();
-//Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
-//Set XDimension
-barcode.XDimension = 3;
-barcode.Text = "http://www.syncfusion.com";
-//Set the background color
-barcode.BackColor = Color.Green;
-
-//Creating new PDF document
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = document.Pages.Add();
-
-//Printing barcode on to the PDF. 
-barcode.Draw(page, new PointF(25, 70));
-
-//Saving the document
-document.Save("QRBarcode.pdf");
-//Close the document
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Drawing QR Barcode 
-Dim barcode As PdfQRBarcode = New PdfQRBarcode()
-'Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High
-'Set XDimension
-barcode.XDimension = 3
-barcode.Text = "http://www.syncfusion.com"
-'Set the background color
-barcode.BackColor = Color.Green
-
-'Creating new PDF Document
-Dim document As PdfDocument = New PdfDocument()
-'Adding new page to PDF document
-Dim page As PdfPage = document.Pages.Add()
-
-'Printing barcode on to the PDF. 
-barcode.Draw(page, New PointF(25, 70))
-
-'Saving the Document
-document.Save("QRBarcode.pdf")
-'Close the document
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Drawing QR Barcode
-PdfQRBarcode barcode = new PdfQRBarcode();
-//Set Error Correction Level
-barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
-//Set XDimension
-barcode.XDimension = 3;
-barcode.Text = "http://www.syncfusion.com";
-//Set the background color
-barcode.BackColor = Color.Green;
-
-//Creating new PDF document
-PdfDocument document = new PdfDocument();
-//Adding new page to PDF document
-PdfPage page = document.Pages.Add();
-
-//Printing barcode on to the PDF. 
-barcode.Draw(page, new PointF(25, 70));
-
-//Save the PDF document to stream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream);
-//Close the document.
-document.Close(true);                                                                   
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Drawing QR Barcode
 PdfQRBarcode barcode = new PdfQRBarcode();
@@ -1493,7 +915,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Drawing QR Barcode
 PdfQRBarcode barcode = new PdfQRBarcode();
@@ -1513,21 +935,131 @@ PdfPage page = document.Pages.Add();
 //Printing barcode on to the PDF. 
 barcode.Draw(page, new PointF(25, 70));
 
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Closes the document
+//Saving the document
+document.Save("QRBarcode.pdf");
+//Close the document
 document.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Drawing QR Barcode 
+Dim barcode As PdfQRBarcode = New PdfQRBarcode()
+'Set Error Correction Level
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High
+'Set XDimension
+barcode.XDimension = 3
+barcode.Text = "http://www.syncfusion.com"
+'Set the background color
+barcode.BackColor = Color.Green
+
+'Creating new PDF Document
+Dim document As PdfDocument = New PdfDocument()
+'Adding new page to PDF document
+Dim page As PdfPage = document.Pages.Add()
+
+'Printing barcode on to the PDF. 
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the Document
+document.Save("QRBarcode.pdf")
+'Close the document
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Create QR code with logo 
+The `QRCodeLogo` class serves as a representation of a logo image that can be utilized in a QR code, and the `Logo` property is employed to set the logo image in the QR barcode. By leveraging these functionalities, users gain the capability to generate QR codes that seamlessly incorporate custom logos or images, resulting in a visually appealing and branded QR code experience. 
+
+The following code example demonstrates how to generate a QR barcode with a logo positioned at the center of it. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}		
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page.
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF QR barcode.
+PdfQRBarcode qrBarcode = new PdfQRBarcode();
+//Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/";
+//Set the logo image to QR barcode. 
+FileStream imageStream = new FileStream("logo.png", FileMode.Open, FileAccess.Read);
+//Create QR barcode logo.
+QRCodeLogo qRCodeLogo = new QRCodeLogo(imageStream);
+//Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo;
+//Set the dimention of the barcode.
+qrBarcode.XDimension = 5;
+//Draw the barcode to PDF page.
+qrBarcode.Draw(page);
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document into stream
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Creates a new page.
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF QR barcode.
+PdfQRBarcode qrBarcode = new PdfQRBarcode();
+//Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/";
+//Create QR barcode logo.
+QRCodeLogo qRCodeLogo = new QRCodeLogo("logo.png");
+//Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo;
+//Set the dimention of the barcode. 
+qrBarcode.XDimension = 5;
+//Draw the barcode to PDF page.
+qrBarcode.Draw(page);
+
+//Save the document.
+document.Save("Output.pdf");
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document.
+Dim document As PdfDocument = New PdfDocument()
+'Creates a new page.
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates a new PDF QR barcode.
+Dim qrBarcode As PdfQRBarcode = New PdfQRBarcode()
+'Set the barcode text.
+qrBarcode.Text = "https://www.syncfusion.com/"
+'Create QR barcode logo.
+Dim qRCodeLogo As QRCodeLogo = New QRCodeLogo("logo.png")
+'Set the QR barcode logo.
+qrBarcode.Logo = qRCodeLogo
+'Set the dimention of the barcode. 
+qrBarcode.XDimension = 5
+'Draw the barcode to PDF page.
+qrBarcode.Draw(page)
+
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
 
 {% endhighlight %}
 
