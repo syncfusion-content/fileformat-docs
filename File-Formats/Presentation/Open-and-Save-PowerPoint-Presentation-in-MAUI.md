@@ -112,9 +112,9 @@ saveService.SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedoc
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation).
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![.NET MAUI output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![.NET MAUI output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
 
 ## Helper files for .NET MAUI
 

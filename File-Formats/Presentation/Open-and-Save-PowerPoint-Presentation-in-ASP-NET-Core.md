@@ -95,6 +95,6 @@ return File(pptxStream, "application/powerpoint", "Result.pptx");
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-Core/Read-and-edit-PowerPoint-presentation)
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![ASP.Net Core output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![ASP.Net Core output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)

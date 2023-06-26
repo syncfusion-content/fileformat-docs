@@ -113,9 +113,9 @@ SaveHelper.SaveAndLaunch("Sample.pptx", pptx);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-Desktop-app/Read-and-edit-PowerPoint-presentation).
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![WinUI Desktop app output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![WinUI Desktop app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
 
 ### Save Presentation file in WinUI Desktop app
 
@@ -287,9 +287,9 @@ Save(stream);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-UWP-app/Read-and-edit-PowerPoint-presentation).
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![WinUI UWP app output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![WinUI UWP app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
 
 ### Save Presentation file in WinUI UWP app
 

@@ -186,7 +186,7 @@ Refer the below helper files and add them into the mentioned project. These help
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Xamarin/Read-and-edit-PowerPoint-presentation).
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![Xamarin output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)      
+![Xamarin output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)      
 

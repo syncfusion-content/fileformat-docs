@@ -107,6 +107,6 @@ pptxDoc.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/UWP/Read-and-edit-PowerPoint-presentation).
 
-By executing the program, you will get the **PowerPoint slide** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![UWP output PowerPoint Presentaion document](Workingwith_Core/Open-and-Save-output-image.png)
+![UWP output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
