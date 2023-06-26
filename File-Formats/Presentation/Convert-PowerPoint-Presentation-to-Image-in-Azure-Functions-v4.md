@@ -1,6 +1,6 @@
 ---
 title: Convert PPTX to Image in Azure Functions v4 | Syncfusion
-description: Convert PPTX to image in Azure Functions v4 using PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Convert PPTX to image in Azure Functions v4 using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to Image in Azure Functions v4
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in Azure Functions v4**.
 
 ## Steps to convert a PowerPoint Presentation to Image in Azure Functions v4
 
@@ -143,5 +143,5 @@ catch (Exception ex)
 {% endhighlight %}
 {% endtabs %}
 
-From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Console_Application) and [Azure Functions v1](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v1).
+From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Azure/Azure_Functions/Console_Application) and [Azure Functions v4](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Azure/Azure_Functions/Azure_Functions_v4).
 
