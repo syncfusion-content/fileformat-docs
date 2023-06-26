@@ -26,7 +26,7 @@ The ZUGFeRD invoice document can be created by specifying the conformance level 
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create ZUGFeRD invoice PDF document
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
@@ -36,7 +36,17 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create ZUGFeRD invoice PDF document
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+//Set ZUGFeRD conformance level
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create ZUGFeRD invoice PDF document
 Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
@@ -46,73 +56,13 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-
-//Set ZUGFeRD conformance level
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-
-//Set ZUGFeRD conformance level
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create ZUGFeRD invoice PDF document 
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-
-//Set ZUGFeRD conformance level
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 Using PDF/A-3b conformance, you can create a ZUGFeRD invoice PDF by specifying the [ZugferdVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html#Syncfusion_Pdf_PdfDocument_ZugferdVersion) property as *ZugferdVersion2_0* of [ZugferdVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.ZugferdVersion.html) Enum. By default, ZugferdVersion1.0 used. 
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-
-//Specifies ZUGFeRD version 
-document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create ZUGFeRD invoice PDF document
-Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
-
-'Specifies ZUGFeRD version 
-document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-
-//Specifies ZUGFeRD version          
-document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Create ZUGFeRD invoice PDF document
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
@@ -122,13 +72,23 @@ document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create ZUGFeRD invoice PDF document
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
 
-//Specifies ZUGFeRD version         
+//Specifies ZUGFeRD version 
 document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0;
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create ZUGFeRD invoice PDF document
+Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
+
+'Specifies ZUGFeRD version 
+document.ZugferdVersion = ZugferdVersion.ZugferdVersion2_0
 
 {% endhighlight %}
 
@@ -140,49 +100,7 @@ The PDF/A-3b conformance supports the external files as attachment to the PDF do
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
-
-//Creates an attachment
-FileStream invoiceStream = new FileStream("../../Data/ZUGFeRD-invoice.xml", FileMode.Open, FileAccess.Read);
-PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
-attachment.Relationship = PdfAttachmentRelationship.Alternative;
-attachment.ModificationDate = DateTime.Now;
-attachment.Description = "ZUGFeRD-invoice";
-attachment.MimeType = "application/xml";
-//Add attachment to PDF document
-document.Attachments.Add(attachment);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Creates an attachment
-Dim invoiceStream As FileStream = New FileStream("../../Data/ZUGFeRD-invoice.xml", FileMode.Open, FileAccess.Read)
-Dim attachment As PdfAttachment = New PdfAttachment("ZUGFeRD-invoice.xml", invoiceStream)
-attachment.Relationship = PdfAttachmentRelationship.Alternative
-attachment.ModificationDate = DateTime.Now
-attachment.Description = "ZUGFeRD-invoice"
-attachment.MimeType = "application/xml"
-//Add attachment to PDF document 
-document.Attachments.Add(attachment)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Creates an attachment
-Stream invoiceStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.ZUGFeRD-invoice.xml");
-PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
-attachment.Relationship = PdfAttachmentRelationship.Alternative;
-attachment.ModificationDate = DateTime.Now;
-attachment.Description = "ZUGFeRD-invoice";
-attachment.MimeType = "application/xml";
-//Add attachment to PDF document
-document.Attachments.Add(attachment);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Creates an attachment
 FileStream fontStream = new FileStream("../../Data/ZUGFeRD-invoice.xml", FileMode.Open, FileAccess.Read);
@@ -196,10 +114,10 @@ document.Attachments.Add(attachment);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Creates an attachment
-Stream invoiceStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.ZUGFeRD-invoice.xml");
+FileStream invoiceStream = new FileStream("../../Data/ZUGFeRD-invoice.xml", FileMode.Open, FileAccess.Read);
 PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
 attachment.Relationship = PdfAttachmentRelationship.Alternative;
 attachment.ModificationDate = DateTime.Now;
@@ -207,6 +125,20 @@ attachment.Description = "ZUGFeRD-invoice";
 attachment.MimeType = "application/xml";
 //Add attachment to PDF document
 document.Attachments.Add(attachment);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Creates an attachment
+Dim invoiceStream As FileStream = New FileStream("../../Data/ZUGFeRD-invoice.xml", FileMode.Open, FileAccess.Read)
+Dim attachment As PdfAttachment = New PdfAttachment("ZUGFeRD-invoice.xml", invoiceStream)
+attachment.Relationship = PdfAttachmentRelationship.Alternative
+attachment.ModificationDate = DateTime.Now
+attachment.Description = "ZUGFeRD-invoice"
+attachment.MimeType = "application/xml"
+//Add attachment to PDF document 
+document.Attachments.Add(attachment)
 
 {% endhighlight %}
 
@@ -220,77 +152,7 @@ The complete code to create ZUGFeRD invoice PDF document as follows.
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-//Set ZUGFeRD conformance level 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
-
-//Creates an attachment 
-FileStream invoiceStream = new FileStream("../../ Data / ZUGFeRD - invoice.xml", FileMode.Open, FileAccess.Read)
-PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
-attachment.Relationship = PdfAttachmentRelationship.Alternative;
-attachment.ModificationDate = DateTime.Now;
-attachment.Description = "ZUGFeRD-invoice";
-attachment.MimeType = "application/xml";
-//Add attachment to PDF document
-document.Attachments.Add(attachment);
-
-//Save and close the document
-document.Save("Zugferd.pdf");
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create ZUGFeRD invoice PDF document
-Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B)
-'Set ZUGFeRD conformance level 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
-
-'Creates an attachment
-Dim invoiceStream As FileStream = New FileStream("../../ Data / ZUGFeRD - invoice.xml", FileMode.Open, FileAccess.Read)
-Dim attachment As PdfAttachment = New PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream)
-attachment.Relationship = PdfAttachmentRelationship.Alternative
-attachment.ModificationDate = DateTime.Now
-attachment.Description = "ZUGFeRD-invoice"
-attachment.MimeType = "application/xml"
-//Add attachment to PDF document
-document.Attachments.Add(attachment)
-
-'Save and close the document
-document.Save("Zugferd.pdf")
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create ZUGFeRD invoice PDF document
-PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-//Set ZUGFeRD conformance level 
-document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
-
-//Creates an attachment 
-Stream invoiceStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.ZUGFeRD-invoice.xml");
-PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
-attachment.Relationship = PdfAttachmentRelationship.Alternative;
-attachment.ModificationDate = DateTime.Now;
-attachment.Description = "ZUGFeRD-invoice";
-attachment.MimeType = "application/xml";
-//Add attachment to PDF document
-document.Attachments.Add(attachment);
-
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
-Save(stream, "Zugferd.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create ZUGFeRD invoice PDF document
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
@@ -324,15 +186,15 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create ZUGFeRD invoice PDF document
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
-//Set ZUGFeRD conformance level
+//Set ZUGFeRD conformance level 
 document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 //Creates an attachment 
-Stream invoiceStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.ZUGFeRD-invoice.xml");
+FileStream invoiceStream = new FileStream("../../ Data / ZUGFeRD - invoice.xml", FileMode.Open, FileAccess.Read)
 PdfAttachment attachment = new PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream);
 attachment.Relationship = PdfAttachmentRelationship.Alternative;
 attachment.ModificationDate = DateTime.Now;
@@ -341,21 +203,32 @@ attachment.MimeType = "application/xml";
 //Add attachment to PDF document
 document.Attachments.Add(attachment);
 
-//Save the document into memory stream
-MemoryStream stream = new MemoryStream();
-document.Save(stream);
-//Close the document
+//Save and close the document
+document.Save("Zugferd.pdf");
 document.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
-if (Device.RuntimePlatform == Device.UWP)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Zugferd.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Zugferd.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create ZUGFeRD invoice PDF document
+Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B)
+'Set ZUGFeRD conformance level 
+document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
+
+'Creates an attachment
+Dim invoiceStream As FileStream = New FileStream("../../ Data / ZUGFeRD - invoice.xml", FileMode.Open, FileAccess.Read)
+Dim attachment As PdfAttachment = New PdfAttachment("ZUGFeRD-invoice.xml",invoiceStream)
+attachment.Relationship = PdfAttachmentRelationship.Alternative
+attachment.ModificationDate = DateTime.Now
+attachment.Description = "ZUGFeRD-invoice"
+attachment.MimeType = "application/xml"
+//Add attachment to PDF document
+document.Attachments.Add(attachment)
+
+'Save and close the document
+document.Save("Zugferd.pdf")
+document.Close(True)
 
 {% endhighlight %}
 
@@ -367,79 +240,9 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can extract the ZUGFeRD invoice using [PdfAttachment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfAttachment.html) class. 
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Loads the PDF document
-PdfLoadedDocument document = new PdfLoadedDocument("Sample.pdf");
-
-//Iterates the attachments
-foreach (PdfAttachment attachment in document.Attachments)
-{
-//Extracts the ZUGFeRD invoice attachment and saves it to the disk
-FileStream s = new FileStream(attachment.FileName, FileMode.Create);
-s.Write(attachment.Data, 0, attachment.Data.Length);
-s.Dispose();
-}
-
-//Saves and closes the document
-document.Save("Output.pdf");
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Loads the PDF document
-Dim document As New PdfLoadedDocument("Sample.pdf")
-
-'Iterates the attachments
-For Each attachment As PdfAttachment In document.Attachments
-'Extracts the attachment and saves it to the disk
-Dim s As New FileStream(attachment.FileName, FileMode.Create)
-s.Write(attachment.Data, 0, attachment.Data.Length)
-s.Dispose()
-Next
-
-'Saves and closes the document
-document.Save("Output.pdf")
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-
-//Iterates the attachments
-foreach (PdfAttachment attachment in loadedDocument.Attachments)
-{
-//Extracts the ZUGFeRD invoice attachment and saves it to the disk
-FileStream s = new FileStream(attachment.FileName, FileMode.Create);
-s.Write(attachment.Data, 0, attachment.Data.Length);
-s.Dispose();
-}
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Load the PDF document
 FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
@@ -460,23 +263,22 @@ loadedDocument.Save(stream);
 stream.Position = 0;
 //Closes the document
 loadedDocument.Close(true);
-//Defining the ContentType for pdf file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
-string fileName = "output.pdf";
+string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Loads the PDF document
+PdfLoadedDocument document = new PdfLoadedDocument("Sample.pdf");
 
 //Iterates the attachments
-foreach (PdfAttachment attachment in loadedDocument.Attachments)
+foreach (PdfAttachment attachment in document.Attachments)
 {
 //Extracts the ZUGFeRD invoice attachment and saves it to the disk
 FileStream s = new FileStream(attachment.FileName, FileMode.Create);
@@ -484,21 +286,28 @@ s.Write(attachment.Data, 0, attachment.Data.Length);
 s.Dispose();
 }
 
-//Save the document into stream.
-MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
-//Close the document.
-loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
-}
+//Saves and closes the document
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Loads the PDF document
+Dim document As New PdfLoadedDocument("Sample.pdf")
+
+'Iterates the attachments
+For Each attachment As PdfAttachment In document.Attachments
+'Extracts the attachment and saves it to the disk
+Dim s As New FileStream(attachment.FileName, FileMode.Create)
+s.Write(attachment.Data, 0, attachment.Data.Length)
+s.Dispose()
+Next
+
+'Saves and closes the document
+document.Save("Output.pdf")
+document.Close(True)
 
 {% endhighlight %}
 
