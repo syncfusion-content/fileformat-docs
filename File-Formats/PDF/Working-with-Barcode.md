@@ -10,7 +10,7 @@ documentation:
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
 
 * 10 one-dimensional barcodes including Code 39 and Code 32 barcodes.
-* 2 two-dimensional barcodes such as QR, DataMatrix and PDF417 barcodes
+* 2 two-dimensional barcodes such as QR, DataMatrix and PDF417 barcodes.
 
 ## Adding a one dimensional barcode to the PDF document
 
@@ -675,14 +675,14 @@ barcode.BarHeight = 45;
 barcode.Text = "CODE39$";
 
 //Convert the barcode to image
-Image barcodeImage = barcode.ToImage(new SizeF(300,200)); 
+Stream imageStream = barcode.ToImage(new SizeF(300, 300));
 
-//Save the image
-using (MemoryStream stream = new MemoryStream())
+//Create file stream to save the image file
+using (FileStream outputFileStream = new FileStream(@"Image.png", FileMode.Create, FileAccess.ReadWrite))
 {
-  //Save image to stream.
-  barcodeImage.Save(stream, ImageFormat.Png);
-}     
+    //Save the image to disk
+    imageStream.CopyTo(outputFileStream);
+}    
 
 {% endhighlight %}
 
@@ -735,14 +735,14 @@ barcode.XDimension = 3;
 barcode.Text = "http://www.google.com";
          
 //Convert the barcode to image 
-Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
+Stream imageStream = barcode.ToImage(new Syncfusion.Drawing.SizeF(300, 300));
 
-//Save the image
-using (MemoryStream stream = new MemoryStream())
+//Create file stream to save the image file
+using (FileStream outputFileStream = new FileStream("Output.png", FileMode.Create, FileAccess.ReadWrite))
 {
-  //Save image to stream.
-  barcodeImage.Save(stream, ImageFormat.Png);
-} 
+    //Save the image to disk
+    imageStream.CopyTo(outputFileStream);
+}
 
 {% endhighlight %}
 
