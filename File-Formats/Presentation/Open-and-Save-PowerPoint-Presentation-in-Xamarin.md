@@ -51,9 +51,8 @@ Step 5: In the **MainXamlPage.xaml** add new button as shown below.
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Read_and_edit_PowerPoint_presentation.MainPage">
-
     <StackLayout VerticalOptions="Center">
-        <Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+        <Button Text="Open and Save Presentation" Clicked="OpenAndSavePresentation" HorizontalOptions="Center"/>
     </StackLayout>
 </ContentPage>
 

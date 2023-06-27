@@ -59,8 +59,8 @@ private void InitializeComponent()
     this.btnCreate.Name = "btnCreate";
     this.btnCreate.Size = new System.Drawing.Size(85, 36);
     this.btnCreate.TabIndex = 1;
-    this.btnCreate.Text = "Create PowerPoint Presentation";
-    this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+    this.btnCreate.Text = "Open and Save Presentation";
+    this.btnCreate.Click += new System.EventHandler(this.btnOpenAndSave_Click);
     // 
     // Form1
     // 
@@ -68,14 +68,14 @@ private void InitializeComponent()
     this.Controls.Add(this.label);
     this.Controls.Add(this.btnCreate);
     this.Name = "Form1";
-    this.Text = "Create PowerPoint Presentation";
+    this.Text = "Open and Save Presentation";
     this.ResumeLayout(false);
 }
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add the following code in **btnCreate_Click** to **open an existing PowerPoint Presentation in Windows Forms**.
+Step 5: Add the following code in **btnOpenAndSave_Click** to **open an existing PowerPoint Presentation in Windows Forms**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

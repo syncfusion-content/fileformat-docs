@@ -42,11 +42,11 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 {% highlight HTML %}
 
 @{
-    Html.BeginForm("CreatePowerPoint", "Home", FormMethod.Get);
+    Html.BeginForm("OpenAndSavePresentation", "Home", FormMethod.Get);
     {
     <div>
         <br />
-        <input type="submit" value="Create PowerPoint" style="width:150px;height:27px" />
+        <input type="submit" value="Open and Save Presentation" style="width:150px;height:27px" />
     </div>
     }
     Html.EndForm();
@@ -55,7 +55,7 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **CreatePowerPoint** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET MVC**.
+Step 7: Add a new action method **OpenAndSavePresentation** in HomeController.cs and include the below code snippet to **open an existing Presentation in ASP.NET MVC**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

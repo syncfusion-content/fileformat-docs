@@ -35,7 +35,7 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <Button x:Name="button" Content="Create PowerPoint Presentation" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="button" Content="Open and Save Presentation" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
 

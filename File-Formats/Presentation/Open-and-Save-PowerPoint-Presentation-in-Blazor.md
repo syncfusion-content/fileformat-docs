@@ -34,11 +34,13 @@ Step 5: Create a razor file with name as **Presentation** under **Pages** folder
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
+
 @page "/presentation"
 @using System.IO;
-@using Create_PowerPoint_presentation;
-@inject Create_PowerPoint_presentation.Data.PowerPointService service
+@using Open_and_save_PowerPoint;
+@inject Open_and_save_PowerPoint.Data.PowerPointService service
 @inject Microsoft.JSInterop.IJSRuntime JS
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -49,7 +51,7 @@ Step 6: Add the following code to create a new button.
 
 <h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
 <p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@GeneratePPTX">Generate Presentation</button>
+<button class="btn btn-primary" @onclick="@OpenAndSavePresentation">Open and Save Presentation</button>
 
 {% endhighlight %}
 {% endtabs %}
@@ -64,9 +66,9 @@ Step 7: Add the following code in **Presentation.razor** file to create and down
     /// <summary>
     /// Generate and download the PowerPoint Presentaion
     /// </summary>
-    protected async void GeneratePPTX()
+    protected async void OpenAndSavePresentation()
     {
-        documentStream = service.CreatePowerPoint();
+        documentStream = service.OpenAndSavePresentation();
         await JS.SaveAs("Result.pptx", documentStream.ToArray());
     }
 }
@@ -84,7 +86,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **CreatePowerPoint** in **PowerPointService** class and include the following code snippet to **open an existing PowerPoint Presentation in Blazor Server app**.
+Step 9: Create a new MemoryStream method with name as **OpenAndSavePresentation** in **PowerPointService** class and include the following code snippet to **open an existing PowerPoint Presentation in Blazor Server app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -212,8 +214,8 @@ Step 5: Create a razor file with name as ``Presentation`` under ``Pages`` folder
 @page "/presentation"
 @inject Microsoft.JSInterop.IJSRuntime JS
 @inject HttpClient client
-@using Create_PowerPoint_presentation;
-@using Syncfusion.Presentation;
+@using Syncfusion.Presentation
+@using System.IO
 
 {% endhighlight %}
 {% endtabs %}
@@ -225,12 +227,12 @@ Step 6: Add the following code to create a new button.
 
 <h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
 <p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@CreatePowerPoint">Create Presentation</button>
+<button class="btn btn-primary" @onclick="@OpenAndSavePresentation">Open and Save Presentation</button>
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **open an existing PowerPoint Presentation in Blazor WASM app**.
+Step 7: Create a new async method with name as ``OpenAndSavePresentation`` and include the following code snippet to **open an existing PowerPoint Presentation in Blazor WASM app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

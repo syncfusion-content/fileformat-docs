@@ -34,7 +34,7 @@ Step 3: Add a new button in the **MainWindow.xaml** as shown below.
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="button" Content="Create PowerPoint Presentation" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="button" Content="Open and Save Presentation" Click="OpenAndSavePresentation" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>
 
@@ -51,7 +51,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add the following code in **OnButtonClicked** to **open an existing PowerPoint Presentation in WPF**.
+Step 5: Add the following code in **OpenAndSavePresentation** to **open an existing PowerPoint Presentation in WPF**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

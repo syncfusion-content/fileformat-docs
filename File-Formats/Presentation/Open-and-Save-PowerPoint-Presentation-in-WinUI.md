@@ -49,7 +49,7 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="button" Click="CreateDocument">Create Document</Button>
+        <Button x:Name="button" Click="OpenAndSavePresentation">Open and Save Presentation</Button>
     </StackPanel>
 </Window>
 
@@ -66,7 +66,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **CreateDocument** in MainWindow.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in WinUI Desktop app**.
+Step 7: Add a new action method **OpenAndSavePresentation** in MainWindow.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in WinUI Desktop app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -223,7 +223,7 @@ Step 5: Add a new button to the **MainPage.xaml** as shown below.
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="button" Click="CreatePresentation">Create Presentation</Button>
+        <Button x:Name="button" Click="OpenAndSavePresentation">Open and Save Presentation</Button>
     </StackPanel>
 </Page>
 
@@ -240,7 +240,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in WinUI UWP app**.
+Step 7: Add a new action method **OpenAndSavePresentation** in MainPage.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in WinUI UWP app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

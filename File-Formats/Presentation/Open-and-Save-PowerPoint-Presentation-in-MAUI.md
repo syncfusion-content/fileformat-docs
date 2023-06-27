@@ -42,11 +42,11 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="Read and edit Presentation"
+                Text="Open and Save Presentation"
                 FontAttributes="Bold"
                 Grid.Row="0"
-                SemanticProperties.Hint="Read and edit the Presentation"
-                Clicked="ReadPowerPoint"
+                SemanticProperties.Hint="Open and Save Presentation"
+                Clicked="OpenAndSavePresentation"
                 HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
@@ -65,7 +65,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add a new action method **ReadPowerPoint** in MainPage.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in .NET MAUI**.
+Step 6: Add a new action method **OpenAndSavePresentation** in MainPage.xaml.cs and include the below code snippet to **open an existing PowerPoint Presentation in .NET MAUI**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
