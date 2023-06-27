@@ -48,7 +48,6 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="button" Click="CreateDocument">Create Document</Button>
     </StackPanel>
@@ -111,7 +110,7 @@ SaveHelper.SaveAndLaunch("Sample.pptx", pptx);
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-Desktop-app/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WinUI/WinUI-Desktop-app).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
@@ -223,7 +222,6 @@ Step 5: Add a new button to the **MainPage.xaml** as shown below.
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="button" Click="CreatePresentation">Create Presentation</Button>
     </StackPanel>
@@ -285,7 +283,7 @@ Save(stream);
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-UWP-app/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WinUI/WinUI-UWP-app).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

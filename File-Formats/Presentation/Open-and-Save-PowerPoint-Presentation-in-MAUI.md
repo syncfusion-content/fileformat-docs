@@ -38,7 +38,6 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadPowerPoint.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
-
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
@@ -110,7 +109,7 @@ saveService.SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedoc
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
@@ -134,50 +133,50 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation)'| markdownify }}
+    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation)'| markdownify }}
   </td>
   <td>
-    {{'[SaveService.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Services/SaveService.cs)'| markdownify }}
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Services/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Windows](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/Windows)'| markdownify }}
+    {{'[Windows](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/Windows)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/Windows/SaveWindows.cs)'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/Windows/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for Windows.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Android](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/Android)'| markdownify }}
+    {{'[Android](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/Android)'| markdownify }}
   </td>
   <td>
-    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/Android/SaveAndroid.cs)'| markdownify }}
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/MacCatalyst)'| markdownify }}
+    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/MacCatalyst)'| markdownify }}
   </td>
   <td>
-    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/iOS)'| markdownify }}
+    {{'[iOS](hhttps://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/iOS/SaveIOS.cs)'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -185,7 +184,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Read-and-edit-presentation/Read-and-edit-presentation/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI/Read-and-edit-presentation/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
     Helper classes for viewing the <b>PowerPoint Presenatation</b> in iOS device

@@ -63,6 +63,7 @@ IPresentation pptxDoc = Presentation.Open("Data/Template.pptx");
 {% endtabs %}
 
 Step 6: Add below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
@@ -90,7 +91,7 @@ pptxDoc.Close();
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WPF/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WPF).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

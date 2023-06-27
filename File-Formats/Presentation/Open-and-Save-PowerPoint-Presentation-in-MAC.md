@@ -79,6 +79,8 @@ pptxDoc.Close();
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Mac).
+
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![.NET Core macOS output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)

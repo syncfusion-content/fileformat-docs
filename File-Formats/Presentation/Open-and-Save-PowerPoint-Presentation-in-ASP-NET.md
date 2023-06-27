@@ -97,7 +97,7 @@ pptxDoc.Close();
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/ASP.NET).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

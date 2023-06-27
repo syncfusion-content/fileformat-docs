@@ -34,7 +34,6 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
         <Button x:Name="button" Content="Create PowerPoint Presentation" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
@@ -43,7 +42,7 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Include the following namespaces in the MainPage.xaml.cs file.
+Step 4: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -92,20 +91,17 @@ FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
 savePicker.SuggestedFileName = "Result";
 savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
-
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 //Close the PowerPoint presentation
 pptxDoc.Close();
 
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/UWP/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/UWP).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

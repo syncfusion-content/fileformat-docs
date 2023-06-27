@@ -178,6 +178,8 @@ Step 13: Add the following JavaScript function in the _Host.cshtml in the Pages 
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Blazor/Server-side-application).
+
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![Blazor Server output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
@@ -291,7 +293,6 @@ public static class FileUtils
 Step 11: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
-
 {% highlight HTML %}
 
 <script type="text/javascript">
@@ -319,6 +320,8 @@ Step 11: Add the following JavaScript function in the Index.html file present un
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Blazor/Client-side-application).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

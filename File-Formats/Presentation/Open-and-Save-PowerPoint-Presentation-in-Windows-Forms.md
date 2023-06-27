@@ -115,7 +115,7 @@ pptxDoc.Close();
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Windows%20Forms/Read-and-edit-PowerPoint-presentation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Windows-Forms).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
