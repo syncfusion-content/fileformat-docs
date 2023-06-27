@@ -22,7 +22,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 PdfPageBase pageBase = loadedDocument.Pages[0];
 
 //Extract images from first page
-Image[] extractedImages = pageBase.ExtractImages();
+Stream[] extractedImages = pageBase.ExtractImages();
 //Close the document
 loadedDocument.Close(true);
 
