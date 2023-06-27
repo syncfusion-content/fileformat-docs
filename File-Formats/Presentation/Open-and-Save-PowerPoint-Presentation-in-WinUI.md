@@ -96,7 +96,7 @@ if (shape.TextBody.Text == "Company History")
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PowerPoint Presentation in WinUI Desktop app**.
+Step 9: Add below code example to **save the PowerPoint Presentation in WinUI Desktop app**. Refer the helper class file to save the **Presentation document** in WinUI Desktop App from [here](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WinUI/WinUI-Desktop-app/Read-and-edit-PowerPoint-presentation/Read-and-edit-PowerPoint-presentation/SaveHelper.cs).
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -115,74 +115,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![WinUI Desktop app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
-
-### Save Presentation file in WinUI Desktop app
-
-Step 1: Create a new class file in the name of **SaveHelper.cs** and add the below code snippet for save the **Presentation** file.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-/// <summary>
-/// Saves and launch the file.
-/// </summary>
-/// <param name="filename">File name.</param>
-/// <param name="stream">Stream to save.</param>
-public static async void SaveAndLaunch(string filename, MemoryStream stream)
-{
-    StorageFile storageFile;
-    string extension = Path.GetExtension(filename);
-    //Gets process windows handle to open the dialog in application process.
-    IntPtr windowHandle = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
-    if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
-    {
-        FileSavePicker savePicker = new();
-        if (extension == ".pptx")
-        {
-            savePicker.DefaultFileExtension = ".pptx";
-            savePicker.SuggestedFileName = filename;
-            //Saves the file as Docx file.
-            savePicker.FileTypeChoices.Add("PPTX", new List<string>() { ".pptx" });
-        }
-        WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
-        storageFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = ApplicationData.Current.LocalFolder;
-        storageFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (storageFile != null)
-    {
-        using (IRandomAccessStream zipStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Writes compressed data from memory to file.
-            using Stream outstream = zipStream.AsStreamForWrite();
-            outstream.SetLength(0);
-            byte[] buffer = stream.ToArray();
-            outstream.Write(buffer, 0, buffer.Length);
-            outstream.Flush();
-        }
-        //Creates message dialog box. 
-        MessageDialog msgDialog = new("Do you want to view the Document?", "File has been created successfully");
-        UICommand yesCmd = new("Yes");
-        msgDialog.Commands.Add(yesCmd);
-        UICommand noCmd = new("No");
-        msgDialog.Commands.Add(noCmd);
-        WinRT.Interop.InitializeWithWindow.Initialize(msgDialog, windowHandle);
-
-        //Showing a dialog box. 
-        IUICommand cmd = await msgDialog.ShowAsync();
-        if (cmd.Label == yesCmd.Label)
-        {
-            //Launch the saved file. 
-            await Windows.System.Launcher.LaunchFileAsync(storageFile);
-        }
-    }
-}
-
-{% endhighlight %}
-{% endtabs %}
 
 ## WinUI UWP app
 
@@ -283,13 +215,7 @@ Save(stream);
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WinUI/WinUI-UWP-app).
-
-By executing the program, you will get the **PowerPoint document** as follows.
-
-![WinUI UWP app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
-
-### Save Presentation file in WinUI UWP app
+Step 10: Add below code example to save the PowerPoint document as a physical file and open the file for viewing.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -329,3 +255,9 @@ async void Save(MemoryStream stream)
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/WinUI/WinUI-UWP-app).
+
+By executing the program, you will get the **PowerPoint document** as follows.
+
+![WinUI UWP app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)

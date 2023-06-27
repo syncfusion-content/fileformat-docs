@@ -48,7 +48,7 @@ Step 5: Add a new button in the **MainPage.aspx** as shown below.
 <body>
     <form id="form1" runat="server">
         <div>
-       <asp:Button ID="Button1" runat="server" Text="Read and Edit PowerPoint" OnClick="OnButtonClicked" />
+       <asp:Button ID="Button1" runat="server" Text="Open and Save Presentation" OnClick="OnButtonClicked" />
        </div>
     </form>
 </body>
