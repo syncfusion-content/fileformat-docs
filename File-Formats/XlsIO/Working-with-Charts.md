@@ -999,7 +999,7 @@ End Using
 
 A complete working example to create a custom chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Custom%20Chart).
 
-<img src="Working-with-Charts_images/Working-with-charts_img1.jpeg" alt="chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-properties.jpeg" alt="Working with charts in File Formats XLSIO Properties" width="100%" Height="Auto"/>
 
 ## Remove a chart 
 
@@ -1068,7 +1068,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 The following screen shot shows the elements of chart.
 
-<img src="Working-with-Charts_images/Working-with-charts_img2.jpeg" alt="chart elements" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-appearance-settings.jpeg" alt="Working with charts in File Formats XLSIO Elements" width="100%" Height="Auto"/>
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -1777,7 +1777,7 @@ A complete working example to show high low lines of chart in C# is present on [
 
 The following screen shot shows the high-low lines in the line chart.
 
-<img src="Working-with-Charts_images/highlowlines.jpg" alt="High-Low lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-highlowlines.jpg" alt="Working with charts in File Formats XLSIO High-Low lines" width="100%" Height="Auto"/>
 
 ### Add Drop Lines
 
@@ -1856,7 +1856,7 @@ A complete working example to add drop lines of chart in C# is present on [this 
 
 The following screen shot shows the drop lines in the line chart.
 
-<img src="Working-with-Charts_images/droplines.jpg" alt="Drop lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-droplines.jpg" alt="Working with charts in File Formats XLSIO Drop lines" width="100%" Height="Auto"/>
 
 ### Add Series Lines
 
@@ -1936,7 +1936,7 @@ A complete working example to add series lines of chart in C# is present on [thi
 
 The following screen shot shows the series lines in the stacker bar chart.
 
-<img src="Working-with-Charts_images/serieslines.jpg" alt="Series lines" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-serieslines.jpg" alt="Working with charts in File Formats XLSIO Series lines" width="100%" Height="Auto"/>
 
 ## Fill Chart Elements with Picture
 
@@ -3314,7 +3314,7 @@ A complete working example to create funnel chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/funnel.jpeg" alt="funnel chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-funnel.jpeg" alt="Working with charts in File Formats XLSIO Funnel Chart" width="100%" Height="Auto"/>
 
 ### Box and Whisker
 
@@ -3477,7 +3477,7 @@ A complete working example to create box and whisker chart in C# is present on [
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/boxandwhisker.jpeg" alt="box and whisker chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-boxandwhisker.jpeg" alt="Working with charts in File Formats XLSIO box and whisker chart" width="100%" Height="Auto"/>
 
 ### Waterfall
 
@@ -3604,7 +3604,7 @@ A complete working example to create waterfall chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/waterfall.jpeg" alt="waterfall chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-waterfall.jpeg" alt="Working with charts in File Formats XLSIO Waterfall Chart" width="100%" Height="Auto"/>
 
 ### Histogram
 
@@ -3728,7 +3728,7 @@ A complete working example to create histogram chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/histogram.jpeg" alt="histogram chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-histogram.jpeg" alt="Working with Charts in File Formats XLSIO Histogram Chart" width="100%" Height="Auto"/>
 
 ### Pareto
 
@@ -3855,7 +3855,7 @@ A complete working example to create pareto chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/pareto.jpeg" alt="pareto chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-pareto.jpeg" alt="Working with charts in File Formats XLSIO Pareto Chart" width="100%" Height="Auto"/>
 
 ### Treemap
 
@@ -3964,7 +3964,7 @@ A complete working example to create treemap chart in C# is present on [this Git
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/treemap.jpeg" alt="treemap chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-treemap.jpeg" alt="Working with charts in File Formats XLSIO Treemap Chart" width="100%" Height="Auto"/>
 
 ### Sunburst
 
@@ -4073,7 +4073,7 @@ A complete working example to create sunburst chart in C# is present on [this Gi
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/sunburst.jpeg" alt="sunburst chart" width="100%" Height="Auto"/>
+<img src="working-with-charts_images/file-formats-xlsio-sunburst.jpeg" alt="Working with charts in File Formats XLSIO Sunburst Chart" width="100%" Height="Auto"/>
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
 
@@ -4081,84 +4081,84 @@ N>These Charts are supported only in Excel 2016 and are not visible in the earli
 
 The following chart types are supported in XlsIO.
 
-* [Area](https://www.syncfusion.com/kb/8380/how-to-create-excel-area-chart-in-c-vb-net)
-* [Area_3D](https://www.syncfusion.com/kb/8356/how-to-create-excel-3d-area-chart-in-c-vb-net) 
-* [Area_Stacked](https://www.syncfusion.com/kb/8360/how-to-create-excel-stacked-area-chart-in-c-vb-net)
-* [Area_Stacked_100](https://www.syncfusion.com/kb/8357/how-to-create-excel-100-stacked-area-chart-in-c-vb-net)
-* [Area_Stacked_100_3D](https://www.syncfusion.com/kb/8361/how-to-create-excel-3d-100-stacked-area-chart-in-c-vb-net)
-* [Area_Stacked_3D](https://www.syncfusion.com/kb/8362/how-to-create-excel-3d-stacked-area-chart-in-c-vb-net) 
-* [Bar_Clustered](https://www.syncfusion.com/kb/8335/how-to-create-excel-clustered-bar-chart-in-c-vb-net)
-* [Bar_Clustered_3D](https://www.syncfusion.com/kb/8368/how-to-create-excel-3d-clustered-bar-chart-in-c-vb-net)
-* [Bar_Stacked](https://www.syncfusion.com/kb/8371/how-to-create-excel-stacked-bar-chart-in-c-vb-net)
-* [Bar_Stacked_100](https://www.syncfusion.com/kb/8365/how-to-create-excel-100-stacked-bar-chart-in-c-vb-net)
-* [Bar_Stacked_100_3D](https://www.syncfusion.com/kb/8374/how-to-create-excel-3d-100-stacked-bar-chart-in-c-vb-net)
-* [Bar_Stacked_3D](https://www.syncfusion.com/kb/8366/how-to-create-excel-3d-stacked-bar-chart-in-c-vb-net)
-* [Bubble](https://www.syncfusion.com/kb/8407/how-to-create-excel-bubble-chart-in-c-vb-net)
-* [Bubble_3D](https://www.syncfusion.com/kb/8403/how-to-create-excel-3d-bubble-chart-in-c-vb-net)
-* [Column_3D](https://www.syncfusion.com/kb/8369/how-to-create-excel-3d-clustered-column-chart-in-c-vb-net)
-* [Column_Clustered](https://www.syncfusion.com/kb/8280/how-to-create-excel-clustered-column-chart-in-c-vb-net)
-* [Column_Clustered_3D](https://www.syncfusion.com/kb/8402/how-to-create-excel-3d-column-chart-in-c-vb-net)  
-* [Column_Stacked](https://www.syncfusion.com/kb/8344/how-to-create-excel-stacked-column-chart-in-c-vb-net)
-* [Column_Stacked_100](https://www.syncfusion.com/kb/8445/how-to-create-excel-100-stacked-column-chart-in-c-vb-net)
-* [Column_Stacked_100_3D](https://www.syncfusion.com/kb/8375/how-to-create-excel-3d-100-stacked-column-chart-in-c-vb-net)
-* [Column_Stacked_3D](https://www.syncfusion.com/kb/8373/how-to-create-excel-3d-stacked-column-chart-in-c-vb-net)
-* [Combination_Chart](https://www.syncfusion.com/kb/8411/how-to-create-excel-combination-chart-in-c-vb-net)       
-* [Cone_Bar_Clustered](https://www.syncfusion.com/kb/8558/how-to-create-excel-clustered-bar-cone-chart-in-c-vb-net)
-* [Cone_Bar_Stacked](https://www.syncfusion.com/kb/8528/how-to-create-excel-stacked-bar-cone-chart-in-c-vb-net)
-* [Cone_Bar_Stacked_100](https://www.syncfusion.com/kb/8524/how-to-create-excel-100-stacked-bar-cone-chart-in-c-vb-net)
-* [Cone_Clustered](https://www.syncfusion.com/kb/8541/how-to-create-excel-clustered-cone-chart-in-c-vb-net)
-* [Cone_Clustered_3D](https://www.syncfusion.com/kb/8520/how-to-create-excel-3d-clustered-cone-chart-in-c-vb-net)
-* [Cone_Stacked](https://www.syncfusion.com/kb/8530/how-to-create-excel-stacked-cone-chart-in-c-vb-net)
-* [Cone_Stacked_100](https://www.syncfusion.com/kb/8533/how-to-create-excel-100-stacked-cone-chart-in-c-vb-net)
-* [Cylinder_Bar_Clustered](https://www.syncfusion.com/kb/8529/how-to-create-excel-clustered-bar-cylinder-chart-in-c-vb-net)
-* [Cylinder_Bar_Stacked](https://www.syncfusion.com/kb/8531/how-to-create-excel-stacked-bar-cylinder-chart-in-c-vb-net)
-* [Cylinder_Bar_Stacked_100](https://www.syncfusion.com/kb/8540/how-to-create-excel-100-stacked-bar-cylinder-chart-in-c-vb-net)
-* [Cylinder_Clustered](https://www.syncfusion.com/kb/8526/how-to-create-excel-clustered-cylinder-chart-in-c-vb-net)
-* [Cylinder_Clustered_3D](https://www.syncfusion.com/kb/8545/how-to-create-excel-3d-clustered-cylinder-chart-in-c-vb-net)
-* [Cylinder_Stacked](https://www.syncfusion.com/kb/8519/how-to-create-excel-stacked-cylinder-chart-in-c-vb-net)
-* [Cylinder_Stacked_100](https://www.syncfusion.com/kb/8543/how-to-create-excel-100-stacked-cylinder-chart-in-c-vb-net)
-* [Doughnut](https://www.syncfusion.com/kb/8398/how-to-create-excel-doughnut-chart-in-c-vb-net)
-* [Doughnut_Exploded](https://www.syncfusion.com/kb/8518/how-to-create-excel-exploded-doughnut-chart-in-c-vb-net)
-* [Line](https://www.syncfusion.com/kb/8358/how-to-create-excel-line-chart-in-c-vb-net)
-* [Line_3D](https://www.syncfusion.com/kb/8416/how-to-create-excel-3d-line-chart-in-c-vb-net)
-* [Line_Markers](https://www.syncfusion.com/kb/8359/how-to-create-excel-line-with-markers-chart-in-c-vb-net) 
-* [Line_Markers_Stacked](https://www.syncfusion.com/kb/8379/how-to-create-excel-stacked-line-with-markers-chart-in-c-vb-net)
-* [Line_Markers_Stacked_100](https://www.syncfusion.com/kb/8376/how-to-create-excel-100-stacked-line-with-markers-chart-in-c-vb-net)
-* [Line_Stacked](https://www.syncfusion.com/kb/8372/how-to-create-excel-stacked-line-chart-in-c-vb-net)
-* [Line_Stacked_100](https://www.syncfusion.com/kb/8370/how-to-create-excel-100-stacked-line-chart-in-c-vb-net)
-* [Pie](https://www.syncfusion.com/kb/8423/how-to-create-excel-pie-chart-in-c-vb-net)
-* [Pie_3D](https://www.syncfusion.com/kb/8426/how-to-create-excel-3d-pie-chart-in-c-vb-net)
-* [Pie_Bar](https://www.syncfusion.com/kb/8404/how-to-create-excel-bar-of-pie-chart-in-c-vb-net)
-* [Pie_Exploded](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net)
-* [Pie_Exploded_3D](https://www.syncfusion.com/kb/8559/how-to-create-excel-3d-exploded-pie-chart-in-c-vb-net)
-* [PieOfPie](https://www.syncfusion.com/kb/8406/how-to-create-excel-pie-of-pie-chart-in-c-vb-net)
-* [Pyramid_Bar_Clustered](https://www.syncfusion.com/kb/8521/how-to-create-excel-clustered-bar-pyramid-chart-in-c-vb-net)
-* [Pyramid_Bar_Stacked](https://www.syncfusion.com/kb/8547/how-to-create-excel-stacked-bar-pyramid-chart-in-c-vb-net)
-* [Pyramid_Bar_Stacked_100](https://www.syncfusion.com/kb/8544/how-to-create-excel-100-stacked-bar-pyramid-chart-in-c-vb-net)
-* [Pyramid_Clustered](https://www.syncfusion.com/kb/8525/how-to-create-excel-clustered-pyramid-chart-in-c-vb-net)
-* [Pyramid_Clustered_3D](https://www.syncfusion.com/kb/8527/how-to-create-excel-3d-clustered-pyramid-chart-in-c-vb-net)
-* [Pyramid_Stacked](https://www.syncfusion.com/kb/8536/how-to-create-excel-stacked-pyramid-chart-in-c-vb-net)
-* [Pyramid_Stacked_100](https://www.syncfusion.com/kb/8534/how-to-create-excel-100-stacked-pyramid-chart-in-c-vb-net)
+* [Area](https://support.syncfusion.com/kb/article/7478/how-to-create-excel-area-chart-in-c-vb-net)
+* [Area_3D](https://support.syncfusion.com/kb/article/7375/how-to-create-excel-3d-area-chart-in-c-vb-net) 
+* [Area_Stacked](https://support.syncfusion.com/kb/article/7485/how-to-create-excel-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_100](https://support.syncfusion.com/kb/article/7362/how-to-create-excel-100-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_100_3D](https://support.syncfusion.com/kb/article/7482/how-to-create-excel-3d-100-stacked-area-chart-in-c-vb-net)
+* [Area_Stacked_3D](https://support.syncfusion.com/kb/article/7480/how-to-create-excel-3d-stacked-area-chart-in-c-vb-net) 
+* [Bar_Clustered](https://support.syncfusion.com/kb/article/7359/how-to-create-excel-clustered-bar-chart-in-c-vb-net)
+* [Bar_Clustered_3D](https://support.syncfusion.com/kb/article/7410/how-to-create-excel-3d-clustered-bar-chart-in-c-vb-net)
+* [Bar_Stacked](https://support.syncfusion.com/kb/article/7404/how-to-create-excel-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_100](https://support.syncfusion.com/kb/article/7448/how-to-create-excel-100-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_100_3D](https://support.syncfusion.com/kb/article/7397/how-to-create-excel-3d-100-stacked-bar-chart-in-c-vb-net)
+* [Bar_Stacked_3D](https://support.syncfusion.com/kb/article/7415/how-to-create-excel-3d-stacked-bar-chart-in-c-vb-net)
+* [Bubble](https://support.syncfusion.com/kb/article/7459/how-to-create-excel-bubble-chart-in-c-vb-net)
+* [Bubble_3D](https://support.syncfusion.com/kb/article/7467/how-to-create-excel-3d-bubble-chart-in-c-vb-net)
+* [Column_3D](https://support.syncfusion.com/kb/article/7408/how-to-create-excel-3d-clustered-column-chart-in-c-vb-net)
+* [Column_Clustered](https://support.syncfusion.com/kb/article/7345/how-to-create-excel-clustered-column-chart-in-c-vb-net)
+* [Column_Clustered_3D](https://support.syncfusion.com/kb/article/7470/how-to-create-excel-3d-column-chart-in-c-vb-net)  
+* [Column_Stacked](https://support.syncfusion.com/kb/article/7368/how-to-create-excel-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_100](https://support.syncfusion.com/kb/article/7496/how-to-create-excel-100-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_100_3D](https://support.syncfusion.com/kb/article/7394/how-to-create-excel-3d-100-stacked-column-chart-in-c-vb-net)
+* [Column_Stacked_3D](https://support.syncfusion.com/kb/article/7399/how-to-create-excel-3d-stacked-column-chart-in-c-vb-net)
+* [Combination_Chart](https://support.syncfusion.com/kb/article/7451/how-to-create-excel-combination-chart-in-c-vb-net)       
+* [Cone_Bar_Clustered](https://support.syncfusion.com/kb/article/7634/how-to-create-excel-clustered-bar-cone-chart-in-c-vb-net)
+* [Cone_Bar_Stacked](https://support.syncfusion.com/kb/article/7591/how-to-create-excel-stacked-bar-cone-chart-in-c-vb-net)
+* [Cone_Bar_Stacked_100](https://support.syncfusion.com/kb/article/7739/how-to-create-excel-100-stacked-bar-cone-chart-in-c-vb-net)
+* [Cone_Clustered](https://support.syncfusion.com/kb/article/7576/how-to-create-excel-clustered-cone-chart-in-c-vb-net)
+* [Cone_Clustered_3D](https://support.syncfusion.com/kb/article/7730/how-to-create-excel-3d-clustered-cone-chart-in-c-vb-net)
+* [Cone_Stacked](https://support.syncfusion.com/kb/article/7601/how-to-create-excel-stacked-cone-chart-in-c-vb-net)
+* [Cone_Stacked_100](https://support.syncfusion.com/kb/article/7599/how-to-create-excel-100-stacked-cone-chart-in-c-vb-net)
+* [Cylinder_Bar_Clustered](https://support.syncfusion.com/kb/article/7594/how-to-create-excel-clustered-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Bar_Stacked](https://support.syncfusion.com/kb/article/7596/how-to-create-excel-stacked-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Bar_Stacked_100](https://support.syncfusion.com/kb/article/7573/how-to-create-excel-100-stacked-bar-cylinder-chart-in-c-vb-net)
+* [Cylinder_Clustered](https://support.syncfusion.com/kb/article/7616/how-to-create-excel-clustered-cylinder-chart-in-c-vb-net)
+* [Cylinder_Clustered_3D](https://support.syncfusion.com/kb/article/7581/how-to-create-excel-3d-clustered-cylinder-chart-in-c-vb-net)
+* [Cylinder_Stacked](https://support.syncfusion.com/kb/article/7724/how-to-create-excel-stacked-cylinder-chart-in-c-vb-net)
+* [Cylinder_Stacked_100](https://support.syncfusion.com/kb/article/7578/how-to-create-excel-100-stacked-cylinder-chart-in-c-vb-net)
+* [Doughnut](https://support.syncfusion.com/kb/article/7352/how-to-create-excel-doughnut-chart-in-c-vb-net)
+* [Doughnut_Exploded](https://support.syncfusion.com/kb/article/7719/how-to-create-excel-exploded-doughnut-chart-in-c-vb-net)
+* [Line](https://support.syncfusion.com/kb/article/7429/how-to-create-excel-line-chart-in-c-vb-net)
+* [Line_3D](https://support.syncfusion.com/kb/article/7458/how-to-create-excel-3d-line-chart-in-c-vb-net)
+* [Line_Markers](https://support.syncfusion.com/kb/article/7486/how-to-create-excel-line-with-markers-chart-in-c-vb-net) 
+* [Line_Markers_Stacked](https://support.syncfusion.com/kb/article/7445/how-to-create-excel-stacked-line-with-markers-chart-in-c-vb-net)
+* [Line_Markers_Stacked_100](https://support.syncfusion.com/kb/article/7392/how-to-create-excel-100-stacked-line-with-markers-chart-in-c-vb-net)
+* [Line_Stacked](https://support.syncfusion.com/kb/article/7405/how-to-create-excel-100-stacked-line-chart-in-c-vb-net)
+* [Line_Stacked_100](https://support.syncfusion.com/kb/article/7405/how-to-create-excel-100-stacked-line-chart-in-c-vb-net)
+* [Pie](https://support.syncfusion.com/kb/article/7442/how-to-create-excel-pie-chart-in-c-vb-net)
+* [Pie_3D](https://support.syncfusion.com/kb/article/7425/how-to-create-excel-3d-pie-chart-in-c-vb-net)
+* [Pie_Bar](https://support.syncfusion.com/kb/article/7465/how-to-create-excel-bar-of-pie-chart-in-c-vb-net)
+* [Pie_Exploded](https://support.syncfusion.com/kb/article/7624/how-to-create-excel-exploded-pie-chart-in-c-vb-net)
+* [Pie_Exploded_3D](https://support.syncfusion.com/kb/article/7631/how-to-create-excel-3d-exploded-pie-chart-in-c-vb-net)
+* [PieOfPie](https://support.syncfusion.com/kb/article/7461/how-to-create-excel-pie-of-pie-chart-in-c-vb-net)
+* [Pyramid_Bar_Clustered](https://support.syncfusion.com/kb/article/7729/how-to-create-excel-clustered-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Bar_Stacked](https://support.syncfusion.com/kb/article/7603/how-to-create-excel-stacked-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Bar_Stacked_100](https://support.syncfusion.com/kb/article/7579/how-to-create-excel-100-stacked-bar-pyramid-chart-in-c-vb-net)
+* [Pyramid_Clustered](https://support.syncfusion.com/kb/article/7568/how-to-create-excel-clustered-pyramid-chart-in-c-vb-net)
+* [Pyramid_Clustered_3D](https://support.syncfusion.com/kb/article/7613/how-to-create-excel-3d-clustered-pyramid-chart-in-c-vb-net)
+* [Pyramid_Stacked](https://support.syncfusion.com/kb/article/7585/how-to-create-excel-stacked-pyramid-chart-in-c-vb-net)
+* [Pyramid_Stacked_100](https://support.syncfusion.com/kb/article/7600/how-to-create-excel-100-stacked-pyramid-chart-in-c-vb-net)
 * [Radar](https://www.syncfusion.com/kb/8408/how-to-create-excel-radar-chart-in-c-vb-net)
-* [Radar_Filled](https://www.syncfusion.com/kb/8414/how-to-create-excel-filled-radar-chart-in-c-vb-net)
-* [Radar_Markers](https://www.syncfusion.com/kb/8409/how-to-create-excel-radar-with-markers-chart-in-c-vb-net)
-* [Scatter_Line](https://www.syncfusion.com/kb/8405/how-to-create-excel-scatter-with-straight-lines-chart-in-c-vb-net)
-* [Scatter_Line_Markers](https://www.syncfusion.com/kb/8400/how-to-create-excel-scatter-with-straight-lines-and-markers-chart-in-c-vb-net)
-* [Scatter_Markers](https://www.syncfusion.com/kb/8418/how-to-create-excel-scatter-chart-in-c-vb-net)
-* [Scatter_SmoothedLine](https://www.syncfusion.com/kb/8401/how-to-create-excel-scatter-with-smooth-lines-chart-in-c-vb-net)
-* [Scatter_SmoothedLine_Markers](https://www.syncfusion.com/kb/8415/how-to-create-excel-scatter-with-smooth-lines-and-markers-chart-in-c-vb-net)
-* [Stock_HighLowClose](https://www.syncfusion.com/kb/8397/how-to-create-excel-high-low-close-chart-in-c-vb-net)
-* [Stock_OpenHighLowClose](https://www.syncfusion.com/kb/8417/how-to-create-excel-open-high-low-close-chart-in-c-vb-net)
-* [Stock_VolumeHighLowClose](https://www.syncfusion.com/kb/8424/how-to-create-excel-volume-high-low-close-chart-in-c-vb-net)
-* [Stock_VolumeOpenHighLowClose](https://www.syncfusion.com/kb/8425/how-to-create-excel-volume-open-high-low-close-chart-in-c-vb-net)  
-* [Surface_3D](https://www.syncfusion.com/kb/8419/how-to-create-excel-3d-surface-chart-in-c-vb-net)
-* [Surface_Contour](https://www.syncfusion.com/kb/8410/how-to-create-excel-contour-chart-in-c-vb-net)
-* [Surface_NoColor_3D](https://www.syncfusion.com/kb/8421/how-to-create-excel-wireframe-3d-surface-chart-in-c-vb-net)
-* [Surface_NoColor_Contour](https://www.syncfusion.com/kb/8413/how-to-create-excel-wireframe-contour-chart-in-c-vb-net)
-* [Funnel](https://www.syncfusion.com/kb/8422/how-to-create-excel-funnel-chart-in-c-vb-net)
-* [Box and Whisker](https://www.syncfusion.com/kb/8428/how-to-create-excel-box-and-whisker-chart-in-c-vb-net)
-* [Waterfall](https://www.syncfusion.com/kb/8420/how-to-create-excel-waterfall-chart-in-c-vb-net)
-* [Histogram](https://www.syncfusion.com/kb/8431/how-to-create-excel-histogram-chart-in-c-vb-net)
-* [Pareto](https://www.syncfusion.com/kb/8430/how-to-create-excel-pareto-chart-in-c-vb-net)
-* [Treemap](https://www.syncfusion.com/kb/8427/how-to-create-excel-treemap-chart-in-c-vb-net)
-* [Sunburst](https://www.syncfusion.com/kb/8429/how-to-create-excel-sunburst-chart-in-c-vb-net)
+* [Radar_Filled](https://support.syncfusion.com/kb/article/7457/how-to-create-excel-radar-chart-in-c-vb-net)
+* [Radar_Markers](https://support.syncfusion.com/kb/article/7454/how-to-create-excel-radar-with-markers-chart-in-c-vb-net)
+* [Scatter_Line](https://support.syncfusion.com/kb/article/7475/how-to-create-excel-scatter-with-straight-lines-chart-in-c-vb-net)
+* [Scatter_Line_Markers](https://support.syncfusion.com/kb/article/7473/how-to-create-excel-scatter-with-straight-lines-and-markers-chart-in-c-vb-net)
+* [Scatter_Markers](https://support.syncfusion.com/kb/article/7468/how-to-create-excel-scatter-chart-in-c-vb-net)
+* [Scatter_SmoothedLine](https://support.syncfusion.com/kb/article/7471/how-to-create-excel-scatter-with-smooth-lines-chart-in-c-vb-net)
+* [Scatter_SmoothedLine_Markers](https://support.syncfusion.com/kb/article/7437/how-to-create-excel-scatter-with-smooth-lines-and-markers-chart-in-c-vb-net)
+* [Stock_HighLowClose](https://support.syncfusion.com/kb/article/7296/how-to-create-excel-high-low-close-chart-in-c-vb-net)
+* [Stock_OpenHighLowClose](https://support.syncfusion.com/kb/article/7463/how-to-create-excel-open-high-low-close-chart-in-c-vb-net)
+* [Stock_VolumeHighLowClose](https://support.syncfusion.com/kb/article/7438/how-to-create-excel-volume-high-low-close-chart-in-c-vb-net)
+* [Stock_VolumeOpenHighLowClose](https://support.syncfusion.com/kb/article/7447/how-to-create-excel-volume-open-high-low-close-chart-in-c-vb-net)  
+* [Surface_3D](https://support.syncfusion.com/kb/article/7474/how-to-create-excel-3d-surface-chart-in-c-vb-net)
+* [Surface_Contour](https://support.syncfusion.com/kb/article/7477/how-to-create-excel-contour-chart-in-c-vb-net)
+* [Surface_NoColor_3D](https://support.syncfusion.com/kb/article/7391/how-to-create-excel-wireframe-3d-surface-chart-in-c-vb-net)
+* [Surface_NoColor_Contour](https://support.syncfusion.com/kb/article/7441/how-to-create-excel-wireframe-contour-chart-in-c-vb-net)
+* [Funnel](https://support.syncfusion.com/kb/article/7420/how-to-create-excel-funnel-chart-in-c-vb-net)
+* [Box and Whisker](https://support.syncfusion.com/kb/article/7421/how-to-create-excel-box-and-whisker-chart-in-c-vb-net)
+* [Waterfall](https://support.syncfusion.com/kb/article/7395/how-to-create-excel-waterfall-chart-in-c-vb-net)
+* [Histogram](https://support.syncfusion.com/kb/article/7443/how-to-create-excel-histogram-chart-in-c-vb-net)
+* [Pareto](https://support.syncfusion.com/kb/article/7434/how-to-create-excel-pareto-chart-in-c-vb-net)
+* [Treemap](https://support.syncfusion.com/kb/article/7466/how-to-create-excel-treemap-chart-in-c-vb-net)
+* [Sunburst](https://support.syncfusion.com/kb/article/7423/how-to-create-excel-sunburst-chart-in-c-vb-net)
