@@ -14,7 +14,7 @@ Syncfusion Essential DocIO is a [Xamarin Word library](https://www.syncfusion.co
 
 Step 1: Create a new Xamarin.Forms application project.
 
-![Create Xamarin application in Visual Studio](xamarin_images/create-application-in-xamarin-word.png)
+![Create Xamarin application in Visual Studio](xamarin_images/create-xamarin-application.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
@@ -408,4 +408,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the Word document as follows.
 
-![Xamarin output Word document](xamarin_images/xamarin-word-gettingstarted-output.jpg)
+![Xamarin output Word document](xamarin_images/generated-word-document-in-xamarin.jpg)

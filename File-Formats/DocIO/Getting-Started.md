@@ -598,7 +598,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant Word document looks as follows.
 
-![Creating a new Word document from scratch with basic elements](gettingstarted_images/create-document-in-file-formats-word.jpeg)
+![Creating a new Word document from scratch with basic elements](gettingstarted_images/create-word-document-in-file-formats.jpeg)
 
 ## Modifying an existing Word document
 
