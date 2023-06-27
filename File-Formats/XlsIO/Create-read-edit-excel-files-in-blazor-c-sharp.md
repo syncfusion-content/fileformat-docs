@@ -329,6 +329,26 @@ public static class FileUtils
 {% endcapture %}
 {{ codesnippet7 | OrderList_Indent_Level_1 }}
 
+12. Add the following code under ``NavMenu.razor`` file present under ``Shared`` folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+<li class="nav-item px-3">
+  <NavLink class="nav-link" href="Excel">
+    <span class="oi oi-list-rich" aria-hidden="true"></span> Create Excel
+  </NavLink>
+</li>
+{% endhighlight %}
+{% endtabs %}
+
+13. Add the service to services collection in ``ConfigureServices`` method of ``Startup.cs`` file.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+services.AddSingleton<ExcelService>();
+{% endhighlight %}
+{% endtabs %}
+
 A complete working example of how to create an Excel file in Blazor Server-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Server%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
