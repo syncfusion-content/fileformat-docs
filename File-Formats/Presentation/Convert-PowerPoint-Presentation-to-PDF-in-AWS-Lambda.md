@@ -13,10 +13,10 @@ Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion
 ## Steps to convert PowerPoint Presentation to PDF in AWS Lambda
 
 Step 1: Create a new **AWS Lambda project** as follows.
-![AWS Lambda project](AWS_Images/Lambda_Images/Project-Template-WordtoPDF.png)
+![AWS Lambda project](AWS_Images/Lambda_Images/Project-Template-PowerPoint-Presentation-to-PDF.png)
 
 Step 2: Select Blueprint as Empty Function and click **Finish**.
-![Select Blueprint as Empty Function](AWS_Images/Lambda_Images/Blueprint-AWS-WordtoPDF.png)
+![Select Blueprint as Empty Function](AWS_Images/Lambda_Images/Blueprint-AWS-PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
@@ -24,15 +24,17 @@ Step 3: Install the following **Nuget packages** in your application from [Nuget
 * [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 * [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
-![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
-![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
- ![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz-Nuget-WordtoImage.png)
+![Install Syncfusion.PresentationRenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
+
+![Install SkiaSharp.NativeAssets.Linux v2.88.2 Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_PowerPoint_Presentation_to_PDF.png)
+
+![Install HarfBuzzSharp.NativeAssets.Linux v2.8.2.2 Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz_PowerPoint_Presentation_to_PDF.png)
 
 Step 4: Create a folder and copy the required data files and include the files to the project.
-![Create a folder](AWS_Images/Lambda_Images/Data-Folder-WordtoPDF.png)
+![Create a folder](AWS_Images/Lambda_Images/Data-Folder-PowerPoint-Presentation-to-PDF.png)
 
 Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Property change for data files](AWS_Images/Lambda_Images/Property-WordtoPDF.png)
+![Property change for data files](AWS_Images/Lambda_Images/Property-PowerPoint-Presentation-to-PDF.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
 
@@ -84,33 +86,33 @@ public string FunctionHandler(string input, ILambdaContext context)
 {% endtabs %}
 
 Step 8: Right-click the project and select **Publish to AWS Lambda**.
-![Publish to AWS Lambda](AWS_Images/Lambda_Images/Publish-WordtoPDF.png)
+![Publish to AWS Lambda](AWS_Images/Lambda_Images/Publish-PowerPoint-Presentation-to-PDF.png)
 
 Step 9: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click **Next**.
-![Upload Lambda Function](AWS_Images/Lambda_Images/Upload-Lampda-WordtoPDF.png)
+![Upload Lambda Function](AWS_Images/Lambda_Images/Upload-Lampda-PowerPoint-Presentation-to-PDF.png)
 
 Step 10: In the Advanced Function Details window, specify the **Role Name** as based on AWS Managed policy. After selecting the role, click the **Upload** button to deploy your application.
-![Advance Function Details](AWS_Images/Lambda_Images/Advanced-AWS-WordtoPDF.png)
+![Advance Function Details](AWS_Images/Lambda_Images/Advanced-AWS-PowerPoint-Presentation-to-PDF.png)
 
 Step 11: After deploying the application, you can see the published Lambda function in **AWS console**.
-![After deploying the application](AWS_Images/Lambda_Images/Function-WordtoPDF.png)
+![After deploying the application](AWS_Images/Lambda_Images/Function-PowerPoint-Presentation-to-PDF.png)
 
 Step 12: Edit Memory size and Timeout as maximum in Basic settings of the AWS Lambda function.
-![AWS Lambda Function](AWS_Images/Lambda_Images/Basic-Settings-WordtoPDF.png)
+![AWS Lambda Function](AWS_Images/Lambda_Images/Basic-Settings-PowerPoint-Presentation-to-PDF.png)
 
 ## Steps to post the request to AWS Lambda
 
 Step 1: Create a new console project.
-![Create a console project](AWS_Images/Lambda_Images/Console-APP-WordtoPDF.png)
+![Create a console project](AWS_Images/Lambda_Images/Console-APP-PowerPoint-Presentation-to-PDF.png)
 
 step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [AWSSDK.Core](https://www.nuget.org/packages/AWSSDK.Core/)
 * [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda/)
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
-![Install AWSSDK.Core Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Core-WordtoPDF.png)
-![Install AWSSDK.Lambda Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Lambda-WordtoPDF.png)
-![Install Newtonsoft.Json Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-Newton-Json-WordtoPDF.png)
+![Install AWSSDK.Core Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Core-PowerPoint-Presentation-to-PDF.png)
+![Install AWSSDK.Lambda Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-AWSSDK-Lambda-PowerPoint-Presentation-to-PDF.png)
+![Install Newtonsoft.Json Nuget Package](AWS_Images/Lambda_Images/Nuget-Package-Newton-Json-PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Include the following namespaces in **Program.cs** file.
 
@@ -159,7 +161,7 @@ System.Diagnostics.Process.Start("Sample.Pdf");
 
 By executing the program, you will get the **PDF document** as follows.
 
-![PPTX to PDF in AWS Lambda](WordToPDF_images/WordToPDF_Output_Cloud.png)
+![PPTX to PDF in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/AWS/Console-App-.NET-Core) and [AWS Lambda](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/AWS/MyLamdaProject) project.
 

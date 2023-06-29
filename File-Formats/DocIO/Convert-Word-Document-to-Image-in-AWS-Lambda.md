@@ -24,9 +24,9 @@ Step 3: Install the following **Nuget packages** in your application from [Nuget
 * [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 * [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
-![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
-![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
- ![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz-Nuget-WordtoImage.png)
+![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](ASP-NET-Core_images/NugetPackage.png)
+![Install SkiaSharp.NativeAssets.Linux Nuget Package](AWS_Images/Lambda_Images/SkiaSharp_WordtoImage.png)
+![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](AWS_Images/Lambda_Images/HarfBuzz_WordtoImage.png)
 
 Step 4: Create a folder and copy the required data files and include the files to the project.
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-WordtoPDF.png)

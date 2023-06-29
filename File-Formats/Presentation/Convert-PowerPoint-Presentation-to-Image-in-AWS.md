@@ -1,6 +1,6 @@
 ---
 title: Convert PPTX to Image in AWS | Syncfusion
-description: Learn how to convert a PPTX to Image in Amazon Web Services (AWS) using .NET Core PowerPoint library (Presentation) in C#.
+description: Learn how to convert a PPTX to image in Amazon Web Services (AWS) using .NET Core PowerPoint library (Presentation) in C#.
 platform: file-formats
 control: PowerPoint
 documentation: UG
