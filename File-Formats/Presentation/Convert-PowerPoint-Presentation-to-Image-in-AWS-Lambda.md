@@ -156,7 +156,7 @@ System.Diagnostics.Process.Start("PPTXtoImage.Jpeg");
 
 By executing the program, you will get the **image** as follows.
 
-![PPTX to Image in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PPTX to Image in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/AWS/Console-App-.NET-Core) and [AWS Lambda](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/AWS/MyLamdaProject) project.
 
