@@ -24,6 +24,8 @@ Step 3: Select function worker as **.NET 6.0(Long-term support)**.
 Step 4: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet package](Azure_Images/Functions_v4/Nuget-Package-WordtoPDF.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 5: Include the following namespaces in the **Function1.cs** file.
 {% tabs %}
 
