@@ -23,21 +23,22 @@ Refer to the following code example to split a PDF into individual pages.
 //Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
 
 //Load the PDF document
-FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
-for (int i=0;i<loadedDocument.PageCount;i++)
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream, true);
+for (int i = 0; i < loadedDocument.Pages.Count; i++)
 {
-//Creates a new document
-PdfDocument document = new PdfDocument();
-//Imports the pages from the loaded document
-document.ImportPage(loadedDocument, i);
+    //Creates a new document.
+    PdfDocument document = new PdfDocument();
+    //Imports the pages from the loaded document.
+    document.ImportPage(loadedDocument, i);
 
-//Create a memory stream 
-MemoryStream stream = new MemoryStream();
-//Save the document to stream
-document.Save(stream);
-//Close the document
-document.Close(true);
+    //Create a File stream. 
+    using (var outputFileStream = new FileStream("Output" + i + ".pdf", FileMode.Create, FileAccess.Write)) {
+        //Save the document to stream.
+        document.Save(outputFileStream);
+    }
+    //Close the document.
+    document.Close(true);
 }
 
 {% endhighlight %}

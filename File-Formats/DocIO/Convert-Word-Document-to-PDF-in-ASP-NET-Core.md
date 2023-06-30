@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in ASP.NET Core | Syncfusion
-description: Convert Word to PDF in ASP.NET Core using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies. 
+description: Convert Word to PDF without Microsoft Word or interop dependencies in ASP.NET Core application using .NET Core Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in ASP.NET Core**.
 
-## Steps to convert word document to PDF in C#
+## Steps to convert word document to PDF in C#:
 
 Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) project.
 
@@ -69,7 +69,7 @@ Step 7: Add a new action method **ConvertWordDocumentToPdf** in HomeController.c
 using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.docx))
     {
         //Instantiation of DocIORenderer for Word to PDF conversion
         using (DocIORenderer render = new DocIORenderer())
@@ -96,4 +96,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Word to PDF in ASP.NET Core](WordToPDF_images/OutputImage.png)
+![Output PDF document in ASP.NET Core](WordToPDF_images/OutputImage.png)

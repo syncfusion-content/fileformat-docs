@@ -13,20 +13,38 @@ The following code example illustrates how to converting XPS document to PDF usi
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Create converter class
+//Initialize XPS to PDF converter.
 XPSToPdfConverter converter = new XPSToPdfConverter();
-//Convert the XPS to PDF
+//Open the XPS file as stream.
+FileStream fileStream = new FileStream("Input.xps", FileMode.Open, FileAccess.ReadWrite);
+//Convert the XPS to PDF.
+PdfDocument document = converter.Convert(fileStream);
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream(); 
+//Save the document into stream.
+document.Save(stream); 
+//Close the documents.
+document.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create converter class.
+XPSToPdfConverter converter = new XPSToPdfConverter();
+//Convert the XPS to PDF document.
 PdfDocument document = converter.Convert(xpsFileName);
 
-//Save and close the document
+//Save and close the document.
 document.Save("Sample.pdf");
 document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create converter class
 Dim converter As New XPSToPdfConverter()
@@ -36,57 +54,6 @@ Dim document As PdfDocument = converter.Convert(xpsFileName)
 'Save and close the document
 document.Save("Sample.pdf")
 document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create converter class
-XPSToPdfConverter converter = new XPSToPdfConverter();
-//Load the XPS file
-Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.xps");
-//Convert the XPS to PDF
-PdfDocument document = converter.Convert(fileStream);
-
-//Save the PDF document to stream
-MemoryStream memoryStream = new MemoryStream();
-await document.SaveAsync(memoryStream);
-//Close the document
-document.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(memoryStream, "Sample.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Initialize XPS to PDF converter.
-XPSToPdfConverter converter = new XPSToPdfConverter();
-//Open the XPS file as stream.
-FileStream fileStream = new FileStream(“Input.xps", FileMode.Open, FileAccess.ReadWrite);
-//Convert the XPS to PDF.
-PdfDocument document = converter.Convert(fileStream);
-
-//Creating the stream object.
-MemoryStream stream = new MemoryStream(); 
-//Save the document into stream.
-document.Save(stream); 
-//If the position is not set to '0' then the PDF will be empty.
-stream.Position = 0;
-//Close the documents.
-document.Close(true); 
-//Defining the ContentType for pdf file.
-string contentType = "application/pdf";
-//Define the file name. 
-string fileName = "Output.pdf"; 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 

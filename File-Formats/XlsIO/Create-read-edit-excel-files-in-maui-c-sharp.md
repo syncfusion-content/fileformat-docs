@@ -29,7 +29,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 <img src="MAUI_images/MAUI_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4. Add a new button to the **MainWindow.xaml** as shown below.
+4. Add a new button to the **MainPage.xaml** as shown below.
 {% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -52,7 +52,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. Include the following namespaces in the **MainWindow.xaml.cs** file.
+5. Include the following namespaces in the **MainPage.xaml.cs** file.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -64,7 +64,7 @@ using System.Reflection;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Add a new action method **createExcel_Click** in MainWindow.xaml.cs and include the below code snippet to **create an Excel document**.
+6. Add a new action method **createExcel_Click** in MainPage.xaml.cs and include the below code snippet to **create an Excel document**.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
