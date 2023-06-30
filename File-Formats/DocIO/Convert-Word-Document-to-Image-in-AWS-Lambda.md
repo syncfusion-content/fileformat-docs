@@ -28,6 +28,8 @@ Step 3: Install the following **Nuget packages** in your application from [Nuget
 ![Install SkiaSharp.NativeAssets.Linux Nuget Package](AWS_Images/Lambda_Images/SkiaSharp_WordtoImage.png)
 ![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](AWS_Images/Lambda_Images/HarfBuzz_WordtoImage.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: Create a folder and copy the required data files and include the files to the project.
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-WordtoPDF.png)
 
