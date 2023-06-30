@@ -8,29 +8,24 @@ documentation: UG
 
 # Convert Word to PDF in GCP App Engine
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. In this guide, we will explore how to use Syncfusion DocIO to **convert Word document to PDF in Google Cloud Platform (GCP) App Engine environment**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. In this guide, we will explore how to use Syncfusion DocIO to **convert Word document to PDF in Google Cloud Platform (GCP) App Engine**.
 
 ## Setting Up App Engine
 
-Go to the [Google Cloud App Engine documentation](https://codelabs.developers.google.com/codelabs/cloud-app-engine-aspnetcore#1) and follow the instructions to set up your App Engine application. This will provide you with the necessary steps to deploy your application to App Engine.
-
-Step 1: Click the **Get started** button.
-![Get Started in App Engine](GCP_Images/App-Engine-WordtoPDF.png)
-
-Step 2: Click the **Activate Cloud Shell** button.
+Step 1: Click the **Activate Cloud Shell** button.
 ![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-WordtoPDF.png)
 
-Step 3: Click the **Open editor** button.
-![Open Editor in Cloud Shell](GCP_Images/Editor-Button-WordtoPDF.png)
-
-Step 4: In the Cloud Shell editor, run the following **command** to confirm authentication.
+Step 2: In the Cloud Shell editor, run the following **command** to confirm authentication.
 ```
 gcloud auth list
 ```
 ![Authentication for App Engine](GCP_Images/Authentication-WordtoPDF.png)
 
-Step 5: Click the **Authorize** button.
+Step 3: Click the **Authorize** button.
 ![Click Authorize button](GCP_Images/Authorize-WordtoPDF.png)
+
+Step 4: Click the **Open editor** button.
+![Open Editor in Cloud Shell](GCP_Images/Editor-Button-WordtoPDF.png)
 
 ## Creating a Sample Application Using Visual Studio
 
@@ -40,8 +35,14 @@ Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Contr
 Step 2: Configure your new project according to your requirements.
 ![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Configuration_WordtoPDF.png)
 
-Step 3: Select the desired **framework** and click the **Create** button.
+Step 3: Click the **Create** button.
 ![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Additional-Information-WordtoPDF.png)
+
+Step 4: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+
+![Install DocIO .NET Core NuGet package](ASP-NET-Core_images/NugetPackage.png)
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: Include the following namespaces in the **HomeController.cs** file.
 
@@ -112,6 +113,7 @@ Step 1: Open the **Cloud Shell editor**.
 ![Cloud Shell Editor](GCP_Images/Cloud-Shell-Editor-WordtoPDF.png)
 
 Step 2: Open the **Home Workspace** in the Cloud Shell editor.
+![Open the Home Workspace](GCP_Images/Terminal-WordtoPDF.png)
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
@@ -120,9 +122,8 @@ Step 3: Open the terminal and run the following **command** to navigate to the s
 Open the terminal,
 $ ls
 This will show the list of files and folders in workspace. Navigate to which sample you want run.
-$ cd Create-Word-Document
+$ cd Convert-Word-Document-to-PDF
 ```
-![Open the terminal and run the command](GCP_Images/Terminal-WordtoPDF.png)
 
 Step 4: Finally, **run the application** using the following command.
 ```
@@ -149,7 +150,7 @@ cd bin/Release/net6.0/publish/
 ```
 ![Navigate to the publish folder](GCP_Images/Navigate_Publish_Folder.png)
 
-Step 3: Add the app.yaml and Dockerfile files to the publish folder with the following contents.
+Step 3: Add the app.yaml file to the publish folder with the following contents.
 ```
 $ cat <<EOT >> app.yaml
 env: flex
@@ -158,7 +159,7 @@ EOT
 ```
 ![Add required files to publish folder](GCP_Images/Docker-File-WordtoPDF.png)
 
-Step 4: Run the following command in Cloud Shell to deploy the application to the cloud service.
+Step 4: Add the Docker file to the publish folder with the following contents.
 ```
 $ cat <<EOT >> Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
@@ -171,17 +172,17 @@ EOT
 ```
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
 
-Step 5: Run the following command in Cloud Shell to Deploy the application to cloud service.
-```
-$ gcloud app deploy --version v0
-```
-![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
-
-Step 6: Add the following command to the Dockerfile to install the libfontconfig package.
+Step 5: Add the following command to the Dockerfile to install the libfontconfig package.
 ```
 RUN apt-get update -y && apt-get install libfontconfig -y
 ```
 ![Add required files to publish folder](GCP_Images/Libfontconfig-WordtoPDF.png)
+
+Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.
+```
+$ gcloud app deploy --version v0
+```
+![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
 
 Step 7: Run the following command in Cloud Shell to redeploy the updated application.
 ```

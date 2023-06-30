@@ -16,9 +16,9 @@ N> If this is your first time working with Google Cloud Platform(GCP), please re
 
 Before we begin, make sure you have the following.
 
-* A **Google Cloud Platform (GCP)** account with access to the App Engine service.
+* A [Google Cloud Platform (GCP)](https://console.cloud.google.com/getting-started) account with access to the App Engine service.
 
-* A **Google Account** is required to access Compute Engine in the Google APIs Console. If you already have an account, you're good to go.
+* A [Google Account](https://accounts.google.com/signup/v2/createaccount?flowName=GlifWebSignIn&flowEntry=SignUp) is required to access Compute Engine in the Google APIs Console. If you already have an account, you're good to go.
 
 ## Nuget package required
 
