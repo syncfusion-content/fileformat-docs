@@ -1,19 +1,19 @@
 ---
-title: Convert Word to PDF in GCP App Engine | Syncfusion
-description: Convert Word to PDF in GCP App Engine using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert PPTX to Image in GCP App Engine | Syncfusion
+description: Convert PPTX to image in GCP App Engine using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
-# Convert Word to PDF in GCP App Engine
+# Convert PowerPoint Presentation to Image in GCP App Engine
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in Google Cloud Platform (GCP) App Engine**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library]https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in GCP App Engine**.
 
 ## Setting Up App Engine
 
 Step 1: Click the **Activate Cloud Shell** button.
-![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-WordtoPDF.png)
+![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-PowerPoint-Presentation-to-PDF.png)
 
 Step 2: In the **Cloud Shell editor**, run the following **command** to confirm authentication.
 
@@ -25,13 +25,13 @@ gcloud auth list
 {% endhighlight %}
 {% endtabs %}
 
-![Authentication for App Engine](GCP_Images/Authentication-WordtoPDF.png)
+![Authentication for App Engine](GCP_Images/Authentication-PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Click the **Authorize** button.
-![Click Authorize button](GCP_Images/Authorize-WordtoPDF.png)
+![Click Authorize button](GCP_Images/Authorize-PowerPoint-Presentation-to-PDF.png)
 
 Step 4: Click the **Open editor** button.
-![Open Editor in Cloud Shell](GCP_Images/Editor-Button-WordtoPDF.png)
+![Open Editor in Cloud Shell](GCP_Images/Editor-Button-PowerPoint-Presentation-to-PDF.png)
 
 ## Creating a Sample Application Using Visual Studio
 
@@ -39,20 +39,22 @@ Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Contr
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
 
 Step 2: Configure your new project according to your requirements.
-![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Configuration_WordtoPDF.png)
+![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Configuration_PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Click the **Create** button.
-![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Additional-Information-WordtoPDF.png)
+![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Additional-Information-PowerPoint-Presentation-to-PDF.png)
 
 Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
-* [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
+* [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core) 
+* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 * [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
- ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
- ![Install SkiaSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_Nuget-Package_WordtoPDF.png)
- ![Install HarfBuzzSharp.NativeAssets.Linux Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz-Nuget-WordtoImage.png)
+![Install Syncfusion.PresentationRenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
+
+![Install SkiaSharp.NativeAssets.Linux v2.88.2 Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_PowerPoint_Presentation_to_PDF.png)
+
+![Install HarfBuzzSharp.NativeAssets.Linux v2.8.2.2 Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz_PowerPoint_Presentation_to_PDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -61,10 +63,8 @@ Step 4: Include the following namespaces in the **HomeController.cs** file.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
-using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
 
 {% endhighlight %}
 {% endtabs %}
@@ -76,56 +76,49 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-@{Html.BeginForm("ConvertWordtoPDF", "Home", FormMethod.Get);
-{
-<div>
-    <input type="submit" value="Convert Word Document to PDF" style="width:220px;height:27px" />
-</div>
-}
-Html.EndForm();
+@{
+    Html.BeginForm("ConvertPPTXToImage", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Convert PPTX to image" style="width:175px;height:27px" />
+        </div>       
+    }
+    Html.EndForm();
 }
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordtoPDF** in HomeController.cs and include the below code snippet to **convert the Word document to Pdf** and download it.
+Step 7: Add a new action method **ConvertPPTXToImage** in HomeController.cs and include the below code snippet to **convert the PowerPoint Presentation to image** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Open the file as Stream
-using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
 {
-    //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
+    //Opens the existing PPTX document.
+    using (IPresentation pptxDoc = Presentation.Open(inputStream))
     {
-        //Instantiation of DocIORenderer for Word to PDF conversion
-        using (DocIORenderer render = new DocIORenderer())
-        {
-            //Converts Word document into PDF document
-            PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-
-            //Saves the PDF document to MemoryStream.
-            MemoryStream stream = new MemoryStream();
-            pdfDocument.Save(stream);
-            stream.Position = 0;
-
-            //Download PDF document in the browser.
-            return File(stream, "application/pdf", "Sample.pdf");
-        }
+        //Initialize the PresentationRenderer to perform image conversion.
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+        //Convert PowerPoint slide to image as stream..
+        stream = (MemoryStream)pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+        stream.Position = 0;
+        //Download image file in the browser.
+        return File(stream, "image/jpeg", "PPTXToimage_Page1.jpeg");
     }
 }
-
+                
 {% endhighlight %}
 {% endtabs %}
 
 ## Deploying the Application to App Engine
 
 Step 1: Open the **Cloud Shell editor**.
-![Cloud Shell Editor](GCP_Images/Cloud-Shell-Editor-WordtoPDF.png)
+![Cloud Shell Editor](GCP_Images/Cloud-Shell-Editor-PowerPoint-Presentation-to-PDF.png)
 
 Step 2: Open the **Home Workspace** in the Cloud Shell editor.
-![Open the Home Workspace](GCP_Images/Terminal-WordtoPDF.png)
+![Open the Home Workspace](GCP_Images/Terminal-PowerPoint-Presentation-to-PDF.png)
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
@@ -136,7 +129,7 @@ Step 3: Open the terminal and run the following **command** to view the files an
 
 $ ls
 This will show the list of files and folders in workspace. Navigate to which sample you want run.
-$ cd Convert-Word-Document-to-PDF
+$ cd Convert-PPTX-to-PDF
 
 {% endhighlight %}
 {% endtabs %}
@@ -151,10 +144,10 @@ dotnet run --urls=http://localhost:8080
 {% endhighlight %}
 {% endtabs %}
 
-![Run the application using command](GCP_Images/Run-Application-Command-WordtoPDF.png)
+![Run the application using command](GCP_Images/Run-Application-Command-PowerPoint-Presentation-to-PDF.png)
 
 Step 5: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
-![Verify the application is running properly](GCP_Images/Web-View-WordtoPDF.png)
+![Verify the application is running properly](GCP_Images/Web-View-PowerPoint-Presentation-to-PDF.png)
 
 Step 6: Close the preview page and return to the terminal. Press **Ctrl+C** to shut down the application.
 
@@ -170,7 +163,7 @@ dotnet publish -c Release
 {% endhighlight %}
 {% endtabs %}
 
-![Publish the application](GCP_Images/Publish_WordtoPDF.png)
+![Publish the application](GCP_Images/Publish_PowerPoint-Presentation-to-PDF.png)
 
 Step 2: Run the following command in Cloud Shell to Navigate to the publish folder.
 
@@ -182,7 +175,7 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-![Navigate to the publish folder](GCP_Images/Navigate_Publish_Folder.png)
+![Navigate to the publish folder](GCP_Images/Navigate_Publish_Folder_PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Add the app.yaml file to the publish folder with the following contents.
 
@@ -197,7 +190,7 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-![Add required files to publish folder](GCP_Images/Docker-File-WordtoPDF.png)
+![Add required files to publish folder](GCP_Images/Docker-File-PowerPoint-Presentation-to-PDF.png)
 
 Step 4: Add the Docker file to the publish folder with the following contents.
 
@@ -216,7 +209,7 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
+![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-PowerPoint-Presentation-to-PDF.png)
 
 Step 5: Add the following command to the Dockerfile to install the libfontconfig package.
 
@@ -228,7 +221,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 {% endhighlight %}
 {% endtabs %}
 
-![Add required files to publish folder](GCP_Images/Libfontconfig-WordtoPDF.png)
+![Add required files to publish folder](GCP_Images/Libfontconfig-PowerPoint-Presentation-to-PDF.png)
 
 Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.
 
@@ -240,14 +233,14 @@ $ gcloud app deploy --version v0
 {% endhighlight %}
 {% endtabs %}
 
-![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
+![Add required files to publish folder](GCP_Images/Deploy-PowerPoint-Presentation-to-PDF.png)
 
 Step 8: The application is now deployed successfully.
 
-![Add required files to publish folder](GCP_Images/Browser-WordtoPDF.png)
+![Add required files to publish folder](GCP_Images/Browser-PowerPoint-Presentation-to-PDF.png)
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF document** as follows. The output will be saved in bin folder.
+By executing the program, you will get the **image** as follows. The output will be saved in bin folder.
 
-![Word to PDF in GCP App Engine](WordToPDF_images/OutputImage.png)
+![PowerPoint to Image in GCP App Engine](GCP_Images/Output_PowerPoint_Presentation_to-PDF.png)

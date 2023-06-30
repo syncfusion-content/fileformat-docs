@@ -1,14 +1,14 @@
 ---
-title: Convert Word to PDF in GCP App Engine | Syncfusion
-description: Convert Word to PDF in GCP App Engine using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word to Image in GCP App Engine | Syncfusion
+description: Convert Word to image in GCP App Engine using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word to PDF in GCP App Engine
+# Convert Word to Image in GCP App Engine
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in Google Cloud Platform (GCP) App Engine**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to image in Google Cloud Platform (GCP) App Engine**.
 
 ## Setting Up App Engine
 
@@ -47,7 +47,7 @@ Step 3: Click the **Create** button.
 Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux)
+* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 * [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
  ![Install Syncfusion.DocIORenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Syncfusion_Nuget_Package_WordtoPDF.png)
@@ -64,7 +64,6 @@ Step 4: Include the following namespaces in the **HomeController.cs** file.
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
-using Syncfusion.Pdf;
 
 {% endhighlight %}
 {% endtabs %}
@@ -76,42 +75,37 @@ Step 6: Add a new button in the Index.cshtml as shown below.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-@{Html.BeginForm("ConvertWordtoPDF", "Home", FormMethod.Get);
-{
-<div>
-    <input type="submit" value="Convert Word Document to PDF" style="width:220px;height:27px" />
-</div>
-}
-Html.EndForm();
+@{
+    Html.BeginForm("ConvertWordToImage", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Convert Word to image" style="width:185px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
 }
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordtoPDF** in HomeController.cs and include the below code snippet to **convert the Word document to Pdf** and download it.
+Step 7: Add a new action method **ConvertWordToImage** in HomeController.cs and include the below code snippet to **convert the Word document to image** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Open the file as Stream
-using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
-    //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
-    {
-        //Instantiation of DocIORenderer for Word to PDF conversion
+    //Creating a new document.
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+    {                     
+        //Creates a new instance of DocIORenderer class.
         using (DocIORenderer render = new DocIORenderer())
         {
-            //Converts Word document into PDF document
-            PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-
-            //Saves the PDF document to MemoryStream.
-            MemoryStream stream = new MemoryStream();
-            pdfDocument.Save(stream);
-            stream.Position = 0;
-
-            //Download PDF document in the browser.
-            return File(stream, "application/pdf", "Sample.pdf");
+            //Converts the first page of word document to image
+            imageStream = (MemoryStream)document.RenderAsImages(0, ExportImageFormat.Jpeg);
+            imageStream.Position = 0;  
+            //Download Word document in the browser.
+            return File(imageStream, "image/jpeg", "WordToimage_Page1.jpeg");                       
         }
     }
 }
@@ -136,7 +130,7 @@ Step 3: Open the terminal and run the following **command** to view the files an
 
 $ ls
 This will show the list of files and folders in workspace. Navigate to which sample you want run.
-$ cd Convert-Word-Document-to-PDF
+$ cd Convert-Word-Document-to-Image
 
 {% endhighlight %}
 {% endtabs %}
@@ -248,6 +242,6 @@ Step 8: The application is now deployed successfully.
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF document** as follows. The output will be saved in bin folder.
+By executing the program, you will get the **image** as follows. The output will be saved in bin folder.
 
-![Word to PDF in GCP App Engine](WordToPDF_images/OutputImage.png)
+![Word to Image in GCP App Engine](WordToPDF_images/OutputImage.png)
