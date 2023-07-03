@@ -15,7 +15,10 @@ Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/docume
 Step 1: Click the **Activate Cloud Shell** button.
 ![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-WordtoPDF.png)
 
-Step 2: In the **Cloud Shell editor**, run the following **command** to confirm authentication.
+Step 2: Click the **Open editor** button.
+![Open Editor in Cloud Shell](GCP_Images/Authentication-WordtoPDF.png)
+
+Step 3: Open **Cloud Shell editor**, run the following **command** to confirm authentication.
 
 {% tabs %}
 {% highlight CLI %}
@@ -25,13 +28,10 @@ gcloud auth list
 {% endhighlight %}
 {% endtabs %}
 
-![Authentication for App Engine](GCP_Images/Authentication-WordtoPDF.png)
+![Authentication for App Engine](GCP_Images/Editor-Button-WordtoPDF.png)
 
-Step 3: Click the **Authorize** button.
+Step 4: Click the **Authorize** button.
 ![Click Authorize button](GCP_Images/Authorize-WordtoPDF.png)
-
-Step 4: Click the **Open editor** button.
-![Open Editor in Cloud Shell](GCP_Images/Editor-Button-WordtoPDF.png)
 
 ## Creating a Sample Application Using Visual Studio
 
@@ -206,6 +206,7 @@ Step 4: Add the Docker file to the publish folder with the following contents.
 
 $ cat <<EOT >> Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
+RUN apt-get update -y && apt-get install libfontconfig -y
 ADD / /app
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://*:8080
@@ -217,16 +218,6 @@ EOT
 {% endtabs %}
 
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
-
-Step 5: Add the following command to the Dockerfile to install the libfontconfig package.
-
-{% tabs %}
-{% highlight CLI %}
-
-RUN apt-get update -y && apt-get install libfontconfig -y
-
-{% endhighlight %}
-{% endtabs %}
 
 ![Add required files to publish folder](GCP_Images/Libfontconfig-WordtoPDF.png)
 

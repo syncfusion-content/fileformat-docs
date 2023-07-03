@@ -202,6 +202,7 @@ Step 4: Add the Docker file to the publish folder with the following contents.
 
 $ cat <<EOT >> Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
+RUN apt-get update -y && apt-get install libfontconfig -y
 ADD / /app
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://*:8080
@@ -214,24 +215,12 @@ EOT
 
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-PowerPoint-Presentation-to-PDF.png)
 
-Step 5: Add the following command to the Dockerfile to install the libfontconfig package.
-
-{% tabs %}
-{% highlight CLI %}
-
-RUN apt-get update -y && apt-get install libfontconfig -y
-
-{% endhighlight %}
-{% endtabs %}
-
-![Add required files to publish folder](GCP_Images/Libfontconfig-PowerPoint-Presentation-to-PDF.png)
-
 Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.
 
 {% tabs %}
 {% highlight CLI %}
 
-$ gcloud app deploy --version v0
+$ gcloud app deploy --version v1
 
 {% endhighlight %}
 {% endtabs %}
