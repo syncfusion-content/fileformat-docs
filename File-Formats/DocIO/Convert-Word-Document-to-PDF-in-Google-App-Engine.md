@@ -164,7 +164,7 @@ dotnet run --urls=http://localhost:8080
 Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 ![Verify the application is running properly](GCP_Images/Web-View-WordtoPDF.png)
 
-Step 7: Now you can see sample output in preview page.
+Step 7: Now you can see the sample output on the preview page.
 ![Run sample in browser](GCP_Images/Ensure-sample-WordtoPDF.png)
 
 Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
