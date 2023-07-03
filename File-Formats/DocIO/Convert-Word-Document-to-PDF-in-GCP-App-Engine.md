@@ -139,7 +139,7 @@ $ ls
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Run the following **command** to Navigate to which sample you want run.
+Step 4: Run the following **command** to Navigate which sample you want run.
 
 {% tabs %}
 {% highlight CLI %}
