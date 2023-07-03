@@ -12,13 +12,13 @@ Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/docume
 
 ## Setting Up App Engine
 
-Step 1: Click the **Activate Cloud Shell** button.
+Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
 ![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-WordtoPDF.png)
 
-Step 2: Click the **Open editor** button.
+Step 2: Click the **Open editor** button to view the **Workspace**.
 ![Open Editor in Cloud Shell](GCP_Images/Authentication-WordtoPDF.png)
 
-Step 3: Open **Cloud Shell editor**, run the following **command** to confirm authentication.
+Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
 
 {% tabs %}
 {% highlight CLI %}
@@ -33,7 +33,7 @@ gcloud auth list
 Step 4: Click the **Authorize** button.
 ![Click Authorize button](GCP_Images/Authorize-WordtoPDF.png)
 
-## Creating a Sample Application Using Visual Studio
+## Creating a Sample Application using Visual Studio
 
 Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Controller) template.
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
@@ -124,12 +124,12 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.doc
 Step 1: Open the **Cloud Shell editor**.
 ![Cloud Shell Editor](GCP_Images/Cloud-Shell-Editor-WordtoPDF.png)
 
-Step 2: Open the **Home Workspace** in the Cloud Shell editor.
+Step 2: Drag and drop the sample from your local machine to **Workspace**.
 ![Open the Home Workspace](GCP_Images/Terminal-WordtoPDF.png)
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
-Step 3: Open the terminal and run the following **command** to view the files and directories within your **current workspace**.
+Step 3: Open the terminal and run the following **command** to view the files and directories within your **current Workspace**.
 
 {% tabs %}
 {% highlight CLI %}
@@ -138,7 +138,6 @@ $ ls
 
 {% endhighlight %}
 {% endtabs %}
-
 
 Step 4: Run the following **command** to Navigate to which sample you want run.
 
@@ -150,7 +149,7 @@ $ cd Convert-Word-Document-to-PDF
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Finally, **run the application** using the following command.
+Step 5: To ensure the sample working is fine, **run the application** using the following command.
 
 {% tabs %}
 {% highlight CLI %}
@@ -165,7 +164,10 @@ dotnet run --urls=http://localhost:8080
 Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 ![Verify the application is running properly](GCP_Images/Web-View-WordtoPDF.png)
 
-Step 7: Close the preview page and return to the terminal. Press **Ctrl+C** to shut down the application.
+Step 7: Run **sample** in the browser.
+![Run sample in browser](GCP_Images/Ensure-sample-WordtoPDF.png)
+
+Step 8: Press **Ctrl+C** to close the preview page and return to the terminal.
 
 ## Publishing the Application to GCP
 
@@ -228,9 +230,10 @@ EOT
 
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
 
+Step 5: You can ensure Docker and app.yaml file are added in **Workspace**.
 ![Add required files to publish folder](GCP_Images/Libfontconfig-WordtoPDF.png)
 
-Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.
+Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.Afterwards get **link** from the **Cloud Shell Editor**.
 
 {% tabs %}
 {% highlight CLI %}
@@ -242,7 +245,7 @@ $ gcloud app deploy --version v0
 
 ![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
 
-Step 8: The application is now deployed successfully.
+Step 7: The application is now deployed successfully.
 
 ![Add required files to publish folder](GCP_Images/Browser-WordtoPDF.png)
 
