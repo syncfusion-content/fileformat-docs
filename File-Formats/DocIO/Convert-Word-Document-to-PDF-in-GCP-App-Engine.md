@@ -193,8 +193,6 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-![Navigate to the publish folder](GCP_Images/Navigate_Publish_Folder.png)
-
 Step 3: Add the app.yaml file to the publish folder with the following contents.
 
 {% tabs %}
