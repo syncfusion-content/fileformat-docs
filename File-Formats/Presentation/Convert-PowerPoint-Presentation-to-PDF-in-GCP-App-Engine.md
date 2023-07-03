@@ -15,7 +15,10 @@ Syncfusion PowerPoint is a [.NET Core PowerPoint library]https://www.syncfusion.
 Step 1: Click the **Activate Cloud Shell** button.
 ![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-PowerPoint-Presentation-to-PDF.png)
 
-Step 2: In the **Cloud Shell editor**, run the following **command** to confirm authentication.
+Step 2: Click the **Open editor** button.
+![Authentication for App Engine](GCP_Images/Authentication-PowerPoint-Presentation-to-PDF.png)
+
+Step 3: In the **Cloud Shell editor**, run the following **command** to confirm authentication.
 
 {% tabs %}
 {% highlight CLI %}
@@ -25,13 +28,10 @@ gcloud auth list
 {% endhighlight %}
 {% endtabs %}
 
-![Authentication for App Engine](GCP_Images/Authentication-PowerPoint-Presentation-to-PDF.png)
-
-Step 3: Click the **Authorize** button.
-![Click Authorize button](GCP_Images/Authorize-PowerPoint-Presentation-to-PDF.png)
-
-Step 4: Click the **Open editor** button.
 ![Open Editor in Cloud Shell](GCP_Images/Editor-Button-PowerPoint-Presentation-to-PDF.png)
+
+Step 4: Click the **Authorize** button.
+![Click Authorize button](GCP_Images/Authorize-PowerPoint-Presentation-to-PDF.png)
 
 ## Creating a Sample Application Using Visual Studio
 
@@ -125,19 +125,27 @@ Step 2: Open the **Home Workspace** in the Cloud Shell editor.
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
-Step 3: Open the terminal and run the following **command** to view the files and directories within your **current workspace** or directory.
+Step 3: Open the terminal and run the following **command** to view the files and directories within your **current workspace**.
 
 {% tabs %}
 {% highlight CLI %}
 
 $ ls
-This will show the list of files and folders in workspace. Navigate to which sample you want run.
+
+{% endhighlight %}
+{% endtabs %}
+
+Step 4: Run the following **command** to Navigate which sample you want run.
+
+{% tabs %}
+{% highlight CLI %}
+
 $ cd Convert-PPTX-to-PDF
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Finally, **run the application** using the following command.
+Step 5: Finally, **run the application** using the following command.
 
 {% tabs %}
 {% highlight CLI %}
@@ -149,10 +157,10 @@ dotnet run --urls=http://localhost:8080
 
 ![Run the application using command](GCP_Images/Run-Application-Command-PowerPoint-Presentation-to-PDF.png)
 
-Step 5: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
+Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 ![Verify the application is running properly](GCP_Images/Web-View-PowerPoint-Presentation-to-PDF.png)
 
-Step 6: Close the preview page and return to the terminal. Press **Ctrl+C** to shut down the application.
+Step 7: Close the preview page and return to the terminal. Press **Ctrl+C** to shut down the application.
 
 ## Publishing the Application to GCP
 
