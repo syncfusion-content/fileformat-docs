@@ -18,7 +18,7 @@ Before we begin, make sure you have the following.
 
 * A [Google Cloud Platform (GCP)](https://console.cloud.google.com/getting-started) account with access to the App Engine service.
 
-## Nuget package required
+## Google Cloud Platform (GCP)
 
 <table>
 <thead>
