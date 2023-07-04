@@ -341,7 +341,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Word library now allows you to create or group multiple shapes, pictures, text boxes, and charts as a group shape in Word document (DOCX) and preserve it as in DOCX and WordML format conversions.
 
 You can create a document with group shapes by using Microsoft Word. It provides an option to group a set of shapes and images as a single shape and a group shape as individual item.
-![Create Group shape in Microsoft Word](Working-with-Shapes_images/Working-with-Shapes_img1.jpeg)
+![Create Group shape in  File Formats Microsoft Word](working-with-shapes_images/file-formats-docio-create-group-shape.jpeg)
 
 **Key Features:**
 
