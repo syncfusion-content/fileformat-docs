@@ -440,7 +440,7 @@ For example:
   
 For example, consider that you have a template document as follow.
 
-![Word document template to map the fields of ancestor group](../mailmerge_images/file-formats-word-mail-merge-mapping-template.png)
+![Word document template to map the fields of ancestor group](../mailmerge_images/file-formats-word-mapping-template.png)
 
 In the above template, Organizations is the owner group and it has two child groups Departments and Employees. The Supervisor merge field of Departments group is used in Employees group.
 
@@ -711,7 +711,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates the resultant Word document as follows.
  
-![Output Word document of mapping field of ancestor group](../mailmerge_images/generated-file-formats-word-mapping-document.png)
+![Output Word document of mapping field of ancestor group](../mailmerge_images/generated-mapping-word-document-in-file-formats.png)
 
 ## See Also
 
