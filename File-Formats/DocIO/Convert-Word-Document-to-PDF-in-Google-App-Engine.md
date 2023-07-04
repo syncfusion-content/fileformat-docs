@@ -229,7 +229,7 @@ Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspac
 
 ## Deploy to App Engine
 
-Step 1: To deploy the application to a cloud service, run the following command in Cloud Shell Editor. Then, retrieve the **URL** from the Cloud Shell Editor.
+Step 1: To deploy the application to the App Engine, run the following command in Cloud Shell Terminal. Afterwards, retrieve the **URL** from the Cloud Shell Terminal.
 
 {% tabs %}
 {% highlight CLI %}
