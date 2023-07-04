@@ -20,6 +20,7 @@ There are various types of load and save operations in Syncfusion XlsIO. Please 
 * [UWP](loading-and-saving/loading-and-saving-excel-files-in-uwp-c-sharp)
 * [WinUI](loading-and-saving/loading-and-saving-excel-files-in-winui-c-sharp)
 * [.NET MAUI](loading-and-saving/loading-and-saving-excel-files-in-maui-c-sharp)
+* [Mac](loading-and-saving/loading-and-saving-excel-files-in-mac-c-sharp)
 
 ## Closing a workbook
 
