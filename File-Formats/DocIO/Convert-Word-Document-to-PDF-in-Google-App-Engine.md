@@ -124,7 +124,7 @@ Step 2: Drag and drop the sample from your local machine to **Workspace**.
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
-Step 3: Open the terminal and run the following **command** to view the files and directories within your **current Workspace**.
+Step 3: Open the Cloud Shell Terminal and run the following **command** to view the files and directories within your **current Workspace**.
 
 {% tabs %}
 {% highlight CLI %}
@@ -166,7 +166,7 @@ Step 8: Close the preview page and return to the terminal then press **Ctrl+C** 
 
 ## Publish the application
 
-Step 1: Run the following command in **Cloud Shell** to publish the application.
+Step 1: Run the following command in **Cloud Shell Terminal** to publish the application.
 
 {% tabs %}
 {% highlight CLI %}
@@ -178,7 +178,7 @@ dotnet publish -c Release
 
 ![Publish the application](GCP_Images/Publish_WordtoPDF.png)
 
-Step 2: Run the following command in **Cloud Shell Editor** to navigate to the publish folder.
+Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
 {% tabs %}
 {% highlight CLI %}
 
