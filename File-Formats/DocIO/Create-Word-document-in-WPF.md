@@ -281,3 +281,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **Word document** as follows.
 
 ![WPF output Word document](WPF_images/GettingStartedOutput.jpg)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features.
+
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3)  in ASP.NET Core.

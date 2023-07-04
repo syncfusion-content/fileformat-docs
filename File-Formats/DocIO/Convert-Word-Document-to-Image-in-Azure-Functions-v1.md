@@ -95,6 +95,10 @@ Step 13: Publish has been succeed.
 Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to image conversion** using the template Word document). You will get the output image as follows.
 ![Word to Image in Azure Functions v1](WordToPDF_images/Output-WordtoImage.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to c[onvert Word document to image](https://ej2.syncfusion.com/aspnetcore/Word/WordToImage#/material3) in ASP.NET Core. 
+
 ## Steps to post the request to Azure Functions
 
 Step 1: Create a console application to request the Azure Functions API.

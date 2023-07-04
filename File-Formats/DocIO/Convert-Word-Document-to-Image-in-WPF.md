@@ -87,3 +87,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **image** as follows.
 
 ![Word to Image in WPF](WordToPDF_images/Output-WordtoImage.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to c[onvert Word document to image](https://ej2.syncfusion.com/aspnetcore/Word/WordToImage#/material3) in ASP.NET Core. 

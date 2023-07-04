@@ -104,6 +104,10 @@ Step 13: Now, go to Azure portal and select the App Services. After running the 
 
 ![Word to PDF in Azure Functions v4](WordToPDF_images/WordToPDF_Output_Cloud.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core. 
+
 ## Steps to post the request to Azure Functions
 
 Step 1: Create a console application to request the Azure Functions API.

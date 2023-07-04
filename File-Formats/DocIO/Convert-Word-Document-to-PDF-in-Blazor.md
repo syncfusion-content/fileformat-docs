@@ -183,6 +183,10 @@ By executing the program, you will get the **PDF document** as follows.
 
 ![Word to PDF in Blazor Server app](WordToPDF_images/OutputImage.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://blazor.syncfusion.com/demos/word/word-to-pdf?theme=fluent) in Blazor. 
+
 ## Word to PDF in Blazor WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
@@ -363,3 +367,7 @@ By executing the program, you will get the **PDF document** as follows.
 ![Word to PDF in Blazor WASM app](WordToPDF_images/OutputImage.png)
 
 N> To convert Word to PDF, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to PDF conversion works in a WASM app.
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://blazor.syncfusion.com/demos/word/word-to-pdf?theme=fluent) in Blazor. 

@@ -250,6 +250,10 @@ By executing the program, you will get the **Word document** as follows.
 
 ![Blazor Server app output Word document](Blazor_Images/Blazor_Output.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [create a Word document](https://blazor.syncfusion.com/demos/word/hello-world?theme=fluent) in Blazor. 
+
 ## WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
@@ -452,6 +456,10 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **Word document** as follows.
 
 ![Blazor WASM output Word document](Blazor_Images/Blazor_Output.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [create a Word document](https://blazor.syncfusion.com/demos/word/hello-world?theme=fluent) in Blazor.
 
 N> Even though Word library works in WASM, it is recommended to use server  deployment. Since the WASM deployment increases the application payload size.
 

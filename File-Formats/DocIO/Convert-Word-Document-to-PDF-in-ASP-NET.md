@@ -107,3 +107,7 @@ By executing the program, you will get the **PDF document** as follows.
 
 ![Word to PDF in ASP.NET ](WordToPDF_images/OutputImage.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core. 
+
