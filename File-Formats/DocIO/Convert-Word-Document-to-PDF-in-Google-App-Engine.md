@@ -1,21 +1,21 @@
 ---
-title: Convert Word to PDF in GCP App Engine | Syncfusion
-description: Convert Word to PDF in GCP App Engine using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word to PDF in Google App Engine | Syncfusion
+description: Convert Word to PDF in Google App Engine using .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word to PDF in GCP App Engine
+# Convert Word to PDF in Google App Engine
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in Google Cloud Platform (GCP) App Engine**.
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in Google App Engine**.
 
-## Setting Up App Engine
+## Set up App Engine
 
 Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
 ![Activate Cloud Shell](GCP_Images/Activate-Cloud-Shell-WordtoPDF.png)
 
-Step 2: Click the **Open editor** button to view the **Workspace**.
+Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
 ![Open Editor in Cloud Shell](GCP_Images/Authentication-WordtoPDF.png)
 
 Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
@@ -33,7 +33,7 @@ gcloud auth list
 Step 4: Click the **Authorize** button.
 ![Click Authorize button](GCP_Images/Authorize-WordtoPDF.png)
 
-## Creating a Sample Application using Visual Studio
+## Create an application for App Engine
 
 Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Controller) template.
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
@@ -89,10 +89,8 @@ Html.EndForm();
 {% endtabs %}
 
 Step 8: Add a new action method **ConvertWordtoPDF** in HomeController.cs and include the below code snippet to **convert the Word document to Pdf** and download it.
-
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-
 //Open the file as Stream
 using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
@@ -104,22 +102,19 @@ using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.doc
         {
             //Converts Word document into PDF document
             PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-
             //Saves the PDF document to MemoryStream.
             MemoryStream stream = new MemoryStream();
             pdfDocument.Save(stream);
             stream.Position = 0;
-
             //Download PDF document in the browser.
             return File(stream, "application/pdf", "Sample.pdf");
         }
     }
 }
-
 {% endhighlight %}
 {% endtabs %}
 
-## Deploying the Application to App Engine
+## Move application to App Engine
 
 Step 1: Open the **Cloud Shell editor**.
 ![Cloud Shell Editor](GCP_Images/Cloud-Shell-Editor-WordtoPDF.png)
@@ -129,7 +124,7 @@ Step 2: Drag and drop the sample from your local machine to **Workspace**.
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
-Step 3: Open the terminal and run the following **command** to view the files and directories within your **current Workspace**.
+Step 3: Open the Cloud Shell Terminal and run the following **command** to view the files and directories within your **current Workspace**.
 
 {% tabs %}
 {% highlight CLI %}
@@ -139,7 +134,7 @@ $ ls
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Run the following **command** to Navigate which sample you want run.
+Step 4: Run the following **command** to navigate which sample you want run.
 
 {% tabs %}
 {% highlight CLI %}
@@ -149,7 +144,7 @@ $ cd Convert-Word-Document-to-PDF
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: To ensure the sample working is fine, **run the application** using the following command.
+Step 5: To ensure that the sample is working correctly, please run the application using the following command.
 
 {% tabs %}
 {% highlight CLI %}
@@ -164,14 +159,14 @@ dotnet run --urls=http://localhost:8080
 Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 ![Verify the application is running properly](GCP_Images/Web-View-WordtoPDF.png)
 
-Step 7: Run **sample** in the browser.
-![Run sample in browser](GCP_Images/Ensure-sample-WordtoPDF.png)
+Step 7: Now you can see the sample output on the preview page.
+![Sample output in browser](GCP_Images/Ensure-sample-WordtoPDF.png)
 
-Step 8: Press **Ctrl+C** to close the preview page and return to the terminal.
+Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
 
-## Publishing the Application to GCP
+## Publish the application
 
-Step 1: Run the following command in Cloud Shell to publish the application.
+Step 1: Run the following command in **Cloud Shell Terminal** to publish the application.
 
 {% tabs %}
 {% highlight CLI %}
@@ -183,8 +178,7 @@ dotnet publish -c Release
 
 ![Publish the application](GCP_Images/Publish_WordtoPDF.png)
 
-Step 2: Run the following command in Cloud Shell to Navigate to the publish folder.
-
+Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
 {% tabs %}
 {% highlight CLI %}
 
@@ -193,7 +187,9 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-Step 3: Add the app.yaml file to the publish folder with the following contents.
+## Configure app.yaml and docker file
+
+Step 1: Add the app.yaml file to the publish folder with the following contents.
 
 {% tabs %}
 {% highlight CLI %}
@@ -208,7 +204,7 @@ EOT
 
 ![Add required files to publish folder](GCP_Images/Docker-File-WordtoPDF.png)
 
-Step 4: Add the Docker file to the publish folder with the following contents.
+Step 2: Add the Docker file to the publish folder with the following contents.
 
 {% tabs %}
 {% highlight CLI %}
@@ -228,10 +224,12 @@ EOT
 
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
 
-Step 5: You can ensure Docker and app.yaml file are added in **Workspace**.
+Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspace**.
 ![Add required files to publish folder](GCP_Images/Libfontconfig-WordtoPDF.png)
 
-Step 6: Run the following command in Cloud Shell to Deploy the application to cloud service.Afterwards get **link** from the **Cloud Shell Editor**.
+## Deploy to App Engine
+
+Step 1: To deploy the application to the App Engine, run the following command in Cloud Shell Terminal. Afterwards, retrieve the **URL** from the Cloud Shell Terminal.
 
 {% tabs %}
 {% highlight CLI %}
@@ -243,12 +241,11 @@ $ gcloud app deploy --version v0
 
 ![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
 
-Step 7: The application is now deployed successfully.
-
+Step 2: Open the **URL** to access the application, which has been successfully deployed.
 ![Add required files to publish folder](GCP_Images/Browser-WordtoPDF.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/GCP/Google-App-Engine).
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in bin folder.
 
-![Word to PDF in GCP App Engine](WordToPDF_images/OutputImage.png)
+![Word to PDF in Google App Engine](WordToPDF_images/OutputImage.png)
