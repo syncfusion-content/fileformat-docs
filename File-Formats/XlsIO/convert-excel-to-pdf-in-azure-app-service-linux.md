@@ -55,24 +55,23 @@ using Syncfusion.Pdf;
 {% endtabs %}
 
 Step 7: Include the below code snippet in **HomeController.cs** to **convert an Excel document to PDF**. 
-
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-   IApplication application = excelEngine.Excel;
-   application.DefaultVersion = ExcelVersion.Xlsx;
-   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-   IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-   //Initialize XlsIO renderer.
-   XlsIORenderer renderer = new XlsIORenderer();
+  //Initialize XlsIO renderer.
+  XlsIORenderer renderer = new XlsIORenderer();
 
-   //Convert Excel document into PDF document 
-   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+  //Convert Excel document into PDF document 
+  PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-   //Create the MemoryStream to save the converted PDF.      
-   MemoryStream pdfStream = new MemoryStream();
+  //Create the MemoryStream to save the converted PDF.      
+  MemoryStream pdfStream = new MemoryStream();
 
   //Save the converted PDF document to MemoryStream.
   pdfDocument.Save(pdfStream);
