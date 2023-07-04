@@ -22,8 +22,8 @@ Step 2: Install the below NuGet packages as a reference to your project from [Nu
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
 
-![Install DocIORenderer NuGet package](linuxdockerimages/install-renderer-nuget-in-file-formats-word.png)
-![Install Skiasharp NuGet package](linuxdockerimages/install-skiasharp-nuget-in-file-formats-word.png)
+![Install DocIO Renderer NuGet package](linuxdockerimages/install-renderer-nuget-in-file-formats-word.png)
+![Install Skiasharp NuGet package](linuxdockerimages/install-skia-sharp-nuget-in-file-formats-word.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -109,7 +109,7 @@ A complete working example of converting Word document to PDF in Linux Docker co
 
 Finally, you will get the converted PDF document as follows.
 
-![Output PDF document](linuxdockerimages/application-output-in-file-formats-word.png)
+![Output PDF document](linuxdockerimages/pdf-output-document-in-file-formats-word.png)
 
 
 ## Dockerfile Examples
