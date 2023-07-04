@@ -389,6 +389,6 @@ By executing the program, you will get the **Word document** as follows.
 
 N> Even though Word library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size.
 
-Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features.
-
 Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features.

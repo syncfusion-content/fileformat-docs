@@ -102,11 +102,7 @@ Step 12: Publish has been succeed.
 
 Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Word to PDF conversion** using the template Word document). You will get the output PDF document as follows.
 
-![Word to PDF in Azure Functions v4](WordToPDF_images/WordToPDF_Output_Cloud.png)
-
-Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
-
-An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core. 
+![Word to PDF in Azure Functions v4](WordToPDF_images/WordToPDF_Output_Cloud.png) 
 
 ## Steps to post the request to Azure Functions
 
@@ -154,4 +150,8 @@ catch (Exception ex)
 {% endtabs %}
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Console_Application) and [Azure Functions v4](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_Functions/Azure_Functions_v4).
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core.
 

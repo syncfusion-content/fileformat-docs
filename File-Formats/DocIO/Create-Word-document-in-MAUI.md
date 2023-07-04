@@ -307,10 +307,6 @@ By executing the program, you will get the **Word document** as follows.
 
 ![MAUI output Word document](MAUI_Images/GettingStartedOutput.jpg)
 
-Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
-
-An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.
-
 ## Helper files for .NET MAUI
 
 Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO-2028573617.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
@@ -388,4 +384,6 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
 </table>
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.
