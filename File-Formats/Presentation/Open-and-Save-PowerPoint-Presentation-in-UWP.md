@@ -106,3 +106,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![UWP output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/uwp) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 

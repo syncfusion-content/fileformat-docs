@@ -116,6 +116,8 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ![WinUI Desktop app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
 
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
 ## WinUI UWP app
 
 ### Steps to open and save PowerPoint Presentation programmatically
@@ -261,3 +263,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![WinUI UWP app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.

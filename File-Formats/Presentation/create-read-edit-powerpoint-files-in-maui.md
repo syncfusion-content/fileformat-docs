@@ -239,3 +239,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </td>
   </tr>
 </table>
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/maui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 

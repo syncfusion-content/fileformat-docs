@@ -189,3 +189,5 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ![Xamarin output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)      
 
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
