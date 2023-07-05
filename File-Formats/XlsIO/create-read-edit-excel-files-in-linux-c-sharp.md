@@ -1,41 +1,41 @@
 ---
-title: Create, read, and edit Excel files on Mac OS | Syncfusion
-description: Explains how to create, read, and edit Excel files in .NET Core application on Mac OS using Syncfusion .NET Core Excel library (XlsIO) without Microsoft Office
+title: Create, read, and edit Excel files on Linux | Syncfusion
+description: Create, read, and edit Excel files in .NET Core application on Linux using Syncfusion .NET Core Excel library (XlsIO) without Microsoft Office
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# Create, read, and edit Excel files on Mac OS
+# Create, read, and edit Excel files on Linux
 
 [Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
-The below steps illustrates creating a simple Invoice formatted Excel document on Mac OS.
+The below steps illustrates creating a simple Invoice formatted Excel document on Linux.
 
-Step 1: Create a new C# .NET Core console application.
-<img src="Mac_images/MAC_images_img1.png" alt="Create .NET Core console project" width="100%" Height="Auto"/>
-
-Step 2: Select the framework version.
-<img src="Mac_images/MAC_images_img2.png" alt="Select framework version" width="100%" Height="Auto"/>
-
-Step 3: Name the application.
-![Name the application](Mac_images/Mac_images_img3.png)
-<img src="Mac_images/MAC_images_img3.png" alt="Name the application" width="100%" Height="Auto"/>
-
-Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/) NuGet package as reference to your application from [NuGet.org](https://www.nuget.org/).
-<img src="Mac_images/MAC_images_img4.png" alt="Install XlsIO .Net Core Nuget" width="100%" Height="Auto"/>
-
-Step 5: Include the following Namespaces in the Program.cs file.
+Step 1: Execute the following command in Linux terminal to create a new .NET Core Console application.
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
-using Syncfusion.XlsIO;
-using System.Drawing;
-using System.Reflection;
+{% highlight KCONFIG %}
+dotnet new console
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add the following code snippet in Program.cs file.
+Step 2: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+{% tabs %}
+{% highlight KCONFIG %}
+dotnet add package Syncfusion.XlsIO.Net.Core -v 22.1.34 -s https://www.nuget.org/
+{% endhighlight %}
+{% endtabs %}
+
+Step 3: Add the following namespaces in Program.cs file.
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+using Syncfusion.XlsIO;
+using System.IO;
+{% endhighlight %}
+{% endtabs %}
+
+Step 4: Add the following code snippet in Program.cs file.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Create an instance of ExcelEngine.
@@ -48,12 +48,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
 
   //Access first worksheet from the workbook instance.
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  Assembly executingAssembly = typeof(Program).GetTypeInfo().Assembly;
-  Stream imageStream = executingAssembly.GetManifestResourceStream("XlsIOSample.AdventureCycles-Logo.png");
+  IWorksheet worksheet = workbook.Worksheets[0];  
 
   //Add a picture
+  FileStream imageStream = new FileStream("AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read);
   IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream, 20, 20);
 
   //Disable gridlines in the worksheet
@@ -221,12 +219,24 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the Excel file as below.
-<img src="Mac_images/MAC_images_img5.png" alt=".Net Core console Output" width="100%" Height="Auto"/>
+Step 5: Execute the following command to restore the NuGet packages.
+
+{% tabs %}
+{% highlight KCONFIG %}
+dotnet restore
+{% endhighlight %}
+{% endtabs %}
+
+Step 6: Execute the following command in terminal to run the application.
+{% tabs %}
+{% highlight KCONFIG %}
+dotnet run
+{% endhighlight %}
+{% endtabs %}
 
 ## Read and Edit Excel file
 
-The below code snippet illustrates how to read and edit an Excel file on Mac OS.
+The below code snippet illustrates how to read and edit an Excel file on Linux.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -242,8 +252,7 @@ IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Xlsx;
 
 //A existing workbook is opened.             
-Assembly executingAssembly = typeof(Program).GetTypeInfo().Assembly;
-Stream inputStream = executingAssembly.GetManifestResourceStream("XlsIOSample.Sample.xlsx");
+FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
 //Access first worksheet from the workbook.

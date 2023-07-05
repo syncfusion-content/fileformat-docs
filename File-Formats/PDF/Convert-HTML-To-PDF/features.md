@@ -1484,3 +1484,54 @@ document.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set-temporary-path-while-converting-HTML-to-PDF).
+
+## Blink path 
+When converting HTML to a PDF document, the default reference to the blink binaries path eliminates the need for manual addition. Nonetheless, if you prefer to manually add the blink binaries path or reference it from a custom location, simply set the path of the BlinkBinaries folder to the [BlinkPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_BlinkPath) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html).
+
+N> * The BlinkBinaries will be available in the HTMLConverter installed location ($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)
+N> * The BlinkBinaries also available in NuGet package installed location if you are using Blink HTML converter from NuGet packages. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink binaries path.
+blinkConverterSettings.BlinkPath = @"C:/HtmlConversion/BlinkBinaries/";
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Create file stream to save the PDF document. 
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set Blink binaries path.
+blinkConverterSettings.BlinkPath = "C:/HtmlConversion/BlinkBinaries/"
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
