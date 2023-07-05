@@ -25,26 +25,9 @@ Step 2: In configuration windows, name your project and click Next.
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/azure_step4.png" alt="Convert OCR Azure NetCore Step4" width="100%" Height="Auto"/> 
 
-Step 4: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the assemblies location is passed as a parameter to the OCR processor.
+N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-
-{% endhighlight %}
-
-Step 5: Place the Tesseract language data {e.g, eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-processor.PerformOCR(lDoc, "tessdata/");
-
-{% endhighlight %}
-
-Step 6: Add a new button in index.cshtml as follows.
+Step 4: Add a new button in index.cshtml as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -61,7 +44,7 @@ Step 6: Add a new button in index.cshtml as follows.
 
 {% endhighlight %}
 
-Step 7: Include the following namespaces in the HomeController.cs file.
+Step 5: Include the following namespaces in the HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -71,20 +54,20 @@ using Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 {% endhighlight %}
 
-Step 8: Add the code samples for performing OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
+Step 6: Add the code samples for performing OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
 
 {% highlight c# tabtitle="C#" %}
 
 public IActionResult PerformOCR()
 {
-    //Initialize the OCR processor with tesseract binaries folder path.
-    OCRProcessor processor = new OCRProcessor("Tesseractbinaries/Windows/");
+    //Initialize the OCR processor.
+    OCRProcessor processor = new OCRProcessor();
     //Load a PDF document.
     PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
     //Set OCR language to process.
     processor.Settings.Language = Languages.English;
-    //Perform OCR with input document and tessdata (Language packs).
-    string ocr = processor.PerformOCR(lDoc, "Tessdata/");
+    //Perform OCR with input document.
+    string ocr = processor.PerformOCR(lDoc);
     //Save the document. 
     MemoryStream stream = new MemoryStream();
     lDoc.Save(stream);
@@ -93,7 +76,7 @@ public IActionResult PerformOCR()
 
 {% endhighlight %}
 
-Step 9: Now, check the OCR creation in the local machine.
+Step 7: Now, check the OCR creation in the local machine.
 
 ### Steps to publish as Azure App Service
 
@@ -133,26 +116,7 @@ Step 2: Select the framework to Azure Functions and select HTTP triggers as foll
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/AzureFunctions4.png" alt="Convert OCR Azure Functions Step4" width="100%" Height="Auto"/> 
 
-Step 4: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the assemblies location is passed as a parameter to the OCR processor.
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-
-{% endhighlight %}
-
-Step 5: Place the Tesseract language data {E.g, eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-processor.PerformOCR(lDoc, "tessdata/");
-
-{% endhighlight %}
-
-Step 6: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
+Step 4: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -172,7 +136,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 
 {% endhighlight %}
 
-Step 7: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
+Step 5: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -182,15 +146,14 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     MemoryStream ms = new MemoryStream();
     try
     {
-        string path = Path.GetFullPath(Path.Combine(executionContext.FunctionAppDirectory, "bin\\Tesseractbinaries\\Windows"));
-        OCRProcessor processor = new OCRProcessor(path);
+        OCRProcessor processor = new OCRProcessor();
         FileStream stream = new FileStream(Path.Combine(executionContext.FunctionAppDirectory, "Data", "Input.pdf"), FileMode.Open);
         //Load a PDF document.
         PdfLoadedDocument lDoc = new PdfLoadedDocument(stream);
         //Set OCR language to process.
         processor.Settings.Language = Languages.English;
-        //Perform OCR with input document and tessdata (Language packs).
-        string ocr = processor.PerformOCR(lDoc, Path.Combine(executionContext.FunctionAppDirectory, "tessdata"));            
+        //Perform OCR with input document.
+        string ocr = processor.PerformOCR(lDoc);            
         //Save the PDF document.  
         lDoc.Save(ms);
         ms.Position = 0;
@@ -222,7 +185,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 
 {% endhighlight %}
 
-Step 8: Now, check the OCR creation in the local machine.
+Step 6: Now, check the OCR creation in the local machine.
 
 ### Steps to publish as Azure Functions 
 

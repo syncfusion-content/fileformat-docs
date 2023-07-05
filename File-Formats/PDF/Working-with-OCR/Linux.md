@@ -21,7 +21,6 @@ The following Linux dependencies should be installed where the conversion takes 
 
 {% endhighlight %}
 
-
 ## Steps to convert HTML to PDF in .NET Core application on Linux
 
 Step 1: Execute the following command in the Linux terminal to create a new .NET Core Console application.
@@ -32,7 +31,7 @@ dotnet new console
 
 {% endhighlight %}
 
- <img src="OCR-Images/LinuxStep1.png" alt="OCR Linux Step1" width="100%" Height="Auto"/>
+<img src="OCR-Images/LinuxStep1.png" alt="OCR Linux Step1" width="100%" Height="Auto"/>
 
 Step 2: Install the [Syncfusion.PDF.OCR.Net](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 
@@ -44,26 +43,7 @@ dotnet add package Syncfusion.PDF.OCR.Net -v xx.x.x.xx -s https://www.nuget.org/
 
 <img src="OCR-Images/LinuxStep2.png" alt="OCR Linux Step2" width="100%" Height="Auto"/>
 
-Step 3: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
-
-{% endhighlight %}
-
-Step 4: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
-processor.PerformOCR(loadedDocument, "tessdata/");
-
-{% endhighlight %}
-
-Step 5: Include the following namespaces in Program.cs file.
+Step 3: Include the following namespaces in Program.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -73,15 +53,16 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 6: Add code sample to perform OCR on entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
+N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+
+Step 4: Add code sample to perform OCR on entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
 
 {% highlight c# tabtitle="C#" %}
  
-string path = ("Tesseractbinaries/Linux/");
 string docPath = ("input.pdf");
 
 //Initialize the OCR processor
-using (OCRProcessor processor = new OCRProcessor(path))
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load the PDF document 
     FileStream stream = new FileStream(docPath, FileMode.Open, FileAccess.Read);
@@ -90,7 +71,7 @@ using (OCRProcessor processor = new OCRProcessor(path))
     //Language to process the OCR
     processor.Settings.Language = Languages.English;
     //Process OCR by providing loaded PDF document, Data dictionary and language
-    processor.PerformOCR(lDoc, ("tessdata/"));
+    processor.PerformOCR(lDoc);
 
     //Save the OCR processed PDF document in the disk
     MemoryStream streamData = new MemoryStream();
@@ -101,7 +82,7 @@ using (OCRProcessor processor = new OCRProcessor(path))
 
 {% endhighlight %}
 
-Step 7: Execute the following command to restore the NuGet packages.
+Step 5: Execute the following command to restore the NuGet packages.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -111,7 +92,7 @@ dotnet restore
 
 <img src="OCR-Images/LinuxStep3.png" alt="OCR Linux Step3" width="100%" Height="Auto"/>
 
-Step 8:  Execute the following command in the terminal to build the application.
+Step 6:  Execute the following command in the terminal to build the application.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -121,7 +102,7 @@ dotnet build
 
 <img src="OCR-Images/LinuxStep4.png" alt="OCR Linux Step4" width="100%" Height="Auto"/>
 
-Step 9: Execute the following command in the terminal to run the application.
+Step 7: Execute the following command in the terminal to run the application.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -133,6 +114,5 @@ dotnet run
 
 By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
 <img src="OCR-Images/OCR-output-image.png" alt="OCR Linux Output" width="100%" Height="Auto"/>
-
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Linux).
