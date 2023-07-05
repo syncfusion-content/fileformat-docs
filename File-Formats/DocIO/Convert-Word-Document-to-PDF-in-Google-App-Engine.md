@@ -20,13 +20,11 @@ Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
 
 Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 gcloud auth list
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Authentication for App Engine](GCP_Images/Editor-Button-WordtoPDF.png)
 
@@ -126,33 +124,27 @@ N> If you have your sample application in your local machine, drag and drop it i
 
 Step 3: Open the Cloud Shell Terminal and run the following **command** to view the files and directories within your **current Workspace**.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 $ ls
 
 {% endhighlight %}
-{% endtabs %}
 
 Step 4: Run the following **command** to navigate which sample you want run.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 $ cd Convert-Word-Document-to-PDF
 
 {% endhighlight %}
-{% endtabs %}
 
 Step 5: To ensure that the sample is working correctly, please run the application using the following command.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 dotnet run --urls=http://localhost:8080
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Run the application using command](GCP_Images/Run-Application-Command-WordtoPDF.png)
 
@@ -168,31 +160,27 @@ Step 8: Close the preview page and return to the terminal then press **Ctrl+C** 
 
 Step 1: Run the following command in **Cloud Shell Terminal** to publish the application.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 dotnet publish -c Release
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Publish the application](GCP_Images/Publish_WordtoPDF.png)
 
 Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
-{% tabs %}
-{% highlight CLI %}
+
+{% highlight c# tabtitle="C#" %}
 
 cd bin/Release/net6.0/publish/
 
 {% endhighlight %}
-{% endtabs %}
 
 ## Configure app.yaml and docker file
 
 Step 1: Add the app.yaml file to the publish folder with the following contents.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 $ cat <<EOT >> app.yaml
 env: flex
@@ -200,14 +188,12 @@ runtime: custom
 EOT
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Add required files to publish folder](GCP_Images/Docker-File-WordtoPDF.png)
 
 Step 2: Add the Docker file to the publish folder with the following contents.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 $ cat <<EOT >> Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
@@ -220,7 +206,6 @@ ENTRYPOINT [ "dotnet", "Convert-Word-document-to-PDF.dll"]
 EOT
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Add required files to publish folder](GCP_Images/Deploy-to-Cloud-WordtoPDF.png)
 
@@ -231,13 +216,11 @@ Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspac
 
 Step 1: To deploy the application to the App Engine, run the following command in Cloud Shell Terminal. Afterwards, retrieve the **URL** from the Cloud Shell Terminal.
 
-{% tabs %}
-{% highlight CLI %}
+{% highlight c# tabtitle="C#" %}
 
 $ gcloud app deploy --version v0
 
 {% endhighlight %}
-{% endtabs %}
 
 ![Add required files to publish folder](GCP_Images/Deploy-WordtoPDF.png)
 
