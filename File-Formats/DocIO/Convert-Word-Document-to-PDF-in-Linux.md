@@ -110,9 +110,8 @@ dotnet run
 
 ![Run the Applcation](Linux-images/Run.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Linux).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Linux/Convert-Word-Document-to-PDF).
 
 By executing the program, you will get the **PDF** as follows. The output will be saved in parallel to program.cs file.
 
 ![Word to PDF in Linux](WordToPDF_images/OutputImage.png)
-

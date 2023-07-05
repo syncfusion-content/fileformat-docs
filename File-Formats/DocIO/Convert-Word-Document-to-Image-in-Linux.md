@@ -108,7 +108,7 @@ dotnet run
 
 ![Run the Applcation](Linux-images/Run.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Linux).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/Linux/Convert-Word-Document-to-Image).
 
 By executing the program, you will get the **image** as follows. The output will be saved in parallel to program.cs file.
 
