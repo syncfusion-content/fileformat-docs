@@ -72,7 +72,7 @@ using (FileStream docStream = new FileStream("Data/Input.docx", FileMode.Open, F
             Stream imageStream = wordDocument.RenderAsImages(0, ExportImageFormat.Jpeg);
             //Reset the stream position.
             imageStream.Position = 0;
-            //Save the stream as file.
+            //Create FileStream to save the image file.
             using (FileStream fileStreamOutput = new FileStream("WordToImage.Jpeg", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
             {
                 imageStream.CopyTo(fileStreamOutput);
