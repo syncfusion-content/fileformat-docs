@@ -44,5 +44,6 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web Forms, ASP.NET M
 * Microsoft Excel 2013
 * Microsoft Excel 2016
 * Microsoft Excel 2019
+* Microsoft 365
 
 N> You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
