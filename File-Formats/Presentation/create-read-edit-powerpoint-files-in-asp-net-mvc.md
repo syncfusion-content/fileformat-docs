@@ -24,6 +24,8 @@ Step 3: Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/
 
 ![Install ASP.NET MVC Nuget](Workingwith_MVC/Install_Nuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: After installing the **Syncfusion.Presentation.AspNet.Mvc5** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
@@ -164,8 +166,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net MVC Output](Workingwith_MVC/GettingStartedSample.png)
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Read and edit a PowerPoint file in ASP.NET MVC
 

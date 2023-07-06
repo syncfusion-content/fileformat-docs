@@ -24,6 +24,8 @@ Step 3: Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packa
 
 ![Install Presentation Web Nuget](Workingwith_Web/InstallNuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: After installing the **Syncfusion.Presentation.AspNet** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
@@ -162,8 +164,6 @@ A sample of how to create a PowerPoint presentation file in ASP.NET platform can
 The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net Web Output](Workingwith_Web/GettingStartedSample.png)
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Read and edit a PowerPoint file in ASP.NET
 
