@@ -23,26 +23,9 @@ Step 2: In the project configuration window, name your project and click Create.
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/blazor_step_nuget.png" alt="blazor_step_nuget" width="100%" Height="Auto"/>
 
-Step 4: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the assemblies location is passed as a parameter to the OCR processor.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-
-{% endhighlight %}
-
-Step 5: Place the Tesseract language data {e.g, eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/Windows");
-processor.PerformOCR(lDoc, "tessdata/");
-
-{% endhighlight %}
-
-Step 6: Create a new class file named ExportService under the Data folder and include the following namespaces in the file.
+Step 4: Create a new class file named *ExportService* under the Data folder and include the following namespaces in the file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -52,13 +35,13 @@ using System.IO;
 
 {% endhighlight %}
 
-Step 7: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in the **ExportService** file.  
+Step 5: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in the **ExportService** file.  
 
 {% highlight c# tabtitle="C#" %}
 
 public MemoryStream CreatePdf()
 {   
-    //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll).
+    //Initialize the OCR processor.
     using (OCRProcessor processor = new OCRProcessor("Tesseractbinaries/Windows"))
     {
         FileStream fileStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -66,7 +49,7 @@ public MemoryStream CreatePdf()
         PdfLoadedDocument lDoc = new PdfLoadedDocument(fileStream);
         //Set OCR language to process.
         processor.Settings.Language = Languages.English;
-        //Process OCR by providing the PDF document and Tesseract data.
+        //Process OCR by providing the PDF document.
         processor.PerformOCR(lDoc, "tessdata/");
         //Create memory stream.
         MemoryStream stream = new MemoryStream();
@@ -78,7 +61,7 @@ public MemoryStream CreatePdf()
 
 {% endhighlight %}
 
-Step 8: Register your service in the ConfigureServices method available in the *Startup.cs* class as follows.
+Step 6: Register your service in the ConfigureServices method available in the *Startup.cs* class as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -92,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 
 {% endhighlight %}
 
-Step 9: Inject ExportService into *FetchData.razor* using the following code.
+Step 7: Inject ExportService into *FetchData.razor* using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -102,7 +85,7 @@ Step 9: Inject ExportService into *FetchData.razor* using the following code.
 
 {% endhighlight %}
 
-Step 10: Create a button in the *FetchData.razor* using the following code.
+Step 8: Create a button in the *FetchData.razor* using the following code.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -110,7 +93,7 @@ Step 10: Create a button in the *FetchData.razor* using the following code.
 
 {% endhighlight %}
 
-Step 11: Add the PerformOCR method in *FetchData.razor* page to call the export service.
+Step 9: Add the PerformOCR method in *FetchData.razor* page to call the export service.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -128,7 +111,7 @@ Step 11: Add the PerformOCR method in *FetchData.razor* page to call the export 
 
 {% endhighlight %}
 
-Step 12: Create a class file with the FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 10: Create a class file with the FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -143,7 +126,7 @@ public static class FileUtil
 
 {% endhighlight %}
 
-Step 13: Add the following JavaScript function in the *_Host.cshtml* available under the Pages folder.
+Step 11: Add the following JavaScript function in the *_Host.cshtml* available under the Pages folder.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -179,4 +162,3 @@ Click the button and get a PDF document with the following output.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Blazor output" width="100%" Height="Auto"/>
     
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Blazor).
-    
