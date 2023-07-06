@@ -1214,4 +1214,57 @@ processor.Settings.Performance = Performance.Fast
 ## TesseractBinaries Paths and Tesseract Language Data
 
 Starting with v21.1.x, TesseractBinaries, and Tesseract language data folder paths are added by default. So, there is no need to provide these paths explicitly. However, you can refer to TesseractBinaries and Tessdata paths manually in your application as per the requirement.
-You can get the TessseractBinaries or TessData files from the NuGet package runtimes folder or bin folder of the application.
+
+N> You can get the TessseractBinaries or TessData files from the NuGet package runtimes folder or bin folder of the application.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the OCR processor by providing the path of the tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+{
+    //Load an existing PDF document.
+    FileStream stream = new FileStream("Input.pdf", FileMode.Open);
+    PdfLoadedDocument document = new PdfLoadedDocument(stream);
+    //Set OCR language to process.
+    processor.Settings.Language = Languages.English;
+    //Perform OCR with input document and tessdata (Language packs).
+    processor.PerformOCR(document, @"TessData\");
+    
+    //Create file stream.
+    using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
+    {
+        //Save the PDF document to file stream.
+        document.Save(outputFileStream);
+    }
+    //Close the document.
+    document.Close(true);
+}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize the OCR processor 
+Using processor As OCRProcessor = New OCRProcessor("TesseractBinaries\")
+    'Load an existing PDF document.
+    Dim stream As FileStream = New FileStream("Input.pdf", FileMode.Open)
+    Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream)
+    'Set OCR language to process.
+    processor.Settings.Language = Languages.English
+    'Perform OCR with input document and tessdata (Language packs).
+    processor.PerformOCR(document, "TessData\")
+
+    'Create file stream.
+    Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
+        'Save the PDF document to file stream.
+        document.Save(outputFileStream)
+    End Using
+    'Close the document.
+    document.Close(True)
+End Using
+
+{% endhighlight %}
+
+{% endtabs %}  

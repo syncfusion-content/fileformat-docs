@@ -222,3 +222,5 @@ Compile and execute the application. Now this application **opens and saves a Wo
 By executing the program, you will get the **Word document** as follows.
 
 ![Xamarin open and save output Word document](Xamarin_images/OpenAndSaveOutput.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/xamarin) to explore the rich set of Syncfusion Word library (DocIO) features. 

@@ -20,6 +20,8 @@ Step 2: Install the [Syncfusion.Presentation.WinForms](https://www.nuget.org/pac
 
 ![Install Presentation Winforms Nuget](Workingwith_Windows/Install_Nuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: After installing the **Syncfusion.Presentation.WinForms** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
@@ -159,8 +161,6 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![Windows Forms Output](Workingwith_Windows/GettingStartedSample.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
-
 ## Read and edit a PowerPoint file in Windows Forms
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
@@ -184,4 +184,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 
 

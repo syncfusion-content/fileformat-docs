@@ -145,3 +145,7 @@ By executing the program, you will get the **image** as follows.
 ![Word to Image in UWP](WordToPDF_images/Output-WordtoImage.png)
 
 N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-uwp-support-for-net-standard-2-0/), the minimum version of UWP project must be Fall Creators Update (FCU).
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/uwp) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to image](https://ej2.syncfusion.com/aspnetcore/Word/WordToImage#/material3) in ASP.NET Core. 
