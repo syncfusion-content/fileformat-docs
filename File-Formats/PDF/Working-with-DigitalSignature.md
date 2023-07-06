@@ -3696,3 +3696,296 @@ loadedDocument.Close(true);
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Multiple-digital-signature/).
+
+## Retrieve revocation certificate information from digital signature
+
+The following code example illustrates how to retrieve revocation certificate information from digital signature using [PdfSignerCertificate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignerCertificate.html). 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing signed PDF document.
+FileStream fileStreamInput = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileStreamInput);
+
+//Get signature field.
+PdfLoadedSignatureField loadedSignatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//X509Certificate2Collection to check the signer's identity using root certificates.
+X509CertificateCollection collection = new X509CertificateCollection();
+//Create new X509Certificate2 with the root certificate.
+X509Certificate2 certificate = new X509Certificate2(@"Root.cer");
+//Add the certificate to the collection.
+collection.Add(certificate);
+//Create new X509Certificate2 with the intermediate certificate.
+certificate = new X509Certificate2(@"Intermediate.cer");
+//Add the certificate to the collection.
+collection.Add(certificate);
+
+//Validate signature and get the validation result.
+PdfSignatureValidationResult result = loadedSignatureField.ValidateSignature(collection);
+
+foreach (PdfSignerCertificate signerCertificate in result.SignerCertificates)
+{
+    if (signerCertificate.OcspCertificate != null)
+    {
+        foreach (X509Certificate2 item in signerCertificate.OcspCertificate.Certificates)
+        {
+            string subjectName = "The OCSP Response was signed by " + item.SubjectName.Name;
+        }
+        bool isEmbbed = signerCertificate.OcspCertificate.IsEmbedded;
+        DateTime validForm = signerCertificate.OcspCertificate.ValidFrom;
+        DateTime validTo = signerCertificate.OcspCertificate.ValidTo;
+
+    }
+    if (signerCertificate.CrlCertificate != null)
+    {
+        foreach (X509Certificate2 item in signerCertificate.CrlCertificate.Certificates)
+        {
+            string subjectName = "The CRL was signed by " + item.SubjectName.Name;
+        }
+        bool isEmbbed = signerCertificate.CrlCertificate.IsEmbedded;
+        DateTime validForm = signerCertificate.CrlCertificate.ValidFrom;
+        DateTime validTo = signerCertificate.CrlCertificate.ValidTo;
+    }
+}
+
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing signed PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get signature field.
+PdfLoadedSignatureField loadedSignatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+//X509Certificate2Collection to check the signer's identity using root certificates.
+X509CertificateCollection collection = new X509CertificateCollection();
+//Create new X509Certificate2 with the root certificate.
+X509Certificate2 certificate = new X509Certificate2(@"Root.cer");
+//Add the certificate to the collection.
+collection.Add(certificate);
+//Create new X509Certificate2 with the intermediate certificate.
+certificate = new X509Certificate2(@"Intermediate.cer");
+//Add the certificate to the collection.
+collection.Add(certificate);
+
+//Validate signature and get the validation result.
+PdfSignatureValidationResult result = loadedSignatureField.ValidateSignature(collection);
+
+foreach (PdfSignerCertificate signerCertificate in result.SignerCertificates)
+{
+    if (signerCertificate.OcspCertificate != null)
+    {
+        foreach (X509Certificate2 item in signerCertificate.OcspCertificate.Certificates)
+        {
+            string subjectName = "The OCSP Response was signed by " + item.SubjectName.Name;
+        }
+        bool isEmbbed = signerCertificate.OcspCertificate.IsEmbedded;
+        DateTime validForm = signerCertificate.OcspCertificate.ValidFrom;
+        DateTime validTo = signerCertificate.OcspCertificate.ValidTo;
+
+    }
+    if (signerCertificate.CrlCertificate != null)
+    {
+        foreach (X509Certificate2 item in signerCertificate.CrlCertificate.Certificates)
+        {
+            string subjectName = "The CRL was signed by " + item.SubjectName.Name;
+        }
+        bool isEmbbed = signerCertificate.CrlCertificate.IsEmbedded;
+        DateTime validForm = signerCertificate.CrlCertificate.ValidFrom;
+        DateTime validTo = signerCertificate.CrlCertificate.ValidTo;
+    }
+}
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing signed PDF document.
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get signature field.
+Dim loadedSignatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+'X509Certificate2Collection to check the signer's identity using root certificates.
+Dim collection As X509CertificateCollection = New X509CertificateCollection()
+'Create new X509Certificate2 with the root certificate.
+Dim certificate As X509Certificate2 = New X509Certificate2("Root.cer")
+'Add the certificate to the collection.
+collection.Add(certificate)
+'Create new X509Certificate2 with the intermediate certificate.
+certificate = New X509Certificate2("Intermediate.cer")
+'Add the certificate to the collection.
+collection.Add(certificate)
+
+'Validate signature and get the validation result.
+Dim result As PdfSignatureValidationResult = loadedSignatureField.ValidateSignature(collection)
+
+For Each signerCertificate As PdfSignerCertificate In result.SignerCertificates
+
+    If signerCertificate.OcspCertificate IsNot Nothing Then
+
+        For Each item As X509Certificate2 In signerCertificate.OcspCertificate.Certificates
+            Dim subjectName As String = "The OCSP Response was signed by " & item.SubjectName.Name
+        Next
+
+        Dim isEmbbed As Boolean = signerCertificate.OcspCertificate.IsEmbedded
+        Dim validForm As DateTime = signerCertificate.OcspCertificate.ValidFrom
+        Dim validTo As DateTime = signerCertificate.OcspCertificate.ValidTo
+    End If
+
+    If signerCertificate.CrlCertificate IsNot Nothing Then
+
+        For Each item As X509Certificate2 In signerCertificate.CrlCertificate.Certificates
+            Dim subjectName As String = "The CRL was signed by " & item.SubjectName.Name
+        Next
+
+        Dim isEmbbed As Boolean = signerCertificate.CrlCertificate.IsEmbedded
+        Dim validForm As DateTime = signerCertificate.CrlCertificate.ValidFrom
+        Dim validTo As DateTime = signerCertificate.CrlCertificate.ValidTo
+    End If
+Next
+'Close the document.
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Retrieve signed revision information from digital signature
+
+The following code example illustrates how to retrieve signed revision information from digital signature using [Revision](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html#Syncfusion_Pdf_Parsing_PdfLoadedSignatureField_Revision) property of [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html). 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF document.
+FileStream inputStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = new PdfLoadedDocument(inputStream);
+//Get the document revisions. 
+PdfRevision[] revisions = document.Revisions;
+foreach (PdfRevision rev in revisions)
+{
+    //Get revision start position.
+    long startPosition = rev.StartPosition;
+}
+//Load the existing signature field.
+PdfLoadedSignatureField field = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Get the revision of the signature.
+int revisionIndex = field.Revision;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing PDF document
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+//Get the document revisions. 
+PdfRevision[] revisions = document.Revisions;
+foreach (PdfRevision rev in revisions)
+{
+    //Get revision start position.
+    long startPosition = rev.StartPosition;
+}
+//Load the existing signature field.
+PdfLoadedSignatureField field = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Get the revision of the signature.
+int revisionIndex = field.Revision;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Get the document revisions. 
+Dim revisions As PdfRevision() = document.Revisions
+For Each rev As PdfRevision In revisions
+    'Get revision start position.
+    Dim startPosition As Long = rev.StartPosition
+Next
+'Load the existing signature field.
+Dim field As PdfLoadedSignatureField = TryCast(document.Form.Fields(0), PdfLoadedSignatureField)
+'Get the revision of the signature.
+Dim revisionIndex As Integer = field.Revision
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Extract images from PDF documents with better memory consumption and performance
+
+The following code example illustrates how to extract images from an entire PDF document using the [PdfDocumentExtractor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfDocumentExtractor.html) class.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Get stream from an existing PDF document.
+FileStream inputStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+//Initialize the PDF document extractor.
+PdfDocumentExtractor documentExtractor = new PdfDocumentExtractor();
+//Load the PDF document.
+documentExtractor.Load(inputStream);
+//Get the page count.
+int pageCount = documentExtractor.PageCount;
+// Extract images from the PDF document.
+Stream[] images = documentExtractor.ExtractImages();
+// Extract images by page range.
+Stream[] streams = documentExtractor.ExtractImages(2, 6);
+// Release all resources used by the PDF image extractor.
+documentExtractor.Dispose();
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Get stream from an existing PDF document.
+FileStream inputStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+//Initialize the PDF document extractor.
+PdfDocumentExtractor documentExtractor = new PdfDocumentExtractor();
+//Load the PDF document.
+documentExtractor.Load(inputStream);
+//Get the page count.
+int pageCount = documentExtractor.PageCount;
+// Extract images from the PDF document.
+Stream[] images = documentExtractor.ExtractImages();
+// Extract images by page range.
+Stream[] streams = documentExtractor.ExtractImages(2, 6);
+// Release all resources used by the PDF image extractor.
+documentExtractor.Dispose();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Get stream from an existing PDF document.
+Dim inputStream As FileStream = New FileStream("Input.pdf", FileMode.Open, FileAccess.Read)
+'Initialize the PDF document extractor.
+Dim documentExtractor As PdfDocumentExtractor = New PdfDocumentExtractor()
+'Load the PDF document.
+documentExtractor.Load(inputStream)
+'Get the page count.
+Dim pageCount As Integer = documentExtractor.PageCount
+'Extract images from the PDF document.
+Dim images As Stream() = documentExtractor.ExtractImages()
+'Extract images by page range.
+Dim streams As Stream() = documentExtractor.ExtractImages(2, 6)
+'Release all resources used by the PDF image extractor.
+documentExtractor.Dispose()
+
+{% endhighlight %}
+
+{% endtabs %}
