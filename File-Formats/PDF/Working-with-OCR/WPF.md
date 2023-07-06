@@ -22,7 +22,7 @@ In project configuration window, name your project and select Create.
 Step 2: Install the [Syncfusion.Pdf.OCR.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.Wpf) NuGet package as a reference to your WPF application from [nuget.org](https://www.nuget.org/).
 <img src="OCR-Images/OCR-WPF-step3.png" alt="Perform OCR WPF Step3.png" width="100%" Height="Auto"/>
 
-N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
 Step 3: Add a new button in **MainWindow.xaml** to perform OCR as follows.
 

@@ -25,7 +25,7 @@ Step 2: In configuration windows, name your project and click Next.
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/azure_step4.png" alt="Convert OCR Azure NetCore Step4" width="100%" Height="Auto"/> 
 
-N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
 Step 4: Add a new button in index.cshtml as follows.
 

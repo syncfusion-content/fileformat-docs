@@ -23,7 +23,7 @@ Step 2: In the project configuration window, name your project and click Create.
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/blazor_step_nuget.png" alt="blazor_step_nuget" width="100%" Height="Auto"/>
 
-N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
 Step 4: Create a new class file named *ExportService* under the Data folder and include the following namespaces in the file.
 

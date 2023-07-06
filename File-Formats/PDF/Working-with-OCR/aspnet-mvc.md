@@ -23,7 +23,7 @@ Step 2: In the project configuration windows, name your project and click Create
 Step 3: Install the [Syncfusion.Pdf.OCR.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.AspNet.Mvc5) NuGet package as a reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/aspnetmvc4.png" alt="convert_OCR_ASP.NET_MVC4" width="100%" Height="Auto"/>
 
-N> Beginning from version 21.1.x, the default configuration now includes the addition of TesseractBinaries and the Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
 Step 4: Include the following namespaces in the HomeController.cs file.
 
