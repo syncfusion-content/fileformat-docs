@@ -183,6 +183,10 @@ By executing the program, you will get the **image** as follows.
 
 ![Word to Image in Blazor Server app](WordToPDF_images/Output-WordtoImage.png)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to image](https://blazor.syncfusion.com/demos/word/word-to-image?theme=fluent) in Blazor. 
+
 ## Word to Image in Blazor WASM app
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the **Next** button.
@@ -357,3 +361,7 @@ By executing the program, you will get the **image** as follows.
 ![Blazor WASM app output](WordToPDF_images/Output-WordtoImage.png)
 
 N> To convert Word to image, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Word to image conversion works in a WASM app.
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to image](https://blazor.syncfusion.com/demos/word/word-to-image?theme=fluent) in Blazor. 

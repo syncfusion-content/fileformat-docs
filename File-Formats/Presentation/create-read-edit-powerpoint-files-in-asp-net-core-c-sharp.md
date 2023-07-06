@@ -23,6 +23,8 @@ Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/pac
 
 ![Install Presentation .Net Core Nuget](Workingwith_Core/install_nuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: After installing the **Syncfusion.Presentation.Net.Core** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Net.Core</li>
@@ -167,8 +169,6 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net Core PowerPoint Library Output](Workingwith_Core/GettingStartedSample.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
-
 ## Read and edit a PowerPoint file in ASP.NET Core
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
@@ -199,4 +199,6 @@ pptxDoc.Close();
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET-Core/Read-and-edit-PowerPoint-presentation).
 
-N> You can also explore our [.NET Core PowerPoint library demo](https://ej2.syncfusion.com/aspnetcore/Presentation/Default#/bootstrap5) that shows how to create and modify PowerPoint files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 
