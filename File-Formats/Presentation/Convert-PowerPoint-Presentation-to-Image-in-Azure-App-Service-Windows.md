@@ -188,3 +188,7 @@ Step 12: Select the **PowerPoint Presentation** and Click **Convert to Image** t
 ![PowerPoint Presentation to Image in Azure App Service on Windows](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Azure/Azure_App_Service).
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core.
