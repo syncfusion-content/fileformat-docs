@@ -1,16 +1,16 @@
 ---
-title: Convert Excel to PDF in Microsoft Azure | Syncfusion
-description: Learn how to convert an Excel document to PDF in Azure services using .NET Excel library (XlsIO) without Microsoft Excel or interop dependencies.
+title: Convert Excel to Image in Microsoft Azure | Syncfusion
+description: Learn how to convert an Excel document to Image in Azure services using .NET Excel library (XlsIO) without Microsoft Excel or interop dependencies.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Convert Excel to PDF in Azure Platform 
+# Convert Excel to Image in Azure Platform 
 
-Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in Azure Platform** within a few lines of code.
+Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to Image in Azure Platform** within a few lines of code.
 
-N> If this is your first time working with Azure, please refer to the dedicated Azure development resources. This section explains how to convert Excel to PDF in C# using the Excel library (XlsIO) in Azure. 
+N> If this is your first time working with Azure, please refer to the dedicated Azure development resources. This section explains how to convert Excel to Image in C# using the Excel library (XlsIO) in Azure. 
 
 ## Prerequisites 
 * An active **Microsoft Azure subscription** is required. If you don’t have one, please [create an account](https://portal.azure.com/#home) before starting.
@@ -36,8 +36,8 @@ App Service (Linux)
 <tr>
 <td>
 Azure Functions v1
- <br/></td><td>
-{{'[Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms)' |markdownify}} <br/></td></tr>
+<br/></td><td>
+{{'[Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
 Azure Functions v4
