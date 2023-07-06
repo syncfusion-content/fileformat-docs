@@ -1,5 +1,5 @@
 ---
-title: Converting HTML to PDF | Syncfusion
+title: Troubleshooting in File Formats PDF | Syncfusion
 description: Learn how to convert HTML to PDF using Blink rendering engines with various features like TOC, partial web page to PDF etc.
 platform: file-formats
 control: PDF
