@@ -3923,7 +3923,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% endtabs %}
+{% endtabs %}    
 
 ## Extract images from PDF documents with better memory consumption and performance
 
