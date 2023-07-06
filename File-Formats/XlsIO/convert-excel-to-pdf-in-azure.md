@@ -37,7 +37,7 @@ App Service (Linux)
 <td>
 Azure Functions v1
  <br/></td><td>
-{{'[Syncfusion.ExcelToPdfConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet)' |markdownify}} <br/></td></tr>
+{{'[Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
 Azure Functions v4

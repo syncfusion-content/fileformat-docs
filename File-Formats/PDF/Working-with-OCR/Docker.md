@@ -9,6 +9,7 @@ keywords: Assemblies
 # Perform OCR in Docker
 
 The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing/pdf-framework/net-core/pdf-library/ocr-process) is used to extract text from the scanned PDFs and images in the Docker application with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) Optical Character Recognition engine.
+
 ## Steps to perform OCR on entire PDF document in Docker
 Step 1: Create a new ASP.NET Core application project.
 <img src="OCR-Images/OCRDocker1.png" alt="OCR Docker Step1" width="100%" Height="Auto"/>
@@ -22,26 +23,9 @@ Step 3: Enable the Docker support with Linux as a target OS.
 Step 4: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/). 
 <img src="OCR-Images/OCRDocker4.png" alt="OCR Docker Step4" width="100%" Height="Auto"/>
 
-Step 5: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
+N> Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
-
-{% endhighlight %}
-
-Step 6: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following this link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
-processor.PerformOCR(loadedDocument, "tessdata/");
-
-{% endhighlight %}
-
-Step 7: Include the following commands in the Docker file to install the dependent packages in the docker container.
+Step 5: Include the following commands in the Docker file to install the dependent packages in the docker container.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -53,9 +37,9 @@ libgdiplus libc6-dev
 
 <img src="OCR-Images/OCRDocker5.png" alt="Convert HTMLToPDF Docker Step5" width="100%" Height="Auto"/>
 
-Step 8: A default action method named Index will be present in the *HomeController.cs*. Right-click on the Index method and select Go to View, where you will be directed to its associated view page *Index.cshtml*.
+Step 6: A default action method named Index will be present in the *HomeController.cs*. Right-click on the Index method and select Go to View, where you will be directed to its associated view page *Index.cshtml*.
 
-Step 9: Add a new button in the *index.cshtml* as follows.
+Step 7: Add a new button in the *index.cshtml* as follows.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -72,7 +56,7 @@ Step 9: Add a new button in the *index.cshtml* as follows.
 
 <img src="OCR-Images/OCRDocker6.png" alt="Convert HTMLToPDF Docker Step6" width="100%" Height="Auto"/>
 
-Step 10: A default controller with the name *HomeController.cs* gets added to the creation of the ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
+Step 8: A default controller with the name *HomeController.cs* gets added to the creation of the ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -81,25 +65,23 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 11: Add a new action method PerformOCR in the *HomeController.cs*, and include the code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
+Step 9: Add a new action method PerformOCR in the *HomeController.cs*, and include the code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
 
 {% highlight c# tabtitle="C#" %}
 
 public ActionResult PerformOCR()
 {
    string docPath = _hostingEnvironment.WebRootPath + "/Data/Input.pdf";
-   string tesseractPath = _hostingEnvironment.WebRootPath + "/Data/Tesseractbinaries/Linux";
-    //Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
-    using (OCRProcessor processor = new OCRProcessor(tesseractPath))
+    //Initialize the OCR processor.
+    using (OCRProcessor processor = new OCRProcessor())
     {
         FileStream fileStream = new FileStream(docPath, FileMode.Open, FileAccess.Read);
         //Load a PDF document
         PdfLoadedDocument lDoc = new PdfLoadedDocument(fileStream);
         //Set OCR language to process
         processor.Settings.Language = Languages.English;
-        string tessdataPath = _hostingEnvironment.WebRootPath + "/Data/tessdata";
-        //Process OCR by providing the PDF document and Tesseract data
-        processor.PerformOCR(lDoc, tessdataPath);
+        //Process OCR by providing the PDF document.
+        processor.PerformOCR(lDoc);
         //Create memory stream
         MemoryStream stream = new MemoryStream();
         //Save the document to memory stream
@@ -116,11 +98,10 @@ public ActionResult PerformOCR()
 
 {% endhighlight %}
 
-Step 12: Build and run the sample in Docker. It will pull the Linux Docker image from the Docker hub and run the project. Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF.
+Step 10: Build and run the sample in Docker. It will pull the Linux Docker image from the Docker hub and run the project. Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF.
 
 By executing the program, you will get a PDF document as follows.
 
 <img src="OCR-Images/OCR-output-image.png" alt="Convert HTMLToPDF Dockeroutput" width="100%" Height="Auto"/>
 
 A complete working sample for converting an HTML to PDF in the Linux docker container can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Docker).
-  

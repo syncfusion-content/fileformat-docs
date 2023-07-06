@@ -24,6 +24,8 @@ Step 3: Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/
 
 ![Install Syncfusion.Presentation.AspNet.Mvc5 Nuget Package](Workingwith_MVC/Nuget-Open-and-Save.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: Include the following namespace in that **HomeController.cs** file.
 
 {% tabs %}
@@ -103,3 +105,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![ASP.Net MVC output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.

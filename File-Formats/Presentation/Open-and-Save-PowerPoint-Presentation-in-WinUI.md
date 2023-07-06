@@ -33,7 +33,7 @@ Step 4: Install the [Syncfusion.Presentation.NET](https://www.nuget.org/packages
 
 ![Install Syncfusion.Presentation.NET Nuget Package](Workingwith_WinUI/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
@@ -116,6 +116,8 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ![WinUI Desktop app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
 
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
 ## WinUI UWP app
 
 ### Steps to open and save PowerPoint Presentation programmatically
@@ -138,7 +140,7 @@ Step 4: Install the [Syncfusion.Presentation.NET](https://www.nuget.org/packages
 
 ![Install Syncfusion.Presentation.NET Nuget Package](Workingwith_WinUI/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 5: Add a new button to the **MainPage.xaml** as shown below.
 
@@ -261,3 +263,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![WinUI UWP app output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.

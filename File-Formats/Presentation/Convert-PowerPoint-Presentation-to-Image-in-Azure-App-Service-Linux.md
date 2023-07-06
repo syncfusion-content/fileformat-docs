@@ -33,6 +33,8 @@ Step 4: Install the following **Nuget packages** in your application from [Nuget
 
 ![Install HarfBuzzSharp.NativeAssets.Linux v2.8.2.2 Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz_PowerPoint_Presentation_to_PDF.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 5: Add a new button in the **Index.cshtml** as shown below.
 
 {% tabs %}
@@ -194,3 +196,7 @@ Step 12: Select the **PowerPoint Presentation** and Click **Convert to Image** t
 ![PowerPoint Presentation to Image in Azure App Service on Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Azure/Azure_App_Service).
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core.
