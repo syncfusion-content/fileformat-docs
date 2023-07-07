@@ -21,7 +21,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
