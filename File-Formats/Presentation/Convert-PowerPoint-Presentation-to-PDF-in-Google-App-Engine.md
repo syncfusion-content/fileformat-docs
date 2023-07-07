@@ -39,7 +39,7 @@ Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Contr
 ![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Create-PowerPoint-Presentation-to-PDF.png)
 
 Step 2: Configure your new project according to your requirements.
-![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Configure-PowerPoint-Presentation-to-PDF.png)
+![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Configuration-PowerPoint-Presentation-to-PDF.png)
 
 Step 3: Click the **Create** button.
 ![Create ASP.NET Core Web application in Visual Studio](GCP_Images/Additional-Information-PowerPoint-Presentation-to-PDF.png)
