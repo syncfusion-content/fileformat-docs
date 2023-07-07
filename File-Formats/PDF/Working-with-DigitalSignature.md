@@ -20,41 +20,41 @@ The following code example explains how to add a digital signature to the PDF do
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}	
 
-//Creates a new PDF document
+//Creates a new PDF document.
 PdfDocument document = new PdfDocument();
-//Adds a new page
+//Adds a new page.
 PdfPageBase page = document.Pages.Add();
-//Create PDF graphics for the page
+//Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 
-//Creates a certificate instance from PFX file with private key
+//Creates a certificate instance from PFX file with private key.
 FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
 PdfCertificate pdfCert = new PdfCertificate(certificateStream, "password123");
-//Creates a digital signature
+//Creates a digital signature.
 PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
-//Sets an image for signature field
+//Sets an image for signature field.
 FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
-//Sets an image for signature field
+//Sets an image for signature field.
 PdfBitmap signatureImage = new PdfBitmap(imageStream);
-//Sets signature information
+//Sets signature information.
 signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 signature.ContactInfo = "johndoe@owned.us";
 signature.LocationInfo = "Honolulu, Hawaii";
 signature.Reason = "I am author of this document.";
-//Draws the signature image
+//Draws the signature image.
 graphics.DrawImage(signatureImage, 0, 0);
 
-//Save the document into stream
+//Save the document into stream.
 MemoryStream stream = new MemoryStream();
 document.Save(stream);
 stream.Position = 0;
-//Close the document
+//Close the document.
 document.Close(true);
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file.
 string contentType = "application/pdf";
-//Define the file name
+//Define the file name.
 string fileName = "Output.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
+//Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
 {% endhighlight %}
