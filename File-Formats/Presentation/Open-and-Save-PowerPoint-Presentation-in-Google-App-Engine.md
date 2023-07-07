@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and save Presentation in Google App Engine
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **open and save Presentation in Google App Engine**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **open and save a Presentation in Google App Engine**.
 
 ## Set up App Engine
 
@@ -264,4 +264,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint document** as follows. The output will be saved in **bin** folder.
 
-![Create a PowerPoint in Google App Engine](GCP_Images/Output-Create-PowerPoint-Presentation.png)
+![Open and Save a Presentation in Google App Engine](GCP_Images/Output-Create-PowerPoint-Presentation.png)

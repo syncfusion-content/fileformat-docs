@@ -8,9 +8,9 @@ documentation: UG
 
 # Convert PowerPoint Presentation to PDF in Google Cloud Platform (GCP)
 
-Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in Google Cloud Platform (GCP)** within a few lines of code.
+Syncfusion PowerPoint is a [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in Google Cloud Platform (GCP)** within a few lines of code.
 
-N> If this is your first time working with Google Cloud Platform (GCP), please refer to the dedicated GCP resources. This section explains how to convert PowerPoint Presentation to PDF in C# using the PowerPoint library (Presentation) in GCP. 
+N> If this is your first time working with Google Cloud Platform (GCP), please refer to the dedicated GCP resources. This section explains how to convert a PowerPoint Presentation to PDF in C# using the PowerPoint library (Presentation) in GCP. 
 
 ## Prerequisites 
 

@@ -137,7 +137,7 @@ Step 4: Run the following **command** to navigate which sample you want run.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ cd Convert-PPTX-to-PDF
+$ cd Convert-PPTX-to-image
 
 {% endhighlight %}
 {% endtabs %}
@@ -219,7 +219,7 @@ ADD / /app
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://*:8080
 WORKDIR /app
-ENTRYPOINT [ "dotnet", "Open-and-save-Word-document.dll"]
+ENTRYPOINT [ "dotnet", "Convert-PPTX-to-image.dll"]
 EOT
 
 {% endhighlight %}

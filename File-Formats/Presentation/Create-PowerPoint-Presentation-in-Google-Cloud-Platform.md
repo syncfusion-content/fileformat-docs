@@ -8,9 +8,9 @@ documentation: UG
 
 # Create PowerPoint document in Google Cloud Platform (GCP)
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **create PowerPoint document in Google Cloud Platform (GCP)** within a few lines of code.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **create a PowerPoint document in Google Cloud Platform (GCP)** within a few lines of code.
 
-N> If this is your first time working with Google Cloud Platform (GCP), please refer to the dedicated GCP resources. This section explains how to create PowerPoint document in C# using the PowerPoint library (Presentation) in GCP. 
+N> If this is your first time working with Google Cloud Platform (GCP), please refer to the dedicated GCP resources. This section explains how to create a PowerPoint document in C# using the PowerPoint library (Presentation) in GCP. 
 
 ## Prerequisites 
 

@@ -88,7 +88,7 @@ Step 7: Add a new button in the Index.cshtml as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add a new action method **ConvertPPTXToPDF** in HomeController.cs and include the below code snippet to **convert the PowerPoint Presentation to Pdf** and download it.
+Step 8: Add a new action method **ConvertPPTXToPDF** in HomeController.cs and include the below code snippet to **convert a PowerPoint Presentation to Pdf** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
