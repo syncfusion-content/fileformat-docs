@@ -140,7 +140,7 @@ Step 4: Run the following **command** to navigate which sample you want run.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ cd Convert-Word-Document-to-PDF
+$ cd Convert-Word-Document-to-Image
 
 {% endhighlight %}
 {% endtabs %}
@@ -252,6 +252,6 @@ Step 2: Open the **URL** to access the application, which has been successfully 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/GCP/Google-App-Engine).
 
-By executing the program, you will get the **image** as follows. The output will be saved in bin folder.
+By executing the program, you will get the **image** as follows. The output will be saved in **bin** folder.
 
 ![Word to Image in Google App Engine](WordToPDF_images/Output-WordtoImage.png)
