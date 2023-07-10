@@ -1554,8 +1554,14 @@ header.Graphics.DrawString("This is header", font, brush, PointF.Empty);
 blinkConverterSettings.PdfHeader = header;
 //Create PDF page template element for footer with bounds.
 PdfPageTemplateElement footer = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
-//Draw the footer string in footer template element. 
-footer.Graphics.DrawString("This is footer", font, brush, PointF.Empty);
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, PdfBrushes.Black);
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, PdfBrushes.Black);
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count);
+//Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty);
 //Assign the footer element to PdfFooter of Blink converter settings.
 blinkConverterSettings.PdfFooter = footer;
 //Set Blink viewport size.
@@ -1589,8 +1595,14 @@ header.Graphics.DrawString("This is header", font, brush, PointF.Empty)
 blinkConverterSettings.PdfHeader = header
 'Create PDF page template element for footer with bounds.
 Dim footer As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
-'Draw the footer string in footer template element. 
-footer.Graphics.DrawString("This is footer", font, brush, PointF.Empty)
+'Create page number field.
+Dim pageNumber As PdfPageNumberField = New PdfPageNumberField(font, PdfBrushes.Black)
+'Create page count field.
+Dim count As PdfPageCountField = New PdfPageCountField(font, PdfBrushes.Black)
+'Add the fields in composite fields.
+Dim compositeField As PdfCompositeField = New PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count)
+'Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty)
 'Assign the footer element to PdfFooter of Blink converter settings.
 blinkConverterSettings.PdfFooter = footer
 'Set Blink viewport size. 
