@@ -1550,13 +1550,13 @@ PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
 PdfBrush brush = new PdfSolidBrush(Color.Black);
 //Draw the header string in header template element. 
 header.Graphics.DrawString("This is header", font, brush, PointF.Empty);
-//Assign the header element to PdfHeader of Blink settings.
+//Assign the header element to PdfHeader of Blink converter settings.
 blinkConverterSettings.PdfHeader = header;
 //Create PDF page template element for footer with bounds.
 PdfPageTemplateElement footer = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
 //Draw the footer string in footer template element. 
 footer.Graphics.DrawString("This is footer", font, brush, PointF.Empty);
-//Assign the footer element to PdfFooter of Blink settings.
+//Assign the footer element to PdfFooter of Blink converter settings.
 blinkConverterSettings.PdfFooter = footer;
 //Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1024, 0);
@@ -1585,13 +1585,13 @@ Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 7)
 Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
 'Draw the header string in header template element. 
 header.Graphics.DrawString("This is header", font, brush, PointF.Empty)
-'Assign the header element to PdfHeader of Blink settings.
+'Assign the header element to PdfHeader of Blink converter settings.
 blinkConverterSettings.PdfHeader = header
 'Create PDF page template element for footer with bounds.
 Dim footer As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
 'Draw the footer string in footer template element. 
 footer.Graphics.DrawString("This is footer", font, brush, PointF.Empty)
-'Assign the footer element to PdfFooter of Blink settings.
+'Assign the footer element to PdfFooter of Blink converter settings.
 blinkConverterSettings.PdfFooter = footer
 'Set Blink viewport size. 
 blinkConverterSettings.ViewPortSize = new Size(1024, 0)
