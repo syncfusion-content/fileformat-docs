@@ -55,7 +55,7 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for **create a PowerPoint document**. 
+Step 7: Include the below code snippet in **HomeController.cs** for **create a PowerPoint document**. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
