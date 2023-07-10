@@ -24,6 +24,8 @@ Step 3: Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages
 
 ![Install Xamarin Nuget](Workingwith_Xamarin/InstallNuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>
 <li>To add the new XAML page, right click on the project and select <b>Add > New Item</b> and add a Forms XAML Page from the list. Name it as MainXamlPage.</li>
@@ -270,8 +272,6 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![Xamarin PowerPoint Library Output](Workingwith_Xamarin/GettingStartedSample.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
-
 ## Read and edit a PowerPoint file in Xamarin
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
@@ -302,3 +302,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pptx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 

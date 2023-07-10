@@ -66,7 +66,7 @@ To work with PowerPoint Presentations, install the following NuGet packages in y
 </tr>
 <tr>
 <td>
-{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp)'| markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor]()'| markdownify }}
+{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp)'| markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-blazor)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}

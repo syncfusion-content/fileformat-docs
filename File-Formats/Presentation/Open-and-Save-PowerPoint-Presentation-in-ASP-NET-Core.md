@@ -30,6 +30,8 @@ using Syncfusion.Presentation;
 {% endhighlight %}
 {% endtabs %}
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 4: A default action method named Index will be present in **HomeController.cs**. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
 Step 5: Add a new button in the **Index.cshtml** as shown below.
@@ -98,3 +100,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![ASP.Net Core output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 

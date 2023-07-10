@@ -23,7 +23,7 @@ Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/pac
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget1.png)
 ![Install Presentation .Net Core Nuget](Workingwith_Mac/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: Include the following Namespaces in the **Program.cs** file.
 
@@ -84,3 +84,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![.NET Core macOS output PowerPoint document](Workingwith_Core/Open-and-Save-output-image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.
