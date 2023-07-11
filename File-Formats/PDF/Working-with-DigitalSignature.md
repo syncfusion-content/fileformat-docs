@@ -3706,8 +3706,8 @@ The following code example illustrates how to retrieve revocation certificate in
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load an existing signed PDF document.
-FileStream fileStreamInput = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileStreamInput);
+FileStream documentStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
 
 //Get signature field.
 PdfLoadedSignatureField loadedSignatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
@@ -3721,7 +3721,6 @@ collection.Add(certificate);
 certificate = new X509Certificate2(@"Intermediate.cer");
 //Add the certificate to the collection.
 collection.Add(certificate);
-
 //Validate signature and get the validation result.
 PdfSignatureValidationResult result = loadedSignatureField.ValidateSignature(collection);
 
@@ -3857,6 +3856,8 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub]().
+
 ## Retrieve signed revision information from digital signature
 
 The following code example illustrates how to retrieve signed revision information from digital signature using [Revision](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html#Syncfusion_Pdf_Parsing_PdfLoadedSignatureField_Revision) property of [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html). 
@@ -3924,3 +3925,5 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub]().
