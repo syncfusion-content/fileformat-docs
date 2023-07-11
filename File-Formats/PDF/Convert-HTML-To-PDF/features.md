@@ -1432,6 +1432,296 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set-windows-status-while-converting-HTML-to-PDF).
 
+## Page size customization
+
+To set the page size when converting HTML to PDF, utilize the [PdfPageSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PdfPageSize) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the page size.
+blinkConverterSettings.PdfPageSize = PdfPageSize.A4;      
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.  
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Create a file stream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+//Save the PDF document to the file stream.
+document.Save(fileStream);	
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the page size.
+blinkConverterSettings.PdfPageSize = PdfPageSize.A4
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Margin customization
+
+To set the margin when converting HTML to PDF, utilize the [Margin](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_Margin) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the margin.
+blinkConverterSettings.Margin.All = 50;      
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.  
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Create a file stream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite); 
+//Save the PDF document to the file stream.
+document.Save(fileStream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the margin.
+blinkConverterSettings.Margin.All = 50
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Header and footer
+
+To set the header and footer when converting HTML to PDF, utilize the [PdfHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PdfHeader) and [PdfFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PdfFooter) properties in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Create PDF page template element for header with bounds.
+PdfPageTemplateElement header = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
+//Create font and brush for header element.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+//Draw the header string in header template element. 
+header.Graphics.DrawString("This is header", font, brush, PointF.Empty);
+//Assign the header element to PdfHeader of Blink converter settings.
+blinkConverterSettings.PdfHeader = header;
+//Create PDF page template element for footer with bounds.
+PdfPageTemplateElement footer = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, PdfBrushes.Black);
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, PdfBrushes.Black);
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count);
+//Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty);
+//Assign the footer element to PdfFooter of Blink converter settings.
+blinkConverterSettings.PdfFooter = footer;
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1024, 0);
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF.
+PdfDocument document = htmlConverter.Convert("https://www.google.com/");
+
+//Create a file stream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite); 
+//Save a PDF document to the file stream.
+document.Save(fileStream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Create PDF page template element for header with bounds.
+Dim header As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
+'Create font and brush for header element.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 7)
+Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
+'Draw the header string in header template element. 
+header.Graphics.DrawString("This is header", font, brush, PointF.Empty)
+'Assign the header element to PdfHeader of Blink converter settings.
+blinkConverterSettings.PdfHeader = header
+'Create PDF page template element for footer with bounds.
+Dim footer As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
+'Create page number field.
+Dim pageNumber As PdfPageNumberField = New PdfPageNumberField(font, PdfBrushes.Black)
+'Create page count field.
+Dim count As PdfPageCountField = New PdfPageCountField(font, PdfBrushes.Black)
+'Add the fields in composite fields.
+Dim compositeField As PdfCompositeField = New PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count)
+'Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty)
+'Assign the footer element to PdfFooter of Blink converter settings.
+blinkConverterSettings.PdfFooter = footer
+'Set Blink viewport size. 
+blinkConverterSettings.ViewPortSize = new Size(1024, 0)
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Page orientation customization
+
+To set the Orientation when converting HTML to PDF, utilize the [Orientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_Orientation) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the Orientation.
+blinkConverterSettings.Orientation = PdfPageOrientation.Landscape;
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.  
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Create a file stream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+//Save a PDF document to a file stream.
+document.Save(fileStream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the Orientation.
+blinkConverterSettings.Orientation = PdfPageOrientation.Landscape
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Rotate page
+
+To set the page rotation when converting HTML to PDF, utilize the [PageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PageRotateAngle) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the page rotate.
+blinkConverterSettings.PageRotateAngle = PdfPageRotateAngle.RotateAngle90;
+//Assign Blink converter settings to the HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.  
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Create a file stream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+//Save a PDF document to a file stream.
+document.Save(fileStream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the page rotate.
+blinkConverterSettings.PageRotateAngle = PdfPageRotateAngle.RotateAngle90
+'Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Create file stream to save the PDF document. 
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Temporary path
 
 The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder.
@@ -1534,4 +1824,3 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
-
