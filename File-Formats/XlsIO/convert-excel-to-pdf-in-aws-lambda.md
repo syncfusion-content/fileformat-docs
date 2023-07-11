@@ -128,7 +128,7 @@ Step 13: Edit Memory size and Timeout as maximum in Basic settings of the AWS La
 ## Steps to post the request to AWS Lambda
 
 Step 1: Create a new console project.
-<img src="AWS_Images/Lambda_Images/Console_Application" alt="Create console application" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/Console_Application.png" alt="Create console application" width="100%" Height="Auto"/>
 
 step 2: Install the following **NuGet packages** in your application from [Nuget.org](https://www.nuget.org/).
 
