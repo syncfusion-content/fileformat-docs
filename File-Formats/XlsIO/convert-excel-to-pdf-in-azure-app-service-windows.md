@@ -24,6 +24,8 @@ Step 3: Select the framework and click **Create** button.
 Step 4: Install the [Syncfusion.XlsIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 <img src="Azure_Images/App_Service_Windows/Install_NuGet.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet Package" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
 Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
 {% highlight CSHTML %}
@@ -110,3 +112,7 @@ Step 10: Now, the published webpage will open in the browser.
 
 Step 11: Click **Create Document** to convert the given Excel document to PDF. You will get the output **PDF** document as follows.
 <img src="Azure_Images/App_Service_Windows/ExcelToPDF_AppService_Windows.png" alt="Excel to PDF in Azure App Service on Windows" width="100%" Height="Auto"/>
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.

@@ -13,25 +13,28 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-1. Create a new C# Xamarin.Forms application project.
+Step 1: Create a new C# Xamarin.Forms application project.
 
 <img src="XAMARIN_images/XAMARIAN_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
 <img src="XAMARIN_images/XAMARIAN_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-3. Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 <img src="XAMARIN_images/XAMARIAN_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4. Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
 	i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
 	ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
+
 {% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -50,9 +53,9 @@ End Sub
 {% endhighlight %}
 {% endtabs %} 
 {% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_2 }} 
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
-5. In the MainXamlPage.xaml add new button as shown below.
+Step 5: In the MainXamlPage.xaml add new button as shown below.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight XAML %}
@@ -69,7 +72,7 @@ End Sub
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-6. Include the following namespace in the MainXamlPage.xaml.cs file.
+Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -87,7 +90,7 @@ Imports Color = Syncfusion.Drawing.Color
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}  
 
-7. Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
+Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
 {% capture codesnippet4 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -467,7 +470,7 @@ End Using
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-8. Compile and execute the application. Now this application creates a simple Excel document.
+Step 8: Compile and execute the application. Now this application creates a simple Excel document.
 
 A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
 
@@ -519,6 +522,10 @@ void btnCreate_Click(object sender, System.EventArgs e)
 A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
 
 N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/xamarin) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
 
 ## Helper Files
 
@@ -976,5 +983,3 @@ class SaveWindowsPhone: ISave
 }
 {% endhighlight %}
 {% endtabs %}
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Xamarin Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

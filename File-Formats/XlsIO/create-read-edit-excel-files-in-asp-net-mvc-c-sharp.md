@@ -13,15 +13,17 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET MVC.
 
-1. Create a new ASP.NET MVC application project.
+Step 1: Create a new ASP.NET MVC application project.
 
 <img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png" alt="Create ASP.NET MVC application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+Step 2: Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 <img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 3: A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 {% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -35,9 +37,9 @@ Imports Syncfusion.XlsIO
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-4. A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
+Step 4: A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
 
-5. Add a new button in the Index.cshtml as shown below.
+Step 5: Add a new button in the Index.cshtml as shown below.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight HTML %}
@@ -54,7 +56,7 @@ Imports Syncfusion.XlsIO
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+Step 6: Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -479,4 +481,6 @@ End Using
 
 A complete working example of how to read and edit an Excel file in ASP.NET MVC in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Edit%20Excel).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET MVC Excel library demo](https://ej2.syncfusion.com/aspnetmvc/Excel/Default#/fluent) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetmvc/Excel/Default#/material3) in ASP.NET MVC.

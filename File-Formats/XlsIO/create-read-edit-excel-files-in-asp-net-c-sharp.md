@@ -13,18 +13,20 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET.
 
-1. Create a new ASP.NET Web application project.
+Step 1: Create a new ASP.NET Web application project.
 
 <img src="ASP-NET_images/ASP-NET_images_img1.png" alt="Create ASP.NET application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+Step 2: Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET_images/ASP-NET_images_img2.png)
 <img src="ASP-NET_images/ASP-NET_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-3. Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
-4. Add a new button in the MainPage.aspx as shown below.
+Step 3: Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
+
+Step 4: Add a new button in the MainPage.aspx as shown below.
 {% capture codesnippet1 %}
 {% tabs %} 
 {% highlight HTML %}
@@ -45,7 +47,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. Include the following namespace in your MainPage.aspx.cs file.
+Step 5: Include the following namespace in your MainPage.aspx.cs file.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -61,7 +63,7 @@ Imports System.Drawing
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
+Step 6: Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -485,4 +487,7 @@ End Using
 
 A complete working example of how to read and edit an Excel file in ASP.NET in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Edit%20Excel).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Excel library demo](https://asp.syncfusion.com/demos/web/xlsio/exceltoods.aspx) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
+
