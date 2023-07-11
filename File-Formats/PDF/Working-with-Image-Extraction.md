@@ -182,6 +182,6 @@ documentExtractor.Dispose()
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](). 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Image%20Extraction/Extract-images-from-PDF-documents). 
 
 N> To extract the image information from PDF page in .NET Core, you need to include [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core) assembly reference in .NET Core project.
