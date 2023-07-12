@@ -281,3 +281,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PowerPoint document** as follows. The output will be saved in **bin** folder.
 
 ![Create a PowerPoint in Google App Engine](GCP_Images/Output-Create-PowerPoint-Presentation.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core.
