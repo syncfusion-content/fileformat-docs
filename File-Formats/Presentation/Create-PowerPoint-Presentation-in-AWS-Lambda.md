@@ -27,7 +27,7 @@ Step 4: Create a folder and copy the required data files and include the files t
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-PowerPoint-Presentation-to-PDF.png)
 
 Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Property change for data files](AWS_Images/Lambda_Images/Property-PowerPoint-Presentation-to-PDF.png)
+![Property change for data files](AWS_Images/Lambda_Images/Data-Folder-PowerPoint.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
 
@@ -170,13 +170,14 @@ System.Diagnostics.Process.Start("Sample.pptx");
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the **PDF document** as follows.
+By executing the program, you will get the **PowerPoint document** as follows.
 
-![PPTX to PDF in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Create a PowerPoint document in AWS Lambda](Workingwith_Web/GettingStartedSample.png)
 
 From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/AWS/Console_Application) and [AWS Lambda](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/AWS/AWS_Lambda) project.
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToPDF#/material3) in ASP.NET Core.
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 
+
 

@@ -28,7 +28,7 @@ Step 4: Create a folder and copy the required data files and include the files t
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-WordtoPDF.png)
 
 Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Property change for data files](AWS_Images/Lambda_Images/Property-WordtoPDF.png)
+![Property change for data files](AWS_Images/Lambda_Images/Data-Folder-Create-Word-Document.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
 

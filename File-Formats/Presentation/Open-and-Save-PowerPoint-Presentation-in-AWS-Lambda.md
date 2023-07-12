@@ -27,7 +27,7 @@ Step 4: Create a folder and copy the required data files and include the files t
 ![Create a folder](AWS_Images/Lambda_Images/Data-Folder-PowerPoint-Presentation-to-PDF.png)
 
 Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
-![Property change for data files](AWS_Images/Lambda_Images/Property-PowerPoint-Presentation-to-PDF.png)
+![Property change for data files](AWS_Images/Lambda_Images/Data-Folder-Create-PowerPoint-Presentation.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
 
