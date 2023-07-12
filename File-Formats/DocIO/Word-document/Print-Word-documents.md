@@ -13,10 +13,6 @@ Initially you have to render the pages as images as shown below
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
-
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the Word document
 WordDocument document = new WordDocument((string)this.textBox.Tag);
@@ -42,10 +38,6 @@ You can specify the printer settings and page settings through the [PrintDocumen
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
 {% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 int endPageIndex = images.Length;
@@ -112,10 +104,6 @@ End If
 The following code example provides supporting methods for the above code.
 
 {% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private void PrintPageMethod(object sender, PrintPageEventArgs e)
