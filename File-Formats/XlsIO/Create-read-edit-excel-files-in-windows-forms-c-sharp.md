@@ -13,15 +13,17 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in Windows Forms.
 
-1. Create a new C# Windows Forms Application project.
+Step 1: Create a new C# Windows Forms Application project.
 
 <img src="Windows-Forms_images/Windows-Forms_images_img1.png" alt="Create Windows Forms application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+Step 2: Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 <img src="Windows-Forms_images/Windows-Forms_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-3. Include the following namespaces in the Form1.Designer.cs file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 3: Include the following namespaces in the Form1.Designer.cs file.
 {% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -43,7 +45,7 @@ Imports System.Windows.Forms
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
-4. Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
+Step 4: Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -106,7 +108,7 @@ End Sub
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-5. Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
+Step 5: Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -532,4 +534,6 @@ End Using
 
 A complete working example of how to read and edit an Excel file in Windows Forms in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Windows%20Forms/Edit%20Excel).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Windows Forms Excel library demo](https://github.com/syncfusion/file-formats-windows-forms-demos/tree/master/XlsIO) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.

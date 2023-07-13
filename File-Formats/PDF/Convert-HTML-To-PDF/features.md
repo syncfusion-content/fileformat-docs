@@ -1482,6 +1482,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-page-size-customization).
+
 ## Margin customization
 
 To set the margin when converting HTML to PDF, utilize the [Margin](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_Margin) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
@@ -1532,6 +1534,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-margin-customization).
+
 ## Header and footer
 
 To set the header and footer when converting HTML to PDF, utilize the [PdfHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PdfHeader) and [PdfFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PdfFooter) properties in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
@@ -1543,10 +1547,27 @@ To set the header and footer when converting HTML to PDF, utilize the [PdfHeader
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-//Convert header HTML and set its template to blink converter settings.
-blinkConverterSettings.PdfHeader = HeaderHTMLtoPDF();
-//Convert footer HTML and set its template to blink converter settings.
-blinkConverterSettings.PdfFooter = FooterHTMLtoPDF();
+//Create PDF page template element for header with bounds.
+PdfPageTemplateElement header = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
+//Create font and brush for header element.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+//Draw the header string in header template element. 
+header.Graphics.DrawString("This is header", font, brush, PointF.Empty);
+//Assign the header element to PdfHeader of Blink converter settings.
+blinkConverterSettings.PdfHeader = header;
+//Create PDF page template element for footer with bounds.
+PdfPageTemplateElement footer = new PdfPageTemplateElement(new RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50));
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, PdfBrushes.Black);
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, PdfBrushes.Black);
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count);
+//Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty);
+//Assign the footer element to PdfFooter of Blink converter settings.
+blinkConverterSettings.PdfFooter = footer;
 //Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1024, 0);
 htmlConverter.ConverterSettings = blinkConverterSettings;
@@ -1560,48 +1581,6 @@ document.Save(fileStream);
 //Close the document.
 document.Close(true);
 
-#region Header
-//Convert the header HTML to PDF and get the pdf page template element of the result.
-private static PdfPageTemplateElement HeaderHTMLtoPDF()
-{
-    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-    blinkConverterSettings.Margin.All = 0;
-    blinkConverterSettings.PdfPageSize = new SizeF(PdfPageSize.A4.Width, 50);    
-     
-    blinkConverterSettings.ViewPortSize = new Size(1024, 0);
-    htmlConverter.ConverterSettings = blinkConverterSettings;
-    string url = System.IO.Path.GetFullPath("header.html");
-    //Convert URL to PDF
-    PdfDocument document = htmlConverter.Convert(url);
-    RectangleF bounds = new RectangleF(0, 0, document.Pages[0].GetClientSize().Width, 50);
-    PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
-    header.Graphics.DrawPdfTemplate(document.Pages[0].CreateTemplate(), bounds.Location, bounds.Size);
-    return header;
-}
-#endregion
-
-#region Footer
-//Convert the footer HTML to PDF and get the pdf page template element of the result.
-private static PdfPageTemplateElement FooterHTMLtoPDF()
-{
-    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-    blinkConverterSettings.Margin.All = 0;
-    blinkConverterSettings.PdfPageSize = new SizeF(PdfPageSize.A4.Width, 25);
-      
-    blinkConverterSettings.ViewPortSize = new Size(1024, 0);
-    htmlConverter.ConverterSettings = blinkConverterSettings;
-    string url = System.IO.Path.GetFullPath("footer.html");
-    //Convert URL to PDF
-    PdfDocument document = htmlConverter.Convert(url);
-    RectangleF bounds = new RectangleF(0, 0, document.Pages[0].GetClientSize().Width, 25);
-    PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
-    footer.Graphics.DrawPdfTemplate(document.Pages[0].CreateTemplate(), bounds.Location, bounds.Size);
-    return footer;
- }
-#endregion 
-
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
@@ -1609,10 +1588,27 @@ private static PdfPageTemplateElement FooterHTMLtoPDF()
 'Initialize HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-'Convert header HTML and set its template to blink converter settings.
-blinkConverterSettings.PdfHeader = HeaderHTMLtoPDF()
-'Convert footer HTML and set its template to blink converter settings.
-blinkConverterSettings.PdfFooter = FooterHTMLtoPDF()
+'Create PDF page template element for header with bounds.
+Dim header As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
+'Create font and brush for header element.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 7)
+Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
+'Draw the header string in header template element. 
+header.Graphics.DrawString("This is header", font, brush, PointF.Empty)
+'Assign the header element to PdfHeader of Blink converter settings.
+blinkConverterSettings.PdfHeader = header
+'Create PDF page template element for footer with bounds.
+Dim footer As New PdfPageTemplateElement(New RectangleF(0, 0, blinkConverterSettings.PdfPageSize.Width, 50))
+'Create page number field.
+Dim pageNumber As PdfPageNumberField = New PdfPageNumberField(font, PdfBrushes.Black)
+'Create page count field.
+Dim count As PdfPageCountField = New PdfPageCountField(font, PdfBrushes.Black)
+'Add the fields in composite fields.
+Dim compositeField As PdfCompositeField = New PdfCompositeField(font, PdfBrushes.Black, "Page {0} of {1}", pageNumber, count)
+'Draw the composite field in footer
+compositeField.Draw(footer.Graphics, PointF.Empty)
+'Assign the footer element to PdfFooter of Blink converter settings.
+blinkConverterSettings.PdfFooter = footer
 'Set Blink viewport size. 
 blinkConverterSettings.ViewPortSize = new Size(1024, 0)
 'Assign Blink converter settings to HTML converter.
@@ -1626,49 +1622,11 @@ Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.Create
 document.Save(fileStream)
 document.Close(True)
 
-#region Header
-'Convert header HTML to PDF and get pdf page template element of the result
-Private Function HeaderHTMLtoPDF() As PdfPageTemplateElement
-    Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
-    Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-    blinkConverterSettings.Margin.All = 0
-    blinkConverterSettings.PdfPageSize = New Size(PdfPageSize.A4.Width, 50)
-    blinkConverterSettings.ViewPortSize = New Size(1024, 0)
-
-    htmlConverter.ConverterSettings = blinkConverterSettings
-    'Convert URL to PDF
-    Dim url As String = System.IO.Path.GetFullPath("Header.html")
-    Dim document As PdfDocument = htmlConverter.Convert(url)
-    Dim bounds As RectangleF = New RectangleF(0, 0, document.Pages(0).GetClientSize().Width, 50)
-    Dim header As PdfPageTemplateElement = New PdfPageTemplateElement(bounds)
-    header.Graphics.DrawPdfTemplate(document.Pages(0).CreateTemplate(), bounds.Location, bounds.Size)
-    Return header
-End Function
-#endregion 
-
-#region Footer
-'Convert footer HTML to PDF and get pdf page template element of the result
-Private Function FooterHTMLtoPDF() As PdfPageTemplateElement
-    Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
-    Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-    blinkConverterSettings.Margin.All = 0
-    blinkConverterSettings.PdfPageSize = New Size(PdfPageSize.A4.Width, 25)
-    blinkConverterSettings.ViewPortSize = New Size(1024, 0)
-
-    htmlConverter.ConverterSettings = blinkConverterSettings
-    'Convert URL to PDF
-    Dim url As String = System.IO.Path.GetFullPath("footer.html")
-    Dim document As PdfDocument = htmlConverter.Convert(url)
-    Dim bounds As RectangleF = New RectangleF(0, 0, document.Pages(0).GetClientSize().Width, 25)
-    Dim footer As PdfPageTemplateElement = New PdfPageTemplateElement(bounds)
-    footer.Graphics.DrawPdfTemplate(document.Pages(0).CreateTemplate(), bounds.Location, bounds.Size)
-    Return footer
-End Function
-#endregion 
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-Header-and-footer).
 
 ## Page orientation customization
 
@@ -1720,6 +1678,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-page-orientation-customization).
+
 ## Rotate page
 
 To set the page rotation when converting HTML to PDF, utilize the [PageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_PageRotateAngle) property in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
@@ -1769,6 +1729,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-rotate-page).
 
 ## Temporary path
 

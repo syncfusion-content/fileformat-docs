@@ -31,6 +31,8 @@ Step 4: Install the following NuGet packages as reference to your project from [
 <img src="Azure_Images/App_Service_Linux/SkiaSharp_NuGet_Image.png" alt="Install SkiaSharp NuGet Package" width="100%" Height="Auto"/>
 <img src="Azure_Images/App_Service_Linux/HarfBuzzSharp_NuGet_Image.png" alt="Install HarfBuzzSharp NuGet Package" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
 Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
 {% highlight CSHTML %}
@@ -114,3 +116,7 @@ Step 10: Now, the published webpage will open in the browser.
 
 Step 11: Click **Create Document** to convert the given Excel document to Image. You will get the output **Image** as follows.
 <img src="Azure_Images/App_Service_Linux/ExcelToImage_AppService_Linux.png" alt="Excel to Image in Azure App Service on Linux" width="100%" Height="Auto"/>
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to Image](https://ej2.syncfusion.com/aspnetcore/Excel/WorksheetToImage#/material3) in ASP.NET Core.

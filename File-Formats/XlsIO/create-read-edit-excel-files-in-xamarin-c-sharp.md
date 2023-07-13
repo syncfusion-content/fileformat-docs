@@ -13,25 +13,28 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-1. Create a new C# Xamarin.Forms application project.
+Step 1: Create a new C# Xamarin.Forms application project.
 
 <img src="XAMARIN_images/XAMARIAN_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
 <img src="XAMARIN_images/XAMARIAN_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-3. Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 <img src="XAMARIN_images/XAMARIAN_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4. Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
 	i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
 	ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
+
 {% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -50,9 +53,9 @@ End Sub
 {% endhighlight %}
 {% endtabs %} 
 {% endcapture %}
-{{ codesnippet1 | OrderList_Indent_Level_2 }} 
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
-5. In the MainXamlPage.xaml add new button as shown below.
+Step 5: In the MainXamlPage.xaml add new button as shown below.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight XAML %}
@@ -69,7 +72,7 @@ End Sub
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-6. Include the following namespace in the MainXamlPage.xaml.cs file.
+Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -87,7 +90,7 @@ Imports Color = Syncfusion.Drawing.Color
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}  
 
-7. Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
+Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
 {% capture codesnippet4 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -96,186 +99,186 @@ void OnButtonClicked(object sender, EventArgs args)
   //Create an instance of ExcelEngine.
   using (ExcelEngine excelEngine = new ExcelEngine())
   {
-  	IApplication application = excelEngine.Excel;
-  	application.DefaultVersion = ExcelVersion.Xlsx;
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
-  	//Create a workbook with a worksheet
-  	IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
+    //Create a workbook with a worksheet
+    IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
 
-  	//Access first worksheet from the workbook instance.
-  	IWorksheet worksheet = workbook.Worksheets[0];
+    //Access first worksheet from the workbook instance.
+    IWorksheet worksheet = workbook.Worksheets[0];
 
-  	Assembly executingAssembly = typeof(MainPage).GetTypeInfo().Assembly;
-  	Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
+    Assembly executingAssembly = typeof(MainPage).GetTypeInfo().Assembly;
+    Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
 
-  	//Add a picture
-  	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
+    //Add a picture
+    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
-  	//Disable gridlines in the worksheet
-  	worksheet.IsGridLinesVisible = false;
+    //Disable gridlines in the worksheet
+    worksheet.IsGridLinesVisible = false;
 
-  	//Enter values to the cells from A3 to A5
-  	worksheet.Range["A3"].Text = "46036 Michigan Ave";
-  	worksheet.Range["A4"].Text = "Canton, USA";
-  	worksheet.Range["A5"].Text = "Phone: +1 231-231-2310";
+    //Enter values to the cells from A3 to A5
+    worksheet.Range["A3"].Text = "46036 Michigan Ave";
+    worksheet.Range["A4"].Text = "Canton, USA";
+    worksheet.Range["A5"].Text = "Phone: +1 231-231-2310";
 
-  	//Make the text bold
-  	worksheet.Range["A3:A5"].CellStyle.Font.Bold = true;
+    //Make the text bold
+    worksheet.Range["A3:A5"].CellStyle.Font.Bold = true;
 
-  	//Merge cells
-  	worksheet.Range["D1:E1"].Merge();
+    //Merge cells
+    worksheet.Range["D1:E1"].Merge();
 
-  	//Enter text to the cell D1 and apply formatting.
-  	worksheet.Range["D1"].Text = "INVOICE";
-  	worksheet.Range["D1"].CellStyle.Font.Bold = true;
-  	worksheet.Range["D1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
-  	worksheet.Range["D1"].CellStyle.Font.Size = 35;
+    //Enter text to the cell D1 and apply formatting.
+    worksheet.Range["D1"].Text = "INVOICE";
+    worksheet.Range["D1"].CellStyle.Font.Bold = true;
+    worksheet.Range["D1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
+    worksheet.Range["D1"].CellStyle.Font.Size = 35;
 
-  	//Apply alignment in the cell D1
-  	worksheet.Range["D1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-  	worksheet.Range["D1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+    //Apply alignment in the cell D1
+    worksheet.Range["D1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+    worksheet.Range["D1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
-  	//Enter values to the cells from D5 to E8
-  	worksheet.Range["D5"].Text = "INVOICE#";
-  	worksheet.Range["E5"].Text = "DATE";
-  	worksheet.Range["D6"].Number = 1028;
-  	worksheet.Range["E6"].Value = "12/31/2018";
-  	worksheet.Range["D7"].Text = "CUSTOMER ID";
-  	worksheet.Range["E7"].Text = "TERMS";
-  	worksheet.Range["D8"].Number = 564;
-  	worksheet.Range["E8"].Text = "Due Upon Receipt";
+    //Enter values to the cells from D5 to E8
+    worksheet.Range["D5"].Text = "INVOICE#";
+    worksheet.Range["E5"].Text = "DATE";
+    worksheet.Range["D6"].Number = 1028;
+    worksheet.Range["E6"].Value = "12/31/2018";
+    worksheet.Range["D7"].Text = "CUSTOMER ID";
+    worksheet.Range["E7"].Text = "TERMS";
+    worksheet.Range["D8"].Number = 564;
+    worksheet.Range["E8"].Text = "Due Upon Receipt";
 
-  	//Apply RGB backcolor to the cells from D5 to E8
-  	worksheet.Range["D5:E5"].CellStyle.Color = Color.FromArgb(42, 118, 189);
-  	worksheet.Range["D7:E7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    //Apply RGB backcolor to the cells from D5 to E8
+    worksheet.Range["D5:E5"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    worksheet.Range["D7:E7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
 
-  	//Apply known colors to the text in cells D5 to E8
-  	worksheet.Range["D5:E5"].CellStyle.Font.Color = ExcelKnownColors.White;
-  	worksheet.Range["D7:E7"].CellStyle.Font.Color = ExcelKnownColors.White;
+    //Apply known colors to the text in cells D5 to E8
+    worksheet.Range["D5:E5"].CellStyle.Font.Color = ExcelKnownColors.White;
+    worksheet.Range["D7:E7"].CellStyle.Font.Color = ExcelKnownColors.White;
 
-  	//Make the text as bold from D5 to E8
-  	worksheet.Range["D5:E8"].CellStyle.Font.Bold = true;
+    //Make the text as bold from D5 to E8
+    worksheet.Range["D5:E8"].CellStyle.Font.Bold = true;
 
-  	//Apply alignment to the cells from D5 to E8
-  	worksheet.Range["D5:E8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-  	worksheet.Range["D5:E5"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-  	worksheet.Range["D7:E7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-  	worksheet.Range["D6:E6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+    //Apply alignment to the cells from D5 to E8
+    worksheet.Range["D5:E8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    worksheet.Range["D5:E5"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    worksheet.Range["D7:E7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    worksheet.Range["D6:E6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
-  	//Enter value and applying formatting in the cell A7
-  	worksheet.Range["A7"].Text = "  BILL TO";
-  	worksheet.Range["A7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
-  	worksheet.Range["A7"].CellStyle.Font.Bold = true;
-  	worksheet.Range["A7"].CellStyle.Font.Color = ExcelKnownColors.White;
+    //Enter value and applying formatting in the cell A7
+    worksheet.Range["A7"].Text = "  BILL TO";
+    worksheet.Range["A7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    worksheet.Range["A7"].CellStyle.Font.Bold = true;
+    worksheet.Range["A7"].CellStyle.Font.Color = ExcelKnownColors.White;
 
-  	//Apply alignment
-  	worksheet.Range["A7"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
-  	worksheet.Range["A7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    //Apply alignment
+    worksheet.Range["A7"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
+    worksheet.Range["A7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
 
-  	//Enter values in the cells A8 to A12
-  	worksheet.Range["A8"].Text = "Steyn";
-  	worksheet.Range["A9"].Text = "Great Lakes Food Market";
-  	worksheet.Range["A10"].Text = "20 Whitehall Rd";
-  	worksheet.Range["A11"].Text = "North Muskegon,USA";
-  	worksheet.Range["A12"].Text = "+1 231-654-0000";
+    //Enter values in the cells A8 to A12
+    worksheet.Range["A8"].Text = "Steyn";
+    worksheet.Range["A9"].Text = "Great Lakes Food Market";
+    worksheet.Range["A10"].Text = "20 Whitehall Rd";
+    worksheet.Range["A11"].Text = "North Muskegon,USA";
+    worksheet.Range["A12"].Text = "+1 231-654-0000";
 
-  	//Create a Hyperlink for e-mail in the cell A13
-  	IHyperLink hyperlink = worksheet.HyperLinks.Add(worksheet.Range["A13"]);
-  	hyperlink.Type = ExcelHyperLinkType.Url;
-  	hyperlink.Address = "Steyn@greatlakes.com";
-  	hyperlink.ScreenTip = "Send Mail";
+    //Create a Hyperlink for e-mail in the cell A13
+    IHyperLink hyperlink = worksheet.HyperLinks.Add(worksheet.Range["A13"]);
+    hyperlink.Type = ExcelHyperLinkType.Url;
+    hyperlink.Address = "Steyn@greatlakes.com";
+    hyperlink.ScreenTip = "Send Mail";
 
-  	//Enter details of products and prices
-  	worksheet.Range["A15"].Text = "  DESCRIPTION";
-  	worksheet.Range["C15"].Text = "QTY";
-  	worksheet.Range["D15"].Text = "UNIT PRICE";
-  	worksheet.Range["E15"].Text = "AMOUNT";
-  	worksheet.Range["A16"].Text = "Cabrales Cheese";
-  	worksheet.Range["A17"].Text = "Chocos";
-  	worksheet.Range["A18"].Text = "Pasta";
-  	worksheet.Range["A19"].Text = "Cereals";
-  	worksheet.Range["A20"].Text = "Ice Cream";
-  	worksheet.Range["C16"].Number = 3;
-  	worksheet.Range["C17"].Number = 2;
-  	worksheet.Range["C18"].Number = 1;
-  	worksheet.Range["C19"].Number = 4;
-  	worksheet.Range["C20"].Number = 3;
-  	worksheet.Range["D16"].Number = 21;
-  	worksheet.Range["D17"].Number = 54;
-  	worksheet.Range["D18"].Number = 10;
-  	worksheet.Range["D19"].Number = 20;
-  	worksheet.Range["D20"].Number = 30;
-  	worksheet.Range["D23"].Text = "Total";
+    //Enter details of products and prices
+    worksheet.Range["A15"].Text = "  DESCRIPTION";
+    worksheet.Range["C15"].Text = "QTY";
+    worksheet.Range["D15"].Text = "UNIT PRICE";
+    worksheet.Range["E15"].Text = "AMOUNT";
+    worksheet.Range["A16"].Text = "Cabrales Cheese";
+    worksheet.Range["A17"].Text = "Chocos";
+    worksheet.Range["A18"].Text = "Pasta";
+    worksheet.Range["A19"].Text = "Cereals";
+    worksheet.Range["A20"].Text = "Ice Cream";
+    worksheet.Range["C16"].Number = 3;
+    worksheet.Range["C17"].Number = 2;
+    worksheet.Range["C18"].Number = 1;
+    worksheet.Range["C19"].Number = 4;
+    worksheet.Range["C20"].Number = 3;
+    worksheet.Range["D16"].Number = 21;
+    worksheet.Range["D17"].Number = 54;
+    worksheet.Range["D18"].Number = 10;
+    worksheet.Range["D19"].Number = 20;
+    worksheet.Range["D20"].Number = 30;
+    worksheet.Range["D23"].Text = "Total";
 
-  	//Apply number format
-  	worksheet.Range["D16:E22"].NumberFormat = "$.00";
-  	worksheet.Range["E23"].NumberFormat = "$.00";
+    //Apply number format
+    worksheet.Range["D16:E22"].NumberFormat = "$.00";
+    worksheet.Range["E23"].NumberFormat = "$.00";
 
-  	//Merge column A and B from row 15 to 22
-  	worksheet.Range["A15:B15"].Merge();
-  	worksheet.Range["A16:B16"].Merge();
-  	worksheet.Range["A17:B17"].Merge();
-  	worksheet.Range["A18:B18"].Merge();
-  	worksheet.Range["A19:B19"].Merge();
-  	worksheet.Range["A20:B20"].Merge();
-  	worksheet.Range["A21:B21"].Merge();
-  	worksheet.Range["A22:B22"].Merge();
+    //Merge column A and B from row 15 to 22
+    worksheet.Range["A15:B15"].Merge();
+    worksheet.Range["A16:B16"].Merge();
+    worksheet.Range["A17:B17"].Merge();
+    worksheet.Range["A18:B18"].Merge();
+    worksheet.Range["A19:B19"].Merge();
+    worksheet.Range["A20:B20"].Merge();
+    worksheet.Range["A21:B21"].Merge();
+    worksheet.Range["A22:B22"].Merge();
 
-  	//Apply incremental formula for column Amount by multiplying Qty and UnitPrice
-  	application.EnableIncrementalFormula = true;
-  	worksheet.Range["E16:E20"].Formula = "=C16*D16";
+    //Apply incremental formula for column Amount by multiplying Qty and UnitPrice
+    application.EnableIncrementalFormula = true;
+    worksheet.Range["E16:E20"].Formula = "=C16*D16";
 
-  	//Formula for Sum the total
-  	worksheet.Range["E23"].Formula = "=SUM(E16:E22)";
+    //Formula for Sum the total
+    worksheet.Range["E23"].Formula = "=SUM(E16:E22)";
 
-  	//Apply borders
-  	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-  	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
-  	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Grey_25_percent;
-  	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Grey_25_percent;
-  	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-  	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
-  	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Black;
-  	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Black;
+    //Apply borders
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Grey_25_percent;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Grey_25_percent;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Black;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Black;
 
-  	//Apply font setting for cells with product details
-  	worksheet.Range["A3:E23"].CellStyle.Font.FontName = "Arial";
-  	worksheet.Range["A3:E23"].CellStyle.Font.Size = 10;
-  	worksheet.Range["A15:E15"].CellStyle.Font.Color = ExcelKnownColors.White;
-  	worksheet.Range["A15:E15"].CellStyle.Font.Bold = true;
-  	worksheet.Range["D23:E23"].CellStyle.Font.Bold = true;
+    //Apply font setting for cells with product details
+    worksheet.Range["A3:E23"].CellStyle.Font.FontName = "Arial";
+    worksheet.Range["A3:E23"].CellStyle.Font.Size = 10;
+    worksheet.Range["A15:E15"].CellStyle.Font.Color = ExcelKnownColors.White;
+    worksheet.Range["A15:E15"].CellStyle.Font.Bold = true;
+    worksheet.Range["D23:E23"].CellStyle.Font.Bold = true;
 
-  	//Apply cell color
-  	worksheet.Range["A15:E15"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    //Apply cell color
+    worksheet.Range["A15:E15"].CellStyle.Color = Color.FromArgb(42, 118, 189);
 
-  	//Apply alignment to cells with product details
-  	worksheet.Range["A15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
-  	worksheet.Range["C15:C22"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-  	worksheet.Range["D15:E15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    //Apply alignment to cells with product details
+    worksheet.Range["A15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
+    worksheet.Range["C15:C22"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    worksheet.Range["D15:E15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
 
-  	//Apply row height and column width to look good
-  	worksheet.Range["A1"].ColumnWidth = 36;
-  	worksheet.Range["B1"].ColumnWidth = 11;
-  	worksheet.Range["C1"].ColumnWidth = 8;
-  	worksheet.Range["D1:E1"].ColumnWidth = 18;
-  	worksheet.Range["A1"].RowHeight = 47;
-  	worksheet.Range["A2"].RowHeight = 15;
-  	worksheet.Range["A3:A4"].RowHeight = 15;
-  	worksheet.Range["A5"].RowHeight = 18;
-  	worksheet.Range["A6"].RowHeight = 29;
-  	worksheet.Range["A7"].RowHeight = 18;
-  	worksheet.Range["A8"].RowHeight = 15;
-  	worksheet.Range["A9:A14"].RowHeight = 15;
-  	worksheet.Range["A15:A23"].RowHeight = 18;
+    //Apply row height and column width to look good
+    worksheet.Range["A1"].ColumnWidth = 36;
+    worksheet.Range["B1"].ColumnWidth = 11;
+    worksheet.Range["C1"].ColumnWidth = 8;
+    worksheet.Range["D1:E1"].ColumnWidth = 18;
+    worksheet.Range["A1"].RowHeight = 47;
+    worksheet.Range["A2"].RowHeight = 15;
+    worksheet.Range["A3:A4"].RowHeight = 15;
+    worksheet.Range["A5"].RowHeight = 18;
+    worksheet.Range["A6"].RowHeight = 29;
+    worksheet.Range["A7"].RowHeight = 18;
+    worksheet.Range["A8"].RowHeight = 15;
+    worksheet.Range["A9:A14"].RowHeight = 15;
+    worksheet.Range["A15:A23"].RowHeight = 18;
 
-  	//Save the workbook to stream in xlsx format. 
-  	MemoryStream stream = new MemoryStream();
-  	workbook.SaveAs(stream);
+    //Save the workbook to stream in xlsx format. 
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
 
-  	workbook.Close();
+    workbook.Close();
 
-  	//Save the stream as a file in the device and invoke it for viewing
-  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.xlsx", "application/msexcel", stream);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
@@ -467,7 +470,7 @@ End Using
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-8. Compile and execute the application. Now this application creates a simple Excel document.
+Step 8: Compile and execute the application. Now this application creates a simple Excel document.
 
 A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
 
@@ -519,6 +522,10 @@ void btnCreate_Click(object sender, System.EventArgs e)
 A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
 
 N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/xamarin) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
 
 ## Helper Files
 
@@ -976,5 +983,3 @@ class SaveWindowsPhone: ISave
 }
 {% endhighlight %}
 {% endtabs %}
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Xamarin Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.
