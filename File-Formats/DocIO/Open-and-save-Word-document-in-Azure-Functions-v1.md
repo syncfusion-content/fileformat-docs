@@ -26,7 +26,7 @@ Step 4: Install the [Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syn
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 4: Include the following namespaces in the **Function1.cs** file.
+Step 5: Include the following namespaces in the **Function1.cs** file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -37,7 +37,7 @@ using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add the following code snippet in **Run** method of **Function1** class to perform ***open an existing Word document**.
+Step 6: Add the following code snippet in **Run** method of **Function1** class to perform ***open an existing Word document**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -50,7 +50,7 @@ using WordDocument document = new WordDocument(stream);
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add below code example to add a paragraph in the Word document.
+Step 7: Add below code example to add a paragraph in the Word document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -67,7 +67,7 @@ text.CharacterFormat.FontSize = 12f;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the Word document**.
+Step 8: Add below code example to **save the Word document**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -94,28 +94,28 @@ return response;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
+Step 9: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
 ![Create a new profile in the Publish Window](Azure_Images/Functions_v4/Publish-Open-and-Save-Word-Document.png)
 
-Step 7: Select the target as **Azure** and click **Next** button.
+Step 10: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_WordtoPDF.png)
 
-Step 8: Select the **Create new** button.
+Step 11: Select the **Create new** button.
 ![Configure Hosting Plan](Azure_Images/Functions_v1/Function-Instance-Open-and-Save-Word-Document.png)
 
-Step 9: Click **Create** button. 
+Step 12: Click **Create** button. 
 ![Select the plan type](Azure_Images/Functions_v1/Subscription-Open-and-Save-Word-Document.png)
 
-Step 10: After creating app service then click **Finish** button. 
+Step 13: After creating app service then click **Finish** button. 
 ![Creating app service](Azure_Images/Functions_v1/App-service-Created-Open-and-Save-Word-Document.png)
 
-Step 11: Click the **Publish** button.
+Step 14: Click the **Publish** button.
 ![Click Publish Button](Azure_Images/Functions_v1/Before-Publish-Open-and-Save-Word-Document.png)
 
-Step 12: Publish has been succeed.
+Step 15: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/After-Publish-Open-and-Save-Word-Document.png)
 
-Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **open and save Word document**. You will get the output Word document as follows.
+Step 16: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **open and save Word document**. You will get the output Word document as follows.
 
 ![Open and Save in Azure Functions v1](ASP-NET-Core_images/OpenAndSaveOutput.png)
 

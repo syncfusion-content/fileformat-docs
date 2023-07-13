@@ -92,7 +92,7 @@ return response;
 {% endtabs %}
 
 Step 9: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
-![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish_PowerPoint_Presentation_to_Image.png)
+![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish-Open-and-Save-PowerPoint.png)
 
 Step 10: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_PowerPoint_Presentation_to_PDF.png)
