@@ -782,7 +782,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant Word document look as follows.
 
-![Performing Mail merge output document](gettingstarted_images/file-formats-word-performing-mail-merge-output.jpeg)
+![Performing Mail merge output document](gettingstarted_images/generated-word-document-for-performing-mail-merge-in-file-formats.jpeg)
 
 ### Simple Mail merge with Group
 
@@ -795,7 +795,7 @@ The region between these two merge fields get repeated for every record from the
 
 For example – let’s consider that you have a template document as shown.
 
-![Simple Mail merge with Group input document](gettingstarted_images/file-formats-word-mail-merge-group-input.jpeg)
+![Simple Mail merge with Group input document](gettingstarted_images/file-formats-word-simple-mail-merge-input.jpeg)
 
 Here, in this template, Employees is the group name and exact same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
 
@@ -1037,7 +1037,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant document looks as follows.
 
-![Simple Mail merge with Group output document](gettingstarted_images/file-formats-word-mail-merge-group-output.jpeg)
+![Simple Mail merge with Group output document](gettingstarted_images/generated-word-document-for-simple-mail-merge-in-file-formats.jpeg)
 
 ## Converting Word document to PDF
 
