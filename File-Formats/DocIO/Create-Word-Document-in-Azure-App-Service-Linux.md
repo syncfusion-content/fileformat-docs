@@ -62,7 +62,6 @@ Step 7: Include the below code snippet in **HomeController.cs** for **create a W
 {% highlight c# tabtitle="C#" %}
 
 private readonly IWebHostEnvironment _hostingEnvironment;
-
 public HomeController(IWebHostEnvironment hostingEnvironment)
 {
   _hostingEnvironment = hostingEnvironment;

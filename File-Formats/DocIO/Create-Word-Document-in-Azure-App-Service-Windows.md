@@ -56,13 +56,12 @@ using Syncfusion.DocIO.DLS;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Include the below code snippet in **HomeController.cs** for **create a Word document**. 
+Step 7: Include the below code snippet in **HomeController.cs** for **create a Word document**. 
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
 private readonly IWebHostEnvironment _hostingEnvironment;
-
 public HomeController(IWebHostEnvironment hostingEnvironment)
 {
   _hostingEnvironment = hostingEnvironment;
@@ -317,9 +316,7 @@ Step 4: Select the Specific target as **Azure App Service (Windows)**.
 ![Select the publish target](Azure_Images/App_Service_Windows/Specific_Target_WordtoPDF.png)
 
 Step 5: To create a new app service, click **Create new** option.
-
 ![Click create new option](Azure_Images/App_Service_Linux/Create_New_App_Service_WordtoPDF.png)
-
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
 ![Click the Create button](Azure_Images/App_Service_Windows/Hosting-Plan-Create-Word-Document.png)
