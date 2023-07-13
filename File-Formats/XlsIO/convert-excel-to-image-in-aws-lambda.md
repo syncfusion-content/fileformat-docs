@@ -27,17 +27,17 @@ Step 4: Install the following **NuGet packages** in your application from [Nuget
 * [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
 * [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
 
-<img src="AWS_Images/Lambda_Images/Install_NuGet.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet package" width="100%" Height="Auto"/>
-<img src="AWS_Images/Lambda_Images/SkiaSharp_NuGet.png" alt="Install SkiaSharp.NativeAssets.Linux NuGet package" width="100%" Height="Auto"/>
-<img src="AWS_Images/Lambda_Images/HarfBuzz_NuGet.png" alt="Install HarfBuzzSharp.NativeAssets.Linux NuGet package" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/Install_NuGet_Image.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet package" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/SkiaSharp_NuGet_Image.png" alt="Install SkiaSharp.NativeAssets.Linux NuGet package" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/HarfBuzz_NuGet_Image.png" alt="Install HarfBuzzSharp.NativeAssets.Linux NuGet package" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 5: Create a folder and copy the required data files and include the files to the project.
-<img src="AWS_Images/Lambda_Images/Data_Folder.png" alt="Create data folder" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/Data_Folder_Image.png" alt="Create data folder" width="100%" Height="Auto"/>
 
 Step 6: Set the **copy to output directory** to **Copy if newer** to all the data files.
-<img src="AWS_Images/Lambda_Images/Data_Properties.png" alt="File properties" width="100%" Height="Auto"/>
+<img src="AWS_Images/Lambda_Images/Data_Properties_Image.png" alt="File properties" width="100%" Height="Auto"/>
 
 Step 7: Include the following namespaces in **Function.cs** file.
 
