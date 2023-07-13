@@ -20,7 +20,7 @@ Step 2: Select a project template and required platforms to deploy the applicati
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Create Xamarin CodeSharing Option](xamarin_images/codesharing-in-xamarin-word.png)
+![Create Xamarin CodeSharing Option](xamarin_images/code-sharing-in-xamarin-word.png)
 
 Step 3: Install [Syncfusion.Xamarin.DocIO](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIO) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
