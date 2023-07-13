@@ -658,9 +658,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream ms = new MemoryStream();
   workbook.SaveAs(ms);
   ms.Position = 0;
-	
+
   //Saves the memory stream as a file.
-  DependencyService.Get<ISave>().SaveAndView("Invoice.xlsx", "application/excel", ms);
+  SaveService saveService = new SaveService();
+  saveService.SaveAndView("Output.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ms);
 }
 {% endhighlight %}
 {% endtabs %}
