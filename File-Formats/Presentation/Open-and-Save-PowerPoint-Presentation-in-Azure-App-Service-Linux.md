@@ -138,7 +138,7 @@ Step 12: Click **Open and Save PowerPoint** button.You will get the output **Pow
 
 ![Open and save PowerPoint in Azure App Service on Linux](Workingwith_Core/Open-and-Save-output-image.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Azure/Azure_App_Service).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Azure/Azure_App_Service).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

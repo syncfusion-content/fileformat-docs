@@ -216,7 +216,7 @@ Step 12: Click **Create PowerPoint** to create a PowerPoint document.You will ge
 
 ![Create PowerPoint document in Azure App Service on Windows](Azure_Images/App_Service_Windows/Output-Create-PowerPoint-Presentation.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Azure/Azure_App_Service).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Azure/Azure_App_Service).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

@@ -340,7 +340,7 @@ Step 12: Select the Word document and Click **Create Word document** to create a
 
 ![Create Word document in Azure App Service on Windows](ASP-NET-Core_images/GettingStartedOutput.jpg)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Azure/Azure_App_Service).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/Azure/Azure_App_Service).
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
