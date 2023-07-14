@@ -125,7 +125,7 @@ Step 3: Open the Cloud Shell Terminal and run the following **command** to view 
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ ls
+ls
 
 {% endhighlight %}
 {% endtabs %}
@@ -137,7 +137,7 @@ Step 4: Run the following **command** to navigate which sample you want run.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ cd Convert-PPTX-to-image
+cd Convert-PPTX-to-image
 
 {% endhighlight %}
 {% endtabs %}
@@ -197,7 +197,7 @@ Step 1: Add the app.yaml file to the publish folder with the following contents.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ cat <<EOT >> app.yaml
+cat <<EOT >> app.yaml
 env: flex
 runtime: custom   
 EOT
@@ -212,7 +212,7 @@ Step 2: Add the Docker file to the publish folder with the following contents.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ cat <<EOT >> Dockerfile
+cat <<EOT >> Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 RUN apt-get update -y && apt-get install libfontconfig -y
 ADD / /app
@@ -237,7 +237,7 @@ Step 1: To deploy the application to the App Engine, run the following command i
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
-$ gcloud app deploy --version v1
+gcloud app deploy --version v1
 
 {% endhighlight %}
 {% endtabs %}

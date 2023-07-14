@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Word document in Google Cloud Platform (GCP)
 
-Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and convert Word documents programmatically without **Microsoft Word** or interop dependencies. Using this library, **create a Word document in Google Cloud Platform (GCP)**. 
+Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, edit, and convert Word documents programmatically without **Microsoft Word** or interop dependencies. Using this library, **create a Word document in Google Cloud Platform (GCP)** within a few lines of code. 
 
 N> If this is your first time working with Google Cloud Platform (GCP), please refer to the dedicated GCP resources. This section explains how to create a Word document in C# using the .NET Core Word (DocIO) library in GCP. 
 
