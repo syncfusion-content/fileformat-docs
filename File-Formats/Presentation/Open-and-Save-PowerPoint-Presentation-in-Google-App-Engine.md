@@ -260,7 +260,7 @@ $ gcloud app deploy --version v1
 Step 2: Open the **URL** to access the application, which has been successfully deployed.
 ![Add required files to publish folder](GCP_Images/Browser-Open-and-Save-PowerPoint-Presentation.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/GCP/Google-App-Engine).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/GCP/Google_App_Engine).
 
 By executing the program, you will get the **PowerPoint document** as follows. The output will be saved in **bin** folder.
 
