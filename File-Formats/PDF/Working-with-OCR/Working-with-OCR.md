@@ -273,7 +273,7 @@ Step 3:Please use the OCR language data for other languages using the following 
 
 [Tesseract language data](https://github.com/tesseract-ocr/tessdata)
 
-Step 5: Include the following namespace in your class file. 
+Step 4: Include the following namespace in your class file. 
 
 {% highlight c# tabtitle="C#" %}
 
@@ -282,7 +282,7 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 6: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Program.cs file. 
+Step 5: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Program.cs file. 
 
 {% highlight c# tabtitle="C#" %}
 
