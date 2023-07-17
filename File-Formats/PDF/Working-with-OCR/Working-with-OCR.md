@@ -151,7 +151,7 @@ Windows Forms, WPF, ASP.NET, and ASP.NET MVC
 <li>Syncfusion.PdfImaging.Portable.dll</li>
 <li>Syncfusion.Pdf.Portable.dll</li>
 <li>Syncfusion.Compression.Portable.dll</li>
-<li>{{'[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/4.5.0)'| markdownify }} package (v 4.5.0 or above)</li>
+<li>{{'[SkiaSharp](https://www.nuget.org/packages/SkiaSharp/2.88.0-preview.232)'| markdownify }} package</li>
 </ul>
 </td>
 </tr>
@@ -176,19 +176,17 @@ Windows Forms, WPF, ASP.NET, and ASP.NET MVC
 The Syncfusion OCR processor internally uses Tesseract libraries to perform OCR, so please copy the necessary Tessdata and TesseractBinaries folders from the NuGet package folder to the project folder to use the OCR feature.
 
 ### Prerequisites for Windows
-Provide the TesseractBinaries windows folder path when creating a new OCR processor. Please refer to the following code sample for windows.
+Please refer to the following code sample for windows.
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Windows");
+OCRProcessor processor = new OCRProcessor();
 
 {% endhighlight %}
 
-When performing the OCR to recognize different language images, provide the tesseract language data folder path (tessdata).
-
 {% highlight c# tabtitle="C#" %}
 
-processor.PerformOCR(lDoc, "tessdata/");
+processor.PerformOCR(lDoc);
 
 {% endhighlight %}
 
@@ -200,7 +198,7 @@ N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as a se
 
 ### Prerequisites for Linux 
 
-Using the "System.Drawing.Common" API in the OCR Processor, install the "libgdiplus" and "libopenjp2-7" packages. Please refer to the following commands to install the packages.
+Install the "libgdiplus" and "libopenjp2-6" packages. Please refer to the following commands to install the packages.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -210,17 +208,17 @@ sudo apt-get install y- libopenjp2-7
 
 {% endhighlight %}
 
-Provide the TesseractBinaries Linux folder path when creating a new OCR processor. Please refer to the following code snippet for Linux.
+Please refer to the following code snippet for Linux.
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Linux");
+OCRProcessor processor = new OCRProcessor();
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="C#" %}
 
-processor.PerformOCR(lDoc, "tessdata/");
+processor.PerformOCR(lDoc);
 
 {% endhighlight %}
 
@@ -229,7 +227,7 @@ Download the language packages from the following link.
 
 ### Prerequisites for Mac
 
-Use the "System.Drawing.Common" package to process the image and perform the OCR in the OCR Processor. Install the "libgdiplus" and "tesseract" packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
+Install the "libgdiplus" and "tesseract" packages in the Mac machine where the OCR operations occur. Please refer to the following commands to install this package.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -238,17 +236,17 @@ brew install tesseract
 
 {% endhighlight %}
 
-Provide the TesseractBinaries Mac folder path when creating a new OCR processor. Please refer to the following code sample for Mac.
+Please refer to the following code sample for Mac.
 
 {% highlight c# tabtitle="C#" %}
 
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/Mac");
+OCRProcessor processor = new OCRProcessor();
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="C#" %}
 
-processor.PerformOCR(lDoc, "tessdata/");
+processor.PerformOCR(lDoc);
 
 {% endhighlight %}
 
@@ -272,24 +270,9 @@ In project configuration window, name your project and select Next.
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET application from [nuget.org](https://www.nuget.org).
 <img src="OCR-Images/OCR-NET-step3.png" alt="Create .NET console Step3" width="100%" Height="Auto"/>
 
-Step 3: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the location of the assemblies is passed as a parameter to the OCR processor.
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
-
-{% endhighlight %}
-
-Step 4: Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
+Step 3:Please use the OCR language data for other languages using the following link.
 
 [Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"Tesseractbinaries/");
-processor.PerformOCR(loadedDocument, "tessdata/");
-
-{% endhighlight %}
 
 Step 5: Include the following namespace in your class file. 
 
@@ -305,7 +288,7 @@ Step 6: Use the following code sample to perform OCR on the entire PDF document 
 {% highlight c# tabtitle="C#" %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries.
-using (OCRProcessor processor = new OCRProcessor("TesseractBinaries/Windows/"))
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     FileStream stream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -313,7 +296,7 @@ using (OCRProcessor processor = new OCRProcessor("TesseractBinaries/Windows/"))
     //Set OCR language to process.
     processor.Settings.Language = Languages.English;
     //Process OCR by providing the PDF document and Tesseract data.
-    processor.PerformOCR(pdfLoadedDocument, "TessData/"));
+    processor.PerformOCR(pdfLoadedDocument));
     //Create file stream.
     using (FileStream outputFileStream = new FileStream(@"Output.pdf", FileMode.Create, FileAccess.ReadWrite))
     {
