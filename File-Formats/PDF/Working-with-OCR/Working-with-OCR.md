@@ -233,7 +233,6 @@ Install the "libgdiplus" and "tesseract" packages in the Mac machine where the O
 
 brew install mono-libgdiplus
 brew install tesseract
-
 {% endhighlight %}
 
 Please refer to the following code sample for Mac.
