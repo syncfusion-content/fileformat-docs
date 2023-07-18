@@ -1190,7 +1190,7 @@ Refer to the following code sample to set the performance of the OCR.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Initialize the OCR processor
 OCRProcessor processor = new OCRProcessor();
