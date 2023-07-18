@@ -198,13 +198,13 @@ N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as a se
 
 ### Prerequisites for Linux 
 
-Install the "libgdiplus" and "libopenjp2-7" packages. Please refer to the following commands to install the packages.
+Install the "libgdiplus" and "libc6-dev" packages. Please refer to the following commands to install the packages.
 
 {% highlight c# tabtitle="C#" %}
 
 sudo apt-get update
 sudo apt-get install libgdiplus
-sudo apt-get install y- libopenjp2-7
+sudo apt-get install libc6-dev
 
 {% endhighlight %}
 
