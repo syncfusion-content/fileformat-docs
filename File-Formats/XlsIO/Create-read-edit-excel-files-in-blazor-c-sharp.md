@@ -13,23 +13,25 @@ documentation: UG
 
 The below steps illustrates the creation of a simple Invoice formatted Excel document in Blazor Server-Side application.
 
-1. Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
 <img src="Blazor_images/Blazor_images_Blazor_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 <img src="Blazor_images/Blazor_images_Server_ProjectName.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-3. Choose Blazor Server App and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor Server App and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
 <img src="Blazor_images/Blazor_images_Blazor_Server_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-4. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 <img src="Blazor_images/Blazor_images_NuGet.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-5. Create a razor file with name as ``Excel`` under ``Pages`` folder and include the following namespaces in the file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 5: Create a razor file with name as ``Excel`` under ``Pages`` folder and include the following namespaces in the file.
 {% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -43,7 +45,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6. Add the following code to create a new button.
+Step 6: Add the following code to create a new button.
 {% capture codesnippet2 %}
 {% tabs %}
 {% highlight CSHTML %}
@@ -55,7 +57,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7. Add the following code in ``Excel.razor`` file to create and download the Excel document.
+Step 7: Add the following code in ``Excel.razor`` file to create and download the Excel document.
 {% capture codesnippet3 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -76,7 +78,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-8. Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
+Step 8: Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
 {% capture codesnippet4 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -88,7 +90,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-9. Create a new MemoryStream method with name as ``CreateExcel`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Server-Side application.
+Step 9: Create a new MemoryStream method with name as ``CreateExcel`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Server-Side application.
 {% capture codesnippet5 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -277,7 +279,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endcapture %}
 {{ codesnippet5 | OrderList_Indent_Level_1 }}
 
-10. Create a new class file in the project, with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
+Step 10: Create a new class file in the project, with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
 {% capture codesnippet6 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -294,7 +296,7 @@ public static class FileUtils
 {% endcapture %}
 {{ codesnippet6 | OrderList_Indent_Level_1 }}
 
-11. Add the following JavaScript function in the ``_Host.cshtml`` file present under ``Pages`` folder.
+Step 11: Add the following JavaScript function in the ``_Host.cshtml`` file present under ``Pages`` folder.
 {% capture codesnippet7 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -329,7 +331,7 @@ public static class FileUtils
 {% endcapture %}
 {{ codesnippet7 | OrderList_Indent_Level_1 }}
 
-12. Add the following code under ``NavMenu.razor`` file present under ``Shared`` folder.
+Step 12: Add the following code under ``NavMenu.razor`` file present under ``Shared`` folder.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -341,7 +343,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-13. Add the service to services collection in ``ConfigureServices`` method of ``Startup.cs`` file.
+Step 13: Add the service to services collection in ``ConfigureServices`` method of ``Startup.cs`` file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -353,8 +355,6 @@ A complete working example of how to create an Excel file in Blazor Server-Side 
 
 By executing the program, you will get the Excel file as below.
 <img src="Blazor_images/Blazor_images_Server_Output.png" alt="Output File" width="100%" Height="Auto"/>
-
-N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
 
 ## Read and Edit Excel file in Blazor Server-Side application
 
@@ -402,23 +402,25 @@ A complete working example of how to read and edit an Excel file in Blazor Serve
 
 The below steps illustrates the creation of a simple Invoice formatted Excel document in Blazor Client-Side application.
 
-1. Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
+Step 1: Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
 <img src="Blazor_images/Blazor_images_Blazor_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
+Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 <img src="Blazor_images/Blazor_image_Client_ProjectName.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-3. Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
+Step 3: Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
 <img src="Blazor_images/Blazor_image_Blazor_Client_App.png" alt="Create Blazor Server Side application in Visual Studio" width="100%" Height="Auto"/>
 
-4. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 <img src="Blazor_images/Blazor_images_NuGet.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-5. Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following namespaces in the file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 5: Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following namespaces in the file.
 {% capture codesnippet8 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -432,7 +434,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet8 | OrderList_Indent_Level_1 }}
 
-6. Add the following code to create a new button.
+Step 6: Add the following code to create a new button.
 {% capture codesnippet9 %}
 {% tabs %}
 {% highlight CSHTML %}
@@ -444,7 +446,7 @@ The below steps illustrates the creation of a simple Invoice formatted Excel doc
 {% endcapture %}
 {{ codesnippet9 | OrderList_Indent_Level_1 }}
 
-7. Create a new async method with name as ``CreateDocument`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Client-Side application.
+Step 7: Create a new async method with name as ``CreateDocument`` and include the following code snippet to create a simple Invoice formatted Excel document in Blazor Client-Side application.
 {% capture codesnippet10 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -630,7 +632,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endcapture %}
 {{ codesnippet10 | OrderList_Indent_Level_1 }}
 
-8. Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
+Step 8: Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
 {% capture codesnippet11 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -647,7 +649,7 @@ public static class FileUtils
 {% endcapture %}
 {{ codesnippet11 | OrderList_Indent_Level_1 }}
 
-9. Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
+Step 9: Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
 {% capture codesnippet12 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -729,6 +731,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 A complete working example of how to read and edit an Excel file in Blazor Client-Side application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/EditExcel).
+
+N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/blazor) to explore the rich set of Syncfusion Excel library (Excel) features.
+
+An online sample link to [create an Excel document](https://blazor.syncfusion.com/demos/excel/create-excel?theme=fluent) in Blazor.
 
 ## Convert Excel to Image in Blazor Client-Side application
 

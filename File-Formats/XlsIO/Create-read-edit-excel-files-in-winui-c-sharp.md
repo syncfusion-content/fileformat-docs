@@ -13,23 +13,25 @@ Syncfusion Excel library for WinUI platform can be used to create, read, edit Ex
 
 The below steps illustrates creating a simple Invoice formatted Excel document in WinUI.
 
-1. Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
 
 <img src="WinUI_images/WinUI_images_img1.png" alt="Create WinUI application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Enter the project name and click **Create**.
+Step 2: Enter the project name and click **Create**.
 
 <img src="WinUI_images/WinUI_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
 
-3. Select the target and minimum platform versions.
+Step 3: Select the target and minimum platform versions.
 
 <img src="WinUI_images/WinUI_images_img3.png" alt="Target version" width="100%" Height="Auto"/>
 
-4. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
+Step 4: Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your WinUI application from [NuGet.org](https://www.nuget.org).
 
 <img src="WinUI_images/WinUI_images_img4.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-5. Add a new button to the **MainWindow.xaml** as shown below.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 {% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -51,7 +53,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6. Include the following namespaces in MainPage.xaml.cs file.
+Step 6: Include the following namespaces in MainPage.xaml.cs file.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -66,7 +68,7 @@ using System.IO;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7. Include the below code snippet in button click event to create an Excel file and download it.
+Step 7: Include the below code snippet in button click event to create an Excel file and download it.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -254,7 +256,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }} 
 
-8. Include this below helper Save method in **MainPage.xaml.cs** file.
+Step 8: Include this below helper Save method in **MainPage.xaml.cs** file.
 {% capture codesnippet4 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -338,4 +340,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example of how to read and edit an Excel file in WinUI in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Edit%20Excel).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [WinUI Excel Library](https://www.syncfusion.com/document-processing/excel-framework/winui) Feature Tour page and [WinUI Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/winui) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.

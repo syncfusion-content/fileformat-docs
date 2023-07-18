@@ -24,6 +24,8 @@ Step 3: Select functions worker as **.NET Framework v1**.
 Step 4: Install the [Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 <img src="Azure_Images/Functions_v1/Install_NuGet.png" alt="Install Syncfusion.ExcelToPdfConverter.WinForms NuGet package" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
 Step 5: Include the following namespaces in the **Function1.cs** file.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -99,13 +101,13 @@ Step 10: Click the **Finish** button to finalize the **Azure Function** creation
 Step 11: Click **Close** button.
 <img src="Azure_Images/Functions_v1/Profile_Created.png" alt="Profile created" width="100%" Height="Auto"/>
 
-Step 11: Click the **Publish** button.
+Step 12: Click the **Publish** button.
 <img src="Azure_Images/Functions_v1/Start_Publish.png" alt="Click Publish Button" width="100%" Height="Auto"/>
 
-Step 12: Publish has been succeeded.
+Step 13: Publish has been succeeded.
 <img src="Azure_Images/Functions_v1/Publish_Success.png" alt="Publish succeeded" width="100%" Height="Auto"/>
 
-Step 13: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
+Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
 <img src="Azure_Images/Functions_v1/ExcelToPDF_Function_v1.png" alt="Excel to PDF in Azure Functions v1" width="100%" Height="Auto"/>
 
 ## Steps to post the request to Azure Functions
@@ -158,3 +160,7 @@ catch (Exception ex)
 }
 {% endhighlight %}
 {% endtabs %}
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.

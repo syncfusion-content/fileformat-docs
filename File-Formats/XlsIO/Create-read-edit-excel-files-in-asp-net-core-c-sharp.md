@@ -13,19 +13,21 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in ASP.NET Core.
 
-1. Create a new C# ASP.NET Core Web Application project.
+Step 1: Create a new C# ASP.NET Core Web Application project.
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Select Web Application pattern (Model-View-Controller) for the project.
+Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4. A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 4: A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
 {% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -43,9 +45,9 @@ Imports Syncfusion.Drawing
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
+Step 5: A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
 
-6. Add a new button in the Index.cshtml as shown below.
+Step 6: Add a new button in the Index.cshtml as shown below.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight CSHTML %}
@@ -62,7 +64,7 @@ Imports Syncfusion.Drawing
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7. Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+Step 7: Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -440,7 +442,6 @@ End Using
 {% endcapture %}
 {{ codesnippet3 | OrderList_Indent_Level_1 }}
 
-
 A complete working example of how to create an Excel file in ASP.NET Core in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
@@ -505,4 +506,6 @@ A complete working example of how to read and edit an Excel file in ASP.NET Core
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [ASP.NET Core Excel library demo](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/bootstrap5) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
