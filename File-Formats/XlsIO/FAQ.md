@@ -79,3 +79,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [Why cone chart shows itself as column or bar chart?](faqs/why-cone-chart-shows-itself-as-colum-or-bar-chart)
 * [How to vary colors by point for line and column chart?](faqs/how-to-vary-colors-by-point-for-line-and-column-chart)
 * [How to upload a file to Azure blob and download as stream?](faqs/how-to-upload-a-file-to-azure-blob-and-download-as-stream)
+* [Avoid ambiguous error in XlsIO while migrating from .NET Framework to .NET Core](faqs/avoid-ambiguous-error-while-migrating-from-net-framework-to-net-core)
