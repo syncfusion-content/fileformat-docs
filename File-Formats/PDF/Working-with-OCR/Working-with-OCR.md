@@ -282,11 +282,11 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 5: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Program.cs file. 
+Step 4: Use the following code sample to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Program.cs file. 
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the OCR processor by providing the path of tesseract binaries.
+//Initialize the OCR processor.
 using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
@@ -294,8 +294,8 @@ using (OCRProcessor processor = new OCRProcessor())
     PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument(stream);
     //Set OCR language to process.
     processor.Settings.Language = Languages.English;
-    //Process OCR by providing the PDF document and Tesseract data.
-    processor.PerformOCR(pdfLoadedDocument));
+    //Process OCR by providing the PDF document.
+    processor.PerformOCR(pdfLoadedDocument);
     //Create file stream.
     using (FileStream outputFileStream = new FileStream(@"Output.pdf", FileMode.Create, FileAccess.ReadWrite))
     {
