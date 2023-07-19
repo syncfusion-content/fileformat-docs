@@ -19,7 +19,7 @@ The following table illustrates the supported mail merge overloads for ExecuteNe
 </tr>
 <tbody>
 <tr>
-<td>{{'[ExecuteNestedGroup(MailMergeDataSet, List<DictionaryEntry>)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataSet_System_Collections_Generic_List_System_Collections_DictionaryEntry__)'| markdownify }}</td>
+<td>{{'[ExecuteNestedGroup(MailMergeDataSet, List&lt;DictionaryEntry&gt;)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataSet_System_Collections_Generic_List_System_Collections_DictionaryEntry__)'| markdownify }}</td>
 <td>{{'[Mail merge with dynamic objects](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-dynamic-objects)'| markdownify }}</td>
 </tr>
 <tr>
