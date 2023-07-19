@@ -20,6 +20,8 @@ Step 1: Create a new UWP application project.
 Step 2: Install the [Syncfusion.Pdf.UWP](https://www.nuget.org/packages/Syncfusion.Pdf.UWP/) NuGet package as reference to your UWP applications from [NuGet.org](https://www.nuget.org/).
 <img src="UWP_images/Creation2.jpeg" alt="UWP sample creation step2" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: Create button in *MainPage.Xaml* page using below code example and create *Button_Click* event.
 {% highlight c# tabtitle="C#" %}
 
@@ -384,13 +386,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The filled form is shown in adobe reader application as follows.
 <img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled form screenshot" width="100%" Height="Auto"/>
 
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/uwp) to explore the rich set of Syncfusion PDF library features.
 
-
-
-
-
-
-
-
-
-
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 

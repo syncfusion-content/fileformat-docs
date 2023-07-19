@@ -20,6 +20,8 @@ Step 1: Create a new WPF application project.
 Step 2: Install the [Syncfusion.Pdf.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.Wpf/ ) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/ ).
 <img src="WPF_images/WPF-creation-step2.png" alt="WPF sample creation step2" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: Include the following namespaces in the *MainWindow.xaml.cs* file.
 
 {% highlight c# tabtitle="C#" %}
@@ -375,6 +377,8 @@ finalDoc.Close(true);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/WPF/Merge-multiple-PDF-documents-from-stream).
 
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net) to explore the rich set of Syncfusion PDF library features.
 
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 
 
 
