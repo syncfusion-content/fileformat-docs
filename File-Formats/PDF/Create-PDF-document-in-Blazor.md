@@ -235,6 +235,8 @@ Step 3: Blazor WebAssembly App from the dashboard and click Create button to cre
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 <img src="Create-PDF-Blazor/Blazor_server_NuGet.png" alt="Blazor NuGet installation" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 5: Next, include the following namespaces in that  ``FetchData.razor`` file.
 
 {% tabs %}
