@@ -102,8 +102,6 @@ using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output.pd
     //Save the PDF document to file stream.
     document.Save(outputFileStream);
 }
-//Close the document.
-document.Close(true);
 
 {% endhighlight %}
 
@@ -128,7 +126,7 @@ dotnet run
 
 ![Linux Run](GettingStarted_images/Linux_Run.png)
 
-A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/Linux/Open_and_Save_PDF_Linux).
+A complete working sample can be downloaded from [Github]().
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in parallel to program.cs file.
 ![Linux output PDF document](GettingStarted_images/Open_and_save_output.png)
