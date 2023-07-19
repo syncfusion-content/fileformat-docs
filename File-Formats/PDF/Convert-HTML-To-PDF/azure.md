@@ -24,6 +24,8 @@ Step 2: Choose your project's target framework and select Configure for HTTPS.
 Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/AzureNetCore3.png" alt="Convert HTMLToPDF Azure NetCore Step3" width="100%" Height="Auto"/> 
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 There are two ways to install the dependency packages to Azure server,
 * Using SSH from Azure portal.
 * By running the commands from C#.
@@ -158,6 +160,8 @@ Step 2: Choose your project's target framework, select Configure for HTTPS and E
 
 Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 <img src="htmlconversion_images/DockerStep.PNG" alt="Convert HTMLToPDF Azure Docker Step" width="100%" Height="Auto"/> 
 
 Step 4: Include the following commands in the docker file to install the dependent packages in the docker container.
@@ -261,6 +265,8 @@ Step 2: Select the Azure Functions type and .NET Core version.
 <img src="htmlconversion_images/AzureFunctions2.png" alt="Convert HTMLToPDF Azure Functions Step2" width="100%" Height="Auto"/> 
 Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/AzureFunctions3.png" alt="Convert HTMLToPDF Azure Functions Step3" width="100%" Height="Auto"/> 
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: Include the following namespaces in Function1.cs file.
 
@@ -394,3 +400,7 @@ Step 3: Now, go to the Azure portal and select the App Services. After running t
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML_to_PDF_Azure_functions)
 
 N> HTML to PDF converter is not supported with Azure App Service windows. We internally use Blink rendering engine for the conversion, it uses GDI calls for viewing and rendering the webpages. But Azure app service blocks GDI calls in the Azure website environment. As the Azure website does not have the elevated permission and enough rights, we can not launch the Chrome headless browser in the Azure app service windows (Azure website and Azure function).
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
+
+An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 

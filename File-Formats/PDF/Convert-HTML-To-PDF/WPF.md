@@ -21,6 +21,8 @@ In project configuration window, name your project and select Create.
 Step 2: Install the [Syncfusion.HtmlToPdfConverter.WPF](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WPF) NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/WPF_Step3.png" alt="Convert HTMLToPDF WPF Step3" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
 
 {% highlight c# tabtitle="C#" %}
@@ -75,3 +77,6 @@ By executing the program, you will get the PDF document as follows.
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/WPF).
    
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
+
+An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 

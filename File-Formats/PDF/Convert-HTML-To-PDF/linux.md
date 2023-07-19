@@ -45,6 +45,8 @@ dotnet add package Syncfusion.HtmlToPdfConverter.Net.Linux -v xx.x.x.xx -s https
 
 <img src="htmlconversion_images/LinuxStep2.png" alt="Convert HTMLToPDF Linux Step2" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: Include the following namespaces.
 
 {% highlight c# tabtitle="C#" %}
@@ -99,3 +101,7 @@ By executing the program, you will get the PDF document as follows. The output w
 <img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
 
 A complete working sample can be downloaded from [Github.](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Linux)
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
+
+An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 
