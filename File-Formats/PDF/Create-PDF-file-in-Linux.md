@@ -126,7 +126,7 @@ dotnet run
 
 ![Linux Run](GettingStarted_images/Linux_Run.png)
 
-A complete working sample can be downloaded from [Github]().
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Linux).
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in parallel to program.cs file.
 ![Linux output PDF document](GettingStarted_images/Open_and_save_output.png)

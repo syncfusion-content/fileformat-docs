@@ -98,7 +98,7 @@ using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output.pd
 
 {% endtabs %}
 
-A complete working sample can be downloaded from [Github]().
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Mac).
 
 By executing the program, you will get the **PDF document** as follows.
 ![Mac OS output PDF document](GettingStarted_images/Open_and_save_output.png)
