@@ -218,7 +218,7 @@ destinationDocument.Close()
 
 ## See Also
 
-* [How to merge multiple Word documents in C#, VB.NET](https://www.syncfusion.com/kb/12998/how-to-merge-multiple-word-documents-in-c-vb-net)
-* [How to remove Section Break when merging documents using ImportContent API](https://www.syncfusion.com/kb/12952/how-to-remove-section-break-when-merging-documents-using-importcontent-api)
-* [How to merge Word documents without changing the page numbers?](https://www.syncfusion.com/kb/14004/how-to-merge-word-documents-without-changing-the-page-numbers)
-* [How to merge multiple documents with header and footer of destination document?](https://www.syncfusion.com/kb/13951/how-to-merge-multiple-documents-with-header-and-footer-of-destination-document)
+* [How to merge multiple Word documents in C#, VB.NET](https://support.syncfusion.com/kb/article/11499/how-to-merge-multiple-word-documents-in-c-vb-net)
+* [How to remove Section Break when merging documents using ImportContent API](https://support.syncfusion.com/kb/article/11441/how-to-remove-section-break-when-merging-documents-using-importcontent-api)
+* [How to merge Word documents without changing the page numbers?](https://support.syncfusion.com/kb/article/12390/how-to-merge-word-documents-without-changing-the-page-numbers)
+* [How to merge multiple documents with header and footer of destination document?](https://support.syncfusion.com/kb/article/12252/how-to-merge-multiple-documents-with-header-and-footer-of-destination-document)
