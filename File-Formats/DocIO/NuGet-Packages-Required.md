@@ -264,7 +264,7 @@ Install-Package Syncfusion.DocIORenderer.NET
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
-N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
+N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://support.syncfusion.com/kb/article/7626/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 N> 4. From v20.3.0.56, the dependent package SkiaSharp is upgraded from 2.88.0-preview.209 to 2.88.2 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.88.2 and HarfBuzzSharp.NativeAssets.Linux v2.8.2.2 packages for converting Word documents into PDF in Linux environment.
 
 ## Converting Word document to image
@@ -470,7 +470,7 @@ N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 
 ## NuGet Package Installation and Uninstallation
 
-To use Syncfusion NuGet packages in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration#) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process#) sections.
+To use Syncfusion NuGet packages in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-packages) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process#) sections.
 
 DocIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the following commands.
 

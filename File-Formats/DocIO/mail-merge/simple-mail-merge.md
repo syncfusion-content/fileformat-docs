@@ -94,7 +94,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The generated template document looks as follows.
 
-![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
+![Word document template](../mailmerge_images/file-formats-word-simple-mail-merge-template.png)
 
 ### Execute mail merge
 
@@ -150,7 +150,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The resultant document looks as follows.
 
-![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
+![Mail merged Word document](../mailmerge_images/file-formats-word-simple-mail-merge-output.png)
 
 ## See Also
 
