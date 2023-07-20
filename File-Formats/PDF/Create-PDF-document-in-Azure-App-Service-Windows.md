@@ -139,10 +139,10 @@ public IActionResult CreatePDFDocument()
 ## Steps to publish as Azure App Service on Windows 
 
 Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_images/Azure_app_service_windows/Publish_button_screenshot.png)
+![Right-click the project and select the publish option](Azure_images/Azure_app_service_windows/Publish_button_screenshot.png)
 
 Step 2: Click the **Add a Publish Profile** button.
-![Click the Add a Publish Profile](Azure_images/Azure_app_service_windows/Publish_profile_screenshot.png)
+![Click the Add a publish profile](Azure_images/Azure_app_service_windows/Publish_profile_screenshot.png)
 
 Step 3: Select the publish target as **Azure**.
 ![Select the publish target as Azure](Azure_images/Azure_app_service_windows/Select_target.png)
@@ -154,10 +154,10 @@ Step 5: To create a new app service, click **Create new** option.
 ![Click create new option](Azure_images/Azure_app_service_windows/Create_new_app_service.png)
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_images/Azure_app_service_windows/App_service_details.png)
+![Click the create button](Azure_images/Azure_app_service_windows/App_service_details.png)
 
 Step 7: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_images/Azure_app_service_windows/Finish_app_service.png)
+![Click the finish button](Azure_images/Azure_app_service_windows/Finish_app_service.png)
 
 Step 8: Click **Close** button.
 ![Create a ASP.NET Core Project](Azure_images/Azure_app_service_windows/profile_creation_success.png)
@@ -172,9 +172,9 @@ Step 11: Now, the published webpage will open in the browser.
 ![Browser will open after publish](Azure_images/Azure_app_service_windows/WebView.png)
 
 Step 12: Select the PDF document and Click **Create Word document** to create a PDF document.You will get the output PDF document as follows.
-![Create PDf document in Azure App Service on Windows](Azure_images/Azure_app_service_windows/Output_screenshot.png)
+![Create PDF document in Azure App Service on Windows](Azure_images/Azure_app_service_windows/Output_screenshot.png)
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Azure/Azure%20App%20Service).
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core) to explore the rich set of Syncfusion PDF library features. 
 
