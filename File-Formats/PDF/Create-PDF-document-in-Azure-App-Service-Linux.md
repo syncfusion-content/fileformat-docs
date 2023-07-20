@@ -1,28 +1,28 @@
 ---
-title: Create PDF document in Azure App Service on Windows | Syncfusion
-description: Create PDF document in Azure App Service on Windows using .NET Core PDF library without Microsoft Word or interop dependencies.
+title: Create PDF document in Azure App Service on Linux | Syncfusion
+description: Create PDF document in Azure App Service on Linux using .NET PDF library without Microsoft Word or interop dependencies. 
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create PDF document in Azure App Service on Windows
+# Create PDF document in Azure App Service on Linux
 
-The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, edit PDF documents programmatically without the dependency of Adobe Acrobat. Using this library, you can **create PDF document in Azure App Service on Windows**.
+The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, edit PDF documents programmatically without the dependency of Adobe Acrobat. Using this library, you can **create PDF document in Azure App Service on Linux**.
 
-## Steps to create PDF document in Azure App Service on Windows
+## Steps to create PDF document in Azure App Service on Linux
 
 Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
-![Create a ASP.NET Core Web App project](Azure_images/Azure_app_service_windows/Create-net-core-web-app.png)
+![Create a ASP.NET Core Web App project](Azure_images/Azure_app_service_Linux/Create-net-core-web-app.png)
 
 Step 2: Create a project name and select the location.
-![Configure your new project](Azure_images/Azure_app_service_windows/project_configuration.png)
+![Configure your new project](Azure_images/Azure_app_service_Linux/Set_project_name.png)
 
-Step 3: Click **Create** button. 
-![Additional information](Azure_images/Azure_app_service_windows/Framework_selection.png)
+Step 3: Click **Create** button.
+![Additional Information](Azure_images/Azure_app_service_Linux/Sample_addition_information.png)
 
 Step 4: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-![NuGet package installation](Azure_images/Azure_app_service_windows/NuGet_package.png)
+![Install Syncfusion.Pdf.Net.Core NuGet package](Azure_images/Azure_app_service_Linux/NuGet_package.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -136,43 +136,43 @@ public IActionResult CreatePDFDocument()
 
 {% endtabs %}
 
-## Steps to publish as Azure App Service on Windows 
+## Steps to publish as Azure App Service on Linux
 
-Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_images/Azure_app_service_windows/Publish_button_screenshot.png)
+Step 1: Right-click the project and select Publish option.
+![Right-click the project and select the Publish option](Azure_images/Azure_app_service_Linux/Click_publish_button.png)
 
 Step 2: Click the **Add a Publish Profile** button.
-![Click the Add a Publish Profile](Azure_images/Azure_app_service_windows/Publish_profile_screenshot.png)
+![Click the Add a Publish Profile](Azure_images/Azure_app_service_Linux/Add_publish_profile.png)
 
 Step 3: Select the publish target as **Azure**.
-![Select the publish target as Azure](Azure_images/Azure_app_service_windows/Select_target.png)
+![Select the publish target as Azure](Azure_images/Azure_app_service_Linux/Publish_target.png)
 
-Step 4: Select the Specific target as **Azure App Service (Windows)**.
-![Select the publish target](Azure_images/Azure_app_service_windows/Select_azure-app-service-windows.png)
+Step 4: Select the Specific target as **Azure App Service (Linux)**.
+![Select the publish target](Azure_images/Azure_app_service_Linux/Specific_target.png)
 
 Step 5: To create a new app service, click **Create new** option.
-![Click create new option](Azure_images/Azure_app_service_windows/Create_new_app_service.png)
+![Click create new option](Azure_images/Azure_app_service_Linux/Create_new_app_service.png)
 
 Step 6: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_images/Azure_app_service_windows/App_service_details.png)
+![Click the Create button](Azure_images/Azure_app_service_Linux/Host_plan.png)
 
 Step 7: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_images/Azure_app_service_windows/Finish_app_service.png)
+![Click the Finish button](Azure_images/Azure_app_service_Linux/App_service_finish.png)
 
 Step 8: Click **Close** button.
-![Create a ASP.NET Core Project](Azure_images/Azure_app_service_windows/profile_creation_success.png)
+![Create a ASP.NET Core Project](Azure_images/Azure_app_service_Linux/Publish_profile_creation_progress.png)
 
 Step 9: Click the **Publish** button.
-![Click the Publish button](Azure_images/Azure_app_service_windows/Publish_app_service.png)
+![Click the Publish button](Azure_images/Azure_app_service_Linux/Ready_to_publish_window.png)
 
 Step 10: Now, Publish has been succeeded.
-![Publish has been succeeded](Azure_images/Azure_app_service_windows/Publish_link.png)
+![Publish has been succeeded](Azure_images/Azure_app_service_Linux/Successful_publish.png)
 
-Step 11: Now, the published webpage will open in the browser. 
-![Browser will open after publish](Azure_images/Azure_app_service_windows/WebView.png)
+Step 11: Now, the published webpage will open in the **browser**.
+![Browser will open after publish](Azure_images/Azure_app_service_Linux/WebView.png)
 
-Step 12: Select the PDF document and Click **Create Word document** to create a PDF document.You will get the output PDF document as follows.
-![Create PDf document in Azure App Service on Windows](Azure_images/Azure_app_service_windows/Output_screenshot.png)
+Step 12: Select the PDF document and Click **Create PDF document** to generate the PDF document.You will get the output **PDF document** as follows.
+![Create Word document in Azure App Service on Linux](Azure_images/Azure_app_service_Linux/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub]().
 
