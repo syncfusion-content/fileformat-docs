@@ -1,6 +1,6 @@
 ---
 title: Create PDF document in Azure App Service on Windows | Syncfusion
-description: Create PDF document in Azure App Service on Windows using .NET Core PDF library without Microsoft Word or interop dependencies.
+description: Create PDF document in Azure App Service on Windows using .NET Core PDF library without the dependency of Adobe Acrobat.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -171,7 +171,7 @@ Step 10: Now, Publish has been succeeded.
 Step 11: Now, the published webpage will open in the browser. 
 ![Browser will open after publish](Azure_images/Azure_app_service_windows/WebView.png)
 
-Step 12: Select the PDF document and Click **Create Word document** to create a PDF document.You will get the output PDF document as follows.
+Step 12: Select the PDF document and Click **Create PDF document** to create a PDF document.You will get the output PDF document as follows.
 ![Create PDF document in Azure App Service on Windows](Azure_images/Azure_app_service_windows/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Azure/Azure%20App%20Service).
