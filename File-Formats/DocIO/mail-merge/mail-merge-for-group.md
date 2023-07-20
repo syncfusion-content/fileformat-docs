@@ -10,6 +10,29 @@ documentation: UG
 
 You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source.
 
+The following table illustrates the supported mail merge overloads for ExecuteGroup method.
+
+<table>
+<tr>
+<th>Overloads<br/><br/></th>
+<th>Examples<br/><br/></th>
+</tr>
+<tbody>
+<tr>
+<td>{{'[ExecuteGroup(MailMergeDataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)'| markdownify }}</td>
+<td>{{'[Mail merge with .NET objects](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteGroup(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_)'| markdownify }}</td>
+<td>{{'[Event for mail merge field](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-for-mail-merge-field)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)'| markdownify }}</td>
+<td>{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}</td>
+</tr>
+</tbody>
+</table>
+
 ## Create template for group mail merge
 
 The region where the Mail merge operations are to be performed must be marked by two merge fields with the following names.
@@ -503,20 +526,3 @@ public class Employee
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects).
-
-## See Also
-
-The following table illustrates the supported mail merge overloads for ExecuteGroup method.
-
-<table>
-<tr>
-<th>Overloads<br/><br/></th>
-<th>Examples<br/><br/></th>
-</tr>
-<tbody>
-<tr>
-<td>{{'[ExecuteGroup(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataView_)'| markdownify }}</td>
-<td>{{'[Generate letter for filtered contacts](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-letter-for-filtered-contacts)'| markdownify }}</td>
-</tr>
-</tbody>
-</table>
