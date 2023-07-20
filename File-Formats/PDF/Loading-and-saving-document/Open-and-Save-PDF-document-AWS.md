@@ -7,7 +7,7 @@ documentation: UG
 keywords: aws save pdf, aws load pdf, c# save pdf, c# load pdf
 ---
 
-# Open and save Word document in Amazon Web Services (AWS)
+# Open and save PDF document in Amazon Web Services (AWS)
 
 The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, you can **open and save PDF document in Amazon Web Services (AWS)**. 
 
