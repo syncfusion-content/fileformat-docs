@@ -9,25 +9,25 @@ keywords: aws lambda save pdf, aws load pdf, c# save pdf, c# load pdf
 
 # Open and save PDF document in AWS Lambda
 
-The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, you can **open and save PDF document in AWS Lambda**. 
+The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, **open and save PDF document in AWS Lambda**. 
 
 ## Steps to open and save PDF document in AWS Lambda
 
 Step 1: Create a new **AWS Lambda project** as follows.
 ![AWS Lambda project](AWS_Images/AWS_Project.png)
 
-Step 2: Select Blueprint as Empty Function and click **Finish**.
+Step 2: Select the Blueprint as Empty Function and click **Finish**.
 ![Select Blueprint as Empty Function](AWS_Images/Blueprint_AWS.png)
 
-Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 ![Install NuGet package](AWS_Images/NuGetPackage.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering the Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to registering the Syncfusion license key in your application to use our components.
 
-Step 4: Create a folder and copy the required data files and include the files to the project.
+Step 4: Create a folder and copy the required data files, and include the files in the project.
 ![Create a folder](AWS_Images/Data-Folder.png)
 
-Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
+Step 5: Set the **copy to the output directory** to **Copy if newer** to all the data files.
 ![Property change for data files](AWS_Images/Property.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
@@ -44,7 +44,7 @@ using Syncfusion.Drawing;
 {% endhighlight %}
 {% endtabs %}
 
-step 7: Add the following code snippet in **Function.cs** to **open a PDF document in AWS Lambda**.
+step 7: Add the following code sample in **Function.cs** to **open a PDF document in AWS Lambda**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -88,7 +88,7 @@ pdfGrid.Draw(graphics, new RectangleF(40, 400, loadedPage.Size.Width - 80, 0));
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Add below code example to **save the PDF document in AWS Lambda**.
+Step 9: Add the following code example to **save the PDF document in AWS Lambda**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -109,13 +109,13 @@ Step 10: Right-click the project and select **Publish to AWS Lambda**.
 Step 11: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click **Next**.
 ![Upload Lambda Function](AWS_Images/Upload-Lampda.png)
 
-Step 12: In the Advanced Function Details window, specify the **Role Name** as based on AWS Managed policy. After selecting the role, click the **Upload** button to deploy your application.
+Step 12: In the Advanced Function Details window, specify the **Role Name** based on AWS Managed policy. After selecting the role, click **Upload** button to deploy your application.
 ![Advance Function Details](AWS_Images/Advanced-AWS.png)
 
-Step 13: After deploying the application, you can see the published Lambda function in **AWS console**.
+Step 13:See the published Lambda function in the **AWS console** after deploying the application.
 ![After deploying the application](AWS_Images/Function.png)
 
-Step 14: Edit Memory size and Timeout as maximum in Basic settings of the AWS Lambda function.
+Step 14: Edit the Memory size and Timeout as maximum in Basic settings of the AWS Lambda function.
 ![AWS Lambda Function](AWS_Images/Basic-Settings.png)
 
 
@@ -145,7 +145,7 @@ using Newtonsoft.Json;
 {% endhighlight %}
 {% endtabs %}
 
-Step 4: Add the following code snippet in **Program.cs** to invoke the published AWS Lambda function using the function name and access keys.
+Step 4: Add the following code sample in **Program.cs** to invoke the published AWS Lambda function using the function name and access keys.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -159,8 +159,8 @@ InvokeRequest invoke = new InvokeRequest
     InvocationType = InvocationType.RequestResponse,
     Payload = "\"Test\""
 };
-//Get the InvokeResponse from client InvokeRequest.
-InvokeResponse response = client.Invoke(invoke);
+//Get the InvokeResponse from client InvokeRequest
+InvokeResponse response = await client.InvokeAsync(invoke);
 //Read the response stream
 var stream = new StreamReader(response.Payload);
 JsonReader reader = new JsonTextReader(stream);
@@ -177,10 +177,10 @@ System.Diagnostics.Process.Start("Sample.pdf");
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the **PDF document** as follows.
+By executing the program, you will get the a **PDF document** as follows.
 
 ![Open and save a PDF document in AWS Lambda](AWS_Images/Output.png)
 
-From GitHub, you can download the [console application]() and [AWS Lambda]() project.
+From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/AWS/ConsoleApp) and [AWS Lambda](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/AWS/AWSLambdaProject) project.
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core?_gl=1*7czwz1*_ga*OTcwNzc5NDkuMTY4MTEwMjEwNA..*_ga_WC4JKKPHH0*MTY4OTg0NTE0Ni4zMzguMC4xNjg5ODQ1MTQ2LjYwLjAuMA..) to explore the rich set of Syncfusion PDF library features. 
