@@ -10,6 +10,37 @@ documentation: UG
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
+The following table illustrates the supported mail merge overloads for ExecuteNestedGroup method.
+
+<table>
+<tr>
+<th>Overloads<br/><br/></th>
+<th>Examples<br/><br/></th>
+</tr>
+<tbody>
+<tr>
+<td>{{'[ExecuteNestedGroup(MailMergeDataSet, List&lt;DictionaryEntry&gt;)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataSet_System_Collections_Generic_List_System_Collections_DictionaryEntry__)'| markdownify }}</td>
+<td>{{'[Mail merge with dynamic objects](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-dynamic-objects)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteNestedGroup(MailMergeDataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)'| markdownify }}</td>
+<td>{{'[Mail merge with implicit relational data](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-implicit-relational-data)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteNestedGroup(DbConnection, ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_)'| markdownify }}</td>
+<td>{{'[Mail merge with explicit relational data](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-explicit-relational-data)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteNestedGroup(DbConnection,ArrayList,Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_)'| markdownify }}</td>
+<td>{{'[Generate sales invoice](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-sales-invoice)'| markdownify }}</td>
+</tr>
+<tr>
+<td>{{'[ExecuteNestedGroup(DataSet,ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_DataSet_System_Collections_ArrayList_)'| markdownify }}</td>
+<td>{{'[Group customer based on products](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Group-customers-based-on-products)'| markdownify }}</td>
+</tr>
+</tbody>
+</table>
+
 ## Create template for nested group mail merge
 
 Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. 
@@ -712,24 +743,3 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the above code example, it generates the resultant Word document as follows.
  
 ![Output Word document of mapping field of ancestor group](../mailmerge_images/generated-mapping-word-document-in-file-formats.png)
-
-## See Also
-
-The following table illustrates the supported mail merge overloads for ExecuteNestedGroup method.
-
-<table>
-<tr>
-<th>Overloads<br/><br/></th>
-<th>Examples<br/><br/></th>
-</tr>
-<tbody>
-<tr>
-<td>{{'[ExecuteNestedGroup(DbConnection,ArrayList,Boolean)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_Common_DbConnection_System_Collections_ArrayList_System_Boolean_)'| markdownify }}</td>
-<td>{{'[Generate sales invoice](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Generate-sales-invoice)'| markdownify }}</td>
-</tr>
-<tr>
-<td>{{'[ExecuteNestedGroup(DataSet,ArrayList)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteNestedGroup_System_Data_DataSet_System_Collections_ArrayList_)'| markdownify }}</td>
-<td>{{'[Group customer based on products](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Group-customers-based-on-products)'| markdownify }}</td>
-</tr>
-</tbody>
-</table>
