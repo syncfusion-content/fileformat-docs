@@ -1,12 +1,12 @@
 ---
-title: Open and Save PDF Documents in GCP | Syncfusion
-description: Open and save PDF documents in Google Cloud Platform (GCP) using Syncfusion .NET Core PDF library without the dependency of Adobe Acrobat.
+title:  Create or Generate PDF document in GCP | Syncfusion
+description: Learn how to create or generate a PDF file in Google Cloud Platform (GCP) using Syncfusion .NET Core PDF library without the dependency of Adobe Acrobat.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: gcp os save pdf, gcp os load pdf, c# save pdf, c# load pdf
 ---
-# Open and save PDF document in Google Cloud Platform (GCP)
+# Create PDF document in Google Cloud Platform (GCP)
 
 The Syncfusion [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) used to create, read, edit, and convert PDF documents programatically without the dependency of Adobe Acrobat. Using this library, create a PDF document in Google Cloud Platform (GCP) within a few lines of code.
 
