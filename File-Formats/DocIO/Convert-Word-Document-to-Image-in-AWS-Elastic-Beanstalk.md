@@ -16,9 +16,13 @@ Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) projec
 
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
 
-Step 2: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
-![Install Syncfusion.DocIORenderer.Net.Core NuGet package](ASP-NET-Core_images/NugetPackage.png)
+* [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
+* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.2)
+
+![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
+![Install SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2 NuGet Package](AWS_Images/Elastic_Beanstalk_Images/Nuget-Convert-WordtoImage.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -130,7 +134,7 @@ You can download a complete working sample from GitHub.
 
 By executing the program, you will get the **image** as follows.
 
-![Word to Image in AWS Elastic Beanstalk](WordToPDF_images/OutputImage.png)
+![Word to Image in AWS Elastic Beanstalk](WordToPDF_images/Output-WordtoImage.png)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
 

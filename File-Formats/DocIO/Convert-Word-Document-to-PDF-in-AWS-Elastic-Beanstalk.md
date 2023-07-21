@@ -16,9 +16,13 @@ Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) projec
 
 ![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
 
-Step 2: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
-![Install Syncfusion.DocIORenderer.Net.Core NuGet package](ASP-NET-Core_images/NugetPackage.png)
+* [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
+* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.2)
+
+![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
+![Install SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2 NuGet Package](AWS_Images/Elastic_Beanstalk_Images/Nuget-Convert-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -127,8 +131,7 @@ Step 5: Click the **Next** button to proceed further.
 Step 6: Click the **Next** button.
 ![Application Options in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Application-Options-Convert-WordtoPDF.png)
 
-Step 7: Click the **Deploy** button to deploy the sample on
-AWS Elastic Beanstalk.
+Step 7: Click the **Deploy** button to deploy the sample on AWS Elastic Beanstalk.
 ![Deploy the sample in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Review-Convert-WordtoPDF.png)
 
 Step 8: After changing the status from **Updating** to **Environment is healthy**, click the **URL**.
@@ -141,7 +144,7 @@ You can download a complete working sample from GitHub.
 
 By executing the program, you will get the **PDF document** as follows.
 
-![Output PDF document in AWS Elastic Beanstalk](WordToPDF_images/OutputImage.png)
+![Word to PDF in AWS Elastic Beanstalk](WordToPDF_images/OutputImage.png)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
 

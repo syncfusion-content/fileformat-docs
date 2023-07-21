@@ -127,7 +127,7 @@ Step 8: After changing the status from **Updating** to **Environment is healthy*
 
 Step 9: After opening the provided **URL**, click **Create Word Document** button to download the Word document.
  
-![Click button to Create a Word document](AWS_Images/Elastic_Beanstalk_Images/Browser-Open-and-save-Word-document.png)
+![Click button to create a Word document](AWS_Images/Elastic_Beanstalk_Images/Browser-Open-and-save-Word-document.png)
 
 You can download a complete working sample from GitHub.
 
