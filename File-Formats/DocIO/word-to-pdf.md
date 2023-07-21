@@ -96,7 +96,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 N> 1. For .NET Framework, creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF. Whereas this is not necessary for .NET Core, as ChartToImageConverter is initialized internally in Syncfusion.DocIORenderer.Portable assembly.
 N> 2. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
-N> 3. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
+N> 3. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://support.syncfusion.com/kb/article/8902/how-to-convert-word-document-to-pdf-in-uwp)
 
 ## Word to PDF conversion in Linux OS
 
@@ -1512,7 +1512,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Font Substitution
 
-When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each font has different glyphs for characters. To learn more about the default font substitution, click [here](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
+When the necessary fonts used in the Word document has not been installed in the production machine, then Essential DocIO uses the ”Microsoft Sans Serif” as default font for rendering the text. This leads to preservation difference in generated PDF as each font has different glyphs for characters. To learn more about the default font substitution, click [here](https://support.syncfusion.com/kb/article/6821/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production).
 
 To avoid this, the Essential DocIO library allows you to set an alternate font for the missing font used in the Word document.
 
@@ -1848,17 +1848,17 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 
 ## See Also
 
-* [How to perform font substitution in Word to PDF conversion](https://www.syncfusion.com/kb/8484/how-to-perform-font-substitution-in-word-to-pdf-conversion)
-* [What happens when the Word document used fonts for a text is not installed in production machine during Word to PDF or Image conversion](https://www.syncfusion.com/kb/7570/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production)
-* [How to convert and replace EMF image in word document to PNG with same size](https://www.syncfusion.com/kb/12847/how-to-convert-and-replace-emf-image-in-word-document-to-png-with-same-size)
-* [How to convert Word document to PDF in UWP](https://www.syncfusion.com/kb/10270/how-to-convert-word-document-to-pdf-in-uwp)
-* [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://www.syncfusion.com/kb/12938/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
+* [How to perform font substitution in Word to PDF conversion](https://support.syncfusion.com/kb/article/7499/how-to-perform-font-substitution-in-word-to-pdf-conversion)
+* [What happens when the Word document used fonts for a text is not installed in production machine during Word to PDF or Image conversion](https://support.syncfusion.com/kb/article/6821/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production)
+* [How to convert and replace EMF image in word document to PNG with same size](https://support.syncfusion.com/kb/article/11331/how-to-convert-and-replace-emf-image-in-word-document-to-png-with-same-size)
+* [How to convert Word document to PDF in UWP](https://support.syncfusion.com/kb/article/8902/how-to-convert-word-document-to-pdf-in-uwp)
+* [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://support.syncfusion.com/kb/article/11445/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
 * [How to deploy .NET Core application with Word to PDF conversion capabilities in Linux OS](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os)
-* [How to convert Word document to PDF in Azure App service on Linux](https://www.syncfusion.com/kb/11888/how-to-convert-word-document-to-pdf-in-azure-app-service-on-linux)
+* [How to convert Word document to PDF in Azure App service on Linux](https://support.syncfusion.com/kb/article/7626/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os)
 * [Is it possible to perform Word to PDF conversion in Azure Environment ?](https://www.syncfusion.com/kb/7751/is-it-possible-to-perform-word-to-pdf-conversion-in-azure-environment)
 * [How to perform Word to PDF conversion in Azure Functions v1](https://www.syncfusion.com/kb/10056/how-to-perform-word-to-pdf-conversion-in-azure-functions-v1)
-* [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://www.syncfusion.com/kb/11197/how-to-mail-merge-word-documents-and-convert-to-pdf-in-azure-functions-v2)
-* [How to convert Word document to PDF in AWS Lambda](https://www.syncfusion.com/kb/11905/how-to-convert-word-document-to-pdf-in-aws-lambda)
-* [How to add signature field in the PDF converted from Word](https://www.syncfusion.com/kb/12956/how-to-add-signature-field-in-the-pdf-converted-from-word)
-* [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13871/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
+* [How to mail merge Word documents and convert to PDF in Azure Functions v2](https://support.syncfusion.com/kb/article/6939/is-it-possible-to-perform-word-to-pdf-conversion-in-azure-environment)
+* [How to convert Word document to PDF in AWS Lambda](https://support.syncfusion.com/kb/article/10534/how-to-convert-word-document-to-pdf-in-aws-lambda)
+* [How to add signature field in the PDF converted from Word](https://support.syncfusion.com/kb/article/11438/how-to-add-signature-field-in-the-pdf-converted-from-word)
+* [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12239/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
 
