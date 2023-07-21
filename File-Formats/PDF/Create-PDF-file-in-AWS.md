@@ -9,7 +9,7 @@ keywords: aws create pdf, edit pdf, merge, pdf form, fill form, digital sign, ta
 
 # Create PDF document in Amazon Web Services (AWS)
 
-The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, you can **open and save PDF document in Amazon Web Services (AWS)**. 
+The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, **open and save PDF document in Amazon Web Services (AWS)**. 
 
 N> If this is your first time working with Amazon Web Services (AWS), please refer to the dedicated AWS resources. This section explains how to open and save a PDF document in C# using the .NET Core PDF library in AWS. 
 
@@ -17,7 +17,7 @@ N> If this is your first time working with Amazon Web Services (AWS), please ref
 
 * An active **Amazon Web Services (AWS) account** is required. If you don’t have one, please [create an account](https://aws.amazon.com/) before starting.
 
-* Download and install the **AWS Toolkit** for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/). The Toolkit can be installed from Tools/Extension and updates options in Visual Studio.
+* Download and install the **AWS Toolkit** for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/). The Toolkit can be installed from Tools or Extension and updates options in Visual Studio.
 
 ## Amazon Web Services (AWS)
 
