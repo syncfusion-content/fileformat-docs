@@ -24,10 +24,18 @@ Azure Services<br/></th><th>
 NuGet package name<br/></th></tr></thead>
 <tr>
 <td>
-App Service (Windows)<br/></td><td>
+{{'[App Service (Windows)](https://help.syncfusion.com/file-formats/docio/create-word-document-in-azure-app-service-windows)' | markdownify}}<br/></td><td>
 {{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}</td></tr>
 <tr>
 <td>
-App Service (Linux)<br/></td><td>
+{{'[App Service (Linux)](https://help.syncfusion.com/file-formats/docio/create-word-document-in-azure-app-service-linux)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v1](https://help.syncfusion.com/file-formats/docio/create-word-document-in-azure-functions-v1)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet)' | markdownify}}<br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v4](https://help.syncfusion.com/file-formats/docio/create-word-document-in-azure-functions-v4)' | markdownify}}<br/></td><td>
 {{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/></td></tr>
 </table>
