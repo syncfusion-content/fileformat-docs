@@ -85,9 +85,10 @@ Step 8: Add a new action method **CreateDocument** in HomeController.cs and incl
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Open an existing PDF document.
-FileStream document = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-PdfLoadedDocument document = new PdfLoadedDocument(stream);
+//Load PDF document as stream.
+using FileStream docStream = new FileStream(@"Data/Input.pdf", FileMode.Open, FileAccess.Read);
+//Load an existing PDF document.
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
 //Load the existing page.
 PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
@@ -113,15 +114,175 @@ pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent3);
 //Draw the grid to the page of PDF document.
 pdfGrid.Draw(graphics, new RectangleF(40, 400, loadedPage.Size.Width - 80, 0));
 
-//Save the document into stream.
-MemoryStream memoryStream = new MemoryStream();
-//Save and Close the PDF Document.
-document.Save(memoryStream);
+//Create memory stream. 
+MemoryStream stream = new MemoryStream();
+//Save the PDF document to stream.
+document.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
 document.Close(true);
-return Convert.ToBase64String(memoryStream.ToArray());
+//Download Word document in the browser.
+return File(stream, "application/pdf", "Sample.pdf");
 
 {% endhighlight %}
 {% endtabs %}
+
+## Move application to App Engine
+
+Step 1: Open the **Cloud Shell editor**.
+
+![Cloud Sell editor](GettingStarted_images/.png)
+
+Step 2: Drag and drop the sample from your local machine to **Workspace**.
+
+![Work space](GettingStarted_images/.png)
+
+N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
+
+Step 3: Open the Cloud Shell Terminal and run the following **command** to view the files and directories within your **current Workspace**.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+ls
+
+{% endhighlight %}
+{% endtabs %}
+
+![Work space](GettingStarted_images/.png)
+
+Step 4: Run the following **command** to navigate which sample you want run.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+cd Open-and-save-Word-document
+
+{% endhighlight %}
+{% endtabs %}
+
+![Work space](GettingStarted_images/.png)
+
+Step 5: To ensure that the sample is working correctly, please run the application using the following command.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+dotnet run --urls=http://localhost:8080
+
+{% endhighlight %}
+{% endtabs %}
+
+![Work space](GettingStarted_images/.png)
+
+Step 6: Verify that the application is running properly by accessing the **Web View -> Preview on port 8080**.
+
+![Work space](GettingStarted_images/.png)
+
+Step 7: Now you can see the sample output on the preview page.
+
+![Work space](GettingStarted_images/.png)
+
+Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
+
+![Work space](GettingStarted_images/.png)
+
+## Publish the application
+
+Step 1: Run the following command in **Cloud Shell Terminal** to publish the application.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+dotnet publish -c Release
+
+{% endhighlight %}
+{% endtabs %}
+
+![Work space](GettingStarted_images/.png)
+
+Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+cd bin/Release/net6.0/publish/
+
+{% endhighlight %}
+{% endtabs %}
+
+![Work space](GettingStarted_images/.png)
+
+## Configure app.yaml and docker file
+
+Step 1: Add the app.yaml file to the publish folder with the following contents.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+cat <<EOT >> app.yaml
+env: flex
+runtime: custom   
+EOT
+
+{% endhighlight %}
+{% endtabs %}
+
+![yaml file to publish](GettingStarted_images/.png)
+
+
+Step 2: Add the Docker file to the publish folder with the following contents.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+cat <<EOT >> Dockerfile
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+RUN apt-get update -y && apt-get install libfontconfig -y
+ADD / /app
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://*:8080
+WORKDIR /app
+ENTRYPOINT [ "dotnet", "Open-and-save-Word-document.dll"]
+EOT
+
+{% endhighlight %}
+{% endtabs %}
+
+![yaml file to publish](GettingStarted_images/.png)
+
+Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspace**.
+
+![yaml file to publish](GettingStarted_images/.png)
+
+## Deploy to App Engine
+
+Step 1: To deploy the application to the App Engine, run the following command in Cloud Shell Terminal. Afterwards, retrieve the **URL** from the Cloud Shell Terminal.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+gcloud app deploy --version v0
+
+{% endhighlight %}
+{% endtabs %}
+
+![yaml file to publish](GettingStarted_images/.png)
+
+Step 2: Open the **URL** to access the application, which has been successfully deployed.
+
+![yaml file to publish](GettingStarted_images/.png)
+
+You can download a complete working sample from [GitHub]().
+
+By executing the program, you will get the **PDF document** as follows. The output will be saved in **bin folder**.
+
+![yaml file to publish](GettingStarted_images/.png)
+
+Click [here]() to explore the rich set of Syncfusion PDF library features.
+
+
 
 
 
