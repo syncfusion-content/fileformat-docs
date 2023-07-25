@@ -117,6 +117,17 @@ Step 2: Select the framework to Azure Functions and select HTTP triggers as foll
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/AzureFunctions4.png" alt="Convert OCR Azure Functions Step4" width="100%" Height="Auto"/> 
 
+Step 4:Copy the tessdata folder from the **bin->Debug->net6.0->runtimes** and paste it into the folder that contains the project file.
+
+<img src="OCR-Images/Tessdata_path.png" alt="Convert OCR Azure Functions Tessdata Path" width="100%" Height="Auto"/> 
+
+<img src="OCR-Images/Tessdata_Store.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+
+Step 5: Then, set Copy to output directory to give copy always the tessdata folder.
+
+<img src="OCR-Images/Set_Copy_Always.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+
+
 Step 4: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
 
 {% highlight c# tabtitle="C#" %}
@@ -154,7 +165,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         //Set OCR language to process.
         processor.Settings.Language = Languages.English;
         //Perform OCR with input document.
-        string ocr = processor.PerformOCR(lDoc);            
+        string ocr = processor.PerformOCR(lDoc,Path.Combine(executionContext.FunctionAppDirectory, "tessdata"));            
         //Save the PDF document.  
         lDoc.Save(ms);
         ms.Position = 0;
