@@ -152,7 +152,7 @@ Step 10: Now, the published webpage will open in the browser.
 Step 11: Click **Open and Save Document** button.You will get the output **PDF document** as follows.
 ![Output PDF screenshot](Azure_Images/Azure_app_service_windows/Output_screenshot.png)
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/Open-Save-Sample/Open%20and%20Save%20PDF%20document/Azure/Azure_App_Service).
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core) to explore the rich set of Syncfusion PDF library features. 
 
