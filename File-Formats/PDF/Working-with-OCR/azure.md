@@ -119,7 +119,7 @@ Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Sync
 
 Step 4:Copy the tessdata folder from the **bin->Debug->net6.0->runtimes** and paste it into the folder that contains the project file.
 
-<img src="OCR-Images/Tessdata_path.png" alt="Convert OCR Azure Functions Tessdata Path" width="100%" Height="Auto"/> 
+<img src="OCR-Images/Tessdata-path.png" alt="Convert OCR Azure Functions Tessdata Path" width="100%" Height="Auto"/> 
 
 <img src="OCR-Images/Tessdata_Store.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
 
@@ -128,7 +128,7 @@ Step 5: Then, set Copy to output directory to give copy always the tessdata fold
 <img src="OCR-Images/Set_Copy_Always.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
 
 
-Step 4: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
+Step 6: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -148,7 +148,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 
 {% endhighlight %}
 
-Step 5: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
+Step 7: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -197,7 +197,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 
 {% endhighlight %}
 
-Step 6: Now, check the OCR creation in the local machine.
+Step 8: Now, check the OCR creation in the local machine.
 
 ### Steps to publish as Azure Functions 
 
