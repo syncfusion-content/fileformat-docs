@@ -209,7 +209,10 @@ Step 1: Right-click the project and click Publish. Then, create a new profile in
 Step 2: After creating the profile, click Publish.
 <img src="OCR-Images/AzureFunctions8.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
 
-Step 3: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
+Step 3: Now, publish has been succeeded.
+<img src="OCR-Images/AzureFunctions9.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
+
+Step 4: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Azure Functions Step9" width="100%" Height="Auto"/> 
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure/Azure%20Function).
