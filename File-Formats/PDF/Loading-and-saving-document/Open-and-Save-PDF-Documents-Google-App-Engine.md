@@ -284,7 +284,7 @@ gcloud app deploy --version v0
 {% endhighlight %}
 {% endtabs %}
 
-![Deploy](GCP_Images/.png)
+![Deploy](GCP_Images/Deploy.png)
 
 Step 2: Open the **URL** to access the application, which has been successfully deployed.
 
