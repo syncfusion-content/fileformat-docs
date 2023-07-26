@@ -14,10 +14,10 @@ The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-proce
 ## Set up App Engine
 
 Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
-![Activate Cloud Shell](GettingStarted_images/Activate-Cloud-Shell.png)
+![Activate Cloud Shell](GettingStarted_images/Google_Cloud_Console.png)
 
 Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
-![Open Editor in Cloud Shell](GettingStarted_images/Authentication.png)
+![Open Editor in Cloud Shell](GettingStarted_images/Cloud_Shell.png)
 
 Step 3: Open **Cloud Shell Terminal**, and run the following **command** to confirm authentication.
 {% tabs %}
@@ -28,10 +28,10 @@ gcloud auth list
 {% endhighlight %}
 {% endtabs %}
 
-![Authentication for App Engine](GettingStarted_images/Editor-Button.png)
+![Authentication for App Engine](GettingStarted_images/Authorize_Command.png)
 
 Step 4: Click the **Authorize** button.
-![Click Authorize button](GettingStarted_images/Authorize.png)
+![Click Authorize button](GettingStarted_images/Authorize_Button.png)
 
 ## Create an application for App Engine
 
@@ -132,11 +132,11 @@ return File(stream, "application/pdf", "Sample.pdf");
 
 Step 1: Open the **Cloud Shell editor**.
 
-![Cloud Sell editor](GettingStarted_images/.png)
+![Cloud Sell editor](GettingStarted_images/Cloud_Shell_Editor.png)
 
 Step 2: Drag and drop the sample from your local machine to **Workspace**.
 
-![Work space](GettingStarted_images/.png)
+![Add Project](GettingStarted_images/Add_Project.png)
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
@@ -150,7 +150,7 @@ ls
 {% endhighlight %}
 {% endtabs %}
 
-![Work space](GettingStarted_images/.png)
+![ls command](GettingStarted_images/ls_Command.png)
 
 Step 4: Run the following **command** to navigate which sample you want to run.
 
@@ -162,7 +162,7 @@ cd Open-and-save-Word-document
 {% endhighlight %}
 {% endtabs %}
 
-![Work space](GettingStarted_images/.png)
+![Project Folder](GettingStarted_images/Project_Folder.png)
 
 Step 5: To ensure that the sample is working correctly, please run the application using the following command.
 
@@ -174,19 +174,19 @@ dotnet run --urls=http://localhost:8080
 {% endhighlight %}
 {% endtabs %}
 
-![Work space](GettingStarted_images/.png)
+![Run Application](GettingStarted_images/Run_Application.png)
 
 Step 6: Verify that the application is running properly by accessing the **Web View -> Preview on port 8080**.
 
-![Work space](GettingStarted_images/.png)
+![Preview on Port](GettingStarted_images/Preview.png)
 
 Step 7: Now you can see the sample output on the preview page.
 
-![Work space](GettingStarted_images/.png)
+![Output Button](GettingStarted_images/Console_Page.png)
 
 Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
 
-![Work space](GettingStarted_images/.png)
+![Work space](GettingStarted_images/Run_View.png)
 
 ## Publish the application
 
@@ -200,7 +200,7 @@ dotnet publish -c Release
 {% endhighlight %}
 {% endtabs %}
 
-![Work space](GettingStarted_images/.png)
+![Release](GettingStarted_images/Publish_GCP.png)
 
 Step 2: Run the following command in the **Cloud Shell Terminal** to navigate to the publish folder.
 
@@ -212,7 +212,7 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-![Work space](GettingStarted_images/.png)
+![Publish Folder](GettingStarted_images/Publish_Folder.png)
 
 ## Configure app.yaml and docker file
 
@@ -229,7 +229,7 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-![yaml file to publish](GettingStarted_images/.png)
+![yaml file to publish](GettingStarted_images/App_yaml.png)
 
 
 Step 2: Add the Docker file to the publish folder with the following contents.
@@ -250,11 +250,11 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-![yaml file to publish](GettingStarted_images/.png)
+![Docker file to publish](GettingStarted_images/Docker_File.png)
 
 Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspace**.
 
-![yaml file to publish](GettingStarted_images/.png)
+![Docker file](GettingStarted_images/Docker.png)
 
 ## Deploy to App Engine
 
@@ -268,17 +268,17 @@ gcloud app deploy --version v0
 {% endhighlight %}
 {% endtabs %}
 
-![yaml file to publish](GettingStarted_images/.png)
+![Deploy](GettingStarted_images/.png)
 
 Step 2: Open the **URL** to access the application, which has been successfully deployed.
 
-![yaml file to publish](GettingStarted_images/.png)
+![Output Console](GettingStarted_images/Console_Page.png)
 
 You can download a complete working sample from [GitHub]().
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in the **bin folder**.
 
-![yaml file to publish](GettingStarted_images/.png)
+![Output PDF Document](GettingStarted_images/Open_and_save_output.png)
 
 Click [here]() to explore the rich set of Syncfusion PDF library features.
 
