@@ -117,7 +117,18 @@ Step 2: Select the framework to Azure Functions and select HTTP triggers as foll
 Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 <img src="OCR-Images/AzureFunctions4.png" alt="Convert OCR Azure Functions Step4" width="100%" Height="Auto"/> 
 
-Step 4: Include the following namespaces in the Function1.cs file to perform OCR for a PDF document using C#.
+Step 4: Copy the tessdata folder from the **bin->Debug->net6.0->runtimes** and paste it into the folder that contains the project file.
+
+<img src="OCR-Images/Tessdata-path.png" alt="Convert OCR Azure Functions Tessdata Path" width="100%" Height="Auto"/> 
+
+<img src="OCR-Images/Tessdata_Store.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+
+Step 5: Then, set Copy to output directory to give copy always the tessdata folder.
+
+<img src="OCR-Images/Set_Copy_Always.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+
+
+Step 6: Include the following namespaces in the **Function1.cs** file to perform OCR for a PDF document using C#.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -137,7 +148,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 
 {% endhighlight %}
 
-Step 5: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
+Step 7: Add the following code sample in the Function1 class to perform OCR for a PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class in Azure Functions.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -154,7 +165,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         //Set OCR language to process.
         processor.Settings.Language = Languages.English;
         //Perform OCR with input document.
-        string ocr = processor.PerformOCR(lDoc);            
+        string ocr = processor.PerformOCR(lDoc,Path.Combine(executionContext.FunctionAppDirectory, "tessdata"));            
         //Save the PDF document.  
         lDoc.Save(ms);
         ms.Position = 0;
@@ -186,7 +197,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 
 {% endhighlight %}
 
-Step 6: Now, check the OCR creation in the local machine.
+Step 8: Now, check the OCR creation in the local machine.
 
 ### Steps to publish as Azure Functions 
 
@@ -198,7 +209,10 @@ Step 1: Right-click the project and click Publish. Then, create a new profile in
 Step 2: After creating the profile, click Publish.
 <img src="OCR-Images/AzureFunctions8.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
 
-Step 3: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
+Step 3: Now, publish has been succeeded.
+<img src="OCR-Images/AzureFunctions9.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
+
+Step 4: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
 <img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Azure Functions Step9" width="100%" Height="Auto"/> 
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure/Azure%20Function).
