@@ -1,15 +1,15 @@
 ---
 title: Create or Generate PDF document in Google App Engine| Syncfusion
-description: Learn how to create or generate a PDF file in Google App Engine using Syncfusion .NET Core PDF library without the dependency of Adobe Acrobat. 
+description: Learn how to create or generate a PDF file in the Google App Engine using Syncfusion .NET Core PDF library without the dependency of Adobe Acrobat. 
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: google app engine save pdf, app engine load pdf, c# save pdf, c# load pdf
 ---
 
-# Create PDF document in Google App Engine
+# Create a PDF document in Google App Engine
 
-The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency of Adobe Acrobat. Using this library, you can **open and save PDF document in Google App Engine**.
+The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net-core) is used to create, read, and edit PDF documents programatically without the dependency on Adobe Acrobat. Using this library, you can **open and save PDF document in Google App Engine**.
 
 ## Set up App Engine
 
@@ -19,7 +19,7 @@ Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell**
 Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
 ![Open Editor in Cloud Shell](GettingStarted_images/Authentication.png)
 
-Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
+Step 3: Open **Cloud Shell Terminal**, and run the following **command** to confirm authentication.
 {% tabs %}
 {% highlight c# tabtitle="CLI" %}
 
@@ -44,10 +44,10 @@ Step 2: Configure your new project according to your requirements.
 Step 3: Click the **Create** button.
 ![Create ASP.NET Core Web application in Visual Studio](GettingStarted_images/Additional-Information.png)
 
-Step 4:Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 4:Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 ![Install Syncfusion.DocIO.Net.Core NuGet package](GettingStarted_images/Google-NuGet-Package.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering the Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to learn about registering the Syncfusion license key in your application to use our components.
 
 Step 5: Include the following namespaces in the **HomeController.cs** file.
 
@@ -64,7 +64,7 @@ using System.IO;
 
 Step 6: A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
 
-Step 7: Add a new button in the Index.cshtml as shown below.
+Step 7: Add a new button in the Index.cshtml as shown in the following.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -80,7 +80,7 @@ Step 7: Add a new button in the Index.cshtml as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to **create PDF document** and download it.
+Step 8: Add a new action method **CreateDocument** in HomeController.cs and include the following code sample to **create PDF document** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -152,7 +152,7 @@ ls
 
 ![Work space](GettingStarted_images/.png)
 
-Step 4: Run the following **command** to navigate which sample you want run.
+Step 4: Run the following **command** to navigate which sample you want to run.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -190,7 +190,7 @@ Step 8: Close the preview page and return to the terminal then press **Ctrl+C** 
 
 ## Publish the application
 
-Step 1: Run the following command in **Cloud Shell Terminal** to publish the application.
+Step 1: Run the following command in the **Cloud Shell Terminal** to publish the application.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -202,7 +202,7 @@ dotnet publish -c Release
 
 ![Work space](GettingStarted_images/.png)
 
-Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
+Step 2: Run the following command in the **Cloud Shell Terminal** to navigate to the publish folder.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -276,7 +276,7 @@ Step 2: Open the **URL** to access the application, which has been successfully 
 
 You can download a complete working sample from [GitHub]().
 
-By executing the program, you will get the **PDF document** as follows. The output will be saved in **bin folder**.
+By executing the program, you will get the **PDF document** as follows. The output will be saved in the **bin folder**.
 
 ![yaml file to publish](GettingStarted_images/.png)
 
