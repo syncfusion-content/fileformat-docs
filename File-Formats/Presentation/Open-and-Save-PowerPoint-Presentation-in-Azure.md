@@ -24,13 +24,25 @@ Azure Services<br/></th><th>
 NuGet packages required<br/></th></tr></thead>
 <tr>
 <td>
-App Service (Windows)
+{{'[App Service (Windows)](https://help.syncfusion.com/file-formats/presentation/open-and-save-powerpoint-presentation-in-azure-app-service-windows)' | markdownify}}
 <br/></td><td>
 {{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}</td></tr>
 <tr>
 <td>
-App Service (Linux)
+{{'[App Service (Linux)](https://help.syncfusion.com/file-formats/presentation/open-and-save-powerpoint-presentation-in-azure-app-service-linux)' | markdownify}}
 <br/></td><td>
 {{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}
  <br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v1](https://help.syncfusion.com/file-formats/presentation/open-and-save-powerpoint-presentation-in-azure-functions-v1)' | markdownify}}
+<br/></td><td>
+{{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}
+<br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v4](https://help.syncfusion.com/file-formats/presentation/open-and-save-powerpoint-presentation-in-azure-functions-v4)' | markdownify}}
+<br/></td><td>
+{{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}
+<br/></td></tr>
 </table>
