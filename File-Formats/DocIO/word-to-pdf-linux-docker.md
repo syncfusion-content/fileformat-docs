@@ -14,16 +14,16 @@ Docker is an open platform for developing, shipping and running applications. Yo
 
 Step 1: Create a new Core Console application.
 
-![Create console app](LinuxDockerImages/Step-1.png)
-![Name console app](LinuxDockerImages/Step-2.png)
+![Create console app](linuxdockerimages/create-console-app-in-file-formats-word.png)
+![Name console app](linuxdockerimages/name-console-app-in-file-formats-word.png)
 
 Step 2: Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
 
-![Install DocIORenderer NuGet package](LinuxDockerImages/Step-3.png)
-![Install Skiasharp NuGet package](LinuxDockerImages/Step-4.png)
+![Install DocIO Renderer NuGet package](linuxdockerimages/install-renderer-nuget-in-file-formats-word.png)
+![Install Skiasharp NuGet package](linuxdockerimages/install-skia-sharp-nuget-in-file-formats-word.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -68,11 +68,11 @@ using (FileStream docStream = new FileStream(@"Adventure.docx", FileMode.Open, F
 
 Step 5: Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
 
-![Add Docker support to that console app](LinuxDockerImages/Step-5.png)
+![Add Docker support to that console app](linuxdockerimages/docker-support-in-file-formats-word.png)
 
 Step 6: Choose Linux option in order to run the application in Linux Docker container.
 
-![Choose Linux option](LinuxDockerImages/Step-6.png)
+![Choose Linux option](linuxdockerimages/linux-option-in-file-formats-word.png)
 
 Step 7: Open the Dockerfile to see the default Docker commands that are shown below.
 
@@ -103,13 +103,13 @@ ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
 
 Step 8: Select Docker option and Run the application.
 
-![Run console app](LinuxDockerImages/Step-7.png)
+![Run console app](linuxdockerimages/run-console-in-file-formats-word.png)
 
 A complete working example of converting Word document to PDF in Linux Docker container can be downloaded from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Docker/Debian/WordToPDFDockerSample).
 
 Finally, you will get the converted PDF document as follows.
 
-![Output PDF document](LinuxDockerImages/Step-8.png)
+![Output PDF document](linuxdockerimages/pdf-output-document-in-file-formats-word.png)
 
 
 ## Dockerfile Examples

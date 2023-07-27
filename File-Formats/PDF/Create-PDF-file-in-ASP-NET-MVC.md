@@ -20,6 +20,8 @@ Step 1: Create a new ASP.NET MVC application project.
 Step 2: Install the [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC applications from [NuGet.org](https://www.nuget.org/).
 <img src="MVC_images/Creation2.png" alt="ASP.NET MVC sample NuGet installation" width="100%" Height="Auto"/>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 3: A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that ``HomeController.cs`` file.
  
 {% highlight c# tabtitle="C#" %}
@@ -355,4 +357,6 @@ finalDoc.Close(true);
 
 {% endhighlight %}
 
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net) to explore the rich set of Syncfusion PDF library features.
 
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetmvc/PDF/HelloWorld#/material3) in ASP.NET MVC. 
