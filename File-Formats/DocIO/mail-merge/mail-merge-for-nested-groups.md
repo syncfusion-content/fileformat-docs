@@ -742,4 +742,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the above code example, it generates the resultant Word document as follows.
  
-![Output Word document of mapping field of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_output.png)
+![Output Word document of mapping field of ancestor group](../mailmerge_images/generated-mapping-word-document-in-file-formats.png)
