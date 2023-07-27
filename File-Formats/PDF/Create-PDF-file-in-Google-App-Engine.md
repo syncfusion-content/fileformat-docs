@@ -274,13 +274,13 @@ Step 2: Open the **URL** to access the application, which has been successfully 
 
 ![Output Console](GettingStarted_images/Console_Page.png)
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/GCP/Google_App_Engine).
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in the **bin folder**.
 
 ![Output PDF Document](GettingStarted_images/Open_and_save_output.png)
 
-Click [here]() to explore the rich set of Syncfusion PDF library features.
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core?_gl=1*dk4frx*_ga*OTcwNzc5NDkuMTY4MTEwMjEwNA..*_ga_WC4JKKPHH0*MTY5MDQzMjEyNi4zNzMuMS4xNjkwNDMyMTUwLjM2LjAuMA..) to explore the rich set of Syncfusion PDF library features.
 
 
 
