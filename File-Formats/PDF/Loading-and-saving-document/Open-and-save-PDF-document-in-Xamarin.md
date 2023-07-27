@@ -249,3 +249,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the PDF document as follows.
 ![Xamarin open and save output PDF document](Images/Open_and_save_output.png)
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/xamarin) to explore the rich set of Syncfusion PDF library features.

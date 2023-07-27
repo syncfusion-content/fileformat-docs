@@ -236,6 +236,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PDF document** as follows.
 ![Blazor Server output PDF document](Images/Open_and_save_output.png)
 
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/blazor) to explore the rich set of Syncfusion PDF library features.
+
 ## WASM app 
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
@@ -403,3 +405,5 @@ By executing the program, you will get the **PDF document** as follows.
 N> Even though PDF library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size.
 
 Kindly explore the [supported and unsupported features of PDF library in Blazor](https://www.syncfusion.com/document-processing/pdf-framework/blazor/pdf-library).
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/blazor) to explore the rich set of Syncfusion PDF library features.

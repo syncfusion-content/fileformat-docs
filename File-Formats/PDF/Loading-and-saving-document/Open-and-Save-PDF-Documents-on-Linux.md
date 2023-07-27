@@ -127,3 +127,5 @@ A complete working sample can be downloaded from [Github](https://github.com/Syn
 
 By executing the program, you will get the **PDF document** as follows. The output will be saved in parallel to program.cs file.
 ![Linux output PDF document](Images/Open_and_save_output.png)
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core) to explore the rich set of Syncfusion PDF library features.
