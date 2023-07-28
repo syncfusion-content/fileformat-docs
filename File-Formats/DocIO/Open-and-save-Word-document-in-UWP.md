@@ -14,7 +14,11 @@ Syncfusion DocIO is a [UWP Word library](https://www.syncfusion.com/document-pro
 
 Step 1: Create a new C# Blank App (Universal Windows) project.
 
+![Create UWP application in Visual Studio](UWP_images/CreateProject.png)
+
 Step 2: Install the [Syncfusion.DocIO.UWP](https://www.nuget.org/packages/Syncfusion.DocIO.UWP/) NuGet package as a reference to your UWP application from [NuGet.org](https://www.nuget.org/).
+
+![Install Syncfusion.DocIO.UWP NuGet package](UWP_images/Install_NuGet.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -150,3 +154,5 @@ async void Save(MemoryStream streams, string filename)
 By executing the program, you will get the **Word document** as follows.
 
 ![UWP open and save output Word document](UWP_images/OpenAndSaveOutput.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/uwp) to explore the rich set of Syncfusion Word library (DocIO) features. 

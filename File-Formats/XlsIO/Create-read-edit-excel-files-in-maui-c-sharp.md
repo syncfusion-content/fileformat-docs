@@ -17,19 +17,21 @@ To use the MAUI project templates, install the Mobile development with .NET exte
 
 The below steps illustrates creating a simple Invoice formatted Excel document in .NET MAUI.
 
-1. Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
+Step 1: Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
 
 <img src="MAUI_images/MAUI_images_img1.png" alt="Create .NET MAUI application in Visual Studio" width="100%" Height="Auto"/>
 
-2. Enter the project name and click **Create**.
+Step 2: Enter the project name and click **Create**.
 
 <img src="MAUI_images/MAUI_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
 
-3. Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
 <img src="MAUI_images/MAUI_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4. Add a new button to the **MainWindow.xaml** as shown below.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+
+Step 4: Add a new button to the **MainPage.xaml** as shown below.
 {% capture codesnippet1 %}
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -52,7 +54,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% endcapture %}
 {{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-5. Include the following namespaces in the **MainWindow.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 {% capture codesnippet2 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -64,7 +66,7 @@ using System.Reflection;
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-6. Add a new action method **createExcel_Click** in MainWindow.xaml.cs and include the below code snippet to **create an Excel document**.
+Step 6: Add a new action method **createExcel_Click** in MainPage.xaml.cs and include the below code snippet to **create an Excel document**.
 {% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -656,13 +658,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream ms = new MemoryStream();
   workbook.SaveAs(ms);
   ms.Position = 0;
-	
+
   //Saves the memory stream as a file.
-  DependencyService.Get<ISave>().SaveAndView("Invoice.xlsx", "application/excel", ms);
+  SaveService saveService = new SaveService();
+  saveService.SaveAndView("Output.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ms);
 }
 {% endhighlight %}
 {% endtabs %}
 
 A complete working example of how to read and edit an Excel file in the .NET MAUI application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Edit%20Excel).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [MAUI Excel Library](https://www.syncfusion.com/document-processing/excel-framework/maui) Feature Tour page and [MAUI Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/maui) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.

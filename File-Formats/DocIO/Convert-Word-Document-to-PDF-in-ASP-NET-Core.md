@@ -69,7 +69,7 @@ Step 7: Add a new action method **ConvertWordDocumentToPdf** in HomeController.c
 using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
-    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
+    using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
     {
         //Instantiation of DocIORenderer for Word to PDF conversion
         using (DocIORenderer render = new DocIORenderer())
@@ -97,3 +97,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **PDF document** as follows.
 
 ![Output PDF document in ASP.NET Core](WordToPDF_images/OutputImage.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core.

@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in WPF | Syncfusion 
-description: Convert Word to PDF without Microsoft Word or interop dependencies in WPF application using .NET Word (DocIO) library.
+description: Convert Word to PDF in WPF using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in WPF**.
 
-## Steps to convert Word document to PDF in WPF:
+## Steps to convert Word document to PDF in WPF
 
 Step 1: Create a new WPF application project.
 
@@ -22,7 +22,7 @@ Step 2: Install the [Syncfusion.DocToPdfConverter.Wpf](https://www.nuget.org/pac
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 3: Include the following namespaces in the MainWindow.xaml.cs file.
+Step 3: Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% tabs %}
 
@@ -85,4 +85,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![WPF output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in WPF](WordToPDF_images/OutputImage.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features.
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core.

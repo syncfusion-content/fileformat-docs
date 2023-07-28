@@ -22,7 +22,46 @@ You can add XMP metadata in a PDF document using the [XmpMetadata](https://help.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Create a page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Get XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Basic Schema
+BasicSchema basic = metaData.BasicSchema;
+//Set the basic details of the document
+basic.Advisory.Add("advisory");
+basic.BaseURL = new Uri("http://google.com");
+basic.CreateDate = DateTime.Now;
+basic.CreatorTool = "creator tool";
+basic.Identifier.Add("identifier");
+basic.Label = "label";
+basic.MetadataDate = DateTime.Now;
+basic.ModifyDate = DateTime.Now;
+basic.Nickname = "nickname";
+basic.Rating.Add(-25);
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -52,7 +91,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF document
 Dim pdfDoc As New PdfDocument()
@@ -82,121 +121,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-XMP-metadata-in-PDF-document).
@@ -207,103 +131,7 @@ You can add metadata in an existing PDF document using the [XmpMetadata](https:/
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the document
-PdfLoadedDocument pdfDoc = new PdfLoadedDocument("input.pdf");
-
-//Get XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save and close the document
-pdfDoc.Save("DocumentInformation.pdf");
-pdfDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the document
-Dim pdfDoc As New PdfLoadedDocument("input.pdf")
-
-'Get metaData object
-Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
-
-'XMP Basic Schema
-Dim basic As BasicSchema = metaData.BasicSchema
-
-'Set the basic details of the document
-basic.Advisory.Add("advisory")
-basic.BaseURL = New Uri("http://google.com")
-basic.CreateDate = DateTime.Now
-basic.CreatorTool = "creator tool"
-basic.Identifier.Add("identifier")
-basic.Label = "label"
-basic.MetadataDate = DateTime.Now
-basic.ModifyDate = DateTime.Now
-basic.Nickname = "nickname"
-basic.Rating.Add(-25)
-
-'Save and close the document
-pdfDoc.Save("DocumentInformation.pdf")
-pdfDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-
-//Get XMP object
-XmpMetadata metaData = loadedDocument.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -332,7 +160,7 @@ pdfDoc.Save(stream);
 stream.Position = 0;
 //Close the document
 pdfDoc.Close(true);
-//Defining the ContentType for pdf file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
 string fileName = "DocumentInformation.pdf";
@@ -341,11 +169,10 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument pdfDoc = new PdfLoadedDocument(docStream);
+//Load the document
+PdfLoadedDocument pdfDoc = new PdfLoadedDocument("input.pdf");
 
 //Get XMP object
 XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
@@ -364,21 +191,38 @@ basic.ModifyDate = DateTime.Now;
 basic.Nickname = "nickname";
 basic.Rating.Add(-25);
 
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the document
+//Save and close the document
+pdfDoc.Save("DocumentInformation.pdf");
 pdfDoc.Close(true);
-//Save the stream into PDF file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the document
+Dim pdfDoc As New PdfLoadedDocument("input.pdf")
+
+'Get metaData object
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+
+'XMP Basic Schema
+Dim basic As BasicSchema = metaData.BasicSchema
+
+'Set the basic details of the document
+basic.Advisory.Add("advisory")
+basic.BaseURL = New Uri("http://google.com")
+basic.CreateDate = DateTime.Now
+basic.CreatorTool = "creator tool"
+basic.Identifier.Add("identifier")
+basic.Label = "label"
+basic.MetadataDate = DateTime.Now
+basic.ModifyDate = DateTime.Now
+basic.Nickname = "nickname"
+basic.Rating.Add(-25)
+
+'Save and close the document
+pdfDoc.Save("DocumentInformation.pdf")
+pdfDoc.Close(True)
 
 {% endhighlight %}
 
@@ -414,7 +258,46 @@ The [BasicSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Xmp
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Create a page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Get metaData object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Basic Schema
+BasicSchema basic = metaData.BasicSchema;
+//Set the basic details of the document
+basic.Advisory.Add("advisory");
+basic.BaseURL = new Uri("http://google.com");
+basic.CreateDate = DateTime.Now;
+basic.CreatorTool = "creator tool";
+basic.Identifier.Add("identifier");
+basic.Label = "label";
+basic.MetadataDate = DateTime.Now;
+basic.ModifyDate = DateTime.Now;
+basic.Nickname = "nickname";
+basic.Rating.Add(-25);
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -444,7 +327,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF document
 Dim pdfDoc As New PdfDocument()
@@ -474,122 +357,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get metaData object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get metaData object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Basic Schema
-BasicSchema basic = metaData.BasicSchema;
-
-//Set the basic details of the document
-basic.Advisory.Add("advisory");
-basic.BaseURL = new Uri("http://google.com");
-basic.CreateDate = DateTime.Now;
-basic.CreatorTool = "creator tool";
-basic.Identifier.Add("identifier");
-basic.Label = "label";
-basic.MetadataDate = DateTime.Now;
-basic.ModifyDate = DateTime.Now;
-basic.Nickname = "nickname";
-basic.Rating.Add(-25);
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-XMP-basic-schema).
@@ -612,7 +379,41 @@ The [DublinCoreSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pd
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create new PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add a new page 
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Dublin core Schema
+DublinCoreSchema dublin = metaData.DublinCoreSchema;
+//Set the Dublin Core Schema details of the document
+dublin.Creator.Add("Syncfusion");
+dublin.Description.Add("Title", "Essential PDF creator");
+dublin.Title.Add("Resource name", "Documentation");
+dublin.Type.Add("PDF");
+dublin.Publisher.Add("Essential PDF");
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create new PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -637,7 +438,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create new PDF document
 Dim pdfDoc As New PdfDocument()
@@ -662,105 +463,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Dublin core Schema
-DublinCoreSchema dublin = metaData.DublinCoreSchema;
-//Set the Dublin Core Schema details of the document
-dublin.Creator.Add("Syncfusion");
-dublin.Description.Add("Title", "Essential PDF creator");
-dublin.Title.Add("Resource name", "Documentation");
-dublin.Type.Add("PDF");
-dublin.Publisher.Add("Essential PDF");
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create new PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Dublin core Schema
-DublinCoreSchema dublin = metaData.DublinCoreSchema;
-//Set the Dublin Core Schema details of the document
-dublin.Creator.Add("Syncfusion");
-dublin.Description.Add("Title", "Essential PDF creator");
-dublin.Title.Add("Resource name", "Documentation");
-dublin.Type.Add("PDF");
-dublin.Publisher.Add("Essential PDF");
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create new PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-//XMP Dublin core Schema
-DublinCoreSchema dublin = metaData.DublinCoreSchema;
-//Set the Dublin Core Schema details of the document
-dublin.Creator.Add("Syncfusion");
-dublin.Description.Add("Title", "Essential PDF creator");
-dublin.Title.Add("Resource name", "Documentation");
-dublin.Type.Add("PDF");
-dublin.Publisher.Add("Essential PDF");
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-dubline-core-schema-properties).
@@ -779,7 +481,39 @@ The [RightsManagementSchema](https://help.syncfusion.com/cr/file-formats/Syncfus
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add a new page 
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Rights Management Schema
+RightsManagementSchema rights = metaData.RightsManagementSchema;
+//Set the Rights Management Schema details of the document
+rights.Certificate = new Uri("http://syncfusion.com");
+rights.Owner.Add("Syncfusion");
+rights.Marked = true;
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -801,7 +535,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create PDF document
 Dim pdfDoc As New PdfDocument()
@@ -824,100 +558,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Rights Management Schema
-RightsManagementSchema rights = metaData.RightsManagementSchema;
-//Set the Rights Management Schema details of the document
-rights.Certificate = new Uri("http://syncfusion.com");
-rights.Owner.Add("Syncfusion");
-rights.Marked = true;
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Rights Management Schema
-RightsManagementSchema rights = metaData.RightsManagementSchema;
-//Set the Rights Management Schema details of the document
-rights.Certificate = new Uri("http://syncfusion.com");
-rights.Owner.Add("Syncfusion");
-rights.Marked = true;
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Rights Management Schema
-RightsManagementSchema rights = metaData.RightsManagementSchema;
-//Set the Rights Management Schema details of the document
-rights.Certificate = new Uri("http://syncfusion.com");
-rights.Owner.Add("Syncfusion");
-rights.Marked = true;
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-right-management-schema).
@@ -930,74 +570,7 @@ This schema describes very simple workflow or job information and the [BasicJobT
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Rights Management Schema
-BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
-//Set the Rights Management Schema details of the document
-basicJob.JobRef.Add("PDF document creation");
-
-//Save and close the document
-pdfDoc.Save("DocumentInformation.pdf");
-pdfDoc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a document
-Dim pdfDoc As New PdfDocument()
-'Add a page
-Dim page As PdfPage = pdfDoc.Pages.Add()
-
-'Gets XMP object
-Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
-
-'XMP Rights Management Schema
-Dim basicJob As BasicJobTicketSchema = metaData.BasicJobTicketSchema
-'Set the Rights Management Schema details of the document
-basicJob.JobRef.Add("PDF document creation")
-
-'Save and close the document
-pdfDoc.Save("DocumentInformation.pdf")
-pdfDoc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Rights Management Schema
-BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
-//Set the Rights Management Schema details of the document
-basicJob.JobRef.Add("PDF document creation");
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1018,7 +591,7 @@ pdfDoc.Save(stream);
 stream.Position = 0;
 //Close the document.
 pdfDoc.Close(true);
-//Defining the ContentType for pdf file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
 string fileName = "DocumentInformation.pdf";
@@ -1027,7 +600,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1042,21 +615,30 @@ BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
 //Set the Rights Management Schema details of the document
 basicJob.JobRef.Add("PDF document creation");
 
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
+//Save and close the document
+pdfDoc.Save("DocumentInformation.pdf");
 pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a document
+Dim pdfDoc As New PdfDocument()
+'Add a page
+Dim page As PdfPage = pdfDoc.Pages.Add()
+
+'Gets XMP object
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+
+'XMP Rights Management Schema
+Dim basicJob As BasicJobTicketSchema = metaData.BasicJobTicketSchema
+'Set the Rights Management Schema details of the document
+basicJob.JobRef.Add("PDF document creation")
+
+'Save and close the document
+pdfDoc.Save("DocumentInformation.pdf")
+pdfDoc.Close(True)
 
 {% endhighlight %}
 
@@ -1077,7 +659,40 @@ The [PagedTextSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+//Create a PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Create a Page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Page text Schema
+PagedTextSchema pagedText = metaData.PagedTextSchema;
+//Sets the Page text Schema details of the document
+pagedText.MaxPageSize.Width = 500;
+pagedText.MaxPageSize.Height = 750;
+pagedText.NPages = 1;
+pagedText.PlateNames.Add("Sample page");
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a Pdf document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1101,9 +716,9 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create a Pdf document
+'Create a PDF document
 Dim pdfDoc As New PdfDocument()
 'Create a Page
 Dim page As PdfPage = pdfDoc.Pages.Add()
@@ -1125,103 +740,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Page text Schema
-PagedTextSchema pagedText = metaData.PagedTextSchema;
-//Sets the Page text Schema details of the document
-pagedText.MaxPageSize.Width = 500;
-pagedText.MaxPageSize.Height = 750;
-pagedText.NPages = 1;
-pagedText.PlateNames.Add("Sample page");
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a Pdf document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a Page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Page text Schema
-PagedTextSchema pagedText = metaData.PagedTextSchema;
-//Sets the Page text Schema details of the document
-pagedText.MaxPageSize.Width = 500;
-pagedText.MaxPageSize.Height = 750;
-pagedText.NPages = 1;
-pagedText.PlateNames.Add("Sample page");
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a Pdf document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a Page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP Page text Schema
-PagedTextSchema pagedText = metaData.PagedTextSchema;
-//Sets the Page text Schema details of the document
-pagedText.MaxPageSize.Width = 500;
-pagedText.MaxPageSize.Height = 750;
-pagedText.NPages = 1;
-pagedText.PlateNames.Add("Sample page");
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-pages-text-schema).
@@ -1232,7 +750,39 @@ This schema specifies the properties used with Adobe PDF documents. The [PDFSche
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add a page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP PDF Schema
+PDFSchema pdfSchema = metaData.PDFSchema;
+//Set the PDF Schema details of the document
+pdfSchema.Producer = "Syncfusion";
+pdfSchema.PDFVersion = "1.5";
+pdfSchema.Keywords = "Essential PDF";
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1255,7 +805,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create a PDF document
 Dim pdfDoc As New PdfDocument()
@@ -1278,100 +828,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP PDF Schema
-PDFSchema pdfSchema = metaData.PDFSchema;
-//Set the PDF Schema details of the document
-pdfSchema.Producer = "Syncfusion";
-pdfSchema.PDFVersion = "1.5";
-pdfSchema.Keywords = "Essential PDF";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP PDF Schema
-PDFSchema pdfSchema = metaData.PDFSchema;
-//Set the PDF Schema details of the document
-pdfSchema.Producer = "Syncfusion";
-pdfSchema.PDFVersion = "1.5";
-pdfSchema.Keywords = "Essential PDF";
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//XMP PDF Schema
-PDFSchema pdfSchema = metaData.PDFSchema;
-//Set the PDF Schema details of the document
-pdfSchema.Producer = "Syncfusion";
-pdfSchema.PDFVersion = "1.5";
-pdfSchema.Keywords = "Essential PDF";
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-PDF-schema).
@@ -1387,7 +843,39 @@ Add the following code sample to define the custom schema in a PDF document.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add a new page 
+PdfPage page = pdfDoc.Pages.Add();
+
+//Get metaData object
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//Create custom schema field
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+customSchema["creationDate"] = DateTime.Now.ToString();
+customSchema["DOCID"] = "SYNCSAM001";
+customSchema["Encryption"] = "Standard";
+customSchema["Project"] = "Data processing";
+
+//Save the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "DocumentInformation.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create Pdf document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1411,9 +899,9 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create Pdf document
+'Create PDF document
 Dim pdfDoc As New PdfDocument()
 'Add a new page 
 Dim page As PdfPage = pdfDoc.Pages.Add()
@@ -1435,101 +923,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Gets XMP object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//Create custom schema field
-CustomSchema customSchema = new CustomSchema(metaData, "custom1", "http://www.syncfusion.com");
-customSchema["Author"] = "Syncfusion";
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001"
-customSchema["Encryption"] = "Standard";
-customSchema["Project"] = "Data processing";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create Pdf document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get metaData object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//Create custom schema field
-CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001";
-customSchema["Encryption"] = "Standard";
-customSchema["Project"] = "Data processing";
-
-//Save the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "DocumentInformation.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create Pdf document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Get metaData object
-XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
-
-//Create custom schema field
-CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001";
-customSchema["Encryption"] = "Standard";
-customSchema["Project"] = "Data processing";
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Create-PDF-document-with-custom-schema).
@@ -1540,7 +933,38 @@ Essential PDF allows you to add required metadata (custom schema) to a PDF docum
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add a new page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Create XML Document container
+XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
+
+//Create custom schema
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+customSchema["Author"] = "Syncfusion";
+customSchema["creationDate"] = DateTime.Now.ToString();
+customSchema["DOCID"] = "SYNCSAM001";
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "CustomMetaField.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1562,7 +986,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create PDF document
 Dim pdfDoc As New PdfDocument()
@@ -1584,97 +1008,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create a PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Create a page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Create XML Document container
-XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
-
-//Create custom schema
-CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
-customSchema["Author"] = "Syncfusion";
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "DocumentInformation.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Create XML Document container
-XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
-
-//Create custom schema
-CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
-customSchema["Author"] = "Syncfusion";
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001";
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "CustomMetaField.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add a new page 
-PdfPage page = pdfDoc.Pages.Add();
-
-//Create XML Document container
-XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
-
-//Create custom schema
-CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
-customSchema["Author"] = "Syncfusion";
-customSchema["creationDate"] = DateTime.Now.ToString();
-customSchema["DOCID"] = "SYNCSAM001";
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("CustomMetaField.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("CustomMetaField.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %} 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-custom-schema-to-the-PDF-document).
@@ -1685,7 +1018,34 @@ The custom metadata can be added in PDF document by using the [CustomMetadata](h
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create PDF document
+PdfDocument pdfDoc = new PdfDocument();
+//Add new PDF page
+PdfPage page = pdfDoc.Pages.Add();
+
+//Add Custom MetaData
+pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
+pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
+
+//Save and close the document
+MemoryStream stream = new MemoryStream();
+pdfDoc.Save(stream);
+stream.Position = 0;
+//Close the document
+pdfDoc.Close(true);
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "AddCustomField.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create PDF document
 PdfDocument pdfDoc = new PdfDocument();
@@ -1703,7 +1063,7 @@ pdfDoc.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Create PDF document
 Dim pdfDoc As New PdfDocument()
@@ -1721,85 +1081,6 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add new PDF page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Add Custom MetaData
-pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
-pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
-pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await pdfDoc.SaveAsync(stream);
-//Close the document
-pdfDoc.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "AddCustomField.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add new PDF page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Add Custom MetaData
-pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
-pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
-pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
-
-//Save and close the document
-MemoryStream stream = new MemoryStream();
-pdfDoc.Save(stream);
-stream.Position = 0;
-//Close the document
-pdfDoc.Close(true);
-//Defining the ContentType for pdf file
-string contentType = "application/pdf";
-//Define the file name
-string fileName = "AddCustomField.pdf";
-//Creates a FileContentResult object by using the file contents, content type, and file name
-return File(stream, contentType, fileName);
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Create PDF document
-PdfDocument pdfDoc = new PdfDocument();
-//Add new PDF page
-PdfPage page = pdfDoc.Pages.Add();
-
-//Add Custom MetaData
-pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
-pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
-pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
-
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-pdfDoc.Save(memoryStream);
-//Close the documents
-pdfDoc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AddCustomField.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("AddCustomField.pdf", "application/pdf", memoryStream);
-}
-
-{% endhighlight %}
-
 {% endtabs %}   
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Metadata/Adding-custom-metadata-to-the-PDF-document).
@@ -1810,60 +1091,7 @@ Removing the custom metadata from an existing PDF document using the [Remove](ht
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
-
-//Load the document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
-
-//Remove custom metadata using key name
-loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
-
-//Save and close the document
-loadedDocument.Save("Output.pdf");
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load the document
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
-
-'Remove custom metadata using key name
-loadedDocument.DocumentInformation.CustomMetadata.Remove("Key")
-
-'Save and close the document
-loadedDocument.Save("Output.pdf")
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Create the file open picker
-var picker = new FileOpenPicker();
-picker.FileTypeFilter.Add(".pdf");
-//Browse and chose the file
-StorageFile file = await picker.PickSingleFileAsync();
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await loadedDocument.OpenAsync(file);
-
-//Remove custom metadata using key name
-loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
-
-//Save the PDF document to stream
-MemoryStream stream = new MemoryStream();
-await loadedDocument.SaveAsync(stream);
-//Close the document
-loadedDocument.Close(true);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(stream, "output.pdf");
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PDF document
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -1878,7 +1106,7 @@ loadedDocument.Save(stream);
 stream.Position = 0;
 //Close the document
 loadedDocument.Close(true);
-//Defining the ContentType for pdf file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
 string fileName = "Output.pdf";
@@ -1887,30 +1115,31 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the file as stream
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Load the document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
 //Remove custom metadata using key name
 loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
 
-//Save the document into stream
-MemoryStream memoryStream = new MemoryStream();
-loadedDocument.Save(memoryStream);
-//Close the documents
+//Save and close the document
+loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Remove custom metadata using key name
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key")
+
+'Save and close the document
+loadedDocument.Save("Output.pdf")
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -1926,57 +1155,9 @@ Image metadata is a data that describes the characteristics or properties of an 
 
 You can add the XMP metadata along with an image to the PDF document. The [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfBitmap.html) class is used to load the image files and draw an images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Drawing_PointF_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. 
 
-{% tabs %}  
+{% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
-
-//Create a new PDF document
-PdfDocument doc = new PdfDocument();
-//Add a page to the document
-PdfPage page = doc.Pages.Add();
-//Create PDF graphics for the page
-PdfGraphics graphics = page.Graphics;
-
-//Load the image file from the disk which contains XMP metadata
-PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg", true);
-//Draw the image
-graphics.DrawImage(image, 0, 0);
-
-//Save the document
-doc.Save("Output.pdf");
-//Close the document
-doc.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Create a new PDF document
-Dim doc As New PdfDocument()
-'Add a page to the document
-Dim page As PdfPage = doc.Pages.Add()
-'Create PDF graphics for the page
-Dim graphics As PdfGraphics = page.Graphics
-
-'Load the image file from the disk which contains XMP metadata
-Dim image As New PdfBitmap("Autumn Leaves.jpg", True)
-'Draw the image
-graphics.DrawImage(image, 0, 0)
-
-'Save the document
-doc.Save("Output.pdf")
-'Close the document
-doc.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-
-//Essential PDF supports adding XMP metadata along with an image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
@@ -1998,7 +1179,7 @@ doc.Save(stream);
 stream.Position = 0;
 //Close the document
 doc.Close(true);
-//Defining the ContentType for pdf file
+//Defining the content type for PDF file
 string contentType = "application/pdf";
 //Define the file name
 string fileName = "Output.pdf";
@@ -2007,7 +1188,7 @@ return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
@@ -2016,27 +1197,36 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
 
-//Load the image as stream which contains XMP metadata
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
-PdfBitmap image = new PdfBitmap(imageStream, true);
+//Load the image file from the disk which contains XMP metadata
+PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg", true);
 //Draw the image
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
+//Save the document
+doc.Save("Output.pdf");
 //Close the document
 doc.Close(true);
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-}
-else
-{
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
-}
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new PDF document
+Dim doc As New PdfDocument()
+'Add a page to the document
+Dim page As PdfPage = doc.Pages.Add()
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+'Load the image file from the disk which contains XMP metadata
+Dim image As New PdfBitmap("Autumn Leaves.jpg", True)
+'Draw the image
+graphics.DrawImage(image, 0, 0)
+
+'Save the document
+doc.Save("Output.pdf")
+'Close the document
+doc.Close(True)
 
 {% endhighlight %}
 
@@ -2052,47 +1242,7 @@ Refer to the following code example to extract the image metadata from a PDF ima
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
-//Load an existing PDF document
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
-//Load the first page
-PdfPageBase pageBase = loadedDocument.Pages[0];
-
-//Extracts all the images info from first page
-PdfImageInfo[] imagesInfo= pageBase.ImagesInfo;
-//Extracts the XMP metadata from PDF image
-XmpMetadata metadata = imagesInfo[0].XmpMetadata;
-
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-
-'Load an existing PDF
-Dim loadedDocument As New PdfLoadedDocument(fileName)
-'Load the first page
-Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
-
-'Extracts all the images info from first page
-Dim imagesInfo As PdfImageInfo[] = pageBase.ImagesInfo
-'Extracts the XMP metadata from PDF image
-XmpMetadata metadata = imagesInfo[0].XmpMetadata;
-
-'Close the document
-loadedDocument.Close(True)
-
-{% endhighlight %}
-
-  {% highlight c# tabtitle="UWP" %}
-
-//PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET Core and ASP.NET MVC platforms
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load an existing PDF
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
@@ -2110,9 +1260,37 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//PDF supports extracting the image information from PDF document only in Windows Forms, WPF, ASP.NET, ASP.NET Core and ASP.NET MVC platforms
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+//Load the first page
+PdfPageBase pageBase = loadedDocument.Pages[0];
+
+//Extracts all the images info from first page
+PdfImageInfo[] imagesInfo= pageBase.ImagesInfo;
+//Extracts the XMP metadata from PDF image
+XmpMetadata metadata = imagesInfo[0].XmpMetadata;
+
+//Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF
+Dim loadedDocument As New PdfLoadedDocument(fileName)
+'Load the first page
+Dim pageBase As PdfPageBase = loadedDocument.Pages(0)
+
+'Extracts all the images info from first page
+Dim imagesInfo As PdfImageInfo[] = pageBase.ImagesInfo
+'Extracts the XMP metadata from PDF image
+XmpMetadata metadata = imagesInfo[0].XmpMetadata;
+
+'Close the document
+loadedDocument.Close(True)
 
 {% endhighlight %}
 

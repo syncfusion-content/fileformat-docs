@@ -24,7 +24,11 @@ dotnet new console
 
 {% endtabs %}
 
+![Create .NET Core console application on Linux](Linux-images/CreateNewProject1.png)
+
 Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by execute the following command.
+
+![Install Syncfusion.DocIO.Net.Core NuGet packages](Linux-images/InstallNuGetPackages1.png)
 
 {% tabs %}
 
@@ -125,3 +129,5 @@ dotnet run
 By executing the program, you will get the **Word document** as follows. The output will be saved in parallel to program.cs file.
 
 ![Open and save Word document generated on Linux](Linux-images/OpenAndSaveOutput.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 

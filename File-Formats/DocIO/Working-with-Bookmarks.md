@@ -1137,11 +1137,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 
-* [How to replace the content between two different existing bookmarks in a word document](https://www.syncfusion.com/kb/13010/how-to-replace-the-content-between-two-different-existing-bookmarks-in-a-word-document)
-* [How to insert hidden bookmarks to the document](https://www.syncfusion.com/kb/253/how-do-i-insert-hidden-bookmarks-to-the-document)
-* [How to insert nested bookmarks to the document](https://www.syncfusion.com/kb/254/how-do-i-insert-nested-bookmarks-to-the-document)
-* [How to get the bookmarks present in the document](https://www.syncfusion.com/kb/255/how-do-i-get-the-bookmarks-present-in-the-document)
-* [How to add a table in a bookmark location](https://www.syncfusion.com/kb/279/how-to-add-a-table-in-a-bookmark-location)
-* [How to insert bookmark for particular text in paragraph in Word document?](https://www.syncfusion.com/kb/13700/how-to-insert-bookmark-for-particular-text-in-paragraph-in-word-document)
-* [How to get the section number of the particular bookmark in C#?](https://www.syncfusion.com/kb/13972/how-to-get-the-section-number-of-the-particular-bookmark-in-c)
-* [How to replace bookmark content in one Word document with all the content from another Word document?](https://www.syncfusion.com/kb/13971/how-to-replace-bookmark-content-in-one-word-document-with-all-the-content-from-another-word)
+* [How to replace the content between two different existing bookmarks in a word document](https://support.syncfusion.com/kb/article/11463/how-to-replace-the-content-between-two-different-existing-bookmarks-in-a-word-document)
+* [How to insert hidden bookmarks to the document](https://support.syncfusion.com/kb/article/1058/how-do-i-insert-hidden-bookmarks-to-the-document)
+* [How to insert nested bookmarks to the document](https://support.syncfusion.com/kb/article/1061/how-do-i-insert-nested-bookmarks-to-the-document)
+* [How to get the bookmarks present in the document](https://support.syncfusion.com/kb/article/1064/how-do-i-get-the-bookmarks-present-in-the-document)
+* [How to add a table in a bookmark location](https://support.syncfusion.com/kb/article/1139/how-to-add-a-table-in-a-bookmark-location)
+* [How to insert bookmark for particular text in paragraph in Word document?](https://support.syncfusion.com/kb/article/12229/how-to-insert-bookmark-for-particular-text-in-paragraph-in-word-document)
+* [How to get the section number of the particular bookmark in C#?](https://support.syncfusion.com/kb/article/12374/how-to-get-the-section-number-of-the-particular-bookmark-in-c)
+* [How to replace bookmark content in one Word document with all the content from another Word document?](https://support.syncfusion.com/kb/article/12340/how-to-replace-bookmark-content-in-one-word-document-with-all-the-content-from-another-word)

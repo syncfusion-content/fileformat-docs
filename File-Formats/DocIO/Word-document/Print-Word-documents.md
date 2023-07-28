@@ -7,15 +7,11 @@ documentation: UG
 ---
 # Print Word documents
 
-You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class
+You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=dotnet-plat-ext-7.0&viewFallbackFrom=net-5.0) class
 
 Initially you have to render the pages as images as shown below
 
 {% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens the Word document
@@ -37,15 +33,11 @@ document.Close()
 
 {% endtabs %}
 
-You can specify the printer settings and page settings through the [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. The [PrintDocument.PrintPage](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument.printpage?view=net-5.0) event should be handled to layout the document for printing. 
+You can specify the printer settings and page settings through the [PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=net-5.0) class. The [PrintDocument.PrintPage](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument?view=dotnet-plat-ext-7.0&viewFallbackFrom=net-5.0) event should be handled to layout the document for printing. 
 
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
 {% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 int endPageIndex = images.Length;
@@ -112,10 +104,6 @@ End If
 The following code example provides supporting methods for the above code.
 
 {% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports Word to Image conversion in Windows forms, WPF, ASP.NET and ASP.NET MVC platforms only.
-{% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 private void PrintPageMethod(object sender, PrintPageEventArgs e)
@@ -196,4 +184,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 
-* [How to do silent printing to print the Word document by rendering document pages as Image using Essential DocIO](https://www.syncfusion.com/kb/4887/how-to-do-silent-printing-to-print-the-word-document-by-rendering-document-pages-as-image)
+* [How to do silent printing to print the Word document by rendering document pages as Image using Essential DocIO](https://support.syncfusion.com/kb/article/4546/how-to-do-silent-printing-to-print-the-word-document-by-rendering-document-pages-as-image)

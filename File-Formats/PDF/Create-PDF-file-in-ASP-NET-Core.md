@@ -13,6 +13,8 @@ The Syncfusion [.NET Core PDF library](https://www.syncfusion.com/document-proce
 
 To include the .NET Core PDF library into your ASP.NET Core application, please refer to the [NuGet Package Required](/file-formats/pdf/nuget-packages-required) or [Assemblies Required](/file-formats/pdf/assemblies-required) documentation.
 
+N> Beginning with our Volume 2, 2023 release, we have eliminated the dependency on the System.Drawing.Common package from our Syncfusion.Pdf.Imaging.Net.Core package. Instead, we have introduced SkiaSharp as the alternative library.
+
 ## Steps to create PDF document in ASP.NET Core
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
@@ -23,6 +25,8 @@ Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your ASP.NET Core applications from [NuGet.org](https://www.nuget.org/).
 <img src="Asp.Net.Core_images/Creation3.png" alt="ASP.NET Core sample NuGet installation" width="100%" Height="Auto"/>
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 4: A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
@@ -395,4 +399,6 @@ return File(stream, contentType, fileName);
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Merge-multiple-PDF-documents).
 
-N> You can also explore our [.NET Core PDF library demo](https://ej2.syncfusion.com/aspnetcore/PDF/Default#/bootstrap5) that shows how to create and modify PDF files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core) to explore the rich set of Syncfusion PDF library features.
+
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 

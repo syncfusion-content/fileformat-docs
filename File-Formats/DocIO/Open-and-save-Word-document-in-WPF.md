@@ -14,7 +14,11 @@ Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-pr
 
 Step 1: Create a new WPF application project.
 
+![Create WPF application in Visual Studio](WPF_images/Create_Project.jpg)
+
 Step 2: Install the [Syncfusion.DocIO.Wpf](https://www.nuget.org/packages/Syncfusion.DocIO.Wpf) NuGet package as a reference to your WPF application from [NuGet.org](https://www.nuget.org/).
+
+![Install Syncfusion.DocIO.Wpf NuGet package](WPF_images/Install_NuGet.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -96,3 +100,5 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **Word document** as follows.
 
 ![WPF open and save output Word document](WPF_images/OpenAndSaveOutput.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features. 

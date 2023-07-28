@@ -253,7 +253,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </th>
 <td>Please check the internet connection and the HTML page is available in the mentioned location.
 <br><br/>
-Check the HTML file or URL is rendered properly in Chrome browser’s print preview. 
+Check the HTML file or URL is rendered properly in Chrome browser's print preview. 
 </td>
 </tr>
 </table>
@@ -301,7 +301,7 @@ settings.AdditionalDelay = 2000;
 
 </table>
 
-##Blink conversion failed in Azure app service (Windows). “The process was terminated due to an unhandled exception”
+## Blink conversion failed in Azure app service (Windows)
 
 <table>
 <th style="font-size:14px">Issue

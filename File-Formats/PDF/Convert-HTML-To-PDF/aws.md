@@ -38,6 +38,8 @@ Step 3: Select Blueprint as Empty Function and click Finish.
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS lambda project from [NuGet.org.](https://www.nuget.org/)
 <img src="htmlconversion_images/AWS4.png" alt="Convert HTMLToPDF AWS Step4" width="100%" Height="Auto"/> 
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+
 Step 5: Using the following namespaces in the Function.cs file.
 
 {% highlight c# tabtitle="C#" %}
@@ -150,6 +152,8 @@ Step 3: Select Blueprint as .NET 6 (Container Image) Function and click Finish.
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) and [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) NuGet package as a reference to your AWS lambda project from [NuGet.org](https://www.nuget.org/).
 <img src="htmlconversion_images/awslambda4.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 5: Using the following namespaces in the Function.cs file.
 
@@ -308,7 +312,100 @@ Step 14: By executing the program, you will get the PDF document as follows.
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/HTML_to_PDF_Lambda_Docker_Container).
 
+## AWS Elastic Beanstalk
+
+**Steps to convert HTML to PDF using Blink in AWS Elastic Beanstalk**
+
+Step 1: Create a new C# ASP.NET Core Web Application project.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-1.png" alt="AWS Elastic Beanstalk Step1" width="100%" Height="Auto"/> 
+Step 2: In configuration windows, name your project and select **Next**.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-2.png" alt="AWS Elastic Beanstalk Step2" width="100%" Height="Auto"/> <br>
+<img src="htmlconversion_images/AWS Elastic Beanstalk-3.png" alt="AWS Elastic Beanstalk2 Step2" width="100%" Height="Auto"/> 
+Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS Elastic Beanstalk project from [NuGet.org.](https://www.nuget.org/).
+<img src="htmlconversion_images/AWS Elastic Beanstalk-4.png" alt="AWS Elastic Beanstalk Step3" width="100%" Height="Auto"/> 
+Step 4: A default controller named HomeController.cs gets added to create the ASP.NET Core MVC project. Include the following namespaces in that HomeController.cs file<br>
+{% highlight c# tabtitle="C#" %}
+
+using Syncfusion.Pdf;
+using Syncfusion.HtmlConverter;
+using System.IO;
+
+{% endhighlight %}
+
+Step 5: Add a new button in index.cshtml as follows.
+
+{% highlight c# tabtitle="C#" %}
+
+@{
+    Html.BeginForm("BlinkToPDF", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="HTML To PDF" style="width:150px;height:27px" />
+            <br />
+            <div class="text-danger">
+                @ViewBag.Message
+            </div>
+        </div>
+    }
+    Html.EndForm();
+}
+
+{% endhighlight %}
+
+Step 6: Add a new action method named BlinkToPDF in HomeController.cs and include the following code example to convert HTML to PDF document using the Convert method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class. The HTML content will be scaled based on the given [ViewPortSize](https://help.syncfusion.com/cr/fileformats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_ViewPortSize) property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
+
+{% highlight c# tabtitle="C#" %}
+
+public IActionResult BlinkToPDF()
+{
+          //Initialize HTML to PDF converter.
+          HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+          BlinkConverterSettings settings = new BlinkConverterSettings();
+          //Set command line arguments to run without the sandbox.
+          settings.CommandLineArguments.Add("--no-sandbox");
+          settings.CommandLineArguments.Add("--disable-setuid-sandbox");
+          //Set Blink viewport size.
+          settings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
+          //Assign Blink settings to the HTML converter.
+          htmlConverter.ConverterSettings = settings;
+          //Convert URL to PDF document.
+          PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+          //Create the memory stream.
+          MemoryStream stream = new MemoryStream();
+          //Save the document to the memory stream.
+          document.Save(stream);
+          return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "BlinkLinuxDockerAWSBeanstalk.pdf");
+}
 
 
+{% endhighlight %}
 
+Step 7: Click the **Publish to AWS Elastic Beanstalk (Legacy)** option by right-clicking the project to
+publish the application in the AWS Elastic Beanstalk environment.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-5.png" alt="AWS Elastic Beanstalk Step7" width="100%" Height="Auto"/> 
+Step 8: Select the **Create a new application environment** and click **Next** from Publish to AWS Elastic Beanstalk window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-6.png" alt="AWS Elastic Beanstalk Step8" width="100%" Height="Auto"/> 
+Step 9: Please give any valid name to the environment and URL text box. Check whether the URL link is available while clicking the **Check availability** option. If the requested link is available means,
+click **NEXT** in the Application Environment window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-7.png" alt="AWS Elastic Beanstalk Step9" width="100%" Height="Auto"/> 
+Step 10: Select **t3a.micro** from the Instance Type text box and select **Next** in the AWS Options
+Window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-8.png" alt="AWS Elastic Beanstalk Step10" width="100%" Height="Auto"/> 
+Step 11: Select the Roles and **Next** option from the Permissions window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-9.png" alt="AWS Elastic Beanstalk Step11" width="100%" Height="Auto"/>  
+Step 12: Click **Next** from the Application Options window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-10.png" alt="AWS Elastic Beanstalk Step12" width="100%" Height="Auto"/> 
+Step 13: Click **Deploy** from the Review window.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-11.png" alt="AWS Elastic Beanstalk Step13" width="100%" Height="Auto"/> 
+Step 14: Click the **URL link** to launch the application once the Environment is updated successfully and
+<img src="htmlconversion_images/AWS Elastic Beanstalk-12.png" alt="AWS Elastic Beanstalk Step114" width="100%" Height="Auto"/> 
+Environment status is healthy.
+Step 15: Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF document.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-13.png" alt="AWS Elastic Beanstalk Step15" width="100%" Height="Auto"/> 
+By executing the program, you will get a PDF document as follows.
+<img src="htmlconversion_images/AWS Elastic Beanstalk-14.png" alt="AWS Elastic Beanstalk Step16" width="100%" Height="Auto"/> 
+A complete working sample for converting an HTML to PDF using Linux docker in AWS Elastic Beanstalk can be downloaded from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/AWSElasticBeanstalkSample).
 
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
+
+An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 

@@ -302,6 +302,10 @@ By executing the program, you will get the **Word document** as follows.
 
 ![WinUI Desktop output Word document](winui_images/generated-word-document-in-winui.jpg)
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/winui) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.
+
 ## WinUI UWP app
 
 Step 1: Create a new C# WinUI UWP app. Select Blank App (WinUI 3 in UWP)from the template and **click** the Next button.
@@ -644,3 +648,7 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% endtabs %}
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/winui) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.

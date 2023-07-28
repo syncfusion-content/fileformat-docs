@@ -1,6 +1,6 @@
 ---
 title: Convert Word to PDF in WinUI | Syncfusion
-description: Convert Word to PDF without Microsoft Word or interop dependencies in WinUI application using WinUI Word (DocIO) library
+description: Convert Word to PDF in WinUI using WinUI Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [WinUI Word library](https://www.syncfusion.com/document-processing/word-framework/winui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in WinUI**.
 
-**Prerequisites:**
+## Prerequisites
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
 
 ## WinUI Desktop app
@@ -23,13 +23,13 @@ Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](WinUI_Images/Project-Name-WinUI-WordtoPDF.png)
 
-Step 4: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
+Step 3: Install [Syncfusion.DocIORenderer.NET](https://www.nuget.org/packages/Syncfusion.DocIORenderer.NET) NuGet package as a reference to your WinUI Desktop application from the [NuGet.org](https://www.nuget.org/).
 
 ![Syncfusion.DocIORenderer.NET NuGet package](WinUI_Images/Nuget-Package-WordtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
-Step 5: Add a new button to the **MainWindow.xaml** as shown below.
+Step 4: Add a new button to the **MainWindow.xaml** as shown below.
 
 {% tabs %}
 
@@ -52,7 +52,7 @@ Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
 {% endtabs %}
 
-Step 6: Include the following namespaces in the **MainWindow.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainWindow.xaml.cs** file.
 
 {% tabs %}
 
@@ -65,7 +65,7 @@ using Syncfusion.Pdf;
 
 {% endtabs %}
 
-Step 7: Add a new action method **ConvertWordtoPDF** in MainWindow.xaml.cs and include the below code snippet to **convert the Word document to PDF**.
+Step 6: Add a new action method **ConvertWordtoPDF** in MainWindow.xaml.cs and include the below code snippet to **convert the Word document to PDF**.
 
 {% tabs %}
 
@@ -165,4 +165,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![WinUI Desktop output PDF document](WordToPDF_images/OutputImage.png)
+![Word to PDF in WinUI Desktop](WordToPDF_images/OutputImage.png)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/winui) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core. 

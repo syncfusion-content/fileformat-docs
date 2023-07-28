@@ -21,26 +21,10 @@ In project configuration window, name your project and select Create.
 Step 2: Install the [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.WinForms) NuGet package as a reference to your WinForms application from [nuget.org](https://www.nuget.org/).
 <img src="OCR-Images/OCR-WF-step3.png" alt="Perform OCR Windows Forms Step3" width="100%" Height="Auto"/>
 
-Step 3: Tesseract assemblies are not added as a reference. They must be kept in the local machine, and the assemblies location is passed as a parameter to the OCR processor.
+N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
+N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/")
-
-{% endhighlight %}
-
-Step 4: Place the Tesseract language data {e.g, eng.traineddata} in the local system and provide a path to the OCR processor. Please use the OCR language data for other languages using the following link.
-
-[Tesseract language data](https://github.com/tesseract-ocr/tessdata)
-
-{% highlight c# tabtitle="C#" %}
-
-OCRProcessor processor = new OCRProcessor("Tesseractbinaries/");
-processor.PerformOCR(loadedDocument, "tessdata/");
-
-{% endhighlight %}
-
-Step 5: Add a new button in Form1.Designer.cs file. 
+Step 3: Add a new button in Form1.Designer.cs file. 
 
 {% highlight c# tabtitle="C#" %}
 
@@ -74,7 +58,7 @@ private void InitializeComponent()
 
 {% endhighlight %}
 
-Step 6: Include the following namespaces in the Form1.cs file.
+Step 4: Include the following namespaces in the Form1.cs file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -83,12 +67,12 @@ using Syncfusion.Pdf.Parsing;
 
 {% endhighlight %}
 
-Step 7: Create the btnCreate_Click event and add the following code to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
+Step 5: Create the btnCreate_Click event and add the following code to perform OCR on the entire PDF document using [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html#Syncfusion_OCRProcessor_OCRProcessor_PerformOCR_Syncfusion_Pdf_Parsing_PdfLoadedDocument_System_String_) method of the [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRProcessor.html) class. 
 
 {% highlight c# tabtitle="C#" %}
 
-//Initialize the OCR processor by providing the path of tesseract binaries.
-using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
+//Initialize the OCR processor.
+using (OCRProcessor processor = new OCRProcessor())
 {
     //Load an existing PDF document.
     PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -96,8 +80,8 @@ using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/"))
     processor.Settings.TesseractVersion = TesseractVersion.Version4_0;
     //Set OCR language to process.
     processor.Settings.Language = Languages.English;
-    //Process OCR by providing the PDF document and Tesseract data.
-    processor.PerformOCR(loadedDocument, @"Tessdata/");  
+    //Process OCR by providing the PDF document.
+    processor.PerformOCR(loadedDocument);  
     //Save the OCR processed PDF document in the disk.
     loadedDocument.Save("OCR.pdf");
     loadedDocument.Close(true);
@@ -109,3 +93,5 @@ By executing the program, you will get a PDF document as follows.
 <img src="OCR-Images/Output.png" alt="Output screenshot" width="100%" Height="Auto"/>
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Windows%20Forms).
+
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net) to explore the rich set of Syncfusion PDF library features.
