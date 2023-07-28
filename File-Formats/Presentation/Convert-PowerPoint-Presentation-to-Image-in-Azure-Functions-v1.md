@@ -91,7 +91,16 @@ Step 12: Click the **Publish** button.
 Step 13: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/After_Publish_PowerPoint_Presentation_to_Image.png)
 
-Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **PowerPoint Presentation to image conversion** using the template PowerPoint document). You will get the output image as follows.
+Step 14: After publishing your Azure Function, go to the [Azure portal](https://portal.azure.com) and locate the Function App that hosts your function. In the function app, you can see the list of all available functions in the app.
+![Functions in Azure Portal](Azure_Images/Functions_v1/Function-app-WordtoPDF.png)
+
+Step 15: Find the function for which you want to obtain the URL and click on its name. This will open the Function Overview page for that specific function.
+![Functions in Azure Portal](Azure_Images/Functions_v1/Function1-WordtoPDF.png)
+
+Step 16: On the Function Overview page, you will find a Get function URL button. Clicking on it will reveal the URL specific to that function. Copy that **URL** and run the console application. Then, paste the URL into the console application, this will trigger your Function to **convert a PowerPoint Presentation to image**.
+![Get Function URL in Azure Portal](Azure_Images/Functions_v1/Function-URL-WordtoPDF.png)
+
+By executing the program, you will get the **image** as follows.
 
 ![PowerPoint to Image in Azure Functions v1](Azure_Images/Functions_v1/Output_PowerPoint_Presentation_to-Image.png)
 
