@@ -28,7 +28,7 @@ Syncfusion File Format libraries are supported on any of the following operating
 * RHEL: 6+
 * openSUSE: 15+
 * SUSE Enterprise Linux (SLES): 12 SP2+
-* Mac OS 10.13+ (x64)
+* macOS 10.13+ (x64, Arm64)
 * Android
 * iOS
 
