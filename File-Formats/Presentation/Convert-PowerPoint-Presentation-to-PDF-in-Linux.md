@@ -111,6 +111,6 @@ dotnet run
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF** as follows. The output will be saved in parallel to program.cs file.
+By executing the program, you will get the **PDF** as follows. The output will be saved in **bin** foleder.
 
 ![PowerPoint to PDF in Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)

@@ -87,6 +87,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF** as follows.
 
-![PowerPoint to PDF in Windows Forms](Workingwith_Core/Open-and-Save-output-image.png)
+![PowerPoint to PDF in Windows Forms](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.
