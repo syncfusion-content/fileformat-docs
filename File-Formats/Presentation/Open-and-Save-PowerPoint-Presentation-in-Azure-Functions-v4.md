@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **open and save Presentation in Azure Functions v4**.
 
-## Steps to open and save Presentation in Azure Functions v4
+## Create an Azure Functions App
 
 Step 1: Create a new Azure Functions project.
 ![Create a Azure Functions project](Azure_Images/Functions_v1/Azure_PowerPoint_Presentation_to_PDF.png)
@@ -91,35 +91,39 @@ return response;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
+## Publish to Azure Functions
+
+Step 1: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
 ![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish-Open-and-Save-PowerPoint.png)
 
-Step 10: Select the target as **Azure** and click **Next** button.
+Step 2: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_PowerPoint_Presentation_to_PDF.png)
 
-Step 11: Select the **Create new** button.
+Step 3: Select the **Create new** button.
 ![Configure Hosting Plan](Azure_Images/Functions_v1/Function_Instance_PowerPoint_Presentation_to_PDF.png)
 
-Step 12: Click **Create** button. 
+Step 4: Click **Create** button. 
 ![Select the plan type](Azure_Images/Functions_v1/Hosting-Open-and-Save-PowerPoint.png)
 
-Step 13: After creating app service then click **Finish** button. 
+Step 5: After creating app service then click **Finish** button. 
 ![Creating app service](Azure_Images/Functions_v1/Azure-Instance-Open-and-Save-PowerPoint.png)
 
-Step 14: Click the **Publish** button.
+Step 6: Click the **Publish** button.
 ![Click Publish Button](Azure_Images/Functions_v1/Before-Publish-Open-and-Save-PowerPoint.png)
 
-Step 15: Publish has been succeed.
+Step 7: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/After-Publish-Open-and-Save-PowerPoint.png)
 
-Step 16: After publishing your Azure Function, go to the [Azure portal](https://portal.azure.com) and locate the Function App that hosts your function. In the function app, you can see the list of all available functions in the app.
-![Functions in Azure Portal](Azure_Images/Functions_v1/Function-app-WordtoPDF.png)
+## Obtain the Azure Function URL
 
-Step 17: Find the function for which you want to obtain the URL and click on its name. This will open the Function Overview page for that specific function.
+Step 1: After publishing your Azure Function, go to the [Azure portal](https://portal.azure.com) and locate the Function App that hosts your function. In the function app, you can see the list of all available functions in the app.
+![Functions in Azure Portal](Azure_Images/Functions_v1/Functions-WordtoPDF.png)
+
+Step 2: Find the function for which you want to obtain the URL and click on its name. This will open the Function Overview page for that specific function.
 ![Functions in Azure Portal](Azure_Images/Functions_v1/Function1-WordtoPDF.png)
 
-Step 18: On the Function Overview page, you will find a Get function URL button. Clicking on it will reveal the URL specific to that function. Copy that **URL** and run the console application. Then, paste the URL into the console application, this will trigger your Function to **open and save a PowerPoint document**.
-![Get Function URL in Azure Portal](Azure_Images/Functions_v1/Function-URL-WordtoPDF.png)
+Step 3: On the Function Overview page, you will find a Get function URL button. Clicking on it will reveal the URL specific to that function. Copy that **URL** and run the console application. Then, paste the URL into the console application, this will trigger your Function to **open and save a PowerPoint document**.
+![Get Function URL in Azure Portal](Azure_Images/Functions_v1/GetFuctionURL-WordtoPDF.png)
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

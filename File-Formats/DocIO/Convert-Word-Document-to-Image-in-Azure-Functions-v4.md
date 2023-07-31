@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in Azure Functions v4**.
 
-## Steps to convert a Word document to Image in Azure Functions v4
+## Create an Azure Functions App
 
 Step 1: Create a new Azure Functions project.
 ![Create a Azure functions project](Azure_Images/Functions_v1/Azure_Function_WordtoPDF.png)
@@ -79,35 +79,39 @@ using (WordDocument document = new WordDocument(stream, FormatType.Docx))
 
 {% endtabs %}
 
-Step 7: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
+## Publish to Azure Functions
+
+Step 1: Right click the project and select **Publish**. Then, create a new profile in the Publish Window.
 ![Create a new profile in the Publish Window](Azure_Images/Functions_v1/Publish_WordtoImage.png)
 
-Step 8: Select the target as **Azure** and click **Next** button.
+Step 2: Select the target as **Azure** and click **Next** button.
 ![Select the target as Azure](Azure_Images/Functions_v1/Target_WordtoPDF.png)
 
-Step 9: Select the **Create new** button.
+Step 3: Select the **Create new** button.
 ![Configure Hosting Plan](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
 
-Step 10: Click **Create** button. 
+Step 4: Click **Create** button. 
 ![Select the plan type](Azure_Images/Functions_v1/Subscription_detail_WordtoImage.png)
 
-Step 11: After creating app service then click **Finish** button. 
+Step 5: After creating app service then click **Finish** button. 
 ![Creating app service](Azure_Images/Functions_v1/Function_Instance_WordtoImage.png)
 
-Step 12: Click the **Publish** button.
+Step 6: Click the **Publish** button.
 ![Click Publish Button](Azure_Images/Functions_v1/Before_Publish_WordtoPDF.png)
 
-Step 13: Publish has been succeed.
+Step 7: Publish has been succeed.
 ![Publish succeeded](Azure_Images/Functions_v1/Published_WordtoImage.png)
 
-Step 14: After publishing your Azure Function, go to the [Azure portal](https://portal.azure.com) and locate the Function App that hosts your function. In the function app, you can see the list of all available functions in the app.
-![Functions in Azure Portal](Azure_Images/Functions_v1/Function-app-WordtoPDF.png)
+## Obtain the Azure Function URL
 
-Step 15: Find the function for which you want to obtain the URL and click on its name. This will open the Function Overview page for that specific function.
-![Functions in Azure Portal](Azure_Images/Functions_v1/Function1-WordtoPDF.png)
+Step 1: After publishing your Azure Function, go to the [Azure portal](https://portal.azure.com) and locate the Function App that hosts your function. In the function app, you can see the list of all available functions in the app.
+![Functions in Azure Portal](Azure_Images/Functions_v1/Functions-WordtoPDF.png)
 
-Step 16: On the Function Overview page, you will find a Get function URL button. Clicking on it will reveal the URL specific to that function. Copy that **URL** and run the console application. Then, paste the URL into the console application, this will trigger your Function to **convert Word document to image**.
-![Get Function URL in Azure Portal](Azure_Images/Functions_v1/Function-URL-WordtoPDF.png)
+Step 2: Find the function for which you want to obtain the URL and click on its name. This will open the Function Overview page for that specific function.
+![Specific Functions in Azure Portal](Azure_Images/Functions_v1/Function1-WordtoPDF.png)
+
+Step 3: On the Function Overview page, you will find a Get function URL button. Clicking on it will reveal the URL specific to that function. Copy that **URL** and run the console application. Then, paste the URL into the console application, this will trigger your Function to **convert Word document to image**.
+![Get Function URL in Azure Portal](Azure_Images/Functions_v1/GetFuctionURL-WordtoPDF.png)
 
 By executing the program, you will get the **image** as follows.
 
