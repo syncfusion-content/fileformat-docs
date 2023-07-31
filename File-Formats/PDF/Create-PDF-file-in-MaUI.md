@@ -24,7 +24,7 @@ Step 1: Create a new project in VS2022, select the .NET MAUI App (Preview) templ
 Step 2: Enter the project name and click **Create**.
 <img src="MAUI_images/Configure_project.png" alt=".NET MAUI sample creation step2" width="100%" Height="Auto"/>
 
-Step 3: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org).
 <img src="MAUI_images/Install_Nuget.png.png" alt=".NET MAUI sample creation step3" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
