@@ -447,7 +447,7 @@ N> The conditional formats for a single range should be added in descending orde
 
 When proper criteria is met, the output file looks as follows:
 
-<img src="working-with-conditional-formatting_images/conditional-format.jpeg" alt="working with conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-conditional-format.jpeg" alt="working with conditional format" width="100%" Height="Auto"/>
 
 ## Reading Conditional Formats in XlsIO
 
@@ -3189,7 +3189,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 A complete working example to format values with advanced conditional formatting options like data bars, color scales, icon sets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Advanced%20Conditional%20Formats).
 
-<img src="working-with-conditional-formatting_images/file-formats-xlsio-file-formats-xlsio-custom-icon-setting.jpeg" alt="Advanced conditional Formatting" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-custom-icon-setting.jpeg" alt="Advanced conditional Formatting" width="100%" Height="Auto"/>
 
 
 __Excel__ __with__ __Conditional__ __Formatting__
