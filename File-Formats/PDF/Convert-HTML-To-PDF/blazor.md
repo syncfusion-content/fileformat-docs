@@ -37,26 +37,16 @@ using System.IO;
 
 {% endhighlight %}
 
-Step 4: Add the following code to convert HTML to PDF document in ExportService class using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class. The HTML content will be scaled based on the given [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_ViewPortSize) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
-
-* Create a new **HtmlToPdfConverter** and **BlinkConverterSettings** object.
-* The **ViewPortSize** property of the BlinkConverterSettings class specifies the size of the viewport in pixels.
-* Assign the blink converter settings to HTML converter.
-* The **Convert** method of the HtmlToPdfConverter class converts the URL to a PDF document.
+Step 4: Add the following code to convert HTML to PDF document in ExportService class using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class.
 
 {% highlight c# tabtitle="C#" %}
 
-public MemoryStream CreatePdf()
+public MemoryStream CreatePdf(string url)
 {
     //Initialize HTML to PDF converter.
-    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-    //Set Blink viewport size.
-    blinkConverterSettings.ViewPortSize = new Syncfusion.Drawing.Size(1280, 0);
-    //Assign Blink converter settings to HTML converter.
-    htmlConverter.ConverterSettings = blinkConverterSettings;
+    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();    
     //Convert URL to PDF document.
-    PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+    PdfDocument document = htmlConverter.Convert(url);
     //Create memory stream.
     MemoryStream stream = new MemoryStream();
     //Save the document to memory stream.
@@ -70,6 +60,9 @@ Step 5: Register your service in the ConfigureServices method available in the S
 
 {% highlight c# tabtitle="C#" %}
 
+/// <summary>
+/// Register your ExportService 
+/// </summary>
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddRazorPages();
@@ -86,6 +79,7 @@ Step 6: Inject ExportService into FetchData.razor using the following code.
 
 @inject ExportService exportService
 @inject Microsoft.JSInterop.IJSRuntime JS
+@inject NavigationManager NavigationManager
 @using  System.IO;
 
 {% endhighlight %}
@@ -102,16 +96,29 @@ Step 8: Add the ExportToPdf method in FetchData.razor page to call the export se
 
 {% highlight c# tabtitle="C#" %}
 
+@code {
+    private string currentUrl;
+    /// <summary>
+    /// Get the current URL
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.Uri;
+    }
+}
 @functions
 {
-   protected async Task ExportToPdf()
-   {
-     ExportService exportService = new ExportService();
-     using (MemoryStream excelStream = exportService.CreatePdf())
-     {
-        await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
-     }
-   }
+    /// <summary>
+    /// Create and download the PDF document
+    /// </summary>
+    protected async Task ExportToPdf()
+    {
+        ExportService exportService = new ExportService();
+        using (MemoryStream excelStream = exportService.CreatePdf())
+        {
+            await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
+        }
+    }
 }
 
 {% endhighlight %}
