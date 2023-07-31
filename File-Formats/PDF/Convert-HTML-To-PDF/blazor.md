@@ -106,6 +106,7 @@ Step 8: Add the ExportToPdf method in FetchData.razor page to call the export se
         currentUrl = NavigationManager.Uri;
     }
 }
+
 @functions
 {
     /// <summary>
