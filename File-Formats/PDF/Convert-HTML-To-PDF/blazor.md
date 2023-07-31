@@ -114,7 +114,7 @@ Step 8: Add the ExportToPdf method in FetchData.razor page to call the export se
     protected async Task ExportToPdf()
     {
         ExportService exportService = new ExportService();
-        using (MemoryStream excelStream = exportService.CreatePdf())
+        using (MemoryStream excelStream = exportService.CreatePdf(currentUrl))
         {
             await JS.SaveAs("HTMLToPDF.pdf", excelStream.ToArray());
         }
