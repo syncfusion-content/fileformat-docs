@@ -18,13 +18,13 @@ N> Beginning with our Volume 2, 2023 release, we have eliminated the dependency 
 ## Steps to create PDF document in ASP.NET Core
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
-<img src="Asp.Net.Core_images/Creation1.png" alt="ASP.NET Core sample creation step1" width="100%" Height="Auto"/>
+![Create ASP.NET Core Web application in Visual Studio](Asp.Net.Core_images/Creation1.png)
 
 Step 2: Select Web Application pattern (Model-View-Controller) for the project.
-<img src="Asp.Net.Core_images/Creation2.png" alt="ASP.NET Core sample creation step1" width="100%" Height="Auto"/>
+![Select Web Application pattern](Asp.Net.Core_images/Creation2.png)
 
 Step 3: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) [NuGet package](https://help.syncfusion.com/file-formats/nuget-packages) as reference to your ASP.NET Core applications from [NuGet.org](https://www.nuget.org/).
-<img src="Asp.Net.Core_images/Creation3.png" alt="ASP.NET Core sample NuGet installation" width="100%" Height="Auto"/>
+![Install PDF .NET Core NuGet package](Asp.Net.Core_images/Creation3.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -83,7 +83,7 @@ return fileStreamResult;
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="Output screenshot" width="100%" Height="Auto"/>
+![ASP.Net Core output PDF document](GettingStarted_images/pdf-generation-output.png)
 
 N> The WinForms and WPF controls support in .NET Core 3.0 have been provided. To run this application, please install the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common) NuGet package as a dependent package. 
 
@@ -308,7 +308,7 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="ASP.NET Core PDF invoice output" width="100%" Height="Auto"/>
+![ASP.Net Core invoice PDF document](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -320,7 +320,7 @@ The .NET Core PDF library allows you to [create and manipulate existing form](ht
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="ASP.NET Core PDF form template" width="100%" Height="Auto"/>
+![ASP.Net Core PDF form document](GettingStarted_images/fill-pdf-forms.png)
 
 The .NET Core PDF library allows you to fill the form fields by using the [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
 
@@ -363,7 +363,7 @@ return File(stream, contentType, fileName);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Fill-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="ASP.NET Core PDF form filling" width="100%" Height="Auto"/>
+![ASP.Net Core filled PDF form document](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 
