@@ -17,15 +17,15 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
-![Create the MAUI app in Visual Studio](MAUI_Images/Create_Project.png)
+![Create the MAUI app in Visual Studio](maui_images/create-maui-project.png)
 
 Step 2: Enter the project name and click **Create**.
 
-![Create a project name for your new project](MAUI_Images/Configure.png)
+![Create a project name for your new project](maui_images/configure-project-name-in-maui-word.png)
 
 Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install the DocIO .NET NuGet package](MAUI_Images/Install_Nuget.png)
+![Install the DocIO .NET NuGet package](maui_images/install-nuget-in-maui-word.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
@@ -305,7 +305,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![MAUI output Word document](MAUI_Images/GettingStartedOutput.jpg)
+![MAUI output Word document](maui_images/generated-word-document-in-maui.jpg)
 
 ## Helper files for .NET MAUI
 
