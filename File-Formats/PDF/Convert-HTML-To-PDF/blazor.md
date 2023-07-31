@@ -39,6 +39,11 @@ using System.IO;
 
 Step 4: Add the following code to convert HTML to PDF document in ExportService class using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class. The HTML content will be scaled based on the given [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_ViewPortSize) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
 
+* Create a new **HtmlToPdfConverter** and **BlinkConverterSettings** object.
+* The **ViewPortSize** property of the BlinkConverterSettings class specifies the size of the viewport in pixels.
+* Assign the blink converter settings to HTML converter.
+* The **Convert** method of the HtmlToPdfConverter class converts the URL to a PDF document.
+
 {% highlight c# tabtitle="C#" %}
 
 public MemoryStream CreatePdf()
