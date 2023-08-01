@@ -78,6 +78,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the PDF document as follows.
+A complete working example of how to convert an Excel document to PDF in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Edit%20Excel).
 
-<img src="ASP-NET-Core_images\ASP-NET-Core_images_img9.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet Package" width="100%" Height="Auto"/>
+By executing the program, you will get the **PDF document** as follows.
+
+<img src="ASP-NET-Core_images\ASP-NET-Core_images_img9.png" alt="Excel to PDF in ASP.Core" width="100%" Height="Auto"/>
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.
