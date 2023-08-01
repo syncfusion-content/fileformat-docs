@@ -1513,7 +1513,93 @@ namespace ImportFromNestedCollection
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="C# [Windows-specific]" %}
+A complete working example to import data to Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
+
+The following screenshot represents the output document with Default layout option.
+
+<img src="working-with-data_images/file-formats-xlsio-default-layout-option.png" alt="Output document with Default layout option" width="100%" Height="Auto"/>
+
+##### Merge layout option
+
+This option merges the cells in the column for each object while importing.
+
+The following code snippet helps to import data with merged cells.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the output document with Merge layout option.
+
+<img src="working-with-data_images/file-formats-xlsio-merge-layout-option.png" alt="Output document with Merge layout option" width="100%" Height="Auto"/>
+
+##### Repeat layout option
+
+This option repeats the parent records imported in all the rows.
+
+The following code snippet helps to import data with repeated rows.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
+{% endhighlight %}
+
+{% highlight c# tabtitle="UWP" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
+{% endhighlight %}
+
+{% highlight c# tabtitle="Xamarin" %}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the output document with Repeat layout option.
+
+<img src="working-with-data_images/file-formats-xlsio-repeat-layout-option.png" alt="Output document with Repeat layout option" width="100%" Height="Auto"/>
+
+#### Grouping Options
+
+##### Import Data with Grouping option
+
+Hierarchical data imported into Excel worksheet must be shown its structure to analyze more flexible. In addition, if the data is grouped according to its level, it is easier to analyze. XlsIO supports to import hierarchical data from nested collection and group them while importing.
+
+The following are the options that is supported to group on import.
+
+* **Expand** – Imported data will be grouped and expanded.
+* **Collapse** – Imported data will be grouped and collapsed at first level, by default.
+
+In addition, [CollapseLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html#Syncfusion_XlsIO_ExcelImportDataOptions_CollapseLevel) will group and collapse the mentioned level, upto the maximum of 8 levels.
+
+The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1928,7 +2014,7 @@ A complete working example to import data to Excel worksheet with grouping optio
 
 The following screenshot represents the output document of Grouped data imported from nested collection and collapsed at level 2.
 
-<img src="Working-with-Data_images/Working-with-Data_img4.png" alt="Grouped data imported from nested collection and collapsed at level 2" width="100%" Height="Auto"/>
+<img src="working-with-data_images/file-formats-xlsio-grouping-options.png" alt="Grouped data imported from nested collection and collapsed at level 2" width="100%" Height="Auto"/>
 
 #### Import Data from Collection Objects with hyperlink
 
@@ -2570,7 +2656,7 @@ XlsIO allows to export worksheet data to nested class objects. A new overload to
 
 Let’s consider the input Excel document has the data as shown in the below screenshot. 
 
-<img src="Working-with-Data_images/Working-with-Data_img5.png" alt="Excel worksheet with data" width="100%" Height="Auto"/>
+<img src="working-with-data_images/file-formats-xlsio-export-data-from-excel.png" alt="Excel worksheet with data" width="100%" Height="Auto"/>
 
 The following code illustrates how to export data from Excel worksheet to nested class objects with column headers mapping collection.
 
@@ -3018,11 +3104,11 @@ A complete working example to import data from HTML table to Excel worksheet in 
 
 The following screenshot represents the image of the input HTML file with a table.
 
-<img src="Working-with-Data_images/Working-with-Data_img6.png" alt="Input document for Import HTML table" width="100%" Height="Auto"/>
+<img src="working-with-data_images/file-formats-xlsio-import-html-table-input.png" alt="Input document for Import HTML table" width="100%" Height="Auto"/>
 
 The following screenshot represents the image of the Excel output with data imported from HTML table.
 
-<img src="Working-with-Data_images/Working-with-Data_img7.png" alt="Output document imported from HTML table" width="100%" Height="Auto"/>
+<img src="working-with-data_images/file-formats-xlsio-import-html-table-output.png" alt="Output document imported from HTML table" width="100%" Height="Auto"/>
 
 N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
 
