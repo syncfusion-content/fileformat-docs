@@ -78,11 +78,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to convert an Excel document to PDF in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Edit%20Excel).
+A complete working example of how to convert an Excel document to PDF in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Convert%20Excel%20to%20PDF).
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="ASP-NET-Core_images\ASP-NET-Core_images_img9.png" alt="Excel to PDF in ASP.Core" width="100%" Height="Auto"/>
+<img src="ASP-NET-Core_images\ASP-NET-Core_images_img9.png" alt="Excel to PDF in ASP.NET Core" width="100%" Height="Auto"/>
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
