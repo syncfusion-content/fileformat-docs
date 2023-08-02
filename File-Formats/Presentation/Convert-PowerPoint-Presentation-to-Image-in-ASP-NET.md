@@ -18,7 +18,7 @@ Step 1: Create a new C# ASP.NET application project.
 
 Step 2: Select the Empty project.
 
-![Select MVC template](Workingwith_MVC/MVC-Open-and-Save.png)
+![Select Empty template](Workingwith_MVC/MVC-Open-and-Save.png)
 
 Step 3: Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
