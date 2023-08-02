@@ -13,13 +13,13 @@ Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-p
 ## Steps to convert an Excel document to PDF in WPF
 
 Step 1: Create a new WPF application project.
-<img src="WPF_images\WPF_images_img4.png" alt="Create a WPF application project" width="100%" Height="Auto"/>
+<img src="Wpf_images/Wpf_images_img4.png" alt="Create a WPF application project" width="100%" Height="Auto"/>
 
 Step 2: Name the project, choose the framework and click **Create** button.
-<img src="WPF_images\WPF_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
+<img src="Wpf_images/Wpf_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
 
 Step 3: Install the [Syncfusion.ExcelToPdfConverter.Wpf](https://www.nuget.org/packages/Syncfusion.ExcelToPDFConverter.Wpf) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="WPF_images\WPF_images_img6.png" alt="Install Syncfusion.ExcelToPdfConverter.Wpf NuGet Package" width="100%" Height="Auto"/>
+<img src="Wpf_images/Wpf_images_img6.png" alt="Install Syncfusion.ExcelToPdfConverter.Wpf NuGet Package" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -79,7 +79,7 @@ A complete working example of how to convert an Excel document to PDF in WPF is 
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="WPF_images\WPF_images_img7.png" alt="Excel to PDF in WPF" width="100%" Height="Auto"/>
+<img src="Wpf_images/Wpf_images_img7.png" alt="Excel to PDF in WPF" width="100%" Height="Auto"/>
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
