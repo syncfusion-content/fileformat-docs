@@ -95,4 +95,4 @@ By executing the program, you will get the **PDF document** as follows.
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
-An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetmvc/Excel/ExcelToPDF#/material3) in ASP.NET MVC.
