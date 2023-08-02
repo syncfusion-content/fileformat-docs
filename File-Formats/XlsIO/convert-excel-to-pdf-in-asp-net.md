@@ -8,18 +8,18 @@ documentation: UG
 
 # Convert an Excel document to PDF in ASP.NET
 
-Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in ASP.NET Web Forms**.
+Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in ASP.NET Web Forms**.
 
 ## Steps to convert an Excel document to PDF in C#
 
 Step 1: Create a new ASP.NET Web Application Project.
-<img src="ASP-NET_images\ASP-NET_images_img4.png" alt="Create a ASP.NET Core Web App project" width="100%" Height="Auto"/>
+<img src="ASP-NET_images\ASP-NET_images_img4.png" alt="Create a ASP.NET Web App project" width="100%" Height="Auto"/>
 
 Step 2: Name the project, choose the framework and click **Create** button.
-<img src="ASP-NET_images\ASP-NET_images_img5.png" alt="Create a ASP.NET Core Web App project" width="100%" Height="Auto"/>
+<img src="ASP-NET_images\ASP-NET_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
 
 Step 3: Select the Empty project.
-<img src="ASP-NET_images\ASP-NET_images_img6.png" alt="Create a ASP.NET Core Web App project" width="100%" Height="Auto"/>
+<img src="ASP-NET_images\ASP-NET_images_img6.png" alt="Select the Empty App" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.ExcelToPdfConverter.AspNet](https://www.nuget.org/packages/Syncfusion.ExcelToPDFConverter.AspNet) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 <img src="ASP-NET_images\ASP-NET_images_img7.png" alt="Install Syncfusion.ExcelToPdfConverter.AspNet NuGet Package" width="100%" Height="Auto"/>
@@ -69,7 +69,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-  //Initialize ExcelToPdfConverterExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+  //Initialize ExcelToPdfConverter
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
   //Initialize PDF document
   PdfDocument pdfDocument = new PdfDocument();
@@ -86,7 +87,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the PDF document as follows.
+A complete working example of how to convert an Excel document to PDF in ASP.NET is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20WebForms/Convert%20Excel%20to%20PDF).
 
-<img src="ASP-NET_images\ASP-NET_images_img8.png" alt="Install Syncfusion.ExcelToPdfConverter.AspNet NuGet Package" width="100%" Height="Auto"/>
+By executing the program, you will get the **PDF document** as follows.
 
+<img src="ASP-NET_images\ASP-NET_images_img8.png" alt="Excel to PDF in ASP.NET" width="100%" Height="Auto"/>
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.
