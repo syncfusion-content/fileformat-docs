@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert an Excel document to PDF in WPF
 
-Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in WPF**.
+Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in WPF**.
 
 ## Steps to convert an Excel document to PDF in WPF
 
@@ -16,7 +16,7 @@ Step 1: Create a new WPF application project.
 <img src="WPF_images\WPF_images_img4.png" alt="Create a WPF application project" width="100%" Height="Auto"/>
 
 Step 2: Name the project, choose the framework and click **Create** button.
-<img src="WPF_images\WPF_images_img5.png" alt="Name the project and choose framework version" width="100%" Height="Auto"/>
+<img src="WPF_images\WPF_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
 
 Step 3: Install the [Syncfusion.ExcelToPdfConverter.Wpf](https://www.nuget.org/packages/Syncfusion.ExcelToPDFConverter.Wpf) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 <img src="WPF_images\WPF_images_img6.png" alt="Install Syncfusion.ExcelToPdfConverter.Wpf NuGet Package" width="100%" Height="Auto"/>
@@ -35,7 +35,7 @@ Step 4: Add a new button in **MainWindow.xaml** as shown below.
     </Button.Background>
     <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
         <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBlock Text="Convert Excel to PDF" Height="15.96" Width="126" Margin="0,4,0,3" />
+        <TextBlock Text="Convert Excel to PDF" Height="15.96" Width="126" Margin="0,4,0,3"/>
     </StackPanel>
 </Button>
 {% endhighlight %}
@@ -69,15 +69,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Convert Excel document into PDF document
   pdfDocument = converter.Convert();
 
-  //Create the MemoryStream to save the converted PDF.      
-  MemoryStream pdfStream = new MemoryStream();
-
-  //Save the converted PDF document to MemoryStream.
+  //Save the converted PDF document
   pdfDocument.Save("Sample.pdf");
 }
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to convert an Excel document to PDF in WPF is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Convert%20Excel%20to%20PDF).
+
 By executing the program, you will get the **PDF document** as follows.
 
 <img src="WPF_images\WPF_images_img7.png" alt="Excel to PDF in WPF" width="100%" Height="Auto"/>
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.
