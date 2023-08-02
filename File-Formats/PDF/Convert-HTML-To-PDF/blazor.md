@@ -176,7 +176,7 @@ By executing the program, you will get the following output in the browser.
 <img src="htmlconversion_images/blazor_step4.png" alt="Blazor_step4" width="100%" Height="Auto"/>
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
-<img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Blazor output" width="100%" Height="Auto"/>
+<img src="htmlconversion_images/HtmlBlazorOutput.png" alt="Convert HTMLToPDF Blazor output" width="100%" Height="Auto"/>
     
 A complete working sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Blazor).
 
