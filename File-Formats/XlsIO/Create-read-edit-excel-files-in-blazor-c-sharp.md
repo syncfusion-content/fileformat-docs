@@ -684,6 +684,18 @@ Step 9: Add the following JavaScript function in the ``index.html`` file present
 {% endcapture %}
 {{ codesnippet12 | OrderList_Indent_Level_1 }}
 
+Step 10: Add the following code under ``NavMenu.razor`` file present under ``Shared`` folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+<li class="nav-item px-3">
+  <NavLink class="nav-link" href="Excel">
+    <span class="oi oi-list-rich" aria-hidden="true"></span> Create Excel
+  </NavLink>
+</li>
+{% endhighlight %}
+{% endtabs %}
+
 A complete working example of how to create an Excel file in Blazor Client-Side Application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
