@@ -1,6 +1,6 @@
 ---
 title: Loading and saving workbook on Mac OS | Syncfusion
-description: Explains how to load and save Excel files on Mac OS applications using Syncfusion XlsIO.
+description: Learn here all about workbook support in Syncfusion Essential File Formats Excel control, it's elements and more.
 platform: file-formats
 control: XlsIO
 documentation: UG
