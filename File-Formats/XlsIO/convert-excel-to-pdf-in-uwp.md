@@ -52,7 +52,7 @@ using Syncfusion.XlsIORenderer;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Include the below code snippet in the click event of the button in **MainPage.xaml.cs**, to **convert the Excel document to PDF** and save the **PDF** document as a physical file and open the file for viewing.
+Step 6: Include the below code snippet in the click event of the button in **MainPage.xaml.cs**, to **convert an Excel document to PDF** and save the **PDF** document as a physical file and open the file for viewing.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
