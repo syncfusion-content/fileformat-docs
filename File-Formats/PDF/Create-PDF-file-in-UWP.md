@@ -15,10 +15,10 @@ To include the Syncfusion UWP PDF library into your UWP application, please refe
 ## Steps to create PDF document in UWP
 
 Step 1: Create a new UWP application project. 
-<img src="UWP_images/Creation1.jpg" alt="UWP sample creation step1" width="100%" Height="Auto"/>
+![UWP sample creation](UWP_images/UWP_sample_creation.jpg)
 
 Step 2: Install the [Syncfusion.Pdf.UWP](https://www.nuget.org/packages/Syncfusion.Pdf.UWP/) NuGet package as reference to your UWP applications from [NuGet.org](https://www.nuget.org/).
-<img src="UWP_images/Creation2.jpeg" alt="UWP sample creation step2" width="100%" Height="Auto"/>
+![PDF UWP Nuget package](UWP_images/NuGet-pakcage.jpeg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -126,7 +126,7 @@ if (stFile != null)
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-a-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="PDF generation output" width="100%" Height="Auto"/>
+![PDF generation output](GettingStarted_images/pdf-generation-output.png)
 
 ## Creating a PDF document with image
 
@@ -329,7 +329,7 @@ Save(stream, "Sample.pdf");
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
+![Invoice PDF document](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -341,7 +341,7 @@ Essential PDF allows you to [create and manipulate existing form](https://www.sy
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
+![Sample PDF form](GettingStarted_images/fill-pdf-forms.png)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -384,7 +384,7 @@ Save(stream, "output.pdf");
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Fill-form-in-a-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled form screenshot" width="100%" Height="Auto"/>
+![Filled PDF form](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/uwp) to explore the rich set of Syncfusion PDF library features.
 

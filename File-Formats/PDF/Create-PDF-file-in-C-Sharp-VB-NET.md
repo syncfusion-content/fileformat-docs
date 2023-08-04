@@ -1112,7 +1112,7 @@ else
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Create_PDF_with_basic_elements_NET).
 
 The following screenshot shows the invoice PDF document created by using .NET PDF library.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
+![PDF invoice output](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -1124,7 +1124,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill a sample PDF form programmatically.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
+![Sample PDF form](GettingStarted_images/fill-pdf-forms.png)
 
 .NET PDF library allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -1293,7 +1293,7 @@ else
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/.NET/Filling_forms_NET).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form output" width="100%" Height="Auto"/>
+![Filled PDF form output](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Converting HTML files to PDF
 

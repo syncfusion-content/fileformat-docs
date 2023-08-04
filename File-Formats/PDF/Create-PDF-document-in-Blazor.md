@@ -18,16 +18,16 @@ To quickly get started with creating a PDF document in Blazor, check this video:
 ## Steps to create PDF document in Blazor Server-Side application
 
 Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
-<img src="Create-PDF-Blazor/Blazor_project_step1.png" alt="Blazor sample creation step1" width="100%" Height="Auto"/>
+![Blazor sample creation](Create-PDF-Blazor/Blazor_project_creation.png)
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
-<img src="Create-PDF-Blazor/Blazor_project_step2.png" alt="Blazor sample creation step2" width="100%" Height="Auto"/>
+![Blazor project configuration window](Create-PDF-Blazor/Blazor_configuration_window.png)
 
 Step 3: Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
-<img src="Create-PDF-Blazor/Blazor_project_step3.png" alt="Blazor sample creation step3" width="100%" Height="Auto"/>
+![Blazor Server side application](Create-PDF-Blazor/Select_server_app.png)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
-<img src="Create-PDF-Blazor/Blazor_server_NuGet.png" alt="Blazor NuGet installation" width="100%" Height="Auto"/>
+![Blazor NuGet installation](Create-PDF-Blazor/Blazor_server_NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -210,10 +210,10 @@ Step 8: Add the following JavaScript function in the  ``_Host.cshtml`` available
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ServerSideApplication).
 
 By executing the program, you will get the following output in the browser.
-<img src="Create-PDF-Blazor/Blazor_browser_output.png" alt="Blazor browser output" width="100%" Height="Auto"/>
+![Blazor server side browser window](Create-PDF-Blazor/Blazor_browser_output.png)
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
-<img src="Create-PDF-Blazor/Blazor_PDF_output.png" alt="Blazor browser output" width="100%" Height="Auto"/>
+![Blazor server side output PDF document](Create-PDF-Blazor/Blazor_PDF_output.png)
 
 N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
 
@@ -224,16 +224,16 @@ An online sample link to [create PDF document](https://blazor.syncfusion.com/dem
 ## Steps to create PDF document in Blazor client-side application:
 
 Step 1: Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
-<img src="Create-PDF-Blazor/Blazor_project_step1.png" alt="Blazor client project creation step1" width="100%" Height="Auto"/>
+![Blazor client project creation step1](Create-PDF-Blazor/Blazor_project_creation.png)
 
 Step 2: Now, the project configuration window appears. Click Create button to create a new project with the default project configuration.
-<img src="Create-PDF-Blazor/Blazor_Client_NewProject.png" alt="Blazor client project creation step2" width="100%" Height="Auto"/>
+![Blazor client configuration window](Create-PDF-Blazor/Blazor_configuration_window.png)
 
 Step 3: Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
-<img src="Create-PDF-Blazor/Blazor_Client_Template.png" alt="Blazor client project creation step3" width="100%" Height="Auto"/>
+![Select Blazor WASM app](Create-PDF-Blazor/Blazor_Client_Template.png)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
-<img src="Create-PDF-Blazor/Blazor_server_NuGet.png" alt="Blazor NuGet installation" width="100%" Height="Auto"/>
+![Blazor WASM NuGet package installation](Create-PDF-Blazor/Blazor_server_NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -369,10 +369,10 @@ Step 8: Add the following JavaScript function in the ``index.html`` available un
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Blazor/ClientSideApplication).
 
 By executing the program, you will get the following output in the browser.
-<img src="Create-PDF-Blazor/Blazor_Client_WebResult.png" alt="Blazor client browser result" width="100%" Height="Auto"/>
+![Blazor client browser window](Create-PDF-Blazor/Blazor_Client_WebResult.png)
 
 Click the Export to PDF button and you will get the PDF document with the following output.
-<img src="Create-PDF-Blazor/Blazor_PDF_output.png" alt="Blazor client PDF output" width="100%" Height="Auto"/>
+![Blazor getting started output PDF document](Create-PDF-Blazor/Blazor_PDF_output.png)    
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/blazor) to explore the rich set of Syncfusion PDF library features.
 
