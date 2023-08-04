@@ -9,6 +9,8 @@ keywords: Assemblies
 
 # OCR Processor Troubleshooting 
 
+## Tesseract has not been initialized exception
+
 <table>
 <th style="font-size:14px">Exception</th>
 <th style="font-size:14px">Tesseract has not been initialized exception.</th>
@@ -41,6 +43,8 @@ Ensure that your data file version is 3.02 since the OCR processor is built with
 </td>
 </tr>
 </table>
+
+## Exception has been thrown by the target of an invocation
 
 <table>
 <th style="font-size:14px">Exception</th>
@@ -88,6 +92,8 @@ Please find the download link Visual C++ 2015 Redistributable file,<br>
 </tr>
 </table>
 
+## Can't be opened because the developer's identity cannot be confirmed
+
 <table>
 <th style="font-size:14px">Exception</th>
 <th style="font-size:14px">Can't be opened because the developer's identity cannot be confirmed.</th>
@@ -105,6 +111,8 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 </td>
 </tr>
 </table>
+
+## The OCR processor doesn't process languages other than English
 
 <table>
 <th style="font-size:14px">Exception</th>
@@ -128,6 +136,8 @@ For example, to perform the optical character recognition in German, the propert
 </td>
 </tr>
 </table>
+
+## Text does not recognize properly when performing OCR on a PDF document with low-quality images
 
 <table>
 <th style="font-size:14px">Issue</th>
