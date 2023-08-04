@@ -163,11 +163,11 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs
+    PreviewControllerDS.cs</br>
     QLPreviewItemFileSystem.cs
   </td>
   <td>
-    Helper classes for viewing the <b>Word document</b> in iOS device
+    Helper classes for viewing the <b>Excel document</b> in iOS device
   </td>
   </tr>
 </table>
