@@ -15,10 +15,10 @@ To include the .NET PDF library into your Windows Forms application, please refe
 ## Steps to create PDF document in Window Forms
 
 Step 1: Create a new Windows Forms application project.
-<img src="WF_images/WF-Creation1.png" alt="WF sample creation step1" width="100%" Height="Auto"/>
+![Windows Forms sample creation](WF_images/WF-sample-creation.png)
 
 Step 2: Install the [Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.WinForms/) NuGet package as a reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-<img src="WF_images/WF-Creation2.png" alt="WF sample creation step2" width="100%" Height="Auto"/>
+![Windows Forms PDF NuGet package](WF_images/WF-NuGet-package.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -89,7 +89,7 @@ using (PdfDocument document = new PdfDocument())
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-new-PDF-document).
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="Output document screenshot" width="100%" Height="Auto"/>
+![WF output PDF document](GettingStarted_images/pdf-generation-output.png)
 
 ## Creating a PDF document with image
 
@@ -287,7 +287,7 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Create-PDF-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice screenshot" width="100%" Height="Auto"/>
+![Invoice PDF document screenshot](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -299,7 +299,7 @@ Essential PDF allows you to [create and manipulate existing form](https://www.sy
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="PDF fill form screenshot" width="100%" Height="Auto"/>
+![PDF form sample document](GettingStarted_images/fill-pdf-forms.png)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
 
@@ -331,7 +331,7 @@ loadedDocument.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Windows%20Forms/Fill-a-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="PDF filled form screenshot" width="100%" Height="Auto"/>
+![Filled PDF document screenshot](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

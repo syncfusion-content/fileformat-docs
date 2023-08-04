@@ -19,13 +19,13 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 N> Our PDF library is currently supported in .NET MAUI applications on the Android, iOS, and Windows platform. Currently, the PDF library is not supported in the Mac Catalyst platform. 
 
 Step 1: Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
-<img src="MAUI_images/Create_Project.png" alt=".NET MAUI sample creation step1" width="100%" Height="Auto"/>
+![.NET MAUI sample creation step1](MAUI_images/Create_Project.png)
 
 Step 2: Enter the project name and click **Create**.
-<img src="MAUI_images/Configure_project.png" alt=".NET MAUI sample creation step2" width="100%" Height="Auto"/>
+![.NET MAUI sample configure project](MAUI_images/Configure_project.png)
 
 Step 3: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
-<img src="MAUI_images/Install_Nuget.png.png" alt=".NET MAUI sample creation step3" width="100%" Height="Auto"/>
+![.NET MAUI NuGet package reference](MAUI_images/Install_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -350,13 +350,13 @@ A complete working example of creating a PDF document in the .NET MAUI Desktop a
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/MAUI/CreatePdfDemoSample).
 
 By executing the program in windows, you will get the PDF document as follows.
-<img src="MAUI_images/invoice.png" alt=".NET MAUI output image" width="100%" Height="Auto"/>
+![.NET MAUI output image](MAUI_images/invoice.png)  
 
 By executing the program in android, you will get the **PDF document** as follows,
-<img src="MAUI_images/invoice_android.png" alt=".NET MAUI invoice android image" width="100%" Height="Auto"/>
+![.NET MAUI invoice android image](MAUI_images/invoice_android.png)  
 
 By executing the program in iOS, you will get the **PDF document** as follows,
-<img src="MAUI_images/invoice_ios.png" alt=".NET MAUI invoice iOS image" width="100%" Height="Auto"/>
+![.NET MAUI invoice iOS image](MAUI_images/invoice_ios.png)  
 
 N> You can also explore our [MAUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.
 

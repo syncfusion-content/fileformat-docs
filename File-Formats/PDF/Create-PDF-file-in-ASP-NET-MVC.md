@@ -15,10 +15,10 @@ To include the .NET PDF library into your ASP.NET MVC application, please refer 
 ## Steps to create PDF document in ASP.NET MVC
 
 Step 1: Create a new ASP.NET MVC application project.
-<img src="MVC_images/Creation1.png" alt="ASP.NET MVC sample creation step1" width="100%" Height="Auto"/>
+![Create ASP.NET MVC Web application in Visual Studio](MVC_images/Create-MVC-application.png)
 
 Step 2: Install the [Syncfusion.Pdf.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your ASP.NET MVC applications from [NuGet.org](https://www.nuget.org/).
-<img src="MVC_images/Creation2.png" alt="ASP.NET MVC sample NuGet installation" width="100%" Height="Auto"/>
+![Install PDF MVC NuGet package](MVC_images/NuGet-package.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -69,7 +69,7 @@ document.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadTy
 {% endhighlight %} 
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="Simple PDF output" width="100%" Height="Auto"/>
+![ASP.Net Core output PDF document](GettingStarted_images/pdf-generation-output.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-new-PDF-document).
 
@@ -269,7 +269,7 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-PDF-document-with-basic-elements).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
+![Invoice PDF document](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -281,7 +281,7 @@ The Essential PDF allows you to [create and manipulate existing form](https://ww
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
+![Sample PDF form](GettingStarted_images/fill-pdf-forms.png)
 
 The .NET Core PDF library allows you to fill the form fields by using the [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
 
@@ -313,7 +313,7 @@ loadedDocument.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Fill-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form" width="100%" Height="Auto"/>
+![Filled PDF form](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 
