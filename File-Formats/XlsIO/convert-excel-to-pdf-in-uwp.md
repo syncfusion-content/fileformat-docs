@@ -62,7 +62,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Load an existing file
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    using (Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx"))
+    using (Stream inputStream = assembly.GetManifestResourceStream("Convert_Excel_to_PDF.InputTemplate.xlsx"))
     {
         IWorkbook workbook =application.Workbooks.Open(inputStream);
 
@@ -133,7 +133,7 @@ private async void SavePDF(Stream outputStream)
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="UWP_images\UWP_images_img7.png" alt="Install Syncfusion.ExcelToPdfConverter.WinForms NuGet Package" width="100%" Height="Auto"/>
+<img src="UWP_images\UWP_images_img7.png" alt="Excel to PDF in UWP" width="100%" Height="Auto"/>
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/uwp) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
