@@ -54,7 +54,7 @@ using Syncfusion.XlsIORenderer;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Include the below code snippet in the new action method of **ConvertWordtoPDF** in **MainWindow.xaml.cs**  to **convert the Excel document to PDF**.
+Step 6: Include the below code snippet in the new action method of **ConvertExceltoPDF** in **MainWindow.xaml.cs**  to **convert the Excel document to PDF**.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
