@@ -150,7 +150,7 @@ Step 12: Add the following code snippet in the **NavMenu.razor** in the Shared f
 {% highlight HTML %}
 <li class="nav-item px-3">
     <NavLink class="nav-link" href="xlsio">
-        <span class="oi oi-list-rich" aria-hidden="true"></span> Convert Word to PDF
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Convert Excel to PDF
     </NavLink>
 </li>
 {% endhighlight %}
@@ -307,8 +307,8 @@ Step 12: Add the following code snippet in the **NavMenu.razor** in the Shared f
 {% tabs %}
 {% highlight CSHTML %}
 <li class="nav-item px-3">
-    <NavLink class="nav-link" href="docio">
-        <span class="oi oi-list-rich" aria-hidden="true"></span> Convert Word to PDF
+    <NavLink class="nav-link" href="xlsio">
+        <span class="oi oi-list-rich" aria-hidden="true"></span> Convert Excel to PDF
     </NavLink>
 </li>
 {% endhighlight %}
