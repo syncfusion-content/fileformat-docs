@@ -13,15 +13,14 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 
 ## Steps to perform OCR with Azure Computer Vision 
 Step 1: Create a new .NET Console application project. 
-<img src="OCR-Images/NET-sample-Azure-step1.png" alt="NET-sample-creation-step1" width="100%" Height="Auto"/>
+![Create .NET console application](OCR-Images/NET-sample-Azure-step1.png) 
 
 In project configuration window, name your project and select Next. 
-<img src="OCR-Images/NET-sample-Azure-step2.png" alt="NET-sample-creation-step2" width="100%" Height="Auto"/>
+![NET sample configuration window](OCR-Images/NET-sample-Azure-step2.png)
 
 Step 2: Install [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) and [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) NuGet packages as reference to your .NET application from [nuget.org](https://www.nuget.org/). 
-
-<img src="OCR-Images/NET-sample-Azure-step3.png" alt="NET-sample-creation-step3" width="100%" Height="Auto"/>
-<img src="OCR-Images/NET-sample-Azure-step4.png" alt="NET-sample-creation-step4" width="100%" Height="Auto"/>
+![NuGet package installation](OCR-Images/NET-sample-Azure-step3.png)
+![NuGet package installation](OCR-Images/NET-sample-Azure-step4.png)
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -185,7 +184,7 @@ class AzureExternalOcrEngine : IOcrEngine
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows. 
-<img src="OCR-Images/Output.png" alt="Output PDF screenshot" width="100%" Height="Auto"/>
+![Output PDF document](OCR-Images/Output.png)   
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure%20Vision).
 

@@ -15,13 +15,13 @@ Step 1: Create a new ASP.NET Core application project.
 ![ASP.NET Core project creation](OCR-Images/OCRDocker1.png)
 
 Step 2: In the project configuration window, name your project and select Next.
-<img src="OCR-Images/OCRDocker2.png" alt="OCR Docker Step2" width="100%" Height="Auto"/>
+![Docker project configuration window](OCR-Images/OCR-docker-configuration-window.png)
 
 Step 3: Enable the Docker support with Linux as a target OS.
-<img src="OCR-Images/OCRDocker3.png" alt="OCR Docker Step3" width="100%" Height="Auto"/>
+![Set the docker target](OCR-Images/OCR_docker_target.png)
 
 Step 4: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/). 
-<img src="OCR-Images/OCRDocker4.png" alt="OCR Docker Step4" width="100%" Height="Auto"/>
+![OCR NuGet package installation](OCR-Images/OCR-Docker-NuGet-package.png)  
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -36,7 +36,7 @@ libgdiplus libc6-dev
 
 {% endhighlight %}
 
-<img src="OCR-Images/OCRDocker5.png" alt="Convert HTMLToPDF Docker Step5" width="100%" Height="Auto"/>
+![OCR commends in docker file](OCR-Images/Docker_file_commends.png) 
 
 Step 6: A default action method named Index will be present in the *HomeController.cs*. Right-click on the Index method and select Go to View, where you will be directed to its associated view page *Index.cshtml*.
 
@@ -55,7 +55,7 @@ Step 7: Add a new button in the *index.cshtml* as follows.
 
 {% endhighlight %}
 
-<img src="OCR-Images/OCRDocker6.png" alt="Convert HTMLToPDF Docker Step6" width="100%" Height="Auto"/>
+![Action method file screenshot](OCR-Images/OCRDocker6.png) 
 
 Step 8: A default controller with the name *HomeController.cs* gets added to the creation of the ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
@@ -103,7 +103,7 @@ Step 10: Build and run the sample in Docker. It will pull the Linux Docker image
 
 By executing the program, you will get a PDF document as follows.
 
-<img src="OCR-Images/OCR-output-image.png" alt="Convert HTMLToPDF Dockeroutput" width="100%" Height="Auto"/>
+![Linux docker output](OCR-Images/OCR-output-image.png) 
 
 A complete working sample for converting an HTML to PDF in the Linux docker container can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Docker).
 
