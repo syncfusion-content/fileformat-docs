@@ -14,10 +14,10 @@ To include the .NET PDF library into your ASP.NET Web application, please refer 
 ## Steps to create PDF document in ASP.NET Web Forms
 
 Step 1: Create a new ASP.NET Web application project.
-<img src="Asp.Net_images/Creation1.jpg" alt="ASP.NET Web sample creation step1" width="100%" Height="Auto"/>
+![ASP.NET Web sample creation step1](Asp.Net_images/Web-application-creation.jpg)
 
 Step 2: Install the [Syncfusion.Pdf.AspNet](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet/) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-<img src="Asp.Net_images/Creation2.png" alt="ASP.NET Web application NuGet installation" width="100%" Height="Auto"/>
+![PDF ASP.NET NuGet package installation](Asp.Net_images/NuGet-package.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -76,7 +76,7 @@ document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET/Create-a-new-DPF-document).
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="Getting started PDF output" width="100%" Height="Auto"/>
+![Getting started PDF output document](GettingStarted_images/pdf-generation-output.png)
 
 ## Creating a PDF document with image
 
@@ -274,7 +274,7 @@ document.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET/Create-PDF-document-with-basic-elemets).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice output" width="100%" Height="Auto"/>
+![Invoice PDF document](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -286,7 +286,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
+![Sample PDF form](GettingStarted_images/fill-pdf-forms.png)
 
 The Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. Get the form field either by using its field name or field index.
 
@@ -318,7 +318,7 @@ loadedDocument.Close(true);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET/Fill-form-in-an-existing-PDF-document).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form" width="100%" Height="Auto"/>
+![Filled PDF form](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 

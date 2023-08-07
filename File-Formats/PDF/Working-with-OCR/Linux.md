@@ -31,7 +31,7 @@ dotnet new console
 
 {% endhighlight %}
 
-<img src="OCR-Images/LinuxStep1.png" alt="OCR Linux Step1" width="100%" Height="Auto"/>
+![OCR Linux Step1](OCR-Images/LinuxStep1.png)
 
 Step 2: Install the [Syncfusion.PDF.OCR.Net](https://www.nuget.org/packages/Syncfusion.PDF.OCR.Net/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
 
@@ -41,7 +41,7 @@ dotnet add package Syncfusion.PDF.OCR.Net -v xx.x.x.xx -s https://www.nuget.org/
 
 {% endhighlight %}
 
-<img src="OCR-Images/LinuxStep2.png" alt="OCR Linux Step2" width="100%" Height="Auto"/>
+![OCR Linux Step2](OCR-Images/LinuxStep2.png)
 
 Step 3: Include the following namespaces in Program.cs file.
 
@@ -90,7 +90,7 @@ dotnet restore
 
 {% endhighlight %}
 
-<img src="OCR-Images/LinuxStep3.png" alt="OCR Linux Step3" width="100%" Height="Auto"/>
+![OCR Linux Step3](OCR-Images/LinuxStep3.png)
 
 Step 6:  Execute the following command in the terminal to build the application.
 
@@ -100,7 +100,7 @@ dotnet build
 
 {% endhighlight %}
 
-<img src="OCR-Images/LinuxStep4.png" alt="OCR Linux Step4" width="100%" Height="Auto"/>
+![OCR Linux Step4](OCR-Images/LinuxStep4.png)
 
 Step 7: Execute the following command in the terminal to run the application.
 
@@ -110,9 +110,9 @@ dotnet run
 
 {% endhighlight %}
 
-<img src="OCR-Images/LinuxStep5.png" alt="OCR Linux Step5" width="100%" Height="Auto"/>
+![OCR Linux Step5](OCR-Images/LinuxStep5.png)
 
 By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
-<img src="OCR-Images/OCR-output-image.png" alt="OCR Linux Output" width="100%" Height="Auto"/>
+![OCR Linux Output](OCR-Images/OCR-output-image.png)
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Linux).

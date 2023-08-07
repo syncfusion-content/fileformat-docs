@@ -17,17 +17,16 @@ To use the WinUI 3 project templates, install the Windows App SDK extension for 
 ## WinUI Desktop app
 
 Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
-
-<img src="WinUI_Images/Create_Desktop_Project.png" alt="WinUI sample creation step1" width="100%" Height="Auto"/>
+![WinUI sample creation](WinUI_Images/Create_Desktop_Project.png) 
 
 Step 2: Enter the project name and click **Create**.
-<img src="WinUI_Images/Desktop_Configure.png" alt="WinUI sample creation step2" width="100%" Height="Auto"/>
+![Set WinUI sample project name](WinUI_Images/Desktop_Configure.png) 
 
 Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
-<img src="WinUI_Images/Target_Version.png" alt="Set target version" width="100%" Height="Auto"/>
+![Set target version](WinUI_Images/Target_Version.png) 
 
 Step 4: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
-<img src="WinUI_Images/Install_Nuget.png" alt="Install NuGet package" width="100%" Height="Auto"/>
+![WinUI NuGet package](WinUI_Images/Install_Nuget.png) 
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -239,7 +238,7 @@ A complete working example of creating a PDF document in the WinUI Desktop app c
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/WinUI).
 
 By executing the program, you will get the PDF document as follows.
-<img src="WinUI_Images/GettingStartedOutput.png" alt="Output PDF image" width="100%" Height="Auto"/>
+![Output PDF image](WinUI_Images/GettingStartedOutput.png)
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/winui) to explore the rich set of Syncfusion PDF library features.
 

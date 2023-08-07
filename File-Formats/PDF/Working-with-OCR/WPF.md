@@ -14,13 +14,13 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR on entire PDF document in WPF
 
 Step 1: Create a new WPF application project. 
-<img src="OCR-Images/OCR-WPF-step1.png" alt="Perform OCR WPF Step1.png" width="100%" Height="Auto"/>
+![WPF application creation](OCR-Images/OCR-WPF-app-creation.png)
 
 In project configuration window, name your project and select Create. 
-<img src="OCR-Images/OCR-WPF-step2.png" alt="Perform OCR WPF Step2.png" width="100%" Height="Auto"/>
+![WPF project configuration window](OCR-Images/OCR-WPF-project-configuration.png)
 
 Step 2: Install the [Syncfusion.Pdf.OCR.Wpf](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.Wpf) NuGet package as a reference to your WPF application from [nuget.org](https://www.nuget.org/).
-<img src="OCR-Images/OCR-WPF-step3.png" alt="Perform OCR WPF Step3.png" width="100%" Height="Auto"/>
+![OCR NuGet package installation](OCR-Images/OCR-WPF-NuGet-package.png)
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -67,7 +67,7 @@ using (OCRProcessor processor = new OCRProcessor())
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows. 
-<img src="OCR-Images/Output.png" alt="Output document screenshot" width="100%" Height="Auto"/>
+![WPF OCR output screenshot](OCR-Images/Output.png)
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/WPF).
 
