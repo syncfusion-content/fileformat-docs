@@ -1861,7 +1861,24 @@ The following code snippet illustrates how to read and write HTML Rich-Text usin
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//XlsIO supports adding HTML string to worksheet range in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(3);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add HTML string
+  worksheet.Range["A1"].HtmlString = "<font style=\"color:red;font-family:Magneto;font-size:12px; \">Welcome Syncfusion</font>";
+
+  //Assign HTML string as text to different range
+  worksheet.Range["A2"].Text = worksheet.Range["A1"].HtmlString;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("BorderSettings.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -1899,6 +1916,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example to apply HTML string formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/HTML%20String%20Formatting).   
 
 ### Supported Tags
 
