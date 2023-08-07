@@ -124,20 +124,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    Portable project
+    {{'[Portable project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF)'| markdownify }}
   </td>
   <td>
-    ISave.cs
+    {{'[ISave.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF/ISave.cs)'| markdownify }}
   </td>
   <td>Represent the base interface for save operation
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    iOS project
+    {{'[iOS Project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.iOS)'| markdownify }}
   </td>
   <td>
-        SaveIOS.cs
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.iOS/SaveIOS.cs)'| markdownify }} 
   </td>
   <td>
     Save implementation for iOS device
@@ -145,7 +145,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.iOS/PreviewControllerDS.cs)'| markdownify }}
   </td>
   <td>
     Helper class for viewing the <b>Excel document</b> in iOS device
@@ -153,20 +153,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    Android project
+    {{'[Android project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.Android)'| markdownify }}
   </td>
   <td>
-   SaveAndroid.cs
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device
   </td>
   </tr>
   <tr>
   <td>
-    UWP project
+    {{'[UWP project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.UWP)'| markdownify }}
   </td>
   <td>
-    SaveWindows.cs
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Convert-Excel-to-PDF.UWP/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for UWP device.
   </td>
@@ -174,6 +174,8 @@ Refer the below helper files and add them into the mentioned project. These help
 </table>
 
 Compile and execute the application. Now this application **convert an Excel document to PDF**.
+
+A complete working example of how to convert an Excel document to PDF in Xamarin is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Convert%20Excel%20to%20PDF).
 
 By executing the program, you will get the **PDF document** as follows.
 
