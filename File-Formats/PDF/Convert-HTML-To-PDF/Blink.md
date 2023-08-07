@@ -171,9 +171,9 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 
 <b>NuGet</b>
     <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws/">Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Aws</a>
-* Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
+* Kindly refer this [link](https://support.syncfusion.com/kb/article/11992/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
     
-* Kindly refer this [link](https://www.syncfusion.com/kb/13523/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
+* Kindly refer this [link](https://support.syncfusion.com/kb/article/11992/how-to-convert-html-to-pdf-in-aws-lambda) for converting HTML to PDF in Aws.
 
 ## BlinkPath
 
