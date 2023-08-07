@@ -16,14 +16,14 @@ N> Currently, HTML to PDF converter is mainly supported in Blazor Server-Side, w
 ## Steps to convert HTML to PDF in Blazor application
 
 Step 1: Create a new C# Blazor Server application project. Select Blazor App from the template and click the Next button.
-<img src="htmlconversion_images/blazor_step1.png" alt="Blazor_step1" width="100%" Height="Auto"/>
+![Create Blazor application](htmlconversion_images/blazor_step1.png)  
 
 In the project configuration window, name your project and select Create.
-<img src="htmlconversion_images/blazor_step2.png" alt="Blazor_step2" width="100%" Height="Auto"/>
-<img src="htmlconversion_images/blazor_step3.png" alt="Blazor_step3" width="100%" Height="Auto"/>
+![Project configuration1](htmlconversion_images/blazor_step2.png)  
+![Project configuration2](htmlconversion_images/blazor_step3.png)  
 
 Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Windows](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Windows/) NuGet package as a reference to your Blazor Server application from [NuGet.org](https://www.nuget.org/).
-<img src="htmlconversion_images/blazor_step_nuget.png" alt="blazor_step_nuget" width="100%" Height="Auto"/>
+![NuGet package installation](htmlconversion_images/blazor_step_nuget.png)  
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -173,13 +173,13 @@ Step 10: Add the following JavaScript function in the _Host.cshtml available und
 {% endhighlight %}
 
 By executing the program, you will get the following output in the browser.
-<img src="htmlconversion_images/blazor_step4.png" alt="Blazor_step4" width="100%" Height="Auto"/>
+![Browser window](htmlconversion_images/blazor_step4.png)   
 
 Click the Export to PDF button, and you will get the PDF document with the following output.
-<img src="htmlconversion_images/HtmlBlazorOutput.png" alt="Convert HTMLToPDF Blazor output" width="100%" Height="Auto"/>
+![HTML to PDF Blazor output](htmlconversion_images/HtmlBlazorOutput.png)   
     
 A complete working sample for converting an HTML to PDF in the Blazor framework can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Blazor).
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/blazor/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
 
-An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 
+An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core.

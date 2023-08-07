@@ -33,7 +33,7 @@ dotnet new console
 
 {% endhighlight %}
 
-<img src="htmlconversion_images/LinuxStep1.png" alt="Convert HTMLToPDF Linux Step1" width="100%" Height="Auto"/>
+![Convert HTMLToPDF Linux Step1](htmlconversion_images/LinuxStep1.png)  
 
 Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/) by executing the following command.
 
@@ -43,7 +43,7 @@ dotnet add package Syncfusion.HtmlToPdfConverter.Net.Linux -v xx.x.x.xx -s https
 
 {% endhighlight %}
 
-<img src="htmlconversion_images/LinuxStep2.png" alt="Convert HTMLToPDF Linux Step2" width="100%" Height="Auto"/>
+![Convert HTMLToPDF Linux Step2](htmlconversion_images/LinuxStep2.png)  
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -86,7 +86,7 @@ dotnet restore
 
 {% endhighlight %}
 
-<img src="htmlconversion_images/LinuxStep3.png" alt="Convert HTMLToPDF Linux Step3" width="100%" Height="Auto"/>
+![Convert HTMLToPDF Linux Step3](htmlconversion_images/LinuxStep3.png)  
 Step 6: Execute the following command in the terminal to run the application.
 
 {% highlight c# tabtitle="C#" %}
@@ -95,10 +95,10 @@ dotnet run
 
 {% endhighlight %}
 
-<img src="htmlconversion_images/LinuxStep4.png" alt="Convert HTMLToPDF Linux Step4" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF Linux Step4](htmlconversion_images/LinuxStep4.png)  
 
 By executing the program, you will get the PDF document as follows. The output will be saved in parallel to the program.cs file.
-<img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Linux Step5" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF Linux Step5](htmlconversion_images/htmltopdfoutput.png)  
 
 A complete working sample can be downloaded from [Github.](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Linux)
 
