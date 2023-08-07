@@ -118,11 +118,11 @@ Step 3: Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Sync
 ![NuGet package installation](OCR-Images/AzureFunctions4.png) 
 
 Step 4: Copy the tessdata folder from the **bin->Debug->net6.0->runtimes** and paste it into the folder that contains the project file.
-<img src="OCR-Images/Tessdata-path.png" alt="Convert OCR Azure Functions Tessdata Path" width="100%" Height="Auto"/> 
-<img src="OCR-Images/Tessdata_Store.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+![OCR Azure Functions Tessdata Path](OCR-Images/Tessdata-path.png) 
+![OCR Azure Functions Tessdata Store](OCR-Images/Tessdata_Store.png) 
 
 Step 5: Then, set Copy to output directory to give copy always the tessdata folder.
-<img src="OCR-Images/Set_Copy_Always.png" alt="Convert OCR Azure Functions Tessdata Store" width="100%" Height="Auto"/>
+![OCR Azure Functions Tessdata Store](OCR-Images/Set_Copy_Always.png)
 
 Step 6: Include the following namespaces in the **Function1.cs** file to perform OCR for a PDF document using C#.
 
@@ -198,18 +198,18 @@ Step 8: Now, check the OCR creation in the local machine.
 ### Steps to publish as Azure Functions 
 
 Step 1: Right-click the project and click Publish. Then, create a new profile in the Publish Window. So, create the Azure Function App with a consumption plan.
-<img src="OCR-Images/AzureFunctions5.png" alt="Convert OCR Azure Functions Step5" width="100%" Height="Auto"/>
-<img src="OCR-Images/azure_step6.png" alt="Convert OCR Azure Functions Step6" width="100%" Height="Auto"/>
-<img src="OCR-Images/AzureFunctions7.png" alt="Convert OCR Azure Functions Step7" width="100%" Height="Auto"/>
+![OCR Azure Functions publish1](OCR-Images/AzureFunctions5.png)
+![OCR Azure Functions publish2](OCR-Images/azure_step6.png)
+![OCR Azure Functions publish3](OCR-Images/AzureFunctions7.png)
 
 Step 2: After creating the profile, click Publish.
-<img src="OCR-Images/AzureFunctions8.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
+![Proceed for publish](OCR-Images/AzureFunctions8.png)
 
 Step 3: Now, publish has been succeeded.
-<img src="OCR-Images/AzureFunctions9.png" alt="Convert OCR Azure Functions Step8" width="100%" Height="Auto"/>
+![Proceed succeed](OCR-Images/AzureFunctions9.png)
 
 Step 4: Now, go to the Azure portal and select the Functions Apps. After running the service, click Get function URL > Copy. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get a PDF document as follows.
-<img src="OCR-Images/OCR-output-image.png" alt="Convert OCR Azure Functions Step9" width="100%" Height="Auto"/> 
+![Output PDF document](OCR-Images/OCR-output-image.png)
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Azure/Azure%20Function).
 
