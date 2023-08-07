@@ -14,16 +14,16 @@ To include the Syncfusion Xamarin PDF library into your Xamarin application, ple
 ## Steps to create PDF document in Xamarin
 
 Step 1: Create a new C# Xamarin.Forms application project.
-<img src="Xamarin_images/Creation1.jpg" alt="Xamarin sample creation step1" width="100%" Height="Auto"/>
+![Xamarin project creation](Xamarin_images/Xamarin_project_creation.jpg)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application, the portable assemblies to be shared across multiple platforms, so the .NET Standard code sharing strategy has been selected. For more details about code sharing, refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-<img src="Xamarin_images/Creation2.jpg" alt="Xamarin sample creation step2" width="100%" Height="Auto"/>
+![Xamarin project creation step2](Xamarin_images/Select_blank_app.jpg)
 
 Step 3: Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your Xamarin.Forms applications from [NuGet.org](https://www.nuget.org/).
-<img src="Xamarin_images/Creation3.jpg" alt="Xamarin sample creation step3" width="100%" Height="Auto"/>
+![Install Xamarin PDF NuGet package](Xamarin_images/NuGet_package.jpg)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -170,7 +170,7 @@ android:resource="@xml/provider_paths" />
 
 {% highlight c# tabtitle="C#" %}
 
-<application android:label=" PDFXamarinSample.Android" android:requestLegacyExternalStorage="true">
+<application android:label=" PDFXamarinSample.Android" android:requestLegacyExternalStorage="true">
 
 {% endhighlight %}
 
@@ -189,7 +189,7 @@ Step 10: Compile and execute the application. This will creates a simple PDF doc
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFDocument).
 
 By executing the program, you will get the PDF document as follows.
-<img src="GettingStarted_images/pdf-generation-output.png" alt="Xamarin PDF output" width="100%" Height="Auto"/>
+![Xamarin output PDF document](GettingStarted_images/pdf-generation-output.png)
  
 ## Creating a PDF document with image
 
@@ -404,7 +404,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreateInvoicePDF).
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
-<img src="GettingStarted_images/pdf-invoice.png" alt="PDF invoice screenshot" width="100%" Height="Auto"/>
+![Invoice PDF document](GettingStarted_images/pdf-invoice.png)
 
 ## Filling forms
 
@@ -416,7 +416,7 @@ Essential PDF allows you to [create and manipulate existing form](https://www.sy
 2. Syncfusion.Pdf.Parsing
 
 The following guide shows how to fill out a sample PDF form.
-<img src="GettingStarted_images/fill-pdf-forms.png" alt="Sample PDF form" width="100%" Height="Auto"/>
+![Sample PDF form](GettingStarted_images/fill-pdf-forms.png)
 
 Essential PDF allows you to fill the form fields by using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. You can get the form field either by using its field name or field index.
  
@@ -452,7 +452,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/PDFFormFilling).
 
 The filled form is shown in adobe reader application as follows.
-<img src="GettingStarted_images/filled-form-in-pdf.jpeg" alt="Filled PDF form" width="100%" Height="Auto"/>
+![Filled PDF form](GettingStarted_images/filled-form-in-pdf.jpeg)
 
 ## Merge PDF Documents
 
