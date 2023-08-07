@@ -156,6 +156,8 @@ Step 12: Add the following code snippet in the **NavMenu.razor** in the Shared f
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to convert an Excel document to PDF in Blazor Server App is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Server%20Side/Convert%20Excel%20to%20PDF).
+
 By executing the program, you will get the **PDF document** as follows.
 
 <img src="Blazor_images\Blazor_images_Server_and_Client_App_Output.png" alt="Excel to PDF in Blazor Server App" width="100%" Height="Auto"/>
@@ -314,9 +316,13 @@ Step 12: Add the following code snippet in the **NavMenu.razor** in the Shared f
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to convert an Excel document to PDF in Blazor WASM App is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Blazor/Client%20Side/Convert%20Excel%20to%20PDF).
+
 By executing the program, you will get the **PDF document** as follows.
 
 <img src="Blazor_images\Blazor_images_Server_and_Client_App_Output.png" alt="Excel to PDF in Blazor WASM App" width="100%" Height="Auto"/>
+
+N> To convert Excel to PDF, it is necessary to access the font stream internally. However, this cannot be done automatically in a Blazor WASM application. Therefore, we recommend using a Server app, even though Excel to PDF conversion works in a WASM app.
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/blazor) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
