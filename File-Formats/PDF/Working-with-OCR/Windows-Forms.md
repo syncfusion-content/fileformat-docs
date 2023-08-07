@@ -13,13 +13,13 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR on entire PDF document in Windows Forms 
 
 Step 1: Create a new Windows Forms application project. 
-<img src="OCR-Images/OCR-WF-step1.png" alt="Perform OCR Windows Forms Step1" width="100%" Height="Auto"/>
+![Create WF project](OCR-Images/OCR-WF-app-creation.png)
 
 In project configuration window, name your project and select Create. 
-<img src="OCR-Images/OCR-WF-step2.png" alt="Perform OCR Windows Forms Step2" width="100%" Height="Auto"/>
+![Project configuration window](OCR-Images/OCR-WF-configuraion-window.png)
 
 Step 2: Install the [Syncfusion.Pdf.OCR.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.WinForms) NuGet package as a reference to your WinForms application from [nuget.org](https://www.nuget.org/).
-<img src="OCR-Images/OCR-WF-step3.png" alt="Perform OCR Windows Forms Step3" width="100%" Height="Auto"/>
+![OCR NuGet package installation](OCR-Images/OCR-WF-NuGet-package.png)
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -90,7 +90,7 @@ using (OCRProcessor processor = new OCRProcessor())
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows.
-<img src="OCR-Images/Output.png" alt="Output screenshot" width="100%" Height="Auto"/>
+![OCR output screenshot](OCR-Images/Output.png)
 
 A complete working sample can be downloaded from [GitHub](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/Windows%20Forms).
 

@@ -12,7 +12,7 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 
 ## Steps to perform OCR on entire PDF document in Docker
 Step 1: Create a new ASP.NET Core application project.
-<img src="OCR-Images/OCRDocker1.png" alt="OCR Docker Step1" width="100%" Height="Auto"/>
+![ASP.NET Core project creation](OCR-Images/OCRDocker1.png)
 
 Step 2: In the project configuration window, name your project and select Next.
 <img src="OCR-Images/OCRDocker2.png" alt="OCR Docker Step2" width="100%" Height="Auto"/>

@@ -14,14 +14,14 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR on entire PDF document in ASP.NET MVC
 
 Step 1: Create a new C# ASP.NET Web Application (.NET Framework) project.
-<img src="OCR-Images/aspnetmvc1.png" alt="convert_OCR_ASP.NET_MVC1" width="100%" Height="Auto"/>
+![ASP.NET MVC application creation](OCR-Images/OCR-MVC-app-creation.png)
 
 Step 2: In the project configuration windows, name your project and click Create.
-<img src="OCR-Images/aspnetmvc2.png" alt="convert_OCR_ASP.NET_MVC2" width="100%" Height="Auto"/>
-<img src="OCR-Images/aspnetmvc3.png" alt="convert_OCR_ASP.NET_MVC3" width="100%" Height="Auto"/>
+![ASP.NET MVC project configuration1](OCR-Images/OCR-MVC-project-configuration1.png)
+![ASP.NET MVC project configuration2](OCR-Images/OCR-MVC-project-configuration2.png)
 
 Step 3: Install the [Syncfusion.Pdf.OCR.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Pdf.OCR.AspNet.Mvc5) NuGet package as a reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
-<img src="OCR-Images/aspnetmvc4.png" alt="convert_OCR_ASP.NET_MVC4" width="100%" Height="Auto"/>
+![OCR ASP.NET MVC NuGet package installation](OCR-Images/OCR-MVC-NuGet-package.png)
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -75,7 +75,7 @@ using (OCRProcessor processor = new OCRProcessor())
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows.
-<img src="OCR-Images/OCR-output-image.png" alt="Convert OCR ASP.NET_MVC output" width="100%" Height="Auto"/>
+![OCR ASP.NET MVC output PDF document](OCR-Images/OCR-output-image.png)
 
 A complete working sample can be downloaded from the [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/ASP.NET%20MVC).
 
