@@ -14,14 +14,14 @@ The [Syncfusion .NET OCR library](https://www.syncfusion.com/document-processing
 ## Steps to perform OCR on entire PDF document in ASP.NET Core application
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
-<img src="OCR-Images/aspnetcore1.png" alt="convert_OCR_ASPNET_CORE1" width="100%" Height="Auto"/>
+![Create ASP.NET Core Web application](OCR-Images/OCR-Core-app-creation.png)   
 
 Step 2:  In configuration windows, name your project and click Next.
-<img src="OCR-Images/aspnetcore2.png" alt="convert_OCR_ASPNET_CORE2" width="100%" Height="Auto"/>
-<img src="OCR-Images/aspnetcore3.png" alt="convert_OCR_ASPNET_CORE3" width="100%" Height="Auto"/>
+![ASP.NET Core project configuration1](OCR-Images/OCR-Core-project-configuration1.png)
+![ASP.NET Core project configuration2](OCR-Images/OCR-Core-project-configuration2.png)
 
 Step 3:  Install the [Syncfusion.PDF.OCR.NET](https://www.nuget.org/packages/Syncfusion.PDF.OCR.NET) NuGet package as a reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).   
-<img src="OCR-Images/aspnetcore4.png" alt="convert_OCR_ASPNET_CORE4" width="100%" Height="Auto"/>
+![PDF OCR ASP.NET Core NuGet package](OCR-Images/OCR-Core-NuGet-package.png)
 
 N> 1. Beginning from version 21.1.x, the default configuration includes the addition of the TesseractBinaries and Tesseract language data folder paths, eliminating the requirement to explicitly provide these paths.
 N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -80,7 +80,7 @@ using (OCRProcessor processor = new OCRProcessor())
 {% endhighlight %}
 
 By executing the program, you will get a PDF document as follows.
-<img src="OCR-Images/OCR-output-image.png" alt="Convert OCR ASP.NET_Core output" width="100%" Height="Auto"/>
+![OCR ASP.NET_Core Output](OCR-Images/OCR-output-image.png)
  
 A complete working sample can be downloaded from the [Github](https://github.com/SyncfusionExamples/OCR-csharp-examples/tree/master/ASP.NET%20Core).
 

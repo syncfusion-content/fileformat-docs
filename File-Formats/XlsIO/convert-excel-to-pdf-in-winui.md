@@ -150,6 +150,8 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to convert an Excel document to PDF in WinUI is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WinUI/Convert%20Excel%20to%20PDF).
+
 By executing the program, you will get the **PDF document** as follows.
 
 <img src="WinUI_images\WinUI_images_img9.png" alt="Excel to PDF in WinUI" width="100%" Height="Auto"/>

@@ -131,9 +131,13 @@ private async void SavePDF(Stream outputStream)
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example of how to convert an Excel document to PDF in UWP is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/UWP/Convert%20Excel%20to%20PDF).
+
 By executing the program, you will get the **PDF document** as follows.
 
 <img src="UWP_images\UWP_images_img7.png" alt="Excel to PDF in UWP" width="100%" Height="Auto"/>
+
+N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-uwp-support-for-net-standard-2-0/), the minimum version of UWP project must be Fall Creators Update (FCU).
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/uwp) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
