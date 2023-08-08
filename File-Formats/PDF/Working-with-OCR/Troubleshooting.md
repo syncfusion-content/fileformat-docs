@@ -12,16 +12,16 @@ keywords: Assemblies
 ## Tesseract has not been initialized exception
 
 <table>
-<th style="font-size:14px">Exception</th>
+<th style="font-size:14px" width="50px">Exception</th>
 <th style="font-size:14px">Tesseract has not been initialized exception.</th>
 <tr>
-<th style="font-size:14px">Reason
+<th style="font-size:14px" width="50px">Reason
 </th>
 <td>The exception may occur if the tesseract binaries and tessdata files are unavailable on the provided path. 
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution1</th>
+<th style="font-size:14px" width="50px">Solution1</th>
 <td>
 Set proper tesseract binaries and tessdata folder with all files and inner folders. The tessdata folder name is case-sensitive and should not change.  
 <br/><br/>
@@ -37,7 +37,7 @@ processor.PerformOCR(lDoc, @"TessData/");
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution2</th>
+<th style="font-size:14px" width="50px">Solution2</th>
 <td>
 Ensure that your data file version is 3.02 since the OCR processor is built with the Tesseract version 3.02.
 </td>
@@ -47,16 +47,16 @@ Ensure that your data file version is 3.02 since the OCR processor is built with
 ## Exception has been thrown by the target of an invocation
 
 <table>
-<th style="font-size:14px">Exception</th>
+<th style="font-size:14px" width="50px">Exception</th>
 <th style="font-size:14px">Exception has been thrown by the target of an invocation.</th>
 <tr>
-<th style="font-size:14px">Reason
+<th style="font-size:14px" width="50px">Reason
 </th>
 <td>If the tesseract binaries are not in the required structure.  
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution</th>
+<th style="font-size:14px" width="50px">Solution</th>
 <td>
 To resolve this exception, ensure the tesseract binaries are in the following structure.
 <br/><br/>
@@ -67,18 +67,18 @@ The tesseract binaries path is TesseractBinaries/Windows, and the assemblies sho
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Reason 1
+<th style="font-size:14px" width="50px">Reason 1
 </th>
 <td>An exception may occur due to missing or mismatched assemblies of the Tesseract binaries and Tesseract data from the OCR processor.
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Reason 2
+<th style="font-size:14px" width="50px">Reason 2
 </th>
 <td>An exception may occur due to the VC++ 2015 redistributable files missing in the machine where the OCR processor takes place.
 </td>
 </tr>
-<th style="font-size:14px">Solution</th>
+<th style="font-size:14px" width="50px">Solution</th>
 <td>
 Install the VC++ 2015 redistributable files in your machine to overcome an exception. So, please select both file and install it.
 <br/>
@@ -95,16 +95,16 @@ Please find the download link Visual C++ 2015 Redistributable file,<br>
 ## Can't be opened because the developer's identity cannot be confirmed
 
 <table>
-<th style="font-size:14px">Exception</th>
+<th style="font-size:14px" width="50px">Exception</th>
 <th style="font-size:14px">Can't be opened because the developer's identity cannot be confirmed.</th>
 <tr>
-<th style="font-size:14px">Reason
+<th style="font-size:14px" width="50px">Reason
 </th>
 <td>This error may occur during the initial loading of the OCR processor in Mac environments.     
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution</th>
+<th style="font-size:14px" width="50px">Solution</th>
 <td>
 To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-identity-of-the-developer-cannot-be-confirmed-">link</a> for more details.
 
@@ -115,16 +115,16 @@ To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/e
 ## The OCR processor doesn't process languages other than English
 
 <table>
-<th style="font-size:14px">Exception</th>
+<th style="font-size:14px" width="50px">Exception</th>
 <th style="font-size:14px">The OCR processor doesn't process languages other than English.</th>
 <tr>
-<th style="font-size:14px">Reason
+<th style="font-size:14px" width="50px">Reason
 </th>
 <td>This issue may occur if the input image has other languages. The language and tessdata are unavailable for those languages.    
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution</th>
+<th style="font-size:14px" width="50px">Solution</th>
 <td>
 The essential PDF supports all the languages the Tesseract engine supports in the OCR processor.
 The dictionary packs for the languages can be downloaded from the following online location:<br/>
@@ -140,16 +140,16 @@ For example, to perform the optical character recognition in German, the propert
 ## Text does not recognize properly when performing OCR on a PDF document with low-quality images
 
 <table>
-<th style="font-size:14px">Issue</th>
+<th style="font-size:14px" width="50px">Issue</th>
 <th style="font-size:14px">Text does not recognize properly when performing OCR on a PDF document with low-quality images</th>
 <tr>
-<th style="font-size:14px">Reason
+<th style="font-size:14px" width="50px">Reason
 </th>
 <td>The presence of low quality images in the input PDF document may be the cause of this issue.
 </td>
 </tr>
 <tr>
-<th style="font-size:14px">Solution</th>
+<th style="font-size:14px" width="50px">Solution</th>
 <td>
 By using the best tessdata, we can improve the OCR results. For more information,<br> please refer to the links below.
 <br/>
