@@ -40,7 +40,7 @@ Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.or
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 5: Using the following namespaces in the Function.cs file.
+Step 5: Using the following namespaces in the *Function.cs* file.
 
 {% highlight c# tabtitle="C#" %}
 
