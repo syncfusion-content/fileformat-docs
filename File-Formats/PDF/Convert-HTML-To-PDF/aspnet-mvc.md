@@ -14,14 +14,14 @@ The Syncfusion HTML to PDF converter is a .NET library used to convert HTML or w
 ## Steps to convert HTML to PDF document in ASP.NET MVC
 
 Step 1: Create a new C# ASP.NET Web Application (.NET Framework) project.
-<img src="htmlconversion_images/aspnetmvc1.png" alt="convert_HtmltoPdf_ASP.NET_MVC1" width="100%" Height="Auto"/>
+![Create ASP.NET MVC application](htmlconversion_images/aspnetmvc1.png)   
 
 Step 2: In the project configuration windows, name your project and select Create.
-<img src="htmlconversion_images/aspnetmvc2.png" alt="convert_HtmltoPdf_ASP.NET_MVC2" width="100%" Height="Auto"/>
-<img src="htmlconversion_images/aspnetmvc3.png" alt="convert_HtmltoPdf_ASP.NET_MVC3" width="100%" Height="Auto"/>
+![Configuration window1](htmlconversion_images/aspnetmvc2.png)   
+![Configuration window2](htmlconversion_images/aspnetmvc3.png)   
 
 Step 3: Install [Syncfusion.HtmlToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.AspNet.Mvc5)  NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
-<img src="htmlconversion_images/aspnetmvc4.png" alt="convert_HtmltoPdf_ASP.NET_MVC4" width="100%" Height="Auto"/>
+![NuGet package installation](htmlconversion_images/aspnetmvc4.png)  
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -72,7 +72,7 @@ return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "H
 {% endhighlight %}
 
 By executing the program, you will get the PDF document as follows.
-<img src="htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF ASP.NET_MVC output" width="100%" Height="Auto"/>
+![HTML to PDF output document](htmlconversion_images/htmltopdfoutput.png)  
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/ASP.NET%20MVC).
 
