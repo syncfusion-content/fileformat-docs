@@ -27,20 +27,20 @@ Refer to the following steps to convert HTML to PDF in AWS Lambda
 **Steps to convert HTML to PDF in AWS Lambda**
 
 Step 1: Create a new AWS Lambda project as follows.
-<img src="htmlconversion_images/AWS1.png" alt="Convert HTMLToPDF AWS Step1" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF AWS Step1](htmlconversion_images/AWS1.png)
  
 Step 2: In configuration window, name the project and select Create.
-<img src="htmlconversion_images/AWS2.png" alt="Convert HTMLToPDF AWS Step2" width="100%" Height="Auto"/>  
+![Convert HTMLToPDF AWS Step2](htmlconversion_images/AWS2.png)
 
 Step 3: Select Blueprint as Empty Function and click Finish.
-<img src="htmlconversion_images/AWS3.png" alt="Convert HTMLToPDF AWS Step3" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF AWS Step3](htmlconversion_images/AWS3.png)
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS lambda project from [NuGet.org.](https://www.nuget.org/)
-<img src="htmlconversion_images/AWS4.png" alt="Convert HTMLToPDF AWS Step4" width="100%" Height="Auto"/> 
+![NuGet package installation](htmlconversion_images/AWS4.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-Step 5: Using the following namespaces in the Function.cs file.
+Step 5: Using the following namespaces in the *Function.cs* file.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -68,27 +68,27 @@ return Convert.ToBase64String(memoryStream.ToArray());
 {% endhighlight %}
 
 Step 7: Right-click the project and select Publish to AWS Lambda. 
-<img src="htmlconversion_images/AWS5.png" alt="Convert HTMLToPDF AWS Step5" width="100%" Height="Auto"/>   
+![Convert HTMLToPDF AWS Step5](htmlconversion_images/AWS5.png)
 
 Step 8: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click Next.   
-<img src="htmlconversion_images/AWS6.png" alt="Convert HTMLToPDF AWS Step6" width="100%" Height="Auto"/>     
+![Convert HTMLToPDF AWS Step6](htmlconversion_images/AWS6.png)   
 
 Step 9: In the Advanced Function Details window, specify the Role Name as based on AWS Managed policy. After selecting the role, click the Upload button to deploy your application.
-<img src="htmlconversion_images/AWS7.png" alt="Convert HTMLToPDF AWS Step7" width="100%" Height="Auto"/>   
+![Convert HTMLToPDF AWS Step7](htmlconversion_images/AWS7.png)     
 
 Step 10: After deploying the application, Sign in your AWS account and you can see the published Lambda function in AWS console. 
-<img src="htmlconversion_images/AWS8.png" alt="Convert HTMLToPDF AWS Step8" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF AWS Step8](htmlconversion_images/AWS8.png)    
 
 **Steps to invoke the AWS Lambda function from the console application**
 
 Step 1: Create a new console project.  
-<img src="htmlconversion_images/AWS9.png" alt="Convert HTMLToPDF AWS Step9" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF AWS Step9](htmlconversion_images/AWS9.png)    
 
 Step 2: In project configuration windows, name the project and select Create.
-<img src="htmlconversion_images/AWS10.png" alt="Convert HTMLToPDF AWS Step10" width="100%" Height="Auto"/>   
+![Convert HTMLToPDF AWS Step10](htmlconversion_images/AWS10.png)   
 
 Step 3: Install the [AWSSDK.Core](https://www.nuget.org/packages/AWSSDK.Core), [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) and [Newtonsoft.Json package](https://www.nuget.org/packages/Newtonsoft.Json/13.0.2-beta3) as a reference to your main application from the [NuGet.org](https://www.nuget.org/).    
-<img src="htmlconversion_images/AWS11.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>   
+![Convert HTMLToPDF AWS Step11](htmlconversion_images/AWS11.png)    
  
 Step 4: Include the following namespaces in Program.cs file.
 
@@ -133,7 +133,7 @@ System.Diagnostics.Process.Start("Sample.pdf");
 {% endhighlight %}
  
 By executing the program, you will get the PDF document as follows. 
-<img src="htmlconversion_images/AWS12.png" alt="Convert HTMLToPDF AWS Step12" width="100%" Height="Auto"/> 
+![Convert HTMLToPDF AWS Step12](htmlconversion_images/AWS12.png)  
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS).
 
@@ -142,16 +142,16 @@ A complete working sample can be downloaded from [Github](https://github.com/Syn
 **Steps to convert HTML to PDF in AWS Lambda with NET 6 container image**
 
 Step 1: Create a new AWS Lambda project with Tests as follows.
-<img src="htmlconversion_images/awslambda1.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step1](htmlconversion_images/awslambda1.png)
 
 Step 2: In configuration window, name the project and select Create.
-<img src="htmlconversion_images/awslambda2.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step2](htmlconversion_images/awslambda2.png)
 
 Step 3: Select Blueprint as .NET 6 (Container Image) Function and click Finish.
-<img src="htmlconversion_images/awslambda3.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step3](htmlconversion_images/awslambda3.png)
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) and [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda) NuGet package as a reference to your AWS lambda project from [NuGet.org](https://www.nuget.org/).
-<img src="htmlconversion_images/awslambda4.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![NuGet package installation](htmlconversion_images/awslambda4.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -259,20 +259,20 @@ public class AWSHelper
 
 Step 8: Right-click the project and select **Publish to AWS Lambda**.
 
-<img src="htmlconversion_images/awslambda5.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step5](htmlconversion_images/awslambda5.png)
 
 Step 9: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click **Next**.  
 
-<img src="htmlconversion_images/awslambda6.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step6](htmlconversion_images/awslambda6.png)
 
 Step 10: In the Advanced Function Details window, specify the **Role Name** as based on AWS Managed policy. After selecting the role, click the Upload button to deploy your application.
 
-<img src="htmlconversion_images/awslambda7.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
-<img src="htmlconversion_images/awslambda8.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step7](htmlconversion_images/awslambda7.png)
+![Convert HTMLToPDF AWS Lambda Step8](htmlconversion_images/awslambda8.png)
 
 Step 11: After deploying the application, Sign in to your AWS account, and you can see the published Lambda function in the AWS console.
 
-<img src="htmlconversion_images/awslambda9.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step9](htmlconversion_images/awslambda9.png)
 
 **Steps to invoke the AWS Lambda function from the Test application**:
 
@@ -304,11 +304,11 @@ public class FunctionTest
 
 Step 13: Right click the test application and select **Run Tests**.
 
-<img src="htmlconversion_images/awslambda10.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step10](htmlconversion_images/awslambda10.png)
 
 Step 14: By executing the program, you will get the PDF document as follows.
 
-<img src="htmlconversion_images/awslambda11.png" alt="Convert HTMLToPDF AWS Step11" width="100%" Height="Auto"/>
+![Convert HTMLToPDF AWS Lambda Step11](htmlconversion_images/awslambda11.png)
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/HTML_to_PDF_Lambda_Docker_Container).
 
@@ -317,12 +317,16 @@ A complete working sample can be downloaded from [Github](https://github.com/Syn
 **Steps to convert HTML to PDF using Blink in AWS Elastic Beanstalk**
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-1.png" alt="AWS Elastic Beanstalk Step1" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step1](htmlconversion_images/AWS_Elastic_Beanstalk1.png)
+
 Step 2: In configuration windows, name your project and select **Next**.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-2.png" alt="AWS Elastic Beanstalk Step2" width="100%" Height="Auto"/> <br>
-<img src="htmlconversion_images/AWS Elastic Beanstalk-3.png" alt="AWS Elastic Beanstalk2 Step2" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step2](htmlconversion_images/AWS_Elastic_Beanstalk2.png)
+
+![AWS Elastic Beanstalk Step2.1](htmlconversion_images/AWS_Elastic_Beanstalk3.png)
+
 Step 3: Install the [Syncfusion.HtmlToPdfConverter.Net.Aws](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Aws/) NuGet package as a reference to your AWS Elastic Beanstalk project from [NuGet.org.](https://www.nuget.org/).
-<img src="htmlconversion_images/AWS Elastic Beanstalk-4.png" alt="AWS Elastic Beanstalk Step3" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step3](htmlconversion_images/AWS_Elastic_Beanstalk4.png)
+
 Step 4: A default controller named HomeController.cs gets added to create the ASP.NET Core MVC project. Include the following namespaces in that HomeController.cs file<br>
 {% highlight c# tabtitle="C#" %}
 
@@ -382,30 +386,43 @@ public IActionResult BlinkToPDF()
 
 Step 7: Click the **Publish to AWS Elastic Beanstalk (Legacy)** option by right-clicking the project to
 publish the application in the AWS Elastic Beanstalk environment.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-5.png" alt="AWS Elastic Beanstalk Step7" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step7](htmlconversion_images/AWS_Elastic_Beanstalk5.png)
+
 Step 8: Select the **Create a new application environment** and click **Next** from Publish to AWS Elastic Beanstalk window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-6.png" alt="AWS Elastic Beanstalk Step8" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step8](htmlconversion_images/AWS_Elastic_Beanstalk6.png)
+
 Step 9: Please give any valid name to the environment and URL text box. Check whether the URL link is available while clicking the **Check availability** option. If the requested link is available means,
 click **NEXT** in the Application Environment window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-7.png" alt="AWS Elastic Beanstalk Step9" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step9](htmlconversion_images/AWS_Elastic_Beanstalk7.png)
+
 Step 10: Select **t3a.micro** from the Instance Type text box and select **Next** in the AWS Options
 Window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-8.png" alt="AWS Elastic Beanstalk Step10" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step10](htmlconversion_images/AWS_Elastic_Beanstalk8.png)
+
 Step 11: Select the Roles and **Next** option from the Permissions window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-9.png" alt="AWS Elastic Beanstalk Step11" width="100%" Height="Auto"/>  
+![AWS Elastic Beanstalk Step11](htmlconversion_images/AWS_Elastic_Beanstalk9.png)
+
 Step 12: Click **Next** from the Application Options window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-10.png" alt="AWS Elastic Beanstalk Step12" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step12](htmlconversion_images/AWS_Elastic_Beanstalk10.png)
+
 Step 13: Click **Deploy** from the Review window.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-11.png" alt="AWS Elastic Beanstalk Step13" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step13](htmlconversion_images/AWS_Elastic_Beanstalk11.png)
+
 Step 14: Click the **URL link** to launch the application once the Environment is updated successfully and
-<img src="htmlconversion_images/AWS Elastic Beanstalk-12.png" alt="AWS Elastic Beanstalk Step114" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step14](htmlconversion_images/AWS_Elastic_Beanstalk12.png)
+
 Environment status is healthy.
 Step 15: Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF document.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-13.png" alt="AWS Elastic Beanstalk Step15" width="100%" Height="Auto"/> 
+![AWS Elastic Beanstalk Step15](htmlconversion_images/AWS_Elastic_Beanstalk13.png)
+
 By executing the program, you will get a PDF document as follows.
-<img src="htmlconversion_images/AWS Elastic Beanstalk-14.png" alt="AWS Elastic Beanstalk Step16" width="100%" Height="Auto"/> 
+![HTML to PDF output](htmlconversion_images/AWS_Elastic_Beanstalk14.png)
+
 A complete working sample for converting an HTML to PDF using Linux docker in AWS Elastic Beanstalk can be downloaded from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/AWS/AWSElasticBeanstalkSample).
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core/html-to-pdf) to explore the rich set of Syncfusion HTML to PDF converter library features. 
 
 An online sample link to [convert HTML to PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HtmltoPDF#/material3) in ASP.NET Core. 
+
+
+

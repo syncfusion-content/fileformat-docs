@@ -14,15 +14,16 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 ## Steps to convert HTML to PDF in ASP.NET Core MVC
 
 Step 1: Create a new C# ASP.NET Core Web Application project.
-<img src="htmlconversion_images/mac_step1.png" alt="Mac_step1" width="100%" Height="Auto"/>
+![Create ASP.NET Core Web application](htmlconversion_images/mac_step1.png)  
+
 Step 2: Select the Target Framework of your project.
-<img src="htmlconversion_images/mac_step2.png" alt="Mac_step2" width="100%" Height="Auto"/>
+![Select target framework](htmlconversion_images/mac_step2.png)  
 
 Step 3: Configure your application and click Create.
-<img src="htmlconversion_images/mac_step3.png" alt="Mac_step3" width="100%" Height="Auto"/>
+![Configure the application](htmlconversion_images/mac_step3.png)
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.Net.Mac](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Mac) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
-<img src="htmlconversion_images/mac_step4.png" alt="Mac_step4" width="100%" Height="Auto"/>
+![NuGet package installation](htmlconversion_images/mac_step4.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -71,15 +72,15 @@ public IActionResult ExportToPDF()
 {% endhighlight %}
 
 Step 8: Right click the project and select Build.
-<img src="htmlconversion_images/mac_step5.png" alt="Mac_step5" width="100%" Height="Auto"/>
+![Build project](htmlconversion_images/mac_step5.png)
 
 N> Once the build succeeded, unzip the chromium.app file in bin folder (bin -> Debug ->net6.0 -> BlinkBinariesMac -> Chromium.app)`
 
 Step 9: Run the application.
-<img src="htmlconversion_images/mac_step6.png" alt="Mac_step6" width="100%" Height="Auto"/>
+![Run application](htmlconversion_images/mac_step6.png)
 
 By executing the program, you will get the PDF document as follows.
-<img src="htmlconversion_images/htmltopdfoutput.png" alt="HTMLtoPDF" width="100%" Height="Auto"/>
+![HTML to PDF output document](htmlconversion_images/htmltopdfoutput.png)
 
 A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Mac).
 
