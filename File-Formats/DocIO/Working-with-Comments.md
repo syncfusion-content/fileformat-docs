@@ -153,26 +153,26 @@ using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileA
     //Open the existing Word document.
     using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     {
-        //Find all occurrence of a particular text end with comma in the document using regex.
+        //Find all occurrence of a particular text ending with comma in the document using regex.
         TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
         if (textSelection != null)
         {
             //Iterates through each occurrence and comment it.
             for (int i = 0; i < textSelection.Count(); i++)
             {
-                //Get the found text as single text range.
+                //Get the found text as a single text range.
                 WTextRange textRange = textSelection[i].GetAsOneRange();
                 //Get the owner paragraph of the found text.
                 WParagraph paragraph = textRange.OwnerParagraph;
                 //Get the index of the found text.
                 int textIndex = paragraph.ChildEntities.IndexOf(textRange);
-                //Adds comment to a paragraph.
+                //Add comment to a paragraph.
                 WComment comment = paragraph.AppendComment("comment test_" + i);
                 //Specify the author of the comment.
                 comment.Format.User = "Peter";
                 //Specify the initial of the author.
                 comment.Format.UserInitials = "St";
-                //Set the date and time for comment.
+                //Set the date and time for the comment.
                 comment.Format.DateTime = DateTime.Now;
                 //Insert the comment next to the textrange.
                 paragraph.ChildEntities.Insert(textIndex + 1, comment);
@@ -180,10 +180,10 @@ using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileA
                 comment.AddCommentedItem(textRange);
             }
         }
-        //Create file stream.
+        //Create the file stream.
         using (FileStream outputFileStream = new FileStream("Result.docx", FileMode.Create, FileAccess.ReadWrite))
         {
-            //Save the Word document to file stream.
+            //Save the Word document to the file stream.
             document.Save(outputFileStream, FormatType.Docx);
         }
     }               
@@ -195,26 +195,26 @@ using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileA
 //Open the existing Word document.
 using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {
-    //Find all occurrence of a particular text end with comma in the document using regex.
+    //Find all occurrence of a particular text ending with comma in the document using regex.
     TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
     if (textSelection != null)
     {
         //Iterates through each occurrence and comment it.
         for (int i = 0; i < textSelection.Count(); i++)
         {
-            //Get the found text as single text range.
+            //Get the found text as a single text range.
             WTextRange textRange = textSelection[i].GetAsOneRange();
             //Get the owner paragraph of the found text.
             WParagraph paragraph = textRange.OwnerParagraph;
             //Get the index of the found text.
             int textIndex = paragraph.ChildEntities.IndexOf(textRange);
-            //Adds comment to a paragraph.
+            //Add comment to a paragraph.
             WComment comment = paragraph.AppendComment("comment test_" + i);
             //Specify the author of the comment.
             comment.Format.User = "Peter";
             //Specify the initial of the author.
             comment.Format.UserInitials = "St";
-            //Set the date and time for comment.
+            //Set the date and time for the comment.
             comment.Format.DateTime = DateTime.Now;
             //Insert the comment next to the textrange.
             paragraph.ChildEntities.Insert(textIndex + 1, comment);
@@ -230,7 +230,7 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Dim document As New WordDocument(Path.GetFullPath("../../Data/Input.docx"), FormatType.Docx)
-' Find all occurrences of a particular text ending with a comma in the document using regex.
+' Find all occurrence of a particular text ending with comma in the document using regex.
 Dim textSelection As TextSelection() = document.FindAll(New Regex("\w+,"))
 If textSelection IsNot Nothing Then
     ' Iterate through each occurrence and add a comment.
@@ -241,7 +241,7 @@ If textSelection IsNot Nothing Then
         Dim paragraph As WParagraph = textRange.OwnerParagraph
         ' Get the index of the found text.
         Dim textIndex As Integer = paragraph.ChildEntities.IndexOf(textRange)
-        ' Add a comment to a paragraph.
+        ' Add comment to a paragraph.
         Dim comment As WComment = paragraph.AppendComment("comment test_" & i)
         ' Specify the author of the comment.
         comment.Format.User = "Peter"
