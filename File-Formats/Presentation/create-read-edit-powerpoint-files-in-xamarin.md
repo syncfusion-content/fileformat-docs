@@ -16,7 +16,7 @@ Step 1: Create a new C# **Xamarin.Forms** application project.
 
 ![Create Xamarin project](Workingwith_Xamarin/CreateProject.png)
 
-Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 ![Create Xamarin CodeSharing Option](Workingwith_Xamarin/CodeSharing.png)
 

@@ -23,7 +23,7 @@ Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 ![Select Web Application pattern for PowerPoint file](Workingwith_Core/MVC.png)
 
-Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 ![Install Presentation .Net Core Nuget](Workingwith_Core/install_nuget.png)
 
