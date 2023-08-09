@@ -115,105 +115,6 @@ N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has c
 
 N> Starting with v17.3.0.x, Syncfusion provides support to .NET Core 3.0. You can use the above WPF or Windows Forms platform NuGet packages for .NET Core 3.0 targeting applications and use the same “C# tab” code examples for it.
 
-## Converting Excel document into PDF
-
-For converting Excel document into PDF, the following NuGet packages need to be installed in your application.
-
-<table>
-<tr>
-<thead>
-<th><b>Platform(s)</b></th>
-<th><b>NuGet Package</b></th>
-</thead>
-</tr>
-<tr>
-<td>
-Windows Forms,<br/>
-Console Application (Targeting .NET Framework)
-</td>
-<td>
-{{'[Syncfusion.ExcelToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WPF
-</td>
-<td>
-{{'[Syncfusion.ExcelToPDFConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Wpf/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-.NET Framework 3.5 or 4.0 Client Profile
-</td>
-<td>
-{{'[Syncfusion.ExcelToPdfConverter.ClientProfile.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.ClientProfile/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Web Forms,<br/>
-ASP.NET Core (Targeting .NET Framework)
-</td>
-<td>
-{{'[Syncfusion.ExcelToPDFConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC4
-</td>
-<td>
-{{'[Syncfusion.ExcelToPDFConverter.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.Mvc4/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC5
-</td>
-<td>
-{{'[Syncfusion.ExcelToPDFConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.Mvc5/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-UWP,<br/> 
-ASP.NET Core (Targeting .NET Core),<br/>
-Console Application (Targeting .NET Core)
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-Xamarin
-</td>
-<td>
-{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-Blazor (Server-Side)
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-WinUI and .NET MAUI
-</td>
-<td>
-{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
-</td>
-</tr>
-</table>
-
-N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
-
 ## Converting Excel Worksheet to Image
 
 For converting an Excel worksheet to image, the following NuGet packages need to be installed in your application.
@@ -429,12 +330,10 @@ Windows Forms
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.WinForms<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.WinForms<br/><br/>
 * Install-package Syncfusion.ExcelChartToImageConverter.WinForms
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.WinForms -RemoveDependencies <br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.WinForms -RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.ExcelChartToImageConverter.WinForms -RemoveDependencies                             
 </td>
 </tr>
@@ -444,12 +343,10 @@ WPF
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.Wpf<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Wpf<br/><br/>
 * Install-package Syncfusion.ExcelChartToImageConverter.Wpf
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Wpf -RemoveDependencies <br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.Wpf -RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.ExcelChartToImageConverter.Wpf -RemoveDependencies  
 </td>
 </tr>
@@ -459,12 +356,10 @@ ASP.NET Web Forms
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.AspNet<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet<br/><br/>
 * Install-package Syncfusion.ExcelChartToImageConverter.AspNet
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet -RemoveDependencies <br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.AspNet -RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.ExcelChartToImageConverter.AspNet -RemoveDependencies  
 </td>
 </tr>
@@ -474,12 +369,10 @@ ASP.NET MVC4
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.AspNet.MVC4<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC4<br/><br/>
 * Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC4
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet.MVC4 -RemoveDependencies <br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.AspNet.MVC4 -RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC4 -RemoveDependencies  
 </td>
 </tr>
@@ -489,12 +382,10 @@ ASP.NET MVC5
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.AspNet.MVC5<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC5<br/><br/>
 * Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC5
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet.MVC5 -RemoveDependencies <br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.AspNet.MVC5 -RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC5 -RemoveDependencies  
 </td>
 </tr>
@@ -511,7 +402,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 </tr>
 <tr>
 <td>
-ASP.NET Core and Blazor Server-Side
+ASP.NET Core and Blazor
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
@@ -533,17 +424,6 @@ Xamarin
 <td>
 * Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.Xamarin.XlsIORenderer –RemoveDependencies
-</td>
-</tr>
-<tr>
-<td>
-Blazor Client-Side
-</td>
-<td>
-* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
-</td>
-<td>
-* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
 </td>
 </tr>
 <tr>
