@@ -1391,6 +1391,102 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Find-and-Replace/Find-and-highlight-all).
 
+## Find and add comments using regex
+
+You can find either the first occurrence or all occurrences of a text pattern in a Word document using the [Find](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Find_System_Text_RegularExpressions_Regex_) or [FindAll](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_FindAll_System_Text_RegularExpressions_Regex_) method, and then add comments to it.
+
+The following code example illustrates how to find all occurrences of a text pattern using Regex and add comments to them.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileAccess.ReadWrite))
+{
+    //Open the existing Word document.
+    using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+    {
+        //Find all occurrence of a particular text end with comma in the document using regex.
+        TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
+        if (textSelection != null)
+        {
+            //Iterates through each occurrence and comment it.
+            for (int i = 0; i < textSelection.Count(); i++)
+            {
+                //Get the found text as single text range.
+                WTextRange textRange = textSelection[i].GetAsOneRange();
+                //Get the owner paragraph of the found text.
+                WParagraph paragraph = textRange.OwnerParagraph;
+                //Get the index of the found text.
+                int textIndex = paragraph.ChildEntities.IndexOf(textRange);
+                //Adds comment to a paragraph.
+                WComment comment = paragraph.AppendComment("comment test_" + i);
+                //Specify the author of the comment.
+                comment.Format.User = "Peter";
+                //Specify the initial of the author.
+                comment.Format.UserInitials = "St";
+                //Set the date and time for comment.
+                comment.Format.DateTime = DateTime.Now;
+                //Insert the comment next to the textrange.
+                paragraph.ChildEntities.Insert(textIndex + 1, comment);
+                //Add the paragraph items to the commented items.
+                comment.AddCommentedItem(textRange);
+            }
+        }
+        //Creates file stream.
+        using (FileStream outputFileStream = new FileStream("Result.docx", FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Saves the Word document to file stream.
+            document.Save(outputFileStream, FormatType.Docx);
+        }
+    }               
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open the existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Find all occurrence of a particular text end with comma in the document using regex.
+    TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
+    if (textSelection != null)
+    {
+        //Iterates through each occurrence and comment it.
+        for (int i = 0; i < textSelection.Count(); i++)
+        {
+            //Get the found text as single text range.
+            WTextRange textRange = textSelection[i].GetAsOneRange();
+            //Get the owner paragraph of the found text.
+            WParagraph paragraph = textRange.OwnerParagraph;
+            //Get the index of the found text.
+            int textIndex = paragraph.ChildEntities.IndexOf(textRange);
+            //Adds comment to a paragraph.
+            WComment comment = paragraph.AppendComment("comment test_" + i);
+            //Specify the author of the comment.
+            comment.Format.User = "Peter";
+            //Specify the initial of the author.
+            comment.Format.UserInitials = "St";
+            //Set the date and time for comment.
+            comment.Format.DateTime = DateTime.Now;
+            //Insert the comment next to the textrange.
+            paragraph.ChildEntities.Insert(textIndex + 1, comment);
+            //Add the paragraph items to the commented items.
+            comment.AddCommentedItem(textRange);
+            //Saves the Word document to file stream.
+            document.Save("Result.docx");
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
 ## Find and replace the pattern of text with normal text
 
 You can find the pattern of text using Regex and replace it with normal text in a Word document using the [Replace](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Replace_System_Text_RegularExpressions_Regex_System_String_) method.
