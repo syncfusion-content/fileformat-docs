@@ -22,7 +22,7 @@ Step 2: Name the project.
 <img src="Azure_images/App_Service_Windows/Name_Application_CreateExcel.png" alt="Name the project" width="100%" Height="Auto"/>
 
 Step 3: Select the framework and click **Create** button.
-<img src="Azure_images/App_Service_Windows/Framework_images.png" alt="Framework version" width="100%" Height="Auto"/>
+<img src="Azure_images/App_Service_Windows/Select_Framework.png" alt="Framework version" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
@@ -475,10 +475,10 @@ Step 9: Now, Publish has been succeeded.
 Step 10: Now, the published webpage will open in the browser. 
 <img src="Azure_Images/App_Service_Windows/CreateDocument_Button_CreateExcel.png" alt="Browser will open after publish" width="100%" Height="Auto"/>
 
-Step 11: Click **Create Document** to create a simple Excel file. You will get the Excel file as below.
+Step 11: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
 <img src="Azure_Images/App_Service_Windows/CreateExcel_AppService_Windows.png" alt="Create Excel in Azure App Service on Windows" width="100%" Height="Auto"/>
 
-A complete working example of how to create an Excel file in ASP.NET Core using Azure App Service Windows in C# is present on [this GitHub page].
+A complete working example of how to create an Excel file in Azure App Service Windows in C# is present on [this GitHub page].
 
 ## Read and Edit Excel file
 
@@ -535,7 +535,7 @@ return File(stream, ContentType, fileName);
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in ASP.NET Core using Azure App Service Windows in C# is present on [this GitHub page].
+A complete working example of how to read and edit an Excel file in Azure App Service Windows in C# is present on [this GitHub page].
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
