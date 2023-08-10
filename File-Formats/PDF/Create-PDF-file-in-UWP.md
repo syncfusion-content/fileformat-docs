@@ -141,7 +141,7 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream.
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("MicrosoftTeams-image.png");
 //Load the image from the disk.
 PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image.
@@ -155,6 +155,12 @@ doc.Close(true);
 Save(ms, "Sample.pdf");
 
 {% endhighlight %}
+
+By executing the program, you will get the PDF document as follows.
+![PDF generation output](GettingStarted_images/PDF_with_image.png)
+
+
+## Creating a PDF document with table
 {% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
@@ -179,6 +185,8 @@ data.Add(row5);
 IEnumerable<object> dataTable = data;
 //Assign data source.
 pdfGrid.DataSource = dataTable;
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
@@ -192,6 +200,9 @@ Save(stream, "Output.pdf");
 {% endhighlight %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/UWP/Create-PDF-document-with-image).
+
+By executing the program, you will get the PDF document as follows.
+![PDF generation output](GettingStarted_images/PDF_with_table.png)
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).

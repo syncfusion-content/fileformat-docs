@@ -100,7 +100,7 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream.
-FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("MicrosoftTeams-image.png", FileMode.Open, FileAccess.Read);
 PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image.
 graphics.DrawImage(image, 0, 0);
@@ -123,7 +123,7 @@ return File(stream, contentType, fileName);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Creating-a-PDF-document-with-image).
 
 By executing the program, you will get the PDF document as follows.
-![ASP.Net Core output PDF document](GettingStarted_images/pdf-with-image-generation-output.png)
+![ASP.Net Core output PDF document](GettingStarted_images/PDF_with_image.png)
 
 ## Creating a PDF document with table
 
@@ -153,6 +153,8 @@ data.Add(row5);
 IEnumerable<object> dataTable = data;
 //Assign data source.
 pdfGrid.DataSource = dataTable;
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
 //Write the PDF document to stream.
@@ -174,7 +176,7 @@ return File(stream, contentType, fileName);
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create-PDF-document-with-table).
 
 By executing the program, you will get the PDF document as follows.
-![ASP.Net Core output PDF document](GettingStarted_images/pdf-with-table-generation-output.png)
+![ASP.Net Core output PDF document](GettingStarted_images/PDF_with_table.png)
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to generate a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
