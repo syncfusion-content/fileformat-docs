@@ -100,7 +100,7 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream.
-FileStream imageStream = new FileStream("MicrosoftTeams-image.png", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream("Adventure Cycles.png", FileMode.Open, FileAccess.Read);
 PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image.
 graphics.DrawImage(image, 0, 0);
