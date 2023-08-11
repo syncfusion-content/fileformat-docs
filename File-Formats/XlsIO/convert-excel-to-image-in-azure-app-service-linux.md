@@ -117,6 +117,8 @@ Step 10: Now, the published webpage will open in the browser.
 Step 11: Click **Create Document** to convert the given Excel document to Image. You will get the output **Image** as follows.
 <img src="Azure_Images/App_Service_Linux/ExcelToImage_AppService_Linux.png" alt="Excel to Image in Azure App Service on Linux" width="100%" Height="Auto"/>
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Azure%20App%20Service/Convert_Excel_to_Image). 
+
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
 An online sample link to [convert an Excel document to Image](https://ej2.syncfusion.com/aspnetcore/Excel/WorksheetToImage#/material3) in ASP.NET Core.
