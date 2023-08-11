@@ -121,12 +121,12 @@ Step 2: Add the following code snippet into **Main** method to post the request 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Reads the template Excel document.
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-fileStream.Position = 0;
+FileStream excelStream = new FileStream("../../Sample.xlsx", FileMode.Open, FileAccess.Read);
+excelStream.Position = 0;
 
 //Saves the Excel document in memory stream.
 MemoryStream inputStream = new MemoryStream();
-fileStream.CopyTo(inputStream);
+excelStream.CopyTo(inputStream);
 inputStream.Position = 0;
 
 try
@@ -150,12 +150,12 @@ try
   HttpWebResponse res = (HttpWebResponse)req.GetResponse();
 
   //Saves the PDF stream.
-  FileStream fileStream = File.Create("Sample.pdf");
-  res.GetResponseStream().CopyTo(fileStream);
+  FileStream outStream = File.Create("Sample.pdf");
+  res.GetResponseStream().CopyTo(outStream);
 
   //Dispose the streams
   inputStream.Dispose();
-  fileStream.Dispose();
+  outStream.Dispose();
 }
 catch (Exception ex)
 {
