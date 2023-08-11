@@ -132,7 +132,7 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>The Newtonsoft.Json package version with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.
+<td>The Newtonsoft.Json package version with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.	
 <br><br/>
 {% highlight html %}
 
@@ -215,6 +215,19 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 <br>
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>Including both packages (Blink and Webkit) in the application might lead to the occurrence of the exception.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>In order to resolve the exception, it's necessary to eliminate one of the packages (Webkit or Blink) from the application and then perform a thorough cleaning and rebuilding process.
 </td>
 </tr>
 
