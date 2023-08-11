@@ -139,6 +139,130 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Modify-text-of-an-existing-comment).
 
+## Inserting comments
+
+You can insert comments into the Word document using the [AppendComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendComment_System_String_) and [AddCommentedItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html#Syncfusion_DocIO_DLS_WComment_AddCommentedItem_Syncfusion_DocIO_DLS_IParagraphItem_) methods.
+
+The following code example illustrates how to find all occurrences of a text pattern using Regex and insert comments to them.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileAccess.ReadWrite))
+{
+    //Open the existing Word document.
+    using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+    {
+        //Find all occurrence of a particular text ending with comma in the document using regex.
+        TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
+        if (textSelection != null)
+        {
+            //Iterates through each occurrence and comment it.
+            for (int i = 0; i < textSelection.Count(); i++)
+            {
+                //Get the found text as a single text range.
+                WTextRange textRange = textSelection[i].GetAsOneRange();
+                //Get the owner paragraph of the found text.
+                WParagraph paragraph = textRange.OwnerParagraph;
+                //Get the index of the found text.
+                int textIndex = paragraph.ChildEntities.IndexOf(textRange);
+                //Add comment to a paragraph.
+                WComment comment = paragraph.AppendComment("comment test_" + i);
+                //Specify the author of the comment.
+                comment.Format.User = "Peter";
+                //Specify the initial of the author.
+                comment.Format.UserInitials = "St";
+                //Set the date and time for the comment.
+                comment.Format.DateTime = DateTime.Now;
+                //Insert the comment next to the textrange.
+                paragraph.ChildEntities.Insert(textIndex + 1, comment);
+                //Add the paragraph items to the commented items.
+                comment.AddCommentedItem(textRange);
+            }
+        }
+        //Create the file stream.
+        using (FileStream outputFileStream = new FileStream("Result.docx", FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Save the Word document to the file stream.
+            document.Save(outputFileStream, FormatType.Docx);
+        }
+    }               
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open the existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Find all occurrence of a particular text ending with comma in the document using regex.
+    TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
+    if (textSelection != null)
+    {
+        //Iterates through each occurrence and comment it.
+        for (int i = 0; i < textSelection.Count(); i++)
+        {
+            //Get the found text as a single text range.
+            WTextRange textRange = textSelection[i].GetAsOneRange();
+            //Get the owner paragraph of the found text.
+            WParagraph paragraph = textRange.OwnerParagraph;
+            //Get the index of the found text.
+            int textIndex = paragraph.ChildEntities.IndexOf(textRange);
+            //Add comment to a paragraph.
+            WComment comment = paragraph.AppendComment("comment test_" + i);
+            //Specify the author of the comment.
+            comment.Format.User = "Peter";
+            //Specify the initial of the author.
+            comment.Format.UserInitials = "St";
+            //Set the date and time for the comment.
+            comment.Format.DateTime = DateTime.Now;
+            //Insert the comment next to the textrange.
+            paragraph.ChildEntities.Insert(textIndex + 1, comment);
+            //Add the paragraph items to the commented items.
+            comment.AddCommentedItem(textRange);
+            //Save the Word document.
+            document.Save("Result.docx");
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Dim document As New WordDocument(Path.GetFullPath("../../Data/Input.docx"), FormatType.Docx)
+' Find all occurrence of a particular text ending with comma in the document using regex.
+Dim textSelection As TextSelection() = document.FindAll(New Regex("\w+,"))
+If textSelection IsNot Nothing Then
+    ' Iterate through each occurrence and add a comment.
+    For i As Integer = 0 To textSelection.Count() - 1
+        ' Get the found text as a single text range.
+        Dim textRange As WTextRange = textSelection(i).GetAsOneRange()
+        ' Get the owner paragraph of the found text.
+        Dim paragraph As WParagraph = textRange.OwnerParagraph
+        ' Get the index of the found text.
+        Dim textIndex As Integer = paragraph.ChildEntities.IndexOf(textRange)
+        ' Add comment to a paragraph.
+        Dim comment As WComment = paragraph.AppendComment("comment test_" & i)
+        ' Specify the author of the comment.
+        comment.Format.User = "Peter"
+        ' Specify the initials of the author.
+        comment.Format.UserInitials = "St"
+        ' Set the date and time for the comment.
+        comment.Format.DateTime = DateTime.Now
+        ' Insert the comment next to the text range.
+        paragraph.ChildEntities.Insert(textIndex + 1, comment)
+        ' Add the paragraph items to the commented items.
+        comment.AddCommentedItem(textRange)
+    Next
+    ' Save the Word document.
+    document.Save("Result.docx")
+    document.Close()
+End If
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Find-text-and-insert-comment).
+
 ## Removing Comments
 
 You can either remove all the comments or a particular comment from the Word document.
