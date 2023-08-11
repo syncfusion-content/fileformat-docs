@@ -15,18 +15,18 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
-<img src="Azure_images/App_Service_Linux/Create_Application.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Linux/Create_Application.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
 Step 2: Name the project.
 
-<img src="Azure_images/App_Service_Linux/Name_the_Application_CreateExcel.png" alt="Name the project" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Linux/Name_the_Application_CreateExcel.png" alt="Name the project" width="100%" Height="Auto"/>
 
 Step 3: Select the framework and click **Create** button.
-<img src="Azure_images/App_Service_Linux/Select_Framework.png" alt="Framework version" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Linux/Select_Framework.png" alt="Framework version" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="Azure_images/App_Service_Linux/Install_NuGet_CreateExcel.png" alt="Install Syncfusion.XlsIO.Net.Core NuGet Package" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Linux/Install_NuGet_CreateExcel.png" alt="Install Syncfusion.XlsIO.Net.Core NuGet Package" width="100%" Height="Auto"/>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
