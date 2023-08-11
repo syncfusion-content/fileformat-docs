@@ -83,31 +83,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Right-click the project and select **Publish** option.
+Step 7: Right-click the project and select **Publish** option.
 <img src="Azure_Images/Functions_v1/Publish.png" alt="Publish" width="100%" Height="Auto"/>
 
-Step 7: Select the publish target as **Azure**.
+Step 8: Select the publish target as **Azure**.
 <img src="Azure_Images/Functions_v1/Publish_Profile.png" alt="Add a Publish Profile" width="100%" Height="Auto"/>
 
-Step 8: Select the **Create new** button.
+Step 9: Select the **Create new** button.
 <img src="Azure_Images/Functions_v1/Create_New.png" alt="Click create new option" width="100%" Height="Auto"/>
 
-Step 9: Click the **Create** button to proceed with creation. 
+Step 10: Click the **Create** button to proceed with creation. 
 <img src="Azure_Images/Functions_v1/Hosting.png" alt="Hosting" width="100%" Height="Auto"/>
 
-Step 10: Click the **Finish** button to finalize the **Azure Function** creation. 
+Step 11: Click the **Finish** button to finalize the **Azure Function** creation. 
 <img src="Azure_Images/Functions_v1/Azure_Function.png" alt="Creating app service" width="100%" Height="Auto"/>
 
-Step 11: Click **Close** button.
+Step 12: Click **Close** button.
 <img src="Azure_Images/Functions_v1/Profile_Created.png" alt="Profile created" width="100%" Height="Auto"/>
 
-Step 12: Click the **Publish** button.
+Step 13: Click the **Publish** button.
 <img src="Azure_Images/Functions_v1/Start_Publish.png" alt="Click Publish Button" width="100%" Height="Auto"/>
 
-Step 13: Publish has been succeeded.
+Step 14: Publish has been succeeded.
 <img src="Azure_Images/Functions_v1/Publish_Success.png" alt="Publish succeeded" width="100%" Height="Auto"/>
 
-Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
+Step 15: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
 <img src="Azure_Images/Functions_v1/ExcelToPDF_Function_v1.png" alt="Excel to PDF in Azure Functions v1" width="100%" Height="Auto"/>
 
 ## Steps to post the request to Azure Functions
