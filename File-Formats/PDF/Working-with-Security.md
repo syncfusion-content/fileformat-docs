@@ -1265,7 +1265,7 @@ catch (PdfException exception)
 try
 {
 	//Load the password protected PDF document without user password
-	PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Output.pdf");
+	PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 }
 catch (PdfException exception)
 {
@@ -1281,10 +1281,10 @@ catch (PdfException exception)
 
 Try
 	'Load the password protected PDF document without user password
-	Dim loadedDocument As New PdfLoadedDocument("Output.pdf")
+	Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 Catch exception As PdfException
 	If exception.Message = "Can't open an encrypted document. The password is invalid." Then
-		MessageBox.Show("Cannot open an encrypted document without password")
+		Console.WriteLine("Cannot open an encrypted document without password")
 	End If
 End Try
 
