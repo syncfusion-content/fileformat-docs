@@ -41,12 +41,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream excelStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(excelStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
 
   //Initialize XlsIO renderer.
   application.XlsIORenderer = new XlsIORenderer();
+
+  //Gets the input Excel document as stream from request.
+  Stream excelStream = req.Content.ReadAsStreamAsync().Result;
+
+  //Load the stream into IWorkbook.
+  IWorkbook workbook = application.Workbooks.Open(excelStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
   //Create the MemoryStream to save the image.      
   MemoryStream imageStream = new MemoryStream();
@@ -114,12 +118,12 @@ Step 2: Add the following code snippet into **Main** method to post the request 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Reads the template Excel document.
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-fileStream.Position = 0;
+FileStream excelStream = new FileStream("../../Sample.xlsx", FileMode.Open, FileAccess.Read);
+excelStream.Position = 0;
 
 //Saves the Excel document in memory stream.
 MemoryStream inputStream = new MemoryStream();
-fileStream.CopyTo(inputStream);
+excelStream.CopyTo(inputStream);
 inputStream.Position = 0;
 
 try
@@ -143,12 +147,12 @@ try
   HttpWebResponse res = (HttpWebResponse)req.GetResponse();
 
   //Saves the image stream.
-  FileStream fileStream = File.Create("Sample.jpeg");
-  res.GetResponseStream().CopyTo(fileStream);
+  FileStream outStream = File.Create("Sample.jpeg");
+  res.GetResponseStream().CopyTo(outStream);
 
   //Dispose the streams
   inputStream.Dispose();
-  fileStream.Dispose();
+  outStream.Dispose();
 }
 catch (Exception ex)
 {
@@ -156,6 +160,8 @@ catch (Exception ex)
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Azure%20V4%20Function/Convert%20Excel%20to%20Image). 
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
