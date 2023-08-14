@@ -467,12 +467,15 @@ Step 7: Click **Close** button.
 <img src="Azure_Images/App_Service_Linux/Profile_Created_CreateExcel.png" alt="Profile created" width="100%" Height="Auto"/>
 
 Step 8: Click the **Publish** button.
-<img src="Azure_Images/App_Service_Linux/Start_Publish_CreateExcel.png" alt="Strat publish" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Linux/Start_Publish_CreateExcel.png" alt="Start publish" width="100%" Height="Auto"/>
 
 Step 9: Now, Publish has been succeeded.
 <img src="Azure_Images/App_Service_Linux/Publish_Success_CreateExcel.png" alt="Publish has been succeeded" width="100%" Height="Auto"/>    
 
-Step 10: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
+Step 10: Now, the published webpage will open in the browser. 
+<img src="Azure_Images/App_Service_Linux/CreateDocument_Button_CreateExcel.png" alt="Browser will open after publish" width="100%" Height="Auto"/>
+
+Step 11: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
 <img src="Azure_Images/App_Service_Linux/CreateExcel_AppService_Linux.png" alt="Create Excel in Azure App Service on Windows" width="100%" Height="Auto"/>
 
 A complete working example of how to create an Excel file in Azure App Service on Linux in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
