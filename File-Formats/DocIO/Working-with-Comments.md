@@ -229,35 +229,36 @@ using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Dim document As New WordDocument(Path.GetFullPath("../../Data/Input.docx"), FormatType.Docx)
-' Find all occurrence of a particular text ending with comma in the document using regex.
-Dim textSelection As TextSelection() = document.FindAll(New Regex("\w+,"))
-If textSelection IsNot Nothing Then
-    ' Iterate through each occurrence and add a comment.
-    For i As Integer = 0 To textSelection.Count() - 1
-        ' Get the found text as a single text range.
-        Dim textRange As WTextRange = textSelection(i).GetAsOneRange()
-        ' Get the owner paragraph of the found text.
-        Dim paragraph As WParagraph = textRange.OwnerParagraph
-        ' Get the index of the found text.
-        Dim textIndex As Integer = paragraph.ChildEntities.IndexOf(textRange)
-        ' Add comment to a paragraph.
-        Dim comment As WComment = paragraph.AppendComment("comment test_" & i)
-        ' Specify the author of the comment.
-        comment.Format.User = "Peter"
-        ' Specify the initials of the author.
-        comment.Format.UserInitials = "St"
-        ' Set the date and time for the comment.
-        comment.Format.DateTime = DateTime.Now
-        ' Insert the comment next to the text range.
-        paragraph.ChildEntities.Insert(textIndex + 1, comment)
-        ' Add the paragraph items to the commented items.
-        comment.AddCommentedItem(textRange)
-    Next
-    ' Save the Word document.
-    document.Save("Result.docx")
-    document.Close()
-End If
+Using document As New WordDocument("Input.docx", FormatType.Docx)
+    ' Find all occurrences of a particular text ending with a comma in the document using regex.
+    Dim textSelection As TextSelection() = document.FindAll(New Regex("\w+,"))
+    If textSelection IsNot Nothing Then
+        ' Iterate through each occurrence and add a comment.
+        For i As Integer = 0 To textSelection.Count() - 1
+            ' Get the found text as a single text range.
+            Dim textRange As WTextRange = textSelection(i).GetAsOneRange()
+            ' Get the owner paragraph of the found text.
+            Dim paragraph As WParagraph = textRange.OwnerParagraph
+            ' Get the index of the found text.
+            Dim textIndex As Integer = paragraph.ChildEntities.IndexOf(textRange)
+            ' Add a comment to a paragraph.
+            Dim comment As WComment = paragraph.AppendComment("comment test_" & i)
+            ' Specify the author of the comment.
+            comment.Format.User = "Peter"
+            ' Specify the initials of the author.
+            comment.Format.UserInitials = "St"
+            ' Set the date and time for the comment.
+            comment.Format.DateTime = DateTime.Now
+            ' Insert the comment next to the text range.
+            paragraph.ChildEntities.Insert(textIndex + 1, comment)
+            ' Add the paragraph items to the commented items.
+            comment.AddCommentedItem(textRange)
+        Next
+        ' Save the Word document.
+        document.Save("Result.docx")
+    End If
+End Using
+
 {% endhighlight %}
 {% endtabs %}
 
