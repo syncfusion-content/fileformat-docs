@@ -204,7 +204,7 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream.
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Adventure Cycles.png");
 //Load the image from the disk.
 PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image.
@@ -221,6 +221,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 {% endhighlight %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFwithImage).
+
+By executing the program, you will get the PDF document as follows.
+![Xamarin output PDF document](GettingStarted_images/PDF_with_image.png)
 
 ## Creating a PDF document with table
 
@@ -250,6 +253,8 @@ data.Add(row5);
 IEnumerable<object> dataTable = data;
 //Assign data source.
 pdfGrid.DataSource = dataTable;
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
@@ -263,6 +268,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "applicat
 {% endhighlight %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/Xamarin/CreatePDFwithTable).
+
+By executing the program, you will get the PDF document as follows.
+![Xamarin output PDF document](GettingStarted_images/PDF_with_table.png)
 
 ## Creating a simple PDF document with basic elements
 The [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) to it along with the [PdfPageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageSettings.html).
