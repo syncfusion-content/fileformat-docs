@@ -1,12 +1,12 @@
 ---
-title: Convert HTML to PDF in Azure Functions | Syncfusion
-description: Convert HTML to PDF in Azure Functions using Syncfusion .NET HTML converter library.
+title: Convert HTML to PDF in Azure Functions on Windows | Syncfusion
+description: Convert HTML to PDF in Azure Functions on Windows using Syncfusion .NET Core HTML to PDF converter library.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Convert HTML to PDF file in Azure Functions
+# Convert HTML to PDF file in Azure Functions on Windows
 
 The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. Using this library, you can **convert HTML to PDF document in Azure Functions on Windows**.
 

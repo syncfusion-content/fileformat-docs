@@ -1,6 +1,6 @@
 ---
 title: Convert HTML to PDF in Azure App Service on Windows | Syncfusion
-description: Convert HTML to PDF in Azure App Service on Windows using Syncfusion .NET HTML converter library.
+description: Convert HTML to PDF in Azure App Service on Windows using Syncfusion .NET Core HTML to PDF converter library.
 platform: file-formats
 control: PDF
 documentation: UG
