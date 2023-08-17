@@ -429,7 +429,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <table>
 <th style="font-size:14px" width="100px">Issue
 </th>
-<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in Mac machine. 
+<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in the Mac machine. 
 </th>
 
 <tr>
