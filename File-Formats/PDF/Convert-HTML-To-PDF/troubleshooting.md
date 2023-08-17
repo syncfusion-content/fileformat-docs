@@ -424,7 +424,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 
-## Mac Machine Error: "Exception has been thrown by the target of an invocation"
+## OCR not working on Mac: Exception has been thrown by the target of an invocation
 
 <table>
 <th style="font-size:14px" width="100px">Issue
