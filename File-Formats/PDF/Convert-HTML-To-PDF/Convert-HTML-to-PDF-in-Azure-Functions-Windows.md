@@ -109,22 +109,22 @@ Step 8: Make sure to set **Copy if newer** for all the OPENSSL assemblies.
 ![Right-click the project and select the publish option](Azure_images/Azure_function/copy_if_newer.png)
 
 Step 9: Right click the project and select Publish. Then, create a new profile in the Publish Window.
-![Create a new profile in the Publish Window](Azure_Images/Azure_function/Click_publish.png)
+![Create a new profile in the Publish Window](Azure_images/Azure_function/Click_publish.png)
 
 Step 10: Select the target as **Azure** and click **Next** button.
-![Select the target as Azure](Azure_Images/Azure_function/Set_Azure_target.png)
+![Select the target as Azure](Azure_images/Azure_function/Set_Azure_target.png)
 
 Step 11: Select the **Azure Function App (Windows)** and click **Next**. 
-![Select Azure function app](Azure_Images/Azure_function/Select_function_app.png)
+![Select Azure function app](Azure_images/Azure_function/Select_function_app.png)
 
 Step 12: Select the **Create new** button.
-![Configure Hosting Plan](Azure_Images/Azure_function/Select_create_new_button.png)
+![Configure Hosting Plan](Azure_images/Azure_function/Select_create_new_button.png)
 
 Step 13: Click **Create** button. 
 ![Browser will open after publish](Azure_images/Azure_function/WebView.png)
 
 Step 14: After creating function app service then click **Finish** button. 
-![Creating app service](Azure_Images/Azure_function/Creating_app_function.png)
+![Creating app service](Azure_images/Azure_function/Creating_app_function.png)
 
 Step 15: Click the **Publish** button.
 ![Click the Publish button](Azure_images/Azure_function/Publish_app_function.png)
@@ -133,6 +133,6 @@ Step 16: Now, Publish has been succeeded.
 ![Publish has been succeeded](Azure_images/Azure_function/Publish_link(function).png)
 
 Step 17: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL > Copy**. Include the URL as a query string in the URL. Then, paste it into the new browser tab. You will get the PDF document as follows. 
-![Output document screenshot](Azure_Images/Azure_function/Output_screenshot.png)
+![Output document screenshot](Azure_images/Azure_function/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML-to-PDF-Azure-Functions(Windows)).
