@@ -271,6 +271,41 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 </tr>
 </table>
 
+## Failed to convert webpage exception in Linux Docker
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Failed to convert webpage exception in Linux Docker.
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>This exception might arise because the Blink binary files lack sufficient permissions to be launched from the specified BlinkPath location.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome this exception, you can provide a execute permission for chrome and chrome-wrapper file inside the runtimes/linux/native folder by using the docker command.
+<br><br/>
+<img src="htmlconversion_images/Troubleshooting_webpage_exception_Linux.png" alt="ExcludeAssets">
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+COPY . /app
+WORKDIR /app
+
+RUN chmod +x /app/runtimes/linux/native/chrome && \
+    chmod +x /app/runtimes/linux/native/chrome-wrapper
+
+{% endhighlight %}
+</td>
+</tr>
+</table>
+
 ## Images or other contents in the HTML are missing in the resultant PDF document
 
 <table>
