@@ -467,12 +467,15 @@ Step 7: Click **Close** button.
 <img src="Azure_Images/App_Service_Windows/Profile_Created_CreateExcel.png" alt="Profile created" width="100%" Height="Auto"/>
 
 Step 8: Click the **Publish** button.
-<img src="Azure_Images/App_Service_Windows/Start_Publish_CreateExcel.png" alt="Strat publish" width="100%" Height="Auto"/>
+<img src="Azure_Images/App_Service_Windows/Start_Publish_CreateExcel.png" alt="Start publish" width="100%" Height="Auto"/>
 
 Step 9: Now, Publish has been succeeded.
 <img src="Azure_Images/App_Service_Windows/Publish_Success_CreateExcel.png" alt="Publish has been succeeded" width="100%" Height="Auto"/>
 
-Step 10: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
+Step 10: Now, the published webpage will open in the browser. 
+<img src="Azure_Images/App_Service_Windows/CreateDocument_Button_CreateExcel.png" alt="Browser will open after publish" width="100%" Height="Auto"/>
+
+Step 11: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
 <img src="Azure_Images/App_Service_Windows/CreateExcel_AppService_Windows.png" alt="Create Excel in Azure App Service on Windows" width="100%" Height="Auto"/>
 
 A complete working example of how to create an Excel file in Azure App Service on Windows in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
