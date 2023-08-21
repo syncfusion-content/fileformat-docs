@@ -15,9 +15,9 @@ The following Linux dependencies should be installed where the conversion takes 
 
 {% highlight c# tabtitle="C#" %}
 
-1.sudo apt-get update
-2.sudo apt-get install libgdiplus
-3.sudo apt-get install y- libopenjp2-7
+sudo apt-get update
+sudo apt-get install libgdiplus
+sudo apt-get install libc6-dev
 
 {% endhighlight %}
 
