@@ -89,17 +89,17 @@ The **this[string name]** indexer allows you to retrieve a scenario from a colle
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 IScenarios scenarios = worksheet.Scenarios;
-IScenario scenario = worksheet.Scenarios["ScenarioName"];
+IScenario scenario = scenarios["ScenarioName"];
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 IScenarios scenarios = worksheet.Scenarios;
-IScenario scenario = worksheet.Scenarios["ScenarioName"];
+IScenario scenario = scenarios["ScenarioName"];
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim scenarios as IScenarios = worksheet.Scenarios
-Dim scenario as IScenario = worksheet.Scenarios("ScenarioName")
+Dim scenario as IScenario = scenarios("ScenarioName")
 {% endhighlight %}
 {% endtabs %}
 
