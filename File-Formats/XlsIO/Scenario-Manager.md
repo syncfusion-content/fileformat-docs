@@ -98,8 +98,8 @@ IScenario scenario = worksheet.Scenarios["ScenarioName"];
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-IScenarios scenarios = worksheet1.Scenarios;
-IScenario scenario = worksheet.Scenarios("ScenarioName");
+Dim scenarios as IScenarios = worksheet.Scenarios
+Dim scenario as IScenario = worksheet.Scenarios("ScenarioName")
 {% endhighlight %}
 {% endtabs %}
 
@@ -109,7 +109,7 @@ Create a scenario and add it to the scenarios collection for the current workshe
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-IScenarios scenarios = worksheet.Scenarios;
+IScenarios scenarios =  .Scenarios;
 
 //Add the scenario with single range
 IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3"], 3000);
@@ -127,19 +127,18 @@ IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3"], 3000);
 
 //Add the scenario with multiple range
 List<object> values = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B8"], valuesList);
+IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], valuesList);
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet.Scenarios;
+Dim scenarios as IScenarios = worksheet.Scenarios
 
 'Add the scenario with single range
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3"), 3000)
+Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3"), 3000)
 
 'Add the scenario with multiple range
-
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B9"), values1)
 {% endhighlight %}
 {% endtabs %}
 
@@ -188,18 +187,18 @@ worksheet1.Scenarios.Merge(worksheet2);
 Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
 Dim worksheet2 As IWorksheet = workbook.Worksheets(1)
 
-Dim scenarios1 as IScenarios = worksheet1.Scenarios;
+Dim scenarios1 as IScenarios = worksheet1.Scenarios
 //Add the scenario in the first worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
 Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-Dim scenarios2 as IScenarios  = worksheet2.Scenarios;
+Dim scenarios2 as IScenarios  = worksheet2.Scenarios
 //Add the scenario in the second worksheet
 Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-Dim scenario2 As IScenario = scenarios1.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
+Dim scenario2 As IScenario = scenarios2.Add("Scenario2", worksheet2.Range("B3:B9"), values2)
 
 //Merge the second worksheet scenario into first worksheet.
-worksheet1.Scenarios.Merge(worksheet2);
+worksheet1.Scenarios.Merge(worksheet2)
 {% endhighlight %}
 {% endtabs %}
 
@@ -224,7 +223,7 @@ List<object> values3 = new List<object> { 1000, 500, 2000, 800, 1300, 1500, 3500
 IScenario scenario3 = scenarios.Add("Scenario3", worksheet1.Range["B3:B9"], values3);
 
 //Create Summary for the sheet1
-worksheet1.Scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range["B10:B11"]);
+scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range["B10:B11"]);
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -242,25 +241,25 @@ List<object> values3 = new List<object> { 1000, 500, 2000, 800, 1300, 1500, 3500
 IScenario scenario3 = scenarios.Add("Scenario3", worksheet1.Range["B3:B9"], values3);
 
 //Create Summary for the sheet1
-worksheet1.Scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range["B10:B11"]);
+scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range["B10:B11"]);
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
 
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
 Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-Dim scenario2 As IScenario = scenarios1.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
+Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
 
 Dim values3 As New List(Of Object) From {1000, 500, 2000, 800, 1300, 1500, 35000}
-Dim scenario3 As IScenario = scenarios1.Add("Scenario3", worksheet1.Range("B3:B9"), values3)
+Dim scenario3 As IScenario = scenarios.Add("Scenario3", worksheet1.Range("B3:B9"), values3)
 
-//Create Summary for the sheet1
-worksheet1.Scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range("B10:B11"))
+'Create Summary for the sheet1
+scenarios.CreateSummary(ExcelSummaryReportType.ScenarioSummary, worksheet1.Range("B10:B11"))
 {% endhighlight %}
 {% endtabs %}
 
@@ -290,13 +289,13 @@ IRange changingcellsRange = scenario.ChangingCells;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Get the changing cell range
-IRange changingcellsRange = scenario.ChangingCells
+'Get the changing cell range
+Dim changingcellsRange As IRange = scenario.ChangingCells
 {% endhighlight %}
 {% endtabs %}
 
@@ -326,12 +325,12 @@ scenario.Comment = "Scenario 1 can be created";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Set the comment value 
+'Set the comment value 
 scenario.Comment = "Scenario 1 can be created"
 {% endhighlight %}
 {% endtabs %}
@@ -362,13 +361,13 @@ scenario.Hidden = true;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Hidden the scenario
-scenario.Hidden = true
+'Hidden the scenario
+scenario.Hidden = True
 {% endhighlight %}
 {% endtabs %}
 
@@ -398,13 +397,13 @@ int index=scenario.Index;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Gets the index value of the scenario
-int index=scenario.Index
+'Gets the index value of the scenario
+Dim Index As Integer = scenario.Index
 {% endhighlight %}
 {% endtabs %}
 
@@ -434,13 +433,13 @@ scenario.Locked = false;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Set the scenario to be locked
-scenario.Locked = false
+'Set the scenario to be locked
+scenario.Locked = False
 {% endhighlight %}
 {% endtabs %}
 
@@ -470,12 +469,12 @@ scenario.Name = "ScenarioNameChanged";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Set the name of the scenario
+'Set the name of the scenario
 scenario.Name = "ScenarioNameChanged"
 {% endhighlight %}
 {% endtabs %}
@@ -506,13 +505,13 @@ object values = scenario.Values[1];
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
 Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-//Get the values of the scenario
-object values = scenario.Values(1)
+'Get the values of the scenario
+Dim values As Object = scenario.Values(1)
 {% endhighlight %}
 {% endtabs %}
 
@@ -552,17 +551,15 @@ scenario1.ModifyScenario(scenario2.ChangingCells, scenario2.Values);
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
+Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
+Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
-List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 }
-Dim scenario1 as IScenario  = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
+Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
 
-List<object> values2 = new List<object> { 500, 1000, 1500, 1200, 700, 500, 40000 }
-Dim scenario2 as IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
-
-//Modify the scenario 
+'Modify the scenario 
 scenario1.ModifyScenario(scenario2.ChangingCells, scenario2.Values)
 {% endhighlight %}
 {% endtabs %}
@@ -605,15 +602,15 @@ scenario2.Delete();
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
 
-Dim scenarios as IScenarios = worksheet1.Scenarios
-//Add the scenarios in the worksheet
-List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 }
-Dim scenario1 as IScenario  = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim scenarios As IScenarios = worksheet1.Scenarios
+'Add the scenarios in the worksheet
+Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
+Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-List<object> values2 = new List<object> { 500, 1000, 1500, 1200, 700, 500, 40000 }
-Dim scenario2 as IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
+Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
+Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
 
-//Delete the scenario 
+'Delete the scenario 
 scenario2.Delete()
 {% endhighlight %}
 {% endtabs %}
@@ -656,13 +653,13 @@ scenario2.Show()
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
 
-Dim scenarios as IScenarios = worksheet1.Scenarios
+Dim scenarios As IScenarios = worksheet1.Scenarios
 'Add the scenarios in the worksheet
-List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 }
-Dim scenario1 as IScenario  = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
+Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
+Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
 
-List<object> values2 = new List<object> { 500, 1000, 1500, 1200, 700, 500, 40000 }
-Dim scenario2 as IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
+Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
+Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet1.Range("B3:B9"), values2)
 
 'Show the scenario 
 scenario2.Show()
