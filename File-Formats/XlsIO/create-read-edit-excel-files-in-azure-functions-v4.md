@@ -31,6 +31,7 @@ Step 5: Include the following namespaces in the **Function1.cs** file.
 using Syncfusion.XlsIO;
 using System.IO;
 using Syncfusion.Drawing;
+{% endhighlight %}
 {% endtabs %}
 
 Step 6: Add the following code snippet in **Run** method of **Function1** class to **create Excel document** in Azure Functions and return the resultant **Excel document** to client end..
