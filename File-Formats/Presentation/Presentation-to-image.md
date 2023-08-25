@@ -26,6 +26,8 @@ Refer to the following links for assemblies required based on platforms to conve
 
 T> When converting a slide to image, use 'Metafile' format for good image resolution.
 
+## Convert a slide to image
+
 The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
@@ -105,6 +107,8 @@ Presentation_1.Close()
 
 {% endtabs %}
 
+## Convert PowerPoint Presentation to images
+
 The following code example demonstrates the conversion of an entire Presentation to images:
 
 {% tabs %}
@@ -141,6 +145,8 @@ Next
 {% endhighlight %}
 
 {% endtabs %}
+
+## Image resolution
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
 
@@ -192,6 +198,84 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+## Convert PowerPoint to images based on animation
+
+Exports the PowerPoint Slide as images based on the order of Entrance animation effects which is applied in the slide. 
+For example, if 3 Entrance animation effects are applied in the slide, then that slide should be exported as 4 images (1 image - Base slide without any animated object, 3 images – each image generated with an output of completion of each animation effects as per the order applied in the slide).  
+
+You can convert a PowerPoint slide to images based on the order of entrance animation effects applied in slide.
+
+N> 1.We only considered entrance animations. 
+2.Other animations or non-animated orders are usually preserved 
+
+The following code example demonstrates how to convert PowerPoint to images based on animation.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(@"../../../Data/Input.pptx");
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, ExportImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create(@"../../../Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create(@"../../../Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
 ## UWP
 
 PowerPoint slides can be converted to images in UWP by using Essential Presentation library. The following assemblies are required in the UWP application to convert the slides as images.
@@ -225,6 +309,8 @@ PowerPoint slides can be converted to images in UWP by using Essential Presentat
     </tbody>
 </table>
 
+### Convert a slide to image
+
 The following code example demonstrates how to convert a slide to image in UWP.
 
 {% tabs %}
@@ -250,6 +336,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+### Convert PowerPoint Presentation to images
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
 
@@ -284,6 +372,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+### Convert a slide to image by CancellationToken
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
 
