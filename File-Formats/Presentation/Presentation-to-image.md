@@ -198,17 +198,15 @@ pptxDoc.Close()
 
 {% endtabs %}
 
-## Convert PowerPoint to images based on animation
+## Convert PowerPoint Animations to Images
 
-Exports the PowerPoint Slide as images based on the order of Entrance animation effects which is applied in the slide. 
-For example, if 3 Entrance animation effects are applied in the slide, then that slide should be exported as 4 images (1 image - Base slide without any animated object, 3 images – each image generated with an output of completion of each animation effects as per the order applied in the slide).  
+The .NET PowerPoint Library (Presentation) allows you to convert PowerPoint slides into images based on the sequence of entrance animation effects applied to each element.
 
-You can convert a PowerPoint slide to images based on the order of entrance animation effects applied in slide.
+For instance, if a slide includes bulleted paragraphs, each having entrance animation effects, the Presentation library converts every bulleted paragraph into a separate image.
 
-N> 1.We only considered entrance animations. 
-2.Other animations or non-animated orders are usually preserved 
+N> Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first slide. 
 
-The following code example demonstrates how to convert PowerPoint to images based on animation.
+The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the `PresentationAnimationConverter` API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -275,6 +273,8 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
 {% endtabs %}
 
 You can download a complete working sample from GitHub.
+
+![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
 
 ## UWP
 
