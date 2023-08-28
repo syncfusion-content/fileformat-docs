@@ -231,7 +231,7 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
             stream.Position = 0;
 
             //Create the output image file stream.
-            using (FileStream fileStreamOutput = File.Create(@"../../../Output" + i + ".png"))
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
             {
                 //Copy the converted image stream into created output stream.
                 stream.CopyTo(fileStreamOutput);
@@ -263,7 +263,7 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
             stream.Position = 0;
 
             //Create the output image file stream.
-            using (FileStream fileStreamOutput = File.Create(@"../../../Output" + i + ".png"))
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
             {
                 //Copy the converted image stream into created output stream.
                 stream.CopyTo(fileStreamOutput);
