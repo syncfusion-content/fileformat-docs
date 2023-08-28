@@ -212,7 +212,7 @@ The following code example shows how to convert PowerPoint slides to images base
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Opens a PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(@"../../../Data/Input.pptx");
+IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
 
 //Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
 using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
@@ -243,6 +243,9 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
+//Opens a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
+
 //Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
 using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
 {
@@ -268,6 +271,34 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
         }
     }
 }
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Opens a PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Open("Data/Input.pptx")
+
+' Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+Using animationConverter As New PresentationAnimationConverter()
+    Dim i As Integer = 0
+    For Each slide As ISlide In pptxDoc.Slides
+        ' Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Dim imageStreams As Stream() = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png)
+
+        ' Save the image stream.
+        For Each stream As Stream In imageStreams
+            i += 1
+            ' Reset the stream position.
+            stream.Position = 0
+
+            ' Create the output image file stream.
+            Using fileStreamOutput As FileStream = File.Create("Output" & i & ".png")
+                ' Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput)
+            End Using
+        Next
+    Next
+End Using
 
 {% endhighlight %}
 {% endtabs %}
