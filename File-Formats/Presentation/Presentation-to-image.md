@@ -303,8 +303,6 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 ![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
 
 ## UWP
