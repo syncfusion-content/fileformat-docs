@@ -204,7 +204,7 @@ The .NET PowerPoint Library (Presentation) allows you to convert PowerPoint slid
 
 For instance, if a slide includes bulleted paragraphs, each having entrance animation effects, the Presentation library converts every bulleted paragraph into a separate image.
 
-N> Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first slide. 
+N> Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first image itself. 
 
 The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the `PresentationAnimationConverter` API.
 
