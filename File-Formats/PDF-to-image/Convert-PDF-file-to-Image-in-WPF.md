@@ -19,7 +19,7 @@ Step 1: Create a new WPF application project.
 In project configuration window, name your project and select Create.
 ![WPF configuration window](WPF_images/WPF_Step2.png)
 
-Step 2: Install the Syncfusion.PdfToImageConverter.Base NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/).
+Step 2: Install the Syncfusion.PdfToImageConverter.WPF NuGet package as a reference to your WPF application [NuGet.org](https://www.nuget.org/).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 

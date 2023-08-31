@@ -20,7 +20,7 @@ Step 2: In the project configuration windows, name your project and select Creat
 ![Configuration window1](MVC_images/aspnetmvc2.png)   
 ![Configuration window2](MVC_images/aspnetmvc3.png)   
 
-Step 3: Install Syncfusion.PdfToImageConverter.Base NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
+Step 3: Install Syncfusion.PdfToImageConverter.AspNet.Mvc5 NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -60,7 +60,7 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConvertor.Convert(0, false, false);
-return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.pdf");
+return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
 
 {% endhighlight %}
 
