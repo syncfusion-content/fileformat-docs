@@ -129,7 +129,7 @@ Step 9: After opening the provided **URL**, click **Create Word Document** butto
  
 ![Click button to create a Word document](AWS_Images/Elastic_Beanstalk_Images/Browser-Open-and-save-Word-document.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **Word document** as follows.
 

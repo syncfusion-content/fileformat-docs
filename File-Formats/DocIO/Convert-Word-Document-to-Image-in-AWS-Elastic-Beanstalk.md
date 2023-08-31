@@ -130,7 +130,7 @@ Step 8: After changing the status from **Updating** to **Environment is healthy*
 Step 9: After opening the provided **URL**, click **Convert Word to Image** button to download the **image** file.
 ![Click button to Convert Word to Image](AWS_Images/Elastic_Beanstalk_Images/Browser-Covert-WordtoImage.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Convert-Word-to-image/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **image** as follows.
 

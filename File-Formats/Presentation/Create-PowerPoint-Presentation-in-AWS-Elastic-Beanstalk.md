@@ -143,7 +143,7 @@ Step 8: After changing the status from **Updating** to **Environment is healthy*
 Step 9: After opening the provided **URL**, click **Create PowerPoint** button to download the PowerPoint document.
 ![Click button to Create a PowerPoint document](AWS_Images/Elastic_Beanstalk_Images/Brower-Create-PowerPoint.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

@@ -314,7 +314,7 @@ Step 8: After changing the status from **Updating** to **Environment is healthy*
 Step 9: After opening the provided **URL**, click **Create Document** button to download the Word document.
 ![Click button to Create a Word document](AWS_Images/Elastic_Beanstalk_Images/Browser-Create-Word-document.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **Word document** as follows.
 

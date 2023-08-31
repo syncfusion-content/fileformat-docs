@@ -140,7 +140,7 @@ Step 8: After changing the status from **Updating** to **Environment is healthy*
 Step 9: After opening the provided **URL**, click **Convert WordtoPDF** button to download the PDF document.
 ![Click button to Convert Word to PDF](AWS_Images/Elastic_Beanstalk_Images/Browser-Covert-WordtoPDF.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **PDF document** as follows.
 
