@@ -580,9 +580,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add threaded comment
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
+  //Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
 
   //Set print location to threaded comments
   worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
@@ -592,7 +598,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Convert Excel document into PDF document 
   PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
-  Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+  Stream stream = new FileStream("ExcelComments.pdf", FileMode.Create, FileAccess.ReadWrite);
   pdfDocument.Save(stream);
   excelStream.Dispose();
   stream.Dispose();
@@ -604,9 +610,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx");
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
+  //Add threaded comment
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
+  //Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
+  
   //Set print location to threaded comments
   worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd;
   ExcelToPdfConverter converter = new ExcelToPdfConverter(worksheet);
@@ -618,8 +630,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   pdfDocument = converter.Convert();
 
   //Save the PDF file
-  pdfDocument.Save("Output.pdf");
-  System.Diagnostics.Process.Start("Output.pdf");
+  pdfDocument.Save("ExcelComments.pdf");
 }
 {% endhighlight %}
 
@@ -627,9 +638,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
+  'Add threaded comment
+  Dim threadedComment As IThreadedComment = worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
+  'Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now)
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now)
+  
   'Set print location to threaded comments
   worksheet.PageSetup.PrintComments = ExcelPrintLocation.PrintSheetEnd
 
@@ -643,7 +660,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   pdfDocument = converter.Convert()
 
   'Save the PDF file
-  pdfDocument.Save("Output.pdf")
+  pdfDocument.Save("ExcelComments.pdf")
 End Using
 {% endhighlight %}
 {% endtabs %}

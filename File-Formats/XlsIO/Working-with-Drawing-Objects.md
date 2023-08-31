@@ -888,35 +888,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Collection of threaded comments
-  IThreadedComments threadedComments = worksheet.ThreadedComments;
-
-  //Add threaded comment with text
-  IThreadedComment threadedComment1 = worksheet["A1"].AddThreadedComment("Hello world");
-
-  //Add threaded comment with text and creation time
-  DateTime date1 = new DateTime(2020, 11, 22, 2, 22, 23);
-  IThreadedComment threadedComment2 = worksheet["A2"].AddThreadedComment("Hello world", date1);
-
-  //Add threaded comment with text and author
-  IThreadedComment threadedComment3 = worksheet["B1"].AddThreadedComment("Hello world", "User");
-
-  //Add threaded comment with text, author and creation time
-  DateTime date2 = new DateTime(2022, 10, 11, 2, 22, 23);
-  IThreadedComment threadedComment4 = worksheet["B2"].AddThreadedComment("Hello world", "User", date2);
-
-  //count of the threaded comment
-  int count = threadedComments.Count;
-
-  //Access the threaded comment based on the index value
-  string authorName = threadedComments[1].Author;
-
-  //Access the threaded comment based on the row and column index value.
-  DateTime dateTime = threadedComments[2, 1].CreatedTime; 
+  //Add threaded comments
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -930,34 +907,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Collection of threaded comments
-  IThreadedComments threadedComments = worksheet.ThreadedComments;
-
-  //Add threaded comment with text
-  IThreadedComment threadedComment1 = worksheet["A1"].AddThreadedComment("Hello world");
-
-  //Add threaded comment with text and creation time
-  DateTime date1 = new DateTime(2020, 11, 22, 2, 22, 23);
-  IThreadedComment threadedComment2 = worksheet["A2"].AddThreadedComment("Hello world", date1);
-
-  //Add threaded comment with text and author
-  IThreadedComment threadedComment3 = worksheet["B1"].AddThreadedComment("Hello world", "User");
-
-  //Add threaded comment with text, author and creation time
-  DateTime date2 = new DateTime(2022, 10, 11, 2, 22, 23);
-  IThreadedComment threadedComment4 = worksheet["B2"].AddThreadedComment("Hello world", "User", date2);
-
-  //count of the threaded comment
-  int count = threadedComments.Count;
-
-  //Access the threaded comment based on the index value
-  string authorName = threadedComments[1].Author;
-
-  //Access the threaded comment based on the row and column index value.
-  DateTime dateTime = threadedComments[2, 1].CreatedTime;
+  //Add threaded comments
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
 
   //Saving the workbook
   workbook.SaveAs("Ouptput.xlsx");
@@ -969,34 +923,11 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Collection of threaded comments
-  Dim threadedComments As IThreadedComments = worksheet.ThreadedComments
-
-  'Add threaded comment with text
-  Dim threadedComment1 As IThreadedComment = worksheet.Range("A1").AddThreadedComment("Hello World")
-
-  'Add threaded comment with text And creation time
-  Dim date1 As Date = New DateTime(2020, 11, 22, 2, 22, 23)
-  Dim threadedComment2 As IThreadedComment = worksheet.Range("A2").AddThreadedComment("Hello World", date1)
-
-  'Add threaded comment with text And author
-  Dim threadedComment3 As IThreadedComment = worksheet.Range("B1").AddThreadedComment("Hello World", "User")
-
-  'Add threaded comment with text, author And creation time
-  Dim date2 As Date = New DateTime(2022, 10, 11, 2, 22, 23)
-  Dim threadedComment4 As IThreadedComment = worksheet.Range("B2").AddThreadedComment("Hello World", "User", date2)
-
-  'Count of the threaded comments
-  Dim count As Integer = threadedComments.Count
-
-  'Access the threaded comment based on the index value
-  Dim authorName As String = threadedComments(1).Author
-
-  'Access the threaded comment based on the row and column index value
-  Dim dateTime As Date = threadedComments(2, 1).CreatedTime
+  'Add threaded comment
+  Dim threadedComment As IThreadedComment = worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
@@ -1006,7 +937,7 @@ End Using
 
 ### Reply
 
-Add a reply to an existing threaded comment with specific text using the **AddReply** method. The method has an optional parameter for the creation time of the threaded comment."
+Add a reply to an existing threaded comment with specific text using the **AddReply** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1014,28 +945,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comment
-  IThreadedComment threadedComment = worksheet.Range["A1"].AddThreadedComment("Hello world", "User");
+  //Add Threaded Comment
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
 
-  //Add reply to the threaded comment
-  threadedComment.AddReply("Sample text");
-
-  //Add reply with text and creation time
-  DateTime dateTime = new DateTime(2020, 11, 22, 2, 22, 23);
-  threadedComment.AddReply("Text", dateTime);
-
-  //Add reply with text, author
-  threadedComment.AddReply("Text", "User");
-
-  //Add reply with text, author and creation time
-  threadedComment.AddReply("Text", "User", dateTime);
-
-  //Access the reply threaded comment
-  threadedComment.Replies[0].Text = "Modified text";
+  //Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1049,27 +968,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comment
-  IThreadedComment threadedComment = worksheet.Range["A1"].AddThreadedComment("Hello world", "User");
-
-  //Add reply to the threaded comment
-  threadedComment.AddReply("Sample text");
-
-  //Add reply with text and creation time
-  DateTime dateTime = new DateTime(2020, 11, 22, 2, 22, 23);
-  threadedComment.AddReply("Text", dateTime);
-
-  //Add reply with text, author
-  threadedComment.AddReply("Text", "User");
-
-  //Add reply with text, author and creation time
-  threadedComment.AddReply("Text", "User", dateTime);
-
-  //Access the reply threaded comment
-  threadedComment.Replies[0].Text = "Modified text";
+  //Add Threaded Comment
+  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
+  
+  //Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
 
   //Saving the workbook
   workbook.SaveAs("Output.xlsx");
@@ -1081,33 +988,24 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
   'Add threaded comment
-  Dim threadedComment As IThreadedComment = worksheet.Range("A1").AddThreadedComment("Hello World", "User")
+  Dim threadedComment As IThreadedComment = worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
 
-  'Add reply to the threaded comment
-  threadedComment.AddReply("Sample text")
-
-  'Add reply with text And creation time
-  Dim dateTime As Date = New Date(2020, 11, 22, 2, 22, 23)
-  threadedComment.AddReply("Text", dateTime)
-
-  'Add reply with text, author
-  threadedComment.AddReply("Text", "User")
-
-  'Add reply with text, author And creation time
-  threadedComment.AddReply("Text", "User", dateTime)
-
-  'Access the reply threaded comment
-  threadedComment.Replies(0).text = "Modified text"
+  'Add Reply to the threaded comement
+  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now)
+  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now)
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
 {% endtabs %}
+
+The following screenshot represents the output Excel file of threaded comments generated by the XlsIO 
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img10.png" alt="output Excel file" width="100%" Height="Auto"/>
 
 ### Mark as resolved
 
@@ -1119,18 +1017,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Add threaded comment
-  IThreadedComment threadedComment = worksheet.Range["A1"].AddThreadedComment("Hello world", "User");
-
-  //Add reply to the threaded comment
-  threadedComment.AddReply("Sample text", "User");
+  
+  //Get the collection of threaded comments in the worksheet
+  IThreadedComments threadedComments = worksheet.ThreadedComments;
 
   //Resolve the thread
-  threadedComment.IsResolved = true;
+  threadedComments[0].IsResolved = true;
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1144,17 +1039,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comment
-  IThreadedComment threadedComment = worksheet.Range["A1"].AddThreadedComment("Hello world", "User");
-
-  //Add reply to the threaded comment
-  threadedComment.AddReply("Sample text", "User");
+  //Get the collection of threaded comments in the worksheet
+  IThreadedComments threadedComments = worksheet.ThreadedComments;
 
   //Resolve the thread
-  threadedComment.IsResolved = true;
+  threadedComments[0].IsResolved = true;
 
   //Saving the workbook
   workbook.SaveAs("Output.xlsx");
@@ -1166,17 +1058,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Add threaded comment
-  Dim threadedComment As IThreadedComment = worksheet.Range("A1").AddThreadedComment("Hello World", "User")
-
-  'Add reply to the threaded comment
-  threadedComment.AddReply("Sample text", "User")
+  'Get the collection of threaded comments in the worksheet
+  Dim threadedComments As IThreadedComments = worksheet.ThreadedComments
 
   'Resolve the thread
-  threadedComment.IsResolved = True
+  threadedComments[0].IsResolved = True
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
@@ -1194,16 +1083,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comment
-  IThreadedComment threadedComment1 = worksheet.Range["A1"].AddThreadedComment("Hello world");
-  IThreadedComment threadedComment2 = worksheet["B1"].AddThreadedComment("Hello world", "User");
+  //Get the collection of threaded comments in the worksheet
+  IThreadedComments threadedComments = worksheet.ThreadedComments;
 
   //Delete the threaded comment
-  threadedComment2.Delete();
+  threadedComments[0].Delete();
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1217,15 +1105,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comment
-  IThreadedComment threadedComment1 = worksheet.Range["A1"].AddThreadedComment("Hello world");
-  IThreadedComment threadedComment2 = worksheet["B1"].AddThreadedComment("Hello world", "User");
+  //Get the collection of threaded comments in the worksheet
+  IThreadedComments threadedComments = worksheet.ThreadedComments;
 
   //Delete the threaded comment
-  threadedComment2.Delete();
+  threadedComments[0].Delete();
 
   //Saving the workbook
   workbook.SaveAs("Output.xlsx");
@@ -1237,15 +1124,14 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Add threaded comment
-  Dim threadedComment1 As IThreadedComment = worksheet.Range("A1").AddThreadedComment("Hello World")
-  Dim threadedComment2 As IThreadedComment = worksheet.Range("B1").AddThreadedComment("Hello World", "User")
+  'Get the collection of threaded comments in the worksheet
+  Dim threadedComments As IThreadedComments = worksheet.ThreadedComments
 
   'Delete the threaded comment
-  threadedComment2.Delete()
+  threadedComments[0].Delete()
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
@@ -1263,18 +1149,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream inputStream = new FileStream("CommentsTemplate.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Collection of  threaded comments
+  //Get the collection of threaded comments in the worksheet
   IThreadedComments threadedComments = worksheet.ThreadedComments;
 
-  //Add threaded comment
-  IThreadedComment threadedComment1 = worksheet.Range["A1"].AddThreadedComment("Hello world");
-  IThreadedComment threadedComment2 = worksheet["B1"].AddThreadedComment("Hello world", "User");
-
-  //Clear all the threaded comment from the threaded comments collection
+  //clear all the threaded comment from the threaded comments collection
   threadedComments.Clear();
 
   //Saving the workbook as stream
@@ -1289,17 +1171,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Xlsx;
-  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Collection of  threaded comments
+  //Get the collection of threaded comments in the worksheet
   IThreadedComments threadedComments = worksheet.ThreadedComments;
 
-  //Add threaded comment
-  IThreadedComment threadedComment1 = worksheet.Range["A1"].AddThreadedComment("Hello world");
-  IThreadedComment threadedComment2 = worksheet["B1"].AddThreadedComment("Hello world", "User");
-
-  //Clear all the threaded comment from the threaded comments collection
+  //clear all the threaded comment from the threaded comments collection
   threadedComments.Clear();
 
   //Saving the workbook
@@ -1312,17 +1190,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic)
+  Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Collection of threaded comments
+ 'Get the collection of threaded comments in the worksheet
   Dim threadedComments As IThreadedComments = worksheet.ThreadedComments
 
-  'Add threaded comment
-  Dim threadedComment1 As IThreadedComment = worksheet.Range("A1").AddThreadedComment("Hello World")
-  Dim threadedComment2 As IThreadedComment = worksheet.Range("B1").AddThreadedComment("Hello World", "User")
-
-  'Clear all the threaded comment from the threaded comments collection
+  'clear all the threaded comment from the threaded comments collection
   threadedComments.Clear()
 
   'Saving the workbook  
@@ -1330,9 +1204,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 End Using
 {% endhighlight %}
 {% endtabs %}
-
-The following screenshot represents the output Excel file of threaded comments generated by the XlsIO 
-<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img10.png" alt="output Excel file" width="100%" Height="Auto"/>
 
 ## AutoShapes
 
