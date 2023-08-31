@@ -737,3 +737,76 @@ loadedDocument.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Get-the-result-of-redaction-with-other-information/).
+
+## Redact text content alone on the redated area
+
+You can get the Redact text content alone on the redated area using [RedactionProgress](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html#Syncfusion_Pdf_Parsing_PdfLoadedDocument_RedactionProgress) event in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.   
+
+The code snippet to illustrate the same is given below.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF document
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+PdfRedaction redaction = new PdfRedaction(new RectangleF(150, 150, 60, 24), Color.Transparent);
+//Only the text within the redaction bounds should be redacted.
+redaction.TextOnly = true;
+foreach (PdfLoadedPage loadedPage in document.Pages)
+{
+    loadedPage.AddRedaction(redaction);
+}
+document.Redact();
+//Create the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document into stream
+loadedDocument.Save(stream);
+//Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load a PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+PdfRedaction redaction = new PdfRedaction(new RectangleF(150, 150, 60, 24), Color.Transparent);
+//Only the text within the redaction bounds should be redacted.
+redaction.TextOnly = true;
+foreach (PdfLoadedPage loadedPage in document.Pages)
+{
+    loadedPage.AddRedaction(redaction);
+}
+document.Redact();
+//Save the document
+loadedDocument.Save("Output.pdf");
+//Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf") 
+'Create PDF redaction for the page
+Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(150, 150, 60, 24), Color.Transparent)
+redaction.TextOnly = true;
+For Each loadedPage As PdfLoadedPage In document.Pages
+	loadedPage.AddRedaction(redaction)
+Next
+document.Redact()
+'Save the document
+Dim stream As New MemoryStream()
+loadedDocument.Save(stream) 
+'Close the document
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Get-the-result-of-redaction-with-other-information/).
