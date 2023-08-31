@@ -28,8 +28,8 @@ Step 4: A default controller with name HomeController.cs gets added on creation 
 
 {% highlight c# tabtitle="C#" %}
 
+using SkiaSharp;
 using Syncfusion.PdfToImageConverter;
-using System.Drawing;
 using System.IO;
 
 {% endhighlight %}
@@ -59,7 +59,7 @@ PdfToImageConverter imageConverter = new PdfToImageConverter();
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite);
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
-Stream outputStream = imageConvertor.Convert(0, false, false);
+Stream outputStream = imageConverter.Convert(0, false, false);
 return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
 
 {% endhighlight %}

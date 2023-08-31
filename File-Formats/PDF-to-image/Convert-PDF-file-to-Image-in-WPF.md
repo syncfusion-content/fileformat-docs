@@ -56,7 +56,7 @@ PdfToImageConverter imageConverter = new PdfToImageConverter();
 FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite);
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
-Stream outputStream = imageConvertor.Convert(0, false, false);
+Stream outputStream = imageConverter.Convert(0, false, false);
 Bitmap image = new Bitmap(outputStream);
 image.Save("sample.png");
 
