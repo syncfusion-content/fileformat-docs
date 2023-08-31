@@ -809,4 +809,4 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Get-the-result-of-redaction-with-other-information/).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Redaction/Redact-text-content-alone-on-the-redated-area/).
