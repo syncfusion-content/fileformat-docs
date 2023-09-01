@@ -157,6 +157,4 @@ N> 3. Worksheet to image conversion is supported from .NET Framework 2.0 and .NE
 
 * Subscript/Superscript
 * Shrink to fit
-* Shapes (except TextBox shape and Image)
 * Complex conditional formatting
-* Linear and Radial Gradient fill for cells and shapes supported
