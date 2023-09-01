@@ -3927,3 +3927,59 @@ document.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-signed-revision-information).
+
+## Retrieve revocation certificate information from digital signature embed timestamp
+
+The following code example illustrates how to retrieve revocation certificate information from digital signature embed timestamp using  [PdfSignerCertificate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignerCertificate.html). 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF document.
+FileStream inputStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = new PdfLoadedDocument(inputStream);
+//Gets the signature field.
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Validates signature and gets the validation result.
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+//Gets signer certificates
+PdfSignerCertificate[] certifcate = result.TimeStampInformation.SignerCertificates;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing PDF document
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+//Gets the signature field.
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Validates signature and gets the validation result.
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+//Gets signer certificates
+PdfSignerCertificate[] certifcate = result.TimeStampInformation.SignerCertificates;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Gets the signature field.
+Dim loadedSignatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+'Validates signature and gets the validation result.
+Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
+'Gets signer certificates
+Dim certifcate As PdfSignerCertificate[] = result.TimeStampInformation.SignerCertificates
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-revocation-certificate-information-from-digital-signature-embed-timestamp).
