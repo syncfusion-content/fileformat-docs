@@ -876,11 +876,11 @@ A complete working example to remove comment in C# is present on [this GitHub pa
 
 ## Threaded Comments
 
-**IThreadedComment** object represents a threaded comment in a worksheet. Threaded comments are a way to add and organize annotations or discussions related to specific cells in a worksheet.
+Threaded comments are a way to add and organize annotations or discussions related to specific cells in a worksheet.**IThreadedComment** object represents a threaded comment in a worksheet.
 
-### Add Threaded comments
+### Create
 
-Create a threaded comment for the current cell with the specified text using **AddThreadedComment** method.
+The following code creatse a threaded comment for a specific cell with the specified text using **AddThreadedComment** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -937,7 +937,7 @@ End Using
 
 ### Reply
 
-Add a reply to an existing threaded comment with specific text using the **AddReply** method.
+The following code adds a replies to an existing threaded comment with specific text using the **AddReply** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1009,7 +1009,7 @@ The following screenshot represents the output Excel file of threaded comments g
 
 ### Mark as resolved
 
-The threaded comment is resolved by using the **IsResolved** property. It is a boolean property with its default value set to false.
+The threaded comment discussion can be marked as resolved by using the **IsResolved** property. By default, it is set to **false**.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1075,7 +1075,7 @@ End Using
 
 ### Delete
 
-Delete the threaded comment from the collection of threaded comments using the **Delete** method.
+The following code deletes a threaded comment from the collection of threaded comments using the **Delete** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1141,7 +1141,7 @@ End Using
 
 ### Clear
 
-Clear all the threaded comments from the threaded comments collection using the **Clear** method.
+The following code clears all the threaded comments from the threaded comments collection using the **Clear** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
