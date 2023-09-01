@@ -109,3 +109,25 @@ for(int i=0; i < outputStream.Length; i++)
 
 ## Exporting with a custom image resolution using SkiaSharp
 
+You can export PDF pages as images with a zoom Factor, tiles x & y dimension of page, x and y co-orindate of the tiles matrix of page by passing the required `ZoomFactor`, `tileXCount`, `tileYCount`, `tileX` and `tileY` values as parameters of the Convert method respectively. Refer to the following code to export the pages of PDF into PNG images with the image resolution.
+
+{% tabs %}
+{% highlight C# %}
+
+float zoomFactor = 0.5;
+int tileXCount = 2;
+int tileYCount = 3;
+int tileX = 200;
+int tileY = 200;
+
+//Initialize PDF to Image converter.
+PdfToImageConverter imageConverter = new PdfToImageConverter();
+//Load the PDF document as a stream
+FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite);
+imageConverter.Load(inputStream);
+//Convert PDF to Image.
+Stream outputStream = imageConverter.Convert(0, zoomFactor, tileXCount, tileYCount, tileX, tileY);
+return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
+
+{% endhighlight %}
+{% endtabs %}
