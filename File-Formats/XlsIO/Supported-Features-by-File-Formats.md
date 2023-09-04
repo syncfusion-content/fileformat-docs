@@ -437,7 +437,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Comments<br/><br/></td><td>
+Comments(Notes)<br/><br/></td><td>
 Partial<br/><br/></td><td>
 Partial<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -445,6 +445,16 @@ partial<br/><br/></td><td>
 partial<br/><br/></td><td>
 -<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+<tr>
+<td>
+Threaded Comments<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td></tr>
 <tr>
 <td>
 Freeze pane, split pane<br/><br/></td><td>
@@ -547,6 +557,16 @@ Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
+Slicers<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
 RGB colors <br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -564,6 +584,16 @@ Yes (Full Trust Only)<br/><br/></td><td>
 Yes (Full Trust Only)<br/><br/></td><td>
 Yes (Full Trust Only)<br/><br/></td><td>
 -<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+What-If Analysis (Scenarios)<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 </tbody>
 </table>
