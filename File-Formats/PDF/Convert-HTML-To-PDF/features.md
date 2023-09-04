@@ -1798,6 +1798,8 @@ document.Close(True)
 
 You can download a complete working sample from GitHub.
 
+N> Need to set the html margin top and bottom value based on the html header footer height and margin value.
+
 ## Temporary path
 
 The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder.

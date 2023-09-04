@@ -4044,3 +4044,5 @@ ldoc.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from GitHub.
+
+N> This method retrieves the images when they are rendered on the signed signature field appearance; otherwise, it will return null.
