@@ -1,19 +1,26 @@
 ---
-title: Working with Word comparisson in .NET Word library | Syncfusion
-description: Learn how to compare Word documents using the .NET Word (DocIO) library without Microsoft Word.
+title: Compare Word documents in C# | DocIO | Syncfusion
+description: Learn how to compare two Word documents in C# using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Compare Word documents 
+# Compare Word documents in C#
 
+Comparing two documents allows you to identify differences and similarities between them. The .NET Word library (DocIO) allows you to compare two Word documents and highlight the following changes as tracked changes
+*	Insertions
+*	Deletions
+*	Formatting
 
-N> You can use compare only in documents that are saved in the Open XML Format and cannot be used in the Word 97-2003 document (.doc) format.
+N> Comparing two Word documents supported in DOCX format only.
 
 ## Compare two Word documents 
 
-The following code example illustrates how to compare two Word documents in c#.
+Compare the existing Word documents or document that is created from scratch using Compare method in .NET Word library (DocIO).
+
+The following code example illustrates how to compare two Word documents.
+
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -80,8 +87,23 @@ End Using
 
 You can download a complete working sample from [GitHub]().
 
+![Compare Word documents in C#]()
 
-## Detect Formattings
+## Set Author and Date 
+
+Compare two Word documents by setting author and date for revisions to identify the changes clearly.
+
+The following code example shows how to set author and date for revision while comparing two Word documents.
+
+## Comparison options
+
+You can customize the Word comparison using our ComparisonOptions in DocIO.
+
+### Ignore format changes
+
+In the .NET Word library (DocIO), document comparison includes formatting changes by default. However, you can configure DocIO to ignore formatting differences using DetectFormatChanges API to concentrate solely on content modifications.
+
+The following code example illustrates how to compare two Word documents by ignoring the format changes.
 
 
 {% tabs %}
@@ -151,117 +173,6 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-## Supported Word document elements 
+You can download a complete working sample from [GitHub]().
 
-The following table shows the list of Word document elements supported in Word comparison. 
-
-**Body items** 
-
-<table>
-<thead>
-<tr>
-<th>Element in Word document<br/><br/></th>
-<th>Notes<br/><br/></th>
-</tr>
-</thead>
-<tbody>  
-<tr>
-<td>
-Paragraph<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Table <br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Block Content Control<br/><br/></td><td>
--<br/><br/></td></tr>
-</tbody>
-</table>
-
-
-**Paragraph items**
-
-<table>
-<thead>
-<tr>
-<th>Element in Word document<br/><br/></th>
-<th>Notes<br/><br/></th>
-</tr>
-</thead>
-<tbody>  
-<tr>
-<td>
-Field<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Form Field <br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Hyperlink<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Image<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Horizontal Rule<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Content Control<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Breaks<br/><br/></td><td>
--<br/><br/></td></tr>
-</tbody>
-</table>
-
-**Formatting** 
-
-<table>
-<thead>
-<tr>
-<th>Element in Word document<br/><br/></th>
-<th>Notes<br/><br/></th>
-</tr>
-</thead>
-<tbody>  
-<tr>
-<td>
-Bold<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Italic <br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-StrikeThrough<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Subscript and Superscript<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-Hidden<br/><br/></td><td>
--<br/><br/></td></tr>
-<tr>
-<td>
-List<br/><br/></td><td>
--<br/><br/></td></tr>
-
-</tbody>
-</table>
-
-## Limitation 
-
-* Field - As default DocIO compares the result based on file level only, if need to compare with proper results, we suggest you to update the fields before start comparison.
-
-* Comment - Comments will be maintain as it is in original document and doesn't perform comparison for comments.
+![Compare Word documents by ignoring format changes]()
