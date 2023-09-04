@@ -1834,3 +1834,171 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+## Inject Custom CSS
+
+The Blink rendering engine provides the support for inject the custom CSS to be applied in HTML or URL before rendering to PDF. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+blinkConverterSettings.Margin.All = 30;
+
+//Set custom CSS
+blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}";
+
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+
+//Create a filestream.
+FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = New Size(1280, 0)
+blinkConverterSettings.Margin.All = 30
+
+'Set custom CSS
+blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}"
+
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
+
+'Create a filestream.
+Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Inject Custom JavaScript
+
+The Blink rendering engine provides the support for inject the custom JavaScript to be applied in HTML or URL before rendering to PDF.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+blinkConverterSettings.Margin.All = 30;
+
+//Set Custom JavaScript
+blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})";
+
+
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+
+//Create a filestream.
+FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0)
+blinkConverterSettings.Margin.All = 30
+
+'Set Custom JavaScript
+blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})"
+
+
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
+
+'Create a filestream.
+Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Performance Optimization.
+
+The Blink rendering engine provides support for Reuse the Browser Process to optimize the HTML to PDF performance of multiple operations.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Reuse the browser instance.           
+htmlConverter.ReuseBrowserProcess = true;
+for (int i = 0; i < 10; i++)        
+{           
+    BlinkConverterSettings settings = new BlinkConverterSettings();
+    settings.AdditionalDelay = 1000;
+    settings.EnableJavaScript = true;
+    htmlConverter.ConverterSettings = settings;        
+    //Convert URL to PDF document.
+    PdfDocument document = htmlConverter.Convert(https://www.google.com);
+    document.Save("Sample.pdf");      
+}
+htmlConverter.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Reuse the browser instance.           
+htmlConverter.ReuseBrowserProcess = true
+For i As Integer = 0 To 9
+{           
+    Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+    settings.AdditionalDelay = 1000
+    settings.EnableJavaScript = true
+    htmlConverter.ConverterSettings = settings    
+    'Convert URL to PDF document.
+    Dim document As PdfDocument = htmlConverter.Convert(https://www.google.com)
+    document.Save("Sample.pdf");     
+}
+Next i
+htmlConverter.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
