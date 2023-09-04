@@ -369,7 +369,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IScenario scenario3 = scenarios.Add("Scenario3", worksheet.Range["B3:B9"], values3);
 
     //Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range["B10:B11"]);
+    scenarios.CreateSummary(worksheet.Range["B11"]);
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -398,7 +398,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IScenario scenario3 = scenarios.Add("Scenario3", worksheet.Range["B3:B9"], values3);
 
     //Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range["B10:B11"]);
+    scenarios.CreateSummary(worksheet.Range["B11"]);
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -425,7 +425,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim scenario3 As IScenario = scenarios.Add("Scenario3", worksheet.Range("B3:B9"), values3)
 
     'Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range("B10:B11"))
+    scenarios.CreateSummary(worksheet.Range("B11"))
 
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
