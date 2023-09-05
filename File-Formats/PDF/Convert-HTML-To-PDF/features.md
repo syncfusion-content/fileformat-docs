@@ -1734,7 +1734,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML Header and Footer
 
-When converting HTML to PDF, you have the option to set an HTML string as both the header and footer. To do this, make use of the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
+When converting HTML to PDF, you have the option to set an HTML file as both the header and footer. To do this, make use of the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
 
 {% tabs %}
 

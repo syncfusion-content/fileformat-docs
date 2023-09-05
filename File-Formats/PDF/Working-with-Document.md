@@ -650,7 +650,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Remove specific key from the existing document information
 
-To remove specific details from the existing document information, you can make use of the **Remove** method. The following code example provides an explanation of how to do this.
+To remove specific details from the existing document information, you can make use of the **Remove** method of [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_DocumentInformation) property. The following code example provides an explanation of how to do this.
 
 {% tabs %}
 
