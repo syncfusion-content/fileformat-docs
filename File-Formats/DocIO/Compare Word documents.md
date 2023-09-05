@@ -21,7 +21,6 @@ Compare the existing Word documents or document that is created from scratch usi
 
 The following code example illustrates how to compare two Word documents.
 
-
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
@@ -80,9 +79,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
-
-![Compare Word documents in C#]()
+![Compare Word documents in C#](WorkingwithWordDocument_images/Compare-Word-documents-without-author.png)
 
 ## Set Author and Date 
 
@@ -147,6 +144,8 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
+
+![Compare Word documents in C#](WorkingwithWordDocument_images/Compare-Word-documents.png)
 
 ## Comparison options
 
@@ -226,6 +225,4 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
-
-![Compare Word documents by ignoring format changes]()
+![Compare Word documents by ignoring format changes](WorkingwithWordDocument_images/Ignore-format-changes.png)
