@@ -199,7 +199,7 @@ using (WordDocument originalDocument = new WordDocument("OriginalDocument.docx")
         compareOptions.DetectFormatChanges = false;
         //Compare the original document with the revised document
         originalDocument.Compare(revisedDocument, "Syncfusion", DateTime.Now, compareOptions);
-        //Save the Word document
+        //Save the Word document.
         originalDocument.Save(output);
     }                 
 } 
