@@ -1798,8 +1798,6 @@ document.Close(True)
 
 {% endtabs %}
 
-Download a complete working sample from GitHub.
-
 N> Adjust the HTML margin top and bottom values according to the height of the HTML header and footer, as well as the margin settings.
 
 ## Temporary path

@@ -725,8 +725,6 @@ document.Close(True)
 
 {% endtabs %}
 
-Download a complete working sample from GitHub.
-
 ## Performing incremental update for PDF document
 
 The Essential PDF supports incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. The main benefit is small changes to a large PDF document can be saved quickly but the resultant document size gets increased compared with the original PDF document. Disabling the [IncrementalUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html#Syncfusion_Pdf_PdfFileStructure_IncrementalUpdate) of [PdfFileStructure](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html) will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.
