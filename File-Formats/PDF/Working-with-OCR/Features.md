@@ -1268,3 +1268,85 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}  
+
+new
+
+## Support to get the Image Rotation angle from OCR Processor
+
+For Getting the Image rotation angle, you can rotate the image with 4 angles (0,90,180,360) from OCR Processor. This feature is working in multiple Images and multiple pages. 
+
+The following code sample illustrates to support to get the Image Rotation angle from OCR Processor:
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the OCR processor.@
+using (OCRProcessor processor = new OCRProcessor())
+{
+    //Get stream from an image file. 
+    FileStream stream = new FileStream(@"D:\Input.pdf", FileMode.Open);
+    //Set OCR language to process.
+    PdfLoadedDocument document = new PdfLoadedDocument(stream);
+    //Set OCR language.
+    processor.Settings.Language = Languages.English;
+    //Sets Unicode font to preserve the Unicode characters in a PDF document.
+    processor.TesseractPath = @"D:\Tesseractbinaries_core\Windows\x64";
+    processor.PerformOCR(document, 0, 0, @"D:\tessdata", out OCRLayoutResult result);
+    float angle = 0;
+    if (result != null)
+    {
+        foreach (var page in result.Pages)
+        {
+            angle = page.ImageRotation;
+            if (angle == 180)
+            {
+                document.Pages[0].Rotation = PdfPageRotateAngle.RotateAngle180;
+            }
+        }
+    }    
+    //Create file stream.
+    using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
+    {
+        //Save the PDF document to file stream.
+        document.Save(outputFileStream);
+    }
+}
+
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize the OCR processor
+Using processor As OCRProcessor = New OCRProcessor()
+    'Get stream from an image file. 
+    Dim stream As FileStream = New FileStream(@"D:\Input.pdf", FileMode.Open);
+    'Set OCR language to process.
+    Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream);
+    'Set OCR language.
+    processor.Settings.Language = Languages.English;
+    'Sets Unicode font to preserve the Unicode characters in a PDF document.
+    processor.TesseractPath = @"D:\Tesseractbinaries_core\Windows\x64";
+    processor.PerformOCR(document, 0, 0, @"D:\tessdata", out OCRLayoutResult result);
+    float angle = 0;
+    If result IsNot Nothing Then
+    For Each page As var In result.Pages
+        angle = page.ImageRotation
+        If angle = 180 Then
+            document.Pages(0).Rotation = PdfPageRotateAngle.RotateAngle180
+        End If
+    Next
+	End If  
+    'Create file stream.
+     Using outputFileStream As FileStream = New FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite)
+        'Save the PDF document to file stream.
+        document.Save(outputFileStream)
+    End Using
+	'Close the document.
+    document.Close(True)
+End Using
+
+{% endhighlight %}
+
+{% endtabs %}  
