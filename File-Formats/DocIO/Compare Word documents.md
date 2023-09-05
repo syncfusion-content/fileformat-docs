@@ -25,60 +25,55 @@ The following code example illustrates how to compare two Word documents.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-string originalFilePath = Path.GetFullPath("Data/OriginalDocument.docx");
-string revisedFilePath = Path.GetFullPath("Data/RevisedDocument.docx");
-string resultFilePath = Path.GetFullPath("Result.docx");
-
-using (FileStream orgDocStream = new FileStream(originalFilePath, FileMode.Open, FileAccess.Read))
-using (FileStream revisedStream = new FileStream(revisedFilePath, FileMode.Open, FileAccess.Read))
-//Open the original Word document.
-using (WordDocument originalDocument = new WordDocument(orgDocStream, FormatType.Docx))
-//Open the revised Word document.
-using (WordDocument revisedDocument = new WordDocument(revisedStream, FormatType.Docx))
+ //Loads the original document.
+using (FileStream originalDocumentStreamPath = new FileStream("Data/OriginalDocument.docx", FileMode.Open, FileAccess.Read))
 {
-    //Compare original document with revised document.
-    originalDocument.Compare(revisedDocument);
-
-    //Save the output Word document.
-    using (FileStream resultStream = new FileStream(resultFilePath, FileMode.Create, FileAccess.ReadWrite))
+    using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
     {
-        originalDocument.Save(resultStream, FormatType.Docx);
-    }
+        //Loads the revised document.
+        using (FileStream revisedDocumentStreamPath = new FileStream("Data/RevisedDocument.docx", FileMode.Open, FileAccess.Read))
+        {
+            using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
+            {
+                // Compare the original and revised Word documents.
+                originalDocument.Compare(revisedDocument);
+
+                //Saves the Word document to MemoryStream
+                MemoryStream stream = new MemoryStream();
+                originalDocument.Save(stream, FormatType.Docx);
+            }
+        }                 
+    }                           
 }
 
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-string originalFilePath = Path.GetFullPath("Data/OriginalDocument.docx");
-string revisedFilePath = Path.GetFullPath("Data/RevisedDocument.docx");
-string resultFilePath = Path.GetFullPath("Result.docx");
-
-//Open the original Word document.
-using (WordDocument originalDocument = new WordDocument(originalFilePath, FormatType.Docx))
-//Open the revised Word document.
-using (WordDocument revisedDocument = new WordDocument(revisedFilePath, FormatType.Docx))
+//Loads the original document.
+using (WordDocument originalDocument = new WordDocument("Data/OriginalDocument.docx", FormatType.Docx))
 {
-    //Compare original document with revised document.
-    originalDocument.Compare(revisedDocument);
-    //Save the Word document.
-    originalDocument.Save(resultFilePath);          
+    //Loads the revised document.
+    using (WordDocument revisedDocument = new WordDocument("Data/RevisedDocument.docx", FormatType.Docx))
+   {
+        /Compare original document and revised documents.
+        originalDocument.Compare(revisedDocument);
+        //Save the Word document.
+        originalDocument.Save("Result.docx");          
+    }
 }
+
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Dim originalFilePath As String = Path.GetFullPath("Data/OriginalDocument.docx")
-Dim revisedFilePath As String = Path.GetFullPath("Data/RevisedDocument.docx")
-Dim resultFilePath As String = Path.GetFullPath("Result.docx")
-
-' Open the original Word document.
-Using originalDocument As New WordDocument(originalFilePath, FormatType.Docx)
-    ' Open the revised Word document.
-    Using revisedDocument As New WordDocument(revisedFilePath, FormatType.Docx)
-        ' Compare original document with revised document.
+' Loads the original document.
+Using originalDocument As New WordDocument("Data/OriginalDocument.docx", FormatType.Docx)
+    ' Loads the revised document.
+    Using revisedDocument As New WordDocument("Data/RevisedDocument.docx", FormatType.Docx)
+        ' Compare original document and revised documents.
         originalDocument.Compare(revisedDocument)
         ' Save the Word document.
-        originalDocument.Save(resultFilePath)
+        originalDocument.Save("Result.docx")
     End Using
 End Using
 
@@ -94,6 +89,64 @@ You can download a complete working sample from [GitHub]().
 Compare two Word documents by setting author and date for revisions to identify the changes clearly.
 
 The following code example shows how to set author and date for revision while comparing two Word documents.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Loads the original document.
+using (FileStream originalDocumentStreamPath = new FileStream("Data/OriginalDocument.docx", FileMode.Open, FileAccess.Read))
+{
+    using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
+    {
+        //Loads the revised document.
+        using (FileStream revisedDocumentStreamPath = new FileStream("Data/RevisedDocument.docx", FileMode.Open, FileAccess.Read))
+        {
+            using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
+            {
+                // Compare the original and revised Word documents.
+                originalDocument.Compare(revisedDocument,"Nancy Davolio", DateTime.Now.AddDays(-1));
+
+                //Saves the Word document to MemoryStream
+                MemoryStream stream = new MemoryStream();
+                originalDocument.Save(stream, FormatType.Docx);
+            }
+        }                 
+    }                           
+}
+
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Loads the original document.
+using (WordDocument originalDocument = new WordDocument("Data/OriginalDocument.docx", FormatType.Docx))
+{
+    //Loads the revised document.
+    using (WordDocument revisedDocument = new WordDocument("Data/RevisedDocument.docx", FormatType.Docx))
+   {
+        /Compare original document and revised documents.
+        originalDocument.Compare(revisedDocument,"Nancy Davolio", DateTime.Now.AddDays(-1));
+        //Save the Word document.
+        originalDocument.Save("Result.docx");          
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open the original Word document.
+Using originalDocument As New WordDocument(originalFilePath, FormatType.Docx)
+    ' Open the revised Word document.
+    Using revisedDocument As New WordDocument(revisedFilePath, FormatType.Docx)
+        ' Compare original document with revised document.
+        originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1))
+        ' Save the Word document.
+        originalDocument.Save(resultFilePath)
+    End Using
+End Using
+
+{% endhighlight %}
+{% endtabs %}
 
 ## Comparison options
 
