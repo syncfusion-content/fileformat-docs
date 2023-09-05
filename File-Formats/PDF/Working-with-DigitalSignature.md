@@ -3986,13 +3986,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Get images from the existing signed signature field
 
-To obtain images from the appearance of an existing signed signature field, you can utilize the **GetImages** method within the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class. The code example below provides a clear demonstration of this functionality.
+Utilize the **GetImages** method within the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class to obtain images from the appearance of an existing signed signature field. The following code example provides a clear demonstration of this functionality.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Load the existing PDF file.
+//Load an existing PDF file.
 FileStream fileStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 PdfLoadedDocument ldoc = new PdfLoadedDocument(fileStream);
 //Get the existing signed signature field.
@@ -4002,14 +4002,14 @@ Stream[] imageStreams = loadedSignature.GetImages();
 for (int i = 0; i < imageStreams.Length; i++) {
     File.WriteAllBytes("Output" + i.ToString() + ".jpg", (imageStreams[i] as MemoryStream).ToArray());               
 }
-//Close the PDF document.
+//Close a PDF document.
 ldoc.Close(true);
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the existing PDF file.
+//Load an existing PDF file.
 PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
 //Get the existing signed signature field.
 PdfLoadedSignatureField loadedSignature = ldoc.Form.Fields[0] as PdfLoadedSignatureField;
@@ -4018,31 +4018,30 @@ Image[] images = loadedSignature.GetImages();
 for (int i = 0; i < images.Length; i++) {
     images[i].Save("Image" + i.ToString() + ".jpg", ImageFormat.Png);
 }
-//Close the PDF document.
+//Close a PDF document.
 ldoc.Close(true);
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Load an existing PDF document.
+'Load an existing PDF file.
 Dim fileStream As FileStream = New FileStream("Input.pdf", FileMode.Open, FileAccess.Read)
-'Get the existing signed signature field.
 Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument(fileStream)
-'Load an existing PDF document.
+'Get the existing signed signature field.
 Dim loadedSignature As PdfLoadedSignatureField = TryCast(ldoc.Form.Fields(0), PdfLoadedSignatureField)
 'Get the image.
- Dim images As Image() = loadedSignature.GetImages()
+Dim images As Image() = loadedSignature.GetImages()
 For i As Integer = 0 To images.Length - 1
     images(i).Save("Image.jpg", Imaging.ImageFormat.Png)
 Next
-'Close the PDF document.
+'Close a PDF document.
 ldoc.Close(True)
 
 {% endhighlight %}
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+Download a complete working sample from GitHub.
 
-N> This method retrieves the images when they are rendered on the signed signature field appearance; otherwise, it will return null.
+N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.

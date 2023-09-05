@@ -1734,7 +1734,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML Header and Footer
 
-When converting HTML to PDF, you have the option to set an HTML file as both the header and footer. To do this, make use of the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
+When converting HTML to PDF, you can set an HTML file as header and footer. Use the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class to do this.
 
 {% tabs %}
 
@@ -1744,24 +1744,24 @@ When converting HTML to PDF, you have the option to set an HTML file as both the
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Initialize blink converter settings. 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-//Set Blink viewport size.
+//Set the Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1280, 0);
-//Set the html margin top value based on the html header height and margin top value.
+//Set the html margin-top value based on the html header height and margin-top value.
 blinkConverterSettings.Margin.Top = 70;
-//Set the html margin bottom value based on the html footer height and margin bottom value.
+//Set the html margin-bottom value based on the html footer height and margin-bottom value.
 blinkConverterSettings.Margin.Bottom = 40;
-//sets the custom HTML header to add at the top of each page.
+//Set the custom HTML header to add at the top of each page.
 blinkConverterSettings.HtmlHeader = File.ReadAllText("header.html"); 
-//sets the custom HTML footer to add at the bottom of each page.
+//Set the custom HTML footer to add at the bottom of each page.
 blinkConverterSettings.HtmlFooter = File.ReadAllText("footer.html");
-//Assign Blink converter settings to HTML converter.
+//Assign Blink converter settings to the HTML converter.
 htmlConverter.ConverterSettings = blinkConverterSettings;
-//Convert URL to PDF document.
+//Convert the URL to a PDF document.
 PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Create a filestream.
 FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
-//Save and close the PDF document.
+//Save and close a PDF document.
 document.Save(fileStream);
 document.Close(true);
 
@@ -1769,28 +1769,28 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the HTML to PDF converter.
+'Initialize HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 'Initialize blink converter settings.
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-'Set Blink viewport size.
+'Set the Blink viewport size.
 blinkConverterSettings.ViewPortSize = New Size(1280, 0)
-'Set the html margin top value based on the html header height and margin top value.
+'Set the html margin-top value based on the html header height and margin-top value.
 blinkConverterSettings.Margin.Top = 70
-'Set the html margin bottom value based on the html footer height and margin bottom value.
+'Set the html margin-bottom value based on the html footer height and margin-bottom value.
 blinkConverterSettings.Margin.Bottom = 40
-'sets the custom HTML header to add at the top of each page.
+'Set the custom HTML header to add at the top of each page.
 blinkConverterSettings.HtmlHeader = File.ReadAllText("header.html")
-'sets the custom HTML footer to add at the bottom of each page.
+'Set the custom HTML footer to add at the bottom of each page.
 blinkConverterSettings.HtmlFooter = File.ReadAllText("footer.html")
-'Assign Blink converter settings to HTML converter.
+'Assign Blink converter settings to the HTML converter.
 htmlConverter.ConverterSettings = blinkConverterSettings
-'Convert URL to PDF document.
+'Convert the URL to a PDF document.
 Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
-'Create file stream to save the PDF document. 
+'Create a filestream. 
 Dim fileStream As FileStream = New FileStream("Output.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
-'Save and close the PDF document.
+'Save and close a PDF document.
 document.Save(fileStream)
 document.Close(True)
 
@@ -1798,7 +1798,7 @@ document.Close(True)
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+Download a complete working sample from GitHub.
 
 N> Adjust the HTML margin top and bottom values according to the height of the HTML header and footer, as well as the margin settings.
 

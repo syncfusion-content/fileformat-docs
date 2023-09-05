@@ -648,15 +648,15 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Change_existing_PDF_properties). 
 
-## Remove specific key from the existing document information
+## Remove Specific Keys from the Existing Document Information
 
-To remove specific details from the existing document information, you can make use of the **Remove** method of [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_DocumentInformation) property. The following code example provides an explanation of how to do this.
+To remove specific details from the existing document information, use the **Remove** method of the [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_DocumentInformation) property. The following code example explains how to do this.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Load the existing PDF document. 
+//Load an existing PDF document. 
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 PdfLoadedDocument document = new PdfLoadedDocument(docStream); 
 
@@ -681,7 +681,7 @@ document.Close(true);
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Load the existing PDF document. 
+//Load an existing PDF document. 
 PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf"); 
 
 //Remove the document information properties. 
@@ -703,7 +703,7 @@ document.Close(true);
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Create a new PDF document.
+'Load an existing PDF document.
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'Remove the document information properties. 
@@ -716,7 +716,7 @@ document.DocumentInformation.Remove("Producer")
 document.DocumentInformation.Remove("ModDate")
 document.DocumentInformation.Remove("CreationDate")
 
-'Save the document
+'Save the document.
 document.Save("Output.pdf")
 'Close the document.
 document.Close(True)
@@ -725,7 +725,7 @@ document.Close(True)
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+Download a complete working sample from GitHub.
 
 ## Performing incremental update for PDF document
 
