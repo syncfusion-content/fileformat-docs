@@ -1734,7 +1734,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## HTML Header and Footer
 
-You can set Html string as header and footer when converting HTML to PDF, utilize the **HtmlHeader** and **HtmlFooter** properties in the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class. Please refer to the following code example.
+When converting HTML to PDF, you have the option to set an HTML string as both the header and footer. To do this, make use of the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
 
 {% tabs %}
 
@@ -1742,6 +1742,7 @@ You can set Html string as header and footer when converting HTML to PDF, utiliz
 
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 //Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1280, 0);
@@ -1770,6 +1771,7 @@ document.Close(true);
 
 'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Initialize blink converter settings.
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 'Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = New Size(1280, 0)
@@ -1798,7 +1800,7 @@ document.Close(True)
 
 You can download a complete working sample from GitHub.
 
-N> Need to set the html margin top and bottom value based on the html header footer height and margin value.
+N> Adjust the HTML margin top and bottom values according to the height of the HTML header and footer, as well as the margin settings.
 
 ## Temporary path
 

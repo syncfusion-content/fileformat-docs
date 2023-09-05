@@ -648,9 +648,9 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Change_existing_PDF_properties). 
 
-## Remove the specified key from the document information in existing PDF document
+## Remove specific key from the existing document information
 
-To remove specific details from the existing document information, the **Remove** method is utilized. The following code example explain this.
+To remove specific details from the existing document information, you can make use of the **Remove** method. The following code example provides an explanation of how to do this.
 
 {% tabs %}
 

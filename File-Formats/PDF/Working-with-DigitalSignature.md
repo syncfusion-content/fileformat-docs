@@ -3986,7 +3986,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Get images from the existing signed signature field
 
-You can get the images from the existing signed signature field’s appearance using the **GetImages** method in [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class. The following code example explains this.
+To obtain images from the appearance of an existing signed signature field, you can utilize the **GetImages** method within the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class. The code example below provides a clear demonstration of this functionality.
 
 {% tabs %}
 
