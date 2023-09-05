@@ -1732,6 +1732,74 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-rotate-page).
 
+## HTML Header and Footer
+
+When converting HTML to PDF, you can set an HTML file as header and footer. Use the **HtmlHeader** and **HtmlFooter** properties within the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class to do this.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Initialize blink converter settings. 
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+//Set the html margin-top value based on the html header height and margin-top value.
+blinkConverterSettings.Margin.Top = 70;
+//Set the html margin-bottom value based on the html footer height and margin-bottom value.
+blinkConverterSettings.Margin.Bottom = 40;
+//Set the custom HTML header to add at the top of each page.
+blinkConverterSettings.HtmlHeader = File.ReadAllText("header.html"); 
+//Set the custom HTML footer to add at the bottom of each page.
+blinkConverterSettings.HtmlFooter = File.ReadAllText("footer.html");
+//Assign Blink converter settings to the HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert the URL to a PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Create a filestream.
+FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+//Save and close a PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Initialize blink converter settings.
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the Blink viewport size.
+blinkConverterSettings.ViewPortSize = New Size(1280, 0)
+'Set the html margin-top value based on the html header height and margin-top value.
+blinkConverterSettings.Margin.Top = 70
+'Set the html margin-bottom value based on the html footer height and margin-bottom value.
+blinkConverterSettings.Margin.Bottom = 40
+'Set the custom HTML header to add at the top of each page.
+blinkConverterSettings.HtmlHeader = File.ReadAllText("header.html")
+'Set the custom HTML footer to add at the bottom of each page.
+blinkConverterSettings.HtmlFooter = File.ReadAllText("footer.html")
+'Assign Blink converter settings to the HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert the URL to a PDF document.
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Create a filestream. 
+Dim fileStream As FileStream = New FileStream("Output.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close a PDF document.
+document.Save(fileStream)
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Adjust the HTML margin top and bottom values according to the height of the HTML header and footer, as well as the margin settings.
+
 ## Temporary path
 
 The Blink HTML converter launching Chrome browser to perform conversion. While launching Chrome browser, temporary files are created in a temporary folder.
