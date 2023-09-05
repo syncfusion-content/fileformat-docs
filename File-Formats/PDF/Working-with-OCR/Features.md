@@ -1271,7 +1271,7 @@ End Using
 
 ## Get image rotation angle from OCR processor
 
-For Getting the Image rotation angle, you can rotate the image with 4 angles (0,90,180,360) from OCR Processor. This feature is working in multiple Images and multiple pages. The following code sample illustrates to support to get the Image Rotation angle from OCR Processor.
+To get the Image rotation angle, you can rotate the image with 4 angles (0,90,180, and 360) from the OCR Processor. This feature works in multiple Images and multiple pages. The following code sample illustrates support for the Image Rotation angle from the OCR Processor.
 
 {% tabs %}  
 
@@ -1280,13 +1280,13 @@ For Getting the Image rotation angle, you can rotate the image with 4 angles (0,
 //Initialize the OCR processor.@
 using (OCRProcessor processor = new OCRProcessor())
 {
-    //Get stream from an image file. 
+    //Get the stream from an image file. 
     FileStream stream = new FileStream(@"D:\Input.pdf", FileMode.Open);
-    //Set OCR language to process.
+    //Set the OCR language to process.
     PdfLoadedDocument document = new PdfLoadedDocument(stream);
-    //Set OCR language.
+    //Set the OCR language.
     processor.Settings.Language = Languages.English;
-    //Sets Unicode font to preserve the Unicode characters in a PDF document.
+    //Set the Unicode font to preserve the Unicode characters in a PDF document.
     processor.TesseractPath = @"D:\Tesseractbinaries_core\Windows\x64";
     processor.PerformOCR(document, 0, 0, @"D:\tessdata", out OCRLayoutResult result);
     float angle = 0;
@@ -1316,13 +1316,13 @@ using (OCRProcessor processor = new OCRProcessor())
 
 'Initialize the OCR processor
 Using processor As OCRProcessor = New OCRProcessor()
-    'Get stream from an image file. 
+    'Get the stream from an image file. 
     Dim stream As FileStream = New FileStream(@"D:\Input.pdf", FileMode.Open);
-    'Set OCR language to process.
+    'Set the OCR language to process.
     Dim document As PdfLoadedDocument = New PdfLoadedDocument(stream);
-    'Set OCR language.
+    'Set the OCR language.
     processor.Settings.Language = Languages.English;
-    'Sets Unicode font to preserve the Unicode characters in a PDF document.
+    'Set the Unicode font to preserve the Unicode characters in a PDF document.
     processor.TesseractPath = @"D:\Tesseractbinaries_core\Windows\x64";
     processor.PerformOCR(document, 0, 0, @"D:\tessdata", out OCRLayoutResult result);
     float angle = 0;
