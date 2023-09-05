@@ -1269,8 +1269,6 @@ End Using
 
 {% endtabs %}  
 
-new
-
 ## Support to get the Image Rotation angle from OCR Processor
 
 For Getting the Image rotation angle, you can rotate the image with 4 angles (0,90,180,360) from OCR Processor. This feature is working in multiple Images and multiple pages. 
