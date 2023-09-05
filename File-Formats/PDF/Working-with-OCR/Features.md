@@ -1269,11 +1269,9 @@ End Using
 
 {% endtabs %}  
 
-## Support to get the Image Rotation angle from OCR Processor
+## Get image rotation angle from OCR processor
 
-For Getting the Image rotation angle, you can rotate the image with 4 angles (0,90,180,360) from OCR Processor. This feature is working in multiple Images and multiple pages. 
-
-The following code sample illustrates to support to get the Image Rotation angle from OCR Processor:
+For Getting the Image rotation angle, you can rotate the image with 4 angles (0,90,180,360) from OCR Processor. This feature is working in multiple Images and multiple pages. The following code sample illustrates to support to get the Image Rotation angle from OCR Processor:
 
 {% tabs %}  
 

@@ -1835,7 +1835,7 @@ document.Close(True)
 
 {% endtabs %}
 
-## Inject Custom CSS
+## Inject custom CSS
 
 The Blink rendering engine supports the injection of custom CSS to be applied to HTML or a URL before rendering it into a PDF document using the 'Css' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class 
 
@@ -1886,7 +1886,7 @@ document.Close(true)
 
 {% endtabs %}
 
-## Inject Custom JavaScript
+## Inject custom JavaScript
 
 The Blink rendering engine offers support for injecting custom JavaScript to be applied to HTML or a URL before rendering it into a PDF document using the 'JavaScript' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
 
@@ -1936,9 +1936,9 @@ document.Close(true)
 
 {% endtabs %}
 
-## Performance Optimization.
+## Performance optimization
 
-The Blink rendering engine provides support for reusing the browser process to optimize the HTML to PDF performance for multiple operations using the 'ReuseBrowserProcess' property of the 'HtmlToPdfConverter' class.
+The Blink rendering engine provides support for reusing the browser process to optimize the HTML to PDF performance for multiple operations using the 'ReuseBrowserProcess' property of the [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class.
 
 {% tabs %}
 
