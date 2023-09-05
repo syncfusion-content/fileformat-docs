@@ -1846,24 +1846,19 @@ The Blink rendering engine provides the support for inject the custom CSS to be 
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1280, 0);
 blinkConverterSettings.Margin.All = 30;
-
 //Set custom CSS
 blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}";
-
 htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF document.
 PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
-
 //Create a filestream.
 FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 //Save and close the PDF document.
 document.Save(fileStream);
 document.Close(true);
-
 
 {% endhighlight %}
 
@@ -1876,14 +1871,11 @@ Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSetting
 'Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = New Size(1280, 0)
 blinkConverterSettings.Margin.All = 30
-
 'Set custom CSS
 blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}"
-
 htmlConverter.ConverterSettings = blinkConverterSettings
 'Convert URL to PDF document.
 Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
-
 'Create a filestream.
 Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
 'Save and close the PDF document.
@@ -1896,7 +1888,7 @@ document.Close(true)
 
 ## Inject Custom JavaScript
 
-The Blink rendering engine provides the support for inject the custom JavaScript to be applied in HTML or URL before rendering to PDF.
+The Blink rendering engine offers support for injecting custom JavaScript to be applied to HTML or a URL before rendering it into a PDF document using the 'JavaScript' property of the 'BlinkConverterSettings' class.
 
 {% tabs %}
 
@@ -1905,19 +1897,14 @@ The Blink rendering engine provides the support for inject the custom JavaScript
 //Initialize HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
 //Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1280, 0);
 blinkConverterSettings.Margin.All = 30;
-
 //Set Custom JavaScript
 blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})";
-
-
 htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert URL to PDF document.
 PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
-
 //Create a filestream.
 FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 //Save and close the PDF document.
@@ -1931,19 +1918,14 @@ document.Close(true);
 'Initialize HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
 'Set Blink viewport size.
 blinkConverterSettings.ViewPortSize = new Size(1280, 0)
 blinkConverterSettings.Margin.All = 30
-
 'Set Custom JavaScript
 blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})"
-
-
 htmlConverter.ConverterSettings = blinkConverterSettings
 'Convert URL to PDF document.
 Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
-
 'Create a filestream.
 Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
 'Save and close the PDF document.
@@ -1956,7 +1938,7 @@ document.Close(true)
 
 ## Performance Optimization.
 
-The Blink rendering engine provides support for Reuse the Browser Process to optimize the HTML to PDF performance of multiple operations.
+The Blink rendering engine provides support for reusing the browser process to optimize the HTML to PDF performance for multiple operations using the 'ReuseBrowserProcess' property of the 'HtmlToPdfConverter' class.
 
 {% tabs %}
 
