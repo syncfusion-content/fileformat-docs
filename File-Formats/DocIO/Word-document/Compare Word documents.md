@@ -13,7 +13,8 @@ Comparing two documents allows you to identify differences and similarities betw
 *	Deletions
 *	Formatting
 
-N> Comparing two Word documents supported in DOCX format only.
+N> 1. DocIO performs word level comparison while comparing two Word documents.
+N> 2. Comparing two Word documents supported in DOCX format only.
 
 ## Compare two Word documents 
 
