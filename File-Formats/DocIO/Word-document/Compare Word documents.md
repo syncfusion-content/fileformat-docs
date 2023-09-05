@@ -1,5 +1,5 @@
 ---
-title: Compare Word documents in C# | DocIO | Syncfusion
+title: Compare Word Documents in C# | DocIO | Syncfusion
 description: Learn how to compare two Word documents in C# using .NET Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
@@ -225,3 +225,7 @@ End Using
 {% endtabs %}
 
 ![Compare Word documents by ignoring format changes](WorkingwithWordDocument_images/Ignore-format-changes.png)
+
+## See Also
+
+* [What happens when Word documents with track changes are used for comparing?](https://help.syncfusion.com/file-formats/docio/faq#what-happens-when-word-documents-with-track-changes-are-used-for-comparing)
