@@ -572,7 +572,7 @@ XlsIO supports converting threaded comments conversation in Excel document to PD
 
 ### Convert threaded comments at the end of the sheet
 
-Threaded comments will be rendered in the PDF document at the end of the each sheet which contains the threaded comments, when the **PrintSheetEnd** option is selected. The following code illustrates how to set print options to convert threaded comments.
+Threaded comments will be rendered in the PDF document at the end of the each sheet, when the **PrintSheetEnd** option is selected. The following code illustrates how to set print options to convert threaded comments.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
