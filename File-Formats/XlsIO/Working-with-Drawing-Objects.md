@@ -880,7 +880,7 @@ Threaded comments are a way to add and organize annotations or discussions relat
 
 ### Create
 
-The following code create a threaded comment for a specific cell with the specified text using **AddThreadedComment** method.
+The following code explains how to create a threaded comment for a specific cell with the specified text using **AddThreadedComment** method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
