@@ -1232,36 +1232,19 @@ Stream outputStream = imageConverter.Convert(0, false, false);
 Bitmap image = new Bitmap(outputStream);
 image.Save("sample.png");
 
-//Close the document.
-loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb tabtitle="VB" %}
 
-'Initialize the PdfViewer Control
-Dim pdfViewer As PdfViewerControl = New PdfViewerControl()
-'Load the input PDF file
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Barcode.pdf")
-pdfViewer.Load(loadedDocument)
-
-'Export the particular PDF page as image at the page index of 0
-Dim image As BitmapSource = pdfViewer.ExportAsImage(0)
-'Setup the output path
-Dim output As String = "Image"
-If image IsNot Nothing Then
-  'Initialize the New PngBitmapEncoder
-  Dim encoder As BitmapEncoder = New PngBitmapEncoder()
-  'Create the bitmap frame using the bitmap source And add it to the encoder
-  encoder.Frames.Add(BitmapFrame.Create(image))
-
-  'Create the file stream for the output in the desired image format
-  Dim stream As FileStream = New FileStream(output & ".png", FileMode.Create)
-  'Save the stream, so that the image will be generated in the output location
-  encoder.Save(stream)
-End If
-
-'Close the document
-loadedDocument.Close()
+'Initialize PDF to Image converter.
+Dim imageConverter As PdfToImageConverter = New PdfToImageConverter()
+'Load the PDF document as a stream
+Dim inputStream As FileStream = New FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite)
+imageConverter.Load(inputStream)
+'Convert PDF to Image.
+Dim outputStream As Stream = imageConverter.Convert(0, False, False)
+Dim image As Bitmap = New Bitmap(outputStream)
+image.Save("sample.png")
 
 {% endhighlight %}
 
