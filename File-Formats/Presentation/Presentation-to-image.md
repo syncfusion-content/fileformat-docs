@@ -19,7 +19,7 @@ This section covers converting an entire Presentation or a single slide to image
 
 ## Assemblies Required
 
-Refer to the following links for assemblies required based on platforms to convert the worksheet to image.
+Refer to the following links for assemblies required based on platforms to convert the PowerPoint document to image.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-to-image)
