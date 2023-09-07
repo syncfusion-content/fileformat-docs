@@ -27,7 +27,7 @@ N> From version 20.1.0.55, if you are using the Blink rendering engine in Linux 
 
 * Latest version of Essential HTML converter can be downloaded from the following link.
 
-    [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+    [https://www.syncfusion.com/downloads](https://www.syncfusion.com/downloads)
 
 * To convert an HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as a reference to the project.
 
@@ -121,11 +121,11 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 
 ## Prerequisites for Linux
 
-* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
+* Supports conversion from [.NET Core 2.0](https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/intro). 
 
 * The latest HTML converter for Linux can be downloaded as ZIP file from the following link.
 
-	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	[https://www.syncfusion.com/downloads](https://www.syncfusion.com/downloads)
 	
 * To convert HTML to PDF in the ASP.NET Core application using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.  
 
@@ -144,11 +144,11 @@ N> The previously mentioned NuGet packages are available in [nuget.org](https://
 
 ## Prerequisites for Mac
 
-* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
+* Supports conversion from [.NET Core 2.0](https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/intro). 
 
 * The latest Blink HTML converter for Mac can be downloaded as PKG file from the following link.
 
-	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	[https://www.syncfusion.com/downloads](https://www.syncfusion.com/downloads)
   
 * To convert HTML to PDF in the ASP.NET Core application using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.  
 
