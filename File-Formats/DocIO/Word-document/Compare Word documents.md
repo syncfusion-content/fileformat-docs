@@ -8,12 +8,12 @@ documentation: UG
 
 # Compare Word documents in C#
 
-Comparing two documents allows you to identify differences and similarities between them. The .NET Word library (DocIO) enables you to compare two Word documents and highlight the following changes as tracked changes.
+Comparing two Word documents allows you to identify the changes between two versions of a document. The .NET Word library (DocIO) enables you to compare two Word documents and highlight the following changes as tracked changes.
 *	Insertions
 *	Deletions
 *	Formatting
 
-N> 1. DocIO performs word level comparison while comparing two Word documents.
+N> 1. DocIO performs word level comparison while comparing two Word documents.In this scenario, if a single character in a word is changed, the entire word will be highlighted as changed.
 N> 2. Comparing two Word documents supported in DOCX format only.
 
 ## Compare two Word documents 
@@ -79,11 +79,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-![Compare Word documents in C#](WorkingwithWordDocument_images/Compare-Word-documents-without-author.png)
+![Compare Word documents in C#](../WorkingwithWordDocument_images/Compare-Word-documents-without-author.png)
 
 ## Set Author and Date 
 
-Compare the two Word documents by setting the author and date for revisions to identify the changes.
+Compare the two Word documents by setting the author and date for revisions to identify the changes. In DocIO, the default setting for the "author" field is "Author", and the default setting for the "dateTime" field is the current time.
 
 The following code example shows how to set the author and date for revision while comparing two Word documents.
 
@@ -144,7 +144,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-![Compare Word documents in C#](WorkingwithWordDocument_images/Compare-Word-documents.png)
+![Compare Word documents in C#](../WorkingwithWordDocument_images/Compare-Word-documents.png)
 
 ## Comparison options
 
@@ -224,7 +224,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-![Compare Word documents by ignoring format changes](WorkingwithWordDocument_images/Ignore-format-changes.png)
+![Compare Word documents by ignoring format changes](../WorkingwithWordDocument_images/Ignore-format-changes.png)
 
 ## See Also
 
