@@ -8,7 +8,7 @@ documentation: UG
 
 # Converting PDF pages into images
 
-PdfToImageConverter allows exporting pages of a PDF file into JPG, PNG, TIFF, and BMP formats using Convert methods. This option helps to convert PDF pages into images.
+PdfToImageConverter allows exporting pages of a PDF document into the stream using the Convert method. This option helps convert PDF pages into images.
 
 ## Converting a single page into image
 

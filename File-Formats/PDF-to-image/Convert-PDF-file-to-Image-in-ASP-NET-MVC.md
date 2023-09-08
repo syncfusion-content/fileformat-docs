@@ -22,8 +22,6 @@ Step 2: In the project configuration windows, name your project and select Creat
 
 Step 3: Install [Syncfusion.PdfToImageConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.AspNet.Mvc5/) NuGet package as reference to your .NET applications from [NuGet.org](https://www.nuget.org/).
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
-
 Step 4: Include the following namespaces in the HomeController.cs file.
 
 {% highlight c# tabtitle="C#" %}
