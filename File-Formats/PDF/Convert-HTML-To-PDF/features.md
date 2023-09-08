@@ -1902,3 +1902,152 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+## Inject custom CSS
+
+The Blink rendering engine supports the injection of custom CSS to be applied to HTML or a URL before rendering it into a PDF document using the 'Css' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+blinkConverterSettings.Margin.All = 30;
+//Set the custom CSS
+blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}";
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert the URL to PDF document.
+PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+//Create a filestream.
+FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = New Size(1280, 0)
+blinkConverterSettings.Margin.All = 30
+'Set custom CSS
+blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}"
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert the URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
+'Create a filestream.
+Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Inject custom JavaScript
+
+The Blink rendering engine offers support for injecting custom JavaScript to be applied to the HTML or a URL before rendering it into a PDF document using the 'JavaScript' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set the Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+blinkConverterSettings.Margin.All = 30;
+//Set the Custom JavaScript
+blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})";
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert the URL to PDF document.
+PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+//Create a filestream.
+FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize the HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+'Set the Blink viewport size.
+blinkConverterSettings.ViewPortSize = new Size(1280, 0)
+blinkConverterSettings.Margin.All = 30
+'Set the Custom JavaScript
+blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})"
+htmlConverter.ConverterSettings = blinkConverterSettings
+'Convert the URL to PDF document.
+Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
+'Create a filestream.
+Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+'Save and close the PDF document.
+document.Save(fileStream)
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Performance optimization
+
+The Blink rendering engine provides support for reusing the browser process to optimize the HTML to a PDF performance for multiple operations using the 'ReuseBrowserProcess' property of the [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Initialize the HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Reuse the browser instance.           
+htmlConverter.ReuseBrowserProcess = true;
+for (int i = 0; i < 10; i++)        
+{           
+    BlinkConverterSettings settings = new BlinkConverterSettings();
+    settings.AdditionalDelay = 1000;
+    settings.EnableJavaScript = true;
+    htmlConverter.ConverterSettings = settings;        
+    //Convert the URL to PDF document.
+    PdfDocument document = htmlConverter.Convert(https://www.google.com);
+    document.Save("Sample.pdf");      
+}
+htmlConverter.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Initialize HTML to PDF converter.
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Reuse the browser instance.           
+htmlConverter.ReuseBrowserProcess = true
+For i As Integer = 0 To 9
+{           
+    Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+    settings.AdditionalDelay = 1000
+    settings.EnableJavaScript = true
+    htmlConverter.ConverterSettings = settings    
+    'Convert URL to PDF document.
+    Dim document As PdfDocument = htmlConverter.Convert(https://www.google.com)
+    document.Save("Sample.pdf");     
+}
+Next i
+htmlConverter.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
