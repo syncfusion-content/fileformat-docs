@@ -15,6 +15,7 @@ Comparing two Word documents allows you to identify the changes between two vers
 
 N> 1. DocIO performs word level comparison while comparing two Word documents.In this scenario, if a single character in a word is changed, the entire word will be highlighted as changed.
 N> 2. Comparing two Word documents supported in DOCX format only.
+N> 3. Converting PowerPoint slides to images based on animation effects is not supported on the UWP platform.
 
 ## Compare two Word documents 
 
