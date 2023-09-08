@@ -1837,7 +1837,7 @@ document.Close(True)
 
 ## Inject custom CSS
 
-The Blink rendering engine supports the injection of custom CSS to be applied to HTML or a URL before rendering it into a PDF document using the 'CSS' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class 
+The Blink rendering engine supports the injection of custom CSS to be applied to HTML or a URL before rendering it into a PDF document using the 'Css' property of the [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class 
 
 {% tabs %}
 
