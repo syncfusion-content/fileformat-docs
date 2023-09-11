@@ -471,7 +471,7 @@ By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the pack
 <th style="font-size:14px" width="100px">Solution
 </th>
 <td>
-Our WebKit rendering engine requires OPENSSL assemblies for accessing the resources from HTTPS URL. If you are accessing any resources from HTTPS sites, then kindly include these below assemblies in your project,
+Our WebKit rendering engine necessitates OPENSSL assemblies to access resources from HTTPS URLs. If your project involves accessing resources from HTTPS sites, please make sure to include the following assemblies,
 <br><br>
 <img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
 You can get the OPENSSL assemblies from the below link,
