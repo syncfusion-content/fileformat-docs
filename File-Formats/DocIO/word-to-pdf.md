@@ -12,6 +12,10 @@ documentation: UG
 
 The Word document files are converted as a PDF document with a few lines of code by using the Essential DocIO. It works perfectly when you create an input Word document from scratch or load an existing Word document and easily converted into PDF. 
 
+To quickly start converting a Word document to a PDF, please check out this video:
+
+{% youtube "https://www.youtube.com/watch?v=8QdevnBxgHk" %}
+
 Refer to the following links for assemblies required based on platforms to convert the Word document to PDF.
 
 * [Word to PDF conversion assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) 
