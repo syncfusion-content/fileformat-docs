@@ -452,6 +452,45 @@ The runtime files, or blink binaries, will be copied into a bin or published fol
 
 By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the package reference of the csproj file, you can exclude the runtime files or blink binaries from being copied into the bin or publish folder while building and publishing the application. But you need to place the BlinkBinaries in the server disk and set the BlinkPath in the BlinkConverterSettings to perform the conversion. 
 
+## Preservation issues occurs while converting HTML(HTTPS sites) to PDF using WebKit rendering engine in local machine/Azure App service
+
+<table>
+<th style="font-size:14px" width="100px">Issue
+</th>
+<th style="font-size:14px">Preservation issues occurs while converting HTML(HTTPS sites) to PDF using WebKit rendering engine in local machine/Azure App Service. 
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The issue occurs due to missing of OPENSSL assemblies in your machine.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>
+Our WebKit rendering engine requires OPENSSL libraries to be installed in the machine where the conversion takes place. 
+You can get the OPENSSL assemblies from the below link,<br>
+OPENSSL Assemblies: 
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
+
+<br>
+Below mentioned assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in <i>$SystemDrive\Windows\SysWOW64</i> and for 32-bit machine, it should be place in <i>$SystemDrive\Windows\System32</i>),
+<ol>
+<li>libeay32.dll</li>
+<li>libssl32.dll</li>
+<li>ssleay32.dll</li>
+</ol>
+<br>
+If you are accessing any resources from HTTPS sites in Azure App Service, kindly include these above assemblies in your project,
+<br><br>
+<img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
+</td>
+</tr>
+</table>
+
 {{'**Note:**'| markdownify }}Using this approach, you can reduce the deployment size on your own servers.
 
 Refer to the following package reference:
@@ -479,3 +518,4 @@ Refer to the following package reference:
 		<td>Yes</td>
 	</tr>
 </table>
+
