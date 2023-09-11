@@ -206,7 +206,6 @@ For instance, if a slide includes bulleted paragraphs, each having entrance anim
 
 N> 1. Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first image itself.
 N> 2. The UWP platform does not support the conversion of PowerPoint animations to images.
-N> 3. The UWP platform does not support the conversion of PowerPoint slides to images based on animation effects.
 
 The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the `PresentationAnimationConverter` API.
 
