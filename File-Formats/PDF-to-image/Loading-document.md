@@ -1,21 +1,23 @@
 ---
-title: Open PDF file in C# | Syncfusion
-description: This page describes how to open PDF file from stream in C# using Syncfusion PDF to image converter library.
+title: Load PDF file in C# | Syncfusion
+description: This page describes how to load PDF file from stream in C# using Syncfusion PDF to image converter library.
 platform: file-formats
 control: PDF to image
 documentation: UG
 ---
-# Open PDF file in C#
+# Load PDF file in C#
 
-## Opening an existing PDF document using constructor
+User can load a PDF as a stream using PdfToImageConverter, and then we can convert the PDF pages into images.
 
-You can open an existing document by using PdfToImageConverter class. The following example shows how to load an existing document from physical path or stream using constructor.
+## Loading an existing PDF document using constructor
+
+You can load an existing document to PdfToImageConverter. When creating an instance of the PdfToImageConverter class, pass the PDF document as a stream. The following example shows how to load an existing document from stream using the constructor.
 
 {% tabs %} 
 
 {% highlight c# tabtitle="C#" %}
 
-//Open an existing PDF document from stream through constructor of `PdfToImageConverter` class. 
+//Load an existing PDF document from stream through constructor of `PdfToImageConverter` class. 
 FileStream inputPDFStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 PdfToImageConverter imageConverter = new PdfToImageConverter(inputPDFStream);
 
@@ -23,15 +25,15 @@ PdfToImageConverter imageConverter = new PdfToImageConverter(inputPDFStream);
 
 {% endtabs %}
 
-## Opening an existing PDF document using load method
+## Loading an existing PDF document using load method
 
-You can open an existing document by using PdfToImageConverter class. The following example shows how to load an existing document from physical path or stream using load method.
+You can load an existing document to PdfToImageConverter. When using the 'load' method of the PdfToImageConverter class, pass the PDF document as a stream. The following example shows how to load an existing document from a stream using the 'load' method.
 
 {% tabs %} 
 
 {% highlight c# tabtitle="C#" %}
 
-//Open an existing PDF document from stream through load method of `PdfToImageConverter` class.
+//Load an existing PDF document from stream through load method of `PdfToImageConverter` class.
 PdfToImageConverter imageConverter = new PdfToImageConverter();
 FileStream inputPDFStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 imageConverter.Load(inputPDFStream);
@@ -40,15 +42,15 @@ imageConverter.Load(inputPDFStream);
 
 {% endtabs %}
 
-## Opening an Encrypted PDF document using constructor
+## Loading an Encrypted PDF document using constructor
 
-You can open an existing encrypted PDF document from either the file system or the stream using constructor of PdfToImageConverter class as shown in the below code example. 
+You can load an existing encrypted document to PdfToImageConverter. When creating an instance of the PdfToImageConverter class, pass the PDF document as a stream and the password required to decrypt the provided PDF file. The following example shows how to load an existing enrypted document from a stream using the constructor.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Open an encrypted PDF document from stream through constructor of `PdfToImageConverter` class. 
+//Load an encrypted PDF document from stream through constructor of `PdfToImageConverter` class. 
 FileStream inputPDFStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 PdfToImageConverter imageConverter = new PdfToImageConverter(inputPDFStream, "password");
 
@@ -56,15 +58,15 @@ PdfToImageConverter imageConverter = new PdfToImageConverter(inputPDFStream, "pa
 
 {% endtabs %}
 
-## Opening an Encrypted PDF document using load method
+## Loading an Encrypted PDF document using load method
 
-You can open an existing encrypted PDF document from either the file system or the stream using load method of PdfToImageConverter class as shown in the below code example. 
+You can load an existing encrypted document into PdfToImageConverter.When using the 'load' method of the PdfToImageConverter class, pass the PDF document as a stream and the password required to decrypt the provided PDF file. The following example shows how to load an existing enrypted document from a stream using the 'load' method.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
-//Open an encrypted PDF document from stream through constructor of `PdfToImageConverter` class.
+//Load an encrypted PDF document from stream through constructor of `PdfToImageConverter` class.
 PdfToImageConverter imageConverter = new PdfToImageConverter();
 FileStream inputPDFStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 imageConverter.Load(inputPDFStream, "password");
