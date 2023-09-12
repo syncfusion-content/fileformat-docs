@@ -452,34 +452,7 @@ The runtime files, or blink binaries, will be copied into a bin or published fol
 
 By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the package reference of the csproj file, you can exclude the runtime files or blink binaries from being copied into the bin or publish folder while building and publishing the application. But you need to place the BlinkBinaries in the server disk and set the BlinkPath in the BlinkConverterSettings to perform the conversion. 
 
-## Image rendering issue occurs while converting HTML to PDF using WebKit
 
-<table>
-<th style="font-size:14px" width="100px">Issue
-</th>
-<th style="font-size:14px">Image rendering issue occurs while converting HTML(HTTPS sites) to PDF using Webkit rendering engine in location machine/Azure App Service. 
-</th>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>When the OPENSSL assemblies are missing in your machine.
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>
-Our WebKit rendering engine necessitates OPENSSL assemblies to access resources from HTTPS URLs. If your project involves accessing resources from HTTPS sites, please make sure to include the following assemblies,
-<br><br>
-<img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
-You can get the OPENSSL assemblies from the below link,
-<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
-<br><br>
-</td>
-</tr>
-</table>
 
 {{'**Note:**'| markdownify }}Using this approach, you can reduce the deployment size on your own servers.
 
@@ -509,3 +482,31 @@ Refer to the following package reference:
 	</tr>
 </table>
 
+## Image rendering issue occurs while converting HTML to PDF using WebKit
+
+<table>
+<th style="font-size:14px" width="100px">Issue
+</th>
+<th style="font-size:14px">Image rendering issue occurs while converting HTML(HTTPS sites) to PDF using Webkit rendering engine in location machine/Azure App Service. 
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>When the OPENSSL assemblies are missing in your machine.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>
+Our WebKit rendering engine necessitates OPENSSL assemblies to access resources from HTTPS URLs. If your project involves accessing resources from HTTPS sites, please make sure to include the following assemblies,
+<br><br>
+<img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
+You can get the OPENSSL assemblies from the below link,
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
+<br><br>
+</td>
+</tr>
+</table>
