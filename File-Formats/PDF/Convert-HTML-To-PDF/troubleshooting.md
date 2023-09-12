@@ -479,3 +479,32 @@ Refer to the following package reference:
 		<td>Yes</td>
 	</tr>
 </table>
+
+## Image rendering issue occurs while converting HTML to PDF using WebKit
+
+<table>
+<th style="font-size:14px" width="100px">Issue
+</th>
+<th style="font-size:14px">Image rendering issue occurs while converting HTML(HTTPS sites) to PDF using Webkit rendering engine in location machine/Azure App Service. 
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>When the OPENSSL assemblies are missing in your machine.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>
+Our WebKit rendering engine necessitates OPENSSL assemblies to access resources from HTTPS URLs. If your project involves accessing resources from HTTPS sites, please make sure to include the following assemblies,
+<br><br>
+<img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
+You can get the OPENSSL assemblies from the below link,
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
+<br><br>
+</td>
+</tr>
+</table>
