@@ -452,8 +452,6 @@ The runtime files, or blink binaries, will be copied into a bin or published fol
 
 By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the package reference of the csproj file, you can exclude the runtime files or blink binaries from being copied into the bin or publish folder while building and publishing the application. But you need to place the BlinkBinaries in the server disk and set the BlinkPath in the BlinkConverterSettings to perform the conversion. 
 
-
-
 {{'**Note:**'| markdownify }}Using this approach, you can reduce the deployment size on your own servers.
 
 Refer to the following package reference:
