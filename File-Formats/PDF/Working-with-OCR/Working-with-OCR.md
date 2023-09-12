@@ -254,6 +254,9 @@ Download the language packages from the following link.
 
 ## Get Started with OCR 
 
+To quickly get started with Extract Text from Scanned PDF in .NET using the OCR Library. Please, check this video:
+{% youtube "https://www.youtube.com/watch?v=VhN7ETn0vyA" %}
+
 ### Perform OCR using C# 
 
 Integrating the OCR processor library in any .NET application is simple. Please refer to the following steps to perform OCR in your .NET application. 

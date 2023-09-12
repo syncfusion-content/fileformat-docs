@@ -12,6 +12,9 @@ To quickly get started with digitally signing a PDF document and validating sign
 
 ## Adding a digital signature
 
+To quickly get started to Add a digital signature in a PDF document, check this video:
+{% youtube "https://www.youtube.com/watch?v=zuQRsrzdWgA" %}
+
 The Essential PDF allows you to add a [digital signature](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/digital-signature-pdf) to the PDF document. To add a digital signature, you need a certificate with private keys. The Essential PDF provides support for digital signature by using the PFX files, Hardware Security Module (HSM), Online Certificate Status Protocol (OCSP), Certificate Revocation List (CRL), Windows Certificate Store, and supports signatures using the Elliptic Curve Digital Signature Algorithm (ECDSA).
 
 The following code example explains how to add a digital signature to the PDF document by using [PdfSignature](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html) class.
