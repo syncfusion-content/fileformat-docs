@@ -63,4 +63,4 @@ return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "s
 {% endhighlight %}
 
 By executing the program, you will get the image as follows.
-![Convert PDFToImage WPF output](GettingStarted_images/pdftoimageoutput.png)
+![Convert PDFToImage MVC output](GettingStarted_images/pdftoimageoutput.png)
