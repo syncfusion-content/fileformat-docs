@@ -11,7 +11,6 @@ documentation: UG
 The Essential DocIO converts the Word document to images using the [RenderAsImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_RenderAsImages_Syncfusion_DocIO_DLS_ImageType_) method.
 
 To quickly start converting a Word document to an image, please check out this video:
-
 {% youtube "https://www.youtube.com/watch?v=hoV3i7nl85I" %}
 
 Refer to the following links for assemblies and NuGet packages required based on platforms to convert the Word document to image.

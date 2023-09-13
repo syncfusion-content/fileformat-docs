@@ -132,7 +132,7 @@ settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>The Newtonsoft.Json package version with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.
+<td>The Newtonsoft.Json package version with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.	
 <br><br/>
 {% highlight html %}
 
@@ -221,6 +221,19 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
+<td>Including both packages (Blink and Webkit) in the application might lead to the occurrence of the exception.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>In order to resolve the exception, it's necessary to eliminate one of the packages (Webkit or Blink) from the application and then perform a thorough cleaning and rebuilding process.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
 <td>Sometimes this exception occurs for only particular URL
 </td>
 </tr>
@@ -254,6 +267,41 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <td>Please check the internet connection and the HTML page is available in the mentioned location.
 <br><br/>
 Check the HTML file or URL is rendered properly in Chrome browser's print preview. 
+</td>
+</tr>
+</table>
+
+## Failed to convert webpage exception in Linux Docker
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Failed to convert webpage exception in Linux Docker.
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>This exception might arise because the Blink binary files lack sufficient permissions to be launched from the specified BlinkPath location.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome this exception, you can provide a execute permission for chrome and chrome-wrapper file inside the runtimes/linux/native folder by using the docker command.
+<br><br/>
+<img src="htmlconversion_images/Troubleshooting_webpage_exception_Linux.png" alt="ExcludeAssets">
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+COPY . /app
+WORKDIR /app
+
+RUN chmod +x /app/runtimes/linux/native/chrome && \
+    chmod +x /app/runtimes/linux/native/chrome-wrapper
+
+{% endhighlight %}
 </td>
 </tr>
 </table>
@@ -411,6 +459,56 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 
+## OCR not working on Mac: Exception has been thrown by the target of an invocation
+
+<table>
+<th style="font-size:14px" width="100px">Issue
+</th>
+<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in the Mac machine. 
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The problem occurs due to a mismatch in the dependency package versions on your Mac machine. 
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To resolve this problem, you should install and utilize Tesseract 5 on your Mac machine. Refer to the following steps for installing Tesseract 5 and integrating it into an OCR processing workflow. 
+<br><br/>
+1.Execute the following command to install Tesserat 5. 
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+brew install tesseract
+
+{% endhighlight %}
+
+<br><br/>
+If the "brew" is not installed on your machine, you can install it using the following command.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+{% endhighlight %}
+
+<br><br/>
+
+2.Once Tesseract 5 is successfully installed, you can configure the path to the latest binaries by copying the location of the Tesseract folder and setting it as the Tesseract binaries path when setting up the OCR processor. Refer to the example code below:
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+//Initialize the OCR processor by providing the path of tesseract binaries.
+using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
+
+{% endhighlight %}
+</td>
+</tr>
+</table>
 
 ## ERROR:The specified module could not be found in windows server 2012 R2
 

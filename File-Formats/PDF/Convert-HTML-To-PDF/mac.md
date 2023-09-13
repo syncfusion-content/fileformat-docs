@@ -74,7 +74,7 @@ public IActionResult ExportToPDF()
 Step 8: Right click the project and select Build.
 ![Build project](htmlconversion_images/mac_step5.png)
 
-N> Once the build succeeded, unzip the chromium.app file in bin folder (bin -> Debug ->net6.0 -> BlinkBinariesMac -> Chromium.app)`
+N> Once the build succeeded, unzip the chromium.app file in bin folder (bin-> Debug-> net6.0-> runtimes-> osx-> native-> Chromium.app)`
 
 Step 9: Run the application.
 ![Run application](htmlconversion_images/mac_step6.png)

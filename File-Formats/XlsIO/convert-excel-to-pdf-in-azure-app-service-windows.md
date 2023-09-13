@@ -113,6 +113,8 @@ Step 10: Now, the published webpage will open in the browser.
 Step 11: Click **Create Document** to convert the given Excel document to PDF. You will get the output **PDF** document as follows.
 <img src="Azure_Images/App_Service_Windows/ExcelToPDF_AppService_Windows.png" alt="Excel to PDF in Azure App Service on Windows" width="100%" Height="Auto"/>
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Azure%20App%20Service/Convert-Excel-to-PDF). 
+
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
 An online sample link to [convert an Excel document to PDF](https://ej2.syncfusion.com/aspnetcore/Excel/ExcelToPDF#/material3) in ASP.NET Core.

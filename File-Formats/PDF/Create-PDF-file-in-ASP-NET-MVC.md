@@ -86,7 +86,7 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 //Load the image from the disk.
-PdfBitmap image = new PdfBitmap(Server.MapPath("~/Autumn Leaves.jpg"));
+PdfBitmap image = new PdfBitmap(Server.MapPath("~/Adventure Cycles.png"));
 //Draw the image.
 graphics.DrawImage(image, 0, 0);
 //Open the document in browser after saving it.
@@ -95,6 +95,9 @@ doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Sa
 doc.Close(true);
 
 {% endhighlight %}
+
+By executing the program, you will get the PDF document as follows.
+![ASP.Net Core output PDF document](GettingStarted_images/PDF_with_image.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-PDF-document-with-image).
 
@@ -123,6 +126,8 @@ dataTable.Rows.Add(new object[] { "E04", "Paul" });
 dataTable.Rows.Add(new object[] { "E05", "Gary" });
 //Assign data source.
 pdfGrid.DataSource = dataTable;
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
 //Draw grid to the page of PDF document.
 pdfGrid.Draw(page, new PointF(10, 10));
 //Open the document in browser after saving it.
@@ -131,6 +136,9 @@ doc.Save("Output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Sa
 doc.Close(true);
 
 {% endhighlight %}
+
+By executing the program, you will get the PDF document as follows.
+![ASP.Net Core output PDF document](GettingStarted_images/PDF_with_table.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/ASP.NET%20MVC/Creating-a-PDF-document-with-table).
 

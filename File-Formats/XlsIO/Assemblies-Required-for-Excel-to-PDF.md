@@ -44,7 +44,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tr>
 <tr>
 <td>
-UWP, .NET Core, Xamarin, and Blazor (Server-Side)
+UWP, .NET Core, Xamarin, and Blazor
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>

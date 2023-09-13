@@ -83,31 +83,31 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Right-click the project and select **Publish** option.
+Step 7: Right-click the project and select **Publish** option.
 <img src="Azure_Images/Functions_v1/Publish.png" alt="Publish" width="100%" Height="Auto"/>
 
-Step 7: Select the publish target as **Azure**.
+Step 8: Select the publish target as **Azure**.
 <img src="Azure_Images/Functions_v1/Publish_Profile.png" alt="Add a Publish Profile" width="100%" Height="Auto"/>
 
-Step 8: Select the **Create new** button.
+Step 9: Select the **Create new** button.
 <img src="Azure_Images/Functions_v1/Create_New.png" alt="Click create new option" width="100%" Height="Auto"/>
 
-Step 9: Click the **Create** button to proceed with creation. 
+Step 10: Click the **Create** button to proceed with creation. 
 <img src="Azure_Images/Functions_v1/Hosting.png" alt="Hosting" width="100%" Height="Auto"/>
 
-Step 10: Click the **Finish** button to finalize the **Azure Function** creation. 
+Step 11: Click the **Finish** button to finalize the **Azure Function** creation. 
 <img src="Azure_Images/Functions_v1/Azure_Function.png" alt="Creating app service" width="100%" Height="Auto"/>
 
-Step 11: Click **Close** button.
+Step 12: Click **Close** button.
 <img src="Azure_Images/Functions_v1/Profile_Created.png" alt="Profile created" width="100%" Height="Auto"/>
 
-Step 12: Click the **Publish** button.
+Step 13: Click the **Publish** button.
 <img src="Azure_Images/Functions_v1/Start_Publish.png" alt="Click Publish Button" width="100%" Height="Auto"/>
 
-Step 13: Publish has been succeeded.
+Step 14: Publish has been succeeded.
 <img src="Azure_Images/Functions_v1/Publish_Success.png" alt="Publish succeeded" width="100%" Height="Auto"/>
 
-Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
+Step 15: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
 <img src="Azure_Images/Functions_v1/ExcelToPDF_Function_v1.png" alt="Excel to PDF in Azure Functions v1" width="100%" Height="Auto"/>
 
 ## Steps to post the request to Azure Functions
@@ -118,12 +118,12 @@ Step 2: Add the following code snippet into **Main** method to post the request 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 //Reads the template Excel document.
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-fileStream.Position = 0;
+FileStream excelStream = new FileStream("../../../Sample.xlsx", FileMode.Open, FileAccess.Read);
+excelStream.Position = 0;
 
 //Saves the Excel document in memory stream.
 MemoryStream inputStream = new MemoryStream();
-fileStream.CopyTo(inputStream);
+excelStream.CopyTo(inputStream);
 inputStream.Position = 0;
 
 try
@@ -147,12 +147,12 @@ try
   HttpWebResponse res = (HttpWebResponse)req.GetResponse();
 
   //Saves the PDF stream.
-  FileStream fileStream = File.Create("Sample.pdf");
-  res.GetResponseStream().CopyTo(fileStream);
+  FileStream pdfStream = File.Create("Sample.pdf");
+  res.GetResponseStream().CopyTo(pdfStream);
 
   //Dispose the streams
   inputStream.Dispose();
-  fileStream.Dispose();
+  pdfStream.Dispose();
 }
 catch (Exception ex)
 {
@@ -160,6 +160,8 @@ catch (Exception ex)
 }
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Azure%20V1%20Function/Convert%20Excel%20to%20PDF). 
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
