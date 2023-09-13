@@ -1167,7 +1167,7 @@ No<br/><br/></td></tr>
 
 ## Converting PDF to Image
 
-Essential PdfViewerControl allows selected pages to be exported as raster images. Exporting can be done using the [ExportAsImage](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_ExportAsImage_System_Int32_) method. This option helps to convert a PDF into an image.
+This PDF to image converter library allows converting PDF documents to images without opening the document in the PDF Viewer control. It allows you to selectively export pages as a stream by utilizing the 'Convert' method, facilitating the transformation of PDF files into images.
 
 <b>NuGet</b>
 
@@ -1183,7 +1183,7 @@ Essential PdfViewerControl allows selected pages to be exported as raster images
 Windows Forms
 </td>
 <td>
-{{'[Syncfusion.Pdfviewer.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.PdfViewer.Windows/)'| markdownify }}
+{{'[Syncfusion.PdfToImageConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.WinForms/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -1191,7 +1191,7 @@ Windows Forms
 WPF
 </td>
 <td>
-{{'[Syncfusion.Pdfviewer.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.PdfViewer.WPF/)'| markdownify }}
+{{'[Syncfusion.PdfToImageConverter.WPF.nupkg](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.WPF/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -1199,184 +1199,71 @@ WPF
 ASP.NET Core Windows
 </td>
 <td>
-{{'[Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows.nupkg](https://www.nuget.org/packages/Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows/)'| markdownify }}
+{{'[Syncfusion.PdfToImageConverter.Net.nupkg](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.Net/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC Windows
+</td>
+<td>
+{{'[Syncfusion.PdfToImageConverter.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.AspNet.Mvc4/)'| markdownify }}<br/>
+{{'[Syncfusion.PdfToImageConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
 </table>
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/).
 
-The following code snippet illustrates how to convert PDF page into image using [ExportAsImage](https://help.syncfusion.com/cr/windowsforms/Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.html#Syncfusion_Windows_Forms_PdfViewer_PdfViewerControl_ExportAsImage_System_Int32_) method in WPF.
+The following code snippet illustrates how to convert PDF page into image using Convert method in PdfToImageConverter.
 
 {% tabs %}
-
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Uses the Syncfusion.EJ2.PdfViewer assembly
-PdfRenderer pdfExportImage = new PdfRenderer();
-//Loads the PDF document
-pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
-//Exports the PDF document pages into images
-Bitmap bitmapimage = pdfExportImage.ExportAsImage(0);
-
-//Save the exported image in disk
-bitmapimage.Save(@"Images\" + "bitmapImage" + ".png");
+//Initialize PDF to Image converter.
+PdfToImageConverter imageConverter = new PdfToImageConverter();
+//Load the PDF document as a stream
+FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite);
+imageConverter.Load(inputStream);
+//Convert PDF to Image.
+Stream outputStream = imageConverter.Convert(0, false, false);
+return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
 
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Initialize the PdfViewer Control.
-PdfViewerControl pdfViewer = new PdfViewerControl();
-//Load the input PDF file.
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("../../Data/Barcode.pdf");
-pdfViewer.Load(loadedDocument);
+//Initialize PDF to Image converter.
+PdfToImageConverter imageConverter = new PdfToImageConverter();
+//Load the PDF document as a stream
+FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite);
+imageConverter.Load(inputStream);
+//Convert PDF to Image.
+Stream outputStream = imageConverter.Convert(0, false, false);
+Bitmap image = new Bitmap(outputStream);
+image.Save("sample.png");
 
-//Export the particular PDF page as image at the page index of 0.
-BitmapSource image = pdfViewer.ExportAsImage(0);
-//Setup the output path.
-string output = @"Image";
-if (image != null)
-{
-  //Initialize the new PngBitmapEncoder.
-  BitmapEncoder encoder = new PngBitmapEncoder();
-  //Create the bitmap frame using the bitmap source and add it to the encoder.
-  encoder.Frames.Add(BitmapFrame.Create(image));
-
-  //Create the file stream for the output in the desired image format.
-  FileStream stream = new FileStream(output + ".png", FileMode.Create);
-  //Save the stream, so that the image will be generated in the output location.
-  encoder.Save(stream);
-}
-
-//Close the document.
-loadedDocument.Close(true);
 
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+{% highlight vb tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize the PdfViewer Control
-Dim pdfViewer As PdfViewerControl = New PdfViewerControl()
-'Load the input PDF file
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Barcode.pdf")
-pdfViewer.Load(loadedDocument)
-
-'Export the particular PDF page as image at the page index of 0
-Dim image As BitmapSource = pdfViewer.ExportAsImage(0)
-'Setup the output path
-Dim output As String = "Image"
-If image IsNot Nothing Then
-  'Initialize the New PngBitmapEncoder
-  Dim encoder As BitmapEncoder = New PngBitmapEncoder()
-  'Create the bitmap frame using the bitmap source And add it to the encoder
-  encoder.Frames.Add(BitmapFrame.Create(image))
-
-  'Create the file stream for the output in the desired image format
-  Dim stream As FileStream = New FileStream(output & ".png", FileMode.Create)
-  'Save the stream, so that the image will be generated in the output location
-  encoder.Save(stream)
-End If
-
-'Close the document
-loadedDocument.Close()
+'Initialize PDF to Image converter.
+Dim imageConverter As PdfToImageConverter = New PdfToImageConverter()
+'Load the PDF document as a stream
+Dim inputStream As FileStream = New FileStream("Input.pdf", FileMode.Open, FileAccess.ReadWrite)
+imageConverter.Load(inputStream)
+'Convert PDF to Image.
+Dim outputStream As Stream = imageConverter.Convert(0, False, False)
+Dim image As Bitmap = New Bitmap(outputStream)
+image.Save("sample.png")
 
 {% endhighlight %}
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/WPF-PDFViewer-Examples/tree/master/PDF-to-image).
 
-The following code snippet illustrates how to convert a specific range of pages of the PDF file into images in WPF.
-
-{% tabs %}
-
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-
-//Uses the Syncfusion.EJ2.PdfViewer assembly
-PdfRenderer pdfExportImage = new PdfRenderer();
-//Loads the PDF document
-pdfExportImage.Load(@"..\..\..\Data\Barcode.pdf");
-
-//Exports the PDF document pages into images
-Bitmap[] bitmapimage = pdfExportImage.ExportAsImage(0, pdfExportImage.PageCount-1);
-for (int i =0; i < pdfExportImage.PageCount; i++)
-{
-  //Save the exported image in disk
-  bitmapimage[i].Save(@"Images\" + "bitmapImage" + i.ToString() + ".png");
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-
-//Initialize the PdfViewer Control
-PdfViewerControl pdfViewer = new PdfViewerControl();
-//Load the input PDF file
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("../../Data/Barcode.pdf");
-pdfViewer.Load(loadedDocument);
-
-//Export all the pages as images at the specific page range
-BitmapSource[] image = pdfViewer.ExportAsImage(0, loadedDocument.Pages.Count - 1);
-//Setup the output path
-string output = @"Image";
-if (image != null)
-{
-  for (int i = 0; i < image.Length; i++)
-  {
-    //Initialize the new PngBitmapEncoder
-    BitmapEncoder encoder = new PngBitmapEncoder();
-    //Create the bitmap frame using the bitmap source and add it to the encoder
-    encoder.Frames.Add(BitmapFrame.Create(image[i]));
-
-    //Create the file stream for the output in the desired image format
-    FileStream stream = new FileStream(output + i.ToString() + ".png", FileMode.Create);
-    //Save the stream, so that the image will be generated in the output location
-    encoder.Save(stream);
-  }
-}
-
-//Close the document
-loadedDocument.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-
-'Initialize the PdfViewer Control
-Dim pdfViewer As PdfViewerControl = New PdfViewerControl()
-'Load the input PDF file
-Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Data/Barcode.pdf")
-pdfViewer.Load(loadedDocument)
-
-'Export all the pages as images at the specific page range
-Dim image As BitmapSource() = pdfViewer.ExportAsImage(0, loadedDocument.Pages.Count - 1)
-'Setup the output path
-Dim output As String = "Image"
-If image IsNot Nothing Then            
-    For i As Integer = 0 To image.Length - 1        
-      'Initialize the New PngBitmapEncoder        
-      Dim encoder As BitmapEncoder = New PngBitmapEncoder()  
-      'Create the bitmap frame using the bitmap source and add it to the encoder
-      encoder.Frames.Add(BitmapFrame.Create(image(i)))
-
-      'Create the file stream for the output in the desired image format
-      Dim stream As FileStream = New FileStream(output & i.ToString() & ".png", FileMode.Create)
-      'Save the stream, so that the image will be generated in the output location
-      encoder.Save(stream)
-    Next
-End If
-
-'Close the document
-loadedDocument.Close()
-
-{% endhighlight %}
-{% endtabs %}
-
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Document%20conversion/PDF-to-Image/Convert-PDF-page-into-image).
-
-N> The PDF Viewer server library allows the PDF document pages to be exported as raster images. Exporting can be done using the [ExportAsImage()](https://ej2.syncfusion.com/aspnetcore/documentation/pdfviewer/how-to/export-as-image/) method. This option helps to convert a PDF into an image in Net Core. 
-
-N> For converting PDF into Image in Windows Forms platform, please refer the [PdfViewer](https://help.syncfusion.com/windowsforms/pdf-viewer/working-with-pdf-viewer#exporting-pdf) documentation.
+N> To know more about PdfToImageConverter and features it provides, please refer to [PdfToImageConverter](https://help.syncfusion.com/file-formats/pdf-to-image)
 
 ## MHTML to PDF
 
