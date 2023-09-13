@@ -8,11 +8,11 @@ documentation: UG
 
 # Converting PDF pages into images in Blazor
 
-PdfToImageConverter allows for exporting pages from a PDF document as a stream into stream as images using the Convert method. You can convert either a single page or multiple pages into images.
+PdfToImageConverter allows you to convert pages from a PDF document into images using the Convert method. You can convert either a single page or pages into images.
 
 ## Converting a single page into image
 
-You can export a single page from a PDF file as an image by specifying the page index and setting the parameters `keepTransparency` and `isSkipAnnotations` in the Convert method. To preserve transparency in the output images, make sure to set the `keepTransparency` parameter to true. If you want to exclude annotations from the output images, set the `isSkipAnnotations` parameter to true. Refer to the following code to export a single page of PDF into PNG image.
+You can export a single page from a PDF file as an image by specifying the page index and setting the parameters `keepTransparency` and `isSkipAnnotations` in the Convert method. To preserve transparency in the output image, make sure to set the `keepTransparency` parameter to true. If you want to exclude annotations and form field elements from the output image, set the `isSkipAnnotations` parameter to true. Refer to the following code to export a single page of PDF into PNG image.
 
 {% tabs %}
 {% highlight C# %}
@@ -35,7 +35,7 @@ N>
 
 ## Exporting a specific range of pages
 
-You can export a specific range of PDF pages into images by specifying the start and end page indexes and setting the parameters `keepTransparency` and `isSkipAnnotations` in the Convert method. To preserve transparency in the output images, make sure to set the `keepTransparency` parameter to true. If you want to exclude annotations from the output images, set the `isSkipAnnotations` parameter to true. Refer to the following code to export the pages of PDF into PNG images.
+You can export a specific range of PDF pages into images by specifying the start and end page indexes and setting the parameters `keepTransparency` and `isSkipAnnotations` in the Convert method. To preserve transparency in the output images, make sure to set the `keepTransparency` parameter to true. If you want to exclude annotations and form field elements from the output images, set the `isSkipAnnotations` parameter to true. Refer to the following code to export the pages of PDF into PNG images.
 
 {% tabs %}
 {% highlight C# %}
@@ -88,8 +88,8 @@ You can export PDF pages as images with specific attributes such as zoom factor,
 float zoomFactor = 0.5;
 int tileXCount = 2;
 int tileYCount = 3;
-int tileX = 200;
-int tileY = 200;
+int tileX = 0;
+int tileY = 0;
 
 //Initialize PDF to Image converter.
 PdfToImageConverter imageConverter = new PdfToImageConverter();

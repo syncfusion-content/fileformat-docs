@@ -8,7 +8,7 @@ documentation: UG
 
 # Converting PDF pages into images
 
-There are various types of convert operations in Syncfusion PdfToImageConverter. Please specific operations are documented under below re-directions.
+PdfToImageConverter allows you to convert pages from a PDF document into images. The 'convert' methods for different platforms are documented at the redirection links below
 
 * [ASP.NET Core](Converting-PDF-pages-into-Images-in-ASP-NET-Core)
 * [ASP.NET MVC](Converting-PDF-pages-into-Images-in-ASP-NET-MVC)
