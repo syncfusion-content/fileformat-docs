@@ -80,7 +80,7 @@ N> To maintain the aspect ratio of output images, you are required to pass the v
 
 ## Exporting with a custom image resolution
 
-You can export PDF pages as images with a zoom Factor, tiles x & y dimension of page, x and y co-orindate of the tiles matrix of page by You can export PDF pages as images with specific attributes such as zoom factor, tile dimensions (x and y), and tile matrix coordinates (x and y) by passing the corresponding values (`ZoomFactor`, `tileXCount`, `tileYCount`, `tileX`, and `tileY`) as parameters to the Convert method. Refer to the following code for exporting PDF pages into PNG images with the desired resolution.
+You can export PDF pages as images with specific attributes such as zoom factor, tile dimensions (x and y), and tile matrix coordinates (x and y) by passing the corresponding values (`ZoomFactor`, `tileXCount`, `tileYCount`, `tileX`, and `tileY`) as parameters to the Convert method. Refer to the following code for exporting PDF pages into PNG images with the desired resolution.
 
 {% tabs %}
 {% highlight C# %}
