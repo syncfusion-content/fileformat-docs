@@ -109,7 +109,27 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing Word document.
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
+//Initialize chart to image converter for converting charts during Word to pdf conversion.
+wordDocument.ChartToImageConverter = new ChartToImageConverter();
+//Create an instance of DocToPDFConverter.
+DocToPDFConverter converter = new DocToPDFConverter();
+//Convert Word document into PDF document.
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Save the PDF file.
+pdfDocument.Save("WordtoPDF.pdf");
+//Close the instance of document objects.
+pdfDocument.Close(true);
+wordDocument.Close();
+
+{% endhighlight %}
+
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load an existing Word document
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
