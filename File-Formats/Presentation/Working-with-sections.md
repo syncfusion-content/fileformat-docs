@@ -66,6 +66,8 @@ pptxDoc.Save("Section.PPTX")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Add-new-slide-in-PowerPoint-section).
+
 ### Adding an existing slide to a section
 
 The following code example demonstrates how to add an existing slide to a section.
@@ -108,6 +110,8 @@ pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Add-existing-slide-in-PowerPoint-section).
 
 ### Inserting a section
 
@@ -163,6 +167,8 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Insert-section-in-PowerPoint).
+
 ## Moving the sections within a PowerPoint presentation
 
 You can move the sections within a PowerPoint presentation. The following code example demonstrates how to move a section to a specific position in the navigation pane.
@@ -199,6 +205,8 @@ pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Move-section-positions).
 
 ## Moving a slide within sections
 
@@ -242,6 +250,8 @@ pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Move-slide-within-section).
 
 ## Cloning and merging the slides in a section
 
@@ -296,6 +306,8 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Clone-and-merge-section-slides).
+
 ## Removing a section 
 
 The following code example demonstrates how to create remove a particular section from the sections collection of a presentation.
@@ -333,6 +345,8 @@ pptxDoc.Save("Sections.PPTX")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Remove-section).
+
 ## Remove all sections 
 
 The following code example demonstrates how to remove section collection from an existing PowerPoint presentation.
@@ -369,3 +383,5 @@ pptxDoc.Save("Sections.PPTX")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Sections/Remove-all-sections).

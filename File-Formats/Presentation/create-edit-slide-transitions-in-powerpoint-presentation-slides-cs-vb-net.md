@@ -81,6 +81,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Apply-PowerPoint-slide-transition).
+
 ## Modify a transition effect applied to a PowerPoint slide
 
 You can edit the transition effects that already applied to the PowerPoint slides. Refer to the following code example.
@@ -135,6 +137,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Modify-transition-effect).
 
 ## Set the transition duration
 
@@ -195,6 +199,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Set-transition-duration).
 
 ## Set the transition delay
 
@@ -262,6 +268,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Set-transition-delay).
+
 ## Set the trigger mode for the transition
 
 The next slide transition can be triggered by the following two ways:
@@ -327,6 +335,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Set-trigger-mode-for-transition).
+
 ## Set the speed for transition effect
 
 The speed is the customized property provided by Syncfusion PowerPoint library to set the transition duration mentioned [above](/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-cs-vb-net#set-the-transition-duration) (in this page) to a customized enumeration values. By default, each transition will happen for 2 seconds. You can change the following enumeration values to change the duration of a slide transition:
@@ -385,6 +395,8 @@ pptxDoc.Save("Sample.pptx")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slide-transitions/Set-transition-speed).
 
 ## Supported transition effect types:
 

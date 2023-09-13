@@ -69,6 +69,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Security/Encrypt-PowerPoint-with-password).
+
 ## Decrypting the PowerPoint Presentation
 
 Essential Presentation provides ability to remove the encryption from the PowerPoint Presentation. You can decrypt a PowerPoint Presentation by opening it with the password.
@@ -160,6 +162,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Security/Remove-encryption).
+
 ## Write Protection
 
 You can set write protection for a PowerPoint Presentation and remove protection from the write protected PowerPoint presentation.
@@ -232,6 +236,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Security/Set-write-protection).
+
 ### Remove Protection
 
 You can check whether a PowerPoint Presentation is write protected and remove protection from the write protected PowerPoint Presentation.
@@ -294,6 +300,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Security/Remove-write-protection).
 
 N> 1. In Xamarin applications, Encryption, Decryption and Write Protection features are supported from the target framework .NET Standard 2.0 version onwards.
 N> 2. For ASP.NET Core, Encryption, Decryption and Write Protection features are supported from the .NET Core 2.0 version onwards.
