@@ -15,7 +15,7 @@ Essential PDF allows you to [compress the PDF](https://www.syncfusion.com/docume
 
 N> PDF supports compressing PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
-To quickly get started with Compress an Existing PDF Document in .NET, check this video:
+To quickly get started with compress an existing PDF document in .NET, check this video:
 {% youtube "https://www.youtube.com/watch?v=v-rZYeyWYZU" %}
 
 ## Compressing existing PDF document
