@@ -15,7 +15,7 @@ Essential File Formats is a collection of .NET class libraries to create, edit, 
 
 * The best way to get started would be to read the “Getting Started” section for the component you would like to start first. The “Getting Started” and “Assemblies required” sections gives enough information, so it is recommended to read these sections end-to-end before starting to write a code. All other information can be referred as needed. 
 * After learning the basics about the component, integrate the component into your application. A good starting point is to refer to the code examples in the sample browser and in this user guide. It is very likely that you can find a code example that resembles your intended usage scenario. 
-* Another valuable resource is available in the [API reference](https://help.syncfusion.com/cr/file-formats) that provides detailed information on the object hierarchy as well as the settings available on every object.
+* Another valuable resource is available in the [API reference](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.html) that provides detailed information on the object hierarchy as well as the settings available on every object.
 
 ## Additional help resources
 
