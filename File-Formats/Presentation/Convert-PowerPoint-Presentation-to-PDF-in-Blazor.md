@@ -174,7 +174,9 @@ By executing the program, you will get the **PDF** as follows.
 
 ![Converted PDF from PowerPoint in Blazor server app](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
-Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [convert PowerPoint Presentation to PDF](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-pdf?theme=fluent) in Blazor. 
 
 ## WASM app
 
@@ -340,3 +342,6 @@ By executing the program, you will get the **PDF** as follows.
 
 N> Even though PowerPoint library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size. You can also explore our [Blazor PowerPoint library demo](https://blazor.syncfusion.com/demos/powerpoint/getting-started) that shows how to create and modify PowerPoint files from C# with just five lines of code.
 
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [convert PowerPoint Presentation to PDF](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-pdf?theme=fluent) in Blazor.
