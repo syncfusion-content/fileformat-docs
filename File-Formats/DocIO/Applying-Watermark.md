@@ -106,7 +106,31 @@ The following code example illustrates how to add a picture watermark to the Wor
 {% tabs %}  
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds a section and a paragraph in the document
+document.EnsureMinimal();
+IWParagraph paragraph = document.LastParagraph;
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+//Creates a new picture watermark.
+PictureWatermark picWatermark = new PictureWatermark();
+//Sets the scaling to picture.
+picWatermark.Scaling = 120f;
+picWatermark.Washout = true;
+//Sets the picture watermark to document.
+document.Watermark = picWatermark;
+FileStream imageStream = new FileStream("Water lilies.jpg", FileMode.Open, FileAccess.Read);
+BinaryReader br = new BinaryReader(imageStream);
+byte[] image = br.ReadBytes((int)imageStream.Length);
+//Sets the image to the picture watermark.
+picWatermark.LoadPicture(image);
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
