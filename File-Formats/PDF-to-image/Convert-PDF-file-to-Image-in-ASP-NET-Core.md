@@ -27,8 +27,6 @@ Step 4: A default controller with name HomeController.cs gets added on creation 
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.PdfToImageConverter;
-using System.Drawing;
-using System.IO;
 
 {% endhighlight %}
 

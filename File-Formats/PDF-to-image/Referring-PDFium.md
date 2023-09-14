@@ -27,6 +27,8 @@ For ASP .NET Core and Blazor, Pdfium folder structure will be generated as below
 
 ![Folder Structure](PDFium_images/folder-structure-cross-platform.png)
 
+N> Linux and macOS ARM operating systems are currently not supported by PdfToImageConverter.
+
 N> When you include PdfToImageConverter via a NuGet package, PDFium assemblies will automatically be generated in the application's output path folder from the NuGet package during compilation
 
 ## How to run PDFium in a restricted access environment
