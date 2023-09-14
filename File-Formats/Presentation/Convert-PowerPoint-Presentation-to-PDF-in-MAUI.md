@@ -21,11 +21,11 @@ Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from t
 
 Step 2: Enter the project name and click **Create**.
 
-![Create a project name for your new project](Workingwith_MAUI/Configure.png)
+![Create a project name for your new project](Workingwith_MAUI/Configuration_PPTXtoPDF.png)
 
 Step 3: Install the [Syncfusion.PresentationRenderer.NET](https://www.nuget.org/packages/Syncfusion.Presentation.NET) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.PresentationRenderer.NET NuGet package](Workingwith_MAUI/Install_Nuget.png)
+![Install Syncfusion.PresentationRenderer.NET NuGet package](Workingwith_MAUI/Nuget_Package_PPTXtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
