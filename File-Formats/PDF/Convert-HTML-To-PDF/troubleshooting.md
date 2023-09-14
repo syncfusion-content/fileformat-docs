@@ -16,13 +16,13 @@ documentation: UG
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The exception may occurs if the '<i>runtimes</i>' folder doesn't get copied properly from the NuGet folder.
+<td>The exception may occur if the <i>'runtimes'</i> folder isn't copied correctly from the NuGet folder.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px" width="100px">Solution</th>
 <td>
-Make sure that after installing the NuGet package and building, the 'runtimes' folder will be copied automatically.
+Ensure that upon NuGet package installation and building, the 'runtimes' folder is automatically copied.
 <br/><br/>
 Please refer the below screenshot,
 <br/><br/>
@@ -30,9 +30,28 @@ Please refer the below screenshot,
 <br/><br/>
 (Or)
 <br/><br/>
-you can set BlinkPath if you need to set the Path explicitly
+If you require explicit path setting, you can establish BlinkPath.
 <br/><br/>
 Ex path: <i>D:\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native</i>
+<br/><br/>
+{% highlight html %}
+
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink binaries path.
+blinkConverterSettings.BlinkPath = @"C:/HtmlConversion/BlinkBinaries/";
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+//Create file stream to save the PDF document. 
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document.
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
 </tr>
 
 </table>
