@@ -32,7 +32,7 @@ Please refer the below screenshot,
 <br/><br/>
 If you require explicit path setting, you can establish BlinkPath.
 <br/><br/>
-Ex path: <i>D:\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native</i>
+Ex path: <i>C:\HtmlConversion\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native\BlinkBinaries</i>
 <br/><br/>
 {% highlight html %}
 
