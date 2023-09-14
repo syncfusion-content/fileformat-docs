@@ -8,50 +8,33 @@ documentation: UG
 
 # Troubleshooting and FAQ
 
-## BlinkBinaries are missing
+## Blink files are missing
 
 <table>
 <th style="font-size:14px" width="100px">Exception</th>
-<th style="font-size:14px">BlinkBinaries are missing</th>
+<th style="font-size:14px">Blink files are missing</th>
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>When BlinkBinaries are not available in the <i>BlinkPath </i> mentioned location.
+<td>The exception may occurs if the '<i>runtimes</i>' folder doesn't get copied properly from the NuGet folder.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px" width="100px">Solution</th>
 <td>
-Set the path of the BlinkBinaries folder to the BlinkPath property of BlinkConverterSettings.
+Make sure that after installing the NuGet package and building, the 'runtimes' folder will be copied automatically.
+<br/><br/>
+Please refer the below screenshot,
+<br/><br/>
+<img src="htmlconversion_images/runtime_folder.png">
 <br/><br/>
 (Or)
 <br/><br/>
-Place the BlinkBinaries folder in bin folder of the project. 
+you can set BlinkPath if you need to set the Path explicitly
 <br/><br/>
-The BlinkBinaries will be available in the HTMLConverter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\BlinkBinaries)</i> </span>
-<br><br/>
-The BlinkBinaries also available in NuGet package installed location if you are using Blink HTML converter from NuGet packages. 
-
-</td>
+Ex path: <i>D:\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native</i>
 </tr>
 
-<tr>
-<th style="font-size:14px" width="100px">Mapping BlinkBinaries in Web Application</th>
-<td>
-{% highlight c# tabtitle="C#" %}
-
-//To refer BlinkBinaries from project location
-settings.BlinkPath = Server.MapPath("BlinkBinaries");
-
-//or
-
-// To refer BlinkBinaries from bin folder of the Project
-settings.BlinkPath = Server.MapPath("~/bin/BlinkBinaries");
-
-{% endhighlight %}
-
-</td>
-</tr>
 </table>
 
 ## BlinkBinaries access is denied in server
@@ -556,6 +539,7 @@ Refer to the following package reference:
 
 <img src="htmlconversion_images/RemoveBlinkBinaries.png" alt="ExcludeAssets"><br>
 
+## HTML conversion support in Azure
 <table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
