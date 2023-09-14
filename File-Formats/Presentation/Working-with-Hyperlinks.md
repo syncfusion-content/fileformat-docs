@@ -80,6 +80,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Add-hyperlink-to-PowerPoint-shape).
+
 ## Add hyperlink to text
 
 You can navigate to the specified URL from a PowerPoint slide. The following code example demonstrates how to add the web URL as a hyperlink.
@@ -147,6 +149,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Add-hyperlink-to-PowerPoint-text).
+
 ## Add hyperlink to picture
 
 You can add the email link to the shape or text on a PowerPoint slide. The following code example demonstrates how to add an email hyperlink to the picture.
@@ -207,6 +211,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Add-hyperlink-to-PowerPoint-picture).
+
 You can open external documents like images, text files, PDF, etc. from the PowerPoint slide. The following code example demonstrates how to add a file hyperlink to the picture.
 
 {% tabs %}
@@ -265,6 +271,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Add-file-hyperlink-to-picture).
 
 N> The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PowerPoint reader applications.
 
@@ -346,6 +354,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Get-hyperlink-from-shape).
 
 The following code example demonstrates how to get the details about the hyperlink from text.
 
@@ -434,6 +444,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Get-hyperlink-from-text).
+
 ## Remove a hyperlink from text and shape
 
 You can remove the hyperlink from the shape or text in a PowerPoint slide.
@@ -488,6 +500,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Remove-hyperlink-from-shape).
 
 The following code example demonstrates how to remove a hyperlink from the text in a PowerPoint slide.
 
@@ -551,3 +565,5 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Hyperlinks/Remove-hyperlink-from-text).
