@@ -9,6 +9,9 @@ documentation: UG
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information. A PDF document can contain any number of fields appearing on any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
+To quickly get started with creating, filling and flattening PDF form fields in .NET using the Syncfusion PDF library, refer to this video tutorial:
+{% youtube "https://www.youtube.com/watch?v=_tCUghqKwCQ" %}
+
 ## Creating a new PDF form
 
 Essential PDF allows you to [create and manage the form](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-form-fields) (AcroForm) in PDF document by using [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFormFieldCollection.html) class represents the entire field collection of the form.
