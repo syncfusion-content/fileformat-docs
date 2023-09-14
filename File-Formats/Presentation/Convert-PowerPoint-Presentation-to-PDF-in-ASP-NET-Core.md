@@ -41,35 +41,13 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% highlight HTML %}
 
 @{
-    Html.BeginForm("ConvertPPTXtoPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
+    Html.BeginForm("ConvertPPTXtoPDF", "Home", FormMethod.Get);
     {
-        <div class="Common">
-            <div class="tablediv">
-                <div class="rowdiv">
-                    This sample illustrates how to convert PowerPoint document to PDF using PowerPoint library.
-                </div>
-                &nbsp;
-                <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
-                    Click the button to view the resultant PDF document being converted from PowerPoint document.
-                    <div class="rowdiv" style="margin-top: 10px">
-                        <div class="celldiv">
-                            Select Document :
-                            @Html.TextBox("file", "", new { type = "file", accept = ".pptx" }) <br />
-                        </div>
-                        <div class="rowdiv" style="margin-top: 8px">
-                            <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px;height:27px" />
-                            <br />
-                            <div class="text-danger">
-                                @ViewBag.Message
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-            </div>
+        <div>
+            <input type="submit" value="Convert PPTX to PDF" style="width:200px;height:27px" />
         </div>
-        Html.EndForm();
     }
+    Html.EndForm();
 }
 
 {% endhighlight %}
@@ -80,57 +58,24 @@ Step 6: Add a new action method **ConvertPPTXtoPDF** in HomeController.cs and in
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-public ActionResult ConvertPPTXtoPDF(string button)
+//Open the file as Stream
+using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
 {
-    if (button == null)
-        return View("Index");
-    if (Request.Form.Files != null)
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStream))
     {
-        if (Request.Form.Files.Count == 0)
+        //Convert the PowerPoint document to PDF document.
+        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
         {
-            ViewBag.Message = string.Format("Browse a PowerPoint Presentation and then click the button to convert as a PDF document");
-            return View("Index");
-        }
-        // Gets the extension from file.
-        string extension = Path.GetExtension(Request.Form.Files[0].FileName).ToLower();
-        // Compares extension with supported extensions.
-        if (extension == ".pptx")
-        {
-            MemoryStream stream = new MemoryStream();
-            Request.Form.Files[0].CopyTo(stream);
-            try
-            {
-                //Open the existing PowerPoint presentation with loaded stream.
-                using (IPresentation pptxDoc = Presentation.Open(stream))
-                {
-                    //Convert the PowerPoint document to PDF document.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                    {
-                        //Create the MemoryStream to save the converted PDF.      
-                        MemoryStream pdfStream = new MemoryStream();
-                        //Save the converted PDF document to MemoryStream.
-                        pdfDocument.Save(pdfStream);
-                        pdfStream.Position = 0;
-                        //Download PDF document in the browser.
-                        return File(pdfStream, "application/pdf", "Sample.pdf");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Message = ex.ToString();
-            }
-        }
-        else
-        {
-            ViewBag.Message = string.Format("Please choose PowerPoint document to convert to PDF");
+            //Create the MemoryStream to save the converted PDF.      
+            MemoryStream pdfStream = new MemoryStream();
+            //Save the converted PDF document to MemoryStream.
+            pdfDocument.Save(pdfStream);
+            pdfStream.Position = 0;
+            //Download PDF document in the browser.
+            return File(pdfStream, "application/pdf", "Sample.pdf");
         }
     }
-    else
-    {
-        ViewBag.Message = string.Format("Browse a PowerPoint document and then click the button to convert as a PDF document");
-    }
-    return View("Index");
 }
 
 {% endhighlight %}
