@@ -56,7 +56,12 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConverter.Convert(0, false, false);
-return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
+MemoryStream stream = outputStream as MemoryStream;
+byte[] bytes = stream.ToArray();
+using (FileStream output = new FileStream("output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+{
+    output.Write(bytes, 0, bytes.Length);
+}
 
 {% endhighlight %}
 
