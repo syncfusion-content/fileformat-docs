@@ -2704,6 +2704,10 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Track-Changes/Enable-track-changes-of-Word).
 
+## What happens when Word documents with track changes are used for comparing? 
+
+The .NET Word library (DocIO) accepts all the changes in input documents and then performs a comparison between two Word documents.
+
 ## How to perform Word to PDF in Linux prior to v18.4 release?
 
 In Linux OS, you can perform the Word to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Word to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Word to PDF conversion capabilities.

@@ -648,6 +648,83 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/PDF%20Document/Change_existing_PDF_properties). 
 
+## Remove Specific Keys from the Existing Document Information
+
+To remove specific details from the existing document information, use the **Remove** method of the [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocumentBase.html#Syncfusion_Pdf_PdfDocumentBase_DocumentInformation) property. The following code example explains how to do this.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF document. 
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream); 
+
+//Remove the document information properties. 
+document.DocumentInformation.Remove("Title"); 
+document.DocumentInformation.Remove("Author"); 
+document.DocumentInformation.Remove("Subject"); 
+document.DocumentInformation.Remove("Keywords"); 
+document.DocumentInformation.Remove("Creator"); 
+document.DocumentInformation.Remove("Producer"); 
+document.DocumentInformation.Remove("ModDate"); 
+document.DocumentInformation.Remove("CreationDate"); 
+
+//Creating the stream object.
+MemoryStream stream = new MemoryStream();
+//Save the document into stream.
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing PDF document. 
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf"); 
+
+//Remove the document information properties. 
+document.DocumentInformation.Remove("Title"); 
+document.DocumentInformation.Remove("Author"); 
+document.DocumentInformation.Remove("Subject"); 
+document.DocumentInformation.Remove("Keywords"); 
+document.DocumentInformation.Remove("Creator"); 
+document.DocumentInformation.Remove("Producer"); 
+document.DocumentInformation.Remove("ModDate"); 
+document.DocumentInformation.Remove("CreationDate"); 
+
+//Save the document. 
+document.Save("Output.pdf"); 
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Remove the document information properties. 
+document.DocumentInformation.Remove("Title")
+document.DocumentInformation.Remove("Author")
+document.DocumentInformation.Remove("Subject")
+document.DocumentInformation.Remove("Keywords")
+document.DocumentInformation.Remove("Creator")
+document.DocumentInformation.Remove("Producer")
+document.DocumentInformation.Remove("ModDate")
+document.DocumentInformation.Remove("CreationDate")
+
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Performing incremental update for PDF document
 
 The Essential PDF supports incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. The main benefit is small changes to a large PDF document can be saved quickly but the resultant document size gets increased compared with the original PDF document. Disabling the [IncrementalUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html#Syncfusion_Pdf_PdfFileStructure_IncrementalUpdate) of [PdfFileStructure](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfFileStructure.html) will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.

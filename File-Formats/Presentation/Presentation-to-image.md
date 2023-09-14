@@ -26,6 +26,8 @@ Refer to the following links for assemblies required based on platforms to conve
 
 T> When converting a slide to image, use 'Metafile' format for good image resolution.
 
+## Convert a slide to image
+
 The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
@@ -105,6 +107,8 @@ Presentation_1.Close()
 
 {% endtabs %}
 
+## Convert PowerPoint Presentation to images
+
 The following code example demonstrates the conversion of an entire Presentation to images:
 
 {% tabs %}
@@ -141,6 +145,8 @@ Next
 {% endhighlight %}
 
 {% endtabs %}
+
+## Image resolution
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
 
@@ -192,6 +198,114 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+## Convert PowerPoint Animations to Images
+
+The .NET PowerPoint Library (Presentation) allows you to convert PowerPoint slides into images based on the sequence of entrance animation effects applied to each element.
+
+For instance, if a slide includes bulleted paragraphs, each having entrance animation effects, the Presentation library converts every bulleted paragraph into a separate image.
+
+N> 1. Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first image itself.
+N> 2. Converting PowerPoint animations to images is not supported in the UWP platform. 
+
+The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the `PresentationAnimationConverter` API.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Open a PowerPoint Presentation.
+IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, ExportImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open a PowerPoint Presentation.
+IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open a PowerPoint Presentation.
+Dim pptxDoc As IPresentation = Presentation.Open("Data/Input.pptx")
+
+' Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+Using animationConverter As New PresentationAnimationConverter()
+    Dim i As Integer = 0
+    For Each slide As ISlide In pptxDoc.Slides
+        ' Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Dim imageStreams As Stream() = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png)
+
+        ' Save the image stream.
+        For Each stream As Stream In imageStreams
+            i += 1
+            ' Reset the stream position.
+            stream.Position = 0
+
+            ' Create the output image file stream.
+            Using fileStreamOutput As FileStream = File.Create("Output" & i & ".png")
+                ' Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput)
+            End Using
+        Next
+    Next
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
+
 ## UWP
 
 PowerPoint slides can be converted to images in UWP by using Essential Presentation library. The following assemblies are required in the UWP application to convert the slides as images.
@@ -225,6 +339,8 @@ PowerPoint slides can be converted to images in UWP by using Essential Presentat
     </tbody>
 </table>
 
+### Convert a slide to image
+
 The following code example demonstrates how to convert a slide to image in UWP.
 
 {% tabs %}
@@ -250,6 +366,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+### Convert PowerPoint Presentation to images
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
 
@@ -284,6 +402,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+### Convert a slide to image by CancellationToken
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
 

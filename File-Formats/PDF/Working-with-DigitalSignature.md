@@ -3927,3 +3927,119 @@ document.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-signed-revision-information).
+
+## Retrieve revocation certificate information from digital signature embed timestamp
+
+The following code example illustrates how to retrieve revocation certificate information from digital signature embed timestamp using  [PdfSignerCertificate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignerCertificate.html). 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF document.
+FileStream inputStream = new FileStream(@"Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument document = new PdfLoadedDocument(inputStream);
+//Gets the signature field.
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Validates signature and gets the validation result.
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+//Gets signer certificates
+PdfSignerCertificate[] certifcate = result.TimeStampInformation.SignerCertificates;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing PDF document
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+//Gets the signature field.
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Validates signature and gets the validation result.
+PdfSignatureValidationResult result = signatureField.ValidateSignature();
+//Gets signer certificates
+PdfSignerCertificate[] certifcate = result.TimeStampInformation.SignerCertificates;
+//Close the document.
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF document.
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Gets the signature field.
+Dim loadedSignatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+'Validates signature and gets the validation result.
+Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
+'Gets signer certificates
+Dim certifcate As PdfSignerCertificate[] = result.TimeStampInformation.SignerCertificates
+'Close the document.
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Retrieve-revocation-certificate-information-from-digital-signature-embed-timestamp).
+
+## Get images from the existing signed signature field
+
+Utilize the **GetImages** method within the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class to obtain images from the appearance of an existing signed signature field. The following code example provides a clear demonstration of this functionality.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load an existing PDF file.
+FileStream fileStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument ldoc = new PdfLoadedDocument(fileStream);
+//Get the existing signed signature field.
+PdfLoadedSignatureField loadedSignature = ldoc.Form.Fields[0] as PdfLoadedSignatureField;
+//Get the image streams.
+Stream[] imageStreams = loadedSignature.GetImages();
+for (int i = 0; i < imageStreams.Length; i++) {
+    File.WriteAllBytes("Output" + i.ToString() + ".jpg", (imageStreams[i] as MemoryStream).ToArray());               
+}
+//Close a PDF document.
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load an existing PDF file.
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+//Get the existing signed signature field.
+PdfLoadedSignatureField loadedSignature = ldoc.Form.Fields[0] as PdfLoadedSignatureField;
+//Get the image.
+Image[] images = loadedSignature.GetImages();
+for (int i = 0; i < images.Length; i++) {
+    images[i].Save("Image" + i.ToString() + ".jpg", ImageFormat.Png);
+}
+//Close a PDF document.
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load an existing PDF file.
+Dim fileStream As FileStream = New FileStream("Input.pdf", FileMode.Open, FileAccess.Read)
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument(fileStream)
+'Get the existing signed signature field.
+Dim loadedSignature As PdfLoadedSignatureField = TryCast(ldoc.Form.Fields(0), PdfLoadedSignatureField)
+'Get the image.
+Dim images As Image() = loadedSignature.GetImages()
+For i As Integer = 0 To images.Length - 1
+    images(i).Save("Image.jpg", Imaging.ImageFormat.Png)
+Next
+'Close a PDF document.
+ldoc.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.
