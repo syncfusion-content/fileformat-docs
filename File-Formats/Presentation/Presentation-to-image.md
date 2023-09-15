@@ -17,6 +17,9 @@ This section covers converting an entire Presentation or a single slide to image
 * JPEG
 * PNG
 
+To quickly start converting a PowerPoint Presentation to Images, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=DcH9CptpYHg" %}
+
 ## Assemblies Required
 
 Refer to the following links for assemblies required based on platforms to convert the PowerPoint Presentation to image.
