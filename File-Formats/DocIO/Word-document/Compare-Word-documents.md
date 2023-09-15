@@ -156,7 +156,7 @@ You can customize the Word comparison using our [ComparisonOptions](https://help
 
 ### Ignore format changes
 
-In the .NET Word library (DocIO), document comparison includes formatting changes by default. However, you can configure DocIO to ignore formatting differences using the DetectFormatChanges API to concentrate solely on content modifications.
+In the .NET Word library (DocIO), document comparison includes formatting changes by default. However, you can configure DocIO to ignore formatting differences using the [DetectFormatChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ComparisonOptions.html#Syncfusion_DocIO_DLS_ComparisonOptions_DetectFormatChanges) API to concentrate solely on content modifications.
 
 The following code example illustrates how to compare two Word documents by ignoring the format changes.
 
