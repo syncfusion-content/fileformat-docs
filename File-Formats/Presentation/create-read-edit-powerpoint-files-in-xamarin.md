@@ -268,6 +268,8 @@ Step 8: Download the helper files from this [link](http://www.syncfusion.com/dow
 
 Step 9: Compile and execute the application. 
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Xamarin/Create-PowerPoint-presentation).
+
 The output of the above code example will generate the below PowerPoint slide.
 
 ![Xamarin PowerPoint Library Output](Workingwith_Xamarin/GettingStartedSample.png)
@@ -302,6 +304,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pptx", "applica
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Xamarin/Read-and-edit-PowerPoint-presentation).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

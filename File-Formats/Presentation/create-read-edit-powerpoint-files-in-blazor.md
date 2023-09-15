@@ -207,6 +207,8 @@ Step 11: Add the following JavaScript function in the _Host.cshtml in the Pages 
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Blazor/Server-side-application).
+
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![Blazor Server output PowerPoint document](Workingwith_Blazor/Output.png)
@@ -363,6 +365,8 @@ Step 9: Add the following JavaScript function in the _Host.cshtml in the Pages f
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Blazor/Client-side-application).
 
 By executing the program, you will get the **PowerPoint document** as follows.
 

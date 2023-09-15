@@ -157,6 +157,8 @@ pptxDoc.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Windows%20Forms/Create-PowerPoint-presentation).
+
 The output of the above code example will generate the below PowerPoint slide.
 
 ![Windows Forms Output](Workingwith_Windows/GettingStartedSample.png)
@@ -184,6 +186,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/Windows%20Forms/Read-and-edit-PowerPoint-presentation).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

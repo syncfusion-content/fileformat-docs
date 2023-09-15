@@ -107,6 +107,8 @@ Presentation_1.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-slide-to-Image/.NET).
+
 ## Convert PowerPoint Presentation to images
 
 The following code example demonstrates the conversion of an entire Presentation to images:
@@ -309,6 +311,8 @@ End Using
 {% endtabs %}
 
 ![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-Animations-to-Images).
 
 ## UWP
 
