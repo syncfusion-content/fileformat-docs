@@ -306,6 +306,8 @@ End Using
 
 ![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Based-on-Entrance-animation-effects/.NET).
+
 ## UWP
 
 PowerPoint slides can be converted to images in UWP by using Essential Presentation library. The following assemblies are required in the UWP application to convert the slides as images.
