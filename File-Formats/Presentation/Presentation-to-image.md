@@ -146,6 +146,8 @@ Next
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image).
+
 ## Image resolution
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
@@ -197,6 +199,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Change-resolution-of-converted-image).
 
 ## Convert PowerPoint Animations to Images
 
@@ -367,6 +371,8 @@ pptxDoc.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-slide-to-Image/UWP).
+
 ### Convert PowerPoint Presentation to images
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
@@ -403,6 +409,8 @@ pptxDoc.Close();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Change-resolution-of-converted-image/UWP).
+
 ### Convert a slide to image by CancellationToken
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
@@ -436,6 +444,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-with-UWP-cancellation-token).
 
 N> 1. Instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
 N> 2. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
@@ -513,6 +523,8 @@ End Sub
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Add-font-substitution).
+
 ## Fallback fonts
 
 When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to Image conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to Image conversion.
@@ -553,6 +565,8 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-fallback-fonts).
+
 ### Customize Default Fallback Fonts
 
 The following code example demonstrates how to customize default fallback font while converting a PowerPoint presentation to Image.
@@ -591,6 +605,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Customize-default-fallback-fonts).
 
 ### Add Custom Fallback Fonts
 
@@ -637,6 +653,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-custom-fallback-fonts).
 
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
 N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
