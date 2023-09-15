@@ -219,7 +219,7 @@ The following code example shows how to convert PowerPoint slides to images base
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Open a PowerPoint Presentation.
-IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
+IPresentation pptxDoc = Presentation.Open("Input.pptx");
 
 //Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
 using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
@@ -251,7 +251,7 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Open a PowerPoint Presentation.
-IPresentation pptxDoc = Presentation.Open("Data/Input.pptx");
+IPresentation pptxDoc = Presentation.Open("Input.pptx");
 
 //Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
 using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
@@ -283,7 +283,7 @@ using (PresentationAnimationConverter animationConverter = new PresentationAnima
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 ' Open a PowerPoint Presentation.
-Dim pptxDoc As IPresentation = Presentation.Open("Data/Input.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Input.pptx")
 
 ' Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
 Using animationConverter As New PresentationAnimationConverter()
