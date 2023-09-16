@@ -15,6 +15,9 @@ To include the .NET PDF library into your application, please refer to the [NuGe
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel.
 
+To quickly get started with creating a PDF document in .NET, watch this video:
+{% youtube "https://www.youtube.com/watch?v=PvUdu1hpRLQ" %}
+
 Include the following namespaces in your .cs or .vb file as shown below.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

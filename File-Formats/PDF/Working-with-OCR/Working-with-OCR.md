@@ -254,6 +254,9 @@ Download the language packages from the following link.
 
 ## Get Started with OCR 
 
+To quickly get started with extracting text from scanned PDF documents in .NET using the Syncfusion OCR processor Library, refer to this video tutorial:
+{% youtube "https://www.youtube.com/watch?v=VhN7ETn0vyA" %}
+
 ### Perform OCR using C# 
 
 Integrating the OCR processor library in any .NET application is simple. Please refer to the following steps to perform OCR in your .NET application. 
