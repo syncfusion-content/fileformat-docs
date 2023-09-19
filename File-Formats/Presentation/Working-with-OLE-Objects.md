@@ -85,6 +85,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Add-Excel-in-PowerPoint-slide).
+
 ### Inserting OLE Object to a Slide with Display As Icon property
 
 The following code example demonstrates how to add an Microsoft Word document into a slide with display as icon property.
@@ -166,6 +168,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Add-Microsoft-Word-document-in-slide).
+
 ## Extract embedded OLE Object data
 
 The following code example demonstrates how to extract the embedded OLE Object data.
@@ -240,6 +244,8 @@ pptxDoc.Close
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Extract-embedded-OLE-Object-data).
+
 ## Get file path of a linked OLE Object
 
 The following code example demonstrates how to get the file path of a linked OLE Object.
@@ -295,6 +301,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Get-file-path-of-linked-OLE-Object).
 
 ## Get OLE Image data
 
@@ -364,3 +372,5 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Get-OLE-image-data).

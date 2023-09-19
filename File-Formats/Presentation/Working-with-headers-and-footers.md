@@ -95,6 +95,8 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Added Footer text](HeaderFooter_Images/Footer_text.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Add-footer-in-PowerPoint).
+
 ### Add Date and Time in PowerPoint Slide
 
 Essential Presentation library facilitates adding Date and Time to a slide of the PowerPoint Presentation. Date and Time comes with formatting options for date stamp as either it can be updated automatically using computer's clock or stay fixed until you change it.
@@ -181,6 +183,8 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Added Date and TIme to the slide](HeaderFooter_Images/AddDateTime.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Add-date-and-time-in-PowerPoint-slide).
+
 ### Add Slide Number to PowerPoint Slides
 
 Essential Presentation library facilitates adding Slide number to a slide of the PowerPoint Presentation. 
@@ -261,6 +265,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Added slide number to the slide](HeaderFooter_Images/SlideNumber.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Add-slide-number-in-PowerPoint-slide).
 
 ### Add Footer to Master and Layout slides
 
@@ -376,6 +381,8 @@ By executing the program, you will get the PowerPoint Layout slide as follows.
 
 ![Added Footer to Layout slide](HeaderFooter_Images/LayoutSlide.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Add-footer-in-master-and-layout-slides).
+
 ### Add Headers and Footers into Notes slide
 
 Essential Presentation library facilitates adding Headers and Footers to the Notes slide of the PowerPoint Presentation. 
@@ -471,6 +478,8 @@ By executing the program, you will get the PowerPoint Notes slide as follows.
 
 ![Added Footer to Notes slide](HeaderFooter_Images/NotesSlide.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Add-headers-and-footers-in-Notes).
+
 ## Modify Headers and Footers in PowerPoint
 
 ### Edit Footer text of an existing Slide
@@ -530,6 +539,7 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Edited Footer text in slide](HeaderFooter_Images/EditText.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Edit-footer-text).
 
 ### Edit Header text of an existing Notes slide
 
@@ -588,6 +598,7 @@ By executing the program, you will get the PowerPoint Notes slide as follows.
 
 ![Edited Header text in slide](HeaderFooter_Images/Header_text.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Edit-header-text).
 
 ### Modify Date and Time format of an existing Slide
 
@@ -645,6 +656,8 @@ pptxDoc.Close()
 By executing the program, you will get the PowerPoint slide as follows.
 
 ![Edited Date and Time in slide](HeaderFooter_Images/EditTime.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Modify-date-and-time-format).
 
 ### Modify font of the Footer text
 
@@ -730,6 +743,8 @@ pptxDoc.Close()
 By executing the program, you will get the PowerPoint slide as follows.
 
 ![Modified font for Footer text in slide](HeaderFooter_Images/FooterFont.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Modify-footer-text-font).
 
 ## Remove Headers and Footers from Title Slides
 
@@ -817,3 +832,4 @@ By executing the program, you will get the PowerPoint slide as follows.
 
 ![Removed Footers from Title Slide](HeaderFooter_Images/TitleSlide.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Headers-and-Footers/Remove-footers-from-all-title-slides).

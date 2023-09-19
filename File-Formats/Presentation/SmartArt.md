@@ -57,6 +57,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Add-PowerPoint-SmartArt).
+
 ## Adding a node to the SmartArt
 
 You can add a new node to the [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagram. The following code example demonstrates the same.
@@ -117,6 +119,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Add-SmartArt-node).
 
 In [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagrams, you can also add nodes to several nested levels. The maximum limit of nested levels may vary based on SmartArt types. The following code example demonstrates adding nested level nodes in a [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html).
 
@@ -181,6 +185,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Adding-nested-level-nodes).
 
 ## Modifying SmartArt appearance 
 
@@ -261,6 +267,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Modify-SmartArt-appearance).
+
 ## Iterating through child nodes of an existing SmartArt
 
 You can iterate through the child nodes and access the properties of each node in a [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html). The following code example demonstrates accessing and modifying the text content of node.
@@ -338,6 +346,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Iterate-child-nodes-of-existing-SmartArt).
+
 ## Removing node from an existing SmartArt
 
 You can remove a node from the [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagram. The following code example demonstrates the same.
@@ -392,6 +402,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/SmartArts/Remove-child-node-from-existing-SmartArt).
 
 ## Assistant nodes in SmartArt
 

@@ -159,7 +159,7 @@ pptxDoc.Close();
 
 {% endtabs %}
 
-A sample of how to create a PowerPoint presentation file in ASP.NET platform can be downloaded from [Create-PowerPoint-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Create-PowerPoint-file-2137736944.zip)
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET/Create-PowerPoint-presentation).
 
 The output of the above code example will generate the below PowerPoint slide.
 
@@ -188,6 +188,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/ASP.NET/Read-and-edit-PowerPoint-presentation).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

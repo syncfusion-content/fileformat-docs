@@ -60,6 +60,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Macros/Load-and-save-macro-PowerPoint).
+
 ## Removing Macros from Macro enabled Presentation
 
 The following code example illustrates how to remove the macros present in the presentation,
@@ -107,3 +109,4 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Macros/Remove-macros).

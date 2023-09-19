@@ -57,6 +57,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Add-comments-in-PowerPoint).
+
 ## Replying to a comment
 The following code example demonstrates how to reply to an existing comment in a slide.
 
@@ -111,6 +113,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Add-reply-comment-in-PowerPoint).
+
 ## Modifying the comment
 The following code example demonstrates how to modify the content of a comment.
 
@@ -164,6 +168,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Modify-comment-content).
+
 The following code example demonstrates how to modify the author name of a comment.
 
 {% tabs %}
@@ -216,6 +222,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Modify-comment-author).
 
 ## Deleting the comment
 
@@ -274,6 +282,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Delete-comment).
+
 The following code example demonstrates how to delete a comment by specifying its position.
 
 {% tabs %}
@@ -320,3 +330,5 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Comments/Delete-comment-by-position).
