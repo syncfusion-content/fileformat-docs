@@ -59,6 +59,8 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Notes/Add-notes-to-PowerPoint-slide).
+
 ## Adding Text into the Notes 
 
 The following code example demonstrates how to add a text in a Notes.
@@ -133,6 +135,8 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Notes/Add-text-in-notes).
 
 ## Adding a numbered list to Notes
 
@@ -296,6 +300,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Notes/Create-numbered-list-in-notes-slide).
+
 ## Removing Notes from a Slide
 
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
@@ -338,3 +344,5 @@ pptxDoc.Save("PresentationWithNotesSlide.pptx")
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Notes/Remove-notes-from-slide).
