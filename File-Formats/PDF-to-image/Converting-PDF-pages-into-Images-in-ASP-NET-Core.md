@@ -80,7 +80,7 @@ N> To maintain the aspect ratio of output images, you are required to pass the v
 
 ## Exporting with a custom image resolution
 
-You can export PDF pages as images with specific attributes, such as zoom factor, tile dimensions (x and y), and tile matrix co-ordinates (x and y), by passing the corresponding values as parameters to the Convert method. zoomFactor is used to specify the zoom level. The number of columns and rows will be calculated based on tileXCount and tileYCount (tile dimensions), while tile x and y co-ordinates determine which tile to use based on tileX and tileY. The ScaleFactor property scales the page to improve the quality of the image, and you can set it to positive floating-point values. The recommended values are 1 or 1.5f. Refer to the following code for exporting PDF pages into PNG images with the desired resolution.
+You can export PDF pages as images with specific attributes, such as zoom factor, tile dimensions (x and y), and tile matrix co-ordinates (x and y), by passing the corresponding values as parameters to the Convert method. zoomFactor is used to specify the zoom level. The number of columns and rows will be calculated based on tileXCount and tileYCount (tile dimensions), while tile x and y co-ordinates determine which tile to use based on tileX and tileY. The ScaleFactor property scales the page to enhance image quality, and it can be set to positive floating-point values, with recommended values of 1 or 1.5f. Refer to the following code for exporting PDF pages into PNG images with the desired resolution.
 
 {% tabs %}
 {% highlight C# %}
