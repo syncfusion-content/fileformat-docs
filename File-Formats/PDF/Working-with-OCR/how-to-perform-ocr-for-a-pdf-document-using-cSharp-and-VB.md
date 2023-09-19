@@ -10,7 +10,7 @@ documentation: UG
 
 Essential PDF provides support for Optical Character Recognition with the help of Google's [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine. With a few lines of code, a scanned PDF document containing a raster image is converted into a searchable and selectable PDF document.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v20.1.0.x, if you reference Syncfusion OCR processor assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 To use the Syncfusion OCR processor library in your application, you need to add reference to the following set of assemblies.
 
