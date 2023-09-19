@@ -128,7 +128,7 @@ saveService.SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedoc
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-472985326.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -162,6 +162,8 @@ saveService.SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedoc
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentationn).
 
 ## Helper files for .NET MAUI
 

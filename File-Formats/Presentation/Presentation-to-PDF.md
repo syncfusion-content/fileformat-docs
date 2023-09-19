@@ -94,6 +94,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET).
+
 N> 1. Creating an instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
 N> 2. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS (Federal Information Processing Standard) algorithm policy.
 N> 3. **In .NET Core targeting applications**, metafile images such as EMF and WMF have some limitations. So, those images will not preserve in Presentation document to PDF conversion using Essential Presentation. 
@@ -227,6 +229,8 @@ End Sub
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Apply-substitution-font-name).
+
 ### Upload font stream
 
 The following code example demonstrates how to upload a font stream for missing font while converting a PowerPoint presentation to PDF. The provided alternate font stream is not mandatory to be installed in the production environment.
@@ -334,6 +338,8 @@ End Sub
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Apply-substitution-font-stream).
+
 ## Fallback fonts
 
 When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to PDF conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to PDF conversion.
@@ -413,6 +419,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Apply-fallback-fonts).
 
 ### Customize Default Fallback Fonts
 
@@ -498,6 +506,8 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Customize-default-fallback-fonts).
 
 ### Add Custom Fallback Fonts
 
@@ -608,6 +618,8 @@ pptxDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Add-custom-fallback-fonts).
+
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
 N> 2. Its only supported in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) PDF conversion modules.
 
@@ -700,6 +712,8 @@ public class DocumentWarning : IWarning
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Show-warning-for-unsupported-elements).
+
 ## Handouts
 
 The Presentation library allows you to convert a PowerPoint presentation to PDF document with [Handouts](https://help.syncfusion.com/cr/file-formats/Syncfusion.PresentationToPdfConverter.PublishOptions.html) option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
@@ -745,6 +759,8 @@ pdfDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-to-PDF-with-handouts).
+
 ## Notes pages
 
 The Presentation library allows you to convert a PowerPoint presentation to PDF document with 'notes pages' option, which will includes the notes content while PDF conversion. 
@@ -786,6 +802,8 @@ pdfDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-to-PDF-with-notes).
 
 ## Include hidden slides
 
@@ -829,6 +847,8 @@ pdfDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/PowerPoint-to-PDF-with-hidden-slides).
 
 ## Recreate Nested Metafile
 
@@ -882,6 +902,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/PowerPoint-to-PDF-with-nested-metafile).
+
 ## PDF Conformance
 
 Essential Presentation currently supports following PDF conformances while converting a PowerPoint document to PDF.
@@ -931,6 +953,8 @@ pdfDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Set-PDF-conformance-level).
 
 ## Accessible PDF document
 
@@ -1003,6 +1027,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-into-accessible-PDF).
+
 ## Chart quality
 
 The Presentation library provides an option to decide the quality of the charts to optimize the converted PDF document size. 
@@ -1050,6 +1076,8 @@ pdfDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Set-chart-quality).
+
 ## Optimizing the converted PDF document size
 
 **Optimizing the identical images**
@@ -1095,6 +1123,8 @@ pdfDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Optimize-duplicate-images).
 
 **Optimizing the image quality and resolution**
 
@@ -1144,6 +1174,8 @@ pdfDoc.Close()
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Optimize-image-quality-and-resolution).
+
 ## PowerPoint to PDF conversion in Azure platform
 
 The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in Azure platform. The following code sample demonstrates how to convert a PowerPoint presentation to PDF in Azure platform.
@@ -1185,6 +1217,8 @@ pdfDoc.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Azure).
 
 ## See Also
 
