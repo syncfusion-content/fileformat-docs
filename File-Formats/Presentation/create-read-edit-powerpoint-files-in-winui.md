@@ -117,7 +117,7 @@ pptxDoc.Save(outputStream);
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint724079917.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-Desktop-app/Create-PowerPoint-presentation).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -145,6 +145,8 @@ pptxDoc.Save(outputStream);
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-Desktop-app/Read-and-edit-PowerPoint-presentation).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
@@ -268,7 +270,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the WinUI UWP app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint_UWP-1654817345.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-UWP-app/Create-PowerPoint-presentation).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -345,6 +347,8 @@ async void Save(MemoryStream stream)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/WinUI/WinUI-UWP-app/Read-and-edit-PowerPoint-presentation).
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

@@ -67,6 +67,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Connectors/Add-PowerPoint-connectors).
+
 ## Adding a single point connector
 
 You can also add a connector to a source shape without any destination shapes. The following code example demonstrates how to add a connector with single point connection.
@@ -146,6 +148,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Connectors/Add-single-point-connector).
 
 ## Editing a connector in PowerPoint slide
 
@@ -240,6 +244,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Connectors/Modify-existing-connector).
+
 ## Updating the positions of the connector in PowerPoint slide
 
 The following code example demonstrates how to update a connector’s position when a source shape position is changed.
@@ -310,6 +316,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Connectors/Update-connector-position).
+
 ## Removing a connector from PowerPoint shapes
 
 The following code example demonstrates how to remove a connector from PowerPoint slide.
@@ -364,3 +372,5 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Connectors/Remove-connector-from-shapes).

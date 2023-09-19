@@ -76,6 +76,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Add-animation-effect-to-PowerPoint-shapes).
+
 ## Adding interactive animation
 
 Animations can be interactive when it depends on another slide element., for example, an animation associated with a rectangle is triggered when user clicks an oval shape in the slide. The following code example demonstrates how to set an interactive animation.
@@ -140,6 +142,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Add-interactive-animation).
+
 ## Adding animation to text
 
 Animation effects can be applied to text. The following code example demonstrated how to set an animation effect to a text.
@@ -197,6 +201,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Add-animation-to-PowerPoint-text).
 
 ## Adding exit animation effect
 
@@ -261,6 +267,7 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Add-exit-animation-effect).
 
 ## Edit existing animation effect
 
@@ -332,6 +339,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Modify-existing-animation-effect).
+
 ## Modifying animation effect sub type
 
 Presentation library allows you to edit the sub type of animations effects in existing presentations. The following example demonstrates how to modify a sub type applied to the existing animation.
@@ -396,6 +405,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Modify-animation-effect-sub-type).
+
 ## Modifying timing of animation effect
 
 Presentation library allows you to edit the animation timing in the existing presentations. The following example demonstrates how to modify an existing animation timing applied to a shape.
@@ -459,6 +470,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Modify-animation-effect-timing).
 
 ## Reordering the animation effects
 
@@ -537,6 +550,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Reordering-animation-effects).
 
 ## Creating custom path animation effect
 
@@ -628,6 +643,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Create-custom-path-animation-effect).
+
 ## Removing animation effect
 
 Presentation library allows you to remove the animation effects from a shape. The following example demonstrates how to remove an animation effect from a shape.
@@ -702,6 +719,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Animations/Remove-animation-effect).
 
 ## Supported animation effects type
 
