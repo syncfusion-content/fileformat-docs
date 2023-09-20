@@ -1798,6 +1798,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-Header-and-Footer).
+
 N> Adjust the HTML margin top and bottom values according to the height of the HTML header and footer, as well as the margin settings.
 
 ## Temporary path
