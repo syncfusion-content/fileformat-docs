@@ -8,12 +8,14 @@ documentation: UG
 
 # What-If Analysis
 
+What-If Analysis is the process of changing the values in cells to see how those changes will affect the outcome of formulas on the worksheet. XlsIO supports the What-If Analysis of Scenarios type.
+
 ## Scenario Manager
 Scenario Manager in Excel allows you to create and manage scenarios for different sets of input values to see how they impact the results of formulas in a worksheet.
 
 ### Create Scenario
 
-The following code snippet explains how to create a scenario and add it to the worksheet.
+The following code snippet explains how to create scenarios for different values in an Excel worksheet.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -27,12 +29,21 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     IScenarios scenarios = worksheet.Scenarios;
 
-    //Add scenario with single range
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3"], 3000);
+    //Initialize list objects with different values for scenarios
+    List<object> currentChangePercentage_Values = new List<object> { 0.23, 0.8, 1.1, 0.5, 0.35, 0.2};
+    List<object> increasedChangePercentage_Values = new List<object> { 0.45, 0.56, 0.9, 0.5, 0.58, 0.43};
+    List<object> decreasedChangePercentage_Values = new List<object> { 0.3, 0.2, 0.5, 0.3, 0.5, 0.23};
+    List<object> currentQuantity_Values = new List<object> { 1500, 3000, 5000, 4000, 500, 4000 };
+    List<object> increasedQuantity_Values = new List<object> { 1000, 5000, 4500, 3900, 10000, 8900 };
+    List<object> decreasedQuantity_Values = new List<object> { 1000, 2000, 3000, 3000, 300, 4000 };
 
-    //Add scenario with multiple range
-    List<object> values = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values);
+    //Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range["F5:F10"], currentChangePercentage_Values);
+    scenarios.Add("Increased % of Change", worksheet.Range["F5:F10"], increasedChangePercentage_Values);
+    scenarios.Add("Decreased % of Change", worksheet.Range["F5:F10"], decreasedChangePercentage_Values);
+    scenarios.Add("Current Quantity", worksheet.Range["D5:D10"], currentQuantity_Values);
+    scenarios.Add("Increased Quantity", worksheet.Range["D5:D10"], increasedQuantity_Values);
+    scenarios.Add("Decreased Quantity", worksheet.Range["D5:D10"], decreasedQuantity_Values);
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -51,12 +62,21 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     IScenarios scenarios = worksheet.Scenarios;
 
-    //Add scenario with single range
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3"], 3000);
+    //Initialize list objects with different values for scenarios
+    List<object> currentChangePercentage_Values = new List<object> { 0.23, 0.8, 1.1, 0.5, 0.35, 0.2};
+    List<object> increasedChangePercentage_Values = new List<object> { 0.45, 0.56, 0.9, 0.5, 0.58, 0.43};
+    List<object> decreasedChangePercentage_Values = new List<object> { 0.3, 0.2, 0.5, 0.3, 0.5, 0.23};
+    List<object> currentQuantity_Values = new List<object> { 1500, 3000, 5000, 4000, 500, 4000 };
+    List<object> increasedQuantity_Values = new List<object> { 1000, 5000, 4500, 3900, 10000, 8900 };
+    List<object> decreasedQuantity_Values = new List<object> { 1000, 2000, 3000, 3000, 300, 4000 };
 
-    //Add scenario with multiple range
-    List<object> values = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values);
+    //Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range["F5:F10"], currentChangePercentage_Values);
+    scenarios.Add("Increased % of Change", worksheet.Range["F5:F10"], increasedChangePercentage_Values);
+    scenarios.Add("Decreased % of Change", worksheet.Range["F5:F10"], decreasedChangePercentage_Values);
+    scenarios.Add("Current Quantity", worksheet.Range["D5:D10"], currentQuantity_Values);
+    scenarios.Add("Increased Quantity", worksheet.Range["D5:D10"], increasedQuantity_Values);
+    scenarios.Add("Decreased Quantity", worksheet.Range["D5:D10"], decreasedQuantity_Values);
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -73,12 +93,20 @@ Using excelEngine As ExcelEngine = New ExcelEngine
 
     Dim scenarios As IScenarios = worksheet.Scenarios
 
-    'Add scenario with single range
-    Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3"), 3000)
+    Dim currentChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.23, 0.8, 1.1, 0.5, 0.35, 0.2}
+    Dim increasedChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.45, 0.56, 0.9, 0.5, 0.58, 0.43}
+    Dim decreasedChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.3, 0.2, 0.5, 0.3, 0.5, 0.23}
+    Dim currentQuantity_Values As List(Of Object) = New List(Of Object)() {1500, 3000, 5000, 4000, 500, 4000}
+    Dim increasedQuantity_Values As List(Of Object) = New List(Of Object)() {1000, 5000, 4500, 3900, 10000, 8900}
+    Dim decreasedQuantity_Values As List(Of Object) = New List(Of Object)() {1000, 2000, 3000, 3000, 300, 4000}
 
-    'Add scenario with multiple range
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B9"), values1)
+    'Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range("F5:F10"), currentChangePercentage_Values)
+    scenarios.Add("Increased % of Change", worksheet.Range("F5:F10"), increasedChangePercentage_Values)
+    scenarios.Add("Decreased % of Change", worksheet.Range("F5:F10"), decreasedChangePercentage_Values)
+    scenarios.Add("Current Quantity", worksheet.Range("D5:D10"), currentQuantity_Values)
+    scenarios.Add("Increased Quantity", worksheet.Range("D5:D10"), increasedQuantity_Values)
+    scenarios.Add("Decreased Quantity", worksheet.Range("D5:D10"), decreasedQuantity_Values)
 
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
@@ -86,11 +114,15 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-<img src="What_If_Analysis_images/Create_Scenario.png" alt="Create Scenario Manager" width="100%" Height="Auto"/>
+A complete working example to create scenarios in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/What-If%20Analysis/Create%20Scenarios).
+
+By executing the program, you will get the Excel file as below.
+
+<img src="What_If_Analysis_images/Create_Scenario.png" alt="Create Scenarios" width="100%" Height="Auto"/>
 
 ### Edit Scenario
 
-The changing cells range and values of the scenario can be edited by using the **ModifyScenario** method.
+An existing scenario can be edited or modified through [ModifyScenario](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_ModifyScenario_Syncfusion_XlsIO_IRange_System_Collections_Generic_List_System_Object__) method of [IScenario](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -103,12 +135,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
-
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3: B8"], values2);
+    IScenario scenario1 = scenarios[0];
+    IScenario scenario2 = scenarios[1];
 
     //Modify the scenario 
     scenario1.ModifyScenario(scenario2.ChangingCells, scenario2.Values);
@@ -129,12 +157,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
-
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3: B8"], values2);
+    IScenario scenario1 = scenarios[0];
+    IScenario scenario2 = scenarios[1];
 
     //Modify the scenario 
     scenario1.ModifyScenario(scenario2.ChangingCells, scenario2.Values);
@@ -153,12 +177,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
-
-    Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500}
-    Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B8"), values2)
+    Dim scenario1 As IScenario = scenarios(0)
+    Dim scenario2 As IScenario = scenarios(1)
 
     'Modify the scenario 
     scenario1.ModifyScenario(scenario2.ChangingCells, scenario2.Values)
@@ -171,7 +191,7 @@ End Using
 
 ### Delete Scenario
 
-Remove the existing scenario from the scenarios collection by using the **Delete** method.
+A scenario can be deleted from the Excel worksheet through [Delete](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Delete) method of [IScenario](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -184,16 +204,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-
-    //Add scenario in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
-
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    IScenario scenario1 = scenarios[0];
 
     //Delete the scenario 
-    scenario2.Delete();
+    scenario1.Delete();
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -211,16 +225,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
-
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    IScenario scenario1 = scenarios[0];
+    IScenario scenario2 = scenarios[1];
 
     //Delete the scenario 
-    scenario2.Delete();
+    scenario1.Delete();
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -236,16 +245,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-
-    'Add scenario in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
-
-    Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-    Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B9"), values2)
+    Dim scenario1 As IScenario = scenarios(0)
 
     'Delete the scenario
-    scenario2.Delete()
+    scenario1.Delete()
 
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
@@ -255,7 +258,7 @@ End Using
 
 ### Merge Scenario
 
-Merges the scenarios from another sheet into the current sheet's scenarios collection by using the **Merge** method.
+Scenarios in one Excel worksheet can be merged in to another, using [Merge](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenarios.html#Syncfusion_XlsIO_IScenarios_Merge_Syncfusion_XlsIO_IWorksheet_) method of [IScenarios](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenarios.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -267,16 +270,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
     IWorksheet worksheet1 = workbook.Worksheets[0];
     IWorksheet worksheet2 = workbook.Worksheets[1];
-
-    IScenarios scenarios1 = worksheet1.Scenarios;
-    //Add scenario in the first worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios1.Add("Scenario1", worksheet1.Range["B3:B9"], values1);
-
-    IScenarios scenarios2 = worksheet2.Scenarios;
-    //Add scenario in the second worksheet
-    List<object> values2 = new List<object> { 500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios2.Add("Scenario2", worksheet2.Range["B3:B9"], values2);
 
     //Merge the second worksheet scenario into first worksheet.
     worksheet1.Scenarios.Merge(worksheet2);
@@ -296,16 +289,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
     IWorksheet worksheet1 = workbook.Worksheets[0];
     IWorksheet worksheet2 = workbook.Worksheets[1];
-
-    IScenarios scenarios1 = worksheet1.Scenarios;
-    //Add scenario in the first worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios1.Add("Scenario1", worksheet1.Range["B3:B9"], values1);
-
-    IScenarios scenarios2 = worksheet2.Scenarios;
-    //Add scenario in the second worksheet
-    List<object> values2 = new List<object> { 500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios2.Add("Scenario2", worksheet2.Range["B3:B9"], values2);
 
     //Merge the second worksheet scenario into first worksheet.
     worksheet1.Scenarios.Merge(worksheet2);
@@ -324,16 +307,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet1 As IWorksheet = workbook.Worksheets(0)
     Dim worksheet2 As IWorksheet = workbook.Worksheets(1)
 
-    Dim scenarios1 As IScenarios = worksheet1.Scenarios
-    'Add scenario in the first worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario1 As IScenario = scenarios1.Add("Scenario1", worksheet1.Range("B3:B9"), values1)
-
-    Dim scenarios2 As IScenarios = worksheet2.Scenarios
-    'Add scenario in the second worksheet
-    Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-    Dim scenario2 As IScenario = scenarios2.Add("Scenario2", worksheet2.Range("B3:B9"), values2)
-
     'Merge the second worksheet scenario into first worksheet.
     worksheet1.Scenarios.Merge(worksheet2)
 
@@ -345,7 +318,7 @@ End Using
 
 ### Create Summary
 
-Creates a new worksheet that contains a summary report for the scenarios on the specified worksheet by using **CreateSummary** method.
+[CreateSummary](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenarios.html#Syncfusion_XlsIO_IScenarios_CreateSummary_Syncfusion_XlsIO_IRange_) method of [IScenarios](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenarios.html) creates a new worksheet that contains a summary report for the scenarios on the specified worksheet.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -358,18 +331,25 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
 
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    //Initialize list objects with different values for scenarios
+    List<object> currentChangePercentage_Values = new List<object> { 0.23, 0.8, 1.1, 0.5, 0.35, 0.2};
+    List<object> increasedChangePercentage_Values = new List<object> { 0.45, 0.56, 0.9, 0.5, 0.58, 0.43};
+    List<object> decreasedChangePercentage_Values = new List<object> { 0.3, 0.2, 0.5, 0.3, 0.5, 0.23};
+    List<object> currentQuantity_Values = new List<object> { 1500, 3000, 5000, 4000, 500, 4000 };
+    List<object> increasedQuantity_Values = new List<object> { 1000, 5000, 4500, 3900, 10000, 8900 };
+    List<object> decreasedQuantity_Values = new List<object> { 1000, 2000, 3000, 3000, 300, 4000 };
 
-    List<object> values3 = new List<object> { 1000, 500, 2000, 800, 1300, 1500, 35000 };
-    IScenario scenario3 = scenarios.Add("Scenario3", worksheet.Range["B3:B9"], values3);
+    //Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range["F5:F10"], currentChangePercentage_Values);
+    scenarios.Add("Increased % of Change", worksheet.Range["F5:F10"], increasedChangePercentage_Values);
+    scenarios.Add("Decreased % of Change", worksheet.Range["F5:F10"], decreasedChangePercentage_Values);
+    scenarios.Add("Current Quantity", worksheet.Range["D5:D10"], currentQuantity_Values);
+    scenarios.Add("Increased Quantity", worksheet.Range["D5:D10"], increasedQuantity_Values);
+    scenarios.Add("Decreased Quantity", worksheet.Range["D5:D10"], decreasedQuantity_Values);
 
-    //Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range["B11"]);
+    //Create Summary
+    worksheet.Scenarios.CreateSummary(worksheet.Range["L7"]);
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -387,18 +367,25 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
 
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    //Initialize list objects with different values for scenarios
+    List<object> currentChangePercentage_Values = new List<object> { 0.23, 0.8, 1.1, 0.5, 0.35, 0.2};
+    List<object> increasedChangePercentage_Values = new List<object> { 0.45, 0.56, 0.9, 0.5, 0.58, 0.43};
+    List<object> decreasedChangePercentage_Values = new List<object> { 0.3, 0.2, 0.5, 0.3, 0.5, 0.23};
+    List<object> currentQuantity_Values = new List<object> { 1500, 3000, 5000, 4000, 500, 4000 };
+    List<object> increasedQuantity_Values = new List<object> { 1000, 5000, 4500, 3900, 10000, 8900 };
+    List<object> decreasedQuantity_Values = new List<object> { 1000, 2000, 3000, 3000, 300, 4000 };
 
-    List<object> values3 = new List<object> { 1000, 500, 2000, 800, 1300, 1500, 35000 };
-    IScenario scenario3 = scenarios.Add("Scenario3", worksheet.Range["B3:B9"], values3);
+    //Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range["F5:F10"], currentChangePercentage_Values);
+    scenarios.Add("Increased % of Change", worksheet.Range["F5:F10"], increasedChangePercentage_Values);
+    scenarios.Add("Decreased % of Change", worksheet.Range["F5:F10"], decreasedChangePercentage_Values);
+    scenarios.Add("Current Quantity", worksheet.Range["D5:D10"], currentQuantity_Values);
+    scenarios.Add("Increased Quantity", worksheet.Range["D5:D10"], increasedQuantity_Values);
+    scenarios.Add("Decreased Quantity", worksheet.Range["D5:D10"], decreasedQuantity_Values);
 
-    //Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range["B11"]);
+    //Create Summary
+    worksheet.Scenarios.CreateSummary(worksheet.Range["L7"]);
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -414,18 +401,24 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
 
-    Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-    Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B9"), values2)
+    Dim currentChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.23, 0.8, 1.1, 0.5, 0.35, 0.2}
+    Dim increasedChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.45, 0.56, 0.9, 0.5, 0.58, 0.43}
+    Dim decreasedChangePercentage_Values As List(Of Object) = New List(Of Object)() {0.3, 0.2, 0.5, 0.3, 0.5, 0.23}
+    Dim currentQuantity_Values As List(Of Object) = New List(Of Object)() {1500, 3000, 5000, 4000, 500, 4000}
+    Dim increasedQuantity_Values As List(Of Object) = New List(Of Object)() {1000, 5000, 4500, 3900, 10000, 8900}
+    Dim decreasedQuantity_Values As List(Of Object) = New List(Of Object)() {1000, 2000, 3000, 3000, 300, 4000}
 
-    Dim values3 As New List(Of Object) From {1000, 500, 2000, 800, 1300, 1500, 35000}
-    Dim scenario3 As IScenario = scenarios.Add("Scenario3", worksheet.Range("B3:B9"), values3)
+    'Add scenarios in the worksheet with different values for the same cells
+    scenarios.Add("Current % of Change", worksheet.Range("F5:F10"), currentChangePercentage_Values)
+    scenarios.Add("Increased % of Change", worksheet.Range("F5:F10"), increasedChangePercentage_Values)
+    scenarios.Add("Decreased % of Change", worksheet.Range("F5:F10"), decreasedChangePercentage_Values)
+    scenarios.Add("Current Quantity", worksheet.Range("D5:D10"), currentQuantity_Values)
+    scenarios.Add("Increased Quantity", worksheet.Range("D5:D10"), increasedQuantity_Values)
+    scenarios.Add("Decreased Quantity", worksheet.Range("D5:D10"), decreasedQuantity_Values)
 
-    'Create Summary for the sheet1
-    scenarios.CreateSummary(worksheet.Range("B11"))
+    'Create Summary
+    worksheet.Scenarios.CreateSummary(worksheet.Range("L7"))
 
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
@@ -433,11 +426,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-<img src="What_If_Analysis_images/Create_Summary.png" alt="Create Scenario Manager" width="100%" Height="Auto"/>
+<img src="What_If_Analysis_images/Create_Summary.png" alt="Create Summary" width="100%" Height="Auto"/>
 
 ### Apply Scenario
 
-Update the scenario values in the worksheet and display it using the **Show** method.
+Update the scenario values in the worksheet and display it using the [Show](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Show) method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -448,14 +441,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
     IWorksheet worksheet = workbook.Worksheets[0];
-              
-    IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
 
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    IScenarios scenarios = worksheet.Scenarios;
+    IScenario scenario1 = scenarios[0];
+    IScenario scenario2 = scenarios[1];
 
     //Show the scenario 
     scenario2.Show();
@@ -476,12 +465,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario1 = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
-
-    List<object> values2 = new List<object> { 2500, 1000, 1500, 1200, 700, 500, 40000 };
-    IScenario scenario2 = scenarios.Add("Scenario2", worksheet.Range["B3:B9"], values2);
+    IScenario scenario1 = scenarios[0];
+    IScenario scenario2 = scenarios[1];
 
     //Show the scenario 
     scenario2.Show();
@@ -500,12 +485,8 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario1 As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
-
-    Dim values2 As New List(Of Object) From {2500, 1000, 1500, 1200, 700, 500, 40000}
-    Dim scenario2 As IScenario = scenarios.Add("Scenario2", worksheet.Range("B3:B9"), values2)
+    Dim scenario1 As IScenario = scenarios(0)
+    Dim scenario2 As IScenario = scenarios(1)
 
     'Show the scenario 
     scenario2.Show()
@@ -516,9 +497,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to show scenario in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/What-If%20Analysis/Apply%20Scenario).
+
 ### Set Name
 
-The name of the scenario can be defined using the **Name** property..
+The name of the scenario can be defined using the [Name](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Name) property..
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -531,12 +514,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Set the name of the scenario
-    scenario.Name = "ScenarioNameChanged";
+    scenario.Name = "Current Quantity";
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -554,12 +535,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Set the name of the scenario
-    scenario.Name = "ScenarioNameChanged";
+    scenario.Name = "Current Quantity";
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -575,12 +554,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
+    Dim scenario As IScenario = scenarios(0)
 
     'Set the name of the scenario
-    scenario.Name = "ScenarioNameChanged"
+    scenario.Name = "Current Quantity"
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
 End Using
@@ -589,7 +566,7 @@ End Using
 
 ### Hide Scenario
 
-The scenario can be hidden using the **Hidden** property. It is a boolean property, with its default value set to false.
+The scenario can be hidden by enabling the [Hidden](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Hidden) property of [IScenario](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -602,9 +579,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Hidden the scenario
     scenario.Hidden = true;
@@ -625,9 +600,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Hidden the scenario
     scenario.Hidden = true;
@@ -646,9 +619,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add the scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
+    Dim scenario As IScenario = scenarios(0)
 
     'Hidden the scenario
     scenario.Hidden = True
@@ -659,9 +630,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to hide a scenario in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/What-If%20Analysis/Hide%20Scenario).
+
 ### Protect Scenario
 
-The scenario can be locked using the **Locked** property. It is a boolean property, with its default value set to true.
+The scenario can be locked or unlocked through [Locked](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Locked) property of [IScenario](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html). A scenario is locked by default.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -674,11 +647,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add  scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
-    //Set the scenario to be locked
+    //Unlock a scenario
     scenario.Locked = false;
 
     //Saving the workbook as stream
@@ -697,11 +668,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
-    //Set the scenario to be locked
+    //Unlock a scenario
     scenario.Locked = false;
 
     //Saving the workbook
@@ -718,11 +687,9 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
+    Dim scenario As IScenario = scenarios(0)
 
-    'Set the scenario to be locked
+    'Unlock a scenario
     scenario.Locked = False
 
     'Saving the workbook  
@@ -732,9 +699,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to unprotect a scenario in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/What-If%20Analysis/Protect%20Scenario).
+
 ### Add Comment
 
-The comment associated with that particular scenario can be generated using the **Comment** property.
+The comment associated with that particular scenario can be generated using the [Comment](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IScenario.html#Syncfusion_XlsIO_IScenario_Comment) property.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -747,12 +716,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Set the comment value 
-    scenario.Comment = "Scenario 1 can be created";
+    scenario.Comment = "Scenario has been created";
 
     //Saving the workbook as stream
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -770,12 +737,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet worksheet = workbook.Worksheets[0];
 
     IScenarios scenarios = worksheet.Scenarios;
-    //Add the scenarios in the worksheet
-    List<object> values1 = new List<object> { 3000, 2000, 1000, 1600, 500, 1000, 30000 };
-    IScenario scenario = scenarios.Add("Scenario1", worksheet.Range["B3:B9"], values1);
+    IScenario scenario = scenarios[0];
 
     //Set the comment value 
-    scenario.Comment = "Scenario 1 can be created";
+    scenario.Comment = "Scenario has been created";
 
     //Saving the workbook
     workbook.SaveAs("Output.xlsx");
@@ -791,12 +756,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine
     Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
     Dim scenarios As IScenarios = worksheet.Scenarios
-    'Add the scenarios in the worksheet
-    Dim values1 As New List(Of Object) From {3000, 2000, 1000, 1600, 500, 1000, 30000}
-    Dim scenario As IScenario = scenarios.Add("Scenario1", worksheet.Range("B3:B9"), values1)
+    Dim scenario As IScenario = scenarios[0]
 
     'Set the comment value 
-    scenario.Comment = "Scenario 1 can be created"
+    scenario.Comment = "Scenario has been created"
 
     'Saving the workbook  
     workbook.SaveAs("Output.xlsx")
