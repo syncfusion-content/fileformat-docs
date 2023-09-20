@@ -876,11 +876,11 @@ A complete working example to remove comment in C# is present on [this GitHub pa
 
 ## Threaded Comments
 
-Threaded comments are a way to add and organize annotations or discussions related to specific cells in a worksheet.**IThreadedComment** object represents a threaded comment in a worksheet.
+Threaded comments are a way to add and organize annotations or discussions related to specific cells in a worksheet. [IThreadedComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComment.html) object represents a threaded comment in a worksheet.
 
 ### Create
 
-The following code explains how to create a threaded comment for a specific cell with the specified text using **AddThreadedComment** method.
+The following code explains how to create a threaded comment for a specific cell using [AddThreadedComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IRange.html#Syncfusion_XlsIO_IRange_AddThreadedComment_System_String_System_String_System_DateTime_) method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -892,8 +892,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comments
-  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
+  //Add threaded comment
+  worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -910,8 +910,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add threaded comments
-  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
+  //Add threaded comment
+  worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
 
   //Saving the workbook
   workbook.SaveAs("Ouptput.xlsx");
@@ -927,7 +927,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
   'Add threaded comment
-  Dim threadedComment As IThreadedComment = worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
+  worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
@@ -935,9 +935,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to create a threaded comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Threaded%20Comments/Add%20Comment).
+
 ### Reply
 
-The following code adds a replies to an existing threaded comment with specific text using the **AddReply** method.
+The following code adds a replies to an existing threaded comment using the [AddReply](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComment.html#Syncfusion_XlsIO_IThreadedComment_AddReply_System_String_System_String_System_DateTime_) method of [IThreadedComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComment.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -949,12 +951,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Add Threaded Comment
-  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
-
-  //Add Reply to the threaded comement
-  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
-  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
+  //Add replies to the threaded comement
+  worksheet.Range["H16"].ThreadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  worksheet.Range["H16"].ThreadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -970,13 +969,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Add Threaded Comment
-  IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
   
-  //Add Reply to the threaded comement
-  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
-  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
+  //Add replies to the threaded comement
+  worksheet.Range["H16"].ThreadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+  worksheet.Range["H16"].ThreadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now);
 
   //Saving the workbook
   workbook.SaveAs("Output.xlsx");
@@ -991,12 +987,9 @@ Using excelEngine As ExcelEngine = New ExcelEngine
   Dim workbook As IWorkbook = application.Workbooks.Open("CommentsTemplate.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Add threaded comment
-  Dim threadedComment As IThreadedComment = worksheet.Range("H16").AddThreadedComment("What is the reason for the higher total amount of ""desk""  in the west region?", "User1", DateTime.Now)
-
-  'Add Reply to the threaded comement
-  threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now)
-  threadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now)
+  'Add replies to the threaded comement
+  worksheet.Range("H16").ThreadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now)
+  worksheet.Range("H16").ThreadedComment.AddReply("Additionally, Wilson sold 31 desks in the west region, which is also a contributing factor to the increased total amount.", "User3", DateTime.Now)
 
   'Saving the workbook  
   workbook.SaveAs("Output.xlsx")
@@ -1004,12 +997,14 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-The following screenshot represents the output Excel file of threaded comments generated by the XlsIO 
-<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img10.png" alt="output Excel file" width="100%" Height="Auto"/>
+A complete working example to add replies in a existing threaded comment in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Threaded%20Comments/Reply%20Comment).
+
+The following screenshot represents the output Excel file of threaded comments generated by the XlsIO.
+<img src="Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img10.png" alt="Threaded Comments" width="100%" Height="Auto"/>
 
 ### Mark as resolved
 
-The threaded comment discussion can be marked as resolved by using the **IsResolved** property. By default, it is set to **false**.
+The threaded comment discussion can be marked as resolved by enabling the [IsResolved](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComment.html#Syncfusion_XlsIO_IThreadedComment_IsResolved) property. By default, the value is set to **false**.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1073,9 +1068,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+A complete working example to mark a treaded comment as resolved in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Threaded%20Comments/Resolve%20Comment).
+
 ### Delete
 
-The following code deletes a threaded comment from the collection of threaded comments using the **Delete** method.
+The following code shows how to delete a threaded comment from the collection of threaded comments using the [Delete](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComment.html#Syncfusion_XlsIO_IThreadedComment_Delete) method.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1141,7 +1138,7 @@ End Using
 
 ### Clear
 
-The following code clears all the threaded comments from the threaded comments collection using the **Clear** method.
+The following code clears all the threaded comments in the worksheet using the [Clear](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComments.html#Syncfusion_XlsIO_IThreadedComments_Clear) method of [IThreadedComments](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IThreadedComments.html).
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1156,7 +1153,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Get the collection of threaded comments in the worksheet
   IThreadedComments threadedComments = worksheet.ThreadedComments;
 
-  //clear all the threaded comment from the threaded comments collection
+  //Clear all the threaded comments
   threadedComments.Clear();
 
   //Saving the workbook as stream
@@ -1177,7 +1174,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Get the collection of threaded comments in the worksheet
   IThreadedComments threadedComments = worksheet.ThreadedComments;
 
-  //clear all the threaded comment from the threaded comments collection
+  //Clear all the threaded comments
   threadedComments.Clear();
 
   //Saving the workbook
@@ -1196,7 +1193,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine
  'Get the collection of threaded comments in the worksheet
   Dim threadedComments As IThreadedComments = worksheet.ThreadedComments
 
-  'clear all the threaded comment from the threaded comments collection
+  'Clear all the threaded comments
   threadedComments.Clear()
 
   'Saving the workbook  
