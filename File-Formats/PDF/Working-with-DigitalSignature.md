@@ -4042,4 +4042,6 @@ ldoc.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Get-images-from-the-existing-signed-signature-field).
+
 N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.
