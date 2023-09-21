@@ -22,7 +22,7 @@ documentation: UG
 <tr>
 <th style="font-size:14px" width="100px">Solution</th>
 <td>
-Ensure that upon NuGet package installation and building, the 'runtimes' folder is automatically copied.
+Ensure that the runtimes folder is copied properly to bin folder of the application from NuGet package location.
 <br/><br/>
 Please refer to the below screenshot,
 <br/><br/>
@@ -30,9 +30,9 @@ Please refer to the below screenshot,
 <br/><br/>
 (Or)
 <br/><br/>
-If you require explicit path setting, you can establish BlinkPath.
+You can set the runtimes folder path explicitly in BlinkPath property in BlinkConverterSettings class.
 <br/><br/>
-Ex path: <i>C:\HtmlConversion\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native\BlinkBinaries</i>
+Ex path: <i>C:\HtmlConversion\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native\</i>
 <br/><br/>
 {% highlight html %}
 
