@@ -213,7 +213,7 @@ For instance, if a slide includes bulleted paragraphs, each having entrance anim
 N> 1. Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first image itself.
 N> 2. Converting PowerPoint animations to images is not supported in the UWP platform. 
 
-The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the `PresentationAnimationConverter` API.
+The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the [PresentationAnimationConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.PresentationAnimationConverter.html) API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -312,7 +312,9 @@ End Using
 
 ![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-Animations-to-Images).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Based-on-Entrance-animation-effects/.NET).
+
+T> With this, you can showcase the converted images as a slideshow in your [custom PowerPoint Viewer](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material).
 
 ## UWP
 

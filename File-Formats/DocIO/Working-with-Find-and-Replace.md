@@ -1662,13 +1662,13 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 
-* [How to replace the particular text with hyperlink in Word document](https://www.syncfusion.com/kb/11774/how-to-replace-the-particular-text-with-hyperlink-in-word-document)
-* [How to find the empty paragraphs in the Word document using Essential DocIO](https://www.syncfusion.com/kb/3956/how-to-find-the-empty-paragraphs-in-the-word-document-using-essential-docio)
-* [How to replace text in a Word document with HTML](https://www.syncfusion.com/kb/13627/how-to-replace-text-in-a-word-document-with-html)
-* [How to find and replace text inside table in Word document](https://www.syncfusion.com/kb/13641/how-to-find-and-replace-text-inside-table-in-word-document)
-* [How to find and replace text in headers and footers of Word document](https://www.syncfusion.com/kb/13618/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
-* [How to find and replace placeholder with page break in Word document](https://www.syncfusion.com/kb/13642/how-to-find-and-replace-placeholder-with-page-break-in-word-document)
-* [How to find and replace text with content control in Word document?](https://www.syncfusion.com/kb/13644/how-to-find-and-replace-text-with-content-control-in-word-document)
-* [How to find and replace line break in Word document as paragraph mark?](https://www.syncfusion.com/kb/13647/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
-* [How to insert another document before a text in Word document?](https://www.syncfusion.com/kb/13754/how-to-insert-another-document-before-a-text-in-word-document)
-* [How to replace text within bookmark content in Word document?](https://www.syncfusion.com/kb/13784/how-to-replace-text-within-bookmark-content-in-word-document)
+* [How to replace the particular text with hyperlink in Word document](https://support.syncfusion.com/kb/article/10326/how-to-replace-the-particular-text-with-hyperlink-in-word-document)
+* [How to find the empty paragraphs in the Word document using Essential DocIO](https://support.syncfusion.com/kb/article/3943/how-to-find-the-empty-paragraphs-in-the-word-document-using-essential-docio-in-net-webforms-)
+* [How to replace text in a Word document with HTML](https://support.syncfusion.com/kb/article/11906/how-to-replace-text-in-a-word-document-with-html)
+* [How to find and replace text inside table in Word document](https://support.syncfusion.com/kb/article/11922/how-to-find-and-replace-text-inside-table-in-word-document)
+* [How to find and replace text in headers and footers of Word document](https://support.syncfusion.com/kb/article/11848/how-to-find-and-replace-text-in-headers-and-footers-of-word-document)
+* [How to find and replace placeholder with page break in Word document](https://support.syncfusion.com/kb/article/11975/how-to-find-and-replace-text-with-page-break-in-word-document)
+* [How to find and replace text with content control in Word document?](https://support.syncfusion.com/kb/article/11926/finding-and-replacing-text-with-content-in-aspnet-core-word)
+* [How to find and replace line break in Word document as paragraph mark?](https://support.syncfusion.com/kb/article/11935/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
+* [How to insert another document before a text in Word document?](https://support.syncfusion.com/kb/article/12178/how-to-insert-another-document-before-a-text-in-word-document)
+* [How to replace text within bookmark content in Word document?](https://support.syncfusion.com/kb/article/12159/how-to-replace-text-within-bookmark-content-in-word-document)
