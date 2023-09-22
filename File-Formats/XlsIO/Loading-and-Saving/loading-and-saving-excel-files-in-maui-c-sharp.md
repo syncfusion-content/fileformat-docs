@@ -64,7 +64,7 @@ saveService.SaveAndView("Output.xlsx", "application/vnd.openxmlformats-officedoc
 {% endhighlight %}
 {% endtabs %} 
 
-# Helper Class
+## Helper Class
 
 ## Save Service class in portable project
 
