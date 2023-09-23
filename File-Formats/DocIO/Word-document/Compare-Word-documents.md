@@ -13,7 +13,7 @@ Comparing two Word documents allows you to identify the changes between two vers
 *	Deletions
 *	Formatting
 
-N> 1. DocIO performs word level comparison while comparing two Word documents.In this scenario, if a single character in a word is changed, the entire word will be highlighted as changed.
+N> 1. DocIO performs word level comparison while comparing two Word documents. In this scenario, if a single character in a word is changed, the entire word will be highlighted as changed.
 N> 2. Comparing two Word documents supported in DOCX format only.
 
 ## Compare two Word documents 
@@ -81,6 +81,8 @@ End Using
 
 ![Compare Word documents in C#](../WorkingwithWordDocument_images/Compare-Word-documents-without-author.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Compare-Word-documents/Compare-two-Word-documents/.NET).
+
 ## Set Author and Date 
 
 Compare the two Word documents by setting the author and date for revisions to identify the changes. In DocIO, the default setting for the "author" field is "Author", and the default setting for the "dateTime" field is the current time.
@@ -146,13 +148,15 @@ End Using
 
 ![Compare Word documents in C#](../WorkingwithWordDocument_images/Compare-Word-documents.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Compare-Word-documents/Set-author-and-date/.NET).
+
 ## Comparison options
 
-You can customize the Word comparison using our ComparisonOptions in the DocIO.
+You can customize the Word comparison using our [ComparisonOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ComparisonOptions.html) in the DocIO.
 
 ### Ignore format changes
 
-In the .NET Word library (DocIO), document comparison includes formatting changes by default. However, you can configure DocIO to ignore formatting differences using the DetectFormatChanges API to concentrate solely on content modifications.
+In the .NET Word library (DocIO), document comparison includes formatting changes by default. However, you can configure DocIO to ignore formatting differences using the [DetectFormatChanges](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ComparisonOptions.html#Syncfusion_DocIO_DLS_ComparisonOptions_DetectFormatChanges) API to concentrate solely on content modifications.
 
 The following code example illustrates how to compare two Word documents by ignoring the format changes.
 
@@ -225,6 +229,8 @@ End Using
 {% endtabs %}
 
 ![Compare Word documents by ignoring format changes](../WorkingwithWordDocument_images/Ignore-format-changes.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Compare-Word-documents/Ignore-format-changes/.NET).
 
 ## See Also
 

@@ -8,7 +8,7 @@ keywords: Working with presentation library in Xamarin Platform
 ---
 # Create, read and edit a PowerPoint file in Xamarin
 
-You can create or edit a PowerPoint file with the Syncfusion [Xamarin PowerPoint library](https://www.syncfusion.com/powerpoint-framework/xamarin/powerpoint-library). The below are the steps.
+You can create or edit a PowerPoint file with the Syncfusion [Xamarin PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin/powerpoint-library). The below are the steps.
 
 ## Create a PowerPoint file in Xamarin
 
@@ -169,7 +169,7 @@ slide.Shapes.AddPicture(fileStream, 499.79, 238.59, 364.54, 192.16);
 
 {% endtabs %}
 
-You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+You can download the image used in the sample from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
 
 **Add a shape:**
 
@@ -201,7 +201,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
 
 {% endtabs %}
 
-Step 8: Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Step 8: Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
