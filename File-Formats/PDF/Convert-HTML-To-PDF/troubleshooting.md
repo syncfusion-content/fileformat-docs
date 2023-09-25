@@ -561,13 +561,13 @@ You can get the OPENSSL assemblies from the below link,
 <table>
 <th style="font-size:14px" width="100px">Exception
 </th>
-<th style="font-size:14px">Failed to convert Webpage exception with Linux Docker in Mac M1 system environment.
+<th style="font-size:14px">Failed to convert Webpage exception using Linux Docker in Mac M1 system environment.
 </th>
 
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The existing x64-bit Blink binaries Linux are not compatible with x64 ARM Mac M1 system architecture with Linux Docker.
+<td>The existing x64-bit Blink binaries for Linux are not compatible with the x64 ARM Mac M1 system architecture with Linux Docker.
 </td>
 </tr>
 
@@ -575,7 +575,7 @@ You can get the OPENSSL assemblies from the below link,
 <th style="font-size:14px" width="100px">Solution
 </th>
 <td>
-To overcome this issue, we can install the chromium using the docker file and set the Blink Path as the installed chromium location.
+To resolve this issue, we can install the chromium using the docker file and set the Blink Path to the location where chromium is installed.
 <br><br>
 Docker File:<br><br>
 {% tabs %}
@@ -610,7 +610,7 @@ Code snippet:
 
 	BlinkConverterSettings settings = new BlinkConverterSettings();  
 
-	//To use the Blink binaries from arm64-based chromium installed from the docker file run the command.   
+	//To utilize the Blink binaries from the arm64-based chromium installed using the docker file, execute the following command.   
 
 	settings.BlinkPath = @"/usr/lib/chromium/chromium";
 
