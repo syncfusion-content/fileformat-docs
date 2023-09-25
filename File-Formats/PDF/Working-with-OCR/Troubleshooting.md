@@ -78,6 +78,7 @@ The tesseract binaries path is TesseractBinaries/Windows, and the assemblies sho
 <td>An exception may occur due to the VC++ 2015 redistributable files missing in the machine where the OCR processor takes place.
 </td>
 </tr>
+<tr>
 <th style="font-size:14px" width="100px">Solution</th>
 <td>
 Install the VC++ 2015 redistributable files in your machine to overcome an exception. So, please select both file and install it.
@@ -109,6 +110,7 @@ Please find the download link Visual C++ 2015 Redistributable file,<br>
 To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-identity-of-the-developer-cannot-be-confirmed-">link</a> for more details.
 
 </td>
+</tr>
 </table>
 
 ## The OCR processor doesn't process languages other than English
@@ -154,6 +156,55 @@ By using the best tessdata, we can improve the OCR results. For more information
 <br/>
 <a href="https://github.com/tesseract-ocr/tessdata_best">https://github.com/tesseract-ocr/tessdata_best</a> <br>
 {{'**Note:**'| markdownify }}For better performance, kindly use the fast tessdata which is mentioned in below link,<br/><a href="https://github.com/tesseract-ocr/tessdata_fast">https://github.com/tesseract-ocr/tessdata_fast</a> 
+</td>
+</tr>
+</table>
+
+## OCR not working on Mac: Exception has been thrown by the target of an invocation
+
+<table>
+<th style="font-size:14px" width="100px">Issue
+</th>
+<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in the Mac machine. 
+</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The problem occurs due to a mismatch in the dependency package versions on your Mac machine. 
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To resolve this problem, you should install and utilize Tesseract 5 on your Mac machine. Refer to the following steps for installing Tesseract 5 and integrating it into an OCR processing workflow. 
+<br><br/>
+1.Execute the following command to install Tesserat 5. 
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+brew install tesseract
+
+{% endhighlight %}
+
+<br><br/>
+If the "brew" is not installed on your machine, you can install it using the following command.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+{% endhighlight %}
+
+<br><br/>
+
+2.Once Tesseract 5 is successfully installed, you can configure the path to the latest binaries by copying the location of the Tesseract folder and setting it as the Tesseract binaries path when setting up the OCR processor. Refer to the example code below:
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+//Initialize the OCR processor by providing the path of tesseract binaries.
+using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
+
+{% endhighlight %}
 </td>
 </tr>
 </table>

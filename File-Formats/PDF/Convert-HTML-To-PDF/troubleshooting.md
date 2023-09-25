@@ -52,6 +52,7 @@ document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
+</td>
 </tr>
 
 </table>
@@ -461,56 +462,6 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 
-## OCR not working on Mac: Exception has been thrown by the target of an invocation
-
-<table>
-<th style="font-size:14px" width="100px">Issue
-</th>
-<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in the Mac machine. 
-</th>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>The problem occurs due to a mismatch in the dependency package versions on your Mac machine. 
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>To resolve this problem, you should install and utilize Tesseract 5 on your Mac machine. Refer to the following steps for installing Tesseract 5 and integrating it into an OCR processing workflow. 
-<br><br/>
-1.Execute the following command to install Tesserat 5. 
-<br><br/>
-{% highlight c# tabtitle="C#" %}
-
-brew install tesseract
-
-{% endhighlight %}
-
-<br><br/>
-If the "brew" is not installed on your machine, you can install it using the following command.
-<br><br/>
-{% highlight c# tabtitle="C#" %}
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-{% endhighlight %}
-
-<br><br/>
-
-2.Once Tesseract 5 is successfully installed, you can configure the path to the latest binaries by copying the location of the Tesseract folder and setting it as the Tesseract binaries path when setting up the OCR processor. Refer to the example code below:
-<br><br/>
-{% highlight c# tabtitle="C#" %}
-
-//Initialize the OCR processor by providing the path of tesseract binaries.
-using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
-
-{% endhighlight %}
-</td>
-</tr>
-</table>
 
 ## ERROR:The specified module could not be found in windows server 2012 R2
 
@@ -557,6 +508,8 @@ By including the <b><ExcludeAssets>native</ExcludeAssets></b> option in the pack
 Refer to the following package reference:
 
 <img src="htmlconversion_images/RemoveBlinkBinaries.png" alt="ExcludeAssets"><br>
+
+## HTML conversion support in Azure
 
 <table>
 	<tr>
@@ -605,6 +558,74 @@ Our WebKit rendering engine necessitates OPENSSL assemblies to access resources 
 You can get the OPENSSL assemblies from the below link,
 <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
 <br><br>
+</td>
+</tr>
+</table>
+
+## Failed to convert Webpage exception with Linux docker in Mac M1 machine.
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Failed to convert Webpage exception using Linux Docker in Mac M1 system environment.
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The existing x64-bit Blink binaries for Linux are not compatible with the x64 ARM Mac M1 system architecture with Linux Docker.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>
+To resolve this issue, we can install the chromium using the docker file and set the Blink Path to the location where chromium is installed.
+<br><br>
+Docker File:<br><br>
+{% tabs %}
+
+{% highlight}
+
+	FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base 
+
+	RUN apt-get update && apt-get install -y \ 
+
+    libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \ 
+
+    libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \ 
+
+    libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \ 
+
+    libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \ 
+
+    libnss3 libgbm1 chromium 
+
+	WORKDIR /app 
+
+	EXPOSE 80 
+
+	EXPOSE 443 
+
+{% endhighlight %}
+
+Code snippet:
+
+{% highlight}
+
+	BlinkConverterSettings settings = new BlinkConverterSettings();  
+
+	//To utilize the Blink binaries from the arm64-based chromium installed using the docker file, execute the following command.   
+
+	settings.BlinkPath = @"/usr/lib/chromium/chromium";
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
 </td>
 </tr>
 </table>
