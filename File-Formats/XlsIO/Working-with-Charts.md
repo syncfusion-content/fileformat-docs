@@ -2618,6 +2618,264 @@ End Using
 
 A complete working example explaining different chart elements in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Chart%20Elements).  
 
+### Manual Layout
+
+#### Positioning Chart Elements using Manual Layout
+
+The following code samples illustrate how to position the chart elements.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Manually positioning plot area
+chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+//Manually positioning legent area
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Manually positioning plot area
+chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+//Manually positioning legent area
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Manually positioning plot area
+chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+'Manually positioning chart legend
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+{% endhighlight %}
+
+#### Resizing Chart Elements using Manual Layout
+
+The following code samples illustrate how to resize chart elements such as plot area, title area, data labels and legend.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Manually resizing the data labels
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
+chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+
+//Manually resizing the chart title area
+chart.ChartTitleArea.Text = "Sample Chart";
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03;
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02;
+
+//Manually resizing chart plot area
+chart.PlotArea.Layout.ManualLayout.Height = 0.59;
+chart.PlotArea.Layout.ManualLayout.Width = 0.81;
+chart.PlotArea.Layout.ManualLayout.Top = 0.18;
+chart.PlotArea.Layout.ManualLayout.Left = 0.16;
+
+//Manually resizing chart legend area
+chart.Legend.Layout.ManualLayout.Height = 0.07;
+chart.Legend.Layout.ManualLayout.Width = 0.30;
+chart.Legend.Layout.ManualLayout.Top = 0.87;
+chart.Legend.Layout.ManualLayout.Left = 0.35;
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Manually resizing the data labels
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
+chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+
+//Manually resizing the chart title area
+chart.ChartTitleArea.Text = "Sample Chart";
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03;
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02;
+
+//Manually resizing chart plot area
+chart.PlotArea.Layout.ManualLayout.Height = 0.59;
+chart.PlotArea.Layout.ManualLayout.Width = 0.81;
+chart.PlotArea.Layout.ManualLayout.Top = 0.18;
+chart.PlotArea.Layout.ManualLayout.Left = 0.16;
+
+//Manually resizing chart legend area
+chart.Legend.Layout.ManualLayout.Height = 0.07;
+chart.Legend.Layout.ManualLayout.Width = 0.30;
+chart.Legend.Layout.ManualLayout.Top = 0.87;
+chart.Legend.Layout.ManualLayout.Left = 0.35;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Manually resizing the data labels
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09
+chart.Series(0).DataPoints(2).DataLabels.Layout.ManualLayout.Top = 0
+
+'Manually resizing the chart title area
+chart.ChartTitleArea.Text = "Sample Chart"
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02
+
+'Manually resizing chart plot area
+chart.PlotArea.Layout.ManualLayout.Height = 0.59
+chart.PlotArea.Layout.ManualLayout.Width = 0.81
+chart.PlotArea.Layout.ManualLayout.Top = 0.18
+chart.PlotArea.Layout.ManualLayout.Left = 0.16
+
+'Manually resizing chart legend area
+chart.Legend.Layout.ManualLayout.Height = 0.07
+chart.Legend.Layout.ManualLayout.Width = 0.30
+chart.Legend.Layout.ManualLayout.Top = 0.87
+chart.Legend.Layout.ManualLayout.Left = 0.35
+{% endhighlight %}
+
+The complete code snippet illustrating the above options is shown below.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  IChartShape chart = sheet.Charts[0];
+
+  //Manually resizing the data labels
+  chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
+  chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+
+  //Manually resizing the chart title area
+  chart.ChartTitleArea.Text = "Sample Chart";
+  chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03;
+  chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02;
+
+  //Manually positioning plot area
+  chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.ManualLayout.Height = 0.59;
+  chart.PlotArea.Layout.ManualLayout.Width = 0.81;
+  chart.PlotArea.Layout.ManualLayout.Top = 0.18;
+  chart.PlotArea.Layout.ManualLayout.Left = 0.16;
+
+  //Manually positioning legent area
+  chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+  //Manually resizing chart legend area
+  chart.Legend.Layout.ManualLayout.Height = 0.07;
+  chart.Legend.Layout.ManualLayout.Width = 0.30;
+  chart.Legend.Layout.ManualLayout.Top = 0.87;
+  chart.Legend.Layout.ManualLayout.Left = 0.35;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("ManualLayoutChart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  IChartShape chart = sheet.Charts[0];
+
+  //Manually resizing the data labels
+  chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
+  chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+
+  //Manually resizing the chart title area
+  chart.ChartTitleArea.Text = "Sample Chart";
+  chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03;
+  chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02;
+
+  //Manually positioning plot area
+  chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.ManualLayout.Height = 0.59;
+  chart.PlotArea.Layout.ManualLayout.Width = 0.81;
+  chart.PlotArea.Layout.ManualLayout.Top = 0.18;
+  chart.PlotArea.Layout.ManualLayout.Left = 0.16;
+
+  //Manually positioning legent area
+  chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+  //Manually resizing chart legend area
+  chart.Legend.Layout.ManualLayout.Height = 0.07;
+  chart.Legend.Layout.ManualLayout.Width = 0.30;
+  chart.Legend.Layout.ManualLayout.Top = 0.87;
+  chart.Legend.Layout.ManualLayout.Left = 0.35;
+
+  //Saving the workbook
+  workbook.SaveAs("ManualLayoutChart.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim inputStream As FileStream = New FileStream("../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read)
+  Dim workbook As IWorkbook = application.Workbooks.Open(inputStream)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = sheet.Charts(0)
+
+  'Manually resizing the data labels
+  chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09
+  chart.Series(0).DataPoints(2).DataLabels.Layout.ManualLayout.Top = 0
+
+  'Manually resizing the chart title area
+  chart.ChartTitleArea.Text = "Sample Chart"
+  chart.ChartTitleArea.Layout.ManualLayout.Top = 0.03
+  chart.ChartTitleArea.Layout.ManualLayout.Left = 0.02
+
+  'Manually positioning plot area
+  chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner
+  chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge
+  chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge
+
+  'Manually resizing chart plot area
+  chart.PlotArea.Layout.ManualLayout.Height = 0.59
+  chart.PlotArea.Layout.ManualLayout.Width = 0.81
+  chart.PlotArea.Layout.ManualLayout.Top = 0.18
+  chart.PlotArea.Layout.ManualLayout.Left = 0.16
+
+  'Manually positioning legent area
+  chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge
+  chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge
+
+  'Manually resizing chart legend area
+  chart.Legend.Layout.ManualLayout.Height = 0.07
+  chart.Legend.Layout.ManualLayout.Width = 0.3
+  chart.Legend.Layout.ManualLayout.Top = 0.87
+  chart.Legend.Layout.ManualLayout.Left = 0.35
+
+  'Saving the workbook as stream
+  Dim outputStream As FileStream = New FileStream("Chart.xlsx", FileMode.Create, FileAccess.Write)
+  workbook.SaveAs(outputStream)
+End Using
+{% endhighlight %}
+{% endtabs %} 
+
+A complete working example explaining different chart elements using Manual Layout in C# is present on [this GitHub page]().  
+
 N> In order to position the chart elements, plot area should be smaller than chart area.
 
 ## Explode a Pie Chart
