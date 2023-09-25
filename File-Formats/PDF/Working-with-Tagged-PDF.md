@@ -15,6 +15,9 @@ Usually tagged PDF used to making content accessible to users who rely on assist
 
 This section explains how to add tags to PDF elements such as text element, image, shapes, form fields, annotations, table, list, and more
 
+To quickly get started with creating Accessible PDF Documents in .NET using the PDF Library, check this video:
+{% youtube "https://www.youtube.com/watch?v=vmmUqe2_jtY" %}
+
 ## Adding tag to text element
 
 You can add tag to text or paragraphs in PDF document by using the [PdfTag](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfLayoutElement.html#Syncfusion_Pdf_Graphics_PdfLayoutElement_PdfTag) property available in the [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) class and specifying the tag type as ```Paragraph``` of [PdfTagType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfTagType.html) Enum in the [PdfStructureElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfStructureElement.html) class.
