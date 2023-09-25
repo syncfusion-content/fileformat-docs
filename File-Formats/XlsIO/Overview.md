@@ -1,6 +1,6 @@
 ---
 title: Overview of Syncfusion Excel (XlsIO) library | Syncfusion
-description: Essential XlsIO is a .NET Excel library to create, read, edit & convert Excel file in WinForms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin, Blazor, WinUI and .NET MAUI applications
+description: Learn here about Excel library Overview in Syncfusion Essential File Formats XlsIO Control, its elements, and more
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -33,7 +33,7 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web Forms, ASP.NET M
 * Converts Excel [worksheet to HTML](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-html).
 * Support to open and create [CSV](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv) files.
 * Support to open and create SpreadsheetML files.
-* Access the [Custom document properties](https://www.syncfusion.com/kb/8441/add-custom-properties-to-excel-document-using-xlsio) of Excel file.
+* Access the [Custom document properties](https://support.syncfusion.com/kb/article/7453/add-custom-properties-to-excel-document-using-xlsio?isInternalRefresh=False) of Excel file.
 * Access the Built-in document properties.
 
 **Compatible Microsoft Excel Versions**
