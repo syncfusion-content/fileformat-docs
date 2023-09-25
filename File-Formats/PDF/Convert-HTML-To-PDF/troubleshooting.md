@@ -558,6 +558,8 @@ Refer to the following package reference:
 
 <img src="htmlconversion_images/RemoveBlinkBinaries.png" alt="ExcludeAssets"><br>
 
+## HTML conversion support in Azure
+
 <table>
 	<tr>
 		<th style="font-size:14px" colspan="2">HTML conversion support in Azure</th>
