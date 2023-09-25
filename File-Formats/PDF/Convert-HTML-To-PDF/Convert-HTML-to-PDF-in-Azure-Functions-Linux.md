@@ -78,7 +78,7 @@ Step 6: Add the following helper methods to copy and set permission to the Blink
 
     private static string SetupBlinkBinaries(ExecutionContext executionContext)
     {
-        string blinkAppDir = Path.Combine(executionContext.FunctionAppDirectory, "BlinkBinariesLinux");
+        string blinkAppDir = Path.Combine(executionContext.FunctionAppDirectory, "bin/runtimes/linux/native");
         string tempBlinkDir = Path.GetTempPath();
         string chromePath = Path.Combine(tempBlinkDir, "chrome");
         if (!File.Exists(chromePath))
