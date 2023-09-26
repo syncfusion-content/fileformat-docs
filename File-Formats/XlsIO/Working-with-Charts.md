@@ -2666,7 +2666,7 @@ The following code samples illustrate how to resize chart elements such as plot 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Manually resizing the data labels
 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
 //Manually resizing the chart title area
 chart.ChartTitleArea.Text = "Sample Chart";
@@ -2689,7 +2689,7 @@ chart.Legend.Layout.ManualLayout.Left = 0.35;
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 //Manually resizing the data labels
 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
 //Manually resizing the chart title area
 chart.ChartTitleArea.Text = "Sample Chart";
@@ -2712,7 +2712,7 @@ chart.Legend.Layout.ManualLayout.Left = 0.35;
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Manually resizing the data labels
 chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09
-chart.Series(0).DataPoints(2).DataLabels.Layout.ManualLayout.Top = 0
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 0.01
 
 'Manually resizing the chart title area
 chart.ChartTitleArea.Text = "Sample Chart"
@@ -2748,7 +2748,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Manually resizing the data labels
   chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-  chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+  chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
   //Manually resizing the chart title area
   chart.ChartTitleArea.Text = "Sample Chart";
@@ -2795,7 +2795,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Manually resizing the data labels
   chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-  chart.Series[0].DataPoints[2].DataLabels.Layout.ManualLayout.Top = 0;
+  chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
   //Manually resizing the chart title area
   chart.ChartTitleArea.Text = "Sample Chart";
@@ -2839,7 +2839,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Manually resizing the data labels
   chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09
-  chart.Series(0).DataPoints(2).DataLabels.Layout.ManualLayout.Top = 0
+  chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 0.01
 
   'Manually resizing the chart title area
   chart.ChartTitleArea.Text = "Sample Chart"
