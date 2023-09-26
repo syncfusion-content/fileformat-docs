@@ -205,6 +205,33 @@ If the "brew" is not installed on your machine, you can install it using the fol
 using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
 
 {% endhighlight %}
+<br><br/>
+
+3.Add the TessDataPath from bin folder. Refer to the example code below:
+<br></br>
+{% highlight c# tabtitle="C#" %}
+
+using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
+{
+    FileStream fileStream = new FileStream("../../../Input.pdf", FileMode.Open, FileAccess.Read);
+    //Load a PDF document.
+    PdfLoadedDocument lDoc = new PdfLoadedDocument(fileStream);
+    //Set OCR language to process.
+    processor.Settings.Language = Languages.English;
+    //Process OCR by providing the PDF document.
+    processor.TessDataPath = "runtimes/tessdata";
+    processor.PerformOCR(lDoc);
+    //Create file stream.
+    using (FileStream outputFileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite))
+    {
+        //Save the PDF document to file stream.
+        lDoc.Save(outputFileStream);
+    }
+    //Close the document.
+    lDoc.Close(true);
+}
+
+{% endhighlight %}
 </td>
 </tr>
 </table>
