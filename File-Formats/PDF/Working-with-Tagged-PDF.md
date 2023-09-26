@@ -15,7 +15,7 @@ Usually tagged PDF used to making content accessible to users who rely on assist
 
 This section explains how to add tags to PDF elements such as text element, image, shapes, form fields, annotations, table, list, and more
 
-To quickly get started with creating Accessible PDF Documents in .NET using the PDF Library, check this video:
+To quickly get started with creating accessible PDF documents in .NET using the PDF Library, please check this video.
 {% youtube "https://www.youtube.com/watch?v=vmmUqe2_jtY" %}
 
 ## Adding tag to text element
