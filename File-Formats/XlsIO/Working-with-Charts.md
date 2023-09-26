@@ -2446,7 +2446,7 @@ chart.Legend.Layout.ManualLayout.Width = 0.30;
 chart.Legend.Layout.ManualLayout.Top = 0.36;
 chart.Legend.Layout.ManualLayout.Left = 0.68;
 
-// Manually resizing chart title area using Layout
+//Manually resizing chart title area using Layout
 chart.ChartTitleArea.Text = "Sample Chart";
 chart.ChartTitleArea.Layout.Top = 10;
 chart.ChartTitleArea.Layout.Left = 150;
@@ -2456,7 +2456,7 @@ chart.ChartTitleArea.Text = "Sample Chart";
 chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
 chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
 
-// Manually resizing axis title area using Layout
+//Manually resizing axis title area using Layout
 chart.PrimaryValueAxis.TitleArea.Layout.Left = 15;
 chart.PrimaryValueAxis.TitleArea.Layout.Top = 20;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 25;
@@ -2468,7 +2468,7 @@ chart.PrimaryValueAxis.TitleArea.Layout.Top = 0.34;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 0.38;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 0.95;
 
-// Manually resizing data label area using Layout
+//Manually resizing data label area using Layout
 chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 0.09;
 chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
 
@@ -2502,7 +2502,7 @@ chart.Legend.Layout.ManualLayout.Width = 0.30;
 chart.Legend.Layout.ManualLayout.Top = 0.36;
 chart.Legend.Layout.ManualLayout.Left = 0.68;
 
-// Manually resizing chart title area using Layout
+//Manually resizing chart title area using Layout
 chart.ChartTitleArea.Text = "Sample Chart";
 chart.ChartTitleArea.Layout.Top = 10;
 chart.ChartTitleArea.Layout.Left = 150;
@@ -2512,7 +2512,7 @@ chart.ChartTitleArea.Text = "Sample Chart";
 chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
 chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
 
-// Manually resizing axis title area using Layout
+//Manually resizing axis title area using Layout
 chart.PrimaryValueAxis.TitleArea.Layout.Left = 15;
 chart.PrimaryValueAxis.TitleArea.Layout.Top = 20;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 25;
@@ -2524,7 +2524,7 @@ chart.PrimaryValueAxis.TitleArea.Layout.Top = 0.34;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 0.38;
 chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 0.95;
 
-// Manually resizing data label area using Layout
+//Manually resizing data label area using Layout
 chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 0.09;
 chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
 
@@ -2535,58 +2535,58 @@ chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Manually resizing chart plot area using Layout
-chart.PlotArea.Layout.Left = 70;
-chart.PlotArea.Layout.Top = 40;
-chart.PlotArea.Layout.Width = 280;
-chart.PlotArea.Layout.Height = 200;
+chart.PlotArea.Layout.Left = 70
+chart.PlotArea.Layout.Top = 40
+chart.PlotArea.Layout.Width = 280
+chart.PlotArea.Layout.Height = 200
 
 'Manually resizing chart plot area using Manual Layout
-chart.PlotArea.Layout.ManualLayout.Height = 0.80;
-chart.PlotArea.Layout.ManualLayout.Width = 0.65;
-chart.PlotArea.Layout.ManualLayout.Top = 0.03;
-chart.PlotArea.Layout.ManualLayout.Left = -0.1;
+chart.PlotArea.Layout.ManualLayout.Height = 0.80
+chart.PlotArea.Layout.ManualLayout.Width = 0.65
+chart.PlotArea.Layout.ManualLayout.Top = 0.03
+chart.PlotArea.Layout.ManualLayout.Left = -0.1
 
 'Manually resizing chart legend area using Layout
-chart.Legend.Layout.Left = 400;
-chart.Legend.Layout.Top = 150;
-chart.Legend.Layout.Width = 150;
-chart.Legend.Layout.Height = 100;
+chart.Legend.Layout.Left = 400
+chart.Legend.Layout.Top = 150
+chart.Legend.Layout.Width = 150
+chart.Legend.Layout.Height = 100
 
 'Manually resizing chart legend area using Manual Layout
-chart.Legend.Layout.ManualLayout.Height = 0.09;
-chart.Legend.Layout.ManualLayout.Width = 0.30;
-chart.Legend.Layout.ManualLayout.Top = 0.36;
-chart.Legend.Layout.ManualLayout.Left = 0.68;
+chart.Legend.Layout.ManualLayout.Height = 0.09
+chart.Legend.Layout.ManualLayout.Width = 0.30
+chart.Legend.Layout.ManualLayout.Top = 0.36
+chart.Legend.Layout.ManualLayout.Left = 0.68
 
 'Manually resizing chart title area using Layout
-chart.ChartTitleArea.Text = "Sample Chart";
-chart.ChartTitleArea.Layout.Top = 10;
-chart.ChartTitleArea.Layout.Left = 150;
+chart.ChartTitleArea.Text = "Sample Chart"
+chart.ChartTitleArea.Layout.Top = 10
+chart.ChartTitleArea.Layout.Left = 150
 
 'Manually resizing chart title area using Manual Layout
-chart.ChartTitleArea.Text = "Sample Chart";
-chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
-chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
+chart.ChartTitleArea.Text = "Sample Chart"
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26
 
 'Manually resizing axis title area using Layout
-chart.PrimaryValueAxis.TitleArea.Layout.Left = 15;
-chart.PrimaryValueAxis.TitleArea.Layout.Top = 20;
-chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 25;
-chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 20;
+chart.PrimaryValueAxis.TitleArea.Layout.Left = 15
+chart.PrimaryValueAxis.TitleArea.Layout.Top = 20
+chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 25
+chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 20
 
 'Manually resizing axis title area using Manual Layout
-chart.PrimaryValueAxis.TitleArea.Layout.Left = 0.04;
-chart.PrimaryValueAxis.TitleArea.Layout.Top = 0.34;
-chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 0.38;
-chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 0.95;
+chart.PrimaryValueAxis.TitleArea.Layout.Left = 0.04
+chart.PrimaryValueAxis.TitleArea.Layout.Top = 0.34
+chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 0.38
+chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 0.95
 
 'Manually resizing data label area using Layout
-chart.Series(0).DataPoints(0).DataLabels.Layout.Left = 0.09;
-chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 0.01;
+chart.Series(0).DataPoints(0).DataLabels.Layout.Left = 0.09
+chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 0.01
 
 'Manually resizing data label area using Manual Layout
-chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09;
-chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 0.01;
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 0.09
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 0.01
 {% endhighlight %}
 {% endtabs %}  
 
@@ -2597,7 +2597,7 @@ The following code example explains how to apply transparency to chart area.
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 //Applying transparency to chart area
-chart.ChartArea.Fill.Transparency = 0.9;
+chart.ChartArea.Fill.Transparency = 0.5;
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -2607,7 +2607,7 @@ chart.ChartArea.Fill.Transparency = 0.5;
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Applying transparency to chart area
-chart.ChartArea.Fill.Transparency = 0.9
+chart.ChartArea.Fill.Transparency = 0.5
 {% endhighlight %}
 {% endtabs %}  
 
@@ -2618,7 +2618,7 @@ The complete code snippet illustrating the above options is shown below.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(inputStream);
 
@@ -2687,26 +2687,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart1 = sheet1.Charts[0];
 
   //Positioning chart in a worksheet
-  chart.TopRow = 5;
-  chart.LeftColumn = 5;
-  chart.RightColumn = 10;
-  chart.BottomRow = 10;
+  chart1.TopRow = 5;
+  chart1.LeftColumn = 5;
+  chart1.RightColumn = 10;
+  chart1.BottomRow = 10;
 
   //Manually positioning chart plot area
-  chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
-  chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
-  chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+  chart1.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+  chart1.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart1.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
 
   //Manually positioning chart legend area
-  chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
-  chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+  chart1.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart1.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
   IShape chartShape1 = chart1 as IShape;
 
   //Set Height of the chart in pixels
-  chartShape.Height = 300;
+  chartShape1.Height = 300;
 
   //Set Width of the chart
-  chartShape.Width = 500;
+  chartShape1.Width = 500;
 
   //Manually resizing chart plot area
   chart1.PlotArea.Layout.ManualLayout.Height = 0.80;
@@ -2749,7 +2749,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+  application.DefaultVersion = ExcelVersion.Xlsx;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   //Positioning chart elements using layout
@@ -2817,26 +2817,26 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart1 = sheet1.Charts[0];
 
   //Positioning chart in a worksheet
-  chart.TopRow = 5;
-  chart.LeftColumn = 5;
-  chart.RightColumn = 10;
-  chart.BottomRow = 10;
+  chart1.TopRow = 5;
+  chart1.LeftColumn = 5;
+  chart1.RightColumn = 10;
+  chart1.BottomRow = 10;
 
   //Manually positioning chart plot area
-  chart.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
-  chart.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
-  chart.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
+  chart1.PlotArea.Layout.ManualLayout.LayoutTarget = LayoutTargets.inner;
+  chart1.PlotArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart1.PlotArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
 
   //Manually positioning chart legend area
-  chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
-  chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+  chart1.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+  chart1.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
   IShape chartShape1 = chart1 as IShape;
 
   //Set Height of the chart in pixels
-  chartShape.Height = 300;
+  chartShape1.Height = 300;
 
   //Set Width of the chart
-  chartShape.Width = 500;
+  chartShape1.Width = 500;
 
   //Manually resizing chart plot area
   chart1.PlotArea.Layout.ManualLayout.Height = 0.80;
@@ -2876,8 +2876,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Xlsx
-  Dim inputStream As FileStream = New FileStream("../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read)
-  Dim workbook As IWorkbook = application.Workbooks.Open(inputStream)
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
   'Positioning chart elements using layout
   'Access the first sheet in the workbook
@@ -2935,7 +2934,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 0.01
 
   'Applying transparency to chart area
-  chart.ChartArea.Fill.Transparency = 0.5;
+  chart.ChartArea.Fill.Transparency = 0.5
 
   'Positioning chart elements using manual layout
   'Access the second sheet in the workbook
