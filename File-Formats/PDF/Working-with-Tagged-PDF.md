@@ -1654,60 +1654,6 @@ To pass the full check accessibility, follow the below conventions while tagging
 6. Tables must contain same number of columns in each row.
 7. A list element must contain list item element (LI), and list item element can only contain label (Lbl) or body elements(LBody).
 
-## Tagged PDF support for converting HTML to PDF
-
-Essential PDF provides support to convert HTML to TaggedPDF by using the MSHTML rendering library.
-
-The Tagged PDF is a stylized use of PDF that builds the logical structure Framework. It defines a set of standard structure types and attributes that allows the page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
-
-To convert HTML to Tagged PDF, you can use the [ConvertToTaggedPDF](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlConverter.html#Syncfusion_HtmlConverter_HtmlConverter_ConvertToTaggedPDF_Syncfusion_Pdf_PdfDocument_System_String_) method in [HtmlConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlConverter.html) class.
-
-The following code illustrates how to convert HTML to TaggedPDF.
-
-{% tabs %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-
-//Creates a new PdfDocument
-PdfDocument document = new PdfDocument();
-
-//Creates a new instance of HtmlConverter class
-using (HtmlConverter html = new HtmlConverter())
-{
-    //Enable JavaScript
-    html.EnableJavaScript = true;
-    //Converts to Tagged PDF
-    html.ConvertToTaggedPDF(document, "http://www.google.com");
-}
-
-//Saves and closes the document
-document.Save("Sample.pdf");
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-
-'Creates a new PdfDocument
-Dim document As New PdfDocument()
-
-'Creates a new instance of HtmlConverter class
-Using html As New HtmlConverter()
-    'Enables JavaScript
-    html.EnableJavaScript = True
-    'Converts to Tagged PDF
-    html.ConvertToTaggedPDF(document, "http://www.google.com")
-End Using
-
-'Saves and closes the document
-document.Save("Sample.pdf")
-document.Close(True)
-
-{% endhighlight %}
-
-{% endtabs %}
-
-N> Hyperlinks are not supported in tagged PDF.
 
 ## Converting Word document to Tagged PDF
 
