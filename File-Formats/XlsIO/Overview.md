@@ -1,5 +1,5 @@
 ---
-title: Overview of Syncfusion Excel (XlsIO) library | Syncfusion
+title: Overview of File Formats Excel library Control | Syncfusion
 description: Learn here about Excel library Overview in Syncfusion Essential File Formats XlsIO Control, its elements, and more
 platform: file-formats
 control: XlsIO
