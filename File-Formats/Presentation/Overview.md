@@ -1,5 +1,5 @@
 ---
-title: Create and edit PowerPoint files in CSharp |Syncfusion|
+title: Overview of File Format Presentation controls |Syncfusion
 description: Essential Presentation is a .NET PowerPoint library to create, read, edit, & convert PowerPoint files in WinForms, WPF, UWP, ASP.NET Core & Xamarin applications
 platform: file-formats
 control: Presentation
