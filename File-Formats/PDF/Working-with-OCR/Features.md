@@ -1211,6 +1211,7 @@ processor.Settings.Performance = Performance.Fast
 {% endhighlight %}
 
 {% endtabs %}  
+
 ## TesseractBinaries Paths and Tesseract Language Data
 
 Starting with v21.1.x, TesseractBinaries, and Tesseract language data folder paths are added by default. So, there is no need to provide these paths explicitly. However, you can refer to TesseractBinaries and Tessdata paths manually in your application as per the requirement.
@@ -1346,3 +1347,5 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}  
+
+You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/OCR/.NET/Get-image-rotation-angle-from-OCR).

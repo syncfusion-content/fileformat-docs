@@ -586,7 +586,7 @@ To resolve this issue, we can install the chromium using the docker file and set
 Docker File:<br><br>
 {% tabs %}
 
-{% highlight}
+{% highlight c# tabtitle="C#" %}
 
 	FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base 
 
@@ -612,15 +612,13 @@ Docker File:<br><br>
 
 Code snippet:
 
-{% highlight}
+{% highlight c# tabtitle="C#" %}
 
 	BlinkConverterSettings settings = new BlinkConverterSettings();  
 
 	//To utilize the Blink binaries from the arm64-based chromium installed using the docker file, execute the following command.   
 
 	settings.BlinkPath = @"/usr/lib/chromium/chromium";
-
-
 
 {% endhighlight %}
 

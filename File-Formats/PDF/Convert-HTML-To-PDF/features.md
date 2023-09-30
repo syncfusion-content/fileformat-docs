@@ -1821,9 +1821,9 @@ blinkConverterSettings.Margin.All = 30;
 blinkConverterSettings.Css = "body {\r\n background-color: red; \r\n}";
 htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert the URL to PDF document.
-PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 //Create a filestream.
-FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 //Save and close the PDF document.
 document.Save(fileStream);
 document.Close(true);
@@ -1844,7 +1844,7 @@ htmlConverter.ConverterSettings = blinkConverterSettings
 'Convert the URL to PDF document.
 Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
 'Create a filestream.
-Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
 'Save and close the PDF document.
 document.Save(fileStream)
 document.Close(true)
@@ -1852,6 +1852,8 @@ document.Close(true)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Inject_custom_CSS_to_HTML).
 
 ## Inject custom JavaScript
 
@@ -1871,9 +1873,9 @@ blinkConverterSettings.Margin.All = 30;
 blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})";
 htmlConverter.ConverterSettings = blinkConverterSettings;
 //Convert the URL to PDF document.
-PdfDocument document = htmlConverter.Convert(https://www.syncfusion.com);
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 //Create a filestream.
-FileStream fileStream = new FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
 //Save and close the PDF document.
 document.Save(fileStream);
 document.Close(true);
@@ -1892,9 +1894,9 @@ blinkConverterSettings.Margin.All = 30
 blinkConverterSettings.JavaScript = "document.querySelectorAll('img').forEach((node)=>{node.remove();})"
 htmlConverter.ConverterSettings = blinkConverterSettings
 'Convert the URL to PDF document.
-Dim document As PdfDocument = htmlConverter.Convert(https://www.syncfusion.com)
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 'Create a filestream.
-Dim fileStream As FileStream = New FileStream("Test.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+Dim fileStream As FileStream = New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
 'Save and close the PDF document.
 document.Save(fileStream)
 document.Close(true)
@@ -1902,6 +1904,8 @@ document.Close(true)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Inject_custom_JavaScript_to_HTML).
 
 ## Performance optimization
 
@@ -1915,42 +1919,62 @@ The Blink rendering engine provides support for reusing the browser process to o
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Reuse the browser instance.           
 htmlConverter.ReuseBrowserProcess = true;
-for (int i = 0; i < 10; i++)        
-{           
+//Create PDF document. 
+PdfDocument document = new PdfDocument();
+//Create memory stream.
+MemoryStream memoryStream = new MemoryStream();
+for (int i = 0; i < 10; i++)
+{
+    //Initialize the blink converter settings. 
     BlinkConverterSettings settings = new BlinkConverterSettings();
     settings.AdditionalDelay = 1000;
     settings.EnableJavaScript = true;
-    htmlConverter.ConverterSettings = settings;        
+    //Assign the settings to HTML converter.
+    htmlConverter.ConverterSettings = settings;  
     //Convert the URL to PDF document.
-    PdfDocument document = htmlConverter.Convert(https://www.google.com);
-    document.Save("Sample.pdf");      
+    document = htmlConverter.Convert("https://www.google.com");
+    //Save and close the PDF document.
+    document.Save(memoryStream);
+    document.Close(true);
+    File.WriteAllBytes("ReuseBrowserProcess" + Guid.NewGuid().ToString() + ".pdf", memoryStream.ToArray());
 }
+//Close HTML converter.
 htmlConverter.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-'Initialize HTML to PDF converter.
+'Initialize the HTML to PDF converter.
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
-'Reuse the browser instance.           
-htmlConverter.ReuseBrowserProcess = true
-For i As Integer = 0 To 9
-{           
-    Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter()
+'Reuse the browser instance. 
+htmlConverter.ReuseBrowserProcess = True
+'Create PDF document. 
+Dim document As PdfDocument = New PdfDocument()
+'Create memory stream.
+Dim memoryStream As MemoryStream = New MemoryStream()
+For i As Integer = 0 To 10 - 1
+    'Initialize the blink converter settings. 
+    Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
     settings.AdditionalDelay = 1000
-    settings.EnableJavaScript = true
-    htmlConverter.ConverterSettings = settings    
-    'Convert URL to PDF document.
-    Dim document As PdfDocument = htmlConverter.Convert(https://www.google.com)
-    document.Save("Sample.pdf");     
-}
-Next i
+    settings.EnableJavaScript = True
+    'Assign the settings to HTML converter.
+    htmlConverter.ConverterSettings = settings
+    'Convert the URL to PDF document.
+    document = htmlConverter.Convert("https://www.google.com")
+    'Save and close the PDF document.
+    document.Save(memoryStream)
+    document.Close(True)
+    File.WriteAllBytes("ReuseBrowserProcess" & Guid.NewGuid().ToString() & ".pdf", memoryStream.ToArray())
+Next
+'Close HTML converter.
 htmlConverter.Close()
 
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Optimize-HTML-to-PDF-performance).
 
 ## Temporary path
 
@@ -2054,3 +2078,5 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set_blink_path_in_HTML_to_PDF).
