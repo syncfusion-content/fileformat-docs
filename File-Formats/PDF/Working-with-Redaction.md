@@ -12,7 +12,7 @@ Redacting a PDF is the process of permanently removing sensitive or confidential
 N> 1.CJK text without TrueType font and complex script text cannot be redacted.
 N> 2.To redact the content from the existing PDF document in .NET Core, you need to include the Syncfusion.Pdf.Imaging.Portable assembly reference in the .NET Core project.
 
-To quickly get started with redacting PDF documents in .NET using the PDF Library, please check this video. 
+To quickly get started with redacting PDF documents in .NET using the PDF Library, check this video. 
 {% youtube "https://www.youtube.com/watch?v=sSnHbKm3WTk" %}
 
 ## Removing sensitive content from the PDF document
