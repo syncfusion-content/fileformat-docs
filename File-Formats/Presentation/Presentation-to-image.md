@@ -7,6 +7,9 @@ documentation: UG
 ---
 # Presentation to image conversion
 
+To quickly start converting a PowerPoint Presentation to an Image using .NET PowerPoint libray, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=DcH9CptpYHg" %}
+
 ## .NET Framework
 
 This section covers converting an entire Presentation or a single slide to image in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. The supported image formats are listed as follows.
