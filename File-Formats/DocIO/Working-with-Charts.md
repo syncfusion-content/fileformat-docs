@@ -1738,7 +1738,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the code example above, it generates the resultant Word document as follows.
 
-![Word waterfall chart in File Format](workingwithcharts_images/file-formats-word-waterfall-chart.png)
+![Word WaterFall Chart in File Format](workingwithcharts_images/file-formats-word-waterfall-chart.png)
 
 N>These charts are supported only in Word 2016 and are not supported in the previous versions.
 
