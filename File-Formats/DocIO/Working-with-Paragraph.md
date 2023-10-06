@@ -1765,6 +1765,84 @@ By executing the above code example, it generates output Word document as follow
 
 ![Output of Word document with Image caption](WorkingWithImages_images/ImageCaption.png)
 
+### Add SVG image
+
+You can append SVG image specified by the byte array to the end of a paragraph using [AppendPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Byte___System_Byte___) API.
+
+The following code example shows how to add SVG image in Word document.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+///Creates a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add new section to the document
+    IWSection section = document.AddSection();
+    //Add new paragraph to the section
+    IWParagraph firstParagraph = section.AddParagraph();
+    //Get the image as byte array.
+    byte[] imageBytes = File.ReadAllBytes(Image.png);
+    //Get the SVG image as byte array.
+    byte[] svgData = File.ReadAllBytes(Image.svg");
+    //Add SVG image to the paragraph
+    IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
+    //Set height and width for the image
+    picture.Height = 100;
+    picture.Width = 100;
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+using (WordDocument document = new WordDocument())
+{
+    //Add new section to the document.
+    IWSection section = document.AddSection();
+    //Add new paragraph to the section.
+    IWParagraph firstParagraph = section.AddParagraph();
+    //Get the image as byte array.
+    byte[] imageBytes = File.ReadAllBytes(Image.png);
+    //Get the SVG image as byte array.
+    byte[] svgData = File.ReadAllBytes(Image.svg");
+    //Add SVG image to the paragraph.
+    IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
+    //Set height and width for the image.
+    picture.Height = 100;
+    picture.Width = 100;
+    //Saves the Word document. 
+    document.Save("Sample.docx", FormatType.Docx);
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument()
+    ' Add new section to the document.
+    Dim section As IWSection = document.AddSection()
+    ' Add new paragraph to the section.
+    Dim firstParagraph As IWParagraph = section.AddParagraph()
+    ' Get the PNG image as a byte array.
+    Dim imageBytes As Byte() = File.ReadAllBytes("Image.png")
+    ' Get the SVG image as a byte array.
+    Dim svgData As Byte() = File.ReadAllBytes("Image.svg")
+    ' Add SVG image to the paragraph.
+    Dim picture As IWPicture = firstParagraph.AppendPicture(svgData, ImageType.Metafile, imageBytes)
+    ' Set height and width for the image.
+    picture.Height = 100
+    picture.Width = 100
+    ' Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
 ## Working with lists
 
 Lists can organize and format the contents of a document in hierarchical way. There are nine levels in the list, starting from level 0 to level 8. DocIO supports both built-in list styles and custom list styles. The following are the types of list supported in DocIO: 
