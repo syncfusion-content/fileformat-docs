@@ -1774,23 +1774,23 @@ The following code example shows how to add SVG image in Word document.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-///Creates a new Word document.
+///Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document
+    //Add new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section
+    //Add new paragraph to the section.
     IWParagraph firstParagraph = section.AddParagraph();
     //Get the image as byte array.
     byte[] imageBytes = File.ReadAllBytes(Image.png);
     //Get the SVG image as byte array.
     byte[] svgData = File.ReadAllBytes(Image.svg");
-    //Add SVG image to the paragraph
+    //Add SVG image to the paragraph.
     IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
-    //Set height and width for the image
+    //Set height and width for the image.
     picture.Height = 100;
     picture.Width = 100;
-    //Saves the Word document to MemoryStream
+    //Save the Word document to MemoryStream.
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
 }
@@ -1813,7 +1813,7 @@ using (WordDocument document = new WordDocument())
     //Set height and width for the image.
     picture.Height = 100;
     picture.Width = 100;
-    //Saves the Word document. 
+    //Save the Word document. 
     document.Save("Sample.docx", FormatType.Docx);
 }
 
