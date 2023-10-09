@@ -1,14 +1,14 @@
 ---
-title: Convert PowerPoint to PDF in Blazor | Syncfusion
-description: Convert PowerPoint to PDF in Blazor using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PowerPoint to Image in Blazor | Syncfusion
+description: Convert PowerPoint to image in Blazor using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint to PDF in Blazor
+# Convert PowerPoint to Image in Blazor
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in Blazor**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in Blazor**.
 
 ## Server app
 
@@ -37,8 +37,8 @@ Step 5: Create a razor file with name as **Presentation** under **Pages** folder
 
 @page "/presentation"
 @using System.IO;
-@using Convert_PowerPoint_Presentation_to_PDF;
-@inject Convert_PowerPoint_Presentation_to_PDF.Data.PresentationService service
+@using Convert_PowerPoint_Presentation_to_Image;
+@inject Convert_PowerPoint_Presentation_to_Image.Data.PresentationService service
 @inject Microsoft.JSInterop.IJSRuntime JS
 
 {% endhighlight %}
@@ -49,14 +49,14 @@ Step 6: Add the following code to create a new button.
 {% tabs %}
 {% highlight CSHTML %}
 
-<h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
-<p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@ConvertPPTXtoPDF">Convert PPTX to PDF</button>
+<h2>Syncfusion PowerPoint (Presentation) library</h2>
+<p>Syncfusion PowerPoint (Presentation) library is used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertPPTXtoImage">Convert PPTX to Image</button>
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 7: Add the following code in **Presentation.razor** file to **convert PowerPoint to PDF** and download the **PDF document**.
+Step 7: Add the following code in **Presentation.razor** file to **convert PowerPoint to image** and download the **image file**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -64,12 +64,12 @@ Step 7: Add the following code in **Presentation.razor** file to **convert Power
 @code {
     MemoryStream documentStream;
     /// <summary>
-    /// Download the PDF document.
+    /// Download the image file.
     /// </summary>
-    protected async void ConvertPPTXtoPDF()
+    protected async void ConvertPPTXtoImage()
     {
-        documentStream = service.ConvertPPTXtoPDF();
-        await JS.SaveAs("Sample.pdf", documentStream.ToArray());
+        documentStream = service.ConvertPPTXtoImage();
+        await JS.SaveAs("PPTXtoImage.Jpeg", documentStream.ToArray());
     }
 }
 
@@ -83,36 +83,35 @@ Step 8: Create a new cs file with name as **PowerPointService** under Data folde
 
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
-using Syncfusion.Pdf;
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **ConvertPPTXtoPDF** in **PowerPointService** class and include the following code snippet to **convert a PowerPoint to PDF in Blazor Server app**.
+Step 9: Create a new MemoryStream method with name as **ConvertPPTXtoImage** in **PowerPointService** class and include the following code snippet to **convert a PowerPoint to image in Blazor Server app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Open the file as Stream
+//Open the file as Stream.
 using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(sourceStreamPath))
     {
-        //Convert the PowerPoint document to PDF document.
-        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+        //Initialize the PresentationRenderer to perform image conversion.
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+        //Convert PowerPoint slide to image as stream.
+        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
-            //Create the MemoryStream to save the converted PDF.      
-            MemoryStream pdfStream = new MemoryStream();
-            //Save the converted PDF document to MemoryStream.
-            pdfDocument.Save(pdfStream);
-            pdfStream.Position = 0;
-
-            //Download PDF document in the browser.
-            return pdfStream;
+            //Save the converted image file to MemoryStream.
+            MemoryStream Stream = new MemoryStream();
+            stream.CopyTo(Stream);
+            Stream.Position = 0;
+            //Download image file in the browser.
+            return Stream;
         }
     }
-} 
+}  
 
 {% endhighlight %}
 {% endtabs %}
@@ -126,9 +125,9 @@ public static class FileUtils
 {
     public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
         => js.InvokeAsync<object>(
-            "saveAsFile",
-            filename,
-            Convert.ToBase64String(data));
+             "saveAsFile",
+             filename,
+             Convert.ToBase64String(data));
 }
 
 {% endhighlight %}
@@ -170,13 +169,13 @@ Step 11: Add the following JavaScript function in the **_Host.cshtml** in the Pa
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Converted PDF from PowerPoint in Blazor server app](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PowerPoint to Image in Blazor server app](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-pdf?theme=fluent) in Blazor. 
+An online sample link to [convert PowerPoint Presentation to image](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-image?theme=fluent) in Blazor. 
 
 ## WASM app
 
@@ -206,7 +205,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 Step 5: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
 
 {% tabs %}
-{% highlight XAML  %}
+{% highlight XAML %}
 
 <ItemGroup>
 <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
@@ -220,7 +219,7 @@ N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload ins
 Step 6: Enable the following property in the **Blazor WASM csproj** file.
 
 {% tabs %}
-{% highlight XAML  %}
+{% highlight XAML %}
 
 <PropertyGroup>
     <WasmNativeStrip>true</WasmNativeStrip>
@@ -240,7 +239,6 @@ Step 7: Create a razor file with name as ``Presentation`` under ``Pages`` folder
 @using System.IO
 @using Syncfusion.Presentation
 @using Syncfusion.PresentationRenderer
-@using Syncfusion.Pdf
 
 {% endhighlight %}
 {% endtabs %}
@@ -252,12 +250,12 @@ Step 8: Add the following code to create a new button.
 
 <h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
 <p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@PPTXToPDF">Convert PPTX to PDF</button>
+<button class="btn btn-primary" @onclick="@PPTXToImage">Convert PPTX to image</button>
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new async method with name as ``PPTXToPDF`` and include the following code snippet to **convert a PowerPoint to PDF in Blazor WASM app**.
+Step 9: Create a new async method with name as ``PPTXToImage`` and include the following code snippet to **convert a PowerPoint to image in Blazor WASM app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -268,17 +266,15 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"
     //Open an existing PowerPoint Presentation file.
     using (IPresentation pptxDoc = Syncfusion.Presentation.Presentation.Open(inputStream))
     {
-        //Convert PowerPoint into PDF document.
-        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+        //Initialize the PresentationRenderer to perform image conversion.
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
+        //Convert the entire Presentation to images.
+        Stream[] imageStreams = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
+        for (int i = 0; i < imageStreams.Length; i++)
         {
-            //Save the PDF document to MemoryStream.
-            using (MemoryStream outputStream = new MemoryStream())
-            {
-                pdfDocument.Save(outputStream);
-                outputStream.Position = 0;
-                //Download PDF file in the browser.
-                await JS.SaveAs("Output.pdf", outputStream.ToArray());
-            }
+            imageStreams[i].Position = 0;
+            //Download image file in the browser.
+            await JS.SaveAs("PPTXToImage_" + i + ".jpeg", (imageStreams[i] as MemoryStream).ToArray());
         }
     }
 }
@@ -334,14 +330,14 @@ Step 11: Add the following JavaScript function in the **Index.html** file presen
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Blazor/Client-side-application).
+You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF** as follows.
+By executing the program, you will get the **image** as follows.
 
-![Converted PDF from PowerPoint in Blazor WASM app](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PowerPoint to Image in Blazor WASM app](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 N> Even though PowerPoint library works in WASM app, it is recommended to use server deployment. Since the WASM app deployment increases the application payload size. You can also explore our [Blazor PowerPoint library demo](https://blazor.syncfusion.com/demos/powerpoint/getting-started) that shows how to create and modify PowerPoint files from C# with just five lines of code.
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-pdf?theme=fluent) in Blazor.
+An online sample link to [convert PowerPoint Presentation to image](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-image?theme=fluent) in Blazor. 

@@ -1,16 +1,16 @@
 ---
-title: Convert PowerPoint to PDF in Linux | Syncfusion
-description: Convert PowerPoint to PDF in Linux using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PowerPoint to Image in Linux | Syncfusion
+description: Convert PowerPoint to image in Linux using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint to PDF in Linux
+# Convert PowerPoint to Image in Linux
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in .NET Core application on Linux**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in .NET Core application on Linux**.
 
-## Steps to convert PowerPoint to PDF in .NET Core application on Linux
+## Steps to convert PowerPoint to Image in .NET Core application on Linux
 
 Step 1: Execute the following command in **Linux terminal** to create a new .NET Core Console application.
 
@@ -49,7 +49,6 @@ Step 3: Add the following Namespaces in **Program.cs** file.
 
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
-using Syncfusion.Pdf;
 
 {% endhighlight %}
 {% endtabs %}
@@ -59,28 +58,28 @@ Step 4: Add the following code snippet in **Program.cs** file.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Open the file as Stream
-using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"../../../Data/Input.pptx"), FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Convert the PowerPoint document to PDF document.
-        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-        {
-            //Save the converted PDF document to MemoryStream.
-            MemoryStream pdfStream = new MemoryStream();
-            pdfDocument.Save(pdfStream);
-            pdfStream.Position = 0;
-            //Create FileStream to save the PDF file.
-            using (FileStream outputStream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-            {
-                //Saves the PDF file.
-                pdfDocument.Save(outputStream);
-            }
-        }
-    }
-}
+ //Open the file as Stream.
+ using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"../../../Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+ {
+     //Open the existing PowerPoint presentation with loaded stream.
+     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+     {
+         //Initialize the PresentationRenderer to perform image conversion.
+         pptxDoc.PresentationRenderer = new PresentationRenderer();
+         //Convert PowerPoint slide to image as stream.
+         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+         {
+             //Reset the stream position.
+             stream.Position = 0;
+             //Create FileStream to save the image file.
+             using (FileStream outputStream = new FileStream("PPTXtoImage.Jpeg", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+             {
+                 //Save the image file.
+                 stream.CopyTo(outputStream);
+             }
+         }
+     }
+ }
 
 {% endhighlight %}
 {% endtabs %}
@@ -111,10 +110,11 @@ dotnet run
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF** as follows. The output will be saved in **bin** foleder.
+By executing the program, you will get the **image** as follows. The output will be saved in **bin** foleder.
 
-![PowerPoint to PDF in Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PowerPoint to Image in Linux](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToPDF#/material3) in ASP.NET Core. 
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 
+
