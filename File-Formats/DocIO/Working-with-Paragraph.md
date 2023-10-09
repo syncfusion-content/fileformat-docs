@@ -1784,7 +1784,7 @@ using (WordDocument document = new WordDocument())
     //Get the image as byte array.
     byte[] imageBytes = File.ReadAllBytes(Image.png);
     //Get the SVG image as byte array.
-    byte[] svgData = File.ReadAllBytes(Image.svg");
+    byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
     IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
     //Set height and width for the image.
@@ -1807,7 +1807,7 @@ using (WordDocument document = new WordDocument())
     //Get the image as byte array.
     byte[] imageBytes = File.ReadAllBytes(Image.png);
     //Get the SVG image as byte array.
-    byte[] svgData = File.ReadAllBytes(Image.svg");
+    byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
     IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
     //Set height and width for the image.
@@ -1828,7 +1828,7 @@ Using document As New WordDocument()
     ' Get the PNG image as a byte array.
     Dim imageBytes As Byte() = File.ReadAllBytes("Image.png")
     ' Get the SVG image as a byte array.
-    Dim svgData As Byte() = File.ReadAllBytes("Image.svg")
+    Dim svgData As Byte() = File.ReadAllBytes("Buyers.svg")
     ' Add SVG image to the paragraph.
     Dim picture As IWPicture = firstParagraph.AppendPicture(svgData, ImageType.Metafile, imageBytes)
     ' Set height and width for the image.
