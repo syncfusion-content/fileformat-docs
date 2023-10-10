@@ -32,6 +32,7 @@ Step 4: Include the following namespaces in **MainPage.aspx.cs**.
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
 
 {% endhighlight %}
 {% endtabs %}
@@ -65,27 +66,22 @@ Step 6: Include the below code snippets in **MainPage.aspx.cs** to **convert a P
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-protected void OnButtonClicked(object sender, EventArgs e)
-{   
-    //Open an existing PowerPoint document.        
-    string filePath = Server.MapPath("~/App_Data/Input.pptx");
-    //Open a PowerPoint Presentation.
-    using (IPresentation pptxDoc = Presentation.Open(filePath))
-    {
-        //Converts the first slide into image.
-        Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-        //Save the Image as Jpeg.
-        ExportAsImage(image, "PPTXtoImage.Jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
-    }                          
-}
-//Download the Image file.
-protected void ExportAsImage(System.Drawing.Image image, string fileName, ImageFormat imageFormat, HttpResponse response)
+string filePath = Server.MapPath("~/App_Data/Input.pptx");
+//Open the existing PowerPoint presentation.
+using (IPresentation pptxDoc = Presentation.Open(filePath))
 {
-    string disposition = "content-disposition";
-    response.AddHeader(disposition, "attachment; filename=" + fileName);
-    if (imageFormat != ImageFormat.Emf)
-        image.Save(Response.OutputStream, imageFormat);
-    Response.End();
+    //Initialize the PresentationRenderer.
+    pptxDoc.PresentationRenderer = new PresentationRenderer();
+    //Converts the first slide into image.
+    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+    {
+        //Create the output image file stream.
+        using (FileStream fileStreamOutput = File.Create(Server.MapPath("~/PPTXtoImage.Jpeg")))
+        {
+            //Copy the converted image stream into created output image stream
+            stream.CopyTo(fileStreamOutput);
+        }
+    }
 }
 
 {% endhighlight %}
@@ -96,3 +92,7 @@ You can download a complete working sample from GitHub.
 By executing the program, you will get the **image** as follows.
 
 ![PowerPoint to Image in ASP.NET](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 
