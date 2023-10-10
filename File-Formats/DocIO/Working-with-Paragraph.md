@@ -1782,7 +1782,7 @@ using (WordDocument document = new WordDocument())
     //Add new paragraph to the section.
     IWParagraph firstParagraph = section.AddParagraph();
     //Get the image as byte array.
-    byte[] imageBytes = File.ReadAllBytes(Image.png);
+    byte[] imageBytes = File.ReadAllBytes(Buyers.png);
     //Get the SVG image as byte array.
     byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
@@ -1805,7 +1805,7 @@ using (WordDocument document = new WordDocument())
     //Add new paragraph to the section.
     IWParagraph firstParagraph = section.AddParagraph();
     //Get the image as byte array.
-    byte[] imageBytes = File.ReadAllBytes(Image.png);
+    byte[] imageBytes = File.ReadAllBytes(Buyers.png);
     //Get the SVG image as byte array.
     byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
@@ -1826,7 +1826,7 @@ Using document As New WordDocument()
     ' Add new paragraph to the section.
     Dim firstParagraph As IWParagraph = section.AddParagraph()
     ' Get the PNG image as a byte array.
-    Dim imageBytes As Byte() = File.ReadAllBytes("Image.png")
+    Dim imageBytes As Byte() = File.ReadAllBytes("Buyers.png")
     ' Get the SVG image as a byte array.
     Dim svgData As Byte() = File.ReadAllBytes("Buyers.svg")
     ' Add SVG image to the paragraph.
