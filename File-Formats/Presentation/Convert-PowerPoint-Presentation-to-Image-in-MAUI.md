@@ -1,19 +1,19 @@
 ---
-title: Convert PowerPoint to PDF in .NET MAUI | Syncfusion
-description: Convert PowerPoint to PDF in .NET MAUI using .NET MAUI PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PowerPoint to Image in .NET MAUI | Syncfusion
+description: Convert PowerPoint to image in .NET MAUI using .NET MAUI PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint to PDF in .NET MAUI
+# Convert PowerPoint to Image in .NET MAUI
 
-Syncfusion PowerPoint is a [.NET MAUI PowerPoint library](https://www.syncfusion.com/powerpoint-framework/maui/powerpoint-library) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in .NET MAUI**.
+Syncfusion PowerPoint is a [.NET MAUI PowerPoint library](https://www.syncfusion.com/powerpoint-framework/maui/powerpoint-library) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in .NET MAUI**.
 
 ## Prerequisites
 To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
 
-## Steps to convert PowerPoint to PDF programmatically
+## Steps to convert PowerPoint to Image programmatically
 
 Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
@@ -37,16 +37,17 @@ Step 4: Add a new button to the **MainPage.xaml** as shown below.
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Convert_PowerPoint_Presentation_to_PDF.MainPage">
+             x:Class="Convert_PowerPoint_Presentation_to_Image.MainPage">
+
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
             Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="Convert PPTX to PDF"
+                Text="Convert PPTX to Image"
                 FontAttributes="Bold"
                 Grid.Row="0"
-                SemanticProperties.Hint="Convert PPTX to PDF"
-                Clicked="ConvertPPTXtoPDF"
+                SemanticProperties.Hint="Convert PPTX to Image"
+                Clicked="ConvertPPTXtoImage"
                 HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
@@ -62,43 +63,39 @@ Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
-using Syncfusion.Pdf;
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add a new action method **ConvertPPTXtoPDF** in MainPage.xaml.cs and include the below code snippet to **convert a PowerPoint to PDF in .NET MAUI**.
+Step 6: Add a new action method **ConvertPPTXtoImage** in MainPage.xaml.cs and include the below code snippet to **convert a PowerPoint to Image in .NET MAUI**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Loading an existing PowerPoint document.
+//Loading an existing PowerPoint presentation
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open the existing PowerPoint presentation with loaded stream.
-using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.docx")))
+using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_Image.Assets.Input.pptx")))
 {
-    //Convert the PowerPoint document to PDF document.
-    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-    {
-        //Save the converted PDF document to MemoryStream.
-        MemoryStream pdfStream = new MemoryStream();
-        pdfDocument.Save(pdfStream);
-        pdfStream.Position = 0;
-        //save and Launch the PDF document.
-        SaveService saveService = new();
-        saveService.SaveAndView("Sample.pdf", "application/pdf", pdfStream);
-    }
+    //Initialize the PresentationRenderer.
+    pptxDoc.PresentationRenderer = new PresentationRenderer();
+    //Converts the first slide into image.
+    Stream stream= pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+    //Reset the stream position.
+    stream.Position = 0;
+    //save and Launch the image file.
+    SaveService saveService = new();
+    saveService.SaveAndView("PPTXtoImage.Jpeg", "application/jpeg", stream as MemoryStream);
 }
 
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI).
+You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF document** as follows.
+By executing the program, you will get the **image** as follows.
 
-![PowerPoint to PDF in .NET MAUI](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
-
+![PowerPoint to Image on macOS](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 ## Helper files for .NET MAUI
 
@@ -179,4 +176,4 @@ Refer the below helper files and add them into the mentioned project. These help
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/maui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToPDF#/material3) in ASP.NET Core.  
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 

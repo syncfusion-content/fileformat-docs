@@ -1,14 +1,14 @@
 ---
-title: Convert PowerPoint to PDF in WinUI | Syncfusion
-description: Convert PowerPoint to PDF in WinUI using WinUI PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PowerPoint to Image in WinUI | Syncfusion
+description: Convert PowerPoint to image in WinUI using WinUI PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint to PDF in WinUI
+# Convert PowerPoint to Image in WinUI
 
-Syncfusion PowerPoint is a [WinUI PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/winui/powerpoint-library) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in WinUI**.
+Syncfusion PowerPoint is a [WinUI PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/winui/powerpoint-library) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in WinUI**.
 
 ## Prerequisites
 To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
@@ -34,17 +34,18 @@ Step 4: Add a new button to the **MainWindow.xaml** as shown below.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+<?xml version="1.0" encoding="utf-8"?>
 <Window
-    x:Class="Convert_PowerPoint_Presentation_to_PDF.MainWindow"
+    x:Class="Convert_PowerPoint_Presentation_to_Image.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Convert_PowerPoint_Presentation_to_PDF"
+    xmlns:local="using:Convert_PowerPoint_Presentation_to_Image"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="button" Click="ConvertPPTXtoPDF">Convert PPTX to PDF</Button>
+        <Button x:Name="button" Click="ConvertPPTXtoImage">Convert PPTX to Image</Button>
     </StackPanel>
 </Window>
 
@@ -56,38 +57,36 @@ Step 5: Include the following namespaces in the **MainWindow.xaml.cs** file.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.Pdf;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add a new action method **ConvertPPTXtoPDF** in MainWindow.xaml.cs and include the below code snippet to **convert a PowerPoint to PDF in WinUI**.
+Step 6: Add a new action method **ConvertPPTXtoImage** in MainWindow.xaml.cs and include the below code snippet to **convert a PowerPoint to image in WinUI**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Loading an existing PowerPoint document
+//Loading an existing PowerPoint document.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open the existing PowerPoint presentation with loaded stream.
-using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.pptx")))
+using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_Image.Assets.Input.pptx")))
 {
-    //Convert the PowerPoint document to PDF document.
-    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-    {
-        //Save the converted PDF document to MemoryStream.
-        MemoryStream pdfStream = new MemoryStream();
-        pdfDocument.Save(pdfStream);
-        //Save the stream as a PDF document file in the local machine.
-        SaveHelper.SaveAndLaunch("Sample.pdf", pdfStream);
-    }              
+    //Initialize the PresentationRenderer.
+    pptxDoc.PresentationRenderer = new PresentationRenderer();
+    //Converts the first slide into image.
+    Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+    //Reset the stream position.
+    stream.Position = 0;
+    //Save the stream as a image file in the local machine.
+    SaveHelper.SaveAndLaunch("PPTXtoImage.Jpeg", stream as MemoryStream);
 }
 
 {% endhighlight %}
 {% endtabs %}
 
-## Save PDF document in WinUI
+## Save Image file in WinUI
 
 {% tabs %}
 
@@ -103,12 +102,12 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
     {
         FileSavePicker savePicker = new();
         
-        if (extension == ".pdf")
+        if (extension == ".Jpeg")
         {
-            savePicker.DefaultFileExtension = ".pdf";
+            savePicker.DefaultFileExtension = ".jpeg";
             savePicker.SuggestedFileName = filename;
-            //Saves the file as Pdf file.
-            savePicker.FileTypeChoices.Add("PDF", new List<string>() { ".pdf" });
+            //Saves the file as image file.
+            savePicker.FileTypeChoices.Add("JPEG", new List<string>() { ".jpeg" });
         }
 
         WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
@@ -155,10 +154,10 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
 
 You can download a complete working sample from GitHub.
 
-By executing the program, you will get the **PDF document** as follows.
+By executing the program, you will get the **image** as follows.
 
-![PowerPoint to PDF in WinUI Desktop](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![PowerPoint to Image in WinUI Desktop](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/winui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to PDF](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToPDF#/material3) in ASP.NET Core.  
+An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 

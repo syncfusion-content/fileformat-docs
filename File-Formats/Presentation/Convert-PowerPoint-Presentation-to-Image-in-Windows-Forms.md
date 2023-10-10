@@ -76,7 +76,7 @@ using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"../../Data/I
     //Convert the first slide into image.
     Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
     //Save the image file.
-    image.Save(Path.GetFullPath(@"../../WordtoImage.Jpeg"));
+    image.Save(Path.GetFullPath(@"../../PPTXtoImage.Jpeg"));
 }
 
 {% endhighlight %}
