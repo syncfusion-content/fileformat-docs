@@ -19,10 +19,10 @@ Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) projec
 Step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core)
-* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.2)
+* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.6)
 
 ![Install Syncfusion.PresentationRenderer.Net.Core NuGet Paackage](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
-![Install SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2 NuGet Paackage](AWS_images/Elastic_Beanstalk_Images/Nuget-Package-PPTXtoPDF.png)
+![Install SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.6 NuGet Paackage](AWS_images/Elastic_Beanstalk_Images/Nuget-Package-PPTXtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -82,7 +82,7 @@ public ActionResult ConvertPPTXtoPDF()
                 pptxDoc.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
                 stream.Position = 0;
                 //Download PDF document in the browser.
-                return File(stream, "application/pdf", "PPTXtoPDF.pdf");
+                return File(stream, "application/pdf", "Sample.pdf");
             }
         }
     }
@@ -109,7 +109,7 @@ Step 2: Select the **Deployment Target** as **Create a new application environme
 ![Deployment Target in AWS Ealastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Deployment-Target-Create-PowerPoint.png)
 
 Step 3: Choose the **Environment Name** in the dropdown list and the **URL** will be automatically assign and check the URL is available, if available click next otherwise change the **URL**. 
-![Application Environment in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/URL-Availability-Open-and-Save-PowerPoint.png)
+![Application Environment in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Environment-PPTXtoPDF.png)
 
 Step 4: Select the instance type in **t3a.micro** from the dropdown list and click next.
 ![Application Environment in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Launch-Configuration-Create-PowerPoint.png)
@@ -124,10 +124,10 @@ Step 7: Click the **Deploy** button to deploy the sample on AWS Elastic Beanstal
 ![Deploy the sample in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Review-Create-PowerPoint.png)
 
 Step 8: After changing the status from **Updating** to **Environment is healthy**, click the **URL**.
-![Status check in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Status-Create-PowerPoint.png)
+![Status check in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Status-Check-PPTXtoPDF.png)
 
 Step 9: After opening the provided **URL**, click **Create PowerPoint** button to download the PowerPoint document.
-![Click button to Create a PowerPoint document](AWS_Images/Elastic_Beanstalk_Images/Browse-Open-and-Save-PowerPoint.png)
+![Click button to Create a PowerPoint document](AWS_Images/Elastic_Beanstalk_Images/Browser-PPTXtoPDF.png)
 
 You can download a complete working sample from GitHub.
 
