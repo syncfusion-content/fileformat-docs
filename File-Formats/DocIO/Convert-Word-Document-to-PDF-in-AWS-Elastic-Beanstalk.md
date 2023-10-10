@@ -19,7 +19,7 @@ Step 1: Create a new ASP.NET Core Web application (Model-View-Controller) projec
 Step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.2)
+* [SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.6)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
 ![Install SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.2 NuGet Package](AWS_Images/Elastic_Beanstalk_Images/Nuget-Convert-WordtoPDF.png)
