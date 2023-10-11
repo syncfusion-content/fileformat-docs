@@ -153,7 +153,7 @@ public static async void SaveAndLaunch(string filename, MemoryStream stream)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/WinUI).
 
 By executing the program, you will get the **PDF document** as follows.
 

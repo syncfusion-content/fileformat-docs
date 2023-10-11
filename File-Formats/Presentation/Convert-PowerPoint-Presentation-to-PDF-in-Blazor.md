@@ -168,7 +168,7 @@ Step 11: Add the following JavaScript function in the **_Host.cshtml** in the Pa
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Blazor/Server-app).
 
 By executing the program, you will get the **PDF** as follows.
 
@@ -334,7 +334,7 @@ Step 11: Add the following JavaScript function in the **Index.html** file presen
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/Blazor/Client-side-application).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Blazor/WASM-app).
 
 By executing the program, you will get the **PDF** as follows.
 

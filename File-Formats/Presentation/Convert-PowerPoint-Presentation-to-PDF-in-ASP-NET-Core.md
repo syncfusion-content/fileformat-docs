@@ -81,7 +81,7 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/ASP.NET-Core).
 
 By executing the program, you will get the **PDF document** as follows.
 

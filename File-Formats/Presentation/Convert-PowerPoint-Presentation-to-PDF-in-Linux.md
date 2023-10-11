@@ -109,7 +109,7 @@ dotnet run
 
 ![Run the Applcation](Workingwith_Linux/Run.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Linux).
 
 By executing the program, you will get the **PDF** as follows. The output will be saved in **bin** foleder.
 

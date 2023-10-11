@@ -93,7 +93,7 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Read-and-save-PowerPoint-presentation/Open-and-save-PowerPoint/.NET-MAUI).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI).
 
 By executing the program, you will get the **PDF document** as follows.
 
@@ -118,50 +118,50 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[.NET MAUI Project]()'| markdownify }}
+    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF)'| markdownify }}
   </td>
   <td>
-    {{'[SaveService.cs]()'| markdownify }}
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/SaveServices/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Windows]()'| markdownify }}
+    {{'[Windows](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/Windows)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs]()'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/Windows/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for Windows.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Android]()'| markdownify }}
+    {{'[Android](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/Android)'| markdownify }}
   </td>
   <td>
-    {{'[SaveAndroid.cs]()'| markdownify }}
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Mac Catalyst]()'| markdownify }}
+    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/MacCatalyst)'| markdownify }}
   </td>
   <td>
-    {{'[SaveMac.cs]()'| markdownify }}
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS]()'| markdownify }}
+    {{'[iOS](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs]()'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -169,7 +169,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[PreviewControllerDS.cs]()'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs]()'| markdownify }}
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/.NET-MAUI/Convert-PowerPoint-Presentation-to-PDF/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
     Helper classes for viewing the <b>PowerPoint Presenatation</b> in iOS device

@@ -67,7 +67,7 @@ using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"../../../D
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Mac).
 
 By executing the program, you will get the **PDF** as follows.
 

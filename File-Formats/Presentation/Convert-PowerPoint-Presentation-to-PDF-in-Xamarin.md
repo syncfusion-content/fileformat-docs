@@ -120,20 +120,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Portable project]()'| markdownify }}
+    {{'[Portable project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF)'| markdownify }}
   </td>
   <td>
-    {{'[ISave.cs]()'| markdownify }}
+    {{'[ISave.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF/ISave.cs)'| markdownify }}
   </td>
   <td>Represent the base interface for save operation
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS Project]()'| markdownify }}
+    {{'[iOS Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs]())'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.iOS/SaveIOS.cs))'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -141,7 +141,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[PreviewControllerDS.cs]()'| markdownify }}
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.iOS/PreviewControllerDS.cs)'| markdownify }}
   </td>
   <td>
     Helper class for viewing the <b>PowerPoint Presenatation</b> in iOS device
@@ -149,20 +149,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Android project]()'| markdownify }}
+    {{'[Android project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.Android)'| markdownify }}
   </td>
   <td>
-   {{'[SaveAndroid.cs]()'| markdownify }}
+   {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device
   </td>
   </tr>
   <tr>
   <td>
-    {{'[UWP project]()'| markdownify }}
+    {{'[UWP project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.UWP)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs]()'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin/Convert-PowerPoint-Presentation-to-PDF/Convert-PowerPoint-Presentation-to-PDF.UWP/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for UWP device.
   </td>
@@ -171,7 +171,7 @@ Refer the below helper files and add them into the mentioned project. These help
 
 Compile and execute the application. Now this application convert a PowerPoint to PDF.
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/Xamarin).
 
 By executing the program, you will get the **PDF** as follows.
 
