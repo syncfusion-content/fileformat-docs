@@ -1767,7 +1767,9 @@ By executing the above code example, it generates output Word document as follow
 
 ### Add SVG image
 
-You can append SVG image specified by the byte array to the end of a paragraph using [AppendPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Byte___System_Byte___) API.
+To add an SVG image to a paragraph in a Word document using Syncfusion DocIO, you can use the [AppendPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Byte___System_Byte___) API.
+
+N> To preserve the SVG image in the Word document, you need to pass both the SVG image data and the equivalent bitmap image bytes to DocIO.
 
 The following code example shows how to add SVG image in Word document.
 
@@ -1841,7 +1843,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-svg-image/.NET).
 
 ## Working with lists
 
