@@ -72,13 +72,13 @@ Step 5: Add the following code in **btnConvert_Click** to **convert PowerPoint t
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Opens a PowerPoint Presentation
+//Opens a PowerPoint Presentation.
 using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"../../Data/Input.pptx")))
 {
-    //Converts the PowerPoint Presentation into PDF document
+    //Converts the PowerPoint Presentation into PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
     {
-        //Saves the PDF document
+        //Saves the PDF document.
         pdfDocument.Save(Path.GetFullPath(@"../../Sample.pdf"));
     }                   
 } 

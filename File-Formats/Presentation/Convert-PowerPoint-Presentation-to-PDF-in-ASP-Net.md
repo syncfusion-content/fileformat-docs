@@ -80,10 +80,10 @@ using (IPresentation pptxDoc = Presentation.Open(filePath))
             pdfDocument.Save(pdfStream);
             pdfStream.Position = 0;
         }
-        //Create the output PDF file stream
+        //Create the output PDF file stream.
         using (FileStream fileStreamOutput = File.Create(Server.MapPath("~/Sample.pdf")))
         {
-            //Copy the converted PDF stream into created output PDF stream
+            //Copy the converted PDF stream into created output PDF stream.
             pdfStream.CopyTo(fileStreamOutput);
         }
     }
@@ -96,7 +96,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF** as follows.
 
-![PowerPoint to PDF in ASP.NET](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in ASP.NET](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

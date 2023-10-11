@@ -74,13 +74,13 @@ Step 5: Add the following code in **btnConvert_Click** to **convert a PowerPoint
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Opens a PowerPoint Presentation
+//Opens a PowerPoint Presentation.
 using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
 {
-    //Converts the PowerPoint Presentation into PDF document
+    //Converts the PowerPoint Presentation into PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
     {
-        //Saves the PDF document
+        //Saves the PDF document.
         pdfDocument.Save("Sample.pdf");
     }
 }
@@ -92,7 +92,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF** as follows.
 
-![PowerPoint to PDF in Windows Forms](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in Windows Forms](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

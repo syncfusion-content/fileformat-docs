@@ -97,7 +97,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![PowerPoint to PDF in .NET MAUI](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in .NET MAUI](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 
 ## Helper files for .NET MAUI

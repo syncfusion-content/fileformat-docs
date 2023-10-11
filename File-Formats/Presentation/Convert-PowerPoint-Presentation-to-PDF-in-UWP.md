@@ -65,7 +65,7 @@ Step 5: Include the below code snippet in the click event of the button in **Mai
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Open an existing PowerPoint presentation
+//Open an existing PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.pptx")))
 {
     //Convert the PowerPoint document to PDF document.
@@ -75,7 +75,7 @@ using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStr
         MemoryStream pdfStream = new MemoryStream();
         pdfDocument.Save(pdfStream);
 
-        //Save the PDF file
+        //Save the PDF file.
         SavePDF(pdfStream);
     }
 } 
@@ -131,7 +131,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF** as follows.
 
-![PowerPoint to PDF in UWP](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in UWP](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/uwp) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features.
 

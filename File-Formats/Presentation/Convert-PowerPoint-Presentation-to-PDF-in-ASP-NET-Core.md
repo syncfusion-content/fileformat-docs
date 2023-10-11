@@ -85,7 +85,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF document** as follows.
 
-![PowerPoint to PDF in ASP.NET Core](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in ASP.NET Core](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

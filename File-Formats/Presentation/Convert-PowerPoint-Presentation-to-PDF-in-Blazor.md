@@ -195,11 +195,11 @@ Step 3: Choose Blazor WebAssembly App and click Create button to create a new Bl
 Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.WebAssembly v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly/2.88.2)
+* [SkiaSharp.NativeAssets.WebAssembly v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly/2.88.6)
 
 ![Install Syncfusion.PresentationRenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
 
-![Install SkiaSharp.NativeAssets.WebAssembly v2.88.2 Nuget Package](Workingwith_Blazor/Nuget-Package-PPTXtoPDF.png)
+![Install SkiaSharp.NativeAssets.WebAssembly v2.88.6 Nuget Package](Workingwith_Blazor/Nuget-Package-PPTXtoPDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
