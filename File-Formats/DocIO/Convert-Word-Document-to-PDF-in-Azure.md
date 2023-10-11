@@ -31,7 +31,7 @@ NuGet package name<br/></th></tr></thead>
 <td>
 {{'[App Service (Linux)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-azure-app-service-linux)' | markdownify}}<br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}<br/>
-{{'[SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)' |markdownify}} <br/></td></tr>
+{{'[SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0)' |markdownify}} <br/></td></tr>
 <tr>
 <td>
 {{'[Azure Functions v1](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-azure-functions-v1)' | markdownify}} <br/></td><td>
