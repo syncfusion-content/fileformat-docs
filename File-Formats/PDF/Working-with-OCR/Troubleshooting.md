@@ -235,3 +235,57 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 </td>
 </tr>
 </table>
+
+## Method PerformOCR() causes problems and ignores the tesseract files under WSL.
+
+<table>
+<th style="font-size:14px" width="100px">Issue</th>
+<th style="font-size:14px">Method PerformOCR() causes problem and ignores the tesseract files under WSL</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>Tesseract binaries in WSL are missing.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>To resolve this problem, you should install and utilize Leptonica and Tesseract on your machine. Refer to the following steps for installing Leptonica and Tesseract,
+<br><br/>
+1. Install the leptonica.
+<br>
+{% highlight c# tabtitle="C#" %}
+
+sudo apt-get install libleptonica-dev
+
+{% endhighlight %}
+<br><br>
+<img src="OCR-Images/Install-leptonica.png">
+<br><br>
+2.Install the tesseract.
+<br>
+
+{% highlight c# tabtitle="C#" %}
+
+sudo apt-get install tesseract-ocr-eng
+
+{% endhighlight %}
+<br><br>
+<img src="OCR-Images/Install-tesseract.png">
+<br><br>
+3. Copy the binaries (liblept.so and libtesseract.so) to the missing files exception folder in the project location.
+<br>
+{% highlight c# tabtitle="C#" %}
+
+cp /usr/lib/x86_64-linux-gnu/liblept.so /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/liblept1753.so
+
+{% endhighlight %}
+<br>
+{% highlight c# tabtitle="C#" %}
+
+cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/libSyncfusionTesseract.so
+
+{% endhighlight %}
+<br/>
+</td>
+</tr>
+</table>
