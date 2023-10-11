@@ -60,10 +60,10 @@ Ensure that your data file version is 3.02 since the OCR processor is built with
 <td>
 To resolve this exception, ensure the tesseract binaries are in the following structure.
 <br/><br/>
-The tesseract binaries path is TesseractBinaries/Windows, and the assemblies should be in the following structure. 
+The tesseract binaries path package structure to runtimes, and the assemblies should be in the following structure. 
 <br/><br/>
-1.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x64/libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
-2.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x86/libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
+1.<span style="color:gray;font-size:14px"><i>bin\Debug\net7.0\runtimes\win-x64\native\leptonica-1.80.0.dll,libSyncfusionTesseract.dll</i></span><br/>
+2.<span style="color:gray;font-size:14px"><i>bin\Debug\net7.0\runtimes\win-x86\native\leptonica-1.80.0.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
 <tr>
