@@ -1769,9 +1769,9 @@ By executing the above code example, it generates output Word document as follow
 
 To add an SVG image to a paragraph in a Word document using Syncfusion DocIO, you can use the [AppendPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Byte___System_Byte___) API.
 
-N> To preserve the SVG image in the Word document, you need to pass both the SVG image data and the equivalent bitmap image bytes to DocIO.
+N> To preserve the SVG image in the Word document, pass both the SVG image data and the equivalent bitmap image bytes to DocIO.
 
-The following code example shows how to add SVG image in Word document.
+The following code example shows how to add an SVG image in a Word document.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1779,13 +1779,13 @@ The following code example shows how to add SVG image in Word document.
 ///Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section.
+    //Add a new paragraph to the section.
     IWParagraph firstParagraph = section.AddParagraph();
-    //Get the image as byte array.
+    //Get the image as a byte array.
     byte[] imageBytes = File.ReadAllBytes(Buyers.png);
-    //Get the SVG image as byte array.
+    //Get the SVG image as a byte array.
     byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
     IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
@@ -1802,13 +1802,13 @@ using (WordDocument document = new WordDocument())
 
 using (WordDocument document = new WordDocument())
 {
-    //Add new section to the document.
+    //Add a new section to the document.
     IWSection section = document.AddSection();
-    //Add new paragraph to the section.
+    //Add a new paragraph to the section.
     IWParagraph firstParagraph = section.AddParagraph();
-    //Get the image as byte array.
+    //Get the image as a byte array.
     byte[] imageBytes = File.ReadAllBytes(Buyers.png);
-    //Get the SVG image as byte array.
+    //Get the SVG image as a byte array.
     byte[] svgData = File.ReadAllBytes(Buyers.svg");
     //Add SVG image to the paragraph.
     IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
@@ -1823,9 +1823,9 @@ using (WordDocument document = new WordDocument())
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 Using document As New WordDocument()
-    ' Add new section to the document.
+    ' Add a new section to the document.
     Dim section As IWSection = document.AddSection()
-    ' Add new paragraph to the section.
+    ' Add a new paragraph to the section.
     Dim firstParagraph As IWParagraph = section.AddParagraph()
     ' Get the PNG image as a byte array.
     Dim imageBytes As Byte() = File.ReadAllBytes("Buyers.png")
