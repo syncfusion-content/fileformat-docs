@@ -60,10 +60,10 @@ Ensure that your data file version is 3.02 since the OCR processor is built with
 <td>
 To resolve this exception, ensure the tesseract binaries are in the following structure.
 <br/><br/>
-The tesseract binaries path is TesseractBinaries/Windows, and the assemblies should be in the following structure. 
+The tessdata and tesseract binaries folder are automatically added to the bin folder of the application. The assemblies should be in the following structure.
 <br/><br/>
-1.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x64/libletpt1753.dll,libSyncfusionTesseract.dll</i></span><br/>
-2.<span style="color:gray;font-size:14px"><i>TesseractBinaries/Windows/x86/libletpt1753.dll,libSyncfusionTesseract.dll</i></span>
+1.<span style="color:gray;font-size:14px"><i>bin\Debug\net7.0\runtimes\win-x64\native\leptonica-1.80.0.dll,libSyncfusionTesseract.dll</i></span><br/>
+2.<span style="color:gray;font-size:14px"><i>bin\Debug\net7.0\runtimes\win-x86\native\leptonica-1.80.0.dll,libSyncfusionTesseract.dll</i></span>
 </td>
 </tr>
 <tr>
@@ -232,6 +232,60 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 }
 
 {% endhighlight %}
+</td>
+</tr>
+</table>
+
+## Method PerformOCR() causes problems and ignores the tesseract files under WSL.
+
+<table>
+<th style="font-size:14px" width="100px">Issue</th>
+<th style="font-size:14px">Method PerformOCR() causes problem and ignores the tesseract files under WSL</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>Tesseract binaries in WSL are missing.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>To resolve this problem, you should install and utilize Leptonica and Tesseract on your machine. Refer to the following steps for installing Leptonica and Tesseract,
+<br><br/>
+1. Install the leptonica.
+<br>
+{% highlight c# tabtitle="C#" %}
+
+sudo apt-get install libleptonica-dev
+
+{% endhighlight %}
+<br><br>
+<img src="OCR-Images/Install-leptonica.png">
+<br><br>
+2.Install the tesseract.
+<br>
+
+{% highlight c# tabtitle="C#" %}
+
+sudo apt-get install tesseract-ocr-eng
+
+{% endhighlight %}
+<br><br>
+<img src="OCR-Images/Install-tesseract.png">
+<br><br>
+3. Copy the binaries (liblept.so and libtesseract.so) to the missing files exception folder in the project location.
+<br>
+{% highlight c# tabtitle="C#" %}
+
+cp /usr/lib/x86_64-linux-gnu/liblept.so /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/liblept1753.so
+
+{% endhighlight %}
+<br>
+{% highlight c# tabtitle="C#" %}
+
+cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/libSyncfusionTesseract.so
+
+{% endhighlight %}
+<br/>
 </td>
 </tr>
 </table>
