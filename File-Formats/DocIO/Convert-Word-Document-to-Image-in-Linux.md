@@ -27,15 +27,15 @@ dotnet new console
 Step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/) by execute the following command.
 
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
-* [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
+* [SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6)
+* [HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0)
 
 {% tabs %}
 {% highlight KCONFIG %}
 
 dotnet add package Syncfusion.DocIORenderer.Net.Core -v 22.1.34 -s https://www.nuget.org/
-dotnet add package SkiaSharp.NativeAssets.Linux -v 2.88.2 -s https://www.nuget.org/
-dotnet add package HarfBuzzSharp.NativeAssets.Linux -v 2.8.2.2 -s https://www.nuget.org/
+dotnet add package SkiaSharp.NativeAssets.Linux -v 2.88.6 -s https://www.nuget.org/
+dotnet add package HarfBuzzSharp.NativeAssets.Linux -v 7.3.0 -s https://www.nuget.org/
 
 {% endhighlight %}
 {% endtabs %}
