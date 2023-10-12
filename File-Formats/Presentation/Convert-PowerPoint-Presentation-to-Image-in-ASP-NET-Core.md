@@ -77,7 +77,7 @@ using (FileStream fileStream = new FileStream(Data/Input.pptx", FileMode.Open, F
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/ASP.NET-Core).
 
 By executing the program, you will get the **image** as follows.
 

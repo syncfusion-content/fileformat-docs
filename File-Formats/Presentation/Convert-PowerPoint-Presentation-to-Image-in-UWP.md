@@ -83,7 +83,7 @@ using (IPresentation pptxDoc = await Presentation.OpenAsync(inputFile))
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/UWP).
 
 By executing the program, you will get the **Image** as follows.
 

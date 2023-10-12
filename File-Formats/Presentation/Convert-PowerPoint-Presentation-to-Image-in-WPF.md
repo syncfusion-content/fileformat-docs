@@ -81,7 +81,7 @@ using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/WPF).
 
 By executing the program, you will get the **image** as follows.
 

@@ -167,7 +167,7 @@ Step 11: Add the following JavaScript function in the **_Host.cshtml** in the Pa
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Blazor/Server-app).
 
 By executing the program, you will get the **image** as follows.
 
@@ -330,7 +330,7 @@ Step 11: Add the following JavaScript function in the **Index.html** file presen
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Blazor/WASM-app).
 
 By executing the program, you will get the **image** as follows.
 

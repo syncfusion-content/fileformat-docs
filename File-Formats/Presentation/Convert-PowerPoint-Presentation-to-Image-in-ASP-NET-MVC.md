@@ -93,7 +93,7 @@ protected void ExportAsImage(Image image, string fileName, ImageFormat imageForm
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/ASP.NET-MVC).
 
 By executing the program, you will get the **image** as follows.
 

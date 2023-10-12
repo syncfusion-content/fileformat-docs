@@ -66,7 +66,7 @@ Step 5: Add the following code snippet in **Program.cs** file to **convert a Pow
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/MAC).
 
 By executing the program, you will get the **image** as follows.
 

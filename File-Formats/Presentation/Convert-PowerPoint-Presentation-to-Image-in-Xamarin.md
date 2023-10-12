@@ -119,20 +119,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Portable project]()'| markdownify }}
+    {{'[Portable project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image)'| markdownify }}
   </td>
   <td>
-    {{'[ISave.cs]()'| markdownify }}
+    {{'[ISave.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image/ISave.cs)'| markdownify }}
   </td>
   <td>Represent the base interface for save operation
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS Project]()'| markdownify }}
+    {{'[iOS Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs]())'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -140,7 +140,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[PreviewControllerDS.cs]()'| markdownify }}
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.iOS/PreviewControllerDS.cs)'| markdownify }}
   </td>
   <td>
     Helper class for viewing the <b>PowerPoint Presenatation</b> in iOS device
@@ -148,20 +148,20 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[Android project]()'| markdownify }}
+    {{'[Android project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.Android)'| markdownify }}
   </td>
   <td>
-   {{'[SaveAndroid.cs]()'| markdownify }}
+   {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device
   </td>
   </tr>
   <tr>
   <td>
-    {{'[UWP project]()'| markdownify }}
+    {{'[UWP project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.UWP)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs]()'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin/Convert-PowerPoint-Presentation-to-Image/Convert-PowerPoint-Presentation-to-Image.UWP/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for UWP device.
   </td>
@@ -170,7 +170,7 @@ Refer the below helper files and add them into the mentioned project. These help
 
 Compile and execute the application. Now this application convert a PowerPoint to image.
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Xamarin).
 
 By executing the program, you will get the **image** as follows.
 
