@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint to Image in Xamarin
 
-Syncfusion PowerPoint is a [Xamarin PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin/powerpoint-library) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in Xamarin**.
+Syncfusion PowerPoint is a [Xamarin PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin/powerpoint-library) used to create, read, edit and convert PowerPoint presentation programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in Xamarin**.
 
 ## Steps to convert PowerPoint to Image programmatically
 
@@ -77,7 +77,7 @@ Step 7: Include the below code snippet in the click event of the button in MainX
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Loading an existing PowerPoint document.
+//Loading an existing PowerPoint presentation.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open the existing PowerPoint presentation with loaded stream.
 using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert-PowerPoint-Presentation-to-Image.Assets.Input.pptx")))

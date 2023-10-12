@@ -8,13 +8,13 @@ documentation: UG
 
 # Convert PowerPoint to Image in Blazor
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in Blazor**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint presentation programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in Blazor**.
 
 ## Server app
 
 Step 1: Create a new C# Blazor Server app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document ](Workingwith_Blazor/Create_project.png)
+![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint presentation ](Workingwith_Blazor/Create_project.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -181,7 +181,7 @@ An online sample link to [convert PowerPoint Presentation to image](https://blaz
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document](Workingwith_Blazor/Create_project.png)
+![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint presentation](Workingwith_Blazor/Create_project.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -282,7 +282,7 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"
 {% endhighlight %}
 {% endtabs %}
 
-Step 10: To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 10: To download the PowerPoint presentation in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
