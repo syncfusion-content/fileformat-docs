@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint to PDF in ASP.NET Core
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in ASP.NET Core**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint presentation** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in ASP.NET Core**.
 
 ## Steps to convert PowerPoint to PDF programmatically
 
@@ -64,7 +64,7 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStream))
     {
-        //Convert the PowerPoint document to PDF document.
+        //Convert the PowerPoint presentation to PDF document.
         using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
         {
             //Create the MemoryStream to save the converted PDF.      

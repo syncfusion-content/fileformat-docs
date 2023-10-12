@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint to PDF in Linux
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in .NET Core application on Linux**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint presentation** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in .NET Core application on Linux**.
 
 ## Steps to convert PowerPoint to PDF in .NET Core application on Linux
 
@@ -65,7 +65,7 @@ using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"../../../D
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-        //Convert the PowerPoint document to PDF document.
+        //Convert the PowerPoint presentation to PDF document.
         using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
         {
             //Save the converted PDF document to MemoryStream.

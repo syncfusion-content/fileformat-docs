@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint to PDF in UWP
 
-Syncfusion PowerPoint is a [UWP PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/uwp/powerpoint-library) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in UWP**.
+Syncfusion PowerPoint is a [UWP PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/uwp/powerpoint-library) used to create, read, edit and **convert PowerPoint presentation** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in UWP**.
 
 ## Steps to convert PowerPoint to PDF programmatically
 
@@ -68,7 +68,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Open an existing PowerPoint presentation.
 using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.pptx")))
 {
-    //Convert the PowerPoint document to PDF document.
+    //Convert the PowerPoint presentation to PDF document.
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
     {
         // Create a MemoryStream to hold the PDF data.

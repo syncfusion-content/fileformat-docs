@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint to PDF in Blazor
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in Blazor**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint presentation programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to PDF in Blazor**.
 
 ## Server app
 
@@ -99,7 +99,7 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.pptx", FileM
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(sourceStreamPath))
     {
-        //Convert the PowerPoint document to PDF document.
+        //Convert the PowerPoint presentation to PDF document.
         using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
         {
             //Create the MemoryStream to save the converted PDF.      
@@ -182,7 +182,7 @@ An online sample link to [convert PowerPoint Presentation to PDF](https://blazor
 
 Step 1: Create a new C# Blazor WASM app project. Select Blazor App from the template and click the Next button.
 
-![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint document](Workingwith_Blazor/Create_project.png)
+![Create ASP.NET Core Web application in Visual Studio for Blazor PowerPoint presentation](Workingwith_Blazor/Create_project.png)
 
 Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
@@ -286,7 +286,7 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"
 {% endhighlight %}
 {% endtabs %}
 
-Step 10: To download the PowerPoint document in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 10: To download the PowerPoint presentation in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
