@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to PDF in AWS Elastic Beanstalk
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in AWS Elastic Beanstalk**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint presentation** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in AWS Elastic Beanstalk**.
 
 ## Steps to convert PowerPoint Presentation to PDF in AWS Elastic Beanstalk
 
@@ -126,10 +126,10 @@ Step 7: Click the **Deploy** button to deploy the sample on AWS Elastic Beanstal
 Step 8: After changing the status from **Updating** to **Environment is healthy**, click the **URL**.
 ![Status check in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Status-Check-PPTXtoPDF.png)
 
-Step 9: After opening the provided **URL**, click **Create PowerPoint** button to download the PowerPoint document.
-![Click button to Create a PowerPoint document](AWS_Images/Elastic_Beanstalk_Images/Browser-PPTXtoPDF.png)
+Step 9: After opening the provided **URL**, click **Convert PPTX to PDF** button to download the PDF document.
+![Click the button Convert PPTX to PDF](AWS_Images/Elastic_Beanstalk_Images/Browser-PPTXtoPDF.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **PDF document** as follows.
 

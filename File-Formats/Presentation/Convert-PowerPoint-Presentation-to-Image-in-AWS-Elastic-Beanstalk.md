@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert PowerPoint Presentation to Image in AWS Elastic Beanstalk
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in AWS Elastic Beanstalk**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint presentation** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in AWS Elastic Beanstalk**.
 
 ## Steps to convert PowerPoint Presentation to Image in AWS Elastic Beanstalk
 
@@ -57,7 +57,7 @@ Step 5: Add a new button in the **Index.cshtml** as shown below.
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Include the below code snippet in the **Homecontroller.cs** file to **convert a PowerPoint Presentation to image** and download it.
+Step 6: Include the below code snippet in the **Homecontroller.cs** file to **convert a PowerPoint presentation to image** and download it.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -121,10 +121,10 @@ Step 7: Click the **Deploy** button to deploy the sample on AWS Elastic Beanstal
 Step 8: After changing the status from **Updating** to **Environment is healthy**, click the **URL**.
 ![Status check in AWS Elastic Beanstalk](AWS_Images/Elastic_Beanstalk_Images/Status-Check-PPTXtoPDF.png)
 
-Step 9: After opening the provided **URL**, click **Create PowerPoint** button to download the PowerPoint document.
-![Click button to Create a PowerPoint document](AWS_Images/Elastic_Beanstalk_Images/Browser-PPTXtoImage.png)
+Step 9: After opening the provided **URL**, click **Convert PPTX to Image** button to download the image file.
+![Click button to Convert PPTX to Image](AWS_Images/Elastic_Beanstalk_Images/Browser-PPTXtoImage.png)
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/AWS/AWS_Elastic_Beanstalk).
 
 By executing the program, you will get the **image** as follows.
 
