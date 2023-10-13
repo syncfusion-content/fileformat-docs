@@ -31,4 +31,8 @@ NuGet package name<br/></th></tr></thead>
 {{'[AWS Lambda](https://help.syncfusion.com/file-formats/docio/open-and-save-word-document-in-aws-lambda)' | markdownify}} <br/></td><td>
 {{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/> 
 </td></tr>
+<tr>
+<td>
+{{'[AWS Elastic Beanstalk](https://help.syncfusion.com/file-formats/docio/create-word-document-in-aws-elastic-beanstalk)' | markdownify}} <br/></td><td>
+{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/> 
 </table>
