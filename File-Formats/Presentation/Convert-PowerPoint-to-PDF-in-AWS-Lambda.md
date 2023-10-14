@@ -1,16 +1,16 @@
 ---
-title: Convert PPTX to Image in AWS Lambda | Syncfusion
-description: Convert PPTX to image in AWS Lambda using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+title: Convert PPTX to PDF in AWS Lambda | Syncfusion
+description: Convert PPTX to PDF in AWS Lambda using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
 
-# Convert PowerPoint Presentation to Image in AWS Lambda
+# Convert PowerPoint Presentation to PDF in AWS Lambda
 
-Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in AWS Lambda**.
+Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and **convert PowerPoint documents** programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to PDF in AWS Lambda**.
 
-## Steps to convert PowerPoint Presentation to Image in AWS Lambda
+## Steps to convert PowerPoint Presentation to PDF in AWS Lambda
 
 Step 1: Create a new **AWS Lambda project** as follows.
 ![AWS Lambda project](AWS_Images/Lambda_Images/Project-Template-PowerPoint-Presentation-to-PDF.png)
@@ -21,14 +21,14 @@ Step 2: Select Blueprint as Empty Function and click **Finish**.
 Step 3: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core)
-* [SkiaSharp.NativeAssets.Linux v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.2)
-* [HarfBuzzSharp.NativeAssets.Linux v2.8.2.2](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/2.8.2.2)
+* [SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6)
+* [HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0)
 
 ![Install Syncfusion.PresentationRenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
 
-![Install SkiaSharp.NativeAssets.Linux v2.88.2 Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_PowerPoint_Presentation_to_PDF.png)
+![Install SkiaSharp.NativeAssets.Linux v2.88.6 Nuget Package](Azure_Images/App_Service_Linux/SkiaSharp_PowerPoint_Presentation_to_PDF.png)
 
-![Install HarfBuzzSharp.NativeAssets.Linux v2.8.2.2 Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz_PowerPoint_Presentation_to_PDF.png)
+![Install HarfBuzzSharp.NativeAssets.Linux v7.3.0 Nuget Package](Azure_Images/App_Service_Linux/HarfBuzz_PowerPoint_Presentation_to_PDF.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -45,11 +45,12 @@ Step 6: Include the following namespaces in **Function.cs** file.
 
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
+using Syncfusion.Pdf;
 
 {% endhighlight %}
 {% endtabs %}
 
-step 7: Add the following code snippet in **Function.cs** to **convert a PowerPoint Presentation to image**.
+step 7: Add the following code snippet in **Function.cs** to **convert a PowerPoint Presentation to PDF**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -63,19 +64,23 @@ step 7: Add the following code snippet in **Function.cs** to **convert a PowerPo
 public string FunctionHandler(string input, ILambdaContext context)
 {
     string filePath = Path.GetFullPath(@"Data/Input.pptx");
-    //Open the existing PowerPoint presentation with loaded stream.
-    using (IPresentation pptxDoc = Presentation.Open(filePath))
+    //Open the file as Stream
+    using (FileStream fileStreamInput = new FileStream(filePath, FileMode.Open, FileAccess.Read))
     {
-        //Initialize the PresentationRenderer to perform image conversion.
-        pptxDoc.PresentationRenderer = new PresentationRenderer();
-        //Convert PowerPoint slide to image as stream.
-        Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
-        //Reset the stream position.
-        stream.Position = 0;
-        // Create a memory stream to save the image.
-        MemoryStream memoryStream = new MemoryStream();
-        stream.CopyTo(memoryStream);
-        return Convert.ToBase64String(memoryStream.ToArray());
+        //Open the existing PowerPoint presentation with loaded stream.
+        using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Create the MemoryStream to save the converted PDF.      
+                MemoryStream pdfStream = new MemoryStream();
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+                return Convert.ToBase64String(pdfStream.ToArray());
+            }
+        }           
     }
 }
 
@@ -145,23 +150,24 @@ var stream = new StreamReader(response.Payload);
 JsonReader reader = new JsonTextReader(stream);
 var serilizer = new JsonSerializer();
 var responseText = serilizer.Deserialize(reader);
-//Convert Base64String into image file.
+//Convert Base64String into PDF document.
 byte[] bytes = Convert.FromBase64String(responseText.ToString());
-FileStream fileStream = new FileStream("PPTXtoImage.Jpeg", FileMode.Create);
+FileStream fileStream = new FileStream("Sample.Pdf", FileMode.Create);
 BinaryWriter writer = new BinaryWriter(fileStream);
 writer.Write(bytes, 0, bytes.Length);
 writer.Close();
-System.Diagnostics.Process.Start("PPTXtoImage.Jpeg");
+System.Diagnostics.Process.Start("Sample.Pdf");
 
 {% endhighlight %}
 {% endtabs %}
 
-By executing the program, you will get the **image** as follows.
+By executing the program, you will get the **PDF document** as follows.
 
-![PPTX to Image in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-Image.png)
+![PPTX to PDF in AWS Lambda](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
 
-From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/AWS/Console_Application) and [AWS Lambda](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/AWS/AWS_Lambda) project.
+From GitHub, you can download the [console application](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/AWS/Console_Application) and [AWS Lambda](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Convert-PowerPoint-presentation-to-PDF/AWS/AWS_Lambda) project.
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
-An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 
+An online sample link to [convert PowerPoint Presentation to PDF](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToPDF#/material3) in ASP.NET Core.
+

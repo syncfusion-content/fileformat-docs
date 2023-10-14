@@ -31,4 +31,9 @@ NuGet package name<br/></th></tr></thead>
 {{'[AWS Lambda](https://help.syncfusion.com/file-formats/presentation/create-powerpoint-presentation-in-aws-lambda)' | markdownify}} <br/></td><td>
 {{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}<br/>
 </td></tr>
+<tr>
+<td>
+{{'[AWS Elastic Beanstalk](https://help.syncfusion.com/file-formats/presentation/create-powerpoint-presentation-in-aws-elastic-beanstalk)' | markdownify}} <br/></td><td>
+{{'[Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core)' | markdownify}}<br/>
+</td></tr>
 </table>
