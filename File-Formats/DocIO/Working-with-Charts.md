@@ -597,7 +597,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 A Chart is composed of various elements such as plot area, chart area, title area, legend, data labels, axis etc. The following screenshot illustrates the various elements of chart.
 
-![Illustrates the various elements of chart](workingwithchartsimages/elements-of-charts-in-file-formats-word.jpeg)
+![Illustrates the various elements of chart in File Format Word](workingwithcharts_images/file-formats-word-elements-of-charts.jpeg)
 
 
 1. The chart area of the chart.
@@ -1738,7 +1738,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the code example above, it generates the resultant Word document as follows.
 
-![Word WaterFall Chart](workingwithchartsimages/waterfall-in-file-formats-word.png)
+![Word WaterFall Chart in File Format](workingwithcharts_images/file-formats-word-waterfall-chart.png)
 
 N>These charts are supported only in Word 2016 and are not supported in the previous versions.
 
