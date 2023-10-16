@@ -1108,7 +1108,7 @@ layoutFormat.Break = PdfLayoutBreakType.FitPage;
 //Draw the first paragraph.
 PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
 //Draw the second paragraph from the first paragraph’s end position.
-result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
 
 //Creating the stream object.
 MemoryStream stream = new MemoryStream();
@@ -1143,7 +1143,7 @@ layoutFormat.Break = PdfLayoutBreakType.FitPage;
 //Draw the first paragraph.
 PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
 //Draw the second paragraph from the first paragraph’s end position.
-result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
 
 //Save and close the document.
 document.Save("Sample.pdf");
@@ -1153,6 +1153,7 @@ document.Close(true);
 void Pages_PageAdded(object sender, PageAddedEventArgs args)
 {
 PdfPage page = args.Page;
+page.Graphics.DrawRectangle(PdfPens.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height));
 }
 
 {% endhighlight %}
@@ -1162,7 +1163,7 @@ PdfPage page = args.Page;
 'Create a new PDF document.
 Dim document As New PdfDocument()
 'Add the event.
-document.Pages.PageAdded += New PageAddedEventHandler(Pages_PageAdded)
+AddHandler document.Pages.PageAdded, AddressOf Pages_PageAdded
 'Create a new page and add it as the last page of the document.
 Dim page As PdfPage = document.Pages.Add()
 Dim graphics As PdfGraphics = page.Graphics
@@ -1181,7 +1182,7 @@ layoutFormat.Break = PdfLayoutBreakType.FitPage
 'Draw the first paragraph.
 Dim result As PdfLayoutResult = textElement.Draw(page, New RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat)
 'Draw the second paragraph from the first paragraph’s end position.
-result = textElement.Draw(page, New RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat)
+result = textElement.Draw(result.Page, New RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat)
 
 'Save and close the document.
 document.Save("Sample.pdf")
@@ -1190,6 +1191,7 @@ document.Close(True)
 'Event handler for PageAdded event.
 Private Sub Pages_PageAdded(sender As Object, args As PageAddedEventArgs)
 Dim page As PdfPage = args.Page
+page.Graphics.DrawRectangle(PdfPens.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height))
 End Sub
 
 {% endhighlight %}
