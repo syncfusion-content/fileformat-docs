@@ -1088,12 +1088,12 @@ The following code example illustrates the same.
 
 //Create a PDF document instance.
 PdfDocument document = new PdfDocument();
-
 //Add the event.
-document.Pages.PageAdded += new PageAddedEventHandler(Pages_PageAdded);
+document.Pages.PageAdded += Pages_PageAdded;
 //Create a new page and add it as the last page of the document.
 PdfPage page = document.Pages.Add();
 PdfGraphics graphics = page.Graphics;
+
 //Read the long text from the text file.
 FileStream inputStream = new FileStream("Input.txt", FileMode.Open, FileAccess.Read);
 StreamReader reader = new StreamReader(inputStream, Encoding.ASCII);
@@ -1117,6 +1117,13 @@ document.Save(stream);
 //Close the document.
 document.Close(true);
 
+//Event handler for PageAdded event.
+void Pages_PageAdded(object sender, PageAddedEventArgs args)
+{
+PdfPage page = args.Page;
+page.Graphics.DrawRectangle(PdfPens.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height));
+}
+
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -1124,7 +1131,7 @@ document.Close(true);
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
 //Add the event.
-document.Pages.PageAdded += new PageAddedEventHandler(Pages_PageAdded);
+document.Pages.PageAdded += Pages_PageAdded;
 //Create a new page and add it as the last page of the document.
 PdfPage page = document.Pages.Add();
 PdfGraphics graphics = page.Graphics;
