@@ -38,4 +38,5 @@ NuGet package name<br/></th></tr></thead>
 {{'[AWS Elastic Beanstalk](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-aws-elastic-beanstalk)' | markdownify}} <br/></td><td>
 {{'[Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)' | markdownify}}<br/>
 {{'[SkiaSharp.NativeAssets.Linux.NoDependencies v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.6)' | markdownify}} <br/>
+</td></tr>
 </table>
