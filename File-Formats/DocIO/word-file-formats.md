@@ -637,6 +637,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Saving Word document with compatibility
 
+#### Maintain existing compatibility
 The following code shows, how to save Word document with same word version compatibility
 
 {% tabs %}
@@ -737,6 +738,59 @@ document.Close();
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Save-Word-with-compatibility).
+
+#### Save Word in old compatibility
+
+The following code shows, how to save Word document in old compatibility using DocIO.
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create an instance of WordDocument.
+using (WordDocument document = new WordDocument())
+{
+    document.EnsureMinimal();
+    //Append paragraph.
+    document.LastParagraph.AppendText("Hello World");
+    //Sets the compatibility mode to Word 2007.
+    document.Settings.CompatibilityMode = CompatibilityMode.Word2007;
+    //Create FileStream to save the Word file.
+    using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    {
+        //Save the Word file.
+        document.Save(outputStream, FormatType.Docx);
+    }
+} 
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create an instance of WordDocument.
+using(WordDocument document = new WordDocument())
+{
+    document.EnsureMinimal();
+    document.LastParagraph.AppendText("Hello World");
+    //Sets the compatibility mode to Word 2007.
+    document.Settings.CompatibilityMode = CompatibilityMode.Word2007;
+    document.Save("Sample.docx");
+}
+            
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create an instance of WordDocument.
+Using document As New WordDocument()
+    document.EnsureMinimal()
+    document.LastParagraph.AppendText("Hello World")
+    ' Sets the compatibility mode to Word 2007.
+    document.Settings.CompatibilityMode = CompatibilityMode.Word2007
+    document.Save("Sample.docx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
 
 ### Open a Word (*.doc) document containing incremental save information
 
