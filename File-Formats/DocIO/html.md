@@ -312,7 +312,7 @@ using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, F
         //True- to omit xml declaration, otherwise false.
         document.SaveOptions.HtmlExportOmitXmlDeclaration = false;
         //Creates file stream.
-        using (FileStream outputFileStream = new FileStream("RtfToHTML.html", FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
         {
             //Saves the Word document to file stream.
             document.Save(outputFileStream, FormatType.Html);
