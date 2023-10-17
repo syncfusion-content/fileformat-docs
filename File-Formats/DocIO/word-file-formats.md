@@ -790,7 +790,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Save-Word-in-old-compatibility/.Net).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-file-formats/Save-Word-in-old-compatibility/.NET).
 
 ### Open a Word (*.doc) document containing incremental save information
 
