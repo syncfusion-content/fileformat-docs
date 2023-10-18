@@ -43,6 +43,7 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 {% endtabs %}
 
 ## Add Image in Chart area
+
 The following code snippet shows how to fill the image in chart area.
 
 {% tabs %}
@@ -67,7 +68,7 @@ chartArea.Fill.Transparency = 0.5;
 {% endhighlight %}
 {% endtabs %}
 
-N> Transparency is only applicable when [FillType]() is set as [SolidColor](). Color-shaded fill is represented as a floating-point value ranging from 0.0 (Clear) to 1.0 (Opaque).
+N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_Transparency) is only applicable when [FillType](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_FillType) is set as SolidColor. Color-shaded fill is represented as a floating-point value ranging from 0.0 (Clear) to 1.0 (Opaque).
 
 The complete code snippet illustrating the above options is shown below.
 
