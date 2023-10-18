@@ -411,7 +411,7 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Update-pages-count).
 
-N>  1. The word to PDF layout engine is used for updating the page count in word document. Due to its limitations it may result in an incorrect page count.
+N>  1. The word to PDF layout engine is used for updating the page count in word document. Due to its limitations, it may result in an incorrect page count and the execution of this process may take some time.
 N>  2. In ASP.NET Core and Xamarin platforms, to update page count in a Word document we recommend you to use Word to PDF [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf) as a reference in your application to update page count in a Word document.
 
 ### Adding Custom Document properties
