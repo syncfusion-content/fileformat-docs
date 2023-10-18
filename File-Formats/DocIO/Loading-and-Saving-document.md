@@ -632,6 +632,8 @@ return File(stream, "application/msword", "Result.docx");
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Send-Word-to-client-browser).
 
+N> If you are using [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core/) package, then the [Save](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Save_System_String_Syncfusion_DocIO_FormatType_System_Web_HttpResponse_Syncfusion_DocIO_HttpContentDisposition_) API used in the above sample is not available in it. So, we suggest you to save the document as stream and then download. You can download a complete working sample from GitHub.
+
 ## Closing a document
 
 Once the document manipulation and save operation are completed, you should close the instance of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html), in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
