@@ -300,7 +300,7 @@ The following code sample shows how to customize Word to HTML conversion.
 //Loads an existing Word document into DocIO instance.
 using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
-   using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
+   using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
    {
         //The headers and footers in the input are exported.
         document.SaveOptions.HtmlExportHeadersFooters = true;
