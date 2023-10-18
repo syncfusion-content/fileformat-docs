@@ -1852,6 +1852,7 @@ Partially supported. At present, the text in a line is scaled uniformly to match
 Images
 </td>
 <td>
+
 In .NET Core and latest target, we have limitation in metafile and TIFF. Refer [here](https://help.syncfusion.com/file-formats/docio/faq#why-images-are-preserved-as-redx-images-in-word-to-pdf-conversion).
 </td>
 </tr>
