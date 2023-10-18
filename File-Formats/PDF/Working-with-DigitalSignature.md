@@ -869,11 +869,11 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 Class ExternalSigner
-    Inherits IPdfExternalSigner
+    Implements IPdfExternalSigner
 
     Private _hashAlgorithm As String
 
-    Public ReadOnly Property HashAlgorithm As String
+    Public ReadOnly Property HashAlgorithm As String Implements IPdfExternalSigner.HashAlgorithm
         Get
             Return _hashAlgorithm
         End Get
@@ -883,12 +883,12 @@ Class ExternalSigner
         _hashAlgorithm = hashAlgorithm
     End Sub
 
-    Public Function Sign(ByVal message As Byte(), <Out> ByRef timeStampResponse As Byte()) As Byte()
+    Public Function Sign(ByVal message As Byte(), <Out> ByRef timeStampResponse As Byte()) As Byte() Implements IPdfExternalSigner.Sign
         timeStampResponse = Nothing
         Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2(Path.GetFullPath("PDF.pfx"), "password123"))
 
         If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
-            Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACrypto
+            Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACryptoServiceProvider)
             Return rsa.SignData(message, HashAlgorithm)
         ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
             Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
