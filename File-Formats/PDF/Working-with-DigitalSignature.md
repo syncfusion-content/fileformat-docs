@@ -318,6 +318,8 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Add-a-digital-signature-to-an-existing-document/).
+
 ## Adding a digital signature using X509Certificate2
 
 The following code example illustrates how to add digital signature in a PDF document using [X509Certificate2](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfCertificate.html#Syncfusion_Pdf_Security_PdfCertificate__ctor_System_Security_Cryptography_X509Certificates_X509Certificate2_) as follows.
@@ -684,7 +686,7 @@ void Signature_ComputeHash(object sender, PdfSignatureEventArgs arguments)
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
 'Creates a digital signature
 Dim signature As PdfSignature = New PdfSignature(document, document.Pages(0), Nothing, "DigitalSignature")
-signature.ComputeHash += Signature_ComputeHash
+AddHandler signature.ComputeHash, AddressOf Signature_ComputeHash
 
 'Save the PDF document
 document.Save("ExternalSignature.pdf")
@@ -988,6 +990,23 @@ signature.CreateLongTermValidity(New List(Of X509Certificate2) From { x509 })
 'Save and close the PDF document
 loadedDocument.Save("SignedDocument.pdf")
 loadedDocument.Close(True)
+
+Private Sub Signature_ComputeHash(ByVal sender As Object, ByVal arguments As PdfSignatureEventArgs)
+    'Get the document bytes
+    Dim documentBytes As Byte() = arguments.Data
+    Dim signedCms As SignedCms = New SignedCms(New ContentInfo(documentBytes), detached:=True)
+
+    'Compute the signature using the specified digital ID file and the password
+    Dim certificate As X509Certificate2 = New X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123")
+    Dim cmsSigner = New CmsSigner(certificate)
+
+    'Set the digest algorithm SHA256
+    cmsSigner.DigestAlgorithm = New Oid("2.16.840.1.101.3.4.2.1")
+    signedCms.ComputeSignature(cmsSigner)
+
+    'Embed the encoded digital signature to the PDF document
+    arguments.SignedData = signedCms.Encode()
+End Sub
 
 {% endhighlight %}
 
