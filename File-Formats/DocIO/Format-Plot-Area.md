@@ -2,7 +2,7 @@
 title: Modify the appearance of plot area | Syncfusion
 description: Learn how to modify the appearance of plot area in Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
-control: PowerPoint
+control: DocIO
 documentation: UG
 ---
 
