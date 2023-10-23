@@ -70,6 +70,21 @@ chartPlotArea.Fill.Transparency = 0.5;
 
 N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_Transparency) is only applicable when [FillType](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_FillType) is set as SolidColor. Color-shaded fill is represented as a floating-point value ranging from 0.0 (Clear) to 1.0 (Opaque).
 
+## Set the position 
+
+The following code snippet shows how to make transparency in plot area.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Sets position for plot area
+chartPlotArea.Layout.LeftMode = LayoutModes.auto;
+chartPlotArea.Layout.TopMode = LayoutModes.factor;
+chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+
+{% endhighlight %}
+{% endtabs %}
+
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}
