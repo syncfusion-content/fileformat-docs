@@ -296,24 +296,24 @@ The following code sample illustrates how to customize Word to HTML conversion.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-Platform]" %}
 
-//Loads an existing Word document into DocIO instance.
+//Load an existing Word document into DocIO instance.
 using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
    using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
    {
-        //The headers and footers in the input are exported.
+        //The header and footer in the input are exported.
         document.SaveOptions.HtmlExportHeadersFooters = true;
-        //Exports the text form fields as editable .
+        //Export the text form fields as editable .
         document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
-        //Sets the style sheet type.
+        //Set the style sheet type.
         document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.Inline;
         //Set value to omit XML declaration in the exported html file.
         //True- to omit xml declaration, otherwise false.
         document.SaveOptions.HtmlExportOmitXmlDeclaration = false;
-        //Creates file stream.
+        //Create a file stream.
         using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
         {
-            //Saves the Word document to file stream.
+            //Save the Word document to file stream.
             document.Save(outputFileStream, FormatType.Html);
         }
    }
