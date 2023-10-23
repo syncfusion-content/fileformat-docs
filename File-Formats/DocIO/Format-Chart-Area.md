@@ -63,6 +63,7 @@ The following code snippet shows how to make transparency in chart area.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+// Set the transparency of the chart area.
 chartArea.Fill.Transparency = 0.5;
 
 {% endhighlight %}

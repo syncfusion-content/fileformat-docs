@@ -29,7 +29,7 @@ The following code snippet shows how to set the series type.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Sets series type 
+//Set the series type.
 chart.Series[0].SerieType = OfficeChartType.Line_Markers;
 
 {% endhighlight %}

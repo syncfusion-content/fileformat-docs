@@ -17,7 +17,7 @@ The following code snippet shows how to set the legend position in chart.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Sets position of legend
+//Set the position of legend.
 chart.Legend.Position = OfficeLegendPosition.Bottom;
 
 {% endhighlight %}

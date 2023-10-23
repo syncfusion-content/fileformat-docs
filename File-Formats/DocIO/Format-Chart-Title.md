@@ -6,13 +6,14 @@ control: DocIO
 documentation: UG
 ---
 
-## Set the chart title name
+## Set the chart title
 
 The following code snippet shows how to set the chart title name.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+// Set the chart title.
 chart.ChartTitle = "Purchase Details";
 
 {% endhighlight %}
@@ -25,6 +26,7 @@ The following code snippet shows how to customize the chart title.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+// Set the font name and size for the chart title area.
 chart.ChartTitleArea.FontName = "Calibri";
 chart.ChartTitleArea.Size = 14;
 
