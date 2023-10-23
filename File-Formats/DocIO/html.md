@@ -280,9 +280,9 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 ### Customize image Path
 
-DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event, which is used to customize the image path to set in the output HTML file and save images externally while converting a Word document to HTML.
+DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event, which is used to customize the image path that is set in the output HTML file and save images externally while converting a Word document to HTML.
 
-The following code example illustrates how to save Image files during a Word to HTML Conversion.
+The following code example illustrates how to save image files during a Word to HTML conversion.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -329,7 +329,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-The following code examples show the event handler to customize the image path and save the image in an external folder.
+The following code example illustrates the event handler for customizing the image path and saving the image in an external folder
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
