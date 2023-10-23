@@ -373,7 +373,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-path-in-Word-to-html/.NET).
 
 ### Customizing the Word to HTML conversion
 
