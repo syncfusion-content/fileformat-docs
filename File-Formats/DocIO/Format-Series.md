@@ -36,7 +36,7 @@ chart.Series[0].SerieType = OfficeChartType.Line_Markers;
 {% endtabs %}
 
 ## Set the DataPoint as Total
-The following code snippet shows how to set the Data Point as toal in chart.
+The following code snippet shows how to set the Data Point as total in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
