@@ -313,7 +313,7 @@ using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, F
         //Create a file stream.
         using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
         {
-            //Save the Word document to file stream.
+            //Save the HTML file to file stream.
             document.Save(outputFileStream, FormatType.Html);
         }
    }
