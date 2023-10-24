@@ -1847,6 +1847,15 @@ Font kerning
 Partially supported. At present, the text in a line is scaled uniformly to match the width of kerned text, instead of adjusting the space between each pair of characters.
 </td>
 </tr>
+<tr>
+<td>
+Images
+</td>
+<td>
+
+In .NET Core and latest target, we have limitation in metafile and TIFF. Refer [here](https://help.syncfusion.com/file-formats/docio/faq#why-images-are-preserved-as-redx-images-in-word-to-pdf-conversion).
+</td>
+</tr>
 </table>
 
 ## See Also
