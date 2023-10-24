@@ -1,6 +1,6 @@
 ---
-title: Modify the appearance of Data labels | Syncfusion
-description: Learn how to modify the appearance of Data labels in Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Modify the appearance of data labels | Syncfusion
+description: Learn how to modify the appearance of data labels in Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
