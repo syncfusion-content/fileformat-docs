@@ -6,6 +6,11 @@ control: DocIO
 documentation: UG
 ---
 
+# Chart Title
+
+Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **chart title** in the chart.
+
+
 ## Set the Chart Title Name
 
 The following code snippet illustrates how to set the chart title name.

@@ -8,7 +8,7 @@ documentation: UG
 
 # Data Labels
 
-Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, **data labels** provide valuable context. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the legend in the chart.
+Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, **data labels** provide valuable context. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **data labels** in the chart.
 
 ## Enable Data Labels in Chart
 

@@ -8,7 +8,7 @@ documentation: UG
 
 # Legend
 
-Legends are visual **pictorial** hints that provide a viewer information that helps them understand an chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the legend in the chart.
+Legends are visual **pictorial** hints that provide a viewer information that helps them understand an chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **legend** in the chart.
 
 ## Set the Position of Legend
 

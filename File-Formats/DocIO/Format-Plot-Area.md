@@ -8,7 +8,7 @@ documentation: UG
 
 # Plot Area
 
-The plot area refers to the region that represents the plotted data in a chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the plot area in the chart.
+The plot area refers to the region that represents the plotted data in a chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **plot area** in the chart.
 
 ## Customization of Border
 

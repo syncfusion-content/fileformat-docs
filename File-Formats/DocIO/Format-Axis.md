@@ -6,13 +6,13 @@ control: DocIO
 documentation: UG
 ---
 
-# Chart Area
+# Chart Axis
 
 Charts typically have two axes that are used to measure and categorize data
 -  Horizontal axis (also known as category axis or x axis).
 -  Vertical axis (also known as value axis or y axis).
 
-Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the axis in the chart.
+Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **axis** in the chart.
 
 ## Set the Axis Title
 
@@ -172,7 +172,47 @@ chart.Series[1].UsePrimaryAxis = false;
 
 //Set title for secondary value axis
 chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+{% endhighlight %}
+{% endtabs %}
+
+## Secondary Value Properties
+
+The following code snippet illustrates how to customize secondary value axis in chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true;
+
+//Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+//Axis title area text angle rotation
 chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Secondary Category Properties
+
+The following code snippet illustrates how to customize secondary category axis in chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true;
+
+//Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Transparent;
+
+//Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = OfficeTickMark.TickMark_Cross;
+
+//Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabelPosition_None;
 
 {% endhighlight %}
 {% endtabs %}
