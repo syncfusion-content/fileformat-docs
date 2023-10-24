@@ -11,6 +11,9 @@ documentation: UG
 
 In this page, you can learn how to create a simple [.NET PowerPoint Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net) by using Essential Presentation API.
 
+To quickly get started on creating a PowerPoint presentation, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=OSGwosNnN0o" %}
+
 For creating and manipulating a PowerPoint Presentation, include the following assemblies in the application.
 
 <table>
