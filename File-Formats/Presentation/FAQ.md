@@ -48,6 +48,12 @@ Current version of the Essential Presentation library does not provide support f
 
 You can improve the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/getting-started#converting-powerpoint-presentation-to-images)
 
+## Why Metafile images doesn't gets preserved in Presentation to PDF/Image conversion?
+
+In .NET Core targeting applications, metafile images such as EMF and WMF have some limitations. Presentation library used SkiaSharp graphics library in Syncfusion.PresentationRenderer.Net.Core to render the text and images in PDF/Image conversion. But SkiaSharp doesn’t support the metafile images such as EMF and WMF format images, so, it doesn’t preserve the EMF images in ASP.NET Core platform. So, those images will not preserve in Presentation document to Image/PDF conversion using Presentation library.
+
+As a work around to preserve the expected images in the converted Image/PDF, we suggest you to replace the EMF image to its equivalent JPEG or PNG and then convert the Presentation document to Image/PDF in order to preserve the image in the Image/PDF.
+
 ## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
 
 In Linux OS, perform PowerPoint presentation to PDF conversion using the .NET Core (Targeting .netcoreapp) application. Refer to [PowerPoint presentation to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf) to know about the packages required to deploy the .NET Core (Targeting .netcoreapp) applications with PowerPoint presentation to PDF conversion capabilities.
