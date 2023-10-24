@@ -16,7 +16,7 @@ Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-pr
 
 ## Set the axis title
 
-The following code snippet shows how to set the title in axis.
+The following code snippet illustrates how to set the title in axis.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -31,7 +31,7 @@ chart.PrimaryValueAxis.Title = "In Dollars";
 
 ## Set the category label
 
-The following code snippet shows how to set the category label.
+The following code snippet illustrates how to set the category label.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -44,7 +44,7 @@ chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
 
 ## Customization of border
 
-The following code snippet shows how to customize the border of Horizontol and vertical category axis.
+The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -64,7 +64,7 @@ chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 ## Customization of font
 
-The following code snippet shows how to customize the border of Horizontol and vertical category axis.
+The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -80,6 +80,95 @@ chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red;
 chart.PrimaryValueAxis.Font.FontName = "Calibri";
 chart.PrimaryValueAxis.Font.Bold = true;
 chart.PrimaryValueAxis.Font.Size = 20;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Text angle rotation
+
+The following code snippet illustrates how to rotate the text angle for the axis title area.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Axis title area text angle rotation.
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Set the maximum value in axis
+
+The following code snippet illustrates how to set the maximum value in the axis.
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Set the number format in axis
+
+The following code snippet illustrates how to set the number format in the axis.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+{% endhighlight %}
+{% endtabs %}
+
+## Managing gridline visibility
+
+The following code snippet illustrates how to hide or show major and minor gridlines.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Hiding major gridlines
+chart.PrimaryValueAxis.HasMajorGridLines = false;
+
+//Showing minor gridlines
+chart.PrimaryValueAxis.HasMinorGridLines = true;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Resize the axis title area
+
+The following code snippet illustrates how to resize the axis title area.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Manually resizing axis title area using Layout
+chart.PrimaryValueAxis.TitleArea.Layout.Left = 15;
+chart.PrimaryValueAxis.TitleArea.Layout.Top = 20;
+chart.PrimaryCategoryAxis.TitleArea.Layout.Left = 25;
+chart.PrimaryCategoryAxis.TitleArea.Layout.Top = 20;
+
+//Manually resizing axis title area using Manual Layout
+chart.PrimaryValueAxis.TitleArea.Layout.ManualLayout.Left = 0.04;
+chart.PrimaryValueAxis.TitleArea.Layout.ManualLayout.Top = 0.34;
+chart.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Left = 0.38;
+chart.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Top = 0.95;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Set seconadry axis
+
+The following code snippet illustrates how to use secondary axis in chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Use Secondary Axis
+chart.Series[1].UsePrimaryAxis = false;
 
 {% endhighlight %}
 {% endtabs %}

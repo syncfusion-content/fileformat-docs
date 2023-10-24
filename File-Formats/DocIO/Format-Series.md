@@ -10,7 +10,7 @@ documentation: UG
 
 Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the chart area in the chart.
 
-## Set series name
+## Set the Series name
 The following code snippet illustrates how to set the series name in chart.
 
 {% tabs %}
@@ -22,7 +22,7 @@ chart.Series[0].Name = "Sum of Purchases";
 {% endhighlight %}
 {% endtabs %}
 
-## Set the series type
+## Set the Series type
 
 The following code snippet illustrates how to set the series type.
 
@@ -131,6 +131,24 @@ chart.Series[0].SerieFormat.CommonSerieOptions.DropLines.LineWeight = OfficeChar
 {% endhighlight %}
 {% endtabs %}
 
+## Add Series Lines
+
+The following code snippet illustrates how to add series lines in chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Set HasSeriesLines  property to true.
+chart.Series[0].SerieFormat.CommonSerieOptions.HasSeriesLines  = true;
+
+//Apply formats to DropLines.
+chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Syncfusion.Drawing.Color.Red;
+chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LinePattern = OfficeChartLinePattern.Dot;
+chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = OfficeChartLineWeight.Hairline;
+
+{% endhighlight %}
+{% endtabs %}
+
 ## Different Marker Properties
 
 The following code snippet illustrates how to customize the marker porperties.
@@ -149,7 +167,7 @@ chart.Series[0].SerieFormat.MarkerForegroundColor = Syncfusion.Drawing.Color.Bla
 {% endhighlight %}
 {% endtabs %}
 
-## Customize the series color
+## Customize the Series Color
 
 The following code snippet illustrates how to customize the series color.
 
@@ -179,7 +197,7 @@ chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Wi
 {% endhighlight %}
 {% endtabs %}
 
-## Resizing datalabel --->doubt
+## Resize the datalabel
 
 The following code snippet illustrates how to resize the data labels.
 

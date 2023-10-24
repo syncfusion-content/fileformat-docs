@@ -56,3 +56,11 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabe
 
 {% endhighlight %}
 {% endtabs %}
+
+//Manually resizing data label area using Layout
+chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 0.09;
+chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
+
+//Manually resizing data label area using Manual Layout
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;

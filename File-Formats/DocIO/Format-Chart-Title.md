@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-## Set the chart title
+## Set the Chart Title Name
 
 The following code snippet shows how to set the chart title name.
 
@@ -19,30 +19,36 @@ chart.ChartTitle = "Purchase Details";
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of chart title 
+## Customize the Chart Title Area
 
 The following code snippet shows how to customize the chart title.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-// Set the font name and size for the chart title area.
+// Customize chart title area.
 chart.ChartTitleArea.FontName = "Calibri";
-chart.ChartTitleArea.Size = 14;
+chart.ChartTitleArea.Bold = true;
+chart.ChartTitleArea.Color = OfficeKnownColors.Red;
+chart.ChartTitleArea.Underline = OfficeUnderline.DashLong;
 
 {% endhighlight %}
 {% endtabs %}
 
-## Set the position of chart title 
+## Resize the Chart Title Area
 
-The following code snippet shows how to set the position of chart title.
+The following code snippet shows how to resize the chart title.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Sets position for title area
-chart.ChartTitleArea.Layout.Left = 10;
-chart.ChartTitleArea.Layout.Top = 8;
+//Manually resizing chart title area using Layout
+chart.ChartTitleArea.Layout.Top = 10;
+chart.ChartTitleArea.Layout.Left = 150;
+
+//Manually resizing chart title area using Manual Layout
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
 
 {% endhighlight %}
 {% endtabs %}

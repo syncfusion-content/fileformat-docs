@@ -114,7 +114,7 @@ chart.HasLegend = false;
 {% endhighlight %}
 {% endtabs %}
 
-## View legend horizontally -->doubt
+## View legend horizontally
 
 The following code snippet illustrates how to view legend horizontally.
 
