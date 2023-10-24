@@ -2226,7 +2226,7 @@ loadedDocument.Close(true);
 'Load an existing signed PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 'Get signature field
-Dim signatureField As PdfLoadedSignatureField = loadedDocument.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 
 'X509Certificate2Collection to check the signer's identity using root certificates
 Dim collection As X509CertificateCollection = New X509CertificateCollection()
@@ -2329,8 +2329,8 @@ Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "password1
 'Add the certificate to the collection
 collection.Add(certificate)
 'Validate all signatures in loaded PDF document and get the list of validation result
-Dim results As List<PdfSignatureValidationResult>
-Dim isValid As Boolean = loadedDocument.Form.Fields.ValidateSignatures(collection, out results)
+Dim results As List(Of PdfSignatureValidationResult)
+Dim isValid As Boolean = loadedDocument.Form.Fields.ValidateSignatures(collection, results)
 
 'Close the document
 loadedDocument.Close(true)
