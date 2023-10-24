@@ -12,7 +12,7 @@ Legends are visual **pictorial** hints that provide a viewer information that he
 
 ## Set the position of Legend
 
-The following code snippet shows how to set the legend position in chart.
+The following code snippet illustrates how to set the legend position in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -25,7 +25,7 @@ chart.Legend.Position = OfficeLegendPosition.Bottom;
 
 ## Set the layout inclusion
 
-The following code snippet shows how to check if the legends are overlapping with the chart space or not.
+The following code snippet illustrates how to check if the legends are overlapping with the chart space or not.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -38,7 +38,7 @@ The following code snippet shows how to check if the legends are overlapping wit
 
 ## Customization of border
 
-The following code snippet shows how to modify the border of the legend in chart.
+The following code snippet illustrates how to modify the border of the legend in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -55,7 +55,7 @@ chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
 
 ## Customization of text area
 
-The following code snippet shows how to modify the text area of the legend in chart.
+The following code snippet illustrates how to modify the text area of the legend in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -72,7 +72,7 @@ chart.Legend.TextArea.Strikethrough = true;
 
 ## Modify the legend Entry
 
-The following code snippet shows how to modify the legend entry.
+The following code snippet illustrates how to modify the legend entry.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -84,7 +84,7 @@ chart.Legend.LegendEntries[0].IsDeleted = true;
 {% endtabs %}
 
 ## Modify the legend layout 
-The following code snippet shows how to modify the legend layout.
+The following code snippet illustrates how to modify the legend layout.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -98,6 +98,18 @@ chart.Legend.Layout.Top = 30;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 chart.Legend.Layout.Width = 100;
 chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Hide Legend
+The following code snippet illustrates how to hide the legend in chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Hiding the legend
+chart.HasLegend = false;
 
 {% endhighlight %}
 {% endtabs %}
