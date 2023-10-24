@@ -30,7 +30,7 @@ The following code snippet illustrates how to check if the legends are overlappi
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
- //Sets the layout inclusion.
+//Legend without overlapping the chart.
  chart.Legend.IncludeInLayout = true;
 
 {% endhighlight %}
@@ -110,6 +110,59 @@ The following code snippet illustrates how to hide the legend in chart.
 
 //Hiding the legend
 chart.HasLegend = false;
+
+{% endhighlight %}
+{% endtabs %}
+
+## View legend horizontally -->doubt
+
+The following code snippet illustrates how to view legend horizontally.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//View legend horizontally
+chart.Legend.IsVerticalLegend = false;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Set the position using layout
+The following code snippet illustrates how to position the legend using layout.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Manually positioning chart legend area using Layout
+chart.Legend.Layout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+
+//Manually positioning chart legend area using Manual Layout
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Resize the legend
+
+The following code snippet illustrates how to resize the legend in chart.
+
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Manually resizing chart legend area using Layout
+chart.Legend.Layout.Left = 400;
+chart.Legend.Layout.Top = 150;
+chart.Legend.Layout.Width = 150;
+chart.Legend.Layout.Height = 100;
+
+//Manually resizing chart legend area using Manual Layout
+chart.Legend.Layout.ManualLayout.Height = 0.09;
+chart.Legend.Layout.ManualLayout.Width = 0.30;
+chart.Legend.Layout.ManualLayout.Top = 0.36;
+chart.Legend.Layout.ManualLayout.Left = 0.68;
 
 {% endhighlight %}
 {% endtabs %}
