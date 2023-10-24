@@ -160,7 +160,7 @@ chart.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Top = 0.95;
 {% endhighlight %}
 {% endtabs %}
 
-## Set the Seconadry Axis
+## Set the Secondary Axis
 
 The following code snippet illustrates how to use secondary axis in chart.
 
