@@ -170,5 +170,9 @@ The following code snippet illustrates how to use secondary axis in chart.
 //Use Secondary Axis
 chart.Series[1].UsePrimaryAxis = false;
 
+//Set title for secondary value axis
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
 {% endhighlight %}
 {% endtabs %}
