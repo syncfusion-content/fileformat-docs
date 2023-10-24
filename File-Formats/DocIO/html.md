@@ -329,7 +329,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-The following code example illustrates the event handler for customizing the image path and saving the image in an external folder
+The following code example illustrates the event handler for customizing the image path and saving the image in an external folder.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
