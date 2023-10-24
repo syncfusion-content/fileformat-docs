@@ -14,7 +14,7 @@ Charts typically have two axes that are used to measure and categorize data
 
 Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the axis in the chart.
 
-## Set the axis title
+## Set the Axis Title
 
 The following code snippet illustrates how to set the title in axis.
 
@@ -29,20 +29,7 @@ chart.PrimaryValueAxis.Title = "In Dollars";
 {% endhighlight %}
 {% endtabs %}
 
-## Set the category label
-
-The following code snippet illustrates how to set the category label.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-//Sets category labels
-chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
-
-{% endhighlight %}
-{% endtabs %}
-
-## Customization of border
+## Customization of Border
 
 The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
 
@@ -62,7 +49,7 @@ chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of font
+## Customization of Font
 
 The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
 
@@ -84,7 +71,7 @@ chart.PrimaryValueAxis.Font.Size = 20;
 {% endhighlight %}
 {% endtabs %}
 
-## Text angle rotation
+## Text Angle Rotation
 
 The following code snippet illustrates how to rotate the text angle for the axis title area.
 
@@ -97,7 +84,7 @@ chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 {% endtabs %}
 
-## Set the maximum value in axis
+## Set the Maximum value in Axis
 
 The following code snippet illustrates how to set the maximum value in the axis.
 {% tabs %}
@@ -109,7 +96,7 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 {% endhighlight %}
 {% endtabs %}
 
-## Set the number format in axis
+## Set the Number format in Axis
 
 The following code snippet illustrates how to set the number format in the axis.
 
@@ -122,7 +109,20 @@ chart.PrimaryValueAxis.NumberFormat = "0.0";
 {% endhighlight %}
 {% endtabs %}
 
-## Managing gridline visibility
+## Set the Category Label
+
+The following code snippet illustrates how to set the category label.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+//Sets category labels
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
+
+{% endhighlight %}
+{% endtabs %}
+
+## Manage Gridline Visibility
 
 The following code snippet illustrates how to hide or show major and minor gridlines.
 
@@ -138,7 +138,7 @@ chart.PrimaryValueAxis.HasMinorGridLines = true;
 {% endhighlight %}
 {% endtabs %}
 
-## Resize the axis title area
+## Resize the Axis Title Area
 
 The following code snippet illustrates how to resize the axis title area.
 
@@ -160,7 +160,7 @@ chart.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Top = 0.95;
 {% endhighlight %}
 {% endtabs %}
 
-## Set seconadry axis
+## Set the Seconadry Axis
 
 The following code snippet illustrates how to use secondary axis in chart.
 

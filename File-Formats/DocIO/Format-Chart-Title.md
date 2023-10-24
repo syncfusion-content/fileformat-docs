@@ -8,7 +8,7 @@ documentation: UG
 
 ## Set the Chart Title Name
 
-The following code snippet shows how to set the chart title name.
+The following code snippet illustrates how to set the chart title name.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -21,7 +21,7 @@ chart.ChartTitle = "Purchase Details";
 
 ## Customize the Chart Title Area
 
-The following code snippet shows how to customize the chart title.
+The following code snippet illustrates how to customize the chart title area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -37,7 +37,7 @@ chart.ChartTitleArea.Underline = OfficeUnderline.DashLong;
 
 ## Resize the Chart Title Area
 
-The following code snippet shows how to resize the chart title.
+The following code snippet illustrates how to resize the chart title area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

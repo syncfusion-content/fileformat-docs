@@ -10,7 +10,8 @@ documentation: UG
 
 The plot area refers to the region that represents the plotted data in a chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the plot area in the chart.
 
-## Customization of border
+## Customization of Border
+
 The following code snippet shows how to modify the border of the plot area.
 
 {% tabs %}
@@ -26,7 +27,7 @@ chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of color
+## Customization of Color
 
 The following code snippet shows how to fill the color in plot area.
 
@@ -42,7 +43,7 @@ The following code snippet shows how to fill the color in plot area.
 {% endhighlight %}
 {% endtabs %}
 
-## Add Image in Plot area
+## Add Image in Plot Area
 
 The following code snippet shows how to fill the image in plot area.
 
@@ -56,7 +57,7 @@ chartPlotArea.Fill.UserPicture(image, "image");
 {% endhighlight %}
 {% endtabs %}
 
-## Set the transparency level
+## Set the Transparency level
 
 The following code snippet shows how to make transparency in plot area.
 
@@ -71,7 +72,7 @@ chartPlotArea.Fill.Transparency = 0.5;
 
 N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_Transparency) is only applicable when [FillType](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChart.IOfficeFill.html#Syncfusion_OfficeChart_IOfficeFill_FillType) is set as SolidColor. Color-shaded fill is represented as a floating-point value ranging from 0.0 (Clear) to 1.0 (Opaque).
 
-## Set the position 
+## Set the position of Plot Area
 
 The following code snippet shows how to make transparency in plot area.
 

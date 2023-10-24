@@ -10,7 +10,8 @@ documentation: UG
 
 Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the chart area in the chart.
 
-## Set the Series name
+## Set the Series Name
+
 The following code snippet illustrates how to set the series name in chart.
 
 {% tabs %}
@@ -22,7 +23,7 @@ chart.Series[0].Name = "Sum of Purchases";
 {% endhighlight %}
 {% endtabs %}
 
-## Set the Series type
+## Set the Series Type
 
 The following code snippet illustrates how to set the series type.
 
@@ -35,7 +36,38 @@ chart.Series[0].SerieType = OfficeChartType.Line_Markers;
 {% endhighlight %}
 {% endtabs %}
 
+## Customize the Series Color
+
+The following code snippet illustrates how to customize the series color.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+// Configure the fill settings for the first series in the chart.
+chart.Series[0].SerieFormat.Fill.FillType = OfficeFillType.Gradient;
+chart.Series[0].SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+chart.Series[0].SerieFormat.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+chart.Series[0].SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Red;
+
+{% endhighlight %}
+{% endtabs %}
+
+## Customize the Series Border
+
+The following code snippet illustrates how to customize the series border.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+chart.Series[0].SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red;
+chart.Series[0].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.CircleDot;
+chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Wide;
+
+{% endhighlight %}
+{% endtabs %}
+
 ## Set the DataPoint as Total
+
 The following code snippet illustrates how to set the Data Point as total in chart.
 
 {% tabs %}
@@ -43,12 +75,11 @@ The following code snippet illustrates how to set the Data Point as total in cha
 
 //Data point settings as total in chart.
 chart.Series[0].DataPoints[3].SetAsTotal = true;
-chart.Series[0].DataPoints[6].SetAsTotal = true;
 
 {% endhighlight %}
 {% endtabs %}
 
-## Set the connector lines between data points. 
+## Set the connector lines between data points 
 
 The following code snippet illustrates how to set the connector lines between data points. 
 
@@ -57,24 +88,6 @@ The following code snippet illustrates how to set the connector lines between da
 
 //Showing the connector lines between data points.
 chart.Series[0].SerieFormat.ShowConnectorLines = true;
-
-{% endhighlight %}
-{% endtabs %}
-
-## Customize the Data labels
-
-The following code snippet illustrates how to customize the data labels.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-//Enable the datalabel in chart.
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-//Set the datalabel size.
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma";
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 20;
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Red;
 
 {% endhighlight %}
 {% endtabs %}
@@ -167,37 +180,7 @@ chart.Series[0].SerieFormat.MarkerForegroundColor = Syncfusion.Drawing.Color.Bla
 {% endhighlight %}
 {% endtabs %}
 
-## Customize the Series Color
-
-The following code snippet illustrates how to customize the series color.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-// Configure the fill settings for the first series in the chart.
-chart.Series[0].SerieFormat.Fill.FillType = OfficeFillType.Gradient;
-chart.Series[0].SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-chart.Series[0].SerieFormat.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
-chart.Series[0].SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Red;
-
-{% endhighlight %}
-{% endtabs %}
-
-## Customize the Border
-
-The following code snippet illustrates how to customize the series border.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-chart.Series[0].SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red;
-chart.Series[0].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.CircleDot;
-chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Wide;
-
-{% endhighlight %}
-{% endtabs %}
-
-## Resize the datalabel
+## Resize the Data Label
 
 The following code snippet illustrates how to resize the data labels.
 

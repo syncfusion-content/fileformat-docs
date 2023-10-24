@@ -10,8 +10,8 @@ documentation: UG
 
 Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the chart area in the chart.
 
-## Customization of border
-The following code snippet shows how to modify the border of the chart area.
+## Customization of Border
+The following code snippet illustrates how to modify the border of the chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -26,9 +26,9 @@ chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of color
+## Customization of Color
 
-The following code snippet shows how to fill the color in chart area.
+The following code snippet illustrates how to fill the color in chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -42,9 +42,9 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 {% endhighlight %}
 {% endtabs %}
 
-## Add Image in Chart area
+## Add Image in Chart Area
 
-The following code snippet shows how to fill the image in chart area.
+The following code snippet illustrates how to fill the image in chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -56,9 +56,9 @@ chartArea.Fill.UserPicture(image, "image");
 {% endhighlight %}
 {% endtabs %}
 
-## Set the transparency level
+## Set the Transparency level
 
-The following code snippet shows how to make transparency in chart area.
+The following code snippet illustrates how to make transparency in chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}

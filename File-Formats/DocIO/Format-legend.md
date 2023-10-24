@@ -10,7 +10,7 @@ documentation: UG
 
 Legends are visual **pictorial** hints that provide a viewer information that helps them understand an chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the legend in the chart.
 
-## Set the position of Legend
+## Set the Position of Legend
 
 The following code snippet illustrates how to set the legend position in chart.
 
@@ -23,9 +23,9 @@ chart.Legend.Position = OfficeLegendPosition.Bottom;
 {% endhighlight %}
 {% endtabs %}
 
-## Set the layout inclusion
+## Set the layout Inclusion
 
-The following code snippet illustrates how to check if the legends are overlapping with the chart space or not.
+The following code snippet illustrates how to prevent the overlapping the legend in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -36,7 +36,7 @@ The following code snippet illustrates how to check if the legends are overlappi
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of border
+## Customization of Border
 
 The following code snippet illustrates how to modify the border of the legend in chart.
 
@@ -53,7 +53,7 @@ chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
 {% endhighlight %}
 {% endtabs %}
 
-## Customization of text area
+## Customization of Text Area
 
 The following code snippet illustrates how to modify the text area of the legend in chart.
 
@@ -70,7 +70,7 @@ chart.Legend.TextArea.Strikethrough = true;
 {% endhighlight %}
 {% endtabs %}
 
-## Modify the legend Entry
+## Modify the Legend Entry
 
 The following code snippet illustrates how to modify the legend entry.
 
@@ -83,26 +83,8 @@ chart.Legend.LegendEntries[0].IsDeleted = true;
 {% endhighlight %}
 {% endtabs %}
 
-## Modify the legend layout 
-The following code snippet illustrates how to modify the legend layout.
+## Manage Legend Visibility
 
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-//Modifies the legend layout - height, left, top, width.
-chart.Legend.Layout.Height = 50;
-chart.Legend.Layout.HeightMode = LayoutModes.factor;
-chart.Legend.Layout.Left = 10;
-chart.Legend.Layout.LeftMode = LayoutModes.factor;
-chart.Legend.Layout.Top = 30;
-chart.Legend.Layout.TopMode = LayoutModes.factor;
-chart.Legend.Layout.Width = 100;
-chart.Legend.Layout.WidthMode = LayoutModes.factor;
-
-{% endhighlight %}
-{% endtabs %}
-
-## Hide Legend
 The following code snippet illustrates how to hide the legend in chart.
 
 {% tabs %}
@@ -114,7 +96,7 @@ chart.HasLegend = false;
 {% endhighlight %}
 {% endtabs %}
 
-## View legend horizontally
+## View the Legend Horizontally
 
 The following code snippet illustrates how to view legend horizontally.
 
@@ -127,7 +109,8 @@ chart.Legend.IsVerticalLegend = false;
 {% endhighlight %}
 {% endtabs %}
 
-## Set the position using layout
+## Set the Position using Layout
+
 The following code snippet illustrates how to position the legend using layout.
 
 {% tabs %}
@@ -144,10 +127,9 @@ chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
 {% endhighlight %}
 {% endtabs %}
 
-## Resize the legend
+## Resize the Legend
 
 The following code snippet illustrates how to resize the legend in chart.
-
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
