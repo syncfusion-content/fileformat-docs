@@ -2615,10 +2615,10 @@ Private Sub DeferredSign()
     Dim externalSigner As IPdfExternalSigner = New ExternalSigner("SHA1", signedHash)
     Dim publicCertificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)()
     publicCertificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
-    Dim outputFileStream As MemoryStream = New MemoryStream()
+    Dim outputFileStream As FileStream = New FileStream("DeferredSign.pdf", FileMode.Create, FileAccess.ReadWrite)
     Dim inputFileStream As FileStream = New FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read)
     Dim pdfPassword As String = String.Empty
-    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates)
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, "Signature", externalSigner, publicCertificates)
 End Sub
 
 ''' <summary>
@@ -2650,14 +2650,14 @@ Class SignEmpty
     End Function
 
     Private Sub SignDocumentHash(ByVal documentHash As Byte())
-    Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx"), "password123"))
+    Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx", "password123"))
 
     If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
         Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACryptoServiceProvider)
-        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm)
+        SignedHash = rsa.SignData(documentHash, HashAlgorithm)
     ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
         Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
-        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
+        SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
     End If
     End Sub
 End Class
@@ -2993,9 +2993,9 @@ signature.Bounds = New RectangleF(New PointF(0, 0), New SizeF(100, 30))
 signature.Settings.CryptographicStandard = CryptographicStandard.CADES
 signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1
 
-' Create an external signer.
+'Create an external signer.
 Dim externalSignature As IPdfExternalSigner = New SignEmpty("SHA1")
-' Add public certificates.
+'Add public certificates.
 Dim certificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)
 signature.AddExternalSigner(externalSignature, certificates, Nothing)
 
@@ -3171,7 +3171,7 @@ signature.ContactInfo = "johndoe@owned.us"
 signature.LocationInfo = "Honolulu, Hawaii"
 signature.Reason = "I am author of this document."
 'Create appearance for the digital signature.
-signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds)
 
 'Save and close the document.
 document.Save("Output.pdf")
@@ -3243,7 +3243,7 @@ document.Close(true);
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'Gets the signature field
-Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(document.Form.Fields(0), PdfLoadedSignatureField)
 'Validate signature and get validation result
 Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
 'Gets the LTV Verification Information
@@ -3316,7 +3316,7 @@ document.Close(true);
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'Gets the signature field
-Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(document.Form.Fields(0), PdfLoadedSignatureField)
 'Signature validation options
 Dim options As PdfSignatureValidationOptions = New PdfSignatureValidationOptions()
 'Sets the revocation type
@@ -3683,7 +3683,7 @@ Dim signatureField1 As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fie
 'Create a certificate instance from the PFX file with a private key.
 Dim certificate1 As PdfCertificate = New PdfCertificate("PDF.pfx", "password123")
 'Add a signature to the signature field. 
-signatureField1.Signature = New PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1
+signatureField1.Signature = New PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1)
 'Set an image for the signature field.
 Dim signatureImage As PdfBitmap = New PdfBitmap("Student Signature.jpg")
 'Draw an image in the signature appearance. 
@@ -3710,7 +3710,7 @@ signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 
 signedDocument.Save("Multiple_signature.pdf")
 'Close the PDF documents. 
 signedDocument.Close(True)
-loadedDocument.Close(true);
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -3989,15 +3989,15 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load an existing PDF document.
-Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 'Gets the signature field.
 Dim loadedSignatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 'Validates signature and gets the validation result.
-Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
+Dim result As PdfSignatureValidationResult = loadedSignatureField.ValidateSignature()
 'Gets signer certificates
-Dim certifcate As PdfSignerCertificate[] = result.TimeStampInformation.SignerCertificates
+Dim certifcate As PdfSignerCertificate() = result.TimeStampInformation.SignerCertificates
 'Close the document.
-document.Close(True)
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
