@@ -59,9 +59,10 @@ The following code snippet illustrates how to customize the series border.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+//Customize series border.
 chart.Series[0].SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red;
-chart.Series[0].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.CircleDot;
-chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Wide;
+chart.Series[0].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot;
+chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline;
 
 {% endhighlight %}
 {% endtabs %}
@@ -99,11 +100,11 @@ The following code snippet illustrates how to add space between bars.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Adding space between bars of different series of single category
-chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = 60;
+ //Adding space between bars of different series of single category.
+ chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = -40;
 
-//Adding space between bars of different categories
-chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 80;
+ //Adding space between bars of different categories.
+ chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 100;
 
 {% endhighlight %}
 {% endtabs %}
@@ -176,24 +177,6 @@ chart.Series[0].SerieFormat.MarkerStyle = OfficeChartMarkerType.Star;
 chart.Series[0].SerieFormat.MarkerSize = 8;
 chart.Series[0].SerieFormat.MarkerBackgroundColor = Syncfusion.Drawing.Color.Red;
 chart.Series[0].SerieFormat.MarkerForegroundColor = Syncfusion.Drawing.Color.Black;
-
-{% endhighlight %}
-{% endtabs %}
-
-## Resize the Data Label
-
-The following code snippet illustrates how to resize the data labels.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-//Manually resizing data label area using Layout
-chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 2.5;
-chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
-
-//Manually resizing data label area using Manual Layout
-chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
 {% endhighlight %}
 {% endtabs %}
