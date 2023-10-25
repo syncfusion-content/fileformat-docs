@@ -164,7 +164,7 @@ chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = Office
 
 ## Different Marker Properties
 
-The following code snippet illustrates how to customize the marker porperties.
+The following code snippet illustrates how to customize the marker properties.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
