@@ -31,7 +31,7 @@ chart.PrimaryValueAxis.Title = "In Dollars";
 
 ## Customization of Border
 
-The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
+The following code snippet illustrates how to customize the border of Horizontal and vertical category axis.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -51,7 +51,7 @@ chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 ## Customization of Font
 
-The following code snippet illustrates how to customize the border of Horizontol and vertical category axis.
+The following code snippet illustrates how to customize the border of Horizontal and vertical category axis.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
