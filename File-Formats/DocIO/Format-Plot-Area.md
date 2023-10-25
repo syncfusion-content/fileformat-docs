@@ -92,28 +92,24 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an existing document from file system through constructor of WordDocument class
+FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
-    //Gets the paragraph
+    //Get the paragraph
     WParagraph paragraph = document.LastParagraph;
-    //Gets the chart entity
+    //Get the chart entity
     WChart chart = paragraph.ChildEntities[0] as WChart;
-    //Modifies the chart height and width
+    //Modify the chart height and width
     chart.Height = 300;
     chart.Width = 500;
-    //Changes the title
-    chart.ChartTitle = "New title";
-    //Changes the series name of first chart series
-    chart.Series[0].Name = "Modified series name";
-    //Plots Area
+    //Plot Area
     IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
-    //Plots area border settings - line pattern, color, weight
+    //Plot area border settings - line pattern, color, weight
     chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
     chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
-    //Sets fill type and color
+    //Set fill type and color
     chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
     chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
     chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
