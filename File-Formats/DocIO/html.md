@@ -289,9 +289,36 @@ You can customize the Word to HTML conversion with the following options:
 * Export the images as Base-64 embedded images
 * Omit XML declaration in the exported HTML file using [HtmlExportOmitXmlDeclaration](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportOmitXmlDeclaration).
 
-N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
+N> 1. When exporting header and footer, DocIO exports the first section of header content at the top of the HTML file and the first section of footer content at the end of the HTML file.
+N> 2. [HtmlExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportImagesFolder) and [HtmlExportCssStyleSheetFileName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportCssStyleSheetFileName) APIs are only supported in the .NET Framework.
+The following code sample illustrates how to customize Word to HTML conversion.
 
-The following code sample shows how to customize Word to HTML conversion.
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-Platform]" %}
+
+//Load an existing Word document into DocIO instance.
+using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+   using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+   {
+        //The header and footer in the input are exported.
+        document.SaveOptions.HtmlExportHeadersFooters = true;
+        //Export the text form fields as editable .
+        document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
+        //Set the style sheet type.
+        document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.Inline;
+        //Set value to omit XML declaration in the exported html file.
+        //True- to omit xml declaration, otherwise false.
+        document.SaveOptions.HtmlExportOmitXmlDeclaration = false;
+        //Create a file stream.
+        using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Save the HTML file to file stream.
+            document.Save(outputFileStream, FormatType.Html);
+        }
+   }
+
+{% endhighlight %}
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
