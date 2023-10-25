@@ -12,7 +12,7 @@ Data labels play a crucial role in enhancing the comprehensibility of a chart. B
 
 ## Enable Data Labels in Chart
 
-The following code snippet illustrates how to visible the data lable in chart.
+The following code snippet illustrates how to visible the data label in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -25,7 +25,7 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 
 ## Customize the Data Labels
 
-The following code snippet illustrates how to customize the data lable in chart.
+The following code snippet illustrates how to customize the data label in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -48,7 +48,7 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 3;
 
 ## Set the Position of Data Labels
 
-The following code snippet illustrates how to set the position of the data lable in chart.
+The following code snippet illustrates how to set the position of the data label in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -61,7 +61,7 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabe
 
 ## Resize the Data Labels
 
-The following code snippet illustrates how to resize the data lable in chart.
+The following code snippet illustrates how to resize the data label in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
