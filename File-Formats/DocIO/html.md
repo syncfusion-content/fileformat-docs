@@ -373,6 +373,8 @@ End Sub
 {% endhighlight %}
 {% endtabs %}
 
+T> By utilizing the event handler mentioned above, you can also implement logic to store images in the Cloud or other online storage platforms.
+
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-path-in-Word-to-html/.NET).
 
 ### Customizing the Word to HTML conversion
