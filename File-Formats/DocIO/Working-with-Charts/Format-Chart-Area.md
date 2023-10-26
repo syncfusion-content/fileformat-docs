@@ -15,7 +15,7 @@ Chart area refers to the space that contains the chart or graph you've inserted 
 The following code snippet illustrates how to modify the border of the chart area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Format the chart area.
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
@@ -25,6 +25,26 @@ chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Format the chart area.
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+//Set border line pattern, color, line weight.
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Format the chart area.
+Dim chartArea As IOfficeChartFrameFormat = chart.ChartArea
+' Set border line pattern, color, line weight.
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
+chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Customization of Color
@@ -32,13 +52,31 @@ chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 The following code snippet illustrates how to fill the color in chart area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Set fill type and fill colors.
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Set fill type and fill colors.
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set fill type and fill colors.
+chartArea.Fill.FillType = OfficeFillType.Gradient
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234)
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White
 
 {% endhighlight %}
 {% endtabs %}
@@ -108,10 +146,22 @@ chartArea.Fill.UserPicture(image, "image");
 The following code snippet illustrates how to make transparency in chart area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Set the transparency of the chart area.
 chartArea.Fill.Transparency = 0.5;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Set the transparency of the chart area.
+chartArea.Fill.Transparency = 0.5;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the transparency of the chart area.
+chartArea.Fill.Transparency = 0.5
 
 {% endhighlight %}
 {% endtabs %}

@@ -15,10 +15,22 @@ Data labels play a crucial role in enhancing the comprehensibility of a chart. B
 The following code snippet illustrates how to visible the data label in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Enable the datalabel in chart.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Enable the datalabel in chart.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Enable the datalabel in chart.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 
 {% endhighlight %}
 {% endtabs %}
@@ -28,7 +40,7 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 The following code snippet illustrates how to customize the data label in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Set the font size of the data labels.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
@@ -42,6 +54,34 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri";
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Italic = true;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Set the font size of the data labels.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+// Change the color of the data labels.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Red;
+// Make the data labels bold.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+// Set the font name for the data labels.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri";
+// Make the data labels italic.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Italic = true;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the font size of the data labels.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+' Change the color of the data labels.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Red
+' Make the data labels bold.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Bold = True
+' Set the font name for the data labels.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri"
+' Make the data labels italic.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Italic = True
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Set the Position of Data Labels
@@ -49,10 +89,22 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Italic = true;
 The following code snippet illustrates how to set the position of the data label in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Set the position of data labels for the first series.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Set the position of data labels for the first series.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the position of data labels for the first series.
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center
 
 {% endhighlight %}
 {% endtabs %}
@@ -103,16 +155,38 @@ By executing the program, you will get the **chart** as follows.
 The following code snippet illustrates how to resize the data label in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Manually resizing data label area using Layout.
-chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 0.09;
-chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
+chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 3;
+chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 3;
 
 //Manually resizing data label area using Manual Layout.
-chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
-chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 3;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 3;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Manually resizing data label area using Layout.
+chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 3;
+chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 3;
+
+//Manually resizing data label area using Manual Layout.
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 3;
+chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 3;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Manually resizing data label area using Layout.
+chart.Series(0).DataPoints(0).DataLabels.Layout.Left = 3
+chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 3
+
+' Manually resizing data label area using Manual Layout.
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 3
+chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 3
+
 
 {% endhighlight %}
 {% endtabs %}
-

@@ -15,7 +15,7 @@ The plot area refers to the region that represents the plotted data in a chart. 
 The following code snippet shows how to modify the border of the plot area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Format the plot area.
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
@@ -25,6 +25,26 @@ chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
 chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Format the plot area.
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+//Plot area border settings - line pattern, color, weight.
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Format the plot area.
+Dim chartPlotArea As IOfficeChartFrameFormat = chart.PlotArea
+' Plot area border settings - line pattern, color, weight.
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid
+chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Customization of Color
@@ -32,13 +52,31 @@ chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 The following code snippet shows how to fill the color in plot area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
  //Set fill type and color.
  chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
  chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
  chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
  chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+ //Set fill type and color.
+ chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+ chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+ chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+ chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+ ' Set fill type and color.
+ chartPlotArea.Fill.FillType = OfficeFillType.Gradient
+ chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
+ chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234)
+ chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White
 
 {% endhighlight %}
 {% endtabs %}
@@ -108,10 +146,22 @@ chartPlotArea.Fill.UserPicture(image, "image");
 The following code snippet shows how to make transparency in plot area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Set the transparency of the plot area.
 chartPlotArea.Fill.Transparency = 0.5;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Set the transparency of the plot area.
+chartPlotArea.Fill.Transparency = 0.5;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the transparency of the plot area.
+chartPlotArea.Fill.Transparency = 0.5
 
 {% endhighlight %}
 {% endtabs %}
@@ -123,7 +173,7 @@ N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeC
 The following code snippet shows how to position the plot area in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Sets position for plot area.
 chartPlotArea.Layout.LeftMode = LayoutModes.auto;
@@ -131,5 +181,20 @@ chartPlotArea.Layout.TopMode = LayoutModes.factor;
 chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 
 {% endhighlight %}
-{% endtabs %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
+//Sets position for plot area.
+chartPlotArea.Layout.LeftMode = LayoutModes.auto;
+chartPlotArea.Layout.TopMode = LayoutModes.factor;
+chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Sets position for plot area.
+chartPlotArea.Layout.LeftMode = LayoutModes.auto
+chartPlotArea.Layout.TopMode = LayoutModes.factor
+chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer
+
+{% endhighlight %}
+{% endtabs %}

@@ -15,10 +15,22 @@ Chart title is a concise description at the top of a chart, offering context and
 The following code snippet illustrates how to set the chart title name.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Set the chart title.
 chart.ChartTitle = "Purchase Details";
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Set the chart title.
+chart.ChartTitle = "Purchase Details";
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the chart title.
+chart.ChartTitle = "Purchase Details"
 
 {% endhighlight %}
 {% endtabs %}
@@ -28,13 +40,34 @@ chart.ChartTitle = "Purchase Details";
 The following code snippet illustrates how to customize the chart title area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 // Customize chart title area.
 chart.ChartTitleArea.FontName = "Calibri";
 chart.ChartTitleArea.Bold = true;
 chart.ChartTitleArea.Color = OfficeKnownColors.Red;
 chart.ChartTitleArea.Underline = OfficeUnderline.DashLong;
+chart.ChartTitleArea.Size = 14;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Customize chart title area.
+chart.ChartTitleArea.FontName = "Calibri";
+chart.ChartTitleArea.Bold = true;
+chart.ChartTitleArea.Color = OfficeKnownColors.Red;
+chart.ChartTitleArea.Underline = OfficeUnderline.DashLong;
+chart.ChartTitleArea.Size = 14;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Customize chart title area.
+chart.ChartTitleArea.FontName = "Calibri"
+chart.ChartTitleArea.Bold = True
+chart.ChartTitleArea.Color = OfficeKnownColors.Red
+chart.ChartTitleArea.Underline = OfficeUnderline.DashLong
+chart.ChartTitleArea.Size = 14
 
 {% endhighlight %}
 {% endtabs %}
@@ -44,7 +77,7 @@ chart.ChartTitleArea.Underline = OfficeUnderline.DashLong;
 The following code snippet illustrates how to resize the chart title area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Manually resizing chart title area using Layout.
 chart.ChartTitleArea.Layout.Top = 10;
@@ -53,6 +86,28 @@ chart.ChartTitleArea.Layout.Left = 10;
 //Manually resizing chart title area using Manual Layout.
 chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
 chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Manually resizing chart title area using Layout.
+chart.ChartTitleArea.Layout.Top = 10;
+chart.ChartTitleArea.Layout.Left = 10;
+
+//Manually resizing chart title area using Manual Layout.
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Manually resizing chart title area using Layout.
+chart.ChartTitleArea.Layout.Top = 10
+chart.ChartTitleArea.Layout.Left = 10
+
+' Manually resizing chart title area using Manual Layout.
+chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005
+chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26
 
 {% endhighlight %}
 {% endtabs %}

@@ -15,10 +15,22 @@ Legends are visual pictorial hints that provide a viewer information that helps 
 The following code snippet illustrates how to set the legend position in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Set the position of legend.
 chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Set the position of legend.
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the position of legend.
+chart.Legend.Position = OfficeLegendPosition.Bottom
 
 {% endhighlight %}
 {% endtabs %}
@@ -28,10 +40,22 @@ chart.Legend.Position = OfficeLegendPosition.Bottom;
 The following code snippet illustrates how to prevent the overlapping the legend in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Legend without overlapping the chart.
  chart.Legend.IncludeInLayout = true;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Set the position of legend.
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the position of legend.
+chart.Legend.Position = OfficeLegendPosition.Bottom
 
 {% endhighlight %}
 {% endtabs %}
@@ -41,7 +65,7 @@ The following code snippet illustrates how to prevent the overlapping the legend
 The following code snippet illustrates how to modify the border of the legend in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Sets the legend border format - color, pattern, weight.
 chart.Legend.FrameFormat.Border.AutoFormat = false;
@@ -51,6 +75,26 @@ chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
 chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Sets the legend border format - color, pattern, weight.
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+chart.Legend.FrameFormat.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Sets the legend border format - color, pattern, weight.
+chart.Legend.FrameFormat.Border.AutoFormat = False
+chart.Legend.FrameFormat.Border.IsAutoLineColor = False
+chart.Legend.FrameFormat.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Customization of Text Area
@@ -58,7 +102,7 @@ chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
 The following code snippet illustrates how to modify the text area of the legend in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Set the legend's text area formatting - font name, weight, color, size.
 chart.Legend.TextArea.Bold = true;
@@ -68,6 +112,26 @@ chart.Legend.TextArea.Size = 20;
 chart.Legend.TextArea.Strikethrough = true;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Set the legend's text area formatting - font name, weight, color, size.
+chart.Legend.TextArea.Bold = true;
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+chart.Legend.TextArea.FontName = "Times New Roman";
+chart.Legend.TextArea.Size = 20;
+chart.Legend.TextArea.Strikethrough = true;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Set the legend's text area formatting - font name, weight, color, size.
+chart.Legend.TextArea.Bold = True
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green
+chart.Legend.TextArea.FontName = "Times New Roman"
+chart.Legend.TextArea.Size = 20
+chart.Legend.TextArea.Strikethrough = True
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Modify the Legend Entry
@@ -75,23 +139,48 @@ chart.Legend.TextArea.Strikethrough = true;
 The following code snippet illustrates how to modify the legend entry.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Modify the legend entry.
 chart.Legend.LegendEntries[0].IsDeleted = true;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Modify the legend entry.
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Modify the legend entry.
+chart.Legend.LegendEntries(0).IsDeleted = True
+
+{% endhighlight %}
 {% endtabs %}
+
 
 ## Manage Legend Visibility
 
 The following code snippet illustrates how to hide the legend in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Hiding the legend.
 chart.HasLegend = false;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Hiding the legend.
+chart.HasLegend = false;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Hiding the legend.
+chart.HasLegend = False
 
 {% endhighlight %}
 {% endtabs %}
@@ -101,10 +190,22 @@ chart.HasLegend = false;
 The following code snippet illustrates how to view legend horizontally.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //View legend horizontally.
 chart.Legend.IsVerticalLegend = false;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//View legend horizontally.
+chart.Legend.IsVerticalLegend = false;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' View legend horizontally.
+chart.Legend.IsVerticalLegend = False
 
 {% endhighlight %}
 {% endtabs %}
@@ -114,7 +215,7 @@ chart.Legend.IsVerticalLegend = false;
 The following code snippet illustrates how to position the legend using layout.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Manually positioning chart legend area using Layout.
 chart.Legend.Layout.LeftMode = LayoutModes.edge;
@@ -125,14 +226,37 @@ chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
 chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
 
 {% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Manually positioning chart legend area using Layout.
+chart.Legend.Layout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+
+//Manually positioning chart legend area using Manual Layout.
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.edge;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Manually positioning chart legend area using Layout.
+chart.Legend.Layout.LeftMode = LayoutModes.Edge
+chart.Legend.Layout.TopMode = LayoutModes.Edge
+
+' Manually positioning chart legend area using Manual Layout.
+chart.Legend.Layout.ManualLayout.LeftMode = LayoutModes.Edge
+chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.Edge
+
+{% endhighlight %}
 {% endtabs %}
+
 
 ## Resize the Legend
 
 The following code snippet illustrates how to resize the legend in chart.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Manually resizing chart legend area using Layout.
 chart.Legend.Layout.Left = 400;
@@ -145,6 +269,36 @@ chart.Legend.Layout.ManualLayout.Height = 0.09;
 chart.Legend.Layout.ManualLayout.Width = 0.30;
 chart.Legend.Layout.ManualLayout.Top = 0.36;
 chart.Legend.Layout.ManualLayout.Left = 0.68;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Manually resizing chart legend area using Layout.
+chart.Legend.Layout.Left = 400;
+chart.Legend.Layout.Top = 150;
+chart.Legend.Layout.Width = 150;
+chart.Legend.Layout.Height = 100;
+
+//Manually resizing chart legend area using Manual Layout.
+chart.Legend.Layout.ManualLayout.Height = 0.09;
+chart.Legend.Layout.ManualLayout.Width = 0.30;
+chart.Legend.Layout.ManualLayout.Top = 0.36;
+chart.Legend.Layout.ManualLayout.Left = 0.68;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Manually resizing chart legend area using Layout.
+chart.Legend.Layout.Left = 400
+chart.Legend.Layout.Top = 150
+chart.Legend.Layout.Width = 150
+chart.Legend.Layout.Height = 100
+
+' Manually resizing chart legend area using Manual Layout.
+chart.Legend.Layout.ManualLayout.Height = 0.09
+chart.Legend.Layout.ManualLayout.Width = 0.30
+chart.Legend.Layout.ManualLayout.Top = 0.36
+chart.Legend.Layout.ManualLayout.Left = 0.68
 
 {% endhighlight %}
 {% endtabs %}
