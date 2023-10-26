@@ -115,9 +115,9 @@ chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
-FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document from file system through constructor of WordDocument class.
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -138,12 +138,60 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
     //Manually resizing chart title area using Layout.
     chart.ChartTitleArea.Layout.Left = 5;
    
-    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
     {
         //Save the Word file.
         document.Save(outputStream, FormatType.Docx);
     }
 }
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Get the paragraph.
+    WParagraph paragraph = document.LastParagraph;
+    //Get the chart entity.
+    WChart chart = paragraph.ChildEntities[0] as WChart;
+    // Set the chart title.
+    chart.ChartTitle = "Purchase Details";
+
+    // Customize chart title area.
+    chart.ChartTitleArea.FontName = "Calibri";
+    chart.ChartTitleArea.Bold = true;
+    chart.ChartTitleArea.Color = OfficeKnownColors.Black;
+    chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
+
+    //Manually resizing chart title area using Layout.
+    chart.ChartTitleArea.Layout.Left = 5;
+    document.Save("Sample.docx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument("Template.docx", FormatType.Docx)
+    ' Get the paragraph.
+    Dim paragraph As WParagraph = document.LastParagraph
+
+    ' Get the chart entity.
+    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
+
+    ' Set the chart title.
+    chart.ChartTitle = "Purchase Details"
+
+    ' Customize chart title area.
+    chart.ChartTitleArea.FontName = "Calibri"
+    chart.ChartTitleArea.Bold = True
+    chart.ChartTitleArea.Color = OfficeKnownColors.Black
+    chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy
+
+    ' Manually resize chart title area using Layout.
+    chart.ChartTitleArea.Layout.Left = 5
+
+    document.Save("Sample.docx")
+End Using
 
 {% endhighlight %}
 {% endtabs %}

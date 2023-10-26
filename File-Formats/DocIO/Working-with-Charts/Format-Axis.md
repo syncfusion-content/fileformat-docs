@@ -67,12 +67,12 @@ chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 //Customize the horizontal category axis.
 chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.CircleDot;
-chart.PrimaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue;
 chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 //Customize the vertical category axis.
 chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.CircleDot;
-chart.PrimaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chart.PrimaryValueAxis.Border.LineColor = Color.Blue;
 chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 {% endhighlight %}
@@ -80,12 +80,12 @@ chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 ' Customize the horizontal category axis.
 chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.CircleDot
-chart.PrimaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue
 chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline
 
 ' Customize the vertical value axis.
 chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.CircleDot
-chart.PrimaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chart.PrimaryValueAxis.Border.LineColor = Color.Blue
 chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Hairline
 
 {% endhighlight %}
@@ -400,7 +400,7 @@ chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabe
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
 //Select border line color.
-chart.SecondaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Transparent;
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
 
 //Select major tick mark option.
 chart.SecondaryCategoryAxis.MajorTickMark = OfficeTickMark.TickMark_Cross;
@@ -415,7 +415,7 @@ chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabe
 chart.SecondaryCategoryAxis.IsMaxCross = True
 
 ' Select the border line color and make it transparent.
-chart.SecondaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Transparent
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
 
 ' Select the major tick mark option as Cross.
 chart.SecondaryCategoryAxis.MajorTickMark = OfficeTickMark.TickMark_Cross
@@ -429,7 +429,7 @@ chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabe
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing document from file system through constructor of WordDocument class
@@ -501,6 +501,148 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
         document.Save(outputStream, FormatType.Docx);
     }
 }
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx"))
+{
+    //Get the paragraph
+    WParagraph paragraph = document.LastParagraph;
+    //Get the chart entity
+    WChart chart = paragraph.ChildEntities[0] as WChart;
+
+    //Set the horizontal (category) axis title.
+    chart.PrimaryCategoryAxis.Title = "Months";
+    //Set the Vertical (value) axis title.
+    chart.PrimaryValueAxis.Title = "Precipitation,in.";
+    //Set title for secondary value axis
+    chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+    //Customize the horizontal category axis.
+    chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue;
+    chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+    //Customize the vertical category axis.
+    chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chart.PrimaryValueAxis.Border.LineColor = Color.Blue;
+    chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
+
+    //Customize the horizontal category axis font.
+    chart.PrimaryCategoryAxis.Font.Color = OfficeKnownColors.Red;
+    chart.PrimaryCategoryAxis.Font.FontName = "Calibri";
+    chart.PrimaryCategoryAxis.Font.Bold = true;
+    chart.PrimaryCategoryAxis.Font.Size = 8;
+
+    //Customize the vertical category axis font.
+    chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red;
+    chart.PrimaryValueAxis.Font.FontName = "Calibri";
+    chart.PrimaryValueAxis.Font.Bold = true;
+    chart.PrimaryValueAxis.Font.Size = 8;
+
+    //Customize the secondary vertical category axis.
+    chart.SecondaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chart.SecondaryValueAxis.Border.LineColor = Color.Blue;
+    chart.SecondaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
+
+    //Customize the secondary vertical category axis font.
+    chart.SecondaryValueAxis.Font.Color = OfficeKnownColors.Red;
+    chart.SecondaryValueAxis.Font.FontName = "Calibri";
+    chart.SecondaryValueAxis.Font.Bold = true;
+    chart.SecondaryValueAxis.Font.Size = 8;
+
+    //Axis title area text angle rotation.
+    chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 270;
+
+    //Maximum value in the axis.
+    chart.PrimaryValueAxis.MaximumValue = 15;
+    chart.PrimaryValueAxis.MinimumValue = 0;
+    //Number format for axis.
+    chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+    //Hiding major gridlines.
+    chart.PrimaryValueAxis.HasMajorGridLines = true;
+
+    //Showing minor gridlines.
+    chart.PrimaryValueAxis.HasMinorGridLines = false;
+
+    //Save the Word file.
+    document.Save("Sample.docx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument("Template.docx")
+    ' Get the paragraph.
+    Dim paragraph As WParagraph = document.LastParagraph
+    
+    ' Get the chart entity.
+    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
+    
+    ' Set the horizontal (category) axis title.
+    chart.PrimaryCategoryAxis.Title = "Months"
+    
+    ' Set the Vertical (value) axis title.
+    chart.PrimaryValueAxis.Title = "Precipitation,in."
+    
+    ' Set title for the secondary value axis.
+    chart.SecondaryValueAxis.Title = "Temperature,deg.F"
+    
+    ' Customize the horizontal category axis.
+    chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.Solid
+    chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue
+    chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline
+    
+    ' Customize the vertical category axis.
+    chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid
+    chart.PrimaryValueAxis.Border.LineColor = Color.Blue
+    chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow
+    
+    ' Customize the horizontal category axis font.
+    chart.PrimaryCategoryAxis.Font.Color = OfficeKnownColors.Red
+    chart.PrimaryCategoryAxis.Font.FontName = "Calibri"
+    chart.PrimaryCategoryAxis.Font.Bold = True
+    chart.PrimaryCategoryAxis.Font.Size = 8
+    
+    ' Customize the vertical category axis font.
+    chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red
+    chart.PrimaryValueAxis.Font.FontName = "Calibri"
+    chart.PrimaryValueAxis.Font.Bold = True
+    chart.PrimaryValueAxis.Font.Size = 8
+    
+    ' Customize the secondary vertical category axis.
+    chart.SecondaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid
+    chart.SecondaryValueAxis.Border.LineColor = Color.Blue
+    chart.SecondaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow
+    
+    ' Customize the secondary vertical category axis font.
+    chart.SecondaryValueAxis.Font.Color = OfficeKnownColors.Red
+    chart.SecondaryValueAxis.Font.FontName = "Calibri"
+    chart.SecondaryValueAxis.Font.Bold = True
+    chart.SecondaryValueAxis.Font.Size = 8
+    
+    ' Axis title area text angle rotation.
+    chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 270
+    
+    ' Maximum value in the axis.
+    chart.PrimaryValueAxis.MaximumValue = 15
+    chart.PrimaryValueAxis.MinimumValue = 0
+    
+    ' Number format for axis.
+    chart.PrimaryValueAxis.NumberFormat = "0.0"
+    
+    ' Hiding major gridlines.
+    chart.PrimaryValueAxis.HasMajorGridLines = True
+    
+    ' Showing minor gridlines.
+    chart.PrimaryValueAxis.HasMinorGridLines = False
+    
+    ' Save the Word file.
+    document.Save("Sample.docx")
+End Using
 
 {% endhighlight %}
 {% endtabs %}

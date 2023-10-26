@@ -31,7 +31,7 @@ chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 //Set border line pattern, color, line weight.
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
-chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+chartArea.Border.LineColor = Color.Blue;
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 {% endhighlight %}
@@ -41,7 +41,7 @@ chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 Dim chartArea As IOfficeChartFrameFormat = chart.ChartArea
 ' Set border line pattern, color, line weight.
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
-chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue
+chartArea.Border.LineColor = Color.Blue
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
 
 {% endhighlight %}
@@ -66,8 +66,8 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 //Set fill type and fill colors.
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
-chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Color.White;
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
@@ -75,8 +75,8 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 ' Set fill type and fill colors.
 chartArea.Fill.FillType = OfficeFillType.Gradient
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
-chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234)
-chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+chartArea.Fill.ForeColor = Color.White
 
 {% endhighlight %}
 {% endtabs %}
@@ -84,9 +84,9 @@ chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
- FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
  //Open an existing document from file system through constructor of WordDocument class.
  using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
  {
@@ -118,6 +118,70 @@ The complete code snippet illustrating the above options is shown below.
          document.Save(outputStream, FormatType.Docx);
      }
  }
+
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Get the paragraph.
+    WParagraph paragraph = document.LastParagraph;
+    //Get the chart entity.
+    WChart chart = paragraph.ChildEntities[0] as WChart;
+    //Modify the chart height and width.
+    chart.Height = 300;
+    chart.Width = 500;
+
+    //Format the chart area.
+    IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+    //Set border line pattern, color, line weight.
+    chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chartArea.Border.LineColor = Color.Blue;
+    chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+    //Set fill type and fill colors.
+    chartArea.Fill.FillType = OfficeFillType.Gradient;
+    chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+    chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+    chartArea.Fill.ForeColor = Color.White;
+
+    //Save the Word file.
+    document.Save("Sample.docx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument("Template.docx", FormatType.Docx)
+    ' Get the paragraph.
+    Dim paragraph As WParagraph = document.LastParagraph
+
+    ' Get the chart entity.
+    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
+
+    ' Modify the chart height and width.
+    chart.Height = 300
+    chart.Width = 500
+
+    ' Format the chart area.
+    Dim chartArea As IOfficeChartFrameFormat = chart.ChartArea
+
+    ' Set border line pattern, color, and line weight.
+    chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
+    chartArea.Border.LineColor = Color.Blue
+    chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
+
+    ' Set fill type and fill colors.
+    chartArea.Fill.FillType = OfficeFillType.Gradient
+    chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
+    chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+    chartArea.Fill.ForeColor = Color.White
+
+    ' Save the Word file.
+    document.Save("Sample.docx")
+End Using
 
 {% endhighlight %}
 {% endtabs %}

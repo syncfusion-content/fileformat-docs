@@ -112,9 +112,9 @@ chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabe
 The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
- FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
  //Open an existing document from file system through constructor of WordDocument class.
  using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
  {
@@ -142,6 +142,64 @@ The complete code snippet illustrating the above options is shown below.
          document.Save(outputStream, FormatType.Docx);
      }
  }
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+ using (WordDocument document = new WordDocument("Template.docx"))
+ {
+     //Get the paragraph.
+     WParagraph paragraph = document.LastParagraph;
+     //Get the chart entity.
+     WChart chart = paragraph.ChildEntities[0] as WChart;
+     for (int i = 0; i < chart.Series.Count; i++)
+     {
+         //Enable the datalabel in chart.
+         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+         // Set the font size of the data labels.
+         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
+         // Change the color of the data labels. 
+         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black;
+         // Make the data labels bold.
+         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+         // Set the position of data labels for the first series.
+         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+     }
+     //Save the Word file.
+     document.Save("Sample.docx");
+ }
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument("Template.docx")
+    ' Get the paragraph.
+    Dim paragraph As WParagraph = document.LastParagraph
+    
+    ' Get the chart entity.
+    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
+    
+    For i As Integer = 0 To chart.Series.Count - 1
+        ' Enable the datalabel in chart.
+        chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+        
+        ' Set the font size of the data labels.
+        chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Size = 10
+        
+        ' Change the color of the data labels.
+        chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black
+        
+        ' Make the data labels bold.
+        chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Bold = True
+        
+        ' Set the position of data labels for the first series.
+        chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center
+    Next
+    
+    ' Save the Word file.
+    document.Save("Sample.docx")
+End Using
 
 {% endhighlight %}
 {% endtabs %}
