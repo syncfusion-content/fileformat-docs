@@ -323,7 +323,7 @@ By executing the program, you will get the **Excel document** as follows.
 
 <img src="AWS_Images/Lambda_Images/CreateExcel_AWS_Lambda.png" alt="Excel to PDF converted document" width="100%" Height="Auto"/>
 
-A complete working example of how to create an Excel file in AWS Lambda is present on [this GitHub page](), you can download the [console application]() and [AWS Lambda]() project here.
+A complete working example of how to create an Excel file in AWS Lambda is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/AWS%20Lambda/Create%20Excel), you can download the [console application](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/Console%20Application/Create%20Excel) project here.
 
 ## Read and Edit Excel file
 
@@ -369,7 +369,7 @@ return Convert.ToBase64String(stream.ToArray());
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to read and edit an Excel file in AWS Lambda is present on [this GitHub page](), you can download the [console application]() and [AWS Lambda]() project here.
+A complete working example of how to read and edit an Excel file in AWS Lambda is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/AWS%20Lambda/Edit%20Excel), you can download the [console application](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/Console%20Application/Edit%20Excel) project here.
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
