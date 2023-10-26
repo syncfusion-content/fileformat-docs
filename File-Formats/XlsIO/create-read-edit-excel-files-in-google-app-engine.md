@@ -10,6 +10,8 @@ documentation: UG
 
 Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
+## Create a simple Excel report
+
 ## Set up App Engine
 
 Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
@@ -282,11 +284,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Step 1: Open the **Cloud Shell editor**.
 
-<img src="GCP_images/Cloud_Shell_Editor.png" alt="Cloud Shell Editor" width="100%" Height="Auto"/>
+<img src="GCP_Images/Cloud_Shell_Editor.png" alt="Cloud Shell Editor" width="100%" Height="Auto"/>
 
 Step 2: Drag and drop the sample from your local machine to **Workspace**.
 
-<img src="GCP_images/Workspace_Create_Excel.png" alt="Open the Home Workspace" width="100%" Height="Auto"/>
+<img src="GCP_Images/Workspace_Create_Excel.png" alt="Open the Home Workspace" width="100%" Height="Auto"/>
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
@@ -300,7 +302,7 @@ ls
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_images/View_File_Create_Excel.png" alt="View the files and directories" width="100%" Height="Auto"/>
+<img src="GCP_Images/View_File_Create_Excel.png" alt="View the files and directories" width="100%" Height="Auto"/>
 
 Step 4: Run the following **command** to navigate which sample you want run.
 
@@ -312,7 +314,7 @@ cd Create\ Excel
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_images/Navigate_Create_Excel.png" alt="Navigate which sample you want to run" width="100%" Height="Auto"/>
+<img src="GCP_Images/Navigate_Create_Excel.png" alt="Navigate which sample you want to run" width="100%" Height="Auto"/>
 
 Step 5: To ensure that the sample is working correctly, please run the application using the following command.
 
@@ -324,19 +326,19 @@ dotnet run --urls=http://localhost:8080
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_images/Run_Application_Command_Create_Excel.png" alt="Run the application using command" width="100%" Height="Auto"/>
+<img src="GCP_Images/Run_Application_Command_Create_Excel.png" alt="Run the application using command" width="100%" Height="Auto"/>
 
 Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 
-<img src="GCP_images/Web_View_Create_Excel.png" alt="Verify the application is running properly" width="100%" Height="Auto"/>
+<img src="GCP_Images/Web_View_Create_Excel.png" alt="Verify the application is running properly" width="100%" Height="Auto"/>
 
 Step 7: Now you can see the sample output on the preview page.
 
-<img src="GCP_images/Ensure_Sample_Create_Excel.png" alt="Sample output in browser" width="100%" Height="Auto"/>
+<img src="GCP_Images/Ensure_Sample_Create_Excel.png" alt="Sample output in browser" width="100%" Height="Auto"/>
 
 Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
 
-<img src="GCP_images/Stop_Process_Create_Excel.png" alt="Press Ctrl+C in Cloud Shell Terminal" width="100%" Height="Auto"/>
+<img src="GCP_Images/Stop_Process_Create_Excel.png" alt="Press Ctrl+C in Cloud Shell Terminal" width="100%" Height="Auto"/>
 
 ## Publish the application
 
@@ -350,7 +352,7 @@ dotnet publish -c Release
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_images/Publish_Create_Excel.png" alt="Publish the application" width="100%" Height="Auto"/>
+<img src="GCP_Images/Publish_Create_Excel.png" alt="Publish the application" width="100%" Height="Auto"/>
 
 Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
 {% tabs %}
@@ -361,7 +363,7 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_images/Navigate_Publish_Folder_Create_Excel.png" alt="Navigate to publish folder" width="100%" Height="Auto"/>
+<img src="GCP_Images/Navigate_Publish_Folder_Create_Excel.png" alt="Navigate to publish folder" width="100%" Height="Auto"/>
 
 ## Configure app.yaml and docker file
 
