@@ -318,6 +318,8 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Add-a-digital-signature-to-an-existing-document/).
+
 ## Adding a digital signature using X509Certificate2
 
 The following code example illustrates how to add digital signature in a PDF document using [X509Certificate2](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfCertificate.html#Syncfusion_Pdf_Security_PdfCertificate__ctor_System_Security_Cryptography_X509Certificates_X509Certificate2_) as follows.
@@ -684,7 +686,7 @@ void Signature_ComputeHash(object sender, PdfSignatureEventArgs arguments)
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("PDF_Succinctly.pdf")
 'Creates a digital signature
 Dim signature As PdfSignature = New PdfSignature(document, document.Pages(0), Nothing, "DigitalSignature")
-signature.ComputeHash += Signature_ComputeHash
+AddHandler signature.ComputeHash, AddressOf Signature_ComputeHash
 
 'Save the PDF document
 document.Save("ExternalSignature.pdf")
@@ -711,6 +713,8 @@ End Sub
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Externally-sign-a-PDF-document/).
 
 ### Externally sign the PDF document using IPdfExternalSigner
 The following code example shows how to sign the PDF document from external signature using [IPdfExternalSigner](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.IPdfExternalSigner.html).
@@ -869,11 +873,11 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 Class ExternalSigner
-    Inherits IPdfExternalSigner
+    Implements IPdfExternalSigner
 
     Private _hashAlgorithm As String
 
-    Public ReadOnly Property HashAlgorithm As String
+    Public ReadOnly Property HashAlgorithm As String Implements IPdfExternalSigner.HashAlgorithm
         Get
             Return _hashAlgorithm
         End Get
@@ -883,12 +887,12 @@ Class ExternalSigner
         _hashAlgorithm = hashAlgorithm
     End Sub
 
-    Public Function Sign(ByVal message As Byte(), <Out> ByRef timeStampResponse As Byte()) As Byte()
+    Public Function Sign(message() As Byte, ByRef timeStampResponse() As Byte) As Byte() Implements IPdfExternalSigner.Sign
         timeStampResponse = Nothing
-        Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2(Path.GetFullPath("PDF.pfx"), "password123"))
+        Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx", "password123"))
 
         If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
-            Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACrypto
+            Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACryptoServiceProvider)
             Return rsa.SignData(message, HashAlgorithm)
         ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
             Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
@@ -903,7 +907,7 @@ End Class
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Externally-sign-a-PDF-document/).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Externally-sign-the-PDF-document-using-IPdfExternalSigner/).
 
 ## Create Long Term Validation (LTV) when signing PDF documents externally
 
@@ -986,6 +990,23 @@ signature.CreateLongTermValidity(New List(Of X509Certificate2) From { x509 })
 'Save and close the PDF document
 loadedDocument.Save("SignedDocument.pdf")
 loadedDocument.Close(True)
+
+Private Sub Signature_ComputeHash(ByVal sender As Object, ByVal arguments As PdfSignatureEventArgs)
+    'Get the document bytes
+    Dim documentBytes As Byte() = arguments.Data
+    Dim signedCms As SignedCms = New SignedCms(New ContentInfo(documentBytes), detached:=True)
+
+    'Compute the signature using the specified digital ID file and the password
+    Dim certificate As X509Certificate2 = New X509Certificate2("DigitalSignatureTest.pfx", "DigitalPass123")
+    Dim cmsSigner = New CmsSigner(certificate)
+
+    'Set the digest algorithm SHA256
+    cmsSigner.DigestAlgorithm = New Oid("2.16.840.1.101.3.4.2.1")
+    signedCms.ComputeSignature(cmsSigner)
+
+    'Embed the encoded digital signature to the PDF document
+    arguments.SignedData = signedCms.Encode()
+End Sub
 
 {% endhighlight %}
 
@@ -2205,7 +2226,7 @@ loadedDocument.Close(true);
 'Load an existing signed PDF document
 Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 'Get signature field
-Dim signatureField As PdfLoadedSignatureField = loadedDocument.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 
 'X509Certificate2Collection to check the signer's identity using root certificates
 Dim collection As X509CertificateCollection = New X509CertificateCollection()
@@ -2308,8 +2329,8 @@ Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "password1
 'Add the certificate to the collection
 collection.Add(certificate)
 'Validate all signatures in loaded PDF document and get the list of validation result
-Dim results As List<PdfSignatureValidationResult>
-Dim isValid As Boolean = loadedDocument.Form.Fields.ValidateSignatures(collection, out results)
+Dim results As List(Of PdfSignatureValidationResult)
+Dim isValid As Boolean = loadedDocument.Form.Fields.ValidateSignatures(collection, results)
 
 'Close the document
 loadedDocument.Close(true)
@@ -2594,10 +2615,10 @@ Private Sub DeferredSign()
     Dim externalSigner As IPdfExternalSigner = New ExternalSigner("SHA1", signedHash)
     Dim publicCertificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)()
     publicCertificates.Add(New X509Certificate2(Convert.FromBase64String(PublicCert)))
-    Dim outputFileStream As MemoryStream = New MemoryStream()
+    Dim outputFileStream As FileStream = New FileStream("DeferredSign.pdf", FileMode.Create, FileAccess.ReadWrite)
     Dim inputFileStream As FileStream = New FileStream("EmptySignature.pdf", FileMode.Open, FileAccess.Read)
     Dim pdfPassword As String = String.Empty
-    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, signatureName, externalSigner, publicCertificates)
+    PdfSignature.ReplaceEmptySignature(inputFileStream, pdfPassword, outputFileStream, "Signature", externalSigner, publicCertificates)
 End Sub
 
 ''' <summary>
@@ -2629,14 +2650,14 @@ Class SignEmpty
     End Function
 
     Private Sub SignDocumentHash(ByVal documentHash As Byte())
-    Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx"), "password123"))
+    Dim digitalID As X509Certificate2 = New X509Certificate2(New X509Certificate2("PDF.pfx", "password123"))
 
     If TypeOf digitalID.PrivateKey Is System.Security.Cryptography.RSACryptoServiceProvider Then
         Dim rsa As System.Security.Cryptography.RSACryptoServiceProvider = CType(digitalID.PrivateKey, System.Security.Cryptography.RSACryptoServiceProvider)
-        Program.SignedHash = rsa.SignData(documentHash, HashAlgorithm)
+        SignedHash = rsa.SignData(documentHash, HashAlgorithm)
     ElseIf TypeOf digitalID.PrivateKey Is RSACng Then
         Dim rsa As RSACng = CType(digitalID.PrivateKey, RSACng)
-        Program.SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
+        SignedHash = rsa.SignData(documentHash, System.Security.Cryptography.HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1)
     End If
     End Sub
 End Class
@@ -2972,9 +2993,9 @@ signature.Bounds = New RectangleF(New PointF(0, 0), New SizeF(100, 30))
 signature.Settings.CryptographicStandard = CryptographicStandard.CADES
 signature.Settings.DigestAlgorithm = DigestAlgorithm.SHA1
 
-' Create an external signer.
+'Create an external signer.
 Dim externalSignature As IPdfExternalSigner = New SignEmpty("SHA1")
-' Add public certificates.
+'Add public certificates.
 Dim certificates As System.Collections.Generic.List(Of X509Certificate2) = New System.Collections.Generic.List(Of X509Certificate2)
 signature.AddExternalSigner(externalSignature, certificates, Nothing)
 
@@ -3150,7 +3171,7 @@ signature.ContactInfo = "johndoe@owned.us"
 signature.LocationInfo = "Honolulu, Hawaii"
 signature.Reason = "I am author of this document."
 'Create appearance for the digital signature.
-signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds);
+signature.Appearance.Normal.Graphics.DrawImage(signatureImage, signature.Bounds)
 
 'Save and close the document.
 document.Save("Output.pdf")
@@ -3222,7 +3243,7 @@ document.Close(true);
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'Gets the signature field
-Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(document.Form.Fields(0), PdfLoadedSignatureField)
 'Validate signature and get validation result
 Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
 'Gets the LTV Verification Information
@@ -3295,7 +3316,7 @@ document.Close(true);
 Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'Gets the signature field
-Dim signatureField As PdfLoadedSignatureField = document.Form.Fields[0] As PdfLoadedSignatureField
+Dim signatureField As PdfLoadedSignatureField = TryCast(document.Form.Fields(0), PdfLoadedSignatureField)
 'Signature validation options
 Dim options As PdfSignatureValidationOptions = New PdfSignatureValidationOptions()
 'Sets the revocation type
@@ -3662,7 +3683,7 @@ Dim signatureField1 As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fie
 'Create a certificate instance from the PFX file with a private key.
 Dim certificate1 As PdfCertificate = New PdfCertificate("PDF.pfx", "password123")
 'Add a signature to the signature field. 
-signatureField1.Signature = New PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1
+signatureField1.Signature = New PdfSignature(loadedDocument, page, certificate1, "Signature", signatureField1)
 'Set an image for the signature field.
 Dim signatureImage As PdfBitmap = New PdfBitmap("Student Signature.jpg")
 'Draw an image in the signature appearance. 
@@ -3689,7 +3710,7 @@ signatureField2.Signature.Appearance.Normal.Graphics.DrawImage(signatureImage1, 
 signedDocument.Save("Multiple_signature.pdf")
 'Close the PDF documents. 
 signedDocument.Close(True)
-loadedDocument.Close(true);
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
@@ -3968,15 +3989,15 @@ document.Close(true);
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
 'Load an existing PDF document.
-Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 'Gets the signature field.
 Dim loadedSignatureField As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 'Validates signature and gets the validation result.
-Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature()
+Dim result As PdfSignatureValidationResult = loadedSignatureField.ValidateSignature()
 'Gets signer certificates
-Dim certifcate As PdfSignerCertificate[] = result.TimeStampInformation.SignerCertificates
+Dim certifcate As PdfSignerCertificate() = result.TimeStampInformation.SignerCertificates
 'Close the document.
-document.Close(True)
+loadedDocument.Close(True)
 
 {% endhighlight %}
 
