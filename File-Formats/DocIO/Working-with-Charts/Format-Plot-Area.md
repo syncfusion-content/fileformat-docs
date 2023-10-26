@@ -1,5 +1,5 @@
 ---
-title: Modify the appearance of plot area | Syncfusion
+title: Modify the Appearance of Plot Area | Syncfusion
 description: Learn how to modify the appearance of plot area in a chart in a Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
@@ -17,9 +17,9 @@ The following code snippet shows how to modify the border of the plot area.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Format the Plot Area.
+//Format the plot area.
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
-//Plots area border settings - line pattern, color, weight
+//Plot area border settings - line pattern, color, weight.
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
 chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
@@ -34,7 +34,7 @@ The following code snippet shows how to fill the color in plot area.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
- //Sets fill type and color
+ //Set fill type and color.
  chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
  chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
  chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
@@ -50,6 +50,7 @@ The following code snippet shows how to fill the image in plot area.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
+//Appeend image in plot area.
 FileStream imageStream = new FileStream("Data/Image.png", FileMode.Open, FileAccess.Read);
 Image image = Image.FromStream(imageStream);
 chartPlotArea.Fill.UserPicture(image, "image");
@@ -79,7 +80,7 @@ The following code snippet shows how to make transparency in plot area.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Sets position for plot area
+//Sets position for plot area.
 chartPlotArea.Layout.LeftMode = LayoutModes.auto;
 chartPlotArea.Layout.TopMode = LayoutModes.factor;
 chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer;
@@ -96,20 +97,20 @@ FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, 
 //Open an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
-    //Get the paragraph
+    //Get the paragraph.
     WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity
+    //Get the chart entity.
     WChart chart = paragraph.ChildEntities[0] as WChart;
-    //Modify the chart height and width
+    //Modify the chart height and width.
     chart.Height = 300;
     chart.Width = 500;
-    //Plot Area
+    //Plot Area.
     IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
-    //Plot area border settings - line pattern, color, weight
+    //Plot area border settings - line pattern, color, weight.
     chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
     chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
-    //Set fill type and color
+    //Set fill type and color.
     chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
     chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
     chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);

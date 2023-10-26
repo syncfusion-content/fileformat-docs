@@ -1,5 +1,5 @@
 ---
-title: Modify the appearance of series | Syncfusion
+title: Modify the Appearance of Series | Syncfusion
 description: Learn how to modify the appearance of series in a chart in a Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
@@ -134,7 +134,7 @@ The following code snippet illustrates how to add drop lines.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Set HasDropLines property to true.
+//Set the HasDropLines property to true.
 chart.Series[0].SerieFormat.CommonSerieOptions.HasDropLines = true;
 
 //Apply formats to DropLines.
@@ -152,8 +152,8 @@ The following code snippet illustrates how to add series lines in chart.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Set HasSeriesLines  property to true.
-chart.Series[0].SerieFormat.CommonSerieOptions.HasSeriesLines  = true;
+//Set HasSeriesLines property to true.
+chart.Series[0].SerieFormat.CommonSerieOptions.HasSeriesLines = true;
 
 //Apply formats to DropLines.
 chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Syncfusion.Drawing.Color.Red;

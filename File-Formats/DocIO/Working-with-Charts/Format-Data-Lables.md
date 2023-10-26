@@ -1,5 +1,5 @@
 ---
-title: Modify the appearance of data labels | Syncfusion
+title: Modify the Appearance of Data Labels | Syncfusion
 description: Learn how to modify the appearance of data labels in a chart in a Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
@@ -8,7 +8,7 @@ documentation: UG
 
 # Data Labels
 
-Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, **data labels** provide valuable context. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **data labels** in the chart.
+Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, data labels provide valuable context. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the data labels in the chart.
 
 ## Enable Data Labels in Chart
 
@@ -30,18 +30,16 @@ The following code snippet illustrates how to customize the data label in chart.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-// Set the font size of the data labels
+// Set the font size of the data labels.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-// Change the color of the data labels 
+// Change the color of the data labels.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Red;
-// Make the data labels bold
+// Make the data labels bold.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
-// Set the font name for the data labels
+// Set the font name for the data labels.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri";
-// Make the data labels italic
+// Make the data labels italic.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Italic = true;
-// Set the size of the data labels
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 3;
 
 {% endhighlight %}
 {% endtabs %}
@@ -66,11 +64,11 @@ The following code snippet illustrates how to resize the data label in chart.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 
-//Manually resizing data label area using Layout
+//Manually resizing data label area using Layout.
 chart.Series[0].DataPoints[0].DataLabels.Layout.Left = 0.09;
 chart.Series[0].DataPoints[0].DataLabels.Layout.Top = 0.01;
 
-//Manually resizing data label area using Manual Layout
+//Manually resizing data label area using Manual Layout.
 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
 
