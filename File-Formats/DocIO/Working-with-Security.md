@@ -9,6 +9,9 @@ documentation: UG
 
 You can encrypt a Word document with password to restrict unauthorized access. You can also control the types of changes you make to this document.
 
+To quickly encrypt and decrypt a Word document with the .NET Word (DOCIO) Library, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=7EMtR2zrW80" %}
+
 ## Encrypting with password
 
 The following code example shows how to encrypt the Word document with password.
