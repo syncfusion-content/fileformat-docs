@@ -1,6 +1,6 @@
 ---
 title: Modify the appearance of legend | Syncfusion
-description: Learn how to modify the appearance of legend in Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+description: Learn how to modify the appearance of legend in a chart in a  Word document using Syncfusion .NET Core Word (DocIO) library without Microsoft Word.
 platform: file-formats
 control: DocIO
 documentation: UG
