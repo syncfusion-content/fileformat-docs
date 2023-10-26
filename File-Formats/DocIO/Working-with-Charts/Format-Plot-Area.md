@@ -131,12 +131,24 @@ By executing the program, you will get the **chart** as follows.
 The following code snippet shows how to fill the image in plot area.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Appeend image in plot area.
 FileStream imageStream = new FileStream("Data/Image.png", FileMode.Open, FileAccess.Read);
 Image image = Image.FromStream(imageStream);
 chartPlotArea.Fill.UserPicture(image, "image");
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Appeend image in plot area.
+chartPlotArea.Fill.UserPicture("Image.png");
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Append an image to the chart plot area.
+chartPlotArea.Fill.UserPicture("Image.png")
 
 {% endhighlight %}
 {% endtabs %}
