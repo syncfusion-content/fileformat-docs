@@ -67,6 +67,83 @@ chart.Series[0].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Ha
 {% endhighlight %}
 {% endtabs %}
 
+The complete code snippet illustrating the above options is shown below.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+ //Creates a new instance of WordDocument (Empty Word Document).
+ using (WordDocument document = new WordDocument())
+ {
+     //Adds section to the document.
+     IWSection sec = document.AddSection();
+     //Adds paragraph to the section.
+     IWParagraph paragraph = sec.AddParagraph();
+     //Inputs data for chart.
+     object[][] data = new object[6][];
+     for (int i = 0; i < 6; i++)
+         data[i] = new object[3];
+     data[0][0] = "";
+     data[1][0] = "Camembert Pierrot";
+     data[2][0] = "Alice Mutton";
+     data[3][0] = "Roasted Tigers";
+     data[4][0] = "Orange Shake";
+     data[5][0] = "Dried Apples";
+     data[0][1] = "Sum of Purchases";
+     data[1][1] = 286;
+     data[2][1] = 680;
+     data[3][1] = 288;
+     data[4][1] = 200;
+     data[5][1] = 731;
+     data[0][2] = "Sum of Future Expenses";
+     data[1][2] = 1300;
+     data[2][2] = 700;
+     data[3][2] = 1280;
+     data[4][2] = 1200;
+     data[5][2] = 2660;
+
+     //Creates and Appends chart to the paragraph.
+     WChart chart = paragraph.AppendChart(data, 470, 300);
+
+     //Sets chart type and title.
+     chart.ChartTitle = "Purchase Details";
+     chart.ChartTitleArea.FontName = "Calibri";
+     chart.ChartTitleArea.Size = 14;
+     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+     //Sets series type.
+     chart.Series[0].SerieType = OfficeChartType.Line_Markers;
+     chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
+
+     chart.PrimaryCategoryAxis.Title = "Products";
+     chart.PrimaryValueAxis.Title = "In Dollars";
+
+     // Configure the fill settings for the first series in the chart.
+     chart.Series[1].SerieFormat.Fill.FillType = OfficeFillType.Gradient;
+     chart.Series[1].SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+     chart.Series[1].SerieFormat.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+     chart.Series[1].SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Red;
+     //Customize series border.
+     chart.Series[1].SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red;
+     chart.Series[1].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot;
+     chart.Series[1].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline;
+
+     //Sets position of legend.
+     chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+     //Creates file stream.
+     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+     {
+         //Saves the Word document to file stream.
+         document.Save(outputFileStream, FormatType.Docx);
+     }
+ }
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
 ## Set the DataPoint as Total
 
 The following code snippet illustrates how to set the Data Point as total in chart.
@@ -109,6 +186,8 @@ The following code snippet illustrates how to add space between bars.
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from GitHub.
+
 ## Add High-Low Lines
 
 The following code snippet illustrates how to add high-low lines.
@@ -126,6 +205,8 @@ chart.Series[0].SerieFormat.CommonSerieOptions.HasHighLowLines = true;
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from GitHub.
 
 ## Add Drop Lines
 
@@ -145,6 +226,8 @@ chart.Series[0].SerieFormat.CommonSerieOptions.DropLines.LineWeight = OfficeChar
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from GitHub.
+
 ## Add Series Lines
 
 The following code snippet illustrates how to add series lines in chart.
@@ -162,6 +245,8 @@ chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = Office
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from GitHub.
 
 ## Different Marker Properties
 
@@ -181,6 +266,8 @@ chart.Series[0].SerieFormat.MarkerForegroundColor = Syncfusion.Drawing.Color.Bla
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from GitHub.
+
 ## Explode a Pie Chart
 
 The following code snippet illustrates how to explode a pie chart.
@@ -193,3 +280,8 @@ chart.Series[0].SerieFormat.Percent = 10;
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from GitHub.
+
+
+

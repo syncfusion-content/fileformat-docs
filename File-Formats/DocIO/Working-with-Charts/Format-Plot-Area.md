@@ -43,6 +43,51 @@ The following code snippet shows how to fill the color in plot area.
 {% endhighlight %}
 {% endtabs %}
 
+The complete code snippet illustrating the above options is shown below.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class.
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Get the paragraph.
+    WParagraph paragraph = document.LastParagraph;
+    //Get the chart entity.
+    WChart chart = paragraph.ChildEntities[0] as WChart;
+    //Modify the chart height and width.
+    chart.Height = 300;
+    chart.Width = 500;
+
+    //Plot Area.
+    IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+    //Plot area border settings - line pattern, color, weight.
+    chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chartPlotArea.Border.LineColor = Color.Blue;
+    chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+    //Set fill type and color.
+    chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+    chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+    chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+    chartPlotArea.Fill.ForeColor = Color.White;
+
+    using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    {
+        //Save the Word file.
+        document.Save(outputStream, FormatType.Docx);
+    }
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
+By executing the program, you will get the **chart** as follows.
+
 ## Add Image in Plot Area
 
 The following code snippet shows how to fill the image in plot area.
@@ -75,7 +120,7 @@ N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeC
 
 ## Set the position of Plot Area
 
-The following code snippet shows how to make transparency in plot area.
+The following code snippet shows how to position the plot area in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -88,41 +133,3 @@ chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 {% endhighlight %}
 {% endtabs %}
 
-The complete code snippet illustrating the above options is shown below.
-
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
-
-FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-{
-    //Get the paragraph.
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity.
-    WChart chart = paragraph.ChildEntities[0] as WChart;
-    //Modify the chart height and width.
-    chart.Height = 300;
-    chart.Width = 500;
-    //Plot Area.
-    IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
-    //Plot area border settings - line pattern, color, weight.
-    chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
-    chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
-    chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
-    //Set fill type and color.
-    chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
-    chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-    chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
-    chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
-    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-    {
-        //Save the Word file.
-        document.Save(outputStream, FormatType.Docx);
-    }
-}
-
-{% endhighlight %}
-{% endtabs %}
-
-You can download a complete working sample from GitHub.

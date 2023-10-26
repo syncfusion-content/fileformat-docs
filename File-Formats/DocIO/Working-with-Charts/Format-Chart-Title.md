@@ -48,7 +48,7 @@ The following code snippet illustrates how to resize the chart title area.
 
 //Manually resizing chart title area using Layout.
 chart.ChartTitleArea.Layout.Top = 10;
-chart.ChartTitleArea.Layout.Left = 150;
+chart.ChartTitleArea.Layout.Left = 10;
 
 //Manually resizing chart title area using Manual Layout.
 chart.ChartTitleArea.Layout.ManualLayout.Top = 0.005;
@@ -56,3 +56,43 @@ chart.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
 
 {% endhighlight %}
 {% endtabs %}
+
+The complete code snippet illustrating the above options is shown below.
+
+{% tabs %}
+{% highlight c# tabtitle="C#" %}
+
+FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Open an existing document from file system through constructor of WordDocument class.
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+    //Get the paragraph.
+    WParagraph paragraph = document.LastParagraph;
+    //Get the chart entity.
+    WChart chart = paragraph.ChildEntities[0] as WChart;
+
+    // Set the chart title.
+    chart.ChartTitle = "Purchase Details";
+
+    // Customize chart title area.
+    chart.ChartTitleArea.FontName = "Calibri";
+    chart.ChartTitleArea.Bold = true;
+    chart.ChartTitleArea.Color = OfficeKnownColors.Black;
+    chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
+
+    //Manually resizing chart title area using Layout.
+    chart.ChartTitleArea.Layout.Left = 5;
+   
+    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    {
+        //Save the Word file.
+        document.Save(outputStream, FormatType.Docx);
+    }
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
+By executing the program, you will get the **chart** as follows.
