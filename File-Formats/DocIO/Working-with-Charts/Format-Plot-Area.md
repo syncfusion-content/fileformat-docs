@@ -12,7 +12,7 @@ The plot area refers to the region that represents the plotted data in a chart. 
 
 ## Customization of Border
 
-The following code snippet shows how to modify the border of the plot area.
+The following code snippet illustrates how to modify the border of the plot area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -49,7 +49,7 @@ chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline
 
 ## Customization of Color
 
-The following code snippet shows how to fill the color in plot area.
+The following code snippet illustrates how to fill the color in plot area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -191,7 +191,7 @@ By executing the program, you will get the **chart** as follows.
 
 ## Add Image in Plot Area
 
-The following code snippet shows how to fill the image in plot area.
+The following code snippet illustrates how to fill the image in plot area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -218,7 +218,7 @@ chartPlotArea.Fill.UserPicture("Image.png")
 
 ## Set the Transparency level
 
-The following code snippet shows how to make transparency in plot area.
+The following code snippet illustrates how to make transparency in plot area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -245,7 +245,7 @@ N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeC
 
 ## Set the position of Plot Area
 
-The following code snippet shows how to position the plot area in chart.
+The following code snippet illustrates how to position the plot area in chart.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
