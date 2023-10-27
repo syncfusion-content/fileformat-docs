@@ -1,11 +1,11 @@
 ---
-title: Working with Compression | Syncfusion
-description: This section explains how to Compress the PDF document with different options by using Essential PDF
+title: Working with compression in File Formats PDF Library | Syncfusion
+description: Learn here all about compression of the PDF document with different options by using Syncfusion Essential File Formats PDF library.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Compression
+# Working with Compression in File Format PDF library
 
 Essential PDF allows you to [compress the PDF](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/compress-pdf) document and thereby reduce the file size in the following three ways.
 
