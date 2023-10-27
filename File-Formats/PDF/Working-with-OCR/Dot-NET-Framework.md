@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Optical Character Recognition (OCR) in File Formats PDF
+# Working with Optical Character Recognition in File Formats PDF
 
 Essential PDF provides support for Optical Character Recognition with the help of Google’s Tesseract Optical Character Recognition engine.
 
@@ -79,7 +79,7 @@ processor.PerformOCR(lDoc, "TessData/")
 
 You can also download the language packages from below link
 
-[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
+[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata)
 
 N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as separate package (OCR Processor) under the Add-On section in the below link [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/account/downloads).
 
@@ -834,7 +834,7 @@ Tesseract 3.05 supports the native call for both x86 and x64 architectures.By de
 
 You can download the x64 supporting tesseract binaries from the following link.
 
-[Tesseract 64-bit binaries](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Tesseract3.05_x641904984914)
+[Tesseract 64-bit binaries](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.OCRSettings.html#Syncfusion_OCRProcessor_OCRSettings_TesseractVersion)
 
 N> This 64-bit binaries are required only when the native call property is enabled.
 N> Make sure to provide the 64-bit binaries path while using in the 64-bit environment.
@@ -1427,7 +1427,7 @@ For surrogate process, it requires permission for creating and executing a proce
 
 For more details regarding quality improvement, refer to the following link:
 
-[https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality )
+[https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality)
 
 **You can set the different performance level to the OCRProcessor using [Performance](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Performance.html) enumeration.**
 
