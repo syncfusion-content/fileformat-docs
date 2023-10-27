@@ -331,9 +331,7 @@ The below code snippet illustrates how to read and edit an Excel file in AWS Lam
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-//New instance of ExcelEngine is created 
-//Equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
+//Create an instance of ExcelEngine 
 ExcelEngine excelEngine = new ExcelEngine();
 
 //Instantiate the Excel application object
@@ -351,15 +349,6 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 //Set Text in cell A3.
 worksheet.Range["A3"].Text ="Hello World";
-
-//Access a cell value from Excel
-var value = worksheet.Range["A1"].Value;
-
-//Defining the ContentType for excel file.
-string ContentType = "Application/msexcel";
-
-//Define the file name.
-string fileName = "Output.xlsx";
 
 //Creating stream object.
 MemoryStream stream = new MemoryStream();
