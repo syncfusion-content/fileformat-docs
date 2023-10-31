@@ -310,11 +310,11 @@ var serilizer = new JsonSerializer();
 var responseText = serilizer.Deserialize(reader);
 //Convert Base64String into Excel document
 byte[] bytes = Convert.FromBase64String(responseText.ToString());
-FileStream fileStream = new FileStream("Sample.docx", FileMode.Create);
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Create);
 BinaryWriter writer = new BinaryWriter(fileStream);
 writer.Write(bytes, 0, bytes.Length);
 writer.Close();
-System.Diagnostics.Process.Start("Sample.docx");
+System.Diagnostics.Process.Start("Sample.xlsx");
 
 {% endhighlight %}
 {% endtabs %}
