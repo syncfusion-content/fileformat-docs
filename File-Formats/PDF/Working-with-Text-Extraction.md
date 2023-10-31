@@ -9,6 +9,9 @@ documentation: UG
 
 Essential PDF allows you to extract the text from a particular page or the entire PDF document. 
 
+Check the following video to quickly get started with extracting text from a PDF document in .NET using the PDF Library.
+{% youtube "https://www.youtube.com/watch?v=CB4tQC-LhUU" %}
+
 ## Working with basic text extraction
 
 You can extract the text from a page using [ExtractText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html#Syncfusion_Pdf_PdfPageBase_ExtractText) method in [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPageBase.html) class.
