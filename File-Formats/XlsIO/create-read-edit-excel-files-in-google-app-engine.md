@@ -424,7 +424,7 @@ Step 2: Open the **URL** to access the application, which has been successfully 
 
 <img src="GCP_Images/Browser_Create_Excel.png" alt="Open the URL" width="100%" Height="Auto"/>
 
-A complete working example of how to create an Excel file in GCP is present on [this GitHub page]().
+A complete working example of how to create an Excel file in GCP is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the **Excel document** as follows. The output will be saved in **bin** folder.
 
@@ -471,7 +471,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to read and edit an Excel file in GCP is present on [this GitHub page]().
+A complete working example of how to read and edit an Excel file in GCP is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Edit%20Excel).
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
