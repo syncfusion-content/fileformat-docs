@@ -7,6 +7,9 @@ documentation: UG
 ---
 # Getting started with simple word document
 
+To quickly get started with the .NET Word (DOCIO) Library, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=ptbMtxIv3CY" %}
+
 In this page, you can see how to create a simple Word document by using Essential DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
 <table>

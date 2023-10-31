@@ -278,6 +278,105 @@ N> Calling the above event is mandatory in ASP.NET Core, UWP, and Xamarin platfo
 
 * [How to get image from URL while opening HTML in .NET Core targeting applications?](https://www.syncfusion.com/kb/13053/how-to-get-image-from-url-while-opening-html-in-asp-net-core)
 
+### Customize image Path
+
+DocIO provides an [ImageNodeVisited](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_ImageNodeVisited) event, which is used to customize the image path that is set in the output HTML file and save images externally while converting a Word document to HTML.
+
+The following code example illustrates how to save image files during a Word to HTML conversion.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Open the file as a Stream.
+using (FileStream docStream = new FileStream("Data/Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Hook the event to customize the image. 
+        document.SaveOptions.ImageNodeVisited += SaveImage;
+        using (FileStream outputStream = new FileStream("WordtoHTML.html", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+        {
+            //Save the HTML file.
+            document.Save(outputStream, FormatType.Html);
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing Word document. 
+using (WordDocument document = new WordDocument("Input.docx"))
+{
+    //Hook the event to customize the image. 
+    document.SaveOptions.ImageNodeVisited += SaveImage;
+    //Save a Word document as a HTML file.
+    document.Save("WordtoHTML.html", FormatType.Html);
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Open an existing Word document. 
+Using document As WordDocument = New WordDocument("Input.docx")
+    'Hook the event to customize the image. 
+    document.SaveOptions.ImageNodeVisited += SaveImage
+    'Save a Word document as a HTML file.
+    document.Save("WordtoHTML.html", FormatType.Html)
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+The following code example illustrates the event handler for customizing the image path and saving the image in an external folder.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    string imagepath = @"D:\Temp\Image.png";
+    //Save the image stream as a file.
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the URI to be used for the image in the output HTML. 
+    args.Uri = imagepath;
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+{
+    string imagepath = @"D:\Temp\Image.png";
+    //Save the image stream as a file. 
+    using (FileStream fileStreamOutput = File.Create(imagepath))
+        args.ImageStream.CopyTo(fileStreamOutput);
+    //Set the image URI to be used in the output HTML.
+    args.Uri = imagepath;
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Private Shared Sub SaveImage(ByVal sender As Object, ByVal args As ImageNodeVisitedEventArgs)
+    Dim imagepath = "D:\Temp\Image.png"
+    'Save the image stream as a file. 
+    Using fileStreamOutput = File.Create(imagepath)
+        args.ImageStream.CopyTo(fileStreamOutput)
+    End Using
+    'Set the URI to be used for the image in the output HTML. 
+    args.Uri = imagepath
+End Sub
+
+{% endhighlight %}
+{% endtabs %}
+
+T> By utilizing the event handler mentioned above, you can also implement logic to store images in the Cloud or other online storage platforms.
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-image-path-in-Word-to-html/.NET).
+
 ### Customizing the Word to HTML conversion
 
 You can customize the Word to HTML conversion with the following options:
@@ -289,12 +388,38 @@ You can customize the Word to HTML conversion with the following options:
 * Export the images as Base-64 embedded images
 * Omit XML declaration in the exported HTML file using [HtmlExportOmitXmlDeclaration](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportOmitXmlDeclaration).
 
-N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
-
-The following code sample shows how to customize Word to HTML conversion.
+N> 1. When exporting header and footer, DocIO exports the first section of header content at the top of the HTML file and the first section of footer content at the end of the HTML file.
+N> 2. [HtmlExportImagesFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportImagesFolder) and [HtmlExportCssStyleSheetFileName](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.SaveOptions.html#Syncfusion_DocIO_DLS_SaveOptions_HtmlExportCssStyleSheetFileName) APIs are only supported in the .NET Framework.
+The following code sample illustrates how to customize Word to HTML conversion.
 
 {% tabs %}
+{% highlight c# tabtitle="C# [Cross-Platform]" %}
+
+//Load an existing Word document into DocIO instance.
+using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+   using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+   {
+        //The header and footer in the input are exported.
+        document.SaveOptions.HtmlExportHeadersFooters = true;
+        //Export the text form fields as editable .
+        document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
+        //Set the style sheet type.
+        document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.Inline;
+        //Set value to omit XML declaration in the exported html file.
+        //True- to omit xml declaration, otherwise false.
+        document.SaveOptions.HtmlExportOmitXmlDeclaration = false;
+        //Create a file stream.
+        using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Save the HTML file to file stream.
+            document.Save(outputFileStream, FormatType.Html);
+        }
+   }
+
+{% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx");
 HTMLExport export = new HTMLExport();
