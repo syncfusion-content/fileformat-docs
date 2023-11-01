@@ -418,9 +418,8 @@ using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, F
    }
 
 {% endhighlight %}
-
-{% tabs %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx");
 HTMLExport export = new HTMLExport();
