@@ -6,9 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Series
+# Chart Series
 
-In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **series** in the chart.
+In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using DocIO, you can **customize the series in the chart**.
 
 ## Set the Series Name
 
@@ -330,8 +330,6 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 ## Set the DataPoint as Total
 
 The following code snippet illustrates how to set the Data Point as total in chart.
@@ -416,8 +414,6 @@ chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 100
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 ## Add High-Low Lines
 
 The following code snippet illustrates how to add high-low lines.
@@ -457,8 +453,6 @@ chart.Series(0).SerieFormat.CommonSerieOptions.HighLowLines.LineWeight = OfficeC
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 ## Add Drop Lines
 
@@ -500,8 +494,6 @@ chart.Series(0).SerieFormat.CommonSerieOptions.DropLines.LineWeight = OfficeChar
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 ## Add Series Lines
 
 The following code snippet illustrates how to add series lines in chart.
@@ -541,8 +533,6 @@ chart.Series(0).SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = Office
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 ## Different Marker Properties
 
@@ -584,8 +574,6 @@ chart.Series(0).SerieFormat.MarkerForegroundColor = Color.Black
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 ## Explode a Pie Chart
 
 The following code snippet illustrates how to explode a pie chart.
@@ -610,8 +598,3 @@ chart.Series(0).SerieFormat.Percent = 10
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
-
-
-

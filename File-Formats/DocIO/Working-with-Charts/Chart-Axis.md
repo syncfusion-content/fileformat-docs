@@ -12,7 +12,7 @@ Charts typically have two axes that are used to measure and categorize data.
 -  Horizontal axis (also known as category axis or x axis).
 -  Vertical axis (also known as value axis or y axis).
 
-Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the **axis** in the chart.
+Using DocIO, you can **customize the axis in the chart**.
 
 ## Set the Axis Title
 
@@ -395,7 +395,6 @@ chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabe
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-
 //MaxCross in axis.
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
@@ -646,10 +645,6 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.
 
 ## Set the Category Label
 
