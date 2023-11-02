@@ -1,8 +1,8 @@
 ---
 title: Modify the Appearance of Axes in Chart | Syncfusion
-description: Learn how to modify the appearance of axes in a chart in a Word document using the Syncfusion .NET Word (DocIO) library without Microsoft Word.
+description: Learn how to modify the appearance of axes in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
@@ -12,7 +12,7 @@ Charts typically have two axes that are used to measure and categorize data.
 -  Horizontal axis (also known as category axis or x axis).
 -  Vertical axis (also known as value axis or y axis).
 
-Using DocIO, you can **customize the axis in the chart**.
+Using Presentation, you can **customize the axis in the chart**.
 
 ## Set the Axis Title
 
@@ -395,6 +395,7 @@ chart.SecondaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabe
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
+
 //MaxCross in axis.
 chart.SecondaryCategoryAxis.IsMaxCross = true;
 
@@ -430,14 +431,15 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+FileStream fileStreamPath = new FileStream"Data/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
 {
-    //Get the paragraph
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity
-    WChart chart = paragraph.ChildEntities[0] as WChart;
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
     //Set the horizontal (category) axis title.
     chart.PrimaryCategoryAxis.Title = "Months";
@@ -494,23 +496,23 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
     //Showing minor gridlines.
     chart.PrimaryValueAxis.HasMinorGridLines = false;
 
-    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
     {
-        //Save the Word file.
-        document.Save(outputStream, FormatType.Docx);
+        //Save the PowerPoint Presentation.
+        pptxDoc.Save(outputStream);
     }
 }
 
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Open an existing Word document.
-using (WordDocument document = new WordDocument("Template.docx"))
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Template.pptx"))
 {
-    //Get the paragraph
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity
-    WChart chart = paragraph.ChildEntities[0] as WChart;
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
     //Set the horizontal (category) axis title.
     chart.PrimaryCategoryAxis.Title = "Months";
@@ -521,12 +523,12 @@ using (WordDocument document = new WordDocument("Template.docx"))
 
     //Customize the horizontal category axis.
     chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
-    chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue;
+    chart.PrimaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
     //Customize the vertical category axis.
     chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
-    chart.PrimaryValueAxis.Border.LineColor = Color.Blue;
+    chart.PrimaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
 
     //Customize the horizontal category axis font.
@@ -543,7 +545,7 @@ using (WordDocument document = new WordDocument("Template.docx"))
 
     //Customize the secondary vertical category axis.
     chart.SecondaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
-    chart.SecondaryValueAxis.Border.LineColor = Color.Blue;
+    chart.SecondaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chart.SecondaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
 
     //Customize the secondary vertical category axis font.
@@ -567,80 +569,77 @@ using (WordDocument document = new WordDocument("Template.docx"))
     //Showing minor gridlines.
     chart.PrimaryValueAxis.HasMinorGridLines = false;
 
-    //Save the Word file.
-    document.Save("Sample.docx");
+    //Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx");
 }
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument("Template.docx")
-    ' Get the paragraph.
-    Dim paragraph As WParagraph = document.LastParagraph
-    
-    ' Get the chart entity.
-    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
-    
+' Open an existing PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
+    ' Gets the first slide.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Gets the chart in the slide.
+    Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
+
     ' Set the horizontal (category) axis title.
     chart.PrimaryCategoryAxis.Title = "Months"
-    
-    ' Set the Vertical (value) axis title.
+    ' Set the vertical (value) axis title.
     chart.PrimaryValueAxis.Title = "Precipitation,in."
-    
     ' Set title for the secondary value axis.
     chart.SecondaryValueAxis.Title = "Temperature,deg.F"
-    
+
     ' Customize the horizontal category axis.
     chart.PrimaryCategoryAxis.Border.LinePattern = OfficeChartLinePattern.Solid
-    chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue
+    chart.PrimaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue
     chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline
-    
+
     ' Customize the vertical category axis.
     chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid
-    chart.PrimaryValueAxis.Border.LineColor = Color.Blue
+    chart.PrimaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue
     chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow
-    
+
     ' Customize the horizontal category axis font.
     chart.PrimaryCategoryAxis.Font.Color = OfficeKnownColors.Red
     chart.PrimaryCategoryAxis.Font.FontName = "Calibri"
     chart.PrimaryCategoryAxis.Font.Bold = True
     chart.PrimaryCategoryAxis.Font.Size = 8
-    
+
     ' Customize the vertical category axis font.
     chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red
     chart.PrimaryValueAxis.Font.FontName = "Calibri"
     chart.PrimaryValueAxis.Font.Bold = True
     chart.PrimaryValueAxis.Font.Size = 8
-    
+
     ' Customize the secondary vertical category axis.
     chart.SecondaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid
-    chart.SecondaryValueAxis.Border.LineColor = Color.Blue
+    chart.SecondaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue
     chart.SecondaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow
-    
+
     ' Customize the secondary vertical category axis font.
     chart.SecondaryValueAxis.Font.Color = OfficeKnownColors.Red
     chart.SecondaryValueAxis.Font.FontName = "Calibri"
     chart.SecondaryValueAxis.Font.Bold = True
     chart.SecondaryValueAxis.Font.Size = 8
-    
+
     ' Axis title area text angle rotation.
     chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 270
-    
+
     ' Maximum value in the axis.
     chart.PrimaryValueAxis.MaximumValue = 15
     chart.PrimaryValueAxis.MinimumValue = 0
-    
-    ' Number format for axis.
+    ' Number format for the axis.
     chart.PrimaryValueAxis.NumberFormat = "0.0"
-    
+
     ' Hiding major gridlines.
     chart.PrimaryValueAxis.HasMajorGridLines = True
-    
+
     ' Showing minor gridlines.
     chart.PrimaryValueAxis.HasMinorGridLines = False
-    
-    ' Save the Word file.
-    document.Save("Sample.docx")
+
+    ' Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx")
 End Using
 
 {% endhighlight %}

@@ -1,14 +1,14 @@
 ---
 title: Modify the Appearance of Chart Title | Syncfusion
-description: Learn how to modify the appearance of chart title in a chart in a Word document using Syncfusion .NET Word (DocIO) library without Microsoft Word.
+description: Learn how to modify the appearance of chart title in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
 # Chart Title
 
-Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using DocIO, you can **customize the chart title in the chart**.
+Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Presentation, you can **customize the chart title in the chart**.
 
 ## Set the Chart Title Name
 
@@ -117,66 +117,78 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing document from file system through constructor of WordDocument class.
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-{
-    //Get the paragraph.
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity.
-    WChart chart = paragraph.ChildEntities[0] as WChart;
+ FileStream fileStreamPath = new FileStream("Data/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+      
+ //Open an existing PowerPoint Presentation.
+ using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
+ {
+     //Gets the first slide.
+     ISlide slide = pptxDoc.Slides[0];
+     //Gets the chart in slide.
+     IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
-    // Set the chart title.
-    chart.ChartTitle = "Purchase Details";
+     // Set the chart title.
+     chart.ChartTitle = "Purchase Details";
 
-    // Customize chart title area.
-    chart.ChartTitleArea.FontName = "Calibri";
-    chart.ChartTitleArea.Bold = true;
-    chart.ChartTitleArea.Color = OfficeKnownColors.Black;
-    chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
+     // Customize chart title area.
+     chart.ChartTitleArea.FontName = "Calibri";
+     chart.ChartTitleArea.Bold = true;
+     chart.ChartTitleArea.Color = OfficeKnownColors.Black;
+     chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
 
-    //Manually resizing chart title area using Layout.
-    chart.ChartTitleArea.Layout.Left = 5;
-   
-    using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-    {
-        //Save the Word file.
-        document.Save(outputStream, FormatType.Docx);
-    }
-}
+     //Manually resizing chart title area using Layout.
+     chart.ChartTitleArea.Layout.Left = 5;
+
+     //Enable legend.
+     chart.HasLegend = true;
+     chart.Legend.Position = OfficeLegendPosition.Right;
+
+     using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+     {
+         //Save the PowerPoint Presentation.
+         pptxDoc.Save(outputStream);
+     }
+ }
 
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+      
+ //Open an existing PowerPoint Presentation.
+ using (IPresentation pptxDoc = Presentation.Open("Template.pptx"))
+ {
+     //Gets the first slide.
+     ISlide slide = pptxDoc.Slides[0];
+     //Gets the chart in slide.
+     IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
-using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
-{
-    //Get the paragraph.
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity.
-    WChart chart = paragraph.ChildEntities[0] as WChart;
-    // Set the chart title.
-    chart.ChartTitle = "Purchase Details";
+     // Set the chart title.
+     chart.ChartTitle = "Purchase Details";
 
-    // Customize chart title area.
-    chart.ChartTitleArea.FontName = "Calibri";
-    chart.ChartTitleArea.Bold = true;
-    chart.ChartTitleArea.Color = OfficeKnownColors.Black;
-    chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
+     // Customize chart title area.
+     chart.ChartTitleArea.FontName = "Calibri";
+     chart.ChartTitleArea.Bold = true;
+     chart.ChartTitleArea.Color = OfficeKnownColors.Black;
+     chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy;
 
-    //Manually resizing chart title area using Layout.
-    chart.ChartTitleArea.Layout.Left = 5;
-    document.Save("Sample.docx");
-}
+     //Manually resizing chart title area using Layout.
+     chart.ChartTitleArea.Layout.Left = 5;
+
+     //Enable legend.
+     chart.HasLegend = true;
+     chart.Legend.Position = OfficeLegendPosition.Right;
+
+     //Save the PowerPoint Presentation.
+     pptxDoc.Save("Result.pptx");
+ }
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument("Template.docx", FormatType.Docx)
-    ' Get the paragraph.
-    Dim paragraph As WParagraph = document.LastParagraph
-
-    ' Get the chart entity.
-    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
+Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
+    ' Gets the first slide.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Gets the chart in the slide.
+    Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
     ' Set the chart title.
     chart.ChartTitle = "Purchase Details"
@@ -187,10 +199,15 @@ Using document As New WordDocument("Template.docx", FormatType.Docx)
     chart.ChartTitleArea.Color = OfficeKnownColors.Black
     chart.ChartTitleArea.Underline = OfficeUnderline.WavyHeavy
 
-    ' Manually resize chart title area using Layout.
+    ' Manually resize the chart title area using Layout.
     chart.ChartTitleArea.Layout.Left = 5
 
-    document.Save("Sample.docx")
+    ' Enable legend.
+    chart.HasLegend = True
+    chart.Legend.Position = OfficeLegendPosition.Right
+
+    ' Save the PowerPoint presentation.
+    pptxDoc.Save("Result.pptx")
 End Using
 
 {% endhighlight %}

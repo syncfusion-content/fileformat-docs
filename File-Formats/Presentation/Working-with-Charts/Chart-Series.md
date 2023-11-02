@@ -1,14 +1,14 @@
 ---
 title: Modify the Appearance of Series | Syncfusion
-description: Learn how to modify the appearance of series in a chart in a Word document using Syncfusion .NET Word (DocIO) library without Microsoft Word.
+description: Learn how to modify the appearance of series in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
 # Chart Series
 
-In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using DocIO, you can **customize the series in the chart**.
+In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using Presentation, you can **customize the series in the chart**.
 
 ## Set the Series Name
 
@@ -130,38 +130,14 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Creates a new instance of WordDocument (Empty Word Document).
- using (WordDocument document = new WordDocument())
+ FileStream fileStreamPath = new FileStream("Data/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+ //Open an existing PowerPoint Presentation.
+ using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
  {
-     //Adds section to the document.
-     IWSection sec = document.AddSection();
-     //Adds paragraph to the section.
-     IWParagraph paragraph = sec.AddParagraph();
-     //Inputs data for chart.
-     object[][] data = new object[6][];
-     for (int i = 0; i < 6; i++)
-         data[i] = new object[3];
-     data[0][0] = "";
-     data[1][0] = "Camembert Pierrot";
-     data[2][0] = "Alice Mutton";
-     data[3][0] = "Roasted Tigers";
-     data[4][0] = "Orange Shake";
-     data[5][0] = "Dried Apples";
-     data[0][1] = "Sum of Purchases";
-     data[1][1] = 286;
-     data[2][1] = 680;
-     data[3][1] = 288;
-     data[4][1] = 200;
-     data[5][1] = 731;
-     data[0][2] = "Sum of Future Expenses";
-     data[1][2] = 1300;
-     data[2][2] = 700;
-     data[3][2] = 1280;
-     data[4][2] = 1200;
-     data[5][2] = 2660;
-
-     //Creates and Appends chart to the paragraph.
-     WChart chart = paragraph.AppendChart(data, 470, 300);
+     //Gets the first slide.
+     ISlide slide = pptxDoc.Slides[0];
+     //Gets the chart in slide.
+     IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
      //Sets chart type and title.
      chart.ChartTitle = "Purchase Details";
@@ -189,112 +165,62 @@ The complete code snippet illustrating the above options is shown below.
      //Sets position of legend.
      chart.Legend.Position = OfficeLegendPosition.Bottom;
 
-     //Creates file stream.
-     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+     using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
      {
-         //Saves the Word document to file stream.
-         document.Save(outputFileStream, FormatType.Docx);
+         //Save the PowerPoint Presentation.
+         pptxDoc.Save(outputStream);
      }
  }
 
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
-//Creates a new instance of WordDocument (Empty Word Document).
-using (WordDocument document = new WordDocument())
-{
-    //Adds section to the document.
-    IWSection sec = document.AddSection();
-    //Adds paragraph to the section.
-    IWParagraph paragraph = sec.AddParagraph();
-    //Inputs data for chart.
-    object[][] data = new object[6][];
-    for (int i = 0; i < 6; i++)
-        data[i] = new object[3];
-    data[0][0] = "";
-    data[1][0] = "Camembert Pierrot";
-    data[2][0] = "Alice Mutton";
-    data[3][0] = "Roasted Tigers";
-    data[4][0] = "Orange Shake";
-    data[5][0] = "Dried Apples";
-    data[0][1] = "Sum of Purchases";
-    data[1][1] = 286;
-    data[2][1] = 680;
-    data[3][1] = 288;
-    data[4][1] = 200;
-    data[5][1] = 731;
-    data[0][2] = "Sum of Future Expenses";
-    data[1][2] = 1300;
-    data[2][2] = 700;
-    data[3][2] = 1280;
-    data[4][2] = 1200;
-    data[5][2] = 2660;
+ //Open an existing PowerPoint Presentation.
+ using (IPresentation pptxDoc = Presentation.Open("Template.pptx"))
+ {
+     //Gets the first slide.
+     ISlide slide = pptxDoc.Slides[0];
+     //Gets the chart in slide.
+     IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
-    //Creates and Appends chart to the paragraph.
-    WChart chart = paragraph.AppendChart(data, 470, 300);
+     //Sets chart type and title.
+     chart.ChartTitle = "Purchase Details";
+     chart.ChartTitleArea.FontName = "Calibri";
+     chart.ChartTitleArea.Size = 14;
+     chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 
-    //Sets chart type and title.
-    chart.ChartTitle = "Purchase Details";
-    chart.ChartTitleArea.FontName = "Calibri";
-    chart.ChartTitleArea.Size = 14;
-    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+     //Sets series type.
+     chart.Series[0].SerieType = OfficeChartType.Line_Markers;
+     chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
 
-    //Sets series type.
-    chart.Series[0].SerieType = OfficeChartType.Line_Markers;
-    chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
+     chart.PrimaryCategoryAxis.Title = "Products";
+     chart.PrimaryValueAxis.Title = "In Dollars";
 
-    chart.PrimaryCategoryAxis.Title = "Products";
-    chart.PrimaryValueAxis.Title = "In Dollars";
+     // Configure the fill settings for the first series in the chart.
+     chart.Series[1].SerieFormat.Fill.FillType = OfficeFillType.Gradient;
+     chart.Series[1].SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+     chart.Series[1].SerieFormat.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+     chart.Series[1].SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Red;
+     //Customize series border.
+     chart.Series[1].SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red;
+     chart.Series[1].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot;
+     chart.Series[1].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline;
 
-    // Configure the fill settings for the first series in the chart.
-    chart.Series[1].SerieFormat.Fill.FillType = OfficeFillType.Gradient;
-    chart.Series[1].SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-    chart.Series[1].SerieFormat.Fill.BackColor = Color.FromArgb(205, 217, 234);
-    chart.Series[1].SerieFormat.Fill.ForeColor = Color.Red;
-    //Customize series border.
-    chart.Series[1].SerieFormat.LineProperties.LineColor = Color.Red;
-    chart.Series[1].SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot;
-    chart.Series[1].SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline;
-
-    //Sets position of legend.
-    chart.Legend.Position = OfficeLegendPosition.Bottom;
-    //Saves the Word document to file stream.
-    document.Save("Sample.docx");             
-}
+     //Sets position of legend.
+     chart.Legend.Position = OfficeLegendPosition.Bottom;
+     //Save the PowerPoint Presentation.
+     pptxDoc.Save("Result.pptx");
+ }
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument()
-    ' Adds a section to the document.
-    Dim sec As IWSection = document.AddSection()
-    
-    ' Adds a paragraph to the section.
-    Dim paragraph As IWParagraph = sec.AddParagraph()
-
-    ' Inputs data for the chart.
-    Dim data As Object(,) = New Object(5, 2) {}
-    data(0, 0) = ""
-    data(1, 0) = "Camembert Pierrot"
-    data(2, 0) = "Alice Mutton"
-    data(3, 0) = "Roasted Tigers"
-    data(4, 0) = "Orange Shake"
-    data(5, 0) = "Dried Apples"
-    data(0, 1) = "Sum of Purchases"
-    data(1, 1) = 286
-    data(2, 1) = 680
-    data(3, 1) = 288
-    data(4, 1) = 200
-    data(5, 1) = 731
-    data(0, 2) = "Sum of Future Expenses"
-    data(1, 2) = 1300
-    data(2, 2) = 700
-    data(3, 2) = 1280
-    data(4, 2) = 1200
-    data(5, 2) = 2660
-
-    ' Creates and appends a chart to the paragraph.
-    Dim chart As WChart = paragraph.AppendChart(data, 470, 300)
+' Open an existing PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
+    ' Gets the first slide.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Gets the chart in slide.
+    Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
     ' Sets chart type and title.
     chart.ChartTitle = "Purchase Details"
@@ -312,19 +238,19 @@ Using document As New WordDocument()
     ' Configure the fill settings for the first series in the chart.
     chart.Series(1).SerieFormat.Fill.FillType = OfficeFillType.Gradient
     chart.Series(1).SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor
-    chart.Series(1).SerieFormat.Fill.BackColor = Color.FromArgb(205, 217, 234)
-    chart.Series(1).SerieFormat.Fill.ForeColor = Color.Red
+    chart.Series(1).SerieFormat.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234)
+    chart.Series(1).SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Red
 
     ' Customize series border.
-    chart.Series(1).SerieFormat.LineProperties.LineColor = Color.Red
+    chart.Series(1).SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Red
     chart.Series(1).SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot
     chart.Series(1).SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline
 
-    ' Sets the position of the legend.
+    ' Sets position of legend.
     chart.Legend.Position = OfficeLegendPosition.Bottom
 
-    ' Saves the Word document to a file.
-    document.Save("Sample.docx")
+    ' Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx")
 End Using
 
 {% endhighlight %}

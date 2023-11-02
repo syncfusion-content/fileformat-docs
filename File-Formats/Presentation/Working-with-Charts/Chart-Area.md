@@ -1,14 +1,14 @@
 ---
 title: Modify the Appearance of Chart Area | Syncfusion
-description: Learn how to modify the appearance of chart area in a chart in a Word document using Syncfusion .NET Word (DocIO) library without Microsoft Word.
+description: Learn how to modify the appearance of chart area in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
 # Chart Area
 
-Chart area refers to the space that contains the chart or graph you've inserted into a document. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using DocIO, you can **customize the chart area in the chart**.
+Chart area refers to the space that contains the chart or graph you've inserted into a document. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Presentation, you can **customize the chart area in the chart**.
 
 ## Customization of Border
 
@@ -86,84 +86,75 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-FileStream fileStreamPath = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
- //Open an existing document from file system through constructor of WordDocument class.
- using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
- {
-     //Get the paragraph.
-     WParagraph paragraph = document.LastParagraph;
-     //Get the chart entity.
-     WChart chart = paragraph.ChildEntities[0] as WChart;
-     //Modify the chart height and width.
-     chart.Height = 300;
-     chart.Width = 500;
+FileStream fileStreamPath = new FileStream("Data/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-     //Format the chart area.
-     IOfficeChartFrameFormat chartArea = chart.ChartArea;
-
-     //Set border line pattern, color, line weight.
-     chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
-     chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
-     chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
-
-     //Set fill type and fill colors.
-     chartArea.Fill.FillType = OfficeFillType.Gradient;
-     chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-     chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
-     chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
-
-     using (FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-     {
-         //Save the Word file.
-         document.Save(outputStream, FormatType.Docx);
-     }
- }
-
-
-{% endhighlight %}
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-
-using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
 {
-    //Get the paragraph.
-    WParagraph paragraph = document.LastParagraph;
-    //Get the chart entity.
-    WChart chart = paragraph.ChildEntities[0] as WChart;
-    //Modify the chart height and width.
-    chart.Height = 300;
-    chart.Width = 500;
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
     //Format the chart area.
     IOfficeChartFrameFormat chartArea = chart.ChartArea;
 
     //Set border line pattern, color, line weight.
     chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
-    chartArea.Border.LineColor = Color.Blue;
+    chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
     chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
     //Set fill type and fill colors.
     chartArea.Fill.FillType = OfficeFillType.Gradient;
     chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-    chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
-    chartArea.Fill.ForeColor = Color.White;
+    chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+    chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 
-    //Save the Word file.
-    document.Save("Sample.docx");
+    using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    {
+        //Save the PowerPoint Presentation.
+        pptxDoc.Save(outputStream);
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Template.pptx"))
+{
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
+
+    //Format the chart area.
+    IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+    //Set border line pattern, color, line weight.
+    chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+    chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+    chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+    //Set fill type and fill colors.
+    chartArea.Fill.FillType = OfficeFillType.Gradient;
+    chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+    chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+    chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+    //Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx");
 }
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument("Template.docx", FormatType.Docx)
-    ' Get the paragraph.
-    Dim paragraph As WParagraph = document.LastParagraph
-
-    ' Get the chart entity.
-    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
-
-    ' Modify the chart height and width.
-    chart.Height = 300
-    chart.Width = 500
+' Load an existing PowerPoint presentation.
+    Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
+    ' Get the first slide.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Get the chart in the slide.
+    Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
     ' Format the chart area.
     Dim chartArea As IOfficeChartFrameFormat = chart.ChartArea
@@ -179,8 +170,8 @@ Using document As New WordDocument("Template.docx", FormatType.Docx)
     chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
     chartArea.Fill.ForeColor = Color.White
 
-    ' Save the Word file.
-    document.Save("Sample.docx")
+    ' Save the PowerPoint presentation.
+    pptxDoc.Save("Result.pptx")
 End Using
 
 {% endhighlight %}
