@@ -8,7 +8,7 @@ documentation: UG
 
 # Chart Title
 
-Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the chart title in the chart.
+Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using DocIO, you can **customize the chart title in the chart**.
 
 ## Set the Chart Title Name
 
@@ -195,7 +195,3 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.

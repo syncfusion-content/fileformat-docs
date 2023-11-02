@@ -8,7 +8,7 @@ documentation: UG
 
 # Chart Area
 
-Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the chart area in the chart.
+Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using DocIO, you can **customize the chart area in the chart**.
 
 ## Customization of Border
 
@@ -185,10 +185,6 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.
 
 ## Add Image in Chart Area
 

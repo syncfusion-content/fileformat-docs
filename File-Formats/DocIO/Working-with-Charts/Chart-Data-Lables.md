@@ -6,9 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Data Labels
+# Chart Data Labels
 
-Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, data labels provide valuable context. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the data labels in the chart.
+Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using DocIO, you can **customize the data labels in the chart**.
 
 ## Enable Data Labels in Chart
 
@@ -204,10 +204,6 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.
-
 ## Resize the Data Labels
 
 The following code snippet illustrates how to resize the data label in chart.
@@ -244,7 +240,6 @@ chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 3
 ' Manually resizing data label area using Manual Layout.
 chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 3
 chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 3
-
 
 {% endhighlight %}
 {% endtabs %}

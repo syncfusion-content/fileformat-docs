@@ -6,9 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Plot Area
+# Chart Plot Area
 
-The plot area refers to the region that represents the plotted data in a chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library you can customize the **plot area** in the chart.
+The plot area refers to the region that represents the plotted data in a chart. Using DocIO, you can **customize the plot area in the chart**.
 
 ## Customization of Border
 
@@ -155,7 +155,6 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 Using document As New WordDocument("Template.docx", FormatType.Docx)
     ' Get the paragraph.
     Dim paragraph As WParagraph = document.LastParagraph
-
     ' Get the chart entity.
     Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
 
@@ -163,19 +162,19 @@ Using document As New WordDocument("Template.docx", FormatType.Docx)
     chart.Height = 300
     chart.Width = 500
 
-    ' Format the chart area.
-    Dim chartArea As IOfficeChartFrameFormat = chart.ChartArea
+    ' Plot Area.
+    Dim chartPlotArea As IOfficeChartFrameFormat = chart.PlotArea
 
-    ' Set border line pattern, color, and line weight.
-    chartArea.Border.LinePattern = OfficeChartLinePattern.Solid
-    chartArea.Border.LineColor = Color.Blue
-    chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline
+    ' Plot area border settings - line pattern, color, weight.
+    chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid
+    chartPlotArea.Border.LineColor = Color.Blue
+    chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline
 
-    ' Set fill type and fill colors.
-    chartArea.Fill.FillType = OfficeFillType.Gradient
-    chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
-    chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
-    chartArea.Fill.ForeColor = Color.White
+    ' Set fill type and color.
+    chartPlotArea.Fill.FillType = OfficeFillType.Gradient
+    chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
+    chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+    chartPlotArea.Fill.ForeColor = Color.White
 
     ' Save the Word file.
     document.Save("Sample.docx")
@@ -183,11 +182,6 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
-
-
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.
 
 ## Add Image in Plot Area
 

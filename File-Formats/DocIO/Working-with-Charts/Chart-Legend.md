@@ -6,9 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Legend
+# Chart Legend
 
-Legends are visual pictorial hints that provide a viewer information that helps them understand an chart. Using Syncfusion [.NET Core Word (DocIO)](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) library, you can customize the legend in the chart.
+Legends are visual pictorial hints that provide a viewer information that helps them understand an chart. Using DocIO, you can **customize the legend in the chart**.
 
 ## Set the Position of Legend
 
@@ -159,7 +159,6 @@ chart.Legend.LegendEntries(0).IsDeleted = True
 {% endhighlight %}
 {% endtabs %}
 
-
 ## Manage Legend Visibility
 
 The following code snippet illustrates how to hide the legend in chart.
@@ -249,7 +248,6 @@ chart.Legend.Layout.ManualLayout.TopMode = LayoutModes.Edge
 
 {% endhighlight %}
 {% endtabs %}
-
 
 ## Resize the Legend
 
@@ -412,71 +410,50 @@ using (WordDocument document = new WordDocument("Template.docx"))
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument()
-    ' Adds a section to the document.
-    Dim sec As IWSection = document.AddSection()
-    
-    ' Adds a paragraph to the section.
-    Dim paragraph As IWParagraph = sec.AddParagraph()
+Using document As New WordDocument("Template.docx")
+    ' Get the paragraph.
+    Dim paragraph As WParagraph = document.LastParagraph
+    ' Get the chart entity.
+    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
 
-    ' Inputs data for the chart.
-    Dim data As Object(,) = New Object(5, 2) {}
-    data(0, 0) = ""
-    data(1, 0) = "Camembert Pierrot"
-    data(2, 0) = "Alice Mutton"
-    data(3, 0) = "Roasted Tigers"
-    data(4, 0) = "Orange Shake"
-    data(5, 0) = "Dried Apples"
-    data(0, 1) = "Sum of Purchases"
-    data(1, 1) = 286
-    data(2, 1) = 680
-    data(3, 1) = 288
-    data(4, 1) = 200
-    data(5, 1) = 731
-    data(0, 2) = "Sum of Future Expenses"
-    data(1, 2) = 1300
-    data(2, 2) = 700
-    data(3, 2) = 1280
-    data(4, 2) = 1200
-    data(5, 2) = 2660
+    ' Enable the legend.
+    chart.HasLegend = True
 
-    ' Creates and appends a chart to the paragraph.
-    Dim chart As WChart = paragraph.AppendChart(data, 470, 300)
+    ' Set the position of legend.
+    chart.Legend.Position = OfficeLegendPosition.Right
 
-    ' Sets chart type and title.
-    chart.ChartTitle = "Purchase Details"
-    chart.ChartTitleArea.FontName = "Calibri"
-    chart.ChartTitleArea.Size = 14
-    chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.Solid
+    ' Legend without overlapping the chart.
+    chart.Legend.IncludeInLayout = True
+    chart.Legend.FrameFormat.Border.AutoFormat = False
+    chart.Legend.FrameFormat.Border.IsAutoLineColor = False
+    chart.Legend.FrameFormat.Border.LineColor = Color.Black
+    chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot
+    chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Hairline
 
-    ' Sets series type.
-    chart.Series(0).SerieType = OfficeChartType.Line_Markers
-    chart.Series(1).SerieType = OfficeChartType.Bar_Clustered
+    ' Set the legend's text area formatting - font name, weight, color, size.
+    chart.Legend.TextArea.Bold = True
+    chart.Legend.TextArea.Color = OfficeKnownColors.Pink
+    chart.Legend.TextArea.FontName = "Times New Roman"
+    chart.Legend.TextArea.Size = 10
+    chart.Legend.TextArea.Strikethrough = False
 
-    chart.PrimaryCategoryAxis.Title = "Products"
-    chart.PrimaryValueAxis.Title = "In Dollars"
+    ' View legend in vertical.
+    chart.Legend.IsVerticalLegend = True
 
-    ' Configure the fill settings for the first series in the chart.
-    chart.Series(1).SerieFormat.Fill.FillType = OfficeFillType.Gradient
-    chart.Series(1).SerieFormat.Fill.GradientColorType = OfficeGradientColor.TwoColor
-    chart.Series(1).SerieFormat.Fill.BackColor = Color.FromArgb(205, 217, 234)
-    chart.Series(1).SerieFormat.Fill.ForeColor = Color.Red
+    ' Modifies the legend entry.
+    chart.Legend.LegendEntries(0).IsDeleted = True
 
-    ' Customize series border.
-    chart.Series(1).SerieFormat.LineProperties.LineColor = Color.Red
-    chart.Series(1).SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Dot
-    chart.Series(1).SerieFormat.LineProperties.LineWeight = OfficeChartLineWeight.Hairline
+    ' Manually resizing chart legend area using Layout.
+    chart.Legend.Layout.Left = 0.2
+    chart.Legend.Layout.Top = 5
+    chart.Legend.Layout.Width = 40
+    chart.Legend.Layout.Height = 40
 
-    ' Sets the position of the legend.
-    chart.Legend.Position = OfficeLegendPosition.Bottom
-
-    ' Saves the Word document to a file.
+    ' Legend without overlapping the chart.
+    chart.Legend.IncludeInLayout = True
+    ' Save the Word file.
     document.Save("Sample.docx")
 End Using
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
-
-By executing the program, you will get the **chart** as follows.
