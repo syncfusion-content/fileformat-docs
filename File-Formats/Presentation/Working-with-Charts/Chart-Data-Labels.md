@@ -1,6 +1,6 @@
 ---
 title: Modify the Appearance of Data Labels | Syncfusion
-description: Learn how to modify the appearance of data labels in a chart in a PowerPoint using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint.
+description: Learn how to modify the appearance of data labels in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
 control: PowerPoint
 documentation: UG
