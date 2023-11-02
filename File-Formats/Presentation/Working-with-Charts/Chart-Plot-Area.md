@@ -6,9 +6,9 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Plot Area
+# Chart Plot Area
 
-The plot area refers to the region that represents the plotted data in a chart. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library you can customize the **plot area** in the chart.
+The plot area refers to the region that represents the plotted data in a chart. Using Presentation, you can **customize the plot area in the chart**.
 
 ## Customization of Border
 

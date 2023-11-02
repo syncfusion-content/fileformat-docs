@@ -12,7 +12,7 @@ Charts typically have two axes that are used to measure and categorize data.
 -  Horizontal axis (also known as category axis or x axis).
 -  Vertical axis (also known as value axis or y axis).
 
-Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library, you can customize the **axis** in the chart.
+Using Presentation, you can **customize the axis in the chart**.
 
 ## Set the Axis Title
 

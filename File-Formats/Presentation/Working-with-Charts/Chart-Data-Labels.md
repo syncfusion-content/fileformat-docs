@@ -6,9 +6,9 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Data Labels
+# Chart Data Labels
 
-Data labels play a crucial role in enhancing the comprehensibility of a chart. By displaying specific information related to a data series or individual data points, data labels provide valuable context. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library, you can customize the **data labels** in the chart.
+Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using Presentation, you can **customize the data labels in the chart**.
 
 ## Enable Data Labels in Chart
 

@@ -8,7 +8,7 @@ documentation: UG
 
 # Chart Area
 
-Chart area refers to the space that contains the chart or graph you've inserted into a slide. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library, you can customize the **chart area** in the chart.
+Chart area refers to the space that contains the chart or graph you've inserted into a document. It includes the entire chart and all its elements, such as data points, labels, axes, and the plot area. Using Presentation, you can **customize the chart area in the chart**.
 
 ## Customization of Border
 

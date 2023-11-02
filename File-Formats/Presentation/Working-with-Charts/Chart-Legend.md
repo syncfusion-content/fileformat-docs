@@ -6,9 +6,9 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Legend
+# Chart Legend
 
-Legends are visual pictorial hints that provide a viewer information that helps them understand an chart. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library, you can customize the **legend** in the chart.
+Legends are visual pictorial hints that provide a viewer information that helps them understand an chart. Using Presentation, you can **customize the legend in the chart**.
 
 ## Set the Position of Legend
 

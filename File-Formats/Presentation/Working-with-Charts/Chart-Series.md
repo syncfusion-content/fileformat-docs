@@ -6,9 +6,9 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Series
+# Chart Series
 
-In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library you can customize the **series** in the chart.
+In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using Presentation, you can **customize the series in the chart**.
 
 ## Set the Series Name
 

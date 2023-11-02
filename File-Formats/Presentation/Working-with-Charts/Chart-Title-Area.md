@@ -6,9 +6,9 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Chart Title
+# Chart Title Area
 
-Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Syncfusion [.NET Core PowerPoint (Presentation)](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) library, you can customize the **chart title** in the chart.
+Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Presentation, you can **customize the chart title in the chart**.
 
 ## Set the Chart Title Name
 
