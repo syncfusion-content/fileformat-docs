@@ -428,7 +428,7 @@ Step 3: Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/S
 
 <img src="Console-Apps-images/Console-Apps-images_img7.png" alt="Install Syncfusion.XlsIO.WinForms NuGet Package" width="100%" Height="Auto"/>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
+N> The [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package is dependent package for Syncfusion Windows Forms GUI controls, so named with sufix "WinForms". It has platform independent .NET framework (4.0, 4.5, 4.5.1, 4.6) assemblies of Excel library and doesn't contain any Windows Forms related references or code. Hence, we recommend this package for .NET framework Console application.  
 
 Step 4: Include the following namespaces in the program.cs file.
 {% capture codesnippet1 %}
