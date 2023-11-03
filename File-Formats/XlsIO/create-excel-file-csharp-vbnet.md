@@ -9,6 +9,9 @@ keywords: c#, vb.net, excel, create excel, new excel , open excel, read excel, e
 
 # Create Excel File in C# and VB.NET
 
+To quickly get started on creating an Excel document, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=oLkSFvDLlEk" %}
+
 This section explains how to create a simple Excel file in C# and VB.NET using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 
 <table>
