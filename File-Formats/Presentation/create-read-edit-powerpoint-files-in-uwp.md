@@ -29,11 +29,11 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% highlight c# tabtitle="C#" %}
 <Page
     x:Class="CreateUWPPowerPoint.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="https://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="https://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CreateUWPPowerPoint"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="https://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="https://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -156,7 +156,7 @@ slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
 {% endtabs %}
 
-You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+You can download the image used in the sample from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
 
 **Add a shape:**
 
