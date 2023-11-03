@@ -1,14 +1,14 @@
 ---
 title: Modify the Appearance of Data Labels | Syncfusion
-description: Learn how to modify the appearance of data labels in a chart in a Word document using Syncfusion .NET Word (DocIO) library without Microsoft Word.
+description: Learn how to modify the appearance of data labels in a chart in a PowerPoint using .NET PowerPoint library (Presentation) without Microsoft PowerPoint.
 platform: file-formats
-control: DocIO
+control: PowerPoint
 documentation: UG
 ---
 
 # Chart Data Labels
 
-Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using DocIO, you can **customize the data labels in the chart**.
+Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using Presentation, you can **customize the data labels in the chart**.
 
 ## Enable Data Labels in Chart
 
@@ -114,91 +114,92 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
- //Open an existing document from file system through constructor of WordDocument class.
- using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
- {
-     //Get the paragraph.
-     WParagraph paragraph = document.LastParagraph;
-     //Get the chart entity.
-     WChart chart = paragraph.ChildEntities[0] as WChart;
-     for (int i = 0; i < chart.Series.Count; i++)
-     {
-         //Enable the datalabel in chart.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+FileStream fileStreamPath = new FileStream("Data/Template.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-         // Set the font size of the data labels.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
-         // Change the color of the data labels. 
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black;
-         // Make the data labels bold.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
-         // Set the position of data labels for the first series.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;                  
-     }
-     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-     {
-         //Save the Word file.
-         document.Save(outputStream, FormatType.Docx);
-     }
- }
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
+{
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
+
+    for (int i = 0; i < chart.Series.Count; i++)
+    {
+        //Enable the datalabel in chart.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+        // Set the font size of the data labels.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
+        // Change the color of the data labels. 
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black;
+        // Make the data labels bold.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+        // Set the position of data labels for the first series.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+    }
+    using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    {
+        //Save the PowerPoint Presentation.
+        pptxDoc.Save(outputStream);
+    }
+}
 
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
- using (WordDocument document = new WordDocument("Template.docx"))
- {
-     //Get the paragraph.
-     WParagraph paragraph = document.LastParagraph;
-     //Get the chart entity.
-     WChart chart = paragraph.ChildEntities[0] as WChart;
-     for (int i = 0; i < chart.Series.Count; i++)
-     {
-         //Enable the datalabel in chart.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Template.pptx"))
+{
+    //Gets the first slide.
+    ISlide slide = pptxDoc.Slides[0];
+    //Gets the chart in slide.
+    IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
-         // Set the font size of the data labels.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
-         // Change the color of the data labels. 
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black;
-         // Make the data labels bold.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
-         // Set the position of data labels for the first series.
-         chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
-     }
-     //Save the Word file.
-     document.Save("Sample.docx");
- }
+    for (int i = 0; i < chart.Series.Count; i++)
+    {
+        //Enable the datalabel in chart.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+        // Set the font size of the data labels.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
+        // Change the color of the data labels. 
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black;
+        // Make the data labels bold.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+        // Set the position of data labels for the first series.
+        chart.Series[i].DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+    }
+    //Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx");
+}
 
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-Using document As New WordDocument("Template.docx")
-    ' Get the paragraph.
-    Dim paragraph As WParagraph = document.LastParagraph
-    
-    ' Get the chart entity.
-    Dim chart As WChart = TryCast(paragraph.ChildEntities(0), WChart)
-    
+' Open an existing PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
+    ' Gets the first slide.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Gets the chart in the slide.
+    Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
+
     For i As Integer = 0 To chart.Series.Count - 1
-        ' Enable the datalabel in chart.
+        ' Enable the datalabel in the chart.
         chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
-        
+
         ' Set the font size of the data labels.
         chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Size = 10
-        
-        ' Change the color of the data labels.
+        ' Change the color of the data labels. 
         chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Color = OfficeKnownColors.Black
-        
         ' Make the data labels bold.
         chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Bold = True
-        
         ' Set the position of data labels for the first series.
         chart.Series(i).DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center
     Next
-    
-    ' Save the Word file.
-    document.Save("Sample.docx")
+
+    ' Save the PowerPoint Presentation.
+    pptxDoc.Save("Result.pptx")
 End Using
 
 {% endhighlight %}
