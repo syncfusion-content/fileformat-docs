@@ -9,6 +9,9 @@ documentation: UG
 
 A [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagram is a visual representation of your information, to effectively communicate your ideas in presentations. You can add and modify the [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagrams in PowerPoint presentations using Essential Presentation library.
 
+To quickly start creating a SmartArt in a PowerPoint Presentation using .NET PowerPoint libray, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=dQhN3i9s3Es" %}
+
 ## Adding SmartArt to a Slide
 
 You can add any of the predefined [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) diagrams to PowerPoint Presentation. The following code example demonstrates adding a [SmartArt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.ISmartArt.html) to a Slide.
