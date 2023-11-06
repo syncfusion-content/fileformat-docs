@@ -1,7 +1,7 @@
 ---
 title: How to open an existing XLSX workbook and save it as XLS | Syncfusion
 description: Code example to open an existing XLSX workbook and save it as XLS using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -11,97 +11,52 @@ documentation: UG
 You can open and save an existing .xlsx file to the .xls file by using XlsIO. The following code snippet illustrates this.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
 
-    //Open an existing Excel 2013 file
-    IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Open an existing Excel 2013 file
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
 
-    //Save it as "Excel 97 to 2003" format
-    workbook.Version = ExcelVersion.Excel97to2003;
-
-    workbook.SaveAs("Output.xls");
+  //Save it as "Excel 97 to 2003" format
+  FileStream outputStream = new FileStream("Output.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(outputStream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Open an existing Excel 2013 file
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+  //Save it as "Excel 97 to 2003" format
+  workbook.Version = ExcelVersion.Excel97to2003;
+  workbook.SaveAs("Output.xls");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-    'Open an existing Excel 2013 file
-    Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Open an existing Excel 2013 file
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-    'Save it as "Excel 97 to 2003" format
-    workbook.Version = ExcelVersion.Excel97to2003
-
-    workbook.SaveAs("Output.xls")
+  'Save it as "Excel 97 to 2003" format
+  workbook.Version = ExcelVersion.Excel97to2003
+  workbook.SaveAs("Output.xls")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    
-    //Open an existing Excel 2013 file
-    Stream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
-    //Save it as "Excel 97 to 2003" format
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "Output";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xls" });
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-    await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-
-    //Open an existing Excel 2013 file
-    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
-    //Save it as "Excel 97 to 2003" format
-    FileStream outputStream = new FileStream("Output.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(outputStream);
-
-    workbook.Close();
-    excelEngine.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-
-    //Open an existing Excel 2013 file
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-    //Save it as "Excel 97 to 2003" format
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xls", "application/vnd.ms-excel", stream);
-}
-{% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 N> Workbook must be saved in appropriate version, failing in this leads to file corruption.
 

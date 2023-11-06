@@ -109,7 +109,7 @@ WinUI and .NET MAUI
 </tr>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
@@ -183,7 +183,7 @@ ASP.NET Core (Targeting .NET Core),<br/>
 Console Application (Targeting .NET Core)
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -191,7 +191,7 @@ Console Application (Targeting .NET Core)
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -199,7 +199,7 @@ Xamarin
 Blazor (Server-Side)
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -207,7 +207,7 @@ Blazor (Server-Side)
 WinUI and .NET MAUI
 </td>
 <td>
-{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
+{{'[Syncfusion.XlsIORenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NET/)'| markdownify }}
 </td>
 </tr>
 </table>

@@ -1,35 +1,50 @@
 ---
-title: Working with Paragraph | Syncfusion
-description: This section explains how to work with the child elements of Paragraph in Word document using Syncfusion Word library (Essential DocIO) 
+title: Working with Paragraphs in .NET Word library | Syncfusion
+description: Learn how to work with paragraphs, lists, and child elements of paragraphs in a Word document using the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 # Working with Paragraph
 
-Paragraph is the basic element in a Word document that contains a textual and graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation, and more. Within a paragraph, the contents are represented by one or more child elements such as `WTextRange`, `WPicture`, and `Hyperlink` and more. The `ParagraphItem` is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
+Paragraph is the basic element in a Word document that contains a textual and graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation, and more. Within a paragraph, the contents are represented by one or more child elements such as [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html), [WPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html), and [Hyperlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyperlink.html) and more. The [ParagraphItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.ParagraphItem.html) is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
 
-* Text: Represented by an instance of `WTextRange`.
-* Image: Represented by an instance of `WPicture`. 
-* Comments: Represented by an instance of `WComment`.
-* Hyperlink: Represented by an instance of `Hyperlink`. 
-* Symbols: Represented by an instance of `WSymbol`. 
-* Breaks: Represented by an instance of `Break`. 
-* OLE Object: Represented by an instance of `WOleObject`. 
-* Shapes:  Represented by an instance of `Shape`. 
-* TextBox: Represented by an instance of `WTextBox`. 
-* Chart: Represented by an instance of `WChart`.
-* Fields: Represented by an instance of `WField`.
-* Form Fields: Represented by an instance of `WFormField`.
-* Bookmarks: Represented by instances of `BookmarkStart` and `BookmarkEnd`. 
-* Absolute Tab: Represented by an instance of `WAbsoluteTab`.
-* Footnotes and Endnotes: Represented by an instance of `WFootnote`.
+* Text: Represented by an instance of [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html).
+* Image: Represented by an instance of [WPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html). 
+* Comments: Represented by an instance of [WComment](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WComment.html).
+* Hyperlink: Represented by an instance of [Hyperlink](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Hyperlink.html). 
+* Symbols: Represented by an instance of [WSymbol](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSymbol.html). 
+* Breaks: Represented by an instance of [Break](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Break.html). 
+* OLE Object: Represented by an instance of [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html). 
+* Shapes:  Represented by an instance of [Shape](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Shape.html). 
+* TextBox: Represented by an instance of [WTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBox.html). 
+* Chart: Represented by an instance of [WChart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WChart.html).
+* Fields: Represented by an instance of [WField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WField.html).
+* Form Fields: Represented by an instance of [WFormField](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFormField.html).
+* Bookmarks: Represented by instances of [BookmarkStart](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkStart.html) and [BookmarkEnd](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BookmarkEnd.html). 
+* Footnotes and Endnotes: Represented by an instance of [WFootnote](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WFootnote.html).
 
 The following code example explains how to add a new paragraph.
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Adds new text to the paragraph
+paragraph.AppendText("Adding new paragraph to the document");
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -44,7 +59,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -59,74 +74,41 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-paragraph.AppendText("Adding new paragraph to the document");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-paragraph.AppendText("Adding new paragraph to the document");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-paragraph.AppendText("Adding new paragraph to the document");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-paragraph).
 
 The following code example illustrates how to modify an existing paragraph.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Test.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document
+WordDocument document = new WordDocument(fileStream, FormatType.Docx);
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Iterates through the child elements of paragraph
+foreach (ParagraphItem item in paragraph.ChildEntities)
+{
+    if (item is WTextRange)
+    {
+        WTextRange text = item as WTextRange;
+        //Modifies the character format of the text
+        text.CharacterFormat.Bold = true;
+        break;
+    }
+}
+///Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %} 
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the text body of first section
@@ -150,7 +132,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 'Gets the text body of first section
@@ -159,12 +141,12 @@ Dim textBody As WTextBody = document.Sections(0).Body
 Dim paragraph As WParagraph = textBody.Paragraphs(1)
 'Iterates through the child elements of paragraph
 For Each item As ParagraphItem In paragraph.ChildEntities
-	If TypeOf item Is WTextRange Then
-		Dim text As WTextRange = TryCast(item, WTextRange)
-		'Modifies the character format of the text
-		text.CharacterFormat.Bold = True
-		Exit For
-	End If
+    If TypeOf item Is WTextRange Then
+        Dim text As WTextRange = TryCast(item, WTextRange)
+        'Modifies the character format of the text
+        text.CharacterFormat.Bold = True
+        Exit For
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -172,98 +154,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Iterates through the child elements of paragraph
-foreach (ParagraphItem item in paragraph.ChildEntities)
-{
-    if (item is WTextRange)
-    {
-        WTextRange text = item as WTextRange;
-        //Modifies the character format of the text
-        text.CharacterFormat.Bold = true;
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Test.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Iterates through the child elements of paragraph
-foreach (ParagraphItem item in paragraph.ChildEntities)
-{
-    if (item is WTextRange)
-    {
-        WTextRange text = item as WTextRange;
-        //Modifies the character format of the text
-        text.CharacterFormat.Bold = true;
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Iterates through the child elements of paragraph
-foreach (ParagraphItem item in paragraph.ChildEntities)
-{
-    if (item is WTextRange)
-    {
-        WTextRange text = item as WTextRange;
-        //Modifies the character format of the text
-        text.CharacterFormat.Bold = true;
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-an-existing-paragraph).
 
@@ -271,133 +162,99 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow, and more. The following code example explains how to apply formatting to a paragraph.
 
-N>The `FirstLineIndent` can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+N> The [FirstLineIndent](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraphFormat.html#Syncfusion_DocIO_DLS_WParagraphFormat_FirstLineIndent) can be used to update or retrieve both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-//Saves the Word document
-document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
-document.Close();
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Open the file as Stream.
+using (FileStream docStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    //Load the file stream into a Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access the section in a Word document.
+        IWSection section = document.Sections[0];
+        //Access the paragraph in a Word document.
+        IWParagraph paragraph = section.Paragraphs[4];
+        //Apply paragraph formatting.
+        paragraph.ParagraphFormat.AfterSpacing = 18f;
+        paragraph.ParagraphFormat.BeforeSpacing = 18f;
+        paragraph.ParagraphFormat.BackColor = Color.LightGray;
+        paragraph.ParagraphFormat.FirstLineIndent = 10f;
+        paragraph.ParagraphFormat.LineSpacing = 10f;
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[7];
+        //Apply keep lines together property to the paragraph.
+        paragraph.ParagraphFormat.Keep = true;
+        //Access the paragraph in a Word document.
+        paragraph = section.Paragraphs[6];
+        //Apply keep with next property to the paragraph.
+        paragraph.ParagraphFormat.KeepFollow = true;
+        //Saves the Word document to MemoryStream
+        MemoryStream stream = new MemoryStream();
+        document.Save(stream, FormatType.Docx);
+        //Closes the Word document
+        document.Close();
+    }
+}
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new Word document 
-Dim document As New WordDocument()
-'Adds new section to the document
-Dim section As IWSection = document.AddSection()
-'Adds new paragraph to the section
-Dim paragraph As IWParagraph = section.AddParagraph()
-'Adds new text to the paragraph
-Dim firstText As IWTextRange = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.")
-'Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18.0F
-paragraph.ParagraphFormat.BeforeSpacing = 18.0F
-paragraph.ParagraphFormat.BackColor = Color.LightGray
-paragraph.ParagraphFormat.FirstLineIndent = 10.0F
-paragraph.ParagraphFormat.LineSpacing = 10.0F
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
-'Saves the Word document
-document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
-document.Close()
-{% endhighlight %}   
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Load an existing Word document.
+using (WordDocument document = new WordDocument("Input.docx", FormatType.Docx))
+{
+    //Access the section in a Word document.
+    IWSection section = document.Sections[0];
+    //Access the paragraph in a Word document.
+    IWParagraph paragraph = section.Paragraphs[4];
+    //Apply paragraph formatting.
+    paragraph.ParagraphFormat.AfterSpacing = 18f;
+    paragraph.ParagraphFormat.BeforeSpacing = 18f;
+    paragraph.ParagraphFormat.BackColor = Color.LightGray;
+    paragraph.ParagraphFormat.FirstLineIndent = 10f;
+    paragraph.ParagraphFormat.LineSpacing = 10f;
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    //Access the paragraph in a Word document.
+    paragraph = section.Paragraphs[7];
+    //Apply keep lines together property to the paragraph.
+    paragraph.ParagraphFormat.Keep = true;
+    //Access the paragraph in a Word document.
+    paragraph = section.Paragraphs[6];
+    //Apply keep with next property to the paragraph.
+    paragraph.ParagraphFormat.KeepFollow = true;
+    //Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-//Applies paragraph formatting
-paragraph.ParagraphFormat.AfterSpacing = 18f;
-paragraph.ParagraphFormat.BeforeSpacing = 18f;
-paragraph.ParagraphFormat.BackColor = Syncfusion.Drawing.Color.LightGray;
-paragraph.ParagraphFormat.FirstLineIndent = 10f;
-paragraph.ParagraphFormat.LineSpacing = 10f;
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Load an existing Word document.
+Using document As WordDocument = New WordDocument("Input.docx", FormatType.Docx)
+    'Access the section in a Word document.
+    Dim section As IWSection = document.Sections(0)
+    'Access the paragraph in a Word document.
+    Dim paragraph As IWParagraph = section.Paragraphs(4)
+    'Apply paragraph formatting.
+    paragraph.ParagraphFormat.AfterSpacing = 18F
+    paragraph.ParagraphFormat.BeforeSpacing = 18F
+    paragraph.ParagraphFormat.BackColor = Color.LightGray
+    paragraph.ParagraphFormat.FirstLineIndent = 10F
+    paragraph.ParagraphFormat.LineSpacing = 10F
+    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
+    'Access the paragraph in a Word document.
+    paragraph = section.Paragraphs(7)
+    'Apply keep lines together property to the paragraph.
+    paragraph.ParagraphFormat.Keep = True
+    'Access the paragraph in a Word document.
+    paragraph = section.Paragraphs(6)
+    'Apply keep with next property to the paragraph.
+    paragraph.ParagraphFormat.KeepFollow = True
+    'Save a Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -411,10 +268,28 @@ T> You can define a custom style or modify any built-in style to the required fo
 
 The following code example explains how to use the predefined styles.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph firstParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange firstText = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
+//Applies built-in style for the paragraph
+firstParagraph.ApplyStyle(BuiltinStyle.Heading1);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creates a new Word document
 WordDocument document = new WordDocument();
 //Adds new section to the document
 IWSection section = document.AddSection();
@@ -430,7 +305,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -447,71 +322,6 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
-//Applies built-in style for the paragraph
-firstParagraph.ApplyStyle(BuiltinStyle.Heading1);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
-//Applies built-in style for the paragraph
-firstParagraph.ApplyStyle(BuiltinStyle.Heading1);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
-//Applies built-in style for the paragraph
-firstParagraph.ApplyStyle(BuiltinStyle.Heading1);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Apply-paragraph-style).
@@ -520,9 +330,36 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to create a custom paragraph style and apply it to a paragraph.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Creates user defined style
+IWParagraphStyle style = document.AddParagraphStyle("User_defined_style");
+style.ParagraphFormat.BackColor = Color.LightGray;
+style.ParagraphFormat.AfterSpacing = 18f;
+style.ParagraphFormat.BeforeSpacing = 18f;
+style.ParagraphFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.DotDash;
+style.ParagraphFormat.Borders.LineWidth = 0.5f;
+style.ParagraphFormat.LineSpacing = 15f;
+style.CharacterFormat.FontName = "Calibri";
+style.CharacterFormat.Italic = true;
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+IWTextRange text = paragraph.AppendText("A new paragraph style is created and is applied to this paragraph.");
+//Applies the new style to paragraph
+paragraph.ApplyStyle("User_defined_style");
+///Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -548,7 +385,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -572,105 +409,13 @@ paragraph.ApplyStyle("User_defined_style")
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Creates user defined style
-IWParagraphStyle style = document.AddParagraphStyle("User_defined_style");
-style.ParagraphFormat.BackColor = Color.LightGray;
-style.ParagraphFormat.AfterSpacing = 18f;
-style.ParagraphFormat.BeforeSpacing = 18f;
-style.ParagraphFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.DotDash;
-style.ParagraphFormat.Borders.LineWidth = 0.5f;
-style.ParagraphFormat.LineSpacing = 15f;
-style.CharacterFormat.FontName = "Calibri";
-style.CharacterFormat.Italic = true;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-IWTextRange text = paragraph.AppendText("A new paragraph style is created and is applied to this paragraph.");
-//Applies the new style to paragraph
-paragraph.ApplyStyle("User_defined_style");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Creates user defined style
-IWParagraphStyle style = document.AddParagraphStyle("User_defined_style");
-style.ParagraphFormat.BackColor = Color.LightGray;
-style.ParagraphFormat.AfterSpacing = 18f;
-style.ParagraphFormat.BeforeSpacing = 18f;
-style.ParagraphFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.DotDash;
-style.ParagraphFormat.Borders.LineWidth = 0.5f;
-style.ParagraphFormat.LineSpacing = 15f;
-style.CharacterFormat.FontName = "Calibri";
-style.CharacterFormat.Italic = true;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-IWTextRange text = paragraph.AppendText("A new paragraph style is created and is applied to this paragraph.");
-//Applies the new style to paragraph
-paragraph.ApplyStyle("User_defined_style");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Creates user defined style
-IWParagraphStyle style = document.AddParagraphStyle("User_defined_style");
-style.ParagraphFormat.BackColor = Syncfusion.Drawing.Color.LightGray;
-style.ParagraphFormat.AfterSpacing = 18f;
-style.ParagraphFormat.BeforeSpacing = 18f;
-style.ParagraphFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.DotDash;
-style.ParagraphFormat.Borders.LineWidth = 0.5f;
-style.ParagraphFormat.LineSpacing = 15f;
-style.CharacterFormat.FontName = "Calibri";
-style.CharacterFormat.Italic = true;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-IWTextRange text = paragraph.AppendText("A new paragraph style is created and is applied to this paragraph.");
-//Applies the new style to paragraph
-paragraph.ApplyStyle("User_defined_style");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Create-custom-paragraph-style).
 
-### Tab stop  
+### Tab stop
 
 A tab stop is a horizontal position that is set for aligning text of the paragraph.  A tab character causes the carriage to go to the next tab stop.
 
@@ -678,9 +423,30 @@ Each paragraph has its own tab stop collection where the new tab stop can be add
 
 The following code example explains how to add tab stops to the paragraph.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Adds tab stop at position 11
+Tab firstTab = paragraph.ParagraphFormat.Tabs.AddTab(11, TabJustification.Left, TabLeader.Dotted);
+//Adds tab stop at position 62
+paragraph.ParagraphFormat.Tabs.AddTab(62, TabJustification.Left, TabLeader.Single);
+paragraph.AppendText("This sample\t illustrates the use of tabs in the paragraph. Tabs\t can be inserted or removed from the paragraph.");
+//Removes tab stop from the collection
+paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -700,7 +466,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -718,81 +484,7 @@ paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11)
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds tab stop at position 11
-Tab firstTab = paragraph.ParagraphFormat.Tabs.AddTab(11, TabJustification.Left, TabLeader.Dotted);
-//Adds tab stop at position 62
-paragraph.ParagraphFormat.Tabs.AddTab(62, TabJustification.Left, TabLeader.Single);
-paragraph.AppendText("This sample\t illustrates the use of tabs in the paragraph. Tabs\t can be inserted or removed from the paragraph.");
-//Removes tab stop from the collection
-paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds tab stop at position 11
-Tab firstTab = paragraph.ParagraphFormat.Tabs.AddTab(11, TabJustification.Left, TabLeader.Dotted);
-//Adds tab stop at position 62
-paragraph.ParagraphFormat.Tabs.AddTab(62, TabJustification.Left, TabLeader.Single);
-paragraph.AppendText("This sample\t illustrates the use of tabs in the paragraph. Tabs\t can be inserted or removed from the paragraph.");
-//Removes tab stop from the collection
-paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds tab stop at position 11
-Tab firstTab = paragraph.ParagraphFormat.Tabs.AddTab(11, TabJustification.Left, TabLeader.Dotted);
-//Adds tab stop at position 62
-paragraph.ParagraphFormat.Tabs.AddTab(62, TabJustification.Left, TabLeader.Single);
-paragraph.AppendText("This sample\t illustrates the use of tabs in the paragraph. Tabs\t can be inserted or removed from the paragraph.");
-//Removes tab stop from the collection
-paragraph.ParagraphFormat.Tabs.RemoveByTabPosition(11);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -802,9 +494,29 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can set RTL (Right-to-left) direction to the paragraph in a Word document. The following code example shows how to set RTL (Right-to-left) for a paragraph in Word document.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Loads or opens an existing Word document through Open method of WordDocument class
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the text body of first section
+WTextBody textBody = document.Sections[0].Body;
+//Gets the paragraph at index 1
+WParagraph paragraph = textBody.Paragraphs[1];
+//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
+bool isRTL = paragraph.ParagraphFormat.Bidi;
+//Sets RTL direction for a paragraph
+if(!isRTL)
+    paragraph.ParagraphFormat.Bidi = true;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the text body of first section
@@ -822,7 +534,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Gets the text body of first section
@@ -841,82 +553,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads the template document
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Loads or opens an existing Word document through Open method of WordDocument class
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Loads or opens an existing Word document through Open method of WordDocument class
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the text body of first section
-WTextBody textBody = document.Sections[0].Body;
-//Gets the paragraph at index 1
-WParagraph paragraph = textBody.Paragraphs[1];
-//Gets a value indicating whether the paragraph is right-to-left. True indicates the paragraph direction is RTL
-bool isRTL = paragraph.ParagraphFormat.Bidi;
-//Sets RTL direction for a paragraph
-if(!isRTL)
-    paragraph.ParagraphFormat.Bidi = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
-{% endtabs %}   
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/RTL-paragraph).
 
@@ -930,13 +567,34 @@ A style is a predefined set of table, numbering, paragraph, and character proper
 
 ### Access Styles
 
-Paragraph and character styles present in the existing document are accessible through the `Styles` property of `WordDocument` class. 
+Paragraph and character styles present in the existing document are accessible through the [Styles](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_Styles) property of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) class. 
 
 This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
+{
+    //Accesses the styles collection that contains paragraph and character styles in Word document
+    IStyleCollection styleCollection = document.Styles;
+    //Finds the style with the name "Heading 1"
+    WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+    //Changes the text color of style "Heading 1" as DarkBlue
+    heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    //Changes the first line indent of Paragraph as 36 points
+    heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input Word template
 WordDocument document = new WordDocument(inputFileName);
 //Accesses the styles collection that contains paragraph and character styles in Word document
@@ -952,7 +610,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument(inputFileName)
 'Accesses the styles collection that contains paragraph and character styles in Word document
@@ -968,88 +626,39 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
-{
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an source document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
-{
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
-{
-	//Accesses the styles collection that contains paragraph and character styles in Word document
-	IStyleCollection styleCollection = document.Styles;
-	//Finds the style with the name "Heading 1"
-	WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
-	//Changes the text color of style "Heading 1" as DarkBlue
-	heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	//Changes the first line indent of Paragraph as 36 points
-	heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);   
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-}
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Access-styles-in-document).
 
 ### Creating a new Paragraph Style
 
-You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
+You can create a new paragraph style by using [WordDocument.AddParagraphStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_AddParagraphStyle_System_String_) method and apply it by using [ApplyStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ApplyStyle_System_String_) method of [WParagraph](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html) class.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
+{
+    IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+    //Sets the formatting of the style
+    myStyle.CharacterFormat.FontSize = 16f;
+    myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+    myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+    //Appends the contents into the paragraph
+    document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle("MyStyle");
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input Word template
 WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
@@ -1068,7 +677,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -1087,81 +696,7 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
-{
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an source document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
-{
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
-{
-	IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
-	//Sets the formatting of the style
-	myStyle.CharacterFormat.FontSize = 16f;
-	myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
-	myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-	//Appends the contents into the paragraph
-	document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle("MyStyle");
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-}
-{% endhighlight %}
- 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Create-new-paragraph-style).
 
@@ -1169,9 +704,24 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an source document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Docx))
+{
+    //Applies the style to paragraph
+    document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+    //Saves the Word document to MemoryStream
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input Word template
 WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
@@ -1185,7 +735,7 @@ document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template
 Dim document As New WordDocument()
 'This method adds a section and a paragraph in the document
@@ -1199,72 +749,36 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"), FormatType.Docx))
-{
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	//Please refer the below link to save Word document in UWP platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-	document.Close();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Opens an source document from file system through constructor of WordDocument class
-using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
-{
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	//Saves and closes the destination document to  MemoryStream
-	document.Save(stream, FormatType.Docx);
-	document.Close();
-	stream.Position = 0;
-	//Download Word document in the browser
-	return File(stream, "application/msword", "Result.docx");
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"), FormatType.Docx))
-{
-	//Applies the style to paragraph
-	document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
-	MemoryStream stream = new MemoryStream();
-	document.Save(stream, FormatType.Docx);
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
-	//Closes the document              
-	document.Close();
-	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-}
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Apply-built-in-style).
 
 ### Remove Styles
 
-You can remove the styles present in the existing document using the `Remove` method.
+You can remove the styles present in the existing document using the [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.Style.html#Syncfusion_DocIO_DLS_Style_Remove) method.
 
 The following code example explains how to remove the style from the word document.
 
 {% tabs %} 
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens an input Word template.
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+ //Accesses the styles collection that contains paragraph and character styles in a Word document.
+IStyleCollection styleCollection = document.Styles;
+//Finds the style with the name "Style1."
+WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
+//Remove the "Style1" style from the Word document.
+style.Remove();
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an input Word template.
 WordDocument document = new WordDocument("Template.docx");
 //Accesses the styles collection that contains paragraph and character styles in a Word document.
@@ -1278,7 +792,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an input Word template.
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Accesses the styles collection that contains paragraph and character styles in a Word document.
@@ -1292,83 +806,38 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an input Word template.
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Accesses the styles collection that contains paragraph and character styles in a Word document.
-IStyleCollection styleCollection = document.Styles;
-//Finds the style with the name "Style1."
-WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
-//Remove the "Style1" style from the Word document.
-style.Remove();
-//Saves the Word file to MemoryStream.
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as a Word document file in the local machine.
-Save(stream, "Sample.docx");
-//Closes the document instance.
-document.Close();
-
-//Please refer to the following link to save a Word document in the UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Opens an input Word template.
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
- //Accesses the styles collection that contains paragraph and character styles in a Word document.
-IStyleCollection styleCollection = document.Styles;
-//Finds the style with the name "Style1."
-WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
-//Remove the "Style1" style from the Word document.
-style.Remove();
-//Saves and closes the document.
-FileStream outputStream = new FileStream("Sample.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-document.Save(outputStream, FormatType.Docx);
-document.Close();
-outputStream.Flush();
-outputStream.Dispose();
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//"App" is the class of Portable project.
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Opens an input Word template.
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Automatic);
-//Accesses the styles collection that contains paragraph and character styles in a Word document.
-IStyleCollection styleCollection = document.Styles;
-//Finds the style with the name "Style1."
-WParagraphStyle style = styleCollection.FindByName("Style1") as WParagraphStyle;
-//Remove the "Style1" style from the Word document.
-style.Remove();
-//Saves the Word document to MemoryStream.
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document instance.
-document.Close();
-
-Please download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %} 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-document/Remove-particular-style-from-document).
 
 ## Working with Text 
 
-Text within a paragraph is represented by one or more instances of the `WTextRange`. Each `WTextRange` instance can have its own font (text) formatting.  
+Text within a paragraph is represented by one or more instances of the [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html). Each [WTextRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextRange.html) instance can have its own font (text) formatting.  
 
 The following code example explains how to append text to the paragraph.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph firstParagraph = section.AddParagraph();
+//Adds new text to the paragraph
+IWTextRange firstText = firstParagraph.AppendText("A new text is added to the paragraph.");
+firstText.CharacterFormat.FontSize = 14;
+firstText.CharacterFormat.Bold = true;
+firstText.CharacterFormat.TextColor = Color.Green;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1386,7 +855,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -1404,75 +873,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("A new text is added to the paragraph.");
-firstText.CharacterFormat.FontSize = 14;
-firstText.CharacterFormat.Bold = true;
-firstText.CharacterFormat.TextColor = Color.Green;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("A new text is added to the paragraph.");
-firstText.CharacterFormat.FontSize = 14;
-firstText.CharacterFormat.Bold = true;
-firstText.CharacterFormat.TextColor = Color.Green;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("A new text is added to the paragraph.");
-firstText.CharacterFormat.FontSize = 14;
-firstText.CharacterFormat.Bold = true;
-firstText.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Append-text-to-paragraph).
 
@@ -1480,9 +881,33 @@ Text in the paragraph can be modified or replaced with a new text. This can be a
 
 The following code example explains how to replace the text of a text range.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document 
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+//Gets the last paragraph
+WParagraph lastParagraph = document.LastParagraph;
+//Iterates through the paragraph items to get the text range and modifies its content.
+for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
+{
+    if (lastParagraph.ChildEntities[i] is WTextRange)
+    {
+        WTextRange textRange = lastParagraph.ChildEntities[i] as WTextRange;
+        textRange.Text = "First text range of the last paragraph is replaced";
+        textRange.CharacterFormat.FontSize = 14;
+        break;
+    }
+}
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the last paragraph
@@ -1504,19 +929,19 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim document As New WordDocument("Template.docx")
 'Gets the last paragraph
 Dim lastParagraph As WParagraph = document.LastParagraph
 'Iterates through the paragraph items to get the text range and modifies its content
 For i As Integer = 0 To lastParagraph.ChildEntities.Count - 1
-	If TypeOf lastParagraph.ChildEntities(i) Is WTextRange Then
-		Dim textRange As WTextRange = TryCast(lastParagraph.ChildEntities(i), WTextRange)
-		textRange.Text = "First text range of the last paragraph is replaced"
-		textRange.CharacterFormat.FontSize = 14
-		Exit For
-	End If
+    If TypeOf lastParagraph.ChildEntities(i) Is WTextRange Then
+        Dim textRange As WTextRange = TryCast(lastParagraph.ChildEntities(i), WTextRange)
+        textRange.Text = "First text range of the last paragraph is replaced"
+        textRange.CharacterFormat.FontSize = 14
+        Exit For
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -1524,93 +949,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document 
-WordDocument document = new WordDocument(FileStream);
-//Gets the last paragraph
-WParagraph lastParagraph = document.LastParagraph;
-//Iterates through the paragraph items to get the text range and modifies its content.
-for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
-{
-    if (lastParagraph.ChildEntities[i] is WTextRange)
-    {
-        WTextRange textRange = lastParagraph.ChildEntities[i] as WTextRange;
-        textRange.Text = "First text range of the last paragraph is replaced";
-        textRange.CharacterFormat.FontSize = 14;
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document 
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets the last paragraph
-WParagraph lastParagraph = document.LastParagraph;
-//Iterates through the paragraph items to get the text range and modifies its content.
-for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
-{
-    if (lastParagraph.ChildEntities[i] is WTextRange)
-    {
-        WTextRange textRange = lastParagraph.ChildEntities[i] as WTextRange;
-        textRange.Text = "First text range of the last paragraph is replaced";
-        textRange.CharacterFormat.FontSize = 14;
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document 
-WordDocument document = new WordDocument(FileStream, FormatType.Automatic);
-//Gets the last paragraph
-WParagraph lastParagraph = document.LastParagraph;
-//Iterates through the paragraph items to get the text range and modifies its content.
-for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
-{
-    if (lastParagraph.ChildEntities[i] is WTextRange)
-    {
-        WTextRange textRange = lastParagraph.ChildEntities[i] as WTextRange;
-        textRange.Text = "First text range of the last paragraph is replaced";
-        textRange.CharacterFormat.FontSize = 14;
-
-        break;
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Replace-text-of-a-text-range).
 
@@ -1618,9 +957,57 @@ Text formatting enhances the appearance of text in the document. Text formatting
 
 The following code example explains how to apply formatting to the text.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document 
+WordDocument document = new WordDocument();
+//Add new section to the document
+IWSection section = document.AddSection();
+//Add new paragraph to the section
+IWParagraph firstParagraph = section.AddParagraph();
+//Add new text to the paragraph
+IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
+//Apply formatting for first text range
+firstText.CharacterFormat.Bold = true;
+firstText.CharacterFormat.FontSize = 14;
+firstText.CharacterFormat.Shadow = true;
+firstText.CharacterFormat.SmallCaps = true;
+IWTextRange secondText = firstParagraph.AppendText("This the second text range");
+//Apply formatting for second text range
+secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
+secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
+secondText.CharacterFormat.Italic = true;
+secondText.CharacterFormat.FontName = "Times New Roman";
+secondText.CharacterFormat.TextColor = Color.Green;
+//Add new paragraph to the section
+IWParagraph secondParagraph = section.AddParagraph();
+//Add new text to the paragraph
+IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
+thirdText.CharacterFormat.Bidi = true;
+//Set language Identifier for right to left characters.
+thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
+//Add third paragraph to the section.
+IWParagraph thirdParagraph = section.AddParagraph();
+//Add text to the third paragraph
+IWTextRange fourthText = thirdParagraph.AppendText("X");
+IWTextRange fifthText = thirdParagraph.AppendText("2");
+//Apply super script formatting for fifth text range.
+fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+IWParagraph fourthParagraph = section.AddParagraph();
+//Add text to the fourth paragraph
+IWTextRange sixthText = fourthParagraph.AppendText("m");
+IWTextRange seventhText = fourthParagraph.AppendText("3");
+//Apply sub script formatting for seventh text range.
+seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document 
 WordDocument document = new WordDocument();
 //Add new section to the document
@@ -1667,7 +1054,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document 
 Dim document As New WordDocument()
 'Add new section to the document
@@ -1713,109 +1100,6 @@ document.Save("Sample.docx", FormatType.Docx)
 'Close the document
 document.Close()
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-//Create a new Word document 
-WordDocument document = new WordDocument();
-//Add new section to the document
-IWSection section = document.AddSection();
-//Add new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Add new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Apply formatting for first text range
-firstText.CharacterFormat.Bold = true;
-firstText.CharacterFormat.FontSize = 14;
-firstText.CharacterFormat.Shadow = true;
-firstText.CharacterFormat.SmallCaps = true;
-IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Apply formatting for second text range
-secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
-secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
-secondText.CharacterFormat.Italic = true;
-secondText.CharacterFormat.FontName = "Times New Roman";
-secondText.CharacterFormat.TextColor = Color.Green;
-//Add new paragraph to the section
-IWParagraph secondParagraph = section.AddParagraph();
-//Add new text to the paragraph
-IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
-thirdText.CharacterFormat.Bidi = true;
-//Set language Identifier for right to left characters.
-thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add third paragraph to the section.
-IWParagraph thirdParagraph = section.AddParagraph();
-//Add text to the third paragraph
-IWTextRange fourthText = thirdParagraph.AppendText("X");
-IWTextRange fifthText = thirdParagraph.AppendText("2");
-//Apply super script formatting for fifth text range.
-fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-IWParagraph fourthParagraph = section.AddParagraph();
-//Add text to the fourth paragraph
-IWTextRange sixthText = fourthParagraph.AppendText("m");
-IWTextRange seventhText = fourthParagraph.AppendText("3");
-//Apply sub script formatting for seventh text range
-seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Save and close the Word document instance
-MemoryStream stream = new MemoryStream();
-//Save the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Save the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Create a new Word document 
-WordDocument document = new WordDocument();
-//Add new section to the document
-IWSection section = document.AddSection();
-//Add new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Add new text to the paragraph
-IWTextRange firstText = firstParagraph.AppendText("This is the first text range. ");
-//Apply formatting for first text range
-firstText.CharacterFormat.Bold = true;
-firstText.CharacterFormat.FontSize = 14;
-firstText.CharacterFormat.Shadow = true;
-firstText.CharacterFormat.SmallCaps = true;
-IWTextRange secondText = firstParagraph.AppendText("This the second text range");
-//Apply formatting for second text range
-secondText.CharacterFormat.HighlightColor = Color.GreenYellow;
-secondText.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
-secondText.CharacterFormat.Italic = true;
-secondText.CharacterFormat.FontName = "Times New Roman";
-secondText.CharacterFormat.TextColor = Color.Green;
-//Add new paragraph to the section
-IWParagraph secondParagraph = section.AddParagraph();
-//Add new text to the paragraph
-IWTextRange thirdText = secondParagraph.AppendText("שלום עולם");
-thirdText.CharacterFormat.Bidi = true;
-//Set language Identifier for right to left characters.
-thirdText.CharacterFormat.LocaleIdBidi = (short)LocaleIDs.he_IL;
-//Add third paragraph to the section.
-IWParagraph thirdParagraph = section.AddParagraph();
-//Add text to the third paragraph
-IWTextRange fourthText = thirdParagraph.AppendText("X");
-IWTextRange fifthText = thirdParagraph.AppendText("2");
-//Apply super script formatting for fifth text range.
-fifthText.CharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-IWParagraph fourthParagraph = section.AddParagraph();
-//Add text to the fourth paragraph
-IWTextRange sixthText = fourthParagraph.AppendText("m");
-IWTextRange seventhText = fourthParagraph.AppendText("3");
-//Apply sub script formatting for seventh text range
-seventhText.CharacterFormat.SubSuperScript = SubSuperScript.SubScript;
-//Save and close the Word document instance
-MemoryStream stream = new MemoryStream();
-//Save the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
 
 {% highlight c# tabtitle="Xamarin" %}
 //Create a new Word document 
@@ -1867,9 +1151,9 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Apply-formatting-to-text).
 
@@ -1882,9 +1166,29 @@ DocIO provides support for both inline and absolute positioned images.
 
 The following code example explains how to add image to the paragraph.
 
-{% tabs %}   
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph firstParagraph = section.AddParagraph();
+//Adds image to  the paragraph
+FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
+IWPicture picture = firstParagraph.AppendPicture(imageStream);
+//Sets height and width for the image
+picture.Height = 100;
+picture.Width = 100;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -1902,7 +1206,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -1918,82 +1222,9 @@ picture.Width = 100
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-IWPicture picture = firstParagraph.AppendPicture(imageStream);
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds image to  the paragraph
-FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
-IWPicture picture = firstParagraph.AppendPicture(imageStream);
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph firstParagraph = section.AddParagraph();
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-IWPicture picture = firstParagraph.AppendPicture(imageStream);
-//Sets height and width for the image
-picture.Height = 100;
-picture.Width = 100;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image).
 
@@ -2003,9 +1234,39 @@ Image present in the document can be replaced with a new image. This can be achi
 
 The following code example explains how to replace an existing image.
 
-{% tabs %}   
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+WTextBody textbody = document.Sections[0].Body;
+//Iterates through the paragraphs of the textbody
+foreach (WParagraph paragraph in textbody.Paragraphs)
+{
+    //Iterates through the child elements of paragraph
+    foreach (ParagraphItem item in paragraph.ChildEntities)
+    {
+        if (item is WPicture)
+        {
+            WPicture picture = item as WPicture;
+            //Replaces the image
+            if (picture.Title == "Bookmark")
+            {
+                FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
+                picture.LoadImage(imageStream);
+            }
+        }
+    }
+}
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Template.docx");
 WTextBody textbody = document.Sections[0].Body;
@@ -2030,22 +1291,22 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs of the textbody
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Iterates through the child elements of paragraph
-	For Each item As ParagraphItem In paragraph.ChildEntities
-		If TypeOf item Is WPicture Then
-			Dim picture As WPicture = TryCast(item, WPicture)
-			'Replaces the image
-			If picture.Title = "Bookmark" Then
-				picture.LoadImage(Image.FromFile("Image.png"))
-			End If
-		End If
-	Next
+    'Iterates through the child elements of paragraph
+    For Each item As ParagraphItem In paragraph.ChildEntities
+        If TypeOf item Is WPicture Then
+            Dim picture As WPicture = TryCast(item, WPicture)
+            'Replaces the image
+            If picture.Title = "Bookmark" Then
+                picture.LoadImage(Image.FromFile("Image.png"))
+            End If
+        End If
+    Next
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2053,122 +1314,45 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WPicture)
-        {
-            WPicture picture = item as WPicture;
-            //Replaces the image
-            if (picture.Title == "Bookmark")
-            {
-                Stream imagestream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-                picture.LoadImage(imagestream);
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WPicture)
-        {
-            WPicture picture = item as WPicture;
-            //Replaces the image
-            if (picture.Title == "Bookmark")
-            {
-                FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
-                picture.LoadImage(imageStream);
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WPicture)
-        {
-            WPicture picture = item as WPicture;
-            //Replaces the image
-            if (picture.Title == "Bookmark")
-            {
-                Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-                picture.LoadImage(imageStream);
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Replace-image).
 
 ### Remove image
 
-Images can be removed from the document by removing it from the paragraph items. 
+Images can be removed from the document by removing it from the paragraph items.
 
 The following code example explains how to remove the image from the paragraph items.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document 
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+WTextBody textbody = document.Sections[0].Body;
+//Iterates through the paragraphs of the textbody
+foreach (WParagraph paragraph in textbody.Paragraphs)
+{
+    //Iterates through the child elements of paragraph
+    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    {
+        //Removes images from the paragraph
+        if (paragraph.ChildEntities[i] is WPicture)
+        {
+            paragraph.Items.RemoveAt(i);
+            i--;
+        }
+    }
+}
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document 
 WordDocument document = new WordDocument("Template.docx");
 WTextBody textbody = document.Sections[0].Body;
@@ -2192,20 +1376,20 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document 
 Dim document As New WordDocument("Template.docx")
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs of the textbody
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Iterates through the child elements of paragraph
-	For i As Integer = 0 To paragraph.ChildEntities.Count - 1
-		'Removes images from the paragraph
-		If TypeOf paragraph.ChildEntities(i) Is WPicture Then
-			paragraph.Items.RemoveAt(i)
-			i -= 1
-		End If
-	Next
+    'Iterates through the child elements of paragraph
+    For i As Integer = 0 To paragraph.ChildEntities.Count - 1
+        'Removes images from the paragraph
+        If TypeOf paragraph.ChildEntities(i) Is WPicture Then
+            paragraph.Items.RemoveAt(i)
+            i -= 1
+        End If
+    Next
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2213,98 +1397,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %} 
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document 
-WordDocument document = new WordDocument(fileStream);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-    {
-        //Removes images from the paragraph
-        if (paragraph.ChildEntities[i] is WPicture)
-        {
-            paragraph.Items.RemoveAt(i);
-            i--;
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document 
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-    {
-        //Removes images from the paragraph
-        if (paragraph.ChildEntities[i] is WPicture)
-        {
-            paragraph.Items.RemoveAt(i);
-            i--;
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads the template document 
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs of the textbody
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Iterates through the child elements of paragraph
-    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-    {
-        //Removes images from the paragraph
-        if (paragraph.ChildEntities[i] is WPicture)
-        {
-            paragraph.Items.RemoveAt(i);
-            i--;
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Remove-image).
 
@@ -2314,9 +1407,48 @@ Absolute positioned images have properties such as position, wrap formats, and a
 
 The following code example explains how various picture formats can be applied to the picture.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("This paragraph has picture. ");
+FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
+//Appends new picture to the paragraph
+WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
+//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
+picture.TextWrappingStyle = TextWrappingStyle.Square;    
+//Sets horizontal and vertical origin
+picture.HorizontalOrigin = HorizontalOrigin.Page;
+picture.VerticalOrigin = VerticalOrigin.Paragraph;
+//Sets width and height for the paragraph
+picture.Width = 150;     
+picture.Height = 100;
+//Sets horizontal and vertical position for the picture
+picture.HorizontalPosition = 200;
+picture.VerticalPosition = 150;
+//Sets lock aspect ratio for the picture
+picture.LockAspectRatio = true;
+picture.Name = "PictureName";
+//Sets horizontal and vertical alignments
+picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
+picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
+//Sets 90 degree rotation
+picture.Rotation = 90;
+//Sets horizontal flip
+picture.FlipHorizontal = true;
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2353,7 +1485,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -2388,151 +1520,55 @@ picture.FlipHorizontal = true
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("This paragraph has picture. ");
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-//Appends new picture to the paragraph
-WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
-picture.TextWrappingStyle = TextWrappingStyle.Square;
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Paragraph;
-//Sets width and height for the paragraph
-picture.Width = 150;
-picture.Height = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 200;
-picture.VerticalPosition = 150;
-//Sets lock aspect ratio for the picture
-picture.LockAspectRatio = true;
-picture.Name = "PictureName";
-//Sets horizontal and vertical alignments
-picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
-picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
-//Sets 90 degree rotation
-picture.Rotation = 90;
-//Sets horizontal flip
-picture.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("This paragraph has picture. ");
-FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
-//Appends new picture to the paragraph
-WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
-picture.TextWrappingStyle = TextWrappingStyle.Square;    
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Paragraph;
-//Sets width and height for the paragraph
-picture.Width = 150;     
-picture.Height = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 200;
-picture.VerticalPosition = 150;
-//Sets lock aspect ratio for the picture
-picture.LockAspectRatio = true;
-picture.Name = "PictureName";
-//Sets horizontal and vertical alignments
-picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
-picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
-//Sets 90 degree rotation
-picture.Rotation = 90;
-//Sets horizontal flip
-picture.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("This paragraph has picture. ");
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-//Appends new picture to the paragraph
-WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
-picture.TextWrappingStyle = TextWrappingStyle.Square;
-//Sets horizontal and vertical origin
-picture.HorizontalOrigin = HorizontalOrigin.Page;
-picture.VerticalOrigin = VerticalOrigin.Paragraph;
-//Sets width and height for the paragraph
-picture.Width = 150;
-picture.Height = 100;
-//Sets horizontal and vertical position for the picture
-picture.HorizontalPosition = 200;
-picture.VerticalPosition = 150;
-//Sets lock aspect ratio for the picture
-picture.LockAspectRatio = true;
-picture.Name = "PictureName";
-//Sets horizontal and vertical alignments
-picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
-picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
-//Sets 90 degree rotation
-picture.Rotation = 90;
-//Sets horizontal flip
-picture.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Format-and-rotate-image).
 
-### Find an image by title 
+### Find an image by title
 
 An Image with a specific title can be retrieved by iterating the paragraph items that can be used for further manipulations.
 
 The following code example explains how images can be iterated from the document elements.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads an existing Word document into DocIO instance
+WordDocument document = new WordDocument(fileStream, FormatType.Docx);
+//Gets textbody content
+WTextBody textBody = document.Sections[0].Body;
+//Iterates through the textbody child entities
+foreach (TextBodyItem item in textBody.ChildEntities)
+{
+    if (item is WParagraph)
+    {
+        WParagraph paragraph = item as WParagraph;
+        foreach (ParagraphItem paraItem in paragraph.ChildEntities)
+        {
+            //Gets the image from its title and modifies its width and height
+            if (paraItem is WPicture)
+            {
+                WPicture picture = paraItem as WPicture;
+                if (picture.Title == "Bookmark")
+                {
+                    picture.Width = 150;
+                    picture.Height = 100;
+                }
+            }
+        }
+    }
+}
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets textbody content
@@ -2564,26 +1600,26 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument("Template.docx")
 'Gets textbody content
 Dim textBody As WTextBody = document.Sections(0).Body
 'Iterates through the textbody child entities
 For Each item As TextBodyItem In textBody.ChildEntities
-	If TypeOf item Is WParagraph Then
-		Dim paragraph As WParagraph = TryCast(item, WParagraph)
-		For Each paraItem As ParagraphItem In paragraph.ChildEntities
-			'Gets the image from its title and modifies its width and height
-			If TypeOf paraItem Is WPicture Then
-				Dim picture As WPicture = TryCast(paraItem, WPicture)
-				If picture.Title = "Bookmark" Then
-					picture.Width = 150
-					picture.Height = 100
-				End If
-			End If
-		Next
-	End If
+    If TypeOf item Is WParagraph Then
+        Dim paragraph As WParagraph = TryCast(item, WParagraph)
+        For Each paraItem As ParagraphItem In paragraph.ChildEntities
+            'Gets the image from its title and modifies its width and height
+            If TypeOf paraItem Is WPicture Then
+                Dim picture As WPicture = TryCast(paraItem, WPicture)
+                If picture.Title = "Bookmark" Then
+                    picture.Width = 150
+                    picture.Height = 100
+                End If
+            End If
+        Next
+    End If
 Next
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
@@ -2591,134 +1627,61 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(fileStream);
-//Gets textbody content
-WTextBody textBody = document.Sections[0].Body;
-//Iterates through the textbody child entities
-foreach (TextBodyItem item in textBody.ChildEntities)
-{
-    if (item is WParagraph)
-    {
-        WParagraph paragraph = item as WParagraph;
-        foreach (ParagraphItem paraItem in paragraph.ChildEntities)
-        {
-            //Gets the image from its title and modifies its width and height
-            if (paraItem is WPicture)
-            {
-                WPicture picture = paraItem as WPicture;
-                if (picture.Title == "Bookmark")
-                {
-                    picture.Width = 150;
-                    picture.Height = 100;
-                }
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets textbody content
-WTextBody textBody = document.Sections[0].Body;
-//Iterates through the textbody child entities
-foreach (TextBodyItem item in textBody.ChildEntities)
-{
-    if (item is WParagraph)
-    {
-        WParagraph paragraph = item as WParagraph;
-        foreach (ParagraphItem paraItem in paragraph.ChildEntities)
-        {
-            //Gets the image from its title and modifies its width and height
-            if (paraItem is WPicture)
-            {
-                WPicture picture = paraItem as WPicture;
-                if (picture.Title == "Bookmark")
-                {
-                    picture.Width = 150;
-                    picture.Height = 100;
-                }
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-//Loads an existing Word document into DocIO instance
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Gets textbody content
-WTextBody textBody = document.Sections[0].Body;
-//Iterates through the textbody child entities
-foreach (TextBodyItem item in textBody.ChildEntities)
-{
-    if (item is WParagraph)
-    {
-        WParagraph paragraph = item as WParagraph;
-        foreach (ParagraphItem paraItem in paragraph.ChildEntities)
-        {
-            //Gets the image from its title and modifies its width and height
-            if (paraItem is WPicture)
-            {
-                WPicture picture = paraItem as WPicture;
-                if (picture.Title == "Bookmark")
-                {
-                    picture.Width = 150;
-                    picture.Height = 100;
-                }
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Find-an-image-by-title).
 
-### Add Image caption 
+### Add Image caption
 
-You can add caption to an image and update the caption numbers (Sequence fields) using `AddCaption` method.
+You can add caption to an image and update the caption numbers (Sequence fields) using [AddCaption](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WPicture.html#Syncfusion_DocIO_DLS_WPicture_AddCaption_System_String_Syncfusion_DocIO_CaptionNumberingFormat_Syncfusion_DocIO_CaptionPosition_) method.
 
 The following code example shows how to add caption to an image.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new document
+WordDocument document = new WordDocument();
+//Adds a new section to the document.
+IWSection section = document.AddSection();
+//Sets margin of the section
+section.PageSetup.Margins.All = 72;
+//Adds a paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+FileStream imageStream = new FileStream(@"Google.png", FileMode.Open, FileAccess.ReadWrite);
+IWPicture picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets after spacing
+lastParagragh.ParagraphFormat.AfterSpacing = 12f;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Adds a paragraph to the section
+paragraph = section.AddParagraph();
+paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Adds image to  the paragraph
+imageStream = new FileStream(@"Yahoo.png", FileMode.Open, FileAccess.ReadWrite);
+picture = paragraph.AppendPicture(imageStream);
+//Adds Image caption
+lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
+//Aligns the caption
+lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+//Sets before spacing
+lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
+//Updates the fields in Word document
+document.UpdateDocumentFields();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new document
 WordDocument document = new WordDocument();
 //Adds a new section to the document
@@ -2756,7 +1719,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %} 
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new document
 Dim document As WordDocument = New WordDocument
 'Adds a new section to the document
@@ -2792,159 +1755,95 @@ document.UpdateDocumentFields()
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new document
-WordDocument document = new WordDocument();
-//Adds a new section to the document.
-IWSection section = document.AddSection();
-//Sets margin of the section
-section.PageSetup.Margins.All = 72;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Google.png");
-IWPicture picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Sets after spacing
-lastParagragh.ParagraphFormat.AfterSpacing = 12f;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Adds a paragraph to the section
-paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Adds image to  the paragraph
-assembly = typeof(App).GetTypeInfo().Assembly;
-imageStream = assembly.GetManifestResourceStream("Sample.Assets.Yahoo.png");
-picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Updates the fields in Word document
-document.UpdateDocumentFields();
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word document file in local machine
-Save(stream, "Sample.docx");
-//Closes the document instance
-document.Close();
-          
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
- //Creates a new document
-WordDocument document = new WordDocument();
-//Adds a new section to the document.
-IWSection section = document.AddSection();
-//Sets margin of the section
-section.PageSetup.Margins.All = 72;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Adds image to  the paragraph
-FileStream imageStream = new FileStream(@"Google.png", FileMode.Open, FileAccess.ReadWrite);
-IWPicture picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Sets after spacing
-lastParagragh.ParagraphFormat.AfterSpacing = 12f;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Adds a paragraph to the section
-paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Adds image to  the paragraph
-imageStream = new FileStream(@"Yahoo.png", FileMode.Open, FileAccess.ReadWrite);
-picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Updates the fields in Word document
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the document
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
- //Creates a new document
-WordDocument document = new WordDocument();
-//Adds a new section to the document.
-IWSection section = document.AddSection();
-//Sets margin of the section
-section.PageSetup.Margins.All = 72;
-//Adds a paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Adds image to  the paragraph
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets.Google.png");
-IWPicture picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Sets after spacing
-lastParagragh.ParagraphFormat.AfterSpacing = 12f;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Adds a paragraph to the section
-paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Adds image to  the paragraph
-assembly = typeof(App).GetTypeInfo().Assembly;
-imageStream = assembly.GetManifestResourceStream("Sample.Assets.Yahoo.png");
-picture = paragraph.AppendPicture(imageStream);
-//Adds Image caption
-lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
-//Aligns the caption
-lastParagragh.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-//Sets before spacing
-lastParagragh.ParagraphFormat.BeforeSpacing = 1.5f;
-//Updates the fields in Word document
-document.UpdateDocumentFields();
-//Saves the Word document to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document instance
-document.Close();
-            
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-
-{% endhighlight %} 
-
-{% endtabs %} 
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image-caption).
 
 By executing the above code example, it generates output Word document as follows.
 
 ![Output of Word document with Image caption](WorkingWithImages_images/ImageCaption.png)
+
+### Add SVG image
+
+To add an SVG image to a paragraph in a Word document using Syncfusion DocIO, you can use the [AppendPicture](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.IWParagraph.html#Syncfusion_DocIO_DLS_IWParagraph_AppendPicture_System_Byte___System_Byte___) API.
+
+N> To preserve the SVG image in the Word document, pass both the SVG image data and the equivalent bitmap image bytes to DocIO.
+
+The following code example shows how to add an SVG image in a Word document.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+///Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add a new section to the document.
+    IWSection section = document.AddSection();
+    //Add a new paragraph to the section.
+    IWParagraph firstParagraph = section.AddParagraph();
+    //Get the image as a byte array.
+    byte[] imageBytes = File.ReadAllBytes(Buyers.png);
+    //Get the SVG image as a byte array.
+    byte[] svgData = File.ReadAllBytes(Buyers.svg");
+    //Add SVG image to the paragraph.
+    IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
+    //Set height and width for the image.
+    picture.Height = 100;
+    picture.Width = 100;
+    //Save the Word document to MemoryStream.
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+using (WordDocument document = new WordDocument())
+{
+    //Add a new section to the document.
+    IWSection section = document.AddSection();
+    //Add a new paragraph to the section.
+    IWParagraph firstParagraph = section.AddParagraph();
+    //Get the image as a byte array.
+    byte[] imageBytes = File.ReadAllBytes(Buyers.png);
+    //Get the SVG image as a byte array.
+    byte[] svgData = File.ReadAllBytes(Buyers.svg");
+    //Add SVG image to the paragraph.
+    IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
+    //Set height and width for the image.
+    picture.Height = 100;
+    picture.Width = 100;
+    //Save the Word document. 
+    document.Save("Sample.docx", FormatType.Docx);
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using document As New WordDocument()
+    ' Add a new section to the document.
+    Dim section As IWSection = document.AddSection()
+    ' Add a new paragraph to the section.
+    Dim firstParagraph As IWParagraph = section.AddParagraph()
+    ' Get the PNG image as a byte array.
+    Dim imageBytes As Byte() = File.ReadAllBytes("Buyers.png")
+    ' Get the SVG image as a byte array.
+    Dim svgData As Byte() = File.ReadAllBytes("Buyers.svg")
+    ' Add SVG image to the paragraph.
+    Dim picture As IWPicture = firstParagraph.AppendPicture(svgData, ImageType.Metafile, imageBytes)
+    ' Set height and width for the image.
+    picture.Height = 100
+    picture.Width = 100
+    ' Save the Word document.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-svg-image/.NET).
 
 ## Working with lists
 
@@ -2955,9 +1854,39 @@ Lists can organize and format the contents of a document in hierarchical way. Th
 
 The following code example explains how to create a simple bulleted list.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Applies default numbered list style
+paragraph.ListFormat.ApplyDefBulletStyle();
+//Adds text to the paragraph
+paragraph.AppendText("List item 1");
+//Continues the list defined
+paragraph.ListFormat.ContinueListNumbering();
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 2");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Adds new paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 3");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -2986,7 +1915,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3013,118 +1942,47 @@ paragraph.ListFormat.ContinueListNumbering()
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %}  
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin  
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Simple-bulleted-list).
 
 The following code example explains how to create a simple numbered list.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Applies default numbered list style
+paragraph.ListFormat.ApplyDefNumberedStyle();
+//Adds text to the paragraph
+paragraph.AppendText("List item 1");
+//Continues the list defined
+paragraph.ListFormat.ContinueListNumbering();
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 2");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Adds new paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 3");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3153,7 +2011,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3180,118 +2038,51 @@ paragraph.ListFormat.ContinueListNumbering()
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Simple-numbered-list).
 
 The following code example explains how to create a multilevel bulleted list.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Applies default numbered list style
+paragraph.ListFormat.ApplyDefBulletStyle();
+//Adds text to the paragraph
+paragraph.AppendText("List item 1 - Level 0");
+//Continues the list defined
+paragraph.ListFormat.ContinueListNumbering();
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 2 - Level 1");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Adds new paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("List item 3 - Level 2");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3324,7 +2115,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3355,234 +2146,17 @@ paragraph.ListFormat.IncreaseIndentLevel()
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2 - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3 - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2 - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3 - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefBulletStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2 - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3 - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Multilevel-bulleted-list).
 
 The following code example explains how to create multilevel numbered list.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2 - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3 - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves the Word document
-document.Save("Sample.docx", FormatType.Docx);
-//Closes the document
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Creates a new Word document 
-Dim document As New WordDocument()
-'Adds new section to the document
-Dim section As IWSection = document.AddSection()
-'Adds new paragraph to the section
-Dim paragraph As IWParagraph = section.AddParagraph()
-'Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle()
-'Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0")
-'Continues the list defined
-paragraph.ListFormat.ContinueListNumbering()
-'Adds second paragraph
-paragraph = section.AddParagraph()
-paragraph.AppendText("List item 2 - Level 1")
-'Continues last defined list
-paragraph.ListFormat.ContinueListNumbering()
-'Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel()
-'Adds new paragraph
-paragraph = section.AddParagraph()
-paragraph.AppendText("List item 3 - Level 2")
-'Continues last defined list
-paragraph.ListFormat.ContinueListNumbering()
-'Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel()
-'Saves the Word document
-document.Save("Sample.docx", FormatType.Docx)
-'Closes the document
-document.Close()
-{% endhighlight %}  
-
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("List item 1 - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 2 - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("List item 3 - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();   
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document     
@@ -3609,17 +2183,14 @@ paragraph.AppendText("List item 3 - Level 2");
 paragraph.ListFormat.ContinueListNumbering();
 //Increases the level indent
 paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the Word document.
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3646,26 +2217,95 @@ paragraph.AppendText("List item 3 - Level 2");
 paragraph.ListFormat.ContinueListNumbering();
 //Increases the level indent
 paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
+//Saves the Word document
+document.Save("Sample.docx", FormatType.Docx);
+//Closes the document
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
-{% endtabs %}  
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creates a new Word document 
+Dim document As New WordDocument()
+'Adds new section to the document
+Dim section As IWSection = document.AddSection()
+'Adds new paragraph to the section
+Dim paragraph As IWParagraph = section.AddParagraph()
+'Applies default numbered list style
+paragraph.ListFormat.ApplyDefNumberedStyle()
+'Adds text to the paragraph
+paragraph.AppendText("List item 1 - Level 0")
+'Continues the list defined
+paragraph.ListFormat.ContinueListNumbering()
+'Adds second paragraph
+paragraph = section.AddParagraph()
+paragraph.AppendText("List item 2 - Level 1")
+'Continues last defined list
+paragraph.ListFormat.ContinueListNumbering()
+'Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel()
+'Adds new paragraph
+paragraph = section.AddParagraph()
+paragraph.AppendText("List item 3 - Level 2")
+'Continues last defined list
+paragraph.ListFormat.ContinueListNumbering()
+'Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel()
+'Saves the Word document
+document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+document.Close()
+{% endhighlight %}
+
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Multilevel-numbered-list).
 
-The list levels can be incremented or decremented by using the `IncreaseIndentLevel` and `DecreaseIndentLevel` methods respectively. The following code example explains how to increase or decrease the list indent levels.
+The list levels can be incremented or decremented by using the [IncreaseIndentLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListFormat.html#Syncfusion_DocIO_DLS_WListFormat_IncreaseIndentLevel) and [DecreaseIndentLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListFormat.html#Syncfusion_DocIO_DLS_WListFormat_DecreaseIndentLevel) methods respectively. The following code example explains how to increase or decrease the list indent levels.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Applies default numbered list style
+paragraph.ListFormat.ApplyDefNumberedStyle();
+//Adds text to the paragraph
+paragraph.AppendText("Multilevel numbered list - Level 0");
+//Continues the list defined
+paragraph.ListFormat.ContinueListNumbering();
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("Multilevel numbered list - Level 1");  
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Adds new paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("Multilevel numbered list - Level 0");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.DecreaseIndentLevel();   
+//Adds new paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("Multilevel numbered list - Level 1");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3705,7 +2345,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3743,151 +2383,59 @@ paragraph.ListFormat.IncreaseIndentLevel()
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();        
-paragraph.AppendText("Multilevel numbered list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.DecreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 1");  
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.DecreaseIndentLevel();   
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Applies default numbered list style
-paragraph.ListFormat.ApplyDefNumberedStyle();
-//Adds text to the paragraph
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues the list defined
-paragraph.ListFormat.ContinueListNumbering();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 0");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.DecreaseIndentLevel();
-//Adds new paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("Multilevel numbered list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Increase-or-decrease-list-indent).
 
 The following code example explains how to create user defined list styles.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new list style to the document          
+ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Defines the follow character, prefix, suffix, start index for level 0
+levelOne.FollowCharacter = FollowCharacterType.Tab;
+levelOne.NumberPrefix = "(";
+levelOne.NumberSufix = ")";
+levelOne.PatternType = ListPatternType.LowRoman;
+levelOne.StartAt = 1;
+levelOne.TabSpaceAfter = 5;
+levelOne.NumberAlignment = ListNumberAlignment.Center;
+WListLevel levelTwo = listStyle.Levels[1];
+//Defines the follow character, suffix, pattern, start index for level 1
+levelTwo.FollowCharacter = FollowCharacterType.Tab;
+levelTwo.NumberSufix = "}";
+levelTwo.PatternType = ListPatternType.LowLetter;
+levelTwo.StartAt = 2;
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Adds text to the paragraph
+paragraph.AppendText("User defined list - Level 0");
+//Applies default numbered list style
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -3928,7 +2476,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -3969,154 +2517,68 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix, suffix, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Tab;
-levelOne.NumberPrefix = "(";
-levelOne.NumberSufix = ")";
-levelOne.PatternType = ListPatternType.LowRoman;
-levelOne.StartAt = 1;
-levelOne.TabSpaceAfter = 5;
-levelOne.NumberAlignment = ListNumberAlignment.Center;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, suffix, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Tab;
-levelTwo.NumberSufix = "}";
-levelTwo.PatternType = ListPatternType.LowLetter;
-levelTwo.StartAt = 2;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix, suffix, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Tab;
-levelOne.NumberPrefix = "(";
-levelOne.NumberSufix = ")";
-levelOne.PatternType = ListPatternType.LowRoman;
-levelOne.StartAt = 1;
-levelOne.TabSpaceAfter = 5;
-levelOne.NumberAlignment = ListNumberAlignment.Center;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, suffix, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Tab;
-levelTwo.NumberSufix = "}";
-levelTwo.PatternType = ListPatternType.LowLetter;
-levelTwo.StartAt = 2;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix, suffix, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Tab;
-levelOne.NumberPrefix = "(";
-levelOne.NumberSufix = ")";
-levelOne.PatternType = ListPatternType.LowRoman;
-levelOne.StartAt = 1;
-levelOne.TabSpaceAfter = 5;
-levelOne.NumberAlignment = ListNumberAlignment.Center;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, suffix, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Tab;
-levelTwo.NumberSufix = "}";
-levelTwo.PatternType = ListPatternType.LowLetter;
-levelTwo.StartAt = 2;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/User-defined-numbered-list).
 
 The following code example explains how to create numbered list with prefix from previous level.
 
-N> The `NumberPrefix` value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
+N> The [NumberPrefix](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WListLevel.html#Syncfusion_DocIO_DLS_WListLevel_NumberPrefix) value for the numbered list should meet the syntax "\u000N" to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new list style to the document          
+ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Defines the follow character, prefix from previous level, start index for level 0
+levelOne.FollowCharacter = FollowCharacterType.Nothing;
+levelOne.PatternType = ListPatternType.Arabic;
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Defines the follow character, prefix from previous level, pattern, start index for level 1
+levelTwo.FollowCharacter = FollowCharacterType.Nothing;
+levelTwo.NumberPrefix = "\u0000.";
+levelTwo.PatternType = ListPatternType.Arabic;
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Defines the follow character, prefix from previous level, pattern, start index for level 1
+levelThree.FollowCharacter = FollowCharacterType.Nothing;
+levelThree.NumberPrefix = "\u0000.\u0001.";
+levelThree.PatternType = ListPatternType.Arabic;
+levelThree.StartAt = 1;
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Adds text to the paragraph
+paragraph.AppendText("User defined list - Level 0");
+//Applies default numbered list style
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Adds second paragraph
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continues last defined list
+paragraph.ListFormat.ContinueListNumbering();
+//Increases the level indent
+paragraph.ListFormat.IncreaseIndentLevel();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4166,7 +2628,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -4216,179 +2678,66 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix from previous level, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
-levelOne.PatternType = ListPatternType.Arabic;
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
-levelTwo.NumberPrefix = "\u0000.";
-levelTwo.PatternType = ListPatternType.Arabic;
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
-levelThree.NumberPrefix = "\u0000.\u0001.";
-levelThree.PatternType = ListPatternType.Arabic;
-levelThree.StartAt = 1;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix from previous level, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
-levelOne.PatternType = ListPatternType.Arabic;
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
-levelTwo.NumberPrefix = "\u0000.";
-levelTwo.PatternType = ListPatternType.Arabic;
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
-levelThree.NumberPrefix = "\u0000.\u0001.";
-levelThree.PatternType = ListPatternType.Arabic;
-levelThree.StartAt = 1;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new list style to the document          
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Defines the follow character, prefix from previous level, start index for level 0
-levelOne.FollowCharacter = FollowCharacterType.Nothing;
-levelOne.PatternType = ListPatternType.Arabic;      
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelTwo.FollowCharacter = FollowCharacterType.Nothing;
-levelTwo.NumberPrefix = "\u0000.";
-levelTwo.PatternType = ListPatternType.Arabic;
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Defines the follow character, prefix from previous level, pattern, start index for level 1
-levelThree.FollowCharacter = FollowCharacterType.Nothing;
-levelThree.NumberPrefix = "\u0000.\u0001.";
-levelThree.PatternType = ListPatternType.Arabic;
-levelThree.StartAt = 1;
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Adds text to the paragraph
-paragraph.AppendText("User defined list - Level 0");
-//Applies default numbered list style
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Adds second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continues last defined list
-paragraph.ListFormat.ContinueListNumbering();
-//Increases the level indent
-paragraph.ListFormat.IncreaseIndentLevel();
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/List-with-prefix-from-previous-level).
 
 The following code example illustrates how to create a user defined bulleted list style.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add a new section to the document.
+IWSection section = document.AddSection();
+//Add a new list style to the document.
+ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
+WListLevel levelOne = listStyle.Levels[0];
+//Define the following character, pattern and start index for level 0.
+levelOne.PatternType = ListPatternType.Bullet;
+levelOne.BulletCharacter = "*";
+levelOne.StartAt = 1;
+WListLevel levelTwo = listStyle.Levels[1];
+//Define the following character, pattern and start index for level 1.
+levelTwo.PatternType = ListPatternType.Bullet;
+levelTwo.BulletCharacter = "\u00A9";
+levelTwo.CharacterFormat.FontName = "Wingdings";
+levelTwo.StartAt = 1;
+WListLevel levelThree = listStyle.Levels[2];
+//Define the following character, pattern and start index for level 2.
+levelThree.PatternType = ListPatternType.Bullet;
+levelThree.BulletCharacter = "\u0076";
+levelThree.CharacterFormat.FontName = "Wingdings";
+levelThree.StartAt = 1;
+//Add a new paragraph to the section.
+IWParagraph paragraph = section.AddParagraph();
+//Add a text to the paragraph.
+paragraph.AppendText("User defined list - Level 0");
+//Apply the default bulleted list style.
+paragraph.ListFormat.ApplyStyle("UserDefinedList");
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 1");
+//Continue the last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Add second paragraph.
+paragraph = section.AddParagraph();
+paragraph.AppendText("User defined list - Level 2");
+//Continue the last defined list.
+paragraph.ListFormat.ContinueListNumbering();
+//Increase the level indent.
+paragraph.ListFormat.IncreaseIndentLevel();
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Create a new Word document.
 WordDocument document = new WordDocument();
 //Add a new section to the document.
@@ -4438,7 +2787,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Create a new Word document. 
 Dim document As New WordDocument()
 'Add a new section to the document.
@@ -4488,185 +2837,36 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Create a new Word document.
-WordDocument document = new WordDocument();
-//Add a new section to the document.
-IWSection section = document.AddSection();
-//Add a new list style to the document.
-ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Define the following character, pattern and start index for level 0.
-levelOne.PatternType = ListPatternType.Bullet;
-levelOne.BulletCharacter = "*";
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Define the following character, pattern and start index for level 1.
-levelTwo.PatternType = ListPatternType.Bullet;
-levelTwo.BulletCharacter = "\u00A9";
-levelTwo.CharacterFormat.FontName = "Wingdings";
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Define the following character, pattern and start index for level 2.
-levelThree.PatternType = ListPatternType.Bullet;
-levelThree.BulletCharacter = "\u0076";
-levelThree.CharacterFormat.FontName = "Wingdings";
-levelThree.StartAt = 1;
-//Add a new paragraph to the section.
-IWParagraph paragraph = section.AddParagraph();
-//Add a text to the paragraph.
-paragraph.AppendText("User defined list - Level 0");
-//Apply the default bulleted list style.
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word file to MemoryStream.
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a Word file in the local machine.
-Save(stream, "Result.docx");
-//Refer to the following link to save a Word document in the UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Create a new Word document.
-WordDocument document = new WordDocument();
-//Add a new section to the document.
-IWSection section = document.AddSection();
-//Add a new list style to the document.
-ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Define the following character, pattern and start index for level 0.
-levelOne.PatternType = ListPatternType.Bullet;
-levelOne.BulletCharacter = "*";
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Define the following character, pattern and start index for level 1.
-levelTwo.PatternType = ListPatternType.Bullet;
-levelTwo.BulletCharacter = "\u00A9";
-levelTwo.CharacterFormat.FontName = "Wingdings";
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Define the following character, pattern and start index for level 2.
-levelThree.PatternType = ListPatternType.Bullet;
-levelThree.BulletCharacter = "\u0076";
-levelThree.CharacterFormat.FontName = "Wingdings";
-levelThree.StartAt = 1;
-//Add a new paragraph to the section.
-IWParagraph paragraph = section.AddParagraph();
-//Add a text to the paragraph.
-paragraph.AppendText("User defined list - Level 0");
-//Apply the default bulleted list style.
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word document to  MemoryStream.
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download the Word document in the browser.
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Create a new Word document.
-WordDocument document = new WordDocument();
-//Add a new section to the document.
-IWSection section = document.AddSection();
-//Add a new list style to the document.
-ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
-WListLevel levelOne = listStyle.Levels[0];
-//Define the following character, pattern and start index for level 0.
-levelOne.PatternType = ListPatternType.Bullet;
-levelOne.BulletCharacter = "*";
-levelOne.StartAt = 1;
-WListLevel levelTwo = listStyle.Levels[1];
-//Define the following character, pattern and start index for level 1.
-levelTwo.PatternType = ListPatternType.Bullet;
-levelTwo.BulletCharacter = "\u00A9";
-levelTwo.CharacterFormat.FontName = "Wingdings";
-levelTwo.StartAt = 1;
-WListLevel levelThree = listStyle.Levels[2];
-//Define the following character, pattern and start index for level 2.
-levelThree.PatternType = ListPatternType.Bullet;
-levelThree.BulletCharacter = "\u0076";
-levelThree.CharacterFormat.FontName = "Wingdings";
-levelThree.StartAt = 1;
-//Add a new paragraph to the section.
-IWParagraph paragraph = section.AddParagraph();
-//Add a text to the paragraph.
-paragraph.AppendText("User defined list - Level 0");
-//Apply the default bulleted list style.
-paragraph.ListFormat.ApplyStyle("UserDefinedList");
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 1");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Add second paragraph.
-paragraph = section.AddParagraph();
-paragraph.AppendText("User defined list - Level 2");
-//Continue the last defined list.
-paragraph.ListFormat.ContinueListNumbering();
-//Increase the level indent.
-paragraph.ListFormat.IncreaseIndentLevel();
-//Save and close the Word document instance.
-MemoryStream stream = new MemoryStream();
-//Save the Word file to MemoryStream.
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing.
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as a file and open the file for viewing in the Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
 {% endtabs %} 
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/User-defined-bulleted-list).
 
 ### Get list value
 
-You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the `ListString` API. 
+You can get the string that represents the appearance of **list value of the paragraph** in the Word document using the [ListString](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ListString) API. 
 
-This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke the `GetText()` method of `WordDocument` or save the Word document as Text to get the actual list value from this API.
+This API holds the static string of the list value recently calculated while saving the document as Text. It is not updated automatically for each modification done in the Word document. Hence, you should either invoke the [GetText()](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_GetText) method of [WordDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html) or save the Word document as Text to get the actual list value from this API.
 
 The following example shows how to **get a string that represents the appearance of list value of the paragraph**.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Loads an existing Word document
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+//Gets the document text
+document.GetText();
+//Gets the string that represents the appearance of list value of the paragraph
+String listString = document.LastParagraph.ListString;        
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing Word document
 WordDocument document = new WordDocument("Template.docx");
 //Gets the document text
@@ -4678,7 +2878,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
 ' Gets the document text
@@ -4690,71 +2890,11 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Creates an instance of a WordDocument
-WordDocument document = new WordDocument();
-//Loads an existing Word document
-document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the document text
-document.GetText();
-//Gets the string that represents the appearance of list value of the paragraph
-String listString = document.LastParagraph.ListString;
-// Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-await document.SaveAsync(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Sample.docx");
-
-//Refer to the following link to save Word document in UWP platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Loads an existing Word document
-FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the document text
-document.GetText();
-//Gets the string that represents the appearance of list value of the paragraph
-String listString = document.LastParagraph.ListString;        
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Sample.docx");
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//Loads an existing Word document
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the document text
-document.GetText();
-//Gets the string that represents the appearance of list value of the paragraph
-String listString = document.LastParagraph.ListString;
-//Saves the Word file to MemoryStream
-MemoryStream stream = new MemoryStream();
-document.Save(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Get-list-value).
 
-N> For a picture bulleted list, the `ListString` API is not valid and it will return an empty string.
-
+N> For a picture bulleted list, the [ListString](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_ListString) API is not valid and it will return an empty string.
 
 ## Working with hyperlinks
 
@@ -4769,9 +2909,27 @@ Hyperlinks have two parts: the address and display content.
 
 The following code example explains how to insert a web link.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Web Hyperlink:  ");
+paragraph = section.AddParagraph();
+//Appends web hyperlink to the paragraph
+IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4788,7 +2946,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -4805,80 +2963,33 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Web Hyperlink:  ");
-paragraph = section.AddParagraph();
-//Appends web hyperlink to the paragraph
-IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Web Hyperlink:  ");
-paragraph = section.AddParagraph();
-//Appends web hyperlink to the paragraph
-IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Web Hyperlink:  ");
-paragraph = section.AddParagraph();
-//Appends web hyperlink to the paragraph
-IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-web-link).
 
 The following code example illustrates how to add an email link.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Email hyperlink: ");
+paragraph = section.AddParagraph();
+//Appends Email hyperlink to the paragraph
+paragraph.AppendHyperlink("mailto:sales@syncfusion.com", "Sales", HyperlinkType.EMailLink);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -4895,7 +3006,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -4910,82 +3021,35 @@ paragraph.AppendHyperlink("mailto:sales@syncfusion.com","Sales" , HyperlinkType.
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Email hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Email hyperlink to the paragraph
-paragraph.AppendHyperlink("mailto:sales@syncfusion.com", "Sales", HyperlinkType.EMailLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Email hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Email hyperlink to the paragraph
-paragraph.AppendHyperlink("mailto:sales@syncfusion.com", "Sales", HyperlinkType.EMailLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Email hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Email hyperlink to the paragraph
-paragraph.AppendHyperlink("mailto:sales@syncfusion.com", "Sales", HyperlinkType.EMailLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-an-email-link).
 
 The following code example explains how to add a file hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("File Hyperlinks: ");
+paragraph = section.AddParagraph();
+//Appends hyperlink field to the paragraph
+paragraph.AppendHyperlink(@"Template.docx", "File", HyperlinkType.FileLink);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -5002,7 +3066,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -5019,80 +3083,39 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("File Hyperlinks: ");
-paragraph = section.AddParagraph();
-//Appends hyperlink field to the paragraph
-paragraph.AppendHyperlink(@"Template.docx", "File", HyperlinkType.FileLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();          
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("File Hyperlinks: ");
-paragraph = section.AddParagraph();
-//Appends hyperlink field to the paragraph
-paragraph.AppendHyperlink(@"Template.docx", "File", HyperlinkType.FileLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("File Hyperlinks: ");
-paragraph = section.AddParagraph();
-//Appends hyperlink field to the paragraph
-paragraph.AppendHyperlink(@"Template.docx", "File", HyperlinkType.FileLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);   
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin     
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-file-hyperlink).
 
 The following code example explains how to add a bookmark hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Creates new Bookmark
+paragraph.AppendBookmarkStart("Introduction");
+paragraph.AppendText("Hyperlink");
+paragraph.AppendBookmarkEnd("Introduction");
+paragraph.AppendText("\nA hyperlink is a reference or navigation element in a document to another section of the same document or to another document that may be on or part of a (different) domain.");
+paragraph = section.AddParagraph();
+paragraph.AppendText("Bookmark Hyperlink: ");
+paragraph = section.AddParagraph();
+//Appends Bookmark hyperlink to the paragraph
+paragraph.AppendHyperlink("Introduction", "Bookmark", HyperlinkType.Bookmark);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -5115,7 +3138,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -5138,90 +3161,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Creates new Bookmark
-paragraph.AppendBookmarkStart("Introduction");
-paragraph.AppendText("Hyperlink");
-paragraph.AppendBookmarkEnd("Introduction");
-paragraph.AppendText("\nA hyperlink is a reference or navigation element in a document to another section of the same document or to another document that may be on or part of a (different) domain.");
-paragraph = section.AddParagraph();
-paragraph.AppendText("Bookmark Hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Bookmark hyperlink to the paragraph
-paragraph.AppendHyperlink("Introduction", "Bookmark", HyperlinkType.Bookmark);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Creates new Bookmark
-paragraph.AppendBookmarkStart("Introduction");
-paragraph.AppendText("Hyperlink");
-paragraph.AppendBookmarkEnd("Introduction");
-paragraph.AppendText("\nA hyperlink is a reference or navigation element in a document to another section of the same document or to another document that may be on or part of a (different) domain.");
-paragraph = section.AddParagraph();
-paragraph.AppendText("Bookmark Hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Bookmark hyperlink to the paragraph
-paragraph.AppendHyperlink("Introduction", "Bookmark", HyperlinkType.Bookmark);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Creates new Bookmark
-paragraph.AppendBookmarkStart("Introduction");
-paragraph.AppendText("Hyperlink");
-paragraph.AppendBookmarkEnd("Introduction");
-paragraph.AppendText("\nA hyperlink is a reference or navigation element in a document to another section of the same document or to another document that may be on or part of a (different) domain.");
-paragraph = section.AddParagraph();
-paragraph.AppendText("Bookmark Hyperlink: ");
-paragraph = section.AddParagraph();
-//Appends Bookmark hyperlink to the paragraph
-paragraph.AppendHyperlink("Introduction", "Bookmark", HyperlinkType.Bookmark);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-bookmark-hyperlink).
 
@@ -5229,9 +3169,31 @@ The display content for the Hyperlinks can also be an image that may redirect to
 
 The following code example explains how to add image hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Image Hyperlink");
+paragraph = section.AddParagraph();
+//Creates a new image instance and load image 
+WPicture picture = new WPicture(document);
+FileStream imageStream = new FileStream(@"Mountain-200.jpg", FileMode.Open, FileAccess.ReadWrite);
+picture.LoadImage(imageStream);
+//Appends new image hyperlink to the paragraph
+paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -5251,7 +3213,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -5269,184 +3231,17 @@ paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.We
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Image Hyperlink");
-paragraph = section.AddParagraph();
-//Creates a new image instance and load image 
-WPicture picture = new WPicture(document);
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Dummy-Images.jpg");
-picture.LoadImage(imageStream);
-//Appends new image hyperlink to the paragraph
-paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Image Hyperlink");
-paragraph = section.AddParagraph();
-//Creates a new image instance and load image 
-WPicture picture = new WPicture(document);
-FileStream imageStream = new FileStream(@"Mountain-200.jpg", FileMode.Open, FileAccess.ReadWrite);
-picture.LoadImage(imageStream);
-//Appends new image hyperlink to the paragraph
-paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Image Hyperlink");
-paragraph = section.AddParagraph();
-//Creates a new image instance and load image 
-WPicture picture = new WPicture(document);
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-picture.LoadImage(imageStream);
-//Appends new image hyperlink to the paragraph
-paragraph.AppendHyperlink("http://www.syncfusion.com", picture, HyperlinkType.WebLink);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-image-hyperlink).
 
 The following code example explains how to modify the URL of an existing hyperlink.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Loads the template document 
-WordDocument document = new WordDocument("Sample.docx", FormatType.Docx);
-WParagraph paragraph = document.LastParagraph;
-//Iterates through the paragraph items
-foreach (ParagraphItem item in paragraph.ChildEntities)
-{
-    if (item is WField)
-    {
-        if ((item as WField).FieldType == FieldType.FieldHyperlink)
-        {
-            //Gets the hyperlink field
-            Hyperlink link = new Hyperlink(item as WField);
-            if (link.Type == HyperlinkType.WebLink)
-            {
-                //Modifies the url of the hyperlink
-                link.Uri = "http://www.google.com";
-                link.TextToDisplay = "Google";
-                break;
-            }
-        }
-    }
-}
-//Saves and closes the Word document
-document.Save("Sample.docx", FormatType.Docx);
-document.Close();
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Loads the template document 
-Dim document As New WordDocument("Sample.docx", FormatType.Docx)
-Dim paragraph As WParagraph = document.LastParagraph
-'Iterates through the paragraph items
-For Each item As ParagraphItem In paragraph.ChildEntities
-	If TypeOf item Is WField Then
-		If TryCast(item, WField).FieldType = FieldType.FieldHyperlink Then
-			'Gets the hyperlink field
-			Dim link As New Hyperlink(TryCast(item, WField))
-			If link.Type = HyperlinkType.WebLink Then
-				'Modifies the url of the hyperlink
-				link.Uri = "http://www.google.com"
-				link.TextToDisplay = "Google"
-				Exit For
-			End If
-		End If
-	End If
-Next
-'Saves and closes the Word document
-document.Save("Sample.docx", FormatType.Docx)
-document.Close()
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.docx");
-//Loads the template document 
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-WParagraph paragraph = document.LastParagraph;
-//Iterates through the paragraph items
-foreach (ParagraphItem item in paragraph.ChildEntities)
-{
-    if (item is WField)
-    {
-        if ((item as WField).FieldType == FieldType.FieldHyperlink)
-        {
-            //Gets the hyperlink field
-            Hyperlink link = new Hyperlink(item as WField);
-            if (link.Type == HyperlinkType.WebLink)
-            {
-                //Modifies the url of the hyperlink
-                link.Uri = "http://www.google.com";
-                link.TextToDisplay = "Google";
-                break;
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 FileStream fileStream = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.ReadWrite);
 //Loads the template document 
 WordDocument document = new WordDocument(fileStream, FormatType.Docx);
@@ -5470,21 +3265,16 @@ foreach (ParagraphItem item in paragraph.ChildEntities)
         }
     }
 }
-//Saves and closes the Word document instance
+//Saves the Word document to MemoryStream.
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the Word document.
 document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Sample.docx");
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document 
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
+WordDocument document = new WordDocument("Sample.docx", FormatType.Docx);
 WParagraph paragraph = document.LastParagraph;
 //Iterates through the paragraph items
 foreach (ParagraphItem item in paragraph.ChildEntities)
@@ -5505,30 +3295,65 @@ foreach (ParagraphItem item in paragraph.ChildEntities)
         }
     }
 }
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
+//Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
-{% endtabs %}  
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Loads the template document 
+Dim document As New WordDocument("Sample.docx", FormatType.Docx)
+Dim paragraph As WParagraph = document.LastParagraph
+'Iterates through the paragraph items
+For Each item As ParagraphItem In paragraph.ChildEntities
+    If TypeOf item Is WField Then
+        If TryCast(item, WField).FieldType = FieldType.FieldHyperlink Then
+            'Gets the hyperlink field
+            Dim link As New Hyperlink(TryCast(item, WField))
+            If link.Type = HyperlinkType.WebLink Then
+                'Modifies the url of the hyperlink
+                link.Uri = "http://www.google.com"
+                link.TextToDisplay = "Google"
+                Exit For
+            End If
+        End If
+    End If
+Next
+'Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-url-of-hyperlink).
 
 ## Working with symbols
 
-Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with `WSymbol` instance. Each symbol can be identified with their character codes.
+Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with [WSymbol](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WSymbol.html) instance. Each symbol can be identified with their character codes.
 
 The following code example explains how to add new symbol to the document.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Example of adding symbols to the paragraph: ");
+//Inserts symbol with character code 100
+paragraph.AppendSymbol(100);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -5543,7 +3368,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -5556,79 +3381,48 @@ paragraph.AppendSymbol(100)
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Example of adding symbols to the paragraph: ");
-//Inserts symbol with character code 100
-paragraph.AppendSymbol(100);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Example of adding symbols to the paragraph: ");
-//Inserts symbol with character code 100
-paragraph.AppendSymbol(100);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Example of adding symbols to the paragraph: ");
-//Inserts symbol with character code 100
-paragraph.AppendSymbol(100);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-symbols).
 
 The following code example explains how to modify an existing symbol.
 
-{% tabs %} 
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream fileStream = new FileStream(@"Sample1.docx", FileMode.Open, FileAccess.ReadWrite);
+//Loads the template document
+WordDocument document = new WordDocument(fileStream, FormatType.Docx);
+//Gets the textbody content
+WTextBody textbody = document.Sections[0].Body;
+//Iterates through the paragraphs
+foreach (WParagraph paragraph in textbody.Paragraphs)
+{
+    //Gets the symbol from the paragraph items
+    foreach (ParagraphItem item in paragraph.ChildEntities)
+    {
+        if (item is WSymbol)
+        {
+            WSymbol symbol = item as WSymbol;
+            if (symbol.CharacterCode == 100)
+            {
+                //Modifies the character code
+                symbol.CharacterCode = 40;
+                symbol.FontName = "Wingdings";
+            }
+        }
+    }
+}
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the template document
 WordDocument document = new WordDocument("Sample.docx", FormatType.Docx);
 //Gets the textbody content
@@ -5656,154 +3450,80 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the template document
 Dim document As New WordDocument("Sample.docx", FormatType.Docx)
 'Gets the textbody content
 Dim textbody As WTextBody = document.Sections(0).Body
 'Iterates through the paragraphs
 For Each paragraph As WParagraph In textbody.Paragraphs
-	'Gets the symbol from the paragraph items
-	For Each item As ParagraphItem In paragraph.ChildEntities
-		If TypeOf item Is WSymbol Then
-			Dim symbol As WSymbol = TryCast(item, WSymbol)
-			If symbol.CharacterCode = 100 Then
-				'Modifies the character code
-				symbol.CharacterCode = 40
-				symbol.FontName = "Wingdings"
-			End If
-		End If
-	Next
+    'Gets the symbol from the paragraph items
+    For Each item As ParagraphItem In paragraph.ChildEntities
+        If TypeOf item Is WSymbol Then
+            Dim symbol As WSymbol = TryCast(item, WSymbol)
+            If symbol.CharacterCode = 100 Then
+                'Modifies the character code
+                symbol.CharacterCode = 40
+                symbol.FontName = "Wingdings"
+            End If
+        End If
+    Next
 Next
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Sample.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Gets the textbody content
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Gets the symbol from the paragraph items
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WSymbol)
-        {
-            WSymbol symbol = item as WSymbol;
-            if (symbol.CharacterCode == 100)
-            {
-                //Modifies the character code
-                symbol.CharacterCode = 40;
-                symbol.FontName = "Wingdings";
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream fileStream = new FileStream(@"Sample1.docx", FileMode.Open, FileAccess.ReadWrite);
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Gets the textbody content
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs
-foreach (WParagraph paragraph in textbody.Paragraphs)
-{
-    //Gets the symbol from the paragraph items
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WSymbol)
-        {
-            WSymbol symbol = item as WSymbol;
-            if (symbol.CharacterCode == 100)
-            {
-                //Modifies the character code
-                symbol.CharacterCode = 40;
-                symbol.FontName = "Wingdings";
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Sample1.docx");
-//Loads the template document
-WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-//Gets the textbody content
-WTextBody textbody = document.Sections[0].Body;
-//Iterates through the paragraphs
-foreach (WParagraph paragraph in textbody.Paragraphs)
-
-{
-    //Gets the symbol from the paragraph items
-    foreach (ParagraphItem item in paragraph.ChildEntities)
-    {
-        if (item is WSymbol)
-        {
-            WSymbol symbol = item as WSymbol;
-            if (symbol.CharacterCode == 100)
-            {
-                //Modifies the character code
-                symbol.CharacterCode = 40;
-                symbol.FontName = "Wingdings";
-            }
-        }
-    }
-}
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Modify-an-existing-symbol).
 
 ## Appending breaks
 
-Breaks allows the document contents to split into multiple parts to customize the appearance of the contents. The following are the types of breaks supported in the DocIO:
+Breaks allow the document contents to split into multiple parts to customize the appearance of the contents. The following are the types of breaks supported in the DocIO:
 
-* Page break: Starts the content in the next page.
-* Line break: Starts the content in new line.
+* Page break: Starts the content on the next page.
+* Line break: Starts the content in a new line.
 * Column break: Starts the content in the next column.
+* Text wrapping break: Starts the content below to the picture, table, or other items.
 
 The following code example explains how various types of breaks can be appended to the paragraphs.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+paragraph.AppendText("Before line break");
+//Adds line break to the paragraph
+paragraph.AppendBreak(BreakType.LineBreak);
+paragraph.AppendText("After line break");
+IWParagraph pageBreakPara = section.AddParagraph();
+pageBreakPara.AppendText("Before page break");
+//Adds page break to the paragraph
+pageBreakPara.AppendBreak(BreakType.PageBreak);
+pageBreakPara.AppendText("After page break");
+IWSection secondSection = document.AddSection();    
+//Adds columns to the section
+secondSection.AddColumn(100, 2);
+secondSection.AddColumn(100, 2);
+IWParagraph columnBreakPara = secondSection.AddParagraph();
+columnBreakPara.AppendText("Before column break");
+//Adds column break to the paragraph
+columnBreakPara.AppendBreak(BreakType.ColumnBreak);
+columnBreakPara.AppendText("After column break");
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -5833,7 +3553,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -5861,118 +3581,78 @@ columnBreakPara.AppendText("After column break")
 'Saves and closes the document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
-{% endhighlight %} 
+{% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Before line break");
-//Adds line break to the paragraph
-paragraph.AppendBreak(BreakType.LineBreak);
-paragraph.AppendText("After line break");
-IWParagraph pageBreakPara = section.AddParagraph();
-pageBreakPara.AppendText("Before page break");
-//Adds page break to the paragraph
-pageBreakPara.AppendBreak(BreakType.PageBreak);
-pageBreakPara.AppendText("After page break");
-IWSection secondSection = document.AddSection();
-//Adds columns to the section
-secondSection.AddColumn(100, 2);
-secondSection.AddColumn(100, 2);
-IWParagraph columnBreakPara = secondSection.AddParagraph();
-columnBreakPara.AppendText("Before column break");
-//Adds column break to the paragraph
-columnBreakPara.AppendBreak(BreakType.ColumnBreak);
-columnBreakPara.AppendText("After column break");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Before line break");
-//Adds line break to the paragraph
-paragraph.AppendBreak(BreakType.LineBreak);
-paragraph.AppendText("After line break");
-IWParagraph pageBreakPara = section.AddParagraph();
-pageBreakPara.AppendText("Before page break");
-//Adds page break to the paragraph
-pageBreakPara.AppendBreak(BreakType.PageBreak);
-pageBreakPara.AppendText("After page break");
-IWSection secondSection = document.AddSection();    
-//Adds columns to the section
-secondSection.AddColumn(100, 2);
-secondSection.AddColumn(100, 2);
-IWParagraph columnBreakPara = secondSection.AddParagraph();
-columnBreakPara.AppendText("Before column break");
-//Adds column break to the paragraph
-columnBreakPara.AppendBreak(BreakType.ColumnBreak);
-columnBreakPara.AppendText("After column break");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-paragraph.AppendText("Before line break");
-//Adds line break to the paragraph
-paragraph.AppendBreak(BreakType.LineBreak);
-paragraph.AppendText("After line break");
-IWParagraph pageBreakPara = section.AddParagraph();
-pageBreakPara.AppendText("Before page break");
-//Adds page break to the paragraph
-pageBreakPara.AppendBreak(BreakType.PageBreak);
-pageBreakPara.AppendText("After page break");
-IWSection secondSection = document.AddSection();
-//Adds columns to the section
-secondSection.AddColumn(100, 2);
-secondSection.AddColumn(100, 2);
-IWParagraph columnBreakPara = secondSection.AddParagraph();
-columnBreakPara.AppendText("Before column break");
-//Adds column break to the paragraph
-columnBreakPara.AppendBreak(BreakType.ColumnBreak);
-columnBreakPara.AppendText("After column break");
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Append-breaks).
+
+### Text wrapping break
+
+When including images or other objects in a Word document, the text is wrapped around the objects as per wrapping behavior. If you wish to move the text below to the picture (as like caption), instead of adding an extra line break or empty paragraphs, you can add the text wrapping break to achieve it.
+
+The following code example illustrates how to insert a text wrapping break to move the text below to the picture.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the file as Stream.
+using (FileStream docStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+    //Loads file stream into Word document.
+    using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
+    {
+        //Access paragraph from section.
+        WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+        //Create text wrapping break.
+        Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+        //Insert text wrapping break in specific index.
+        paragraph.ChildEntities.Insert(1, textWrappingBreak);
+        //Saves the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        document.Save(stream, FormatType.Docx);
+        //Closes the Word document.
+        document.Close();
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens an existing Word document.
+using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+{
+    //Access paragraph from section.
+    WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
+    //Create text wrapping break.
+    Break textWrappingBreak = new Break(document, BreakType.TextWrappingBreak);
+    //Insert text wrapping break in specific index.
+    paragraph.ChildEntities.Insert(1, textWrappingBreak);
+    //Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens an existing Word document.
+Using document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
+    'Access paragraph from section.
+    Dim paragraph As WParagraph = TryCast(document.LastSection.Body.ChildEntities(2), WParagraph)
+    'Create text wrapping break.
+    Dim textWrappingBreak As Break = New Break(document, BreakType.TextWrappingBreak)
+    'Insert text wrapping break in specific index.
+    paragraph.ChildEntities.Insert(1, textWrappingBreak)
+    'Saves the WordDocument instance.
+    document.Save("Sample.docx", FormatType.Docx)
+End Using
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Text-wrapping-break).
+
+By executing the code example above, it generates the resultant Word document as follows.
+
+![Output of Word document with Text wrapping break](WorkingWithParagraphs_images/Text_wrapping_break_output.png)
 
 ## Working with OLE objects
 
@@ -5981,15 +3661,37 @@ OLE (Object Linking and Embedding) objects allow embedding and linking to docume
 * Linked: The content is linked to the source file
 * Embedded: The content is copied to the Word document and is not linked to the source file 
 
-You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using `WOleObject` instance.
+You can create and manipulate the OLE Objects of both Linked and Embedded types in the Word document by using [WOleObject](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WOleObject.html) instance.
 
 ### Add OLE Objects in Word document
 
 The following code example explains how to add OLE objects to the document.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Opens the file to be embedded
+FileStream fileStream = new FileStream("Book1.xlsx", FileMode.Open);
+//Loads the picture instance with the image need to be displayed
+WPicture picture = new WPicture(document);
+FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
+picture.LoadImage(imageStream);
+//Appends the OLE object to the paragraph
+WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -6009,7 +3711,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -6029,86 +3731,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Opens the file to be embedded
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Book1.xlsx");
-//Loads the picture instance with the image need to be displayed
-WPicture picture = new WPicture(document);
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-picture.LoadImage(imageStream);
-//Appends the OLE object to the paragraph
-WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
-//Saves and closes the Word document instance     
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Opens the file to be embedded
-FileStream fileStream = new FileStream("Book1.xlsx", FileMode.Open);
-//Loads the picture instance with the image need to be displayed
-WPicture picture = new WPicture(document);
-FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
-picture.LoadImage(imageStream);
-//Appends the OLE object to the paragraph
-WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx"); 
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Opens the file to be embedded
-Stream fileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Book1.xlsx");
-//Loads the picture instance with the image need to be displayed
-WPicture picture = new WPicture(document);
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
-picture.LoadImage(imageStream);
-//Appends the OLE object to the paragraph
-WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-ole-object).
 
@@ -6116,9 +3739,96 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following code example explains how to extract OLE objects from the document and save as separate file.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read))
+{
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+    {
+        // Extract the OLE object from the word document
+        ExtractOLEObject(document);
+    }
+}
+
+private static void ExtractOLEObject(WordDocument document)
+{
+    WOleObject oleObject = null;
+    int oleIndex = -1;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            foreach (Entity entity in paragraph.ChildEntities)
+            {
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    //Gets OleObject
+                    oleObject = entity as WOleObject;
+                    //Gets index of OleObject
+                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
+                    //Gets ole type
+                    string oleTypeStr = oleObject.ObjectType;
+                    // Checks for Excel type so that file can be saved with proper extension.
+                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                    {
+                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xlsx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else
+                        {
+                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xls", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for Word document embedded object and save them
+                    if (oleTypeStr.Contains("Word.Document"))
+                    {
+                        if (oleTypeStr.Contains("Word.Document.12"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".docx", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                        else if (oleTypeStr.Contains("Word.Document.8"))
+                        {
+                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".doc", FileMode.Create);
+                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                            fstream.Flush();
+                            fstream.Close();
+                            break;
+                        }
+                    }
+                    //Checks for PDF embedded object and save them
+                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
+                    {
+                        FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".pdf", FileMode.Create);
+                        fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
+                        fstream.Flush();
+                        fstream.Close();
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Opens an existing document
 using (WordDocument document = new WordDocument("Template.docx"))
 {
@@ -6202,7 +3912,7 @@ private static void ExtractOLEObject(WordDocument document)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens an existing document
 Using document As WordDocument = New WordDocument(inputFileName)
     'Extract the OLE object from the word document
@@ -6212,7 +3922,6 @@ End Using
 Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
     Dim oleObject As WOleObject = Nothing
     Dim oleIndex As Integer = -1
-
     ' Retrieving embedded object.
     For Each section As WSection In document.Sections
         For Each paragraph As WParagraph In section.Paragraphs
@@ -6225,7 +3934,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                     oleIndex = paragraph.ChildEntities.IndexOf(oleObject)
                     'Gets ole type
                     Dim oleTypeStr As String = oleObject.ObjectType
-
                     ' Checks for Excel type so that file can be saved with proper extension.
                     If oleTypeStr.Contains("Excel 2003 Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.8") OrElse oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
                         If oleTypeStr.Contains("Excel Worksheet") OrElse oleTypeStr.StartsWith("Excel.Sheet.12") Then
@@ -6242,7 +3950,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                             Exit For
                         End If
                     End If
-
                     'Checks for Word document embedded object and save them
                     If oleTypeStr.Contains("Word.Document") Then
                         If oleTypeStr.Contains("Word.Document.12") Then
@@ -6259,7 +3966,6 @@ Private Shared Sub ExtractOLEObject(ByVal document As WordDocument)
                             Exit For
                         End If
                     End If
-
                     'Checks for PDF embedded object and save them
                     If oleTypeStr.Contains("Acrobat Document") OrElse oleTypeStr.StartsWith("AcroExch.Document.7") OrElse oleTypeStr.Contains("AcroExch.Document.11") OrElse oleTypeStr.StartsWith("AcroExch.Document.DC") Then
                         Dim fstream As FileStream = New FileStream("Sample" & oleObject.OleStorageName & ".pdf", FileMode.Create)
@@ -6276,319 +3982,66 @@ End Sub
 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-WordDocument document = new WordDocument(inputStream, FormatType.Docx);
-// Extract the OLE object from the word document
-ExtractOLEObject(document);
-document.Close();
-
-private static void ExtractOLEObject(WordDocument document)
-{
-    WOleObject oleObject = null;
-    int oleIndex = -1;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            foreach (Entity entity in paragraph.ChildEntities)
-            {
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    //Gets OleObject
-                    oleObject = entity as WOleObject;
-                    //Gets index of OleObject
-                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
-                    //Gets ole type
-                    string oleTypeStr = oleObject.ObjectType;
-                    // Checks for Excel type so that file can be saved with proper extension.
-                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                    {
-                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msexcel" ,"Workbook" + oleObject.OleStorageName + ".xlsx");
-                            break;
-                        }
-                        else
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msexcel", "Workbook" + oleObject.OleStorageName + ".xls");
-                            break;
-                        }
-                    }
-                    //Checks for Word document embedded object and save them
-                    if (oleTypeStr.Contains("Word.Document"))
-                    {
-                        if (oleTypeStr.Contains("Word.Document.12"))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".docx");
-                            break;
-                        }
-                        else if (oleTypeStr.Contains("Word.Document.8"))
-                        {
-                            MemoryStream stream = new MemoryStream();
-                            stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Save(stream, "application/msword", "Sample" + oleObject.OleStorageName + ".doc");
-                            break;
-                        }
-                    }
-                    //Checks for PDF embedded object and save them
-                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
-                    {
-                        MemoryStream stream = new MemoryStream();
-                        stream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                        Save(stream, "application/pdf", "Sample" + oleObject.OleStorageName + ".pdf");
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-
-async void Save(MemoryStream streams, string contentType, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        switch (contentType)
-        {
-            case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
-                savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", ".ppt" });
-                break;
-
-            case "application/msexcel":
-                savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", ".xls" });
-                break;
-
-            case "application/msword":
-                savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx", ".doc" });
-                break;
-
-            case "application/pdf":
-                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-                break;
-            case "application/html":
-                savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
-                break;
-        }
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (FileStream inputStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read))
-{
-    using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
-    {
-	    // Extract the OLE object from the word document
-        ExtractOLEObject(document);
-    }
-}
-
-private static void ExtractOLEObject(WordDocument document)
-{
-    WOleObject oleObject = null;
-    int oleIndex = -1;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            foreach (Entity entity in paragraph.ChildEntities)
-            {
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    //Gets OleObject
-                    oleObject = entity as WOleObject;
-                    //Gets index of OleObject
-                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
-                    //Gets ole type
-                    string oleTypeStr = oleObject.ObjectType;
-                    // Checks for Excel type so that file can be saved with proper extension.
-                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                    {
-                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                        {
-                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xlsx", FileMode.Create);
-                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            fstream.Flush();
-                            fstream.Close();
-                            break;
-                        }
-                        else
-                        {
-                            FileStream fstream = new FileStream("Workbook" + oleObject.OleStorageName + ".xls", FileMode.Create);
-                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            fstream.Flush();
-                            fstream.Close();
-                            break;
-                        }
-                    }
-                    //Checks for Word document embedded object and save them
-                    if (oleTypeStr.Contains("Word.Document"))
-                    {
-                        if (oleTypeStr.Contains("Word.Document.12"))
-                        {
-                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".docx", FileMode.Create);
-                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            fstream.Flush();
-                            fstream.Close();
-                            break;
-                        }
-                        else if (oleTypeStr.Contains("Word.Document.8"))
-                        {
-                            FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".doc", FileMode.Create);
-                            fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            fstream.Flush();
-                            fstream.Close();
-                            break;
-                        }
-                    }
-                    //Checks for PDF embedded object and save them
-                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
-                    {
-                        FileStream fstream = new FileStream("Sample" + oleObject.OleStorageName + ".pdf", FileMode.Create);
-                        fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                        fstream.Flush();
-                        fstream.Close();
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
-WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
-// Extract the OLE object from the word document
-ExtractOLEObject(wordDocument);
-wordDocument.Close();
-
-private static void ExtractOLEObject(WordDocument document)
-{
-    WOleObject oleObject = null;
-    int oleIndex = -1;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            foreach (Entity entity in paragraph.ChildEntities)
-            {
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    //Gets OleObject
-                    oleObject = entity as WOleObject;
-                    //Gets index of OleObject
-                    oleIndex = paragraph.ChildEntities.IndexOf(oleObject);
-                    //Gets ole type
-                    string oleTypeStr = oleObject.ObjectType;
-                    // Checks for Excel type so that file can be saved with proper extension.
-                    if (oleTypeStr.Contains("Excel 2003 Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.8") || (oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                    {
-                        if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xlsx", "application/msexcel", memoryStream);
-                            break;
-                        }
-                        else
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Workbook" + oleObject.OleStorageName + ".xls", "application/msexcel", memoryStream);
-                            break;
-                        }
-                    }
-                    //Checks for Word document embedded object and save them
-                    if (oleTypeStr.Contains("Word.Document"))
-                    {
-                        if (oleTypeStr.Contains("Word.Document.12"))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".docx", "application/msword", memoryStream);
-                            break;
-                        }
-                        else if (oleTypeStr.Contains("Word.Document.8"))
-                        {
-                            MemoryStream memoryStream = new MemoryStream();
-                            memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".doc", "application/msword", memoryStream);
-                            break;
-                        }
-                    }
-                    //Checks for PDF embedded object and save them
-                    if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
-                    {
-                        MemoryStream memoryStream = new MemoryStream();
-                        memoryStream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
-                        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample" + oleObject.OleStorageName + ".pdf", "application/pdf", memoryStream);
-                        break;
-                    }
-
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
 {% endtabs %}  
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Extract-ole-object).
 
 ### Remove OLE Objects from Word document
   
-The following code example explains how to remove OLE objects from the document.  
+The following code example explains how to remove OLE objects from the document.
   
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-//Opens the source document 
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+FileStream inputStream = new FileStream(@"Input.docx", FileMode.Open, FileAccess.Read);
+WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
+inputStream.Dispose();
+//Remove OLE object from the document
+RemoveOLEObject(document);
+//Saves the Word document to MemoryStream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document.
+document.Close();
+
+private static void RemoveOLEObject(WordDocument document)
+{
+    bool isFieldStart = false;
+    // Retrieving embedded object.
+    foreach (WSection section in document.Sections)
+    {
+        foreach (WParagraph paragraph in section.Paragraphs)
+        {
+            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+            {
+                Entity entity = paragraph.ChildEntities[i];
+                //Checks for oleObject
+                if (entity.EntityType == EntityType.OleObject)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = true;
+                    i--;
+                }
+                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
+                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    isFieldStart = false;
+                    i--;
+                }
+                else if (isFieldStart)
+                {
+                    paragraph.ChildEntities.Remove(entity);
+                    i--;
+                }
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens the source document
 WordDocument document = new WordDocument(@"Template.docx");
 //Remove OLE object from the document
 RemoveOLEObject(document);
@@ -6633,7 +4086,7 @@ private static void RemoveOLEObject(WordDocument document)
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Opens the source document 
 Dim document As WordDocument = New WordDocument("Template.docx")
 'Remove OLE object from the document
@@ -6670,171 +4123,44 @@ Private Shared Sub RemoveOLEObject(ByVal document As WordDocument)
 End Sub
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Template.docx");
-WordDocument document = new WordDocument(inputStream, FormatType.Docx);
-//Remove OLE object from the document
-RemoveOLEObject(document);
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-//Saves the stream as Word document file in local machine
-Save(stream, "Output.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-
-private void RemoveOLEObject(WordDocument document)
-{
-    bool isFieldStart = false;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-            {
-                Entity entity = paragraph.ChildEntities[i];
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = true;
-                    i--;
-                }
-                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
-                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = false;
-                    i--;
-                }
-                else if (isFieldStart)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    i--;
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-FileStream inputStream = new FileStream(@"Input.docx", FileMode.Open, FileAccess.Read);
-WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
-inputStream.Dispose();
-//Remove OLE object from the document
-RemoveOLEObject(document);
-//Saves the word document
-FileStream outputFile = new FileStream("Output.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-document.Save(outputFile, FormatType.Docx);
-//Closes the document
-document.Close();
-outputFile.Dispose();
-
-private static void RemoveOLEObject(WordDocument document)
-{
-    bool isFieldStart = false;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-            {
-                Entity entity = paragraph.ChildEntities[i];
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = true;
-                    i--;
-                }
-                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
-                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = false;
-                    i--;
-                }
-                else if (isFieldStart)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    i--;
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("XamarinApp.Data.Template.docx");
-WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
-//Remove OLE object from the document
-RemoveOLEObject(document);
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.docx", "application/msword", stream);
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-
-
-private static void RemoveOLEObject(WordDocument document)
-{
-    bool isFieldStart = false;
-    // Retrieving embedded object.
-    foreach (WSection section in document.Sections)
-    {
-        foreach (WParagraph paragraph in section.Paragraphs)
-        {
-            for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-            {
-                Entity entity = paragraph.ChildEntities[i];
-                //Checks for oleObject
-                if (entity.EntityType == EntityType.OleObject)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = true;
-                    i--;
-                }
-                else if (isFieldStart && entity.EntityType == EntityType.FieldMark
-                    && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    isFieldStart = false;
-                    i--;
-                }
-                else if (isFieldStart)
-                {
-                    paragraph.ChildEntities.Remove(entity);
-                    i--;
-                }
-            }
-        }
-    }
-}
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
   
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Remove-ole-object).
 
 ## Working with Text Box
 
-Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using the `WTextBox` instance.
+Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using the [WTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WTextBox.html) instance.
 
 The following code example explains how to add new text box to the paragraph.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Appends new textbox to the paragraph
+IWTextBox textbox = paragraph.AppendTextBox(150, 75);
+//Adds new text to the textbox body
+IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
+textboxParagraph.AppendText("Text inside text box");
+textboxParagraph = textbox.TextBoxBody.AddParagraph();
+//Adds new picture to textbox body
+FileStream imagestream = new FileStream(@"Mountain-200.jpg", FileMode.Open, FileAccess.ReadWrite);
+IWPicture picture = textboxParagraph.AppendPicture(imagestream);
+picture.Height = 75;
+picture.Width = 50;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -6856,7 +4182,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -6876,109 +4202,60 @@ picture.Width = 50
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
-{% endhighlight %} 
-
-{% highlight c# tabtitle="UWP" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;            
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new picture to textbox body
-Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Dummy-Images.jpg");
-IWPicture picture = textboxParagraph.AppendPicture(imageStream);
-picture.Height = 75;
-picture.Width = 50;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new picture to textbox body
-FileStream imagestream = new FileStream(@"Mountain-200.jpg", FileMode.Open, FileAccess.ReadWrite);
-IWPicture picture = textboxParagraph.AppendPicture(imagestream);
-picture.Height = 75;
-picture.Width = 50;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;          
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;        
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-textboxParagraph = textbox.TextBoxBody.AddParagraph();
-//Adds new picture to textbox body
-Stream imageStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Dummy-Images.jpg");
-IWPicture picture = textboxParagraph.AppendPicture(imageStream);
-picture.Height = 75;
-picture.Width = 50;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
+{% endhighlight %}
 
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Add-text-box).
 
-### Format and rotate text box  
+### Format and rotate text box
 
 Text box has its own formatting such as outline color, fill effects, text direction, wrap formats, and more. You can also rotate the text box and apply flipping (horizontal and vertical) to it.
 
 The following code example explains how to apply formatting and rotation for text box.
 
-{% tabs %}  
+{% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creates a new Word document 
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Appends new textbox to the paragraph
+IWTextBox textbox = paragraph.AppendTextBox(150, 75);
+//Adds new text to the textbox body
+IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
+textboxParagraph.AppendText("Text inside text box");
+//Sets fill color and line width for textbox
+textbox.TextBoxFormat.FillColor = Color.LightGreen;
+textbox.TextBoxFormat.LineWidth = 2;
+//Applies textbox text direction
+textbox.TextBoxFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.VerticalTopToBottom;
+//Sets text wrapping style
+textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+//Sets horizontal and vertical position
+textbox.TextBoxFormat.HorizontalPosition = 200;
+textbox.TextBoxFormat.VerticalPosition = 200;
+//Sets horizontal and vertical origin
+textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Margin;
+textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
+//Sets top and bottom margin values
+textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
+textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Creates a new Word document 
 WordDocument document = new WordDocument();
 //Adds new section to the document
@@ -7015,7 +4292,7 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Creates a new Word document 
 Dim document As New WordDocument()
 'Adds new section to the document
@@ -7052,137 +4329,7 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
 {% endhighlight %}
 
-{% highlight c# tabtitle="UWP" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-//Sets fill color and line width for textbox
-textbox.TextBoxFormat.FillColor = Color.LightGreen;
-textbox.TextBoxFormat.LineWidth = 2;
-//Applies textbox text direction
-textbox.TextBoxFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.VerticalTopToBottom;
-//Sets text wrapping style
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical position
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Margin;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Sets top and bottom margin values
-textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
-textbox.TextBoxFormat.InternalMargin.Top = 5f;
-//Sets 90 degree rotation
-textbox.TextBoxFormat.Rotation = 90;
-//Sets horizontal flip
-textbox.TextBoxFormat.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-await document.SaveAsync(stream, FormatType.Docx);
-document.Close();
-//Saves the stream as Word file in local machine
-Save(stream, "Result.docx");
-
-//Refer to the following link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
-{% endhighlight %} 
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-//Sets fill color and line width for textbox
-textbox.TextBoxFormat.FillColor = Color.LightGreen;
-textbox.TextBoxFormat.LineWidth = 2;
-//Applies textbox text direction
-textbox.TextBoxFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.VerticalTopToBottom;
-//Sets text wrapping style
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical position
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Margin;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Sets top and bottom margin values
-textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
-textbox.TextBoxFormat.InternalMargin.Top = 5f;
-//Sets 90 degree rotation
-textbox.TextBoxFormat.Rotation = 90;
-//Sets horizontal flip
-textbox.TextBoxFormat.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-stream.Position = 0;
-//Download Word document in the browser
-return File(stream, "application/msword", "Result.docx");
-{% endhighlight %} 
-
-{% highlight c# tabtitle="Xamarin" %}
-//Creates a new Word document 
-WordDocument document = new WordDocument();
-//Adds new section to the document
-IWSection section = document.AddSection();
-//Adds new paragraph to the section
-IWParagraph paragraph = section.AddParagraph();
-//Appends new textbox to the paragraph
-IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-//Adds new text to the textbox body
-IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
-textboxParagraph.AppendText("Text inside text box");
-//Sets fill color and line width for textbox
-textbox.TextBoxFormat.FillColor = Syncfusion.Drawing.Color.LightGreen;
-textbox.TextBoxFormat.LineWidth = 2;
-//Applies textbox text direction
-textbox.TextBoxFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.VerticalTopToBottom;
-//Sets text wrapping style
-textbox.TextBoxFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
-//Sets horizontal and vertical position
-textbox.TextBoxFormat.HorizontalPosition = 200;
-textbox.TextBoxFormat.VerticalPosition = 200;
-//Sets horizontal and vertical origin
-textbox.TextBoxFormat.VerticalOrigin = VerticalOrigin.Margin;
-textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
-//Sets top and bottom margin values
-textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
-textbox.TextBoxFormat.InternalMargin.Top = 5f;
-//Sets 90 degree rotation
-textbox.TextBoxFormat.Rotation = 90;
-//Sets horizontal flip
-textbox.TextBoxFormat.FlipHorizontal = true;
-//Saves and closes the Word document instance
-MemoryStream stream = new MemoryStream();
-//Saves the Word file to MemoryStream
-document.Save(stream, FormatType.Docx);
-document.Close();
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-{% endhighlight %} 
-
-{% endtabs %}  
+{% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Paragraphs/Format-and-rotate-text-box).
 
@@ -7190,3 +4337,15 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 * [How to edit Word document in C#, VB.NET](https://www.syncfusion.com/kb/12993/how-to-edit-word-document-in-c-vb-net)
 * [How to insert different document as OLE object in the Word document](https://www.syncfusion.com/kb/12903/how-to-insert-different-document-as-ole-object-in-the-word-document)
+* [How to extract Images from Word document in C# and VB](https://www.syncfusion.com/kb/13205/how-to-extract-images-from-word-document-in-c-and-vb)
+* [How to extract text from Word document in C# and VB](https://www.syncfusion.com/kb/13204/how-to-extract-text-from-word-document-in-c-and-vb)
+* [How to find list of used fonts in the Word document](https://www.syncfusion.com/kb/12902/how-to-find-list-of-used-fonts-in-the-word-document)
+* [How to remove hyperlink from a Word document using C#, VB.NET](https://www.syncfusion.com/kb/10991/how-to-remove-hyperlink-from-a-word-document-using-c-vb-net)
+* [Is it possible to insert image on each page of Word document](https://www.syncfusion.com/kb/7541/is-it-possible-to-insert-image-on-each-page-of-word-document)
+* [Is it possible to apply "No Paragraph Space" option to a Word document](https://www.syncfusion.com/kb/4969/is-it-possible-to-apply-no-paragraph-space-option-to-a-word-document)
+* [How to create the deep level numbering( 1.1-1.2.1-1.2.2 etc.) using DocIO](https://www.syncfusion.com/kb/289/how-to-create-the-deep-level-numbering-1-1-1-2-1-1-2-2-etc-using-docio)
+* [How to replace URL of image hyperlink in Word document](https://www.syncfusion.com/kb/12861/how-to-replace-url-of-image-hyperlink-in-word-document)
+* [How to fit image within a text box in the Word document](https://www.syncfusion.com/kb/11787/how-to-fit-image-within-a-text-box-in-the-word-document)
+* [How to find and modify hyperlink address in Word document?](https://www.syncfusion.com/kb/13718/how-to-find-and-modify-hyperlink-address-in-word-document)
+* [How to change the character/symbol used for bullet points in Word document?](https://www.syncfusion.com/kb/13710/how-to-change-the-character-symbol-used-for-bullet-points-in-word-document)
+* [How to resize list character in a Word document?](https://www.syncfusion.com/kb/13928/how-to-resize-list-character-in-a-word-document)

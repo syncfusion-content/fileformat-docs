@@ -1,0 +1,42 @@
+---
+title: Open and save Word document in Microsoft Azure | Syncfusion
+description: Learn how to open and save a Word document in Azure services using Syncfusion .NET Word (DocIO) library in C#.
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
+# Open and save Word document in Azure Platform 
+
+Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and convert Word documents programmatically without **Microsoft Word** or interop dependencies. Using this library, **open and save a Word document in Azure services** within a few lines of code. 
+
+N> If this is your first time working with Azure, please refer to the dedicated Azure development resources. This section explains how to open and save a Word document in C# using the .NET Word (DocIO) library in Azure. 
+
+## Prerequisites 
+* An active **Microsoft Azure subscription** is required. If you don’t have one, please create a free account before starting.
+
+## Azure Services
+<table>
+<thead>
+<tr>
+<th>
+Azure Services<br/></th><th>
+NuGet package name<br/></th></tr></thead>
+
+<tr>
+<td>
+{{'[App Service (Windows)](https://help.syncfusion.com/file-formats/docio/open-and-save-word-document-in-azure-app-service-windows)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}</td></tr>
+<tr>
+<td>
+{{'[App Service (Linux)](https://help.syncfusion.com/file-formats/docio/open-and-save-word-document-in-azure-app-service-linux)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v1](https://help.syncfusion.com/file-formats/docio/open-and-save-word-document-in-azure-functions-v1)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.AspNet](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet)' | markdownify}}<br/></td></tr>
+<tr>
+<td>
+{{'[Azure Functions v4](https://help.syncfusion.com/file-formats/docio/open-and-save-word-document-in-azure-functions-v4)' | markdownify}}<br/></td><td>
+{{'[Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core)' | markdownify}}<br/></td></tr>
+</table>

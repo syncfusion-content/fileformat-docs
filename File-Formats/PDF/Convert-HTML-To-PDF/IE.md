@@ -9,7 +9,7 @@ documentation: UG
 
 Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to PDF. The output would like how it is viewed in the Internet Explorer browser.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 ## Prerequisites
 
@@ -121,6 +121,7 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Converting-the-URL-to-PDF-document).
 
 ## Converting the HTML string to PDF document
 
@@ -197,6 +198,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Converting-HTML-string-to-PDF-document).
+
 ## Converting Windows Authenticated web page to PDF document
 
 The webpage you want to convert may protected with windows authentication. IE rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
@@ -261,6 +264,8 @@ document.Close(True)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Convert-windows-authenticated-webpage-to-PDF).
+
 ## Converting with PDFA conformance
 
 IE HTML to PDF converter provides support for converting the web pages to PDF with PDFA1B conformance, which embeds all the fonts into the PDF document. The following code snippet illustrates how to convert HTML pages to PDF document with PDFA1B conformance.
@@ -319,6 +324,8 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Convert-HTML-to-PDF-with-PDFA-conformance).
 
 ## Limitations in the IE Rendering Engine
 

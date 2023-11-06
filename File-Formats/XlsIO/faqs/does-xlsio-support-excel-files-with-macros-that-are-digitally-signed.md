@@ -1,7 +1,7 @@
 ---
 title: XlsIO support digitally signed Excel files with macros | Syncfusion
 description: This page tells whether the Syncfusion XlsIO supports Excel files with macros that are digitally signed.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

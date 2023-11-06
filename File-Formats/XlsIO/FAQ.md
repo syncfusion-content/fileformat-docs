@@ -1,7 +1,7 @@
 ---
 title: FAQ Section| XlsIO | Syncfusion
 description: In this section, you can know about the various questions asked about manipulation of Excel document using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -61,3 +61,21 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to convert the required range in Excel to PDF?](faqs/how-to-convert-the-required-range-in-excel-to-pdf)
 * [How to search a value in only specific columns of an Excel worksheet?](faqs/how-to-search-a-value-in-only-specific-columns-of-an-Excel-worksheet)
 * [How to read filtered rows in Excel?](faqs/how-to-read-filtered-rows-in-excel)
+* [What are the deprecated APIs in XlsIO?](faqs/what-are-the-deprecated-apis-in-xlsio)
+* [How to detect merged cells in Excel?](faqs/how-to-detect-merged-cells-in-Excel)
+* [How to apply formatting to pivot table in Excel protected view?](faqs/how-to-apply-formatting-to-pivottable-in-Excel-protected-view)
+* [Does XlsIO support multi threading?](faqs/does-xlsio-support-multi-threading)
+* [How to check whether the given range is valid or not?](faqs/how-to-check-whether-the-given-range-is-valid-or-not)
+* [How to convert hidden worksheets alone to image?](faqs/how-to-convert-hidden-worksheets-alone-to-image)
+* [How to find and highlight data in Excel?](faqs/how-to-find-and-highlight-data-in-Excel)
+* [How to avoid header row while sorting Excel data?](faqs/how-to-avoid-header-row-while-sorting-Excel-data)
+* [How to edit external workbook reference link?](faqs/how-to-edit-external-workbook-reference-link)
+* [How to set error bars in chart?](faqs/how-to-set-error-bars-in-chart)
+* [Migrate XlsIO library from .NET Framework to .NET Core?](faqs/migrate-from-net-framework-to-net-core)
+* [How to apply rotation and transparency to background image?](faqs/how-to-apply-rotation-and-transparency-to-background-image)
+* [How to open an Excel file with encoding in .NET Core?](faqs/how-to-open-an-excel-file-with-encoding-in-net-core)
+* [How to convert image from URL in Excel to PDF?](faqs/how-to-convert-image-from-url-in-excel-to-pdf)
+* [How to change the shape text font?](faqs/how-to-change-the-shape-text-font)
+* [Why cone chart shows itself as column or bar chart?](faqs/why-cone-chart-shows-itself-as-colum-or-bar-chart)
+* [How to vary colors by point for line and column chart?](faqs/how-to-vary-colors-by-point-for-line-and-column-chart)
+* [How to upload a file to Azure blob and download as stream?](faqs/how-to-upload-a-file-to-azure-blob-and-download-as-stream)

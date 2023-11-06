@@ -1,19 +1,19 @@
 ---
 title: Avoid StackOverflow exception with IWorksheet Calculate() |Syncfusion
 description: This page shows how to overcome StackOverflow exception while calling Calculate method of IWorksheet using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
 # How to overcome StackOverflow exception with IWorksheet's Calculate()?
 
-StackOverflow exception occurs when the number of <i>IterationMaxCount</i>, <i>MaximumRecursiveCalls</i> and <i>MaxStackDepth</i> exceeds in the `CalcEngine`. To avoid this StackOverflow exception while computing the formulas iteratively exceeding the maximum capacity, you need to set the values for these properties before calling the <b>Calculate</b> method of <b>IWorksheet</b> interface.
+StackOverflow exception occurs when the number of **IterationMaxCount**, **MaximumRecursiveCalls** and **MaxStackDepth** exceeds in the [CalcEngine](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_CalcEngine). To avoid this StackOverflow exception while computing the formulas iteratively exceeding the maximum capacity, you need to set the values for these properties before calling the [Calculate](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_Calculate) method of [IWorksheet](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html) interface.
 
 The following code snippet explains this.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 worksheet.EnableSheetCalculations(); 
 worksheet.CalcEngine.UseFormulaValues = true; 
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
@@ -21,36 +21,20 @@ worksheet.CalcEngine.IterationMaxCount = 10000;
 CalcEngine.MaxStackDepth = 10000; 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+worksheet.EnableSheetCalculations(); 
+worksheet.CalcEngine.UseFormulaValues = true; 
+worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
+worksheet.CalcEngine.IterationMaxCount = 10000; 
+CalcEngine.MaxStackDepth = 10000; 
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 worksheet.EnableSheetCalculations()
 worksheet.CalcEngine.UseFormulaValues = True
 worksheet.CalcEngine.MaximumRecursiveCalls = 10000
 worksheet.CalcEngine.IterationMaxCount = 10000
 CalcEngine.MaxStackDepth = 10000
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-worksheet.EnableSheetCalculations(); 
-worksheet.CalcEngine.UseFormulaValues = true; 
-worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
-worksheet.CalcEngine.IterationMaxCount = 10000; 
-CalcEngine.MaxStackDepth = 10000; 
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-worksheet.EnableSheetCalculations(); 
-worksheet.CalcEngine.UseFormulaValues = true; 
-worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
-worksheet.CalcEngine.IterationMaxCount = 10000; 
-CalcEngine.MaxStackDepth = 10000; 
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-worksheet.EnableSheetCalculations(); 
-worksheet.CalcEngine.UseFormulaValues = true; 
-worksheet.CalcEngine.MaximumRecursiveCalls = 10000; 
-worksheet.CalcEngine.IterationMaxCount = 10000; 
-CalcEngine.MaxStackDepth = 10000; 
 {% endhighlight %}
 {% endtabs %}
 

@@ -41,10 +41,10 @@ keywords: Supported and Unsupported Features of Presentation library
 </tr>
 <tr>
 <td>
-{{'**Client side application**'| markdownify }}
+{{'**Wasm app**'| markdownify }}
 </td>
 <td>
-{{'**Server side and hosted application**'| markdownify }}
+{{'**Server  and hosted application**'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -617,7 +617,7 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
 </td>
 <td>
 Yes
@@ -649,7 +649,7 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
 </td>
 <td>
 Yes

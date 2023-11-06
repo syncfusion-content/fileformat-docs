@@ -14,21 +14,21 @@ To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versi
 
 ## Steps to create PowerPoint file in .NET MAUI
 
-1.Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
+Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
 ![Create the MAUI app in Visual Studio](Workingwith_MAUI/Create_Project.png)
 
-2.Enter the project name and click **Create**.
+Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](Workingwith_MAUI/Configure.png)
 
-3.Install the Syncfusion.Presentation.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the Syncfusion.Presentation.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install the Presentation .NET NuGet package](Workingwith_MAUI/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-4.Add a new button to the **MainPage.xaml** as shown below.
+Step 4: Add a new button to the **MainPage.xaml** as shown below.
 
 {% tabs %}
 
@@ -56,26 +56,23 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-5.Include the following namespaces in the **MainPage.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.Presentation;
 using System.IO;
 using System.Reflection;
-
 {% endhighlight %}
 
 {% endtabs %}
 
-6.Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
+Step 6: Add a new action method **CreatePresentation** in MainPage.xaml.cs and include the below code snippet to **create a PowerPoint file**.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 //Creates a new instance of the PowerPoint Presentation file.
 using IPresentation pptxDoc = Presentation.Create();
 //Adds a new slide to the file and apply background color.
@@ -127,12 +124,11 @@ stream.Position = 0;
 //Saves the memory stream as file.
 SaveService saveService = new();
 saveService.SaveAndView("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-
 {% endhighlight %}
 
 {% endtabs %}
 
-A complete working example of creating a Presentation file in the .NET MAUI app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePowerPoint-472985326.zip).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation).
 
 By executing the program, you will get the **PowerPoint slide** as follows.
 
@@ -149,13 +145,10 @@ You can edit an existing PowerPoint file using this library. The below code snip
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 //Opens an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Sample.pptx"));
-
 //Gets the first slide from the PowerPoint presentation.
 ISlide slide = pptxDoc.Slides[0];
-
 //Gets the first shape of the slide.
 IShape shape = slide.Shapes[0] as IShape;
-
 //Modifies the text of the shape.
 if (shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
@@ -169,6 +162,8 @@ saveService.SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedoc
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Read-and-edit-presentationn).
 
 ## Helper files for .NET MAUI
 
@@ -246,3 +241,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </td>
   </tr>
 </table>
+
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/maui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+
+An online sample link to [create a PowerPoint Presentation](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default#/material3) in ASP.NET Core. 

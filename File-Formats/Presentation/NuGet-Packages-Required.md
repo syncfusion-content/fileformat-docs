@@ -18,7 +18,7 @@ To work with PowerPoint Presentations, install the following NuGet packages in y
 </tr>
 <tr>
 <td>
-Windows Forms, Console Application (Targeting .NET Framework)
+{{'[Windows Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-windows-forms)'| markdownify }}, Console Application (Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
@@ -26,7 +26,7 @@ Windows Forms, Console Application (Targeting .NET Framework)
 </tr>
 <tr>
 <td>
-WPF
+{{'[WPF](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-wpf)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
@@ -34,7 +34,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms
+{{'[ASP.NET Web Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-web-forms)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/)'| markdownify }}
@@ -42,7 +42,7 @@ ASP.NET Web Forms
 </tr>
 <tr>
 <td>
-ASP.NET MVC4
+{{'[ASP.NET MVC4](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4/)'| markdownify }}
@@ -50,7 +50,7 @@ ASP.NET MVC4
 </tr>
 <tr>
 <td>
-ASP.NET MVC5
+{{'[ASP.NET MVC5](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/)'| markdownify }}
@@ -58,7 +58,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP
+{{'[UWP](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-uwp)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.UWP.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/)'| markdownify }}
@@ -66,7 +66,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
+{{'[ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp)'| markdownify }}, Console Application (Targeting .NET Core) and {{'[Blazor](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-blazor)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
@@ -74,7 +74,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </tr>
 <tr>
 <td>
-Xamarin
+{{'[Xamarin](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Xamarin.Presentation.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/)'| markdownify }}
@@ -82,7 +82,7 @@ Xamarin
 </tr>
 <tr>
 <td>
-Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
+{{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-winui)'| markdownify }} and {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-maui)'| markdownify }}
 </td>
 <td>
 {{'[Syncfusion.Presentation.NET.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.NET/)'|markdownify }}
@@ -90,8 +90,8 @@ Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </tr>
 </table>
 
-N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
-N> 2.From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to learn about registering Syncfusion license key in your applications to use the components.
+N> 2. From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting PowerPoint Presentation into PDF
 
@@ -149,8 +149,7 @@ ASP.NET MVC5
 UWP, ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -158,8 +157,7 @@ UWP, ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -238,8 +236,7 @@ UWP
 ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -247,8 +244,7 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -256,7 +252,7 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-Syncfusion.PresentationRenderer.NET.nupkg<br/>
+{{'[Syncfusion.PresentationRenderer.NET.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.NET/)'| markdownify }}<br/>
 </td>
 </tr>
 </tbody>
@@ -328,8 +324,7 @@ UWP
 ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -337,14 +332,10 @@ ASP.NET Core, Console Application (Targeting .NET Core) and Blazor
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
-{{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/>
 </td>
 </tr>
 </table>
-
-N> 1. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is supported only from 4.0 .NET Framework onwards. 
-N> 2. The “Syncfusion.Xamarin.PresentationRenderer.nupkg” and “Syncfusion.PresentationRenderer.Net.Core.nupkg” NuGet packages supports chart to image conversion only from .NET Standard 2.0 onwards.
 
 ## NuGet package installation and uninstallation
 
@@ -456,13 +447,11 @@ ASP.NET Core and Blazor
 </td>
 <td>
 * Install-package Syncfusion.Presentation.Net.Core<br/><br/>
-* Install-package Syncfusion.PresentationRenderer.Net.Core<br/><br/>
-* Install-package Syncfusion.SkiaSharpHelper.Net.Core
+* Install-package Syncfusion.PresentationRenderer.Net.Core
 </td>
 <td>
 * Uninstall-package Syncfusion.Presentation.Net.Core –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.SkiaSharpHelper.Net.Core – RemoveDependencies
+* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies
 </td>
 </tr>
 <tr>
@@ -471,13 +460,11 @@ Xamarin
 </td>
 <td>
 * Install-package Syncfusion.Xamarin.Presentation<br/><br/>
-* Install-package Syncfusion.Xamarin.PresentationRenderer<br/><br/>
-* Install-package Syncfusion.Xamarin.SkiaSharpHelper
+* Install-package Syncfusion.Xamarin.PresentationRenderer
 </td>
 <td>
 * Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.Xamarin.SkiaSharpHelper - RemoveDependencies 
+* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies
 </td>
 </tr>
 <tr>
@@ -485,9 +472,12 @@ Xamarin
 Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
-* Install-package Syncfusion.PresentationRenderer.NET<br/></td>
+* Install-package Syncfusion.Presentation.NET<br/>
+* Install-package Syncfusion.PresentationRenderer.NET
+</td>
 <td>
-* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies<br/> 
+* Uninstall-package Syncfusion.Presentation.NET - RemoveDependencies<br/>
+* Uninstall-package Syncfusion.PresentationRenderer.NET - RemoveDependencies
 </td>
 </tr>
 </table>

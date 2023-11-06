@@ -1,149 +1,80 @@
 ---
 title: How to sort two or more columns in a pivot table | Syncfusion
 description: Code example to sort two or more columns in a pivot table using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
 # How to sort two or more columns in a pivot table?
 
-You can sort two or more columns in a pivot table by using the **AutoSort()** method each time with the respective column index. The following code snippet illustrates this.
+You can sort two or more columns in a pivot table by using the [AutoSort()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) method each time with the respective column index. The following code snippet illustrates this.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2016;
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
 
-    IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-    IWorksheet worksheet = workbook.Worksheets[1];
-    IPivotTable pivotTable = worksheet.PivotTables[0];
-                                
-    IPivotField rowField = pivotTable.RowFields[1];
-    //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
-    //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 3);
-    //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 4);
+  IPivotField rowField = pivotTable.RowFields[1];
+  //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
+  //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
+  rowField.AutoSort(PivotFieldSortType.Ascending, 3);
+  //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
+  rowField.AutoSort(PivotFieldSortType.Ascending, 4);
 
-    string fileName = "TopToBottomSort.xlsx";
-    workbook.SaveAs(fileName);
+  FileStream stream = new FileStream("TopToBottomSort.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+
+  IPivotField rowField = pivotTable.RowFields[1];
+  //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
+  //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
+  rowField.AutoSort(PivotFieldSortType.Ascending, 3);
+  //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
+  rowField.AutoSort(PivotFieldSortType.Ascending, 4);
+
+  string fileName = "TopToBottomSort.xlsx";
+  workbook.SaveAs(fileName);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
 
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2016
+  Dim rowField As IPivotField = pivotTable.RowFields(1)
+  'Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column
+  'assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B)
+  rowField.AutoSort(PivotFieldSortType.Ascending, 3)
+  'Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column
+  rowField.AutoSort(PivotFieldSortType.Ascending, 4)
 
-    Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-    Dim worksheet As IWorksheet = workbook.Worksheets(1)
-    Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
-
-    Dim rowField As IPivotField = pivotTable.RowFields(1)
-    'Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column
-    'assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B)
-    rowField.AutoSort(PivotFieldSortType.Ascending, 3)
-    'Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column
-    rowField.AutoSort(PivotFieldSortType.Ascending, 4)
-
-    Dim fileName As String = "TopToBottomSort.xlsx"
-    workbook.SaveAs(fileName)
-
+  Dim fileName As String = "TopToBottomSort.xlsx"
+  workbook.SaveAs(fileName)
 End Using
-
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    Stream inputStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
-    IWorksheet worksheet = workbook.Worksheets[1];
-    IPivotTable pivotTable = worksheet.PivotTables[0];
-                                
-    IPivotField rowField = pivotTable.RowFields[1];
-    //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
-    //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 3);
-    //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 4);
-
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "TopToBottomSort";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    FileStream inputStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
-    IWorksheet worksheet = workbook.Worksheets[1];
-    IPivotTable pivotTable = worksheet.PivotTables[0];
-                                
-    IPivotField rowField = pivotTable.RowFields[1];
-    //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
-    //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 3);
-    //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 4);
-
-    FileStream stream = new FileStream("TopToBottomSort.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.PivotTable.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-    IWorksheet worksheet = workbook.Worksheets[1];
-    IPivotTable pivotTable = worksheet.PivotTables[0];
-                                
-    IPivotField rowField = pivotTable.RowFields[1];
-    //Pivot Top to Bottom sorting of values in 4th column (D) of the pivot table, (i.e.) 3rd data column 
-    //assuming that the pivot table starts from 1st column (A) and data columns start from 2nd column (B) 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 3);
-    //Pivot Top to Bottom sorting of values in 5th column (E) of the pivot table, (i.e.) 4th data column 
-    rowField.AutoSort(PivotFieldSortType.Ascending, 4);
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TopToBottomSort.xlsx", "application/msexcel", stream);
-}
-{% endhighlight %}
-
-  {% endtabs %}
+{% endtabs %}
   
 ## See Also
 

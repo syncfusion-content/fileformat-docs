@@ -1,7 +1,7 @@
 ---
 title: XlsIO support for password protected macro | Syncfusion
 description: This page tells whether the Syncfusion XlsIO supports password protected macro in the Excel documents.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

@@ -14,7 +14,7 @@ Qt WebKit rendering is accurate, and the result preserves all the graphics, imag
 
 It does not require external dependencies like browsers, printer drivers, or viewers.
 
-N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v20.1.0.x, if you reference Syncfusion HTML converter assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 N> From version 20.1.0.XX, if you are using the WebKit rendering engine from NuGet packages, there is no need to manually copy the QtBinaries folder from the NuGet packages folder. There is also no need to set WebKitPath to the converter settings explicitly. It will copy the QtBinaries to the application bin folder and use the binaries from the bin folder automatically
 
@@ -60,31 +60,6 @@ Assemblies
 </td></tr>
 </table>
 
-<table>
-<tr>
-<thead>
-<th>
-Platforms</th>
-<th>
-QtBinaries
-</th>
-</thead>
-</tr>
-<tr>
-<td> .NET Framework </td>
-<td>
-The QtBinaries folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
-
-This is mandatory to set the <i>WebKitPath</i> property with QtBinaries folder. If the <i>WebKitPath</i> is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-</td></tr>
-<tr>
-<td> .NET Core </td>
-<td>
-The QtBinariesDotNetCore folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-</td></tr>
-</table>
 
 <b>NuGet</b>
 
@@ -147,35 +122,6 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-<table>
-<tr>
-<thead>
-<th>
-Platforms</th>
-<th>
-QtBinaries
-</th>
-</thead>
-</tr>
-<tr>
-<td> .NET Framework </td>
-<td>
-The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/WebKit_BinariesImage.png" alt="WebKit .NET Framework QtBinaries location">
-</td></tr>
-<tr>
-<td> .NET Core </td>
-<td>
-The QtBinariesWindows folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. 
-
-This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-<br/>
-<img src="htmlconversion_images/WebKitCore_BinariesImage.png" alt="WebKit .Net Core QtBinaries location">
-</td></tr>
-</table>
 
 ### VC++ Redistributable
 
@@ -215,14 +161,9 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. QtBinaries
-		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
-
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -244,21 +185,26 @@ This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, othe
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4. QtBinaries
-		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
-		
+				
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesMac folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
-	
-	
-## URL to PDF
 
-To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
+## WebKitPath
 
-N> Ensure that the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer to the pre-requisites section for more information.
+### Windows
+
+* The QtBinaries folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
+
+* If you are using the HTML to PDF converter from installer or assemblies, then you must set the QtBinaries folder path to WebKitPath property of WebKitConverterSettings. 
+
+* You can get the QtBinaries folder from HTML converter installed location. You can include this folder in your project and set the physical path of the folder to the BlinkPath property. 
+
+<b>Example path:</b>
+   .NET Framework – ($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\QtBinaries). 
+   .NET Core - ($SystemDrive\Program Files (x86)\Syncfusion\HTMLConverter\xx.x.x.xx\QtBinariesDotNetCore).
+   
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
 
 {% tabs %}
 
@@ -280,44 +226,32 @@ PdfDocument document = htmlConverter.Convert("https://www.google.com");
 
 //Save and close the PDF document 
 document.Save("Output.pdf");
-
 document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% endtabs %}
 
-'Initialize HTML to PDF converter 
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+### Linux
 
-Dim settings As New WebKitConverterSettings()
+* The QtBinariesLinux folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
 
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
+* The QtBinariesLinux folder is available in the HTML converter Linux build, you can get the folder and set the physical path of the folder to the WebKitPath property of WebKitConverterSettings.
 
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
 
-'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
-
-'Save and close the PDF document 
-document.Save("Output.pdf")
-
-document.Close(True)
-
-{% endhighlight %}
+{% tabs %}
 
 {% highlight c# tabtitle="ASP.NET Core" %}
 
 //Initialize HTML to PDF converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
+            
 //Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
-
+settings.WebKitPath = @"/QtBinariesLinux/";
+            
 //Assign WebKit settings to HTML converter
 htmlConverter.ConverterSettings = settings;
 
@@ -334,6 +268,100 @@ document.Close(true);
 
 {% endtabs %}
 
+### Mac
+
+* The QtBinariesMac folder is required to convert HTML to PDF with WebKit rendering engine. If the converter is used from NuGet package, there is no need to copy or set this folder path to WebKitPath property in the WebKitConverterSettings. 
+
+* The QtBinariesMac folder is available in the HTML converter Mac build, you can get the folder and set the physical path of the folder to the WebKitPath property of WebKitConverterSettings.
+
+Please refer below code snippet to set WebKit to the WebKitConverterSettings,
+
+{% tabs %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+            
+//Set WebKit path
+settings.WebKitPath = @"/QtBinariesMac/";
+            
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+	
+## URL to PDF
+
+To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
+
+N> Ensure that the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer to the pre-requisites section for more information.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET" %}
+
+'Initialize HTML to PDF converter 
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="ASP.NET Core" %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Convert-website-URL-to-PDF-document).
 
 ## HTML string to PDF
 
@@ -357,18 +385,10 @@ To convert the HTML string to PDF, please refer the below code snippet.
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
-WebKitConverterSettings settings = new WebKitConverterSettings();
-
 //HTML string and Base URL 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
-
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 //Convert HTML string to PDF
 PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
@@ -385,18 +405,10 @@ document.Close(true);
 'Initialize HTML to PDF converter 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
-Dim settings As New WebKitConverterSettings()
-
 'HTML string and Base URL 
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
 
 Dim baseUrl As String = "C:/Temp/HTMLFiles/"
-
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings
 
 'Convert HTML string to PDF
 Dim document As PdfDocument = htmlConverter.Convert(htmlText, baseUrl)
@@ -414,18 +426,10 @@ document.Close(True)
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
-WebKitConverterSettings settings = new WebKitConverterSettings();
-
 //HTML string and Base URL 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
 string baseUrl = @"C:/Temp/HTMLFiles/";
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
-
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 //Convert HTML string to PDF
 PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
@@ -463,6 +467,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Convert-HTML-string-to-PDF-document).
 
 ## JavaScript
 
@@ -476,9 +481,6 @@ WebKit HTML converter provides support for enabling or disabling the JavaScript 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 //Disable JavaScript; By default - true
 webKitSettings.EnableJavaScript = false;
@@ -503,9 +505,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Disable JavaScript; By default True
 webKitSettings.EnableJavaScript = False
 
@@ -528,9 +527,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Disable JavaScript; By default - true
 webKitSettings.EnableJavaScript = false;
@@ -564,6 +560,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Enable-the-JavaScript-while-converting-HTML-to-PDF).
 
 ## Additional delay
 
@@ -577,9 +574,6 @@ WebKit HTML converter provides option to set the [AdditionalDelay](https://help.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 //Set additional delay; units in milliseconds;
 webKitSettings.AdditionalDelay = 3000;
@@ -604,9 +598,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Set additional delay; units in milliseconds;
 webKitSettings.AdditionalDelay = 3000
 
@@ -629,9 +620,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set additional delay; units in milliseconds;
 webKitSettings.AdditionalDelay = 3000;
@@ -665,6 +653,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Add-additional-delay-while-converting-HTML-to-PDF).
 
 ## Hyperlinks
 
@@ -677,10 +666,7 @@ WebKit HTML converter provides support for preserving URL links from HTML to PDF
 //Initialize HTML converter with WebKit rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/"; 
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings(); 
 
 //Enable hyperlinks; By default - true
 webKitSettings.EnableHyperLink = false;
@@ -705,9 +691,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Enable hyperlinks; By default - True
 webKitSettings.EnableHyperLink = False
 
@@ -730,9 +713,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable hyperlinks; By default - true
 webKitSettings.EnableHyperLink = false;
@@ -766,6 +746,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Disable-hyperlink-while-converting-HTML-to-PDF).
 
 ## Bookmarks
 
@@ -786,10 +767,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 // Enable bookmarks
 
@@ -820,10 +797,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'WebKit converter settings 
 
 Dim webKitSettings As New WebKitConverterSettings()
-
-'Assign the WebKit binaries path
- 
-webKitSettings.WebKitPath = "/QtBinaries/"
 
 'Enable bookmarks
 
@@ -855,10 +828,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
-
 // Enable bookmarks
 
 webKitSettings.EnableBookmarks = true;
@@ -942,6 +911,7 @@ padding-left: 5px;
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Create-bookmarks-while-converting-HTML-to-PDF).
 
 ## Table of Contents
 
@@ -962,10 +932,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 // Enable table of contents
 
@@ -997,10 +963,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path 
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Enable table of contents
 
 webKitSettings.EnableToc = True
@@ -1030,10 +992,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Enable table of contents
 
@@ -1118,6 +1076,7 @@ padding-left: 5px;
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Creating-TOC-while-converting-HTML-to-PDF).
 
 ### Table of Contents with custom style
 
@@ -1134,10 +1093,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 //Initialize HTML to PDF converter
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 //Enable TOC
 
@@ -1183,10 +1138,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Enable TOC
 
 webKitSettings.EnableToc = True
@@ -1229,10 +1180,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 //Initialize HTML to PDF converter
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable TOC
 
@@ -1288,6 +1235,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Customize-TOC-while-converting-HTML-to-PDF).
 
 ## MediaType
 
@@ -1302,9 +1250,6 @@ WebKit HTML Converter allows selection of media type while converting HTML to PD
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/"; 
 
 //Set print media type
 webKitSettings.MediaType = MediaType.Print;
@@ -1329,9 +1274,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Set print media type
 webKitSettings.MediaType = MediaType.Print
 
@@ -1354,9 +1296,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set print media type
 webKitSettings.MediaType = MediaType.Print;
@@ -1390,6 +1329,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Selection-of-media-type-while-converting-HTML-to-PDF).
 
 ## HTML Form to PDF Form
 
@@ -1406,10 +1346,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings 
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 //Set enable form
 
@@ -1441,10 +1377,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path 
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Set enable form
 
 webKitSettings.EnableForm = True
@@ -1474,10 +1406,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings 
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set enable form
 
@@ -1519,6 +1447,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Converting-HTML-form-to-PDF-fillable-forms).
 
 ## Windows Authentication
 
@@ -1532,9 +1461,6 @@ The webpage you want to convert may protected with windows authentication. WebKi
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 webKitSettings.Username = "username";
 
@@ -1560,9 +1486,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 webKitSettings.Username = "username"
 
 webKitSettings.Password = "password"
@@ -1586,9 +1509,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 webKitSettings.Username = "username";
 
@@ -1623,6 +1543,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Convert-windows-authenticated-webpage-to-PDF-document).
 
 ## Form Authentication
 
@@ -1639,10 +1560,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 // Add cookies as name and value pair
 
@@ -1676,10 +1593,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path 
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Add cookies
 
 webKitSettings.Cookies.Add("Name1", "Value1")
@@ -1711,10 +1624,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Add cookies as name and value pair
 
@@ -1758,6 +1667,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Form-authentication-while-converting-HTML-to-PDF).
 
 ## Token based authentication
 
@@ -1772,10 +1682,6 @@ The WebKit HTML Converter supports token-based authentication by using the HTTP 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-
-settings.WebKitPath = @"/QtBinaries/";
 
 //Add a bearer token to login a webpage
 
@@ -1805,10 +1711,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
-'Set WebKit path
-
-settings.WebKitPath = "/QtBinaries/"
-
 'Add a bearer token to login a webpage
 
 settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
@@ -1834,10 +1736,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Add a bearer token to login a webpage
 
@@ -1879,6 +1777,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Convert-token-based-authenticate-webpage-to-PDF).
 
 ## Offline conversion
 
@@ -1896,9 +1795,6 @@ Please refer the below code snippet,
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/"; 
 
 //Enable offline mode
 webKitSettings.EnableOfflineMode = true;
@@ -1923,9 +1819,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Enable offline mode
 webKitSettings.EnableOfflineMode = True
 
@@ -1948,9 +1841,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable offline mode
 webKitSettings.EnableOfflineMode = true;
@@ -1984,6 +1874,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Converting-HTML-to-PDF-in-offline-mode).
 
 ## Table Header and Footer
 
@@ -2000,10 +1891,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings 
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 // Enable html table header repeat on every page.
 
@@ -2039,10 +1926,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 ' Enable html table header repeat on every page.
 
 webKitSettings.EnableRepeatTableHeader = True
@@ -2076,10 +1959,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings 
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Enable html table header repeat on every page.
 
@@ -2163,6 +2042,7 @@ for(count = 1; count <= 100; count++){
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Repeating-HTML-table-header-and-footer-in-each-page).
 
 ## HTTP GET and POST
 
@@ -2180,10 +2060,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
 
 //Add post parameters
 
@@ -2218,10 +2094,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path 
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Add post parameters
 
 webKitSettings.HttpPostFields.Add("firstName", "Andrew")
@@ -2253,10 +2125,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Add post parameters
 
@@ -2300,6 +2168,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Access-webpage-using-HTTP-POST).
 
 Use below code snippet to access a webpage using HTTP GET.
 
@@ -2311,14 +2180,6 @@ Use below code snippet to access a webpage using HTTP GET.
 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
-// WebKit converter settings
-
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
-
 string url = "http://asp.syncfusion.com/demos/http_post_get/default.aspx";
 
 Uri getMethodUri = new Uri(url);
@@ -2328,10 +2189,6 @@ string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("
 httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
 
 string urlToConvert = url + httpGetData;
-
-//Assign the WebKit settings
-
-htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert HTML to PDF
 
@@ -2351,15 +2208,6 @@ document.Close(true);
 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
-
-'WebKit converter settings
-
-Dim webKitSettings As New WebKitConverterSettings()
-
-'Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 Dim url As String = http://asp.syncfusion.com/demos/http_post_get/default.aspx
 
 Dim getMethodUri As New Uri(url)
@@ -2369,10 +2217,6 @@ Dim httpGetData As String = If(getMethodUri.Query.Length > 0, "&", "?" + [String
 httpGetData += [String].Format("&{0}={1}", "lastName", "Fuller")
 
 Dim urlToConvert As String = url & httpGetData
-
-'Assign the WebKit settings
-
-htmlConverter.ConverterSettings = webKitSettings
 
 'Convert HTML to PDF
 
@@ -2392,14 +2236,6 @@ document.Close(True)
 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
-// WebKit converter settings
-
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
-
 string url = "http://asp.syncfusion.com/demos/http_post_get/default.aspx";
 
 Uri getMethodUri = new Uri(url);
@@ -2409,10 +2245,6 @@ string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("
 httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
 
 string urlToConvert = url + httpGetData;
-
-//Assign the WebKit settings
-
-htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert HTML to PDF
 
@@ -2446,6 +2278,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Access-a-webpage-using-HTTP-GET).
 
 ## System proxy
 
@@ -2473,9 +2306,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-
 //To use system proxy settings
 webKitSettings.ProxySettings.UseSystemProxy = true;
 
@@ -2498,9 +2328,6 @@ document.Close();
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
-
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
 
 'To use system proxy settings
 webKitSettings.ProxySettings.UseSystemProxy = True
@@ -2534,9 +2361,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-
 //Set manual proxy settings
 webKitSettings.ProxySettings.HostName = "127.0.0.1";
 
@@ -2567,9 +2391,6 @@ document.Close();
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
-
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
 
 'Set manual proxy settings
 webKitSettings.ProxySettings.HostName = "127.0.0.1"
@@ -2612,9 +2433,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
-//Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/"; 
-
 //Set WebKit viewport size
 webKitSettings.WebKitViewPort = new Size(800,0);
            
@@ -2638,9 +2456,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Set WebKit path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Set WebKit viewport size
 webKitSettings.WebKitViewPort = New Size(800, 0)
 
@@ -2663,9 +2478,6 @@ document.Close()
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Set WebKit path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set WebKit viewport size
 webKitSettings.WebKitViewPort = new Size(800, 0);
@@ -2699,6 +2511,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Adjust-WebKit-viewport-in-HTML-to-PDF-Conversion).
 
 ## Partial webpage to PDF
 
@@ -2710,15 +2523,6 @@ WebKit rendering engine provides support for converting only the part of the HTM
 
 //Initialize HTML converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-
-// WebKit converter settings
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-webKitSettings.WebKitPath = @"/QtBinaries/";
-
-//Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert Partial webpage to PDF
 PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
@@ -2735,15 +2539,6 @@ document.Close(true);
 'Initialize HTML converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
-' WebKit converter settings
-Dim webKitSettings As New WebKitConverterSettings()
-
-'Assign the WebKit binaries path
-webKitSettings.WebKitPath = "/QtBinaries/"
-
-'Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings
-
 'Convert Partial webpage to PDF
 Dim document As PdfDocument = htmlConverter.ConvertPartialHtml("input.html", "pic")
 
@@ -2758,15 +2553,6 @@ document.Close(True)
 
 //Initialize HTML converter
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-
-// WebKit converter settings
-WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
-
-//Assign the WebKit settings
-htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert Partial webpage to PDF
 PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
@@ -2814,6 +2600,8 @@ Hello world
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Converting-partial-webpage-to-PDF-document).
+
 ## HTML to single PDF page
 
 By using this option, you can render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, since this is disabled by default.
@@ -2834,9 +2622,6 @@ Refer to the following code snippet.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
 
 //Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
@@ -2860,9 +2645,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
 'Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth
 
@@ -2884,9 +2666,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
@@ -2930,13 +2709,6 @@ Getting height of the HTML content in PDF document is possible by using the ```P
 
 //Initialize HTML to PDF converter 
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
-
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
 
 PdfLayoutResult layoutResult = null;
 
@@ -2958,13 +2730,6 @@ document.Close(true);
 
 'Initialize HTML converter
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim settings As WebKitConverterSettings = New WebKitConverterSettings
-
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings
 
 Dim layoutResult As PdfLayoutResult = Nothing
 
@@ -3003,10 +2768,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"/QtBinaries/";
-
 // Set windows status.
 
 webKitSettings.WindowStatus = "completed";
@@ -3037,10 +2798,6 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
 Dim webKitSettings As New WebKitConverterSettings()
 
-'Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = "/QtBinaries/"
-
 'Set windows status.
 
 webKitSettings.WindowStatus = "completed"
@@ -3070,10 +2827,6 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 // WebKit converter settings
 
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
-
-//Assign the WebKit binaries path
-
-webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Set windows status.
 
@@ -3135,6 +2888,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Set-windows-status-while-converting-HTML-to-PDF).
+
 ## Temporary Path
 
 The WebKit HTML converter internally creates temporary files in the temporary folder to perform the conversion. So, the temporary folder requires read/write/execute permission for the respective user group.
@@ -3151,9 +2906,6 @@ The temporary path can be changed by using the [TempPath](https://help.syncfusio
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
 
 //Set Temporary Path to generate temporary files
 settings.TempPath = @"C:/HtmlConversion/Temp/";
@@ -3177,9 +2929,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
 'Set Temporary Path to generate temporary files
 settings.TempPath = "C:/HtmlConversion/Temp/"
 
@@ -3201,9 +2950,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set Temporary Path to generate temporary files
 settings.TempPath = @"C:/HtmlConversion/Temp/";
@@ -3237,6 +2983,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Set-temporary-path-to-perform-conversion).
 
 ## Split Text
 
@@ -3250,9 +2997,6 @@ The WebKit HTML converter supports avoiding text split between the PDF pages whe
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
 
 //Set the SplitTextLines property
 settings.SplitTextLines = false;
@@ -3276,9 +3020,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
 'Set SplitTextLines property
 settings.SplitTextLines = false
 
@@ -3300,9 +3041,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set SplitTextLines property
 settings.SplitTextLines = false;
@@ -3336,6 +3074,8 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Avoiding-text-split-between-the-PDF-pages).
+
 ## Split image
 
 The WebKit HTML converter supports avoiding image split between the PDF pages when converting HTML to PDF. You can prevent the image split by disabling the ```SplitImages``` property available in the ```WebKitConverterSettings```. Refer to the following code snippet.
@@ -3348,9 +3088,6 @@ The WebKit HTML converter supports avoiding image split between the PDF pages wh
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
 
 //Set the SplitImages property
 settings.SplitImages = false;
@@ -3374,9 +3111,6 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 
 Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
-'Set WebKit path
-settings.WebKitPath = "/QtBinaries/"
-
 'Set the SplitImages property
 settings.SplitImages = false
 
@@ -3398,9 +3132,6 @@ document.Close(true)
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set the SplitImages property
 settings.SplitImages=false;
@@ -3434,6 +3165,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/WebKit/Avoid-image-split-between-the-PDF-pages).
 
 ## Troubleshooting
 

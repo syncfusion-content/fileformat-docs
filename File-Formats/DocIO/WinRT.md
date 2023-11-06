@@ -8,7 +8,7 @@ documentation: UG
 
 # Working with Word document in WinRT
 
-In your WinRT application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
+In your WinRT application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/file-formats/docio/assemblies-required).
 
 ## Loading the document
 

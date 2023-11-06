@@ -1,6 +1,6 @@
 ---
 title: Create Word document in .NET MAUI | Syncfusion
-description: Create Word document without Microsoft Word or interop dependencies in .NET MAUI application using Syncfusion .NET MAUI Word (Essential DocIO) library
+description: Create Word document without Microsoft Word or interop dependencies in .NET MAUI application using Syncfusion .NET MAUI Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,41 +8,39 @@ documentation: UG
 
 # Create Word document in .NET MAUI
 
-Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
+Syncfusion Essential DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET MAUI**.
 
 **Prerequisites:**
-To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
-
+To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin).
 
 ## Steps to create Word document programmatically in .NET MAUI
 
-1.Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
+Step 1: Create a new C# .NET MAUI app. Select **.NET MAUI App (Preview)** from the template and click the **Next** button.
 
 ![Create the MAUI app in Visual Studio](MAUI_Images/Create_Project.png)
 
-2.Enter the project name and click **Create**.
+Step 2: Enter the project name and click **Create**.
 
 ![Create a project name for your new project](MAUI_Images/Configure.png)
 
-3.Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the Syncfusion.DocIO.NET NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install the DocIO .NET NuGet package](MAUI_Images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering a Syncfusion license key in your application to use our components.
 
-4.Add a new button to the **MainPage.xaml** as shown below.
+Step 4: Add a new button to the **MainPage.xaml** as shown below.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CreateWordSample.MainPage"
-             BackgroundColor="{DynamicResource SecondaryColor}">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="CreateWordSample.MainPage"
+            BackgroundColor="{DynamicResource SecondaryColor}">
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+            Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
                 Text="Create Document"
                 FontAttributes="Bold"
@@ -53,27 +51,24 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         </Grid>
     </ScrollView>
 </ContentPage>
-
 {% endhighlight %}
 
 {% endtabs %}
 
-5.Include the following namespaces in the **MainPage.xaml.cs** file.
+Step 5: Include the following namespaces in the **MainPage.xaml.cs** file.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
 using System.Reflection;
-
 {% endhighlight %}
 
 {% endtabs %}
 
-6.Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
+Step 6: Add a new action method **CreateDocument** in MainPage.xaml.cs and include the below code snippet to **create a Word document**.
 
 {% tabs %}
 
@@ -105,8 +100,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
 string resourcePath = "CreateWordSample.Resources.DocIO.AdventureCycle.jpg";
 //Gets the image stream.
@@ -160,7 +155,6 @@ IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends the paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -189,7 +183,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -245,7 +238,6 @@ paragraph.ParagraphFormat.LineSpacing = 12f;
 //Appends the picture to the paragraph.
 resourcePath = "CreateWordSample.Resources.DocIO.Mountain-300.jpg";
 imageStream = assembly.GetManifestResourceStream(resourcePath);
-
 picture = paragraph.AppendPicture(imageStream);
 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
 picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -305,7 +297,6 @@ ms.Position = 0;
 //Saves the memory stream as file.
 SaveService saveService = new();
 saveService.SaveAndView("Sample.docx", "application/msword", ms);
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -393,4 +384,6 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
 </table>
 
+Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.

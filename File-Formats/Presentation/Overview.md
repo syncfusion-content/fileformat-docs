@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Overview of PowerPoint Presentation
 
-The PowerPoint framework is a feature rich [.NET PowerPoint class library](https://www.syncfusion.com/powerpoint-framework/net) that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in [Windows Forms](https://www.syncfusion.com/powerpoint-framework/net), [WPF](https://www.syncfusion.com/powerpoint-framework/net), [ASP.NET Web Forms](https://www.syncfusion.com/powerpoint-framework/net), [ASP.NET MVC](https://www.syncfusion.com/powerpoint-framework/net), [ASP.NET Core](https://www.syncfusion.com/powerpoint-framework/net-core), [Blazor](https://www.syncfusion.com/powerpoint-framework/blazor), [UWP](https://www.syncfusion.com/powerpoint-framework/uwp), [Xamarin](https://www.syncfusion.com/powerpoint-framework/xamarin) applications.
+The PowerPoint framework is a feature rich [.NET PowerPoint class library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in [Windows Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-windows-forms), [WPF](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-wpf), [ASP.NET Web Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-web-forms), [ASP.NET MVC](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc), [ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp), [Blazor](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-blazor), [UWP](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-uwp), [Xamarin](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin), [WinUI](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-winui) and [.NET MAUI](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-maui) applications.
 
 It is a non-UI component that provides a full-fledged PowerPoint presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office.
 
@@ -35,6 +35,7 @@ It is a non-UI component that provides a full-fledged PowerPoint presentation in
 * Microsoft PowerPoint 2013
 * Microsoft PowerPoint 2016
 * Microsoft PowerPoint 2019
+* Microsoft 365
 
 
 N> 1. The current version of Essential Presentation supports the .PPTX, .PPTM, .POTX, .POTM file formats only.

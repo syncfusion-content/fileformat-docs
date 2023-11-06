@@ -1,6 +1,6 @@
 ---
 title: Supported and Unsupported Features | DocIO | Syncfusion
-description: This section describes the support and unsupported elements by Syncfusion Word library (Essential DocIO)
+description: Learn about the supported and unsupported features in the .NET Word (DocIO) library.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -1103,8 +1103,8 @@ Yes<br/><br/></td></tr>
 <table>
 <tr>
 <th>Feature<br/><br/></th>
-<th>Server side and hosted application<br/><br/></th>
-<th>Client side application<br/><br/></th>
+<th>Server  and hosted application<br/><br/></th>
+<th>WASM app<br/><br/></th>
 </tr>
 <tbody>
 <tr>
@@ -1200,7 +1200,7 @@ Yes<br/><br/></td></tr>
 <tr>
 <td>Updating Table of Content<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
 </tr>
 <tr>
 <td>Find and Replace<br/><br/></td>
@@ -1235,7 +1235,12 @@ Yes<br/><br/></td></tr>
 <tr>
 <td>Word to PDF<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>No<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to Image<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 </tr>
 <tr>
 <td>RTF to Word<br/><br/></td>
@@ -1254,6 +1259,11 @@ Yes<br/><br/></td></tr>
 </tr>
 <tr>
 <td>Word to ODT<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to Markdown<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>

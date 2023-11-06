@@ -1,6 +1,6 @@
 ---
-title: Converting Word document to EPUB | Syncfusion
-description: This section illustrates how to convert Word document to EPUB using Syncfusion Word library (Essential DocIO)
+title: Convert Word document to EPUB in C# | DocIO | Syncfusion
+description: Learn how to convert Word document to EPUB  using the .NET Word (DocIO) library without Microsoft Word or interop dependencies
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -13,7 +13,12 @@ The Word document files are converted as EPUB v2.0 file format with few lines of
 The following code illustrates how to convert the Word document to EPUB file.
 
 {% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads an existing document
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 //Exports the fonts used in the document
@@ -26,7 +31,7 @@ document.Save("WordToEPub.epub", FormatType.EPub);
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads an existing document
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 'Exports the fonts used in the document
@@ -91,18 +96,11 @@ async void Save(MemoryStream streams, string filename)
 }
 {% endhighlight %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-//DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-//DocIO supports Word to EPUB in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms alone
-{% endhighlight %}
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-EPUB-conversion/Convert-Word-to-EPUB).
 
-N> 1. Word to EPUB conversion is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
+N> Word to EPUB conversion is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
 
 The following elements are supported in Word to EPUB conversion.
 

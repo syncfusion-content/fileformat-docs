@@ -11,31 +11,28 @@ documentation: UG
 The Syncfusion [WinUI PDF library](https://www.syncfusion.com/document-processing/pdf-framework/winui/pdf-library) is used to create, read, and edit **PDF** documents. This library also includes functions for merging, splitting, stamping, forms, and securing PDF files and more. Using this library, you can create a PDF document in WinUI with just a few lines of code.
 
 **Prerequisites:**
-To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment).
+To use the WinUI 3 project templates, install the Windows App SDK extension for Visual Studio. For more details, refer [here](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b).
 
 
 ## WinUI Desktop app
 
-1.Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+Step 1: Create a new C# WinUI Desktop app. Select Blank App, Packaged with WAP (WinUI 3 in Desktop) from the template and click the **Next** button.
+![WinUI sample creation](WinUI_Images/Create_Desktop_Project.png) 
 
-![Create the WinUI Desktop app in Visual Studio](WinUI_Images/Create_Desktop_Project.png)
+Step 2: Enter the project name and click **Create**.
+![Set WinUI sample project name](WinUI_Images/Desktop_Configure.png) 
 
-2.Enter the project name and click **Create**.
+Step 3: Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+![Set target version](WinUI_Images/Target_Version.png) 
 
-![Create a project name for your new project](WinUI_Images/Desktop_Configure.png)
+Step 4: Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+![WinUI NuGet package](WinUI_Images/Install_Nuget.png) 
 
-3.Set the Target version to Windows 10, version 2004 (build 19041) and the Minimum version to Windows 10, version 1809 (build 17763) and then click **OK**.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-![Set the target version](WinUI_Images/Target_Version.png)
+Step 5: Add a new button to the **MainWindow.xaml** as shown below.
 
-4.Install the [Syncfusion.Pdf.Net](https://www.nuget.org/packages/Syncfusion.Pdf.NET/) NuGet package as a reference to your project from the [NuGet.org](https://www.nuget.org/).
-
-![Install the PDF .NET Core NuGet package](WinUI_Images/Install_Nuget.png)
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering a Syncfusion license key in your application to use our components.
-
-5.Add a new button to the **MainWindow.xaml** as shown below.
-
+{% capture codesnippet1 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
@@ -57,11 +54,13 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }}
 
-6.Include the following namespaces in the **MainWindow.xaml.cs** file.
+Step 6: Include the following namespaces in the **MainWindow.xaml.cs** file.
 
+{% capture codesnippet2 %}
 {% tabs %}
-
 {% highlight c# tabtitle="C#" %}
 
 using Syncfusion.Pdf;
@@ -74,21 +73,23 @@ using System.Xml.Linq;
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-7.Add a new action method **createPdf_Click** in MainWindow.xaml.cs and include the below code snippet to **create a PDF document**. Include helper classes, methods and required files in the assets folder.
+Step 7: Add a new action method *createPdf_Click* in *MainWindow.xaml.cs* and include the below code example to generate a PDF document using the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfDocument.html) class. The [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTextElement.html) is used to add text in a PDF document and which provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. Load image stream from the local files on disk and draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html#Syncfusion_Pdf_Graphics_PdfGraphics_DrawImage_Syncfusion_Pdf_Graphics_PdfImage_System_Single_System_Single_) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfGraphics.html) class. The [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering data manually or from an external data sources and include helper classes, methods and required files in the assets folder.
 
+{% capture codesnippet3 %}
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
 
 //Create a new PDF document.
- PdfDocument document = new PdfDocument();
- document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+PdfDocument document = new PdfDocument();
+//Set page orientation and margin. 
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
 document.PageSettings.Margins.All = 50;
-
 //Add a page to the document.
 PdfPage page = document.Pages.Add();
-
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 
@@ -229,11 +230,16 @@ using (FileStream outputStream = new FileStream(filePath, FileMode.Create, FileA
 {% endhighlight %}
 
 {% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}
 
 A complete working example of creating a PDF document in the WinUI Desktop app can be downloaded from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfDemoSample208256365).
 
-By executing the program, you will get the **PDF document** as follows.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Getting%20Started/WinUI).
 
-![WinUI Desktop output PDF document](WinUI_Images/GettingStartedOutput.png)
+By executing the program, you will get the PDF document as follows.
+![Output PDF image](WinUI_Images/GettingStartedOutput.png)
 
-N> You can also explore our [WinUI PDF library demo](https://www.syncfusion.com/demos/fileformats/pdf-library) that shows how to create and modify PDF files from C# with just five lines of code.
+Click [here](https://www.syncfusion.com/document-processing/pdf-framework/winui) to explore the rich set of Syncfusion PDF library features.
+
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 

@@ -1,181 +1,105 @@
 ---
-title: Convert a HTML to PDF file in Windows Forms | Syncfusion
-description: Learn how to convert a HTML to PDF file in Windows Forms with easy steps using Syncfusion .NET PDF library.
+title: Convert a HTML to PDF file in Windows-Forms | Syncfusion
+description: Learn how to convert a HTML to PDF file in Windows-Forms with easy steps using Syncfusion .NET HTML converter library.
 platform: file-formats
 control: PDF
 documentation: UG
---- 
+keywords: Assemblies
+---
 
-# Convert a HTML to PDF file in Windows Forms
+# Convert HTML to PDF file in Windows Forms
 
- In your Windows Forms application, add the following assemblies to use Essential PDF:  
+The [Syncfusion HTML to PDF converter](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) is a .NET library used to convert HTML or web pages to PDF document in Windows Forms application.
 
-* Syncfusion.Pdf.Base
-* Syncfusion.Compression.Base
-* Syncfusion.HtmlConverter.Base
+To include the .NET HTML to PDF converter library into your Windows Forms application, please refer to the [NuGet Package Required](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#nuget-packages-required-recommended) or [Assemblies Required](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#assemblies-required) documentation.
 
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
+## Steps to convert Html to PDF document in Windows Forms
 
-## Steps to convert a HTML to PDF document using WebKit in Window Forms:
+Step 1: Create a new Windows Forms application project.
+<img src="Convert-HTML-To-PDF/htmlconversion_images/Windows_Forms_step1.png" alt="Convert HTMLToPDF Windows Forms Step1" width="100%" Height="Auto"/>
+In project configuration window, name your project and select Create.
+<img src="Convert-HTML-To-PDF/htmlconversion_images/Windows_Forms_step2.png" alt="Convert HTMLToPDF Windows Forms Step2" width="100%" Height="Auto"/>
 
-Create a new Windows Forms application project.
-![Convert_WebKit1](WF_images/Convert_WebKit1.png)
+Step 2: Install the [Syncfusion.HtmlToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.WinForms) NuGet package as a reference to your WinForms application [NuGet.org](https://www.nuget.org/).
+<img src="Convert-HTML-To-PDF/htmlconversion_images/Windows_Forms_step3.png" alt="Convert HTMLToPDF Windows Forms Step3" width="100%" Height="Auto"/>
 
-Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Winforms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-![Convert_WebKit2](WF_images/Convert_WebKit2.png)
-
-Copy the QtBinaries folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
-![Convert_WebKit3](WF_images/Convert_WebKit3.png)
-![Convert_WebKit4](WF_images/Convert_WebKit4.png)
-
-Include the following namespaces in the Form1.Designer.cs file.
+Step 3: Add the following namespaces into **Form1.Designer.cs** file.
 
 {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.Pdf;
-using Syncfusion.HtmlConverter;
+using System;
+using System.Windows.Forms;
 
 {% endhighlight %}
 
-Add a new button in Form1.Designer.cs to Convert PDF document as follows.
+Step 4: Add a new button in **Form1.Designer.cs** to convert HTML to PDF document as follows.
 
 {% highlight c# tabtitle="C#" %}
 
 private Button btnCreate;
 private Label label;
-  
 private void InitializeComponent()
 {
-  btnCreate = new Button();
-  label = new Label();
-  
-  //Label
-  label.Location = new System.Drawing.Point(0, 40);
-  label.Size = new System.Drawing.Size(426, 35);
-  label.Text = "Click the button to generate PDF file by Essential PDF";
-  label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-  
-  //Button
-  btnCreate.Location = new System.Drawing.Point(180, 110);
-  btnCreate.Size = new System.Drawing.Size(85, 26);
-  btnCreate.Text = "Create PDF";
-  btnCreate.Click += new EventHandler(btnCreate_Click); 
-                               
-  //Create PDF
-  ClientSize = new System.Drawing.Size(450, 150);
-  Controls.Add(label);
-  Controls.Add(btnCreate);
-  Text = "Create PDF";
+   btnCreate = new Button();
+   label = new Label();
+
+   //Label
+   label.Location = new System.Drawing.Point(0, 40);
+   label.Size = new System.Drawing.Size(426, 35);
+   label.Text = "Click the button to convert Html to PDF file";
+   label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+   //Button
+   btnCreate.Location = new System.Drawing.Point(180, 110);
+   btnCreate.Size = new System.Drawing.Size(85, 26);
+   btnCreate.Text = "Convert Html to PDF";
+   btnCreate.Click += new EventHandler(btnCreate_Click);
+
+   //Create PDF
+   ClientSize = new System.Drawing.Size(450, 150);
+   Controls.Add(label);
+   Controls.Add(btnCreate);
+   Text = "Convert Html to PDF";
 }
 
 {% endhighlight %}
 
-Create the btnCreate_Click event and add the following code in btnCreate_Click to convert simple URL to PDF file using WebKit.
-
-{% highlight c# tabtitle="C#" %}
- 
-//Initialize HTML to PDF converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-
-WebKitConverterSettings settings = new WebKitConverterSettings();
-
-//Set WebKit path
-settings.WebKitPath = @"../../QtBinaries/";
-
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-//Save the document
-document.Save("Output.pdf");
-
-{% endhighlight %}
-
-A complete working sample can be downloaded from [HtmlToPDF-WinForms.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HtmlToPDF_WinForms319058844)
-
-By executing the program, you will get the PDF document as follows.
-![Convert_WebKit5](WF_images/Convert_WebKit5.png)
-
-## Steps to convert a HTML to PDF document using Blink in Window Forms:
-
-Create a new Windows Forms application project.
-![Convert_WebKit1](WF_images/Convert_WebKit1.png)
-
-Install the [Syncfusion.HtmlToPdfConverter.Blink.WinForms](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Winforms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
-![Convert_Blink1](WF_images/Convert_Blink1.png)
-
-Copy the BlinkBinaries folder from the installed HtmlToPdfConverter package and paste it into the folder which contains the HtmlToPDF_WinForms.csproj file.
-![Convert_Blink2](WF_images/Convert_Blink2.png)
-![Convert_Blink3](WF_images/Convert_Blink3.png)
-
-Include the following namespaces in the Form1.Designer.cs file.
+Step 5: Include the following namespaces in the **Form1.cs** file.
 
 {% highlight c# tabtitle="C#" %}
 
-using Syncfusion.Pdf;
 using Syncfusion.HtmlConverter;
+using Syncfusion.Pdf;
+using System;
 
 {% endhighlight %}
 
-Add a new button in Form1.Designer.cs to Convert PDF document as follows.
+Step 6: Create the btnCreate_Click event and add the following code in btnCreate_Click to convert HTML to PDF document using [Convert](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html#Syncfusion_HtmlConverter_HtmlToPdfConverter_Convert_System_String_) method in [HtmlToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.HtmlToPdfConverter.html) class. The HTML content will be scaled based on the given [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_ViewPortSize) property of [BlinkConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html) class.
 
 {% highlight c# tabtitle="C#" %}
 
-private Button btnCreate;
-private Label label;
-  
-private void InitializeComponent()
-{
-  btnCreate = new Button();
-  label = new Label();
-  
-  //Label
-  label.Location = new System.Drawing.Point(0, 40);
-  label.Size = new System.Drawing.Size(426, 35);
-  label.Text = "Click the button to generate PDF file by Essential PDF";
-  label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-  
-  //Button
-  btnCreate.Location = new System.Drawing.Point(180, 110);
-  btnCreate.Size = new System.Drawing.Size(85, 26);
-  btnCreate.Text = "Create PDF";
-  btnCreate.Click += new EventHandler(btnCreate_Click); 
-                               
-  //Create PDF
-  ClientSize = new System.Drawing.Size(450, 150);
-  Controls.Add(label);
-  Controls.Add(btnCreate);
-  Text = "Create PDF";
-}
+//Initialize HTML to PDF converter.
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+//Set Blink viewport size.
+blinkConverterSettings.ViewPortSize = new System.Drawing.Size(1280, 0);
+//Assign Blink converter settings to HTML converter.
+htmlConverter.ConverterSettings = blinkConverterSettings;
+//Convert URL to PDF document.
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+//Create file stream.
+FileStream stream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew);
+//Save the document into stream.
+document.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+document.Close();
+stream.Dispose();
 
 {% endhighlight %}
-
-Create the btnCreate_Click event and add the following code in btnCreate_Click to convert simple URL to PDF file using Blink.
-
-{% highlight c# tabtitle="C#" %}
- 
-//Initialize HTML to PDF converter 
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-
-//Set Blink path
-settings.BlinkPath = @"../../BlinkBinaries/";
-
-//Assign Blink settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-
-//Save the document
-document.Save("Output.pdf");
-
-{% endhighlight %}
-
-A complete working sample can be downloaded from [HtmlToPDF-WinForms.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HtmlToPDF_WinForms1802160002)
 
 By executing the program, you will get the PDF document as follows.
-![Convert_Blink4](WF_images/Convert_Blink4.png)
+<img src="Convert-HTML-To-PDF/htmlconversion_images/htmltopdfoutput.png" alt="Convert HTMLToPDF Windows Forms output" width="100%" Height="Auto"/>
+
+A complete working sample can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Windows%20Forms).

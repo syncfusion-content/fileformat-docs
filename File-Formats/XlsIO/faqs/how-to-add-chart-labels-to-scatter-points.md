@@ -1,7 +1,7 @@
 ---
 title: How to add chart labels to scatter points | XlsIO | Syncfusion
 description: This page shows how to add chart labels to scatter points using Syncfusion .NET Excel library (XlsIO).
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -11,162 +11,79 @@ documentation: UG
 The following code illustrates adding chart labels to the scatter points of the chart.
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Get the chart from the charts collection
+  IChart chart = worksheet.Charts[0];
 
-    IWorksheet worksheet = workbook.Worksheets[0];
+  //Get the first series from the Series collection
+  IChartSerie serieOne = chart.Series[0];
 
-    //Get the chart from the charts collection
-    IChart chart = worksheet.Charts[0];
+  //Set the Series name to the Data Labels through Data Points
+  serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
 
-    //Get the first series from the Series collection
-    IChartSerie serieOne = chart.Series[0];
+  //Set the Value to the Data Labels through Data Points
+  serieOne.DataPoints[0].DataLabels.IsValue = true;
 
-    //Set the Series name to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
-
-    //Set the Value to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsValue = true;
-
-    workbook.SaveAs("ChartLabels.xlsx");
+  FileStream stream = new FileStream("ChartLabels.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
 }
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Get the chart from the charts collection
+  IChart chart = worksheet.Charts[0];
+
+  //Get the first series from the Series collection
+  IChartSerie serieOne = chart.Series[0];
+
+  //Set the Series name to the Data Labels through Data Points
+  serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
+
+  //Set the Value to the Data Labels through Data Points
+  serieOne.DataPoints[0].DataLabels.IsValue = true;
+
+  workbook.SaveAs("ChartLabels.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
-    Dim application As IApplication = excelEngine.Excel
-    application.DefaultVersion = ExcelVersion.Excel2013
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Get the chart from the charts collection
+  Dim chart As IChart = worksheet.Charts(0)
 
-    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Get the first series from the Series collection
+  Dim serieOne As IChartSerie = chart.Series(0)
 
-    'Get the chart from the charts collection
-    Dim chart As IChart = worksheet.Charts(0)
+  'Set the Series name to the Data Labels through Data Points
+  serieOne.DataPoints(0).DataLabels.IsSeriesName = True
 
-    'Get the first series from the Series collection
-    Dim serieOne As IChartSerie = chart.Series(0)
+  'Set the Value to the Data Labels through Data Points
+  serieOne.DataPoints(0).DataLabels.IsValue = True
 
-    'Set the Series name to the Data Labels through Data Points
-    serieOne.DataPoints(0).DataLabels.IsSeriesName = True
-
-    'Set the Value to the Data Labels through Data Points
-    serieOne.DataPoints(0).DataLabels.IsValue = True
-
-    workbook.SaveAs("ChartLabels.xlsx")
+  workbook.SaveAs("ChartLabels.xlsx")
 End Using
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-
-    //Instantiates the File Picker
-    FileOpenPicker openPicker = new FileOpenPicker();
-    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    openPicker.FileTypeFilter.Add(".xlsx");
-    openPicker.FileTypeFilter.Add(".xls");
-    StorageFile file = await openPicker.PickSingleFileAsync();
-
-    //Opens the workbook
-    IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
-                
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Get the chart from the charts collection
-    IChart chart = worksheet.Charts[0];
-
-    //Get the first series from the Series collection
-    IChartSerie serieOne = chart.Series[0];
-
-    //Set the Series name to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
-
-    //Set the Value to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsValue = true;
-
-    //Initializes FileSavePicker
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "ChartLabels";
-    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-    //Creates a storage file from FileSavePicker
-    StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-    //Saves changes to the specified storage file
-    await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Get the chart from the charts collection
-    IChart chart = worksheet.Charts[0];
-
-    //Get the first series from the Series collection
-    IChartSerie serieOne = chart.Series[0];
-
-    //Set the Series name to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
-
-    //Set the Value to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsValue = true;
-
-    FileStream stream = new FileStream("ChartLabels.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-    workbook.SaveAs(stream);
-
-    workbook.Close();
-    excelEngine.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-    IApplication application = excelEngine.Excel;
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    Stream fileStream = assembly.GetManifestResourceStream("App.Sample.xlsx");
-    IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-    IWorksheet worksheet = workbook.Worksheets[0];
-
-    //Get the chart from the charts collection
-    IChart chart = worksheet.Charts[0];
-
-    //Get the first series from the Series collection
-    IChartSerie serieOne = chart.Series[0];
-
-    //Set the Series name to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
-
-    //Set the Value to the Data Labels through Data Points
-    serieOne.DataPoints[0].DataLabels.IsValue = true;
-
-    MemoryStream stream = new MemoryStream();
-    workbook.SaveAs(stream);
-
-    stream.Position = 0;
-
-    //Save the stream as a file in the device and invoke it for viewing
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ChartLabels.xlsx", "application/msexcel", stream);
-}
-{% endhighlight %}
-
 {% endtabs %}
 
 ## See Also

@@ -1,6 +1,6 @@
 ---
 title: Create Word document on Mac OS | Syncfusion
-description: Create Word document in .NET Core application on Mac OS using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
+description: Create Word document in ASP.NET Core application on macOS using Syncfusion .NET Core Word (DocIO) library without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,45 +8,42 @@ documentation: UG
 
 # Create Word document on Mac OS
 
-Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Mac OS**.
+Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in .NET Core application on Mac OS**.
 
 ## Steps to create Word document programmatically in .NET Core application on Mac OS
 
-1.Create a new .NET Core console application project.
+Step 1: Create a new .NET Core console application project.
 
 ![Create .NET Core console application in Visual Studio](Mac-images/CreateProject.png)
 
-2.Select the project version.
+Step 2: Select the project version.
 
 ![Select Project version](Mac-images/selectprojectverion.png)
 
-3.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget1.png)
 ![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
-4.Include the following Namespaces in the Program.cs file.
+Step 4: Include the following Namespaces in the Program.cs file.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
-
 {% endhighlight %}
 
 {% endtabs %}
 
-5.Add the following code snippet in Program.cs file.
+Step 5: Add the following code snippet in Program.cs file.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C#" %}
-
 // Creating a new document.
 WordDocument document = new WordDocument();
 //Adding a new section to the document.
@@ -74,8 +71,8 @@ style.ParagraphFormat.AfterSpacing = 0;
 style.ParagraphFormat.Keep = true;
 style.ParagraphFormat.KeepFollow = true;
 style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
-IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
+IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 // Gets the image stream.
 FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
 IWPicture picture = paragraph.AppendPicture(imageStream);
@@ -122,12 +119,12 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 textRange = paragraph.AppendText("Product Overview") as WTextRange;
 textRange.CharacterFormat.FontSize = 16f;
 textRange.CharacterFormat.FontName = "Calibri";
+
 //Appends table.
 IWTable table = section.AddTable();
 table.ResetCells(3, 2);
 table.TableFormat.Borders.BorderType = BorderStyle.None;
 table.TableFormat.IsAutoResized = true;
-
 //Appends paragraph.
 paragraph = table[0, 0].AddParagraph();
 paragraph.ParagraphFormat.AfterSpacing = 0;
@@ -155,7 +152,6 @@ paragraph.ParagraphFormat.AfterSpacing = 0;
 paragraph.ParagraphFormat.LineSpacing = 12f;
 paragraph.BreakCharacterFormat.FontSize = 12f;
 paragraph.BreakCharacterFormat.FontName = "Times New Roman";
-
 textRange = paragraph.AppendText("Product No: BK-M68B-38\r") as WTextRange;
 textRange.CharacterFormat.FontSize = 12f;
 textRange.CharacterFormat.FontName = "Times New Roman";
@@ -263,15 +259,12 @@ section.AddParagraph();
 
 //Create FileStream to save the Word file
 FileStream outputStream = new FileStream("Result.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
- 
 //Saves the Word file
 document.Save(outputStream, FormatType.Docx);
- 
 //Close the Word file
 document.Close();
 outputStream.Flush();
 outputStream.Dispose();
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -281,3 +274,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 By executing the program, you will get the **Word document** as follows. The output will be saved in bin folder.
 
 ![.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)
+
+Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
+
+An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core. 

@@ -1,13 +1,13 @@
 ---
-title: Overview of Word library (DocIO) | Syncfusion
-description: .NET Word library to create, read, edit, and convert Word documents in C#, VB.NET, Windows Forms, WPF, ASP.NET, MVC, .NET Core, UWP, and Xamarin applications.
+title: Overview of .NET Word (DocIO) library | Syncfusion
+description: .NET Word (DocIO) library to create, read, edit, and convert Word documents in C#, VB.NET without Microsoft Word or interop dependencies.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 # Overview of Word library (DocIO)
 
-Essential DocIO is a native [.NET Word library](https://www.syncfusion.com/word-framework/net) that is used by developers to create, read, write, and convert Microsoft Word documents by using C#, VB.NET, and managed C++ code from any of the following .NET platforms - Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, Blazor, Windows Store applications, and Xamarin applications. 
+Essential DocIO is a native [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net) that is used by developers to create, read, write, and convert Microsoft Word documents by using C#, VB.NET, and managed C++ code from any of the following .NET platforms - [Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms), [WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf), [ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net), [ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc), [ASP.NET Core](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-core), [Blazor](https://help.syncfusion.com/file-formats/docio/create-word-document-in-blazor), [WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf), [Xamarin](https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin), [WinUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui) and [.NET MAUI applications](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui). 
 
 It is a non-UI component that provides a full-fledged document instance model similar to the Microsoft Office COM libraries to iterate with the document elements explicitly and perform necessary manipulation. It is built from scratch in C# and does not require Microsoft Word to be installed in the machine. It supports Word 97-2003 and later version documents.
 
@@ -18,6 +18,8 @@ It is a non-UI component that provides a full-fledged document instance model si
 * Advanced [Mail merge](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge) support with different data sources.
 * Ability to create or edit Word 97-2003 and later version documents, and convert them to commonly used file formats such as [RTF](https://help.syncfusion.com/file-formats/docio/rtf), [WordML](https://help.syncfusion.com/file-formats/docio/word-file-formats#word-processing-xml-xml), [TXT](https://help.syncfusion.com/file-formats/docio/text), [HTML](https://help.syncfusion.com/file-formats/docio/html) and vice versa.
 * Ability to export a Word document as an [Image](https://help.syncfusion.com/file-formats/docio/word-to-image), [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf) file, and [EPUB](https://help.syncfusion.com/file-formats/docio/word-to-epub) in high quality.
+* Ability to [merge](https://help.syncfusion.com/file-formats/docio/word-document/merging-word-documents) and [split](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents) Word documents.
+* Support to [compare](https://help.syncfusion.com/file-formats/docio/word-document/compare-word-documents) two DOCX format documents.
 * Ability to create and manipulate [charts](https://help.syncfusion.com/file-formats/docio/working-with-charts), [Shapes](https://help.syncfusion.com/file-formats/docio/working-with-shapes), and [Group shape](https://help.syncfusion.com/file-formats/docio/working-with-shapes#grouping-shapes) in DOCX and WordML format documents.
 * Ability to read and write [Built-In and Custom Document Properties](https://help.syncfusion.com/file-formats/docio/working-with-word-document#working-with-word-document-properties).
 * Ability to [find and replace](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace) text with its original formatting.
@@ -36,3 +38,4 @@ It is a non-UI component that provides a full-fledged document instance model si
 * Microsoft Word 2013
 * Microsoft Word 2016
 * Microsoft Word 2019
+* Microsoft 365

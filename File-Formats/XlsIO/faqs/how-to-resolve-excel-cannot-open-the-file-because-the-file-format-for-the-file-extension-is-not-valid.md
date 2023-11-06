@@ -1,7 +1,7 @@
 ---
 title: Excel cannot open the file in File Formats XlsIO | Syncfusion
 description: This page shows how to resolve "Excel cannot open the file because the file format is not valid..." using XlsIO.
-platform: File-formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -11,116 +11,48 @@ documentation: UG
 This error "Excel cannot open the file 'filename.xlsx' because the file format for the file extension is not valid. Verify that the file has not been corrupted and that the file extension matches the format of the file" occurs when there is a mismatch between the file format and its extension. The default workbook creation version in XlsIO is Excel97-2003 (.xls). The application version set to the required version should match its file format during save, as in the below code. 
 
 {% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
 
 //Set application version
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 //Do some manipulation
-
 //Do some manipulation
 
 //Workbook is saved in Excel2013 format
-
-workbook.SaveAs("Sample.xlsx");
-
+FileStream stream = new FileStream("Sample.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-Dim excelEngine As New ExcelEngine()
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
 
+//Set application version
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//Do some manipulation
+//Do some manipulation
+
+//Workbook is saved in Excel2013 format
+workbook.SaveAs("Sample.xlsx");
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Dim excelEngine As New ExcelEngine()
 Dim application As IApplication = excelEngine.Excel
 
 'Set application version
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 'Do some manipulation
-
 'Do some manipulation
 
 'Workbook is saved in Excel2013 format
-
 workbook.SaveAs("Sample.xlsx")
-
 {% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-//Set application version
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-//Do some manipulation
-
-//Do some manipulation
-
-//Workbook is saved in Excel2013 format
-
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-//Set application version
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-//Do some manipulation
-
-//Do some manipulation
-
-//Workbook is saved in Excel2013 format
-
- FileStream stream = new FileStream("Sample.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-//Set application version
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-//Do some manipulation
-
-//Do some manipulation
-
-//Workbook is saved in Excel2013 format
-
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
-
-stream.Position = 0;
-
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-{% endhighlight %}
-
 {% endtabs %}  
 
 If the application version is ignored, then the workbook version should be set properly during creation and save.
@@ -131,51 +63,8 @@ If the application version is ignored, then the workbook version should be set p
 
 These are represented in the below code snippet.
 
-{% tabs %}  
-
-{% highlight c# tabtitle="C#" %}
-workbook.Version = ExcelVersion.Excel97to2003;
-
-workbook.SaveAs("Sample.xls");
-
-workbook.Version = ExcelVersion.Excel2013;
-
-workbook.SaveAs("Sample.xlsx");
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-workbook.Version = ExcelVersion.Excel97to2003
-
-workbook.SaveAs("Sample.xls")
-
-workbook.Version = ExcelVersion.Excel2013
-
-workbook.SaveAs("Sample.xlsx")
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="UWP" %}
-workbook.Version = ExcelVersion.Excel97to2003;
-
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xls" });
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Version = ExcelVersion.Excel2013;
-
-FileSavePicker savePicker1 = new FileSavePicker();
-savePicker1.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker1.SuggestedFileName = "Sample";
-savePicker1.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-StorageFile storageFile1 = await savePicker1.PickSaveFileAsync();
-await workbook.SaveAsAsync(storageFile1); 
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 workbook.Version = ExcelVersion.Excel97to2003;
 FileStream stream = new FileStream("Sample.xls", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 workbook.SaveAs(stream);
@@ -185,25 +74,21 @@ FileStream stream1 = new FileStream("Sample.xlsx", FileMode.OpenOrCreate, FileAc
 workbook.SaveAs(stream1); 
 {% endhighlight %}
 
-{% highlight c# tabtitle="Xamarin" %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 workbook.Version = ExcelVersion.Excel97to2003;
-
-//SaveAndView method is not implemented to save and open .xls files. Hence, saving it as stream.
-MemoryStream stream = new MemoryStream();
-workbook.SaveAs(stream);
-stream.Position = 0;
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xls", "application/vnd.ms-excel", stream);
+workbook.SaveAs("Sample.xls");
 
 workbook.Version = ExcelVersion.Excel2013;
-
-MemoryStream stream1 = new MemoryStream();
-workbook.SaveAs(stream1);
-stream1.Position = 0;
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream1);
+workbook.SaveAs("Sample.xlsx");
 {% endhighlight %}
 
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+workbook.Version = ExcelVersion.Excel97to2003
+workbook.SaveAs("Sample.xls")
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Sample.xlsx")
+{% endhighlight %}
 {% endtabs %}  
   
 ## See Also

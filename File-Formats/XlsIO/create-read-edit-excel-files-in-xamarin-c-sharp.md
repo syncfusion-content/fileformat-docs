@@ -7,51 +7,56 @@ documentation: UG
 ---
 # Create, read, and edit Excel files in Xamarin
 
-[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/excel-framework/xamarin/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion Excel library for Xamarin platform](https://www.syncfusion.com/document-processing/excel-framework/xamarin/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-1.Create a new C# Xamarin.Forms application project.
+Step 1: Create a new C# Xamarin.Forms application project.
 
-![Create ASP.NET Core web application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
+<img src="XAMARIN_images/XAMARIAN_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
 
-2.Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Select Web application pattern](XAMARIN_images/XAMARIAN_images_img2.png)
+<img src="XAMARIN_images/XAMARIAN_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-3.Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-![Add XlsIO reference to the project](XAMARIN_images/XAMARIAN_images_img3.png)
+<img src="XAMARIN_images/XAMARIAN_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
-4.Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
-i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
+Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
-ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
+	i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
+	ii)	In App class of portable project (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the MainXamlPage.
+
+{% capture codesnippet1 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 public App()
 {
-    // The root page of your application
-    MainPage = new MainXamlPage();
-
+  // The root page of your application
+  MainPage = new MainXamlPage();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET" %}
 Public Sub New()
-    'The root page of your application
-    MainPage = New MainXamlPage()
+  'The root page of your application
+  MainPage = New MainXamlPage()
 End Sub
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet1 | OrderList_Indent_Level_1 }} 
 
-5.In the MainXamlPage.xaml add new button as shown below.
+Step 5: In the MainXamlPage.xaml add new button as shown below.
+{% capture codesnippet2 %}
 {% tabs %}  
 {% highlight XAML %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -63,10 +68,12 @@ End Sub
 
 </StackLayout> </ContentPage>
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
+{% endcapture %}
+{{ codesnippet2 | OrderList_Indent_Level_1 }} 
 
-6.Include the following namespace in the MainXamlPage.xaml.cs file.
-
+Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
+{% capture codesnippet3 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
@@ -79,198 +86,200 @@ Imports Syncfusion.XlsIO
 Imports System.Reflection
 Imports Color = Syncfusion.Drawing.Color
 {% endhighlight %}
-{% endtabs %}   
+{% endtabs %}
+{% endcapture %}
+{{ codesnippet3 | OrderList_Indent_Level_1 }}  
 
-7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
-
+Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
+{% capture codesnippet4 %}
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
 void OnButtonClicked(object sender, EventArgs args)
 {
-//Create an instance of ExcelEngine.
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-	IApplication application = excelEngine.Excel;
+  //Create an instance of ExcelEngine.
+  using (ExcelEngine excelEngine = new ExcelEngine())
+  {
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
 
-	application.DefaultVersion = ExcelVersion.Excel2016;
+    //Create a workbook with a worksheet
+    IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
 
-	//Create a workbook with a worksheet
-	IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
+    //Access first worksheet from the workbook instance.
+    IWorksheet worksheet = workbook.Worksheets[0];
 
-	//Access first worksheet from the workbook instance.
-	IWorksheet worksheet = workbook.Worksheets[0];
+    Assembly executingAssembly = typeof(MainPage).GetTypeInfo().Assembly;
+    Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
 
-	Assembly executingAssembly = typeof(MainPage).GetTypeInfo().Assembly;
-	Stream inputStream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png");
+    //Add a picture
+    IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20);
 
-	//Add a picture
-	IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, inputStream);
+    //Disable gridlines in the worksheet
+    worksheet.IsGridLinesVisible = false;
 
-	//Disable gridlines in the worksheet
-	worksheet.IsGridLinesVisible = false;
+    //Enter values to the cells from A3 to A5
+    worksheet.Range["A3"].Text = "46036 Michigan Ave";
+    worksheet.Range["A4"].Text = "Canton, USA";
+    worksheet.Range["A5"].Text = "Phone: +1 231-231-2310";
 
-	//Enter values to the cells from A3 to A5
-	worksheet.Range["A3"].Text = "46036 Michigan Ave";
-	worksheet.Range["A4"].Text = "Canton, USA";
-	worksheet.Range["A5"].Text = "Phone: +1 231-231-2310";
+    //Make the text bold
+    worksheet.Range["A3:A5"].CellStyle.Font.Bold = true;
 
-	//Make the text bold
-	worksheet.Range["A3:A5"].CellStyle.Font.Bold = true;
+    //Merge cells
+    worksheet.Range["D1:E1"].Merge();
 
-	//Merge cells
-	worksheet.Range["D1:E1"].Merge();
+    //Enter text to the cell D1 and apply formatting.
+    worksheet.Range["D1"].Text = "INVOICE";
+    worksheet.Range["D1"].CellStyle.Font.Bold = true;
+    worksheet.Range["D1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
+    worksheet.Range["D1"].CellStyle.Font.Size = 35;
 
-	//Enter text to the cell D1 and apply formatting.
-	worksheet.Range["D1"].Text = "INVOICE";
-	worksheet.Range["D1"].CellStyle.Font.Bold = true;
-	worksheet.Range["D1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
-	worksheet.Range["D1"].CellStyle.Font.Size = 35;
+    //Apply alignment in the cell D1
+    worksheet.Range["D1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+    worksheet.Range["D1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
-	//Apply alignment in the cell D1
-	worksheet.Range["D1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-	worksheet.Range["D1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+    //Enter values to the cells from D5 to E8
+    worksheet.Range["D5"].Text = "INVOICE#";
+    worksheet.Range["E5"].Text = "DATE";
+    worksheet.Range["D6"].Number = 1028;
+    worksheet.Range["E6"].Value = "12/31/2018";
+    worksheet.Range["D7"].Text = "CUSTOMER ID";
+    worksheet.Range["E7"].Text = "TERMS";
+    worksheet.Range["D8"].Number = 564;
+    worksheet.Range["E8"].Text = "Due Upon Receipt";
 
-	//Enter values to the cells from D5 to E8
-	worksheet.Range["D5"].Text = "INVOICE#";
-	worksheet.Range["E5"].Text = "DATE";
-	worksheet.Range["D6"].Number = 1028;
-	worksheet.Range["E6"].Value = "12/31/2018";
-	worksheet.Range["D7"].Text = "CUSTOMER ID";
-	worksheet.Range["E7"].Text = "TERMS";
-	worksheet.Range["D8"].Number = 564;
-	worksheet.Range["E8"].Text = "Due Upon Receipt";
+    //Apply RGB backcolor to the cells from D5 to E8
+    worksheet.Range["D5:E5"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    worksheet.Range["D7:E7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
 
-	//Apply RGB backcolor to the cells from D5 to E8
-	worksheet.Range["D5:E5"].CellStyle.Color = Color.FromArgb(42, 118, 189);
-	worksheet.Range["D7:E7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    //Apply known colors to the text in cells D5 to E8
+    worksheet.Range["D5:E5"].CellStyle.Font.Color = ExcelKnownColors.White;
+    worksheet.Range["D7:E7"].CellStyle.Font.Color = ExcelKnownColors.White;
 
-	//Apply known colors to the text in cells D5 to E8
-	worksheet.Range["D5:E5"].CellStyle.Font.Color = ExcelKnownColors.White;
-	worksheet.Range["D7:E7"].CellStyle.Font.Color = ExcelKnownColors.White;
+    //Make the text as bold from D5 to E8
+    worksheet.Range["D5:E8"].CellStyle.Font.Bold = true;
 
-	//Make the text as bold from D5 to E8
-	worksheet.Range["D5:E8"].CellStyle.Font.Bold = true;
+    //Apply alignment to the cells from D5 to E8
+    worksheet.Range["D5:E8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    worksheet.Range["D5:E5"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    worksheet.Range["D7:E7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    worksheet.Range["D6:E6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
-	//Apply alignment to the cells from D5 to E8
-	worksheet.Range["D5:E8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-	worksheet.Range["D5:E5"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-	worksheet.Range["D7:E7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-	worksheet.Range["D6:E6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+    //Enter value and applying formatting in the cell A7
+    worksheet.Range["A7"].Text = "  BILL TO";
+    worksheet.Range["A7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    worksheet.Range["A7"].CellStyle.Font.Bold = true;
+    worksheet.Range["A7"].CellStyle.Font.Color = ExcelKnownColors.White;
 
-	//Enter value and applying formatting in the cell A7
-	worksheet.Range["A7"].Text = "  BILL TO";
-	worksheet.Range["A7"].CellStyle.Color = Color.FromArgb(42, 118, 189);
-	worksheet.Range["A7"].CellStyle.Font.Bold = true;
-	worksheet.Range["A7"].CellStyle.Font.Color = ExcelKnownColors.White;
+    //Apply alignment
+    worksheet.Range["A7"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
+    worksheet.Range["A7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
 
-	//Apply alignment
-	worksheet.Range["A7"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
-	worksheet.Range["A7"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+    //Enter values in the cells A8 to A12
+    worksheet.Range["A8"].Text = "Steyn";
+    worksheet.Range["A9"].Text = "Great Lakes Food Market";
+    worksheet.Range["A10"].Text = "20 Whitehall Rd";
+    worksheet.Range["A11"].Text = "North Muskegon,USA";
+    worksheet.Range["A12"].Text = "+1 231-654-0000";
 
-	//Enter values in the cells A8 to A12
-	worksheet.Range["A8"].Text = "Steyn";
-	worksheet.Range["A9"].Text = "Great Lakes Food Market";
-	worksheet.Range["A10"].Text = "20 Whitehall Rd";
-	worksheet.Range["A11"].Text = "North Muskegon,USA";
-	worksheet.Range["A12"].Text = "+1 231-654-0000";
+    //Create a Hyperlink for e-mail in the cell A13
+    IHyperLink hyperlink = worksheet.HyperLinks.Add(worksheet.Range["A13"]);
+    hyperlink.Type = ExcelHyperLinkType.Url;
+    hyperlink.Address = "Steyn@greatlakes.com";
+    hyperlink.ScreenTip = "Send Mail";
 
-	//Create a Hyperlink for e-mail in the cell A13
-	IHyperLink hyperlink = worksheet.HyperLinks.Add(worksheet.Range["A13"]);
-	hyperlink.Type = ExcelHyperLinkType.Url;
-	hyperlink.Address = "Steyn@greatlakes.com";
-	hyperlink.ScreenTip = "Send Mail";
+    //Enter details of products and prices
+    worksheet.Range["A15"].Text = "  DESCRIPTION";
+    worksheet.Range["C15"].Text = "QTY";
+    worksheet.Range["D15"].Text = "UNIT PRICE";
+    worksheet.Range["E15"].Text = "AMOUNT";
+    worksheet.Range["A16"].Text = "Cabrales Cheese";
+    worksheet.Range["A17"].Text = "Chocos";
+    worksheet.Range["A18"].Text = "Pasta";
+    worksheet.Range["A19"].Text = "Cereals";
+    worksheet.Range["A20"].Text = "Ice Cream";
+    worksheet.Range["C16"].Number = 3;
+    worksheet.Range["C17"].Number = 2;
+    worksheet.Range["C18"].Number = 1;
+    worksheet.Range["C19"].Number = 4;
+    worksheet.Range["C20"].Number = 3;
+    worksheet.Range["D16"].Number = 21;
+    worksheet.Range["D17"].Number = 54;
+    worksheet.Range["D18"].Number = 10;
+    worksheet.Range["D19"].Number = 20;
+    worksheet.Range["D20"].Number = 30;
+    worksheet.Range["D23"].Text = "Total";
 
-	//Enter details of products and prices
-	worksheet.Range["A15"].Text = "  DESCRIPTION";
-	worksheet.Range["C15"].Text = "QTY";
-	worksheet.Range["D15"].Text = "UNIT PRICE";
-	worksheet.Range["E15"].Text = "AMOUNT";
-	worksheet.Range["A16"].Text = "Cabrales Cheese";
-	worksheet.Range["A17"].Text = "Chocos";
-	worksheet.Range["A18"].Text = "Pasta";
-	worksheet.Range["A19"].Text = "Cereals";
-	worksheet.Range["A20"].Text = "Ice Cream";
-	worksheet.Range["C16"].Number = 3;
-	worksheet.Range["C17"].Number = 2;
-	worksheet.Range["C18"].Number = 1;
-	worksheet.Range["C19"].Number = 4;
-	worksheet.Range["C20"].Number = 3;
-	worksheet.Range["D16"].Number = 21;
-	worksheet.Range["D17"].Number = 54;
-	worksheet.Range["D18"].Number = 10;
-	worksheet.Range["D19"].Number = 20;
-	worksheet.Range["D20"].Number = 30;
-	worksheet.Range["D23"].Text = "Total";
+    //Apply number format
+    worksheet.Range["D16:E22"].NumberFormat = "$.00";
+    worksheet.Range["E23"].NumberFormat = "$.00";
 
-	//Apply number format
-	worksheet.Range["D16:E22"].NumberFormat = "$.00";
-	worksheet.Range["E23"].NumberFormat = "$.00";
+    //Merge column A and B from row 15 to 22
+    worksheet.Range["A15:B15"].Merge();
+    worksheet.Range["A16:B16"].Merge();
+    worksheet.Range["A17:B17"].Merge();
+    worksheet.Range["A18:B18"].Merge();
+    worksheet.Range["A19:B19"].Merge();
+    worksheet.Range["A20:B20"].Merge();
+    worksheet.Range["A21:B21"].Merge();
+    worksheet.Range["A22:B22"].Merge();
 
-	//Merge column A and B from row 15 to 22
-	worksheet.Range["A15:B15"].Merge();
-	worksheet.Range["A16:B16"].Merge();
-	worksheet.Range["A17:B17"].Merge();
-	worksheet.Range["A18:B18"].Merge();
-	worksheet.Range["A19:B19"].Merge();
-	worksheet.Range["A20:B20"].Merge();
-	worksheet.Range["A21:B21"].Merge();
-	worksheet.Range["A22:B22"].Merge();
+    //Apply incremental formula for column Amount by multiplying Qty and UnitPrice
+    application.EnableIncrementalFormula = true;
+    worksheet.Range["E16:E20"].Formula = "=C16*D16";
 
-	//Apply incremental formula for column Amount by multiplying Qty and UnitPrice
-	application.EnableIncrementalFormula = true;
-	worksheet.Range["E16:E20"].Formula = "=C16*D16";
+    //Formula for Sum the total
+    worksheet.Range["E23"].Formula = "=SUM(E16:E22)";
 
-	//Formula for Sum the total
-	worksheet.Range["E23"].Formula = "=SUM(E16:E22)";
+    //Apply borders
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Grey_25_percent;
+    worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Grey_25_percent;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Black;
+    worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Black;
 
-	//Apply borders
-	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
-	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Grey_25_percent;
-	worksheet.Range["A16:E22"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Grey_25_percent;
-	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
-	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].Color = ExcelKnownColors.Black;
-	worksheet.Range["A23:E23"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].Color = ExcelKnownColors.Black;
+    //Apply font setting for cells with product details
+    worksheet.Range["A3:E23"].CellStyle.Font.FontName = "Arial";
+    worksheet.Range["A3:E23"].CellStyle.Font.Size = 10;
+    worksheet.Range["A15:E15"].CellStyle.Font.Color = ExcelKnownColors.White;
+    worksheet.Range["A15:E15"].CellStyle.Font.Bold = true;
+    worksheet.Range["D23:E23"].CellStyle.Font.Bold = true;
 
-	//Apply font setting for cells with product details
-	worksheet.Range["A3:E23"].CellStyle.Font.FontName = "Arial";
-	worksheet.Range["A3:E23"].CellStyle.Font.Size = 10;
-	worksheet.Range["A15:E15"].CellStyle.Font.Color = ExcelKnownColors.White;
-	worksheet.Range["A15:E15"].CellStyle.Font.Bold = true;
-	worksheet.Range["D23:E23"].CellStyle.Font.Bold = true;
+    //Apply cell color
+    worksheet.Range["A15:E15"].CellStyle.Color = Color.FromArgb(42, 118, 189);
 
-	//Apply cell color
-	worksheet.Range["A15:E15"].CellStyle.Color = Color.FromArgb(42, 118, 189);
+    //Apply alignment to cells with product details
+    worksheet.Range["A15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
+    worksheet.Range["C15:C22"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    worksheet.Range["D15:E15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
 
-	//Apply alignment to cells with product details
-	worksheet.Range["A15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft;
-	worksheet.Range["C15:C22"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-	worksheet.Range["D15:E15"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+    //Apply row height and column width to look good
+    worksheet.Range["A1"].ColumnWidth = 36;
+    worksheet.Range["B1"].ColumnWidth = 11;
+    worksheet.Range["C1"].ColumnWidth = 8;
+    worksheet.Range["D1:E1"].ColumnWidth = 18;
+    worksheet.Range["A1"].RowHeight = 47;
+    worksheet.Range["A2"].RowHeight = 15;
+    worksheet.Range["A3:A4"].RowHeight = 15;
+    worksheet.Range["A5"].RowHeight = 18;
+    worksheet.Range["A6"].RowHeight = 29;
+    worksheet.Range["A7"].RowHeight = 18;
+    worksheet.Range["A8"].RowHeight = 15;
+    worksheet.Range["A9:A14"].RowHeight = 15;
+    worksheet.Range["A15:A23"].RowHeight = 18;
 
-	//Apply row height and column width to look good
-	worksheet.Range["A1"].ColumnWidth = 36;
-	worksheet.Range["B1"].ColumnWidth = 11;
-	worksheet.Range["C1"].ColumnWidth = 8;
-	worksheet.Range["D1:E1"].ColumnWidth = 18;
-	worksheet.Range["A1"].RowHeight = 47;
-	worksheet.Range["A2"].RowHeight = 15;
-	worksheet.Range["A3:A4"].RowHeight = 15;
-	worksheet.Range["A5"].RowHeight = 18;
-	worksheet.Range["A6"].RowHeight = 29;
-	worksheet.Range["A7"].RowHeight = 18;
-	worksheet.Range["A8"].RowHeight = 15;
-	worksheet.Range["A9:A14"].RowHeight = 15;
-	worksheet.Range["A15:A23"].RowHeight = 18;
+    //Save the workbook to stream in xlsx format. 
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
 
-	//Save the workbook to stream in xlsx format. 
-	MemoryStream stream = new MemoryStream();
-	workbook.SaveAs(stream);
+    workbook.Close();
 
-	workbook.Close();
-
-	//Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.xlsx", "application/msexcel", stream);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.xlsx", "application/msexcel", stream);
+  }
 }
 {% endhighlight %}
 
@@ -278,190 +287,249 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 Private Sub OnButtonClicked(ByVal sender As Object, ByVal args As EventArgs)
 'Create an instance of ExcelEngine
 Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
 
-	Dim application As IApplication = excelEngine.Excel
+  'Create a workbook
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-	application.DefaultVersion = ExcelVersion.Excel2016
+  'Adding a picture
+  Dim executingAssembly As Assembly = GetType(MainPage).GetTypeInfo().Assembly
+  Dim inputStream As Stream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png")
+  Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream, 20, 20)
 
-	'Create a workbook
-	Dim workbook As IWorkbook = application.Workbooks.Create(1)
-	Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Disable gridlines in the worksheet
+  worksheet.IsGridLinesVisible = False
 
-	'Adding a picture
-	Dim executingAssembly As Assembly = GetType(MainPage).GetTypeInfo().Assembly
-	Dim inputStream As Stream = executingAssembly.GetManifestResourceStream("GettingStarted.AdventureCycles-Logo.png")
-	Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, inputStream)
+  'Enter values to the cells from A3 to A5
+  worksheet.Range("A3").Text = "46036 Michigan Ave"
+  worksheet.Range("A4").Text = "Canton, USA"
+  worksheet.Range("A5").Text = "Phone: +1 231-231-2310"
 
-	'Disable gridlines in the worksheet
-	worksheet.IsGridLinesVisible = False
+  'Make the text bold
+  worksheet.Range("A3:A5").CellStyle.Font.Bold = True
 
-	'Enter values to the cells from A3 to A5
-	worksheet.Range("A3").Text = "46036 Michigan Ave"
-	worksheet.Range("A4").Text = "Canton, USA"
-	worksheet.Range("A5").Text = "Phone: +1 231-231-2310"
+  'Merge cells
+  worksheet.Range("D1:E1").Merge()
 
-	'Make the text bold
-	worksheet.Range("A3:A5").CellStyle.Font.Bold = True
+  'Enter text to the cell D1 and apply formatting.
+  worksheet.Range("D1").Text = "INVOICE"
+  worksheet.Range("D1").CellStyle.Font.Bold = True
+  worksheet.Range("D1").CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189)
+  worksheet.Range("D1").CellStyle.Font.Size = 35
 
-	'Merge cells
-	worksheet.Range("D1:E1").Merge()
+  'Apply alignment in the cell D1
+  worksheet.Range("D1").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight
+  worksheet.Range("D1").CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop
 
-	'Enter text to the cell D1 and apply formatting.
-	worksheet.Range("D1").Text = "INVOICE"
-	worksheet.Range("D1").CellStyle.Font.Bold = True
-	worksheet.Range("D1").CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189)
-	worksheet.Range("D1").CellStyle.Font.Size = 35
+  'Enter values to the cells from D5 to E8
+  worksheet.Range("D5").Text = "INVOICE#"
+  worksheet.Range("E5").Text = "DATE"
+  worksheet.Range("D6").Number = 1028
+  worksheet.Range("E6").Value = "12/31/2018"
+  worksheet.Range("D7").Text = "CUSTOMER ID"
+  worksheet.Range("E7").Text = "TERMS"
+  worksheet.Range("D8").Number = 564
+  worksheet.Range("E8").Text = "Due Upon Receipt"
 
-	'Apply alignment in the cell D1
-	worksheet.Range("D1").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight
-	worksheet.Range("D1").CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop
+  'Apply RGB back color to the cells from D5 to E8
+  worksheet.Range("D5:E5").CellStyle.Color = Color.FromArgb(42, 118, 189)
+  worksheet.Range("D7:E7").CellStyle.Color = Color.FromArgb(42, 118, 189)
 
-	'Enter values to the cells from D5 to E8
-	worksheet.Range("D5").Text = "INVOICE#"
-	worksheet.Range("E5").Text = "DATE"
-	worksheet.Range("D6").Number = 1028
-	worksheet.Range("E6").Value = "12/31/2018"
-	worksheet.Range("D7").Text = "CUSTOMER ID"
-	worksheet.Range("E7").Text = "TERMS"
-	worksheet.Range("D8").Number = 564
-	worksheet.Range("E8").Text = "Due Upon Receipt"
+  'Apply known colors to the text in cells D5 to E8
+  worksheet.Range("D5:E5").CellStyle.Font.Color = ExcelKnownColors.White
+  worksheet.Range("D7:E7").CellStyle.Font.Color = ExcelKnownColors.White
 
-	'Apply RGB back color to the cells from D5 to E8
-	worksheet.Range("D5:E5").CellStyle.Color = Color.FromArgb(42, 118, 189)
-	worksheet.Range("D7:E7").CellStyle.Color = Color.FromArgb(42, 118, 189)
+  'Make the text as bold from D5 to E8
+  worksheet.Range("D5:E8").CellStyle.Font.Bold = True
 
-	'Apply known colors to the text in cells D5 to E8
-	worksheet.Range("D5:E5").CellStyle.Font.Color = ExcelKnownColors.White
-	worksheet.Range("D7:E7").CellStyle.Font.Color = ExcelKnownColors.White
+  'Apply alignment to the cells from D5 to E8
+  worksheet.Range("D5:E8").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
+  worksheet.Range("D5:E5").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
+  worksheet.Range("D7:E7").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
+  worksheet.Range("D6:E6").CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop
 
-	'Make the text as bold from D5 to E8
-	worksheet.Range("D5:E8").CellStyle.Font.Bold = True
+  'Enter value and applying formatting in the cell A7
+  worksheet.Range("A7").Text = "  BILL TO"
+  worksheet.Range("A7").CellStyle.Color = Color.FromArgb(42, 118, 189)
+  worksheet.Range("A7").CellStyle.Font.Bold = True
+  worksheet.Range("A7").CellStyle.Font.Color = ExcelKnownColors.White
 
-	'Apply alignment to the cells from D5 to E8
-	worksheet.Range("D5:E8").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
-	worksheet.Range("D5:E5").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
-	worksheet.Range("D7:E7").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
-	worksheet.Range("D6:E6").CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop
+  'Apply alignment
+  worksheet.Range("A7").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft
+  worksheet.Range("A7").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
 
-	'Enter value and applying formatting in the cell A7
-	worksheet.Range("A7").Text = "  BILL TO"
-	worksheet.Range("A7").CellStyle.Color = Color.FromArgb(42, 118, 189)
-	worksheet.Range("A7").CellStyle.Font.Bold = True
-	worksheet.Range("A7").CellStyle.Font.Color = ExcelKnownColors.White
+  'Enter values in the cells A8 to A12
+  worksheet.Range("A8").Text = "Steyn"
+  worksheet.Range("A9").Text = "Great Lakes Food Market"
+  worksheet.Range("A10").Text = "20 Whitehall Rd"
+  worksheet.Range("A11").Text = "North Muskegon,USA"
+  worksheet.Range("A12").Text = "+1 231-654-0000"
 
-	'Apply alignment
-	worksheet.Range("A7").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft
-	worksheet.Range("A7").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
+  'Create a Hyperlink for e-mail in the cell A13
+  Dim hyperlink As IHyperLink = worksheet.HyperLinks.Add(worksheet.Range("A13"))
+  hyperlink.Type = ExcelHyperLinkType.Url
+  hyperlink.Address = "Steyn@greatlakes.com"
+  hyperlink.ScreenTip = "Send Mail"
 
-	'Enter values in the cells A8 to A12
-	worksheet.Range("A8").Text = "Steyn"
-	worksheet.Range("A9").Text = "Great Lakes Food Market"
-	worksheet.Range("A10").Text = "20 Whitehall Rd"
-	worksheet.Range("A11").Text = "North Muskegon,USA"
-	worksheet.Range("A12").Text = "+1 231-654-0000"
+  'Merge column A and B from row 15 to 22
+  worksheet.Range("A15:B15").Merge()
+  worksheet.Range("A16:B16").Merge()
+  worksheet.Range("A17:B17").Merge()
+  worksheet.Range("A18:B18").Merge()
+  worksheet.Range("A19:B19").Merge()
+  worksheet.Range("A20:B20").Merge()
+  worksheet.Range("A21:B21").Merge()
+  worksheet.Range("A22:B22").Merge()
 
-	'Create a Hyperlink for e-mail in the cell A13
-	Dim hyperlink As IHyperLink = worksheet.HyperLinks.Add(worksheet.Range("A13"))
-	hyperlink.Type = ExcelHyperLinkType.Url
-	hyperlink.Address = "Steyn@greatlakes.com"
-	hyperlink.ScreenTip = "Send Mail"
+  'Enter details of products and prices
+  worksheet.Range("A15").Text = "  DESCRIPTION"
+  worksheet.Range("C15").Text = "QTY"
+  worksheet.Range("D15").Text = "UNIT PRICE"
+  worksheet.Range("E15").Text = "AMOUNT"
+  worksheet.Range("A16").Text = "Cabrales Cheese"
+  worksheet.Range("A17").Text = "Chocos"
+  worksheet.Range("A18").Text = "Pasta"
+  worksheet.Range("A19").Text = "Cereals"
+  worksheet.Range("A20").Text = "Ice Cream"
+  worksheet.Range("C16").Number = 3
+  worksheet.Range("C17").Number = 2
+  worksheet.Range("C18").Number = 1
+  worksheet.Range("C19").Number = 4
+  worksheet.Range("C20").Number = 3
+  worksheet.Range("D16").Number = 21
+  worksheet.Range("D17").Number = 54
+  worksheet.Range("D18").Number = 10
+  worksheet.Range("D19").Number = 20
+  worksheet.Range("D20").Number = 30
+  worksheet.Range("D23").Text = "Total"
 
-	'Merge column A and B from row 15 to 22
-	worksheet.Range("A15:B15").Merge()
-	worksheet.Range("A16:B16").Merge()
-	worksheet.Range("A17:B17").Merge()
-	worksheet.Range("A18:B18").Merge()
-	worksheet.Range("A19:B19").Merge()
-	worksheet.Range("A20:B20").Merge()
-	worksheet.Range("A21:B21").Merge()
-	worksheet.Range("A22:B22").Merge()
+  'Apply number format
+  worksheet.Range("D16:E22").NumberFormat = "$.00"
+  worksheet.Range("E23").NumberFormat = "$.00"
 
-	'Enter details of products and prices
-	worksheet.Range("A15").Text = "  DESCRIPTION"
-	worksheet.Range("C15").Text = "QTY"
-	worksheet.Range("D15").Text = "UNIT PRICE"
-	worksheet.Range("E15").Text = "AMOUNT"
-	worksheet.Range("A16").Text = "Cabrales Cheese"
-	worksheet.Range("A17").Text = "Chocos"
-	worksheet.Range("A18").Text = "Pasta"
-	worksheet.Range("A19").Text = "Cereals"
-	worksheet.Range("A20").Text = "Ice Cream"
-	worksheet.Range("C16").Number = 3
-	worksheet.Range("C17").Number = 2
-	worksheet.Range("C18").Number = 1
-	worksheet.Range("C19").Number = 4
-	worksheet.Range("C20").Number = 3
-	worksheet.Range("D16").Number = 21
-	worksheet.Range("D17").Number = 54
-	worksheet.Range("D18").Number = 10
-	worksheet.Range("D19").Number = 20
-	worksheet.Range("D20").Number = 30
-	worksheet.Range("D23").Text = "Total"
+  'Apply incremental formula for column Amount by multiplying Qty and UnitPrice
+  application.EnableIncrementalFormula = True
+  worksheet.Range("E16:E20").Formula = "=C16*D16"
 
-	'Apply number format
-	worksheet.Range("D16:E22").NumberFormat = "$.00"
-	worksheet.Range("E23").NumberFormat = "$.00"
+  'Formula for Sum the total
+  worksheet.Range("E23").Formula = "=SUM(E16:E22)"
 
-	'Apply incremental formula for column Amount by multiplying Qty and UnitPrice
-	application.EnableIncrementalFormula = True
-	worksheet.Range("E16:E20").Formula = "=C16*D16"
+  'Apply borders
+  worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thin
+  worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thin
+  worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeTop).Color = ExcelKnownColors.Grey_25_percent
+  worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).Color = ExcelKnownColors.Grey_25_percent
+  worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thin
+  worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thin
+  worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeTop).Color = ExcelKnownColors.Black
+  worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).Color = ExcelKnownColors.Black
 
-	'Formula for Sum the total
-	worksheet.Range("E23").Formula = "=SUM(E16:E22)"
+  'Apply font setting for cells with product details
+  worksheet.Range("A3:E23").CellStyle.Font.FontName = "Arial"
+  worksheet.Range("A3:E23").CellStyle.Font.Size = 10
+  worksheet.Range("A15:E15").CellStyle.Font.Color = ExcelKnownColors.White
+  worksheet.Range("A15:E15").CellStyle.Font.Bold = True
+  worksheet.Range("D23:E23").CellStyle.Font.Bold = True
 
-	'Apply borders
-	worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thin
-	worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thin
-	worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeTop).Color = ExcelKnownColors.Grey_25_percent
-	worksheet.Range("A16:E22").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).Color = ExcelKnownColors.Grey_25_percent
-	worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thin
-	worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thin
-	worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeTop).Color = ExcelKnownColors.Black
-	worksheet.Range("A23:E23").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).Color = ExcelKnownColors.Black
+  'Apply cell color
+  worksheet.Range("A15:E15").CellStyle.Color = Color.FromArgb(42, 118, 189)
 
-	'Apply font setting for cells with product details
-	worksheet.Range("A3:E23").CellStyle.Font.FontName = "Arial"
-	worksheet.Range("A3:E23").CellStyle.Font.Size = 10
-	worksheet.Range("A15:E15").CellStyle.Font.Color = ExcelKnownColors.White
-	worksheet.Range("A15:E15").CellStyle.Font.Bold = True
-	worksheet.Range("D23:E23").CellStyle.Font.Bold = True
+  'Apply alignment to cells with product details
+  worksheet.Range("A15").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft
+  worksheet.Range("C15:C22").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
+  worksheet.Range("D15:E15").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
 
-	'Apply cell color
-	worksheet.Range("A15:E15").CellStyle.Color = Color.FromArgb(42, 118, 189)
+  'Apply row height and column width to look good
+  worksheet.Range("A1").ColumnWidth = 36
+  worksheet.Range("B1").ColumnWidth = 11
+  worksheet.Range("C1").ColumnWidth = 8
+  worksheet.Range("D1:E1").ColumnWidth = 18
+  worksheet.Range("A1").RowHeight = 47
+  worksheet.Range("A2").RowHeight = 15
+  worksheet.Range("A3:A4").RowHeight = 15
+  worksheet.Range("A5").RowHeight = 18
+  worksheet.Range("A6").RowHeight = 29
+  worksheet.Range("A7").RowHeight = 18
+  worksheet.Range("A8").RowHeight = 15
+  worksheet.Range("A9:A14").RowHeight = 15
+  worksheet.Range("A15:A23").RowHeight = 18
 
-	'Apply alignment to cells with product details
-	worksheet.Range("A15").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignLeft
-	worksheet.Range("C15:C22").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
-	worksheet.Range("D15:E15").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
+  'Saving the Excel to the MemoryStream 			
+  Dim stream As MemoryStream = New MemoryStream()
+  workbook.SaveAs(stream)
 
-	'Apply row height and column width to look good
-	worksheet.Range("A1").ColumnWidth = 36
-	worksheet.Range("B1").ColumnWidth = 11
-	worksheet.Range("C1").ColumnWidth = 8
-	worksheet.Range("D1:E1").ColumnWidth = 18
-	worksheet.Range("A1").RowHeight = 47
-	worksheet.Range("A2").RowHeight = 15
-	worksheet.Range("A3:A4").RowHeight = 15
-	worksheet.Range("A5").RowHeight = 18
-	worksheet.Range("A6").RowHeight = 29
-	worksheet.Range("A7").RowHeight = 18
-	worksheet.Range("A8").RowHeight = 15
-	worksheet.Range("A9:A14").RowHeight = 15
-	worksheet.Range("A15:A23").RowHeight = 18
+  workbook.Close()
 
-	'Saving the Excel to the MemoryStream 			
-	Dim stream As MemoryStream = New MemoryStream()
-	workbook.SaveAs(stream)
-
-	workbook.Close()
-	
-	'Save the stream as a file in the device and invoke it for viewing
-	Xamarin.Forms.DependencyService.[Get](Of ISave)().SaveAndView("GettingStared.xlsx", "application/msexcel", stream)
+  'Save the stream as a file in the device and invoke it for viewing
+  Xamarin.Forms.DependencyService.[Get](Of ISave)().SaveAndView("GettingStared.xlsx", "application/msexcel", stream)
 End Using
 {% endhighlight %}
 {% endtabs %}  
+{% endcapture %}
+{{ codesnippet4 | OrderList_Indent_Level_1 }}
 
-8.Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~2-289729089.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Step 8: Compile and execute the application. Now this application creates a simple Excel document.
+
+A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
+
+By executing the program, you will get the Excel file as below.
+<img src="XAMARIN_images/XAMARIAN_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
+
+## Read and Edit Excel file
+
+The below code illustrates how to read and edit an Excel file in Xamarin.
+
+N> Please include the Excel document in the Xamarin project and set the Build Action property of the document as Embedded Resource.
+
+{% tabs %}  
+{% highlight c# tabtitle="C#" %}
+void btnCreate_Click(object sender, System.EventArgs e)
+{
+  ExcelEngine excelEngine = new ExcelEngine();
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+
+  string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+  //"App" is the class of Portable project.
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+
+  //Opens the workbook 
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+  //Access first worksheet from the workbook.
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Set Text in cell A3.
+  worksheet.Range["A3"].Text ="Hello World";
+
+  //Access a cell value from Excel
+  var value = worksheet.Range["A1"].Value;
+
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  workbook.Close();
+  excelEngine.Dispose();
+
+  //Save the stream into XLSX file
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
+
+N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+
+Click [here](https://www.syncfusion.com/document-processing/excel-framework/xamarin) to explore the rich set of Syncfusion Excel library (XlsIO) features.
+
+An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
+
+## Helper Files
+
+Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HELPER~1-1423062113.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing. 
 
 <table>
 <tr>
@@ -551,75 +619,337 @@ Save implementation for WinRT device.
 </tbody>
 </table>
 
-9.Compile and execute the application. Now this application creates a simple Excel document.
+The respective code snippets are given below also, for reference.
 
+### ISave class in portable project
 
-A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
-
-By executing the program, you will get the Excel file as below.
-![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
-
-## Read and Edit Excel file
-
-The below code illustrates how to read and edit an Excel file in Xamarin.
-
-N> Please include the Excel document in the Xamarin project and set the Build Action property of the document as Embedded Resource.
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-void btnCreate_Click(object sender, System.EventArgs e)
-{
-	ExcelEngine excelEngine = new ExcelEngine();
-	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Excel2013;
-
-	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-	//"App" is the class of Portable project.
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-	//Opens the workbook 
-	IWorkbook workbook = application.Workbooks.Open(fileStream);
-	
-	//Access first worksheet from the workbook.
-	IWorksheet worksheet = workbook.Worksheets[0];
-
-	//Set Text in cell A3.
-	worksheet.Range["A3"].Text ="Hello World";
-
-    //Access a cell value from Excel
-    var value = worksheet.Range["A1"].Value;
-
-	MemoryStream stream = new MemoryStream();
-	workbook.SaveAs(stream);
-
-	workbook.Close();
-	excelEngine.Dispose();
-
-	//Save the stream into XLSX file
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
-}
-{% endhighlight %}
-{% endtabs %}
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 using System.IO;
 using System.Threading.Tasks;
 
-private interface ISave
+public interface ISave
 {
-	//Method to save document as a file and view the saved document
-	void SaveAndView(string filename, string contentType, MemoryStream stream);
+  //Method to save document as a file and view the saved document
+  Task SaveAndView(string filename, string contentType, MemoryStream stream);
 }
+{% endhighlight %}
+{% endtabs %} 
+
+### Save and View the Excel document in windows
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Xamarin.Forms.Platform.UWP;
+
+[assembly: Dependency(typeof(SaveWindows))]
+
+class SaveWindows: ISave
+{
+  public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+  {
+    //save the stream into the file. 
+    if (Device.Idiom != TargetIdiom.Desktop)
+    {
+      StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+      StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+      using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+      {
+        outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+      }
+      if (contentType != "application/html")
+        await Windows.System.Launcher.LaunchFileAsync(outFile);
+    }
+    else
+    {
+      StorageFile storageFile = null;
+      FileSavePicker savePicker = new FileSavePicker();
+      savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+      savePicker.SuggestedFileName = filename;
+      switch (contentType)
+      {
+        case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+          savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", });
+          break;
+
+        case "application/msexcel":
+          savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", });
+          break;
+
+        case "application/msword":
+          savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx" });
+          break;
+
+        case "application/pdf":
+          savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+          break;
+
+        case "application/html":
+          savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
+          break;
+      }
+      storageFile = await savePicker.PickSaveFileAsync();
+
+      using (Stream outStream = await storageFile.OpenStreamForWriteAsync())
+      {
+        outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+      }
+
+      //Invoke the saved file for Viewing.
+      await Windows.System.Launcher.LaunchFileAsync(storageFile);
+    }
+  }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+### Save and View the Excel document in Android
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using System;
+using System.IO;
+using GettingStarted.Droid;
+using Android.Content;
+using Java.IO;
+using Xamarin.Forms;
+using System.Threading.Tasks;
+
+[assembly: Dependency(typeof(SaveAndroid))]
+
+class SaveAndroid: ISave
+{
+  //Method to save document as a file in Android and view the saved document
+  public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+  {
+    string root = null;
+    //Get the root path in android device.
+    if (Android.OS.Environment.IsExternalStorageEmulated)
+    {
+      root = Android.OS.Environment.ExternalStorageDirectory.ToString();
+    }
+    else
+      root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+    //Create directory and file 
+    Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
+    myDir.Mkdir();
+
+    Java.IO.File file = new Java.IO.File(myDir, fileName);
+
+    //Remove if the file exists
+    if (file.Exists()) file.Delete();
+
+    //Write the stream into the file
+    FileOutputStream outs = new FileOutputStream(file);
+    outs.Write(stream.ToArray());
+
+    outs.Flush();
+    outs.Close();
+
+    //Invoke the created file for viewing
+    if (file.Exists())
+    {
+      Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+      string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
+      string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
+      Intent intent = new Intent(Intent.ActionView);
+      intent.SetDataAndType(path, mimeType);
+      Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
+    }
+  }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+N> Introduced a new runtime permission model for the Android SDK version 23 and above. So, include the following code for enabling the Android file provider to save and view the generated PDF document.
+
+Create a new XML file with the name of **provider_path.xml** under the **Resources** folder of **Android project** and add the following code in it. Eg: Resources/xml/provider_path.xml
+
+{% tabs %}
+{% highlight XAML %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+   <external-path name="external_files" path="."/>
+</paths>
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to read and edit an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Edit%20Excel).
+Add the following code to the **AndroidManifest.xml** file located under Properties/AndroidManifest.xml.
 
-N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+{% tabs %}
+{% highlight XAML %}
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.CreateXlsIOSample">
+   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+   <application android:label="CreateXlsIOSample.Android">
+      <provider android:name="androidx.core.content.FileProvider"
+         android:authorities="${applicationId}.provider"
+         android:exported="false"
+         android:grantUriPermissions="true">
+         <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+      </provider>
+   </application>
+</manifest>
+{% endhighlight %}
+{% endtabs %}
 
-### Windows Phone
+### Save and View the Excel document in iOS
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Xamarin.Forms;
+using GettingStarted.iOS;
+using UIKit;
+using QuickLook;
+
+[assembly: Dependency(typeof(SaveIOS))]
+
+class SaveIOS: ISave
+{
+  //Method to save document as a file and view the saved document
+  public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+  {
+    //Get the root path in iOS device.
+    string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+    string filePath = Path.Combine(path, filename);
+
+    //Create a file and write the stream into it.
+    FileStream fileStream = File.Open(filePath, FileMode.Create);
+    stream.Position = 0;
+    stream.CopyTo(fileStream);
+    fileStream.Flush();
+    fileStream.Close();
+
+    //Invoke the saved document for viewing
+    UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+    while (currentController.PresentedViewController != null)
+      currentController = currentController.PresentedViewController;
+    UIView currentView = currentController.View;
+
+    QLPreviewController qlPreview = new QLPreviewController();
+    QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
+    qlPreview.DataSource = new PreviewControllerDS(item);
+
+    currentController.PresentViewController(qlPreview, true, null);
+  }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using Foundation;
+using QuickLook;
+using System;
+using System.IO;
+
+public class PreviewControllerDS : QLPreviewControllerDataSource
+{
+  //Document cache
+  private QLPreviewItem _item;
+
+  //Setting the document
+  public PreviewControllerDS(QLPreviewItem item)
+  {
+    _item = item;
+  }
+
+  //Setting document count to 1
+  public override nint PreviewItemCount (QLPreviewController controller)
+  {
+    return 1;
+  }
+
+  //Return the document
+  public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
+  {
+    return _item;
+  }
+}
+
+public class QLPreviewItemFileSystem : QLPreviewItem
+{
+  string _fileName, _filePath;
+
+  //Setting file name and path
+  public QLPreviewItemFileSystem(string fileName, string filePath)
+  {
+    _fileName = fileName;
+    _filePath = filePath;
+  }
+
+  //Return file name
+  public override string ItemTitle
+  {
+    get
+    {
+      return _fileName;
+    }
+  }
+
+  //Retun file path as NSUrl
+  public override NSUrl ItemUrl
+  {
+    get
+    {
+      return NSUrl.FromFilename(_filePath);
+    }
+  }
+}
+
+public class QLPreviewItemBundle : QLPreviewItem
+{
+  string _fileName, _filePath;
+
+  //Setting file name and path
+  public QLPreviewItemBundle(string fileName, string filePath)
+  {
+    _fileName = fileName;
+    _filePath = filePath;
+  }
+
+  //Return file name
+  public override string ItemTitle
+  {
+    get
+    {
+      return _fileName;
+    }
+  }
+
+  //Retun file path as NSUrl
+  public override NSUrl ItemUrl
+  {
+    get
+    {
+      var documents = NSBundle.MainBundle.BundlePath;
+      var lib = Path.Combine(documents, _filePath);
+      var url = NSUrl.FromFilename(lib);
+      return url;
+    }
+  }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+### Save and View the Excel document in Windows Phone
 
 {% tabs %}  
 {% highlight c# tabtitle="C#" %}
@@ -636,228 +966,20 @@ using Xamarin.Forms;
 
 class SaveWindowsPhone: ISave
 {
-	//Method to save document as a file in Windows Phone and view the saved document.
-	public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
-    {
-        //Save the stream to a file. 
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-        using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-        {
-            outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-        }
-
-        //Launch the saved file for viewing in default viewer.
-        await Windows.System.Launcher.LaunchFileAsync(outFile);
-    }
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Android
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using System;
-using System.IO;
-using Android.Content;
-using Java.IO;
-using Xamarin.Forms;
-using System.Threading.Tasks;
-using Android.Support.V4.Content;
-using Android;
-using Android.Content.PM;
-using Android.Support.V4.App;
-
-[assembly: Dependency(typeof(SaveAndroid))]
-
-class SaveAndroid: ISave
-{
-  //Method to save document as a file in Android and view the saved document
-  public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+  //Method to save document as a file in Windows Phone and view the saved document.
+  public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
   {
-    string root = null;
+    //Save the stream to a file. 
+    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+    StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+    {
+	  outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+    }
 
-	if (ContextCompat.CheckSelfPermission(Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
-	{
-	  ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new String[] { Manifest.Permission.WriteExternalStorage }, 1);
-	}
-
-	//Get the root path in android device.
-	if (Android.OS.Environment.IsExternalStorageEmulated)
-	{
-	  root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-	}
-	else
-	  root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-	//Create directory and file 
-	Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-	myDir.Mkdir();
-
-	Java.IO.File file = new Java.IO.File(myDir, fileName);
-
-	//Write the stream into the file
-	FileOutputStream outs = new FileOutputStream(file);
-	outs.Write(stream.ToArray());
-
-	outs.Flush();
-	outs.Close();
-
-	//Invoke the created file for viewing
-	if (file.Exists())
-	{
-	  string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-	  string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-	  Intent intent = new Intent(Intent.ActionView);
-	  intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-	  Android.Net.Uri path = FileProvider.GetUriForFile(Forms.Context, Android.App.Application.Context.PackageName + ".provider", file);
-	  intent.SetDataAndType(path, mimeType);
-	  intent.AddFlags(ActivityFlags.GrantReadUriPermission);
-	  Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-	}
+    //Launch the saved file for viewing in default viewer.
+    await Windows.System.Launcher.LaunchFileAsync(outFile);
   }
 }
 {% endhighlight %}
 {% endtabs %}
-
-### iOS
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Xamarin.Forms;
-using GettingStarted.iOS;
-using UIKit;
-using QuickLook;
-
-[assembly: Dependency(typeof(SaveIOS))]
-
-class SaveIOS: ISave
-{
-    //Method to save document as a file in iOS and view the saved document.
-    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
-    {
-        //Get the root path of iOS device.
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-        string filePath = Path.Combine(path, filename);
-
-        //Create a file and write the stream into it.
-        FileStream fileStream = File.Open(filePath, FileMode.Create);
-        stream.Position = 0;
-        stream.CopyTo(fileStream);
-        
-		fileStream.Flush();
-        fileStream.Close();
-
-        //Launch the saved file for viewing in default viewer.
-        UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-        while (currentController.PresentedViewController != null)
-			currentController = currentController.PresentedViewController;
-        UIView currentView = currentController.View;
-
-        QLPreviewController preview = new QLPreviewController();
-        QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-        preview.DataSource = new PreviewControllerDS(item);
-
-        currentController.PresentViewController(preview, true, null);
-    }
-}
-{% endhighlight %}
-{% endtabs %}
-
-N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
-
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
-using System;
-using QuickLook;
-
-public class PreviewControllerDS : QLPreviewControllerDataSource
-{
-	private QLPreviewItem _item;
-
-	public PreviewControllerDS(QLPreviewItem item)
-	{
-		_item = item;
-	}
-
-	public override nint PreviewItemCount (QLPreviewController controller)
-	{
-		return (nint)1;
-	}
-
-	public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
-	{
-		return _item;
-	}
-}
-
-using System;
-using QuickLook;
-using Foundation;
-using System.IO;
-
-public class QLPreviewItemFileSystem : QLPreviewItem
-{
-	string _fileName, _filePath;
-
-	public QLPreviewItemFileSystem(string fileName, string filePath)
-	{
-		_fileName = fileName;
-		_filePath = filePath;
-	}
-
-	public override string ItemTitle
-	{
-		get
-		{
-			return _fileName;
-		}
-	}
-	public override NSUrl ItemUrl
-	{
-		get
-		{
-			return NSUrl.FromFilename(_filePath);
-		}
-	}
-}
-
-public class QLPreviewItemBundle : QLPreviewItem
-{
-	string _fileName, _filePath;
-	public QLPreviewItemBundle(string fileName, string filePath)
-	{
-		_fileName = fileName;
-		_filePath = filePath;
-	}
-
-	public override string ItemTitle
-	{
-		get
-		{
-			return _fileName;
-		}
-	}
-	public override NSUrl ItemUrl
-	{
-		get
-		{
-			var documents = NSBundle.MainBundle.BundlePath;
-			var lib = Path.Combine(documents, _filePath);
-			var url = NSUrl.FromFilename(lib);
-			return url;
-		}
-	}
-}
-
-{% endhighlight %}
-{% endtabs %}
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. You can also explore our [Xamarin Excel library demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with just five lines of code.

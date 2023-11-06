@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Silverlight
 
-In your Silverlight application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
+In your Silverlight application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/file-formats/docio/assemblies-required).
 
 ## Loading the document 
 
@@ -19,7 +19,7 @@ The following code example illustrates how to load the Word document by using UR
 
 //Load the Word document as url
 
-Uri uri = new Uri(@"\Resources\data\Sample.docx", UriKind.Relative);
+Uri uri = new Uri(@"/Resources/data/Sample.docx", UriKind.Relative);
 
 Stream docStream = ResourceManager.Load(uri);
 
@@ -117,7 +117,7 @@ document.Save(stream, FormatType.Docx);
 
 'Load the Word document as url
 
-Dim uri As New Uri("\Resources\data\Sample.docx", UriKind.Relative)
+Dim uri As New Uri("/Resources/data/Sample.docx", UriKind.Relative)
 
 Dim docStream As Stream = ResourceManager.Load(uri)
 

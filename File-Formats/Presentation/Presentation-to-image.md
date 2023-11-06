@@ -7,6 +7,9 @@ documentation: UG
 ---
 # Presentation to image conversion
 
+To quickly start converting a PowerPoint Presentation to an Image using .NET PowerPoint libray, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=DcH9CptpYHg" %}
+
 ## .NET Framework
 
 This section covers converting an entire Presentation or a single slide to image in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. The supported image formats are listed as follows.
@@ -19,50 +22,70 @@ This section covers converting an entire Presentation or a single slide to image
 
 ## Assemblies Required
 
-Refer to the following links for assemblies required based on platforms to convert the worksheet to image.
+Refer to the following links for assemblies required based on platforms to convert the PowerPoint Presentation to image.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-to-image)
 
 T> When converting a slide to image, use 'Metafile' format for good image resolution.
 
+## Convert a slide to image
+
 The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
+
+//Open the existing PowerPoint presentation with stream.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+{
+    //Initialize the PresentationRenderer to perform image conversion.
+    pptxDoc.PresentationRenderer = new PresentationRenderer();
+    //Convert PowerPoint slide to image as stream.
+    using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+    {
+        //Reset the stream position
+        stream.Position = 0;
+        //Create the output image file stream
+        using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+        {
+            //Copy the converted image stream into created output stream
+            stream.CopyTo(fileStreamOutput);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 
 //Namespaces to perform PPTX to Image conversion
 using Syncfusion.Presentation;
 using Syncfusion.OfficeChartToImageConverter;
 using System.IO;
 using Syncfusion.Drawing;
-    
+
 //Opens a PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Open(fileName);
-
 //Creates an instance of ChartToImageConverter
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Sets the scaling mode as best
 pptxDoc.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
-
 //Converts the first slide into image
 Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-
 //Saves the image as file
 image.Save("slide1.png");
-
 //Disposes the image
 image.Dispose();
-
 //Closes the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Namespaces to perform PPTX to Image conversion
 Imports Syncfusion.Presentation
 Imports Syncfusion.OfficeChartToImageConverter
@@ -71,210 +94,230 @@ Imports System.IO
 
 'Opens a PowerPoint Presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
-
 'Creates an instance of ChartToImageConverter
 pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-
 'Sets the scaling mode as best
 pptxDoc.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
-
 'Converts the first slide into image
 Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
-
 'Saves the image as file
 image.Save("slide1.png")
-
 'Disposes the image
 image.Dispose()
-
 'Closes the Presentation instance
 Presentation_1.Close()
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-
-//Namespaces to perform PPTX to Image conversion
-using Syncfusion.Presentation;
-using Syncfusion.PresentationRenderer;
-using System.IO;
-
-//Open the existing PowerPoint presentation with stream.
-using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-{
-	//Initialize the PresentationRenderer to perform image conversion.
-	pptxDoc.PresentationRenderer = new PresentationRenderer();
- 
-	//Convert PowerPoint slide to image as stream.
-	using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	{
-		//Reset the stream position
-		stream.Position = 0;
- 
-		//Create the output image file stream
-		using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		{
-			//Copy the converted image stream into created output stream
-			stream.CopyTo(fileStreamOutput);
-		}
-	}
-}
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Namespaces to perform PPTX to Image conversion
-using Syncfusion.Presentation;
-using Syncfusion.PresentationRenderer;
-using System.IO;
-
-//Open the existing PowerPoint presentation with stream.
-using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-{
-	//Initialize the PresentationRenderer to perform image conversion.
-	pptxDoc.PresentationRenderer = new PresentationRenderer();
- 
-	//Convert PowerPoint slide to image as stream.
-	using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-	{
-		//Reset the stream position
-		stream.Position = 0;
- 
-		//Create the output image file stream
-		using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-		{
-			//Copy the converted image stream into created output stream
-			stream.CopyTo(fileStreamOutput);
-		}
-	}
-}
-
 {% endhighlight %}
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-slide-to-Image/.NET).
+
+## Convert PowerPoint Presentation to images
 
 The following code example demonstrates the conversion of an entire Presentation to images:
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
 //Creates instance of ChartToImageConverter
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Sets the scaling mode as best
 pptxDoc.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
-
 //Converts entire Presentation to images
 Image[] images = pptxDoc.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile);
-
 //Saves the image to file system
 foreach (Image image in images)
 { 
-	image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
+    image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 }
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
 'Creates instance of ChartToImageConverter
 pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-
 'Sets the scaling mode as best
 pptxDoc.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
-
 'Converts entire Presentation to images
 Dim images As Image() = pptxDoc.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile)
-
 'Saves the image to file system
 For Each image As Image In images
-
-image.Save("ImageOutput" + Guid.NewGuid().ToString() + ".png")
-
+    image.Save("ImageOutput" + Guid.NewGuid().ToString() + ".png")
 Next
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image).
+
+## Image resolution
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Loads the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Output.pptx");
-
 //Declare variables to hold custom width and height
 int customWidth = 1500;
 int customHeight = 1000;
-
 //Converts the slide as image and returns the image stream
 Stream stream = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
-
 //Creates a bitmap of specific width and height
 Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
-
 //Gets the graphics from image
 Graphics graphics = Graphics.FromImage(bitmap);
-
 //Sets the resolution
 bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
-
 //Recreates the image in custom size
 graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-
 //Saves the image as bitmap 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
-
 //Closes the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Loads the PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Output.pptx")
-
 'Declare variables to hold custom width and height
 Dim customWidth As Integer = 1500
 Dim customHeight As Integer = 1000
-
 'Converts the slide as image and returns the image stream
 Dim stream As Stream = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
-
 'Creates a bitmap of specific width and height
 Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
-
 'Gets the graphics from image
 Dim imageGraphics As Graphics = Graphics.FromImage(bitmap)
-
 'Sets the resolution
 bitmap.SetResolution(imageGraphics.DpiX, imageGraphics.DpiY)
-
 'Recreates the image in custom size
 imageGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
-
 'Saves the image as bitmap
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
-
 'Closes the presentation
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Change-resolution-of-converted-image).
+
+## Convert PowerPoint Animations to Images
+
+The .NET PowerPoint Library (Presentation) allows you to convert PowerPoint slides into images based on the sequence of entrance animation effects applied to each element.
+
+For instance, if a slide includes bulleted paragraphs, each having entrance animation effects, the Presentation library converts every bulleted paragraph into a separate image.
+
+N> 1. Only entrance animation effects are considered for generating separate images. Other animation effects and non-animated elements will be converted into images within the first image itself.
+N> 2. Converting PowerPoint animations to images is not supported in the UWP platform. 
+
+The following code example shows how to convert PowerPoint slides to images based on the sequence of animation effects using the [PresentationAnimationConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.PresentationAnimationConverter.html) API.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Open a PowerPoint Presentation.
+IPresentation pptxDoc = Presentation.Open("Input.pptx");
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, ExportImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open a PowerPoint Presentation.
+IPresentation pptxDoc = Presentation.Open("Input.pptx");
+
+//Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
+{
+    int i = 0;
+    foreach (ISlide slide in pptxDoc.Slides)
+    {
+        //Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Stream[] imageStreams = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png);
+
+        //Save the image stream.
+        foreach (Stream stream in imageStreams)
+        {
+            i++;
+            //Reset the stream position.
+            stream.Position = 0;
+
+            //Create the output image file stream.
+            using (FileStream fileStreamOutput = File.Create("Output" + i + ".png"))
+            {
+                //Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open a PowerPoint Presentation.
+Dim pptxDoc As IPresentation = Presentation.Open("Input.pptx")
+
+' Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
+Using animationConverter As New PresentationAnimationConverter()
+    Dim i As Integer = 0
+    For Each slide As ISlide In pptxDoc.Slides
+        ' Convert the PowerPoint slide to a series of images based on entrance animation effects.
+        Dim imageStreams As Stream() = animationConverter.Convert(slide, Syncfusion.Drawing.ImageFormat.Png)
+
+        ' Save the image stream.
+        For Each stream As Stream In imageStreams
+            i += 1
+            ' Reset the stream position.
+            stream.Position = 0
+
+            ' Create the output image file stream.
+            Using fileStreamOutput As FileStream = File.Create("Output" & i & ".png")
+                ' Copy the converted image stream into created output stream.
+                stream.CopyTo(fileStreamOutput)
+            End Using
+        Next
+    Next
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+![Convert PowerPoint slides to images with animation sequence](PPTXtoImage_images/PowerPoint-Animations-to-Images-output.png)
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Based-on-Entrance-animation-effects/.NET).
+
+T> With this, you can showcase the converted images as a slideshow in your [custom PowerPoint Viewer](https://ej2.syncfusion.com/aspnetcore/PowerPoint/AnimationConverter#/material).
 
 ## UWP
 
@@ -305,133 +348,118 @@ PowerPoint slides can be converted to images in UWP by using Essential Presentat
         <tr>
             <td>Syncfusion.SfChart.UWP</td>
             <td>Supporting assembly for Syncfusion.OfficeChartToImageConverter.UWP</td>
-        </tr>       
+        </tr>
     </tbody>
 </table>
+
+### Convert a slide to image
 
 The following code example demonstrates how to convert a slide to image in UWP.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputFile = await openPicker.PickSingleFileAsync();
 pptxDoc = await Presentation.OpenAsync(inputFile);
-
 //Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Pick the folder to save the converted images.
 FolderPicker folderPicker = new FolderPicker();
 folderPicker.ViewMode = PickerViewMode.Thumbnail;
 folderPicker.FileTypeFilter.Add("*");
 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
 StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
-
 //Convert the slide to image.
 await slide.SaveAsImageAsync(imageFile);
-
 //Closes the presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-PowerPoint-slide-to-Image/UWP).
+
+### Convert PowerPoint Presentation to images
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputFile = await openPicker.PickSingleFileAsync();
 pptxDoc = await Presentation.OpenAsync(inputFile);
-
 //Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides.
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Pick the folder to save the converted images.
 FolderPicker folderPicker = new FolderPicker();
 folderPicker.ViewMode = PickerViewMode.Thumbnail;
 folderPicker.FileTypeFilter.Add("*");
 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
 StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
-
 //Get the stream of the created image file.
 StorageFile imageStream = await imageFile.OpenStreamForWriteAsync()
-
 //Creates a new instance for the rendering options to customize the image resolution.
 RenderingOptions renderingOptions = new RenderingOptions();
-
 //Sets the horizontal scaling value for the converted image. The default value is 1.
 renderingOptions.ScaleX = 10F;
-
 //Sets the vertical scaling value for the converted image. The default value is 1.
 renderingOptions.ScaleY = 10F;
-
 //Convert the slide to image with specified resolution.
 await slide.SaveAsImageAsync(imageStream, renderingOptions);
-
 //Closes the presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Change-resolution-of-converted-image/UWP).
+
+### Convert a slide to image by CancellationToken
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputFile = await openPicker.PickSingleFileAsync();
 pptxDoc = await Presentation.OpenAsync(inputFile);
-
 //Initialize the ChartToImageConverter instance to convert the charts in the slides.
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-
 //Pick the folder to save the converted images.
 FolderPicker folderPicker = new FolderPicker();                    
 folderPicker.ViewMode = PickerViewMode.Thumbnail;
 folderPicker.FileTypeFilter.Add("*");
 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-
 //Create a cancellation token to cancel the image rendering instantly.
 CancellationTokenSource cancellationToken = new CancellationTokenSource();
-
 //Convert the slide to image.
 int slideNumber = 1;
 foreach (ISlide slide in pptxDoc.Slides)
 {
-   StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting);
-   await slide.SaveAsImageAsync(imageFile, cancellationToken.Token);
+    StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting);
+    await slide.SaveAsImageAsync(imageFile, cancellationToken.Token);
 }
-
 //Close the Presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Convert-with-UWP-cancellation-token).
 
-N> 1. PowerPoint Presentation to image conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
-N> 2. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
-N> 3. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
-N> 5. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
-N> 6. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.
+N> 1. Instance of [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
+N> 2. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
+N> 3. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
+N> 4. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.
 
 ## Font substitution for unavailable fonts
 
@@ -443,27 +471,21 @@ The following code sample demonstrates how to set a substitute font for a missin
 
 {% tabs %}
 
-{% highlight c# tabtitle="C#" %}
-
+{% highlight c# tabtitle="C# [Windows-specific]" %}
 //Load the PowerPoint presentation and convert to image
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-	// Initializes the 'SubstituteFont' event to set the replacement font
-	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-
-	//Converts the first slide into image
-	Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-
-	//Saves the image as file
-	image.Save("slide1.png");
-
-	//Disposes the image
-	image.Dispose();
+    //Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+    pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+    // Initializes the 'SubstituteFont' event to set the replacement font
+    pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+    //Converts the first slide into image
+    Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
+    //Saves the image as file
+    image.Save("slide1.png");
+    //Disposes the image
+    image.Dispose();
 }
-
 /// <summary>
 /// Sets the alternate font when a specified font is unavailable in the production environment
 /// </summary>
@@ -471,54 +493,46 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 /// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-	if (args.OriginalFontName == "Arial Unicode MS")
-		args.AlternateFontName = "Arial";
-	else
-		args.AlternateFontName = "Times New Roman";
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
 }
-
 {% endhighlight %}
 
-{% highlight vb.net tabtitle="VB.NET" %}
-
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Load the PowerPoint presentation and convert to image
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
 'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
 pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-
 'Initializes the 'SubstituteFont' event to set the replacement font
 AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
-
 'Convert the PowerPoint presentation to image.
 Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
-
 'Save the image.
 image.Save("slide1.png")
-
 'Dispose the Presentation instance
 pptxDoc.Dispose()
-
 'Dispose the image
 image.Dispose()
-
 ''' <summary>
 ''' Sets the alternate font when a specified font is unavailable in the production environment
 ''' </summary>
 ''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
 ''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-	' Sets the alternate font when a specified font is not installed in the production environment
-	If args.OriginalFontName = "Arial Unicode MS" Then
-		args.AlternateFontName = "Arial"
-	Else
-		args.AlternateFontName = "Times New Roman"
-	End If
+    ' Sets the alternate font when a specified font is not installed in the production environment
+    If args.OriginalFontName = "Arial Unicode MS" Then
+        args.AlternateFontName = "Arial"
+    Else
+        args.AlternateFontName = "Times New Roman"
+    End If
 End Sub
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Add-font-substitution).
 
 ## Fallback fonts
 
@@ -530,26 +544,23 @@ The following code example demonstrates how to initialize a default fallback fon
 
 {% tabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
 {
     //Open the existing PowerPoint presentation with loaded stream
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
         //Initialize the PresentationRenderer to perform image conversion
         pptxDoc.PresentationRenderer = new PresentationRenderer();
-	
         //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
-
         //Convert PowerPoint slide to image as stream
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
             //Reset the stream position
             stream.Position = 0;
- 
             //Create the output image file stream
             using (FileStream fileStreamOutput = File.Create("Output.jpg"))
             {
@@ -559,42 +570,11 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         }
     }
 }
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Use a sets of default FallbackFont collection to IPresentation
-        pptxDoc.FontSettings.InitializeFallbackFonts();
-		
-        //Initialize the PresentationRenderer to perform image conversion
-        pptxDoc.PresentationRenderer = new PresentationRenderer();
- 
-        //Convert PowerPoint slide to image as stream
-        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-        {
-            //Reset the stream position
-            stream.Position = 0;
- 
-            //Create the output image file stream
-            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-            {
-                //Copy the converted image stream into created output stream
-                stream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-fallback-fonts).
 
 ### Customize Default Fallback Fonts
 
@@ -602,7 +582,7 @@ The following code example demonstrates how to customize default fallback font w
 
 {% tabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -612,19 +592,16 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     {
         //Initialize the PresentationRenderer to perform image conversion
         pptxDoc.PresentationRenderer = new PresentationRenderer();
-	
         //Use a sets of default FallbackFont collection to IPresentation
         pptxDoc.FontSettings.InitializeFallbackFonts();
         // Customize a default fallback font name
         // Modify the Hebrew script default font name as "David"
         pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
-
         //Convert PowerPoint slide to image as stream
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
             //Reset the stream position
             stream.Position = 0;
- 
             //Create the output image file stream
             using (FileStream fileStreamOutput = File.Create("Output.jpg"))
             {
@@ -634,45 +611,11 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         }
     }
 }
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Use a sets of default FallbackFont collection to IPresentation
-        pptxDoc.FontSettings.InitializeFallbackFonts();
-        // Customize a default fallback font name
-        // Modify the Hebrew script default font name as "David"
-        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
-		
-        //Initialize the PresentationRenderer to perform image conversion
-        pptxDoc.PresentationRenderer = new PresentationRenderer();
- 
-        //Convert PowerPoint slide to image as stream
-        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-        {
-            //Reset the stream position
-            stream.Position = 0;
- 
-            //Create the output image file stream
-            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-            {
-                //Copy the converted image stream into created output stream
-                stream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Customize-default-fallback-fonts).
 
 ### Add Custom Fallback Fonts
 
@@ -680,8 +623,7 @@ The following code example demonstrates how to add custom fallback fonts while c
 
 {% tabs %}
 
-{% highlight c# tabtitle="ASP.NET Core" %}
-
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 //Load the PowerPoint presentation into stream
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
 {
@@ -689,7 +631,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
         //Add custom fallback font names
-
         // Arabic
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
         // Hebrew
@@ -702,16 +643,13 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
         // Korean
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-
         //Initialize the PresentationRenderer to perform image conversion
         pptxDoc.PresentationRenderer = new PresentationRenderer();
-
         //Convert PowerPoint slide to image as stream
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
             //Reset the stream position
             stream.Position = 0;
- 
             //Create the output image file stream
             using (FileStream fileStreamOutput = File.Create("Output.jpg"))
             {
@@ -721,54 +659,15 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         }
     }
 }
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="Xamarin" %}
-
-//Load the PowerPoint presentation into stream
-using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
-{
-    //Open the existing PowerPoint presentation with loaded stream
-    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
-    {
-        //Add custom fallback font names
-
-        // Arabic
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-        // Hebrew
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-        // Hindi
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-        // Chinese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-        // Japanese
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-        // Korean
-        pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-	   
-        //Initialize the PresentationRenderer to perform image conversion
-        pptxDoc.PresentationRenderer = new PresentationRenderer();
- 
-        //Convert PowerPoint slide to image as stream
-        using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
-        {
-            //Reset the stream position
-            stream.Position = 0;
- 
-            //Create the output image file stream
-            using (FileStream fileStreamOutput = File.Create("Output.jpg"))
-            {
-                //Copy the converted image stream into created output stream
-                stream.CopyTo(fileStreamOutput);
-            }
-        }
-    }
-}
-
 {% endhighlight %}
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-custom-fallback-fonts).
+
 N> 1. Fallback fonts only supported for Arabic, Hebrew, Hindi, Chinese, Japanese and Korean languages.
 N> 2. Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
+
+## See Also
+
+* [How to convert PPTX to Image in Blazor WebAssembly (WASM)?](https://www.syncfusion.com/kb/13884/how-to-convert-pptx-to-image-in-blazor-webassembly-wasm)

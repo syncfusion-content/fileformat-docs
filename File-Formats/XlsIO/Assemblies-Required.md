@@ -1,8 +1,9 @@
 ---
 title: XlsIO Assemblies Required | Syncfusion
 description: Briefs the assemblies required to convert excel document to PDF, excel worksheet to image & excel chart to image for various platforms and frameworks.
-platform: File-formats
+platform: file-formats
 control: XlsIO
+documentation: UG
 ---
 
 # Assemblies Required for XlsIO
@@ -134,7 +135,7 @@ Syncfusion.XlsIO.NET
 </tbody>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 N> Syncfusion components are available in nuget.org
 
@@ -303,4 +304,4 @@ Syncfusion.XlsIORenderer.NET<br/>
 
 N>  Chart to image conversion is supported from .NET Framework 4.0 and .NET Standard 2.0 onwards.
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
