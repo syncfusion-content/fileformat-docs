@@ -235,7 +235,7 @@ N> Only embedded charts are supported in chart to image conversion. Chart sheets
 
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:
-<img src="Working-With-Charts_images/chart-elements.jpeg" alt="chart elements" width="100%" Height="Auto"/>
+![Chart to Image Conversion](Working-With-Charts_images/chart-elements.jpeg)
 
 **Chart Elements:**
 1. Axis
