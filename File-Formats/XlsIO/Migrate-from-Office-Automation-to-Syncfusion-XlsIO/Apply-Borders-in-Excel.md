@@ -1,12 +1,12 @@
 ---
-title: Apply Borders in Excel | Syncfusion
-description: Explains with an example on how to programmatically apply borders in Excel with different line styles using Interop and XlsIO.
+title: Apply Borders in File Formats Excel Library | Syncfusion
+description: Learn here all about example to apply border in Syncfussion Essential Excel with different line styles using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Apply Borders in Excel
+# Apply Borders in File Formats Excel library
 
 Applying borders around specific cells makes those cells stand out to people who view the document. For example, this is used when calling attention to totals, other specific numbers, or words in the file. Alternatively, as the borders are thicker and more pronounceable than the default grid lines, you can add border lines around all the cells to define each to prevent from blending together when users view the document. You can also use different line styles for borders.
 

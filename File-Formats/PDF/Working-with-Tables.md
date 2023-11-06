@@ -1,12 +1,12 @@
 ---
-title: Working with Tables | Syncfusion
-description: Learn how to create or add a table to a PDF document, apply cell style & built-in table styles, automatic pagination, customize the rows and columns, and more.
+title: Working with Tables in File Formats PDF Library | Syncfusion
+description: Learn here all about working with tables in Syncfusion Essential File Formats PDF documents, customize the rows and columns, and more details.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Working with .NET PDF Tables 
+# Working with Tables in File Formats PDF library
 
 The Syncfusion .NET PDF library provides support for two types of [PDF table](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/pdf-tables) models, both having a different levels of customization, which is explained as follows. The two types of table models are:
 

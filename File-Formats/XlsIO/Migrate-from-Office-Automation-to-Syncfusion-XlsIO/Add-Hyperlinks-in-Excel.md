@@ -1,12 +1,12 @@
 ---
-title: Add Hyperlinks in Excel | Syncfusion
-description: Explains with an example on how to programmatically add hyperlinks in Excel using Interop and XlsIO.
+title: Add Hyperlinks in File Formats Excel Library | Syncfusion
+description: Learn here all about add hyperlinks programmatically with example in the Syncfusion Essential File Formats Excel library, its elements, and more details.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Add Hyperlinks in Excel
+# Add Hyperlinks in File Formats Excel library
 
 A hyperlink is a reference to a specific location, document, or webpage that the user can jump to by clicking the link in a cell. Hyperlinks are easily recognizable because this is a text highlighted with underlined blue color.
 
