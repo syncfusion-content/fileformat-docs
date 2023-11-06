@@ -39,10 +39,10 @@ Step 4: Add a new button in the **MainWindow.xaml** as shown below.
 {% highlight c# tabtitle="C#" %}
 
 <Window x:Class="CreatePowerPointWPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns="https://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="https://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="https://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="https://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CreatePowerPointWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -162,7 +162,7 @@ slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
 {% endtabs %}
 
-You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+You can download the image used in the sample from [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
 
 **Add a shape:**
 
