@@ -19,15 +19,15 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new project in VS2022, select the .NET MAUI App (Preview) template, and click the **Next** button.
 
-<img src="MAUI_images/MAUI_images_img1.png" alt="Create .NET MAUI application in Visual Studio" width="100%" Height="Auto"/>
+![Create .NET MAUI application in Visual Studio](MAUI_images/MAUI_images_img1.png)
 
 Step 2: Enter the project name and click **Create**.
 
-<img src="MAUI_images/MAUI_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
+![Name the project](MAUI_images/MAUI_images_img2.png)
 
 Step 3: Install the [Syncfusion.XlsIO.NET](https://www.nuget.org/packages/Syncfusion.XlsIO.NET/) NuGet package as reference to your .NET MAUI application from [NuGet.org](https://www.nuget.org).
 
-<img src="MAUI_images/MAUI_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.NET Nuget Package](MAUI_images/MAUI_images_img3.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -626,7 +626,7 @@ A complete working example of creating an Excel document in the .NET MAUI applic
 
 By executing the program in windows, you will get the **Excel document** as follows.
 
-<img src="MAUI_images/MAUI_images_img4.png" alt=".NET MAUI Desktop output Excel document" width="100%" Height="Auto"/>
+![Output File](MAUI_images/MAUI_images_img4.png)
 
 ## Read and Edit Excel file
 

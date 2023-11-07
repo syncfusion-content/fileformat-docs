@@ -16,25 +16,25 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new **AWS Lambda project** as follows.
 
-<img src="AWS_Images/Lambda_Images/Create_Application.png" alt="Create AWS Lambda Project" width="100%" Height="Auto"/>
+![Create AWS Lambda Project in visual studio](AWS_Images/Lambda_Images/Create_Application.png)
 
 Step 2: Select Blueprint as Empty Function and click **Finish**.
 
-<img src="AWS_Images/Lambda_Images/AWS_blueprint.png" alt="Select Blueprint" width="100%" Height="Auto"/>
+![Select Blueprint](AWS_Images/Lambda_Images/AWS_blueprint.png)
 
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Nuget.png" alt="Install Syncfusion.XlsIO.Net.Core NuGet package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Net.Core NuGet package](AWS_Images/Lambda_Images/CreateExcel_Nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
 Step 4: Create a folder and copy the required data files and include the files to the project.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Data_Folder.png" alt="Create data folder" width="100%" Height="Auto"/>
+![Create data folder](AWS_Images/Lambda_Images/CreateExcel_Data_Folder.png)
 
 Step 5: Set the **copy to output directory** to **Copy if newer** to all the data files.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Data_Properties.png" alt="File properties" width="100%" Height="Auto"/>
+![File Properties](AWS_Images/Lambda_Images/CreateExcel_Data_Properties.png)
 
 Step 6: Include the following namespaces in **Function.cs** file.
 
@@ -240,29 +240,29 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Step 8: Right-click the project and select **Publish to AWS Lambda**.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Publish.png" alt="Publish" width="100%" Height="Auto"/>
+![Publish](AWS_Images/Lambda_Images/CreateExcel_Publish.png)
 
 Step 9: Create a new AWS profile in the Upload Lambda Function Window. After creating the profile, add a name for the Lambda function to publish. Then, click **Next**.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Upload.png" alt="Upload" width="100%" Height="Auto"/>
+![Upload](AWS_Images/Lambda_Images/CreateExcel_Upload.png)
 
 Step 10: In the Advanced Function Details window, specify the **Role Name** as based on AWS Managed policy. After selecting the role, click the **Upload** button to deploy your application.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_Advanced_Function_Details.png" alt="Advanced function details" width="100%" Height="Auto"/>
+![Advanced function details](AWS_Images/Lambda_Images/CreateExcel_Advanced_Function_Details.png)
 
 Step 11: After deploying the application, you can see the published Lambda function in **AWS console**.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_AWS_Console.png" alt="AWS Console" width="100%" Height="Auto"/>
+![AWS Console](AWS_Images/Lambda_Images/CreateExcel_AWS_Console.png)
 
 Step 12: Edit Memory size and Timeout as maximum in Basic settings of the AWS Lambda function.
 
-<img src="AWS_Images/Lambda_Images/Basic_Settings.png" alt="Basic Settings" width="100%" Height="Auto"/>
+![Basic Settings](AWS_Images/Lambda_Images/Basic_Settings.png)
 
 ## Steps to post the request to AWS Lambda
 
 Step 1: Create a new console project.
 
-<img src="AWS_Images/Lambda_Images/Console_Application.png" alt="Create console application" width="100%" Height="Auto"/>
+![Create console application in visual studio](AWS_Images/Lambda_Images/Console_Application.png)
 
 step 2: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
@@ -270,9 +270,9 @@ step 2: Install the following **Nuget packages** in your application from [Nuget
 * [AWSSDK.Lambda](https://www.nuget.org/packages/AWSSDK.Lambda/)
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 
-<img src="AWS_Images/Lambda_Images/Core_NuGet.png" alt="Install AWSSDK.Core NuGet package" width="100%" Height="Auto"/>
-<img src="AWS_Images/Lambda_Images/Lambda_NuGet.png" alt="Install AWSSDK.Lambda NuGet package" width="100%" Height="Auto"/>
-<img src="AWS_Images/Lambda_Images/Newtonsoft_NuGet.png" alt="Install Newtonsoft.Json NuGet package" width="100%" Height="Auto"/>
+![Install AWSSDK.Core NuGet package](AWS_Images/Lambda_Images/Core_NuGet.png)
+![Install AWSSDK.Lambda NuGet package](AWS_Images/Lambda_Images/Lambda_NuGet.png)
+![Install Newtonsoft.Json NuGet package](AWS_Images/Lambda_Images/Newtonsoft_NuGet.png)
 
 Step 3: Include the following namespaces in **Program.cs** file.
 
@@ -321,7 +321,7 @@ System.Diagnostics.Process.Start("Sample.xlsx");
 
 By executing the program, you will get the **Excel document** as follows.
 
-<img src="AWS_Images/Lambda_Images/CreateExcel_AWS_Lambda.png" alt="Excel to PDF converted document" width="100%" Height="Auto"/>
+![Output File](AWS_Images/Lambda_Images/CreateExcel_AWS_Lambda.png)
 
 A complete working example of how to create an Excel file in AWS Lambda is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/AWS%20Lambda/Create%20Excel), you can download the [console application](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/AWS/Console%20Application/Create%20Excel) project here.
 
