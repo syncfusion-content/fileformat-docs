@@ -15,15 +15,15 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new C# Console Application project.
 
-<img src="Console-Apps-images/Console-Apps-images_img1.png" alt="Create console application in Visual Studio" width="100%" Height="Auto"/>
+![Create console application in Visual Studio](Console-Apps-images/Console-Apps-images_img1.png)
 
 Step 2: Name the project.
 
-<img src="Console-Apps-images/Console-Apps-images_img2.png" alt="Name the Application" width="100%" Height="Auto"/>
+![Name the Application](Console-Apps-images/Console-Apps-images_img2.png)
 
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="Console-Apps-images/Console-Apps-images_img3.png" alt="Install Syncfusion.XlsIO.NET.COre NuGet Package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Net.Core Nuget Package](Console-Apps-images/Console-Apps-images_img3.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -410,7 +410,7 @@ End Using
 A complete working example of how to create an Excel file in Console Application using .NET Core in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Console/.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-<img src="Console-Apps-images/Console-Apps-images_img4.png" alt="Output File" width="100%" Height="Auto"/>
+![Output File](Console-Apps-images/Console-Apps-images_img4.png)
 
 ## Create a simple Excel report using .NET Framework
 
@@ -418,15 +418,15 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new C# Console Application(.NET Framework) project.
 
-<img src="Console-Apps-images/Console-Apps-images_img5.png" alt="Create console application(.NET Framework) in Visual Studio" width="100%" Height="Auto"/>
+![Create console application(.NET Framework) in Visual Studio](Console-Apps-images/Console-Apps-images_img5.png)
 
 Step 2: Name the project.
 
-<img src="Console-Apps-images/Console-Apps-images_img6.png" alt="Name the Application" width="100%" Height="Auto"/>
+![Name the Application](Console-Apps-images/Console-Apps-images_img6.png)
 
 Step 3: Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="Console-Apps-images/Console-Apps-images_img7.png" alt="Install Syncfusion.XlsIO.WinForms NuGet Package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.WinForms Nuget Package](Console-Apps-images/Console-Apps-images_img7.png)
 
 N> The [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package is dependent package for Syncfusion Windows Forms GUI controls, so named with sufix "WinForms". It has platform independent .NET framework (4.0, 4.5, 4.5.1, 4.6) assemblies of Excel library and doesn't contain any Windows Forms related references or code. Hence, we recommend this package for .NET framework Console application.  
 
@@ -811,7 +811,7 @@ End Using
 A complete working example of how to create an Excel file in Console Application using .NET Framework in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Console/.NET%20Framework/Create%20Excel).
 
 By executing the program, you will get the Excel file as below.
-<img src="Console-Apps-images/Console-Apps-images_img4.png" alt="Output File" width="100%" Height="Auto"/>
+![Output File](Console-Apps-images/Console-Apps-images_img4.png)
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
