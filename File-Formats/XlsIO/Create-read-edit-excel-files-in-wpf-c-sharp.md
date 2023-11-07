@@ -15,11 +15,11 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new C# WPF Application project.
 
-<img src="Wpf_images/Wpf_images_img1.png" alt="Create WPF application in Visual Studio" width="100%" Height="Auto"/>
+![Create WPF application in Visual Studio](Wpf_images/Wpf_images_img1.png)
 
 Step 2: Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
-<img src="Wpf_images/Wpf_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Wpf Nuget Package](Wpf_images/Wpf_images_img2.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -417,7 +417,7 @@ End Using
 A complete working example to create an Excel file in WPF in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/WPF/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
-<img src="Wpf_images/Wpf_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
+![Output File](Wpf_images/Wpf_images_img3.png)
 
 ## Read and Edit Excel file
 

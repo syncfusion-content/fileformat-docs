@@ -15,11 +15,11 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 
 Step 1: Create a new C# Blank App (Universal Windows) project.
 
-<img src="UWP_images/UWP_images_img1.png" alt="Create UWP application in Visual Studio" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Wpf Nuget Package](UWP_images/UWP_images_img1.png)
 
 Step 2: Install the [Syncfusion.XlsIO.UWP](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
-<img src="UWP_images/UWP_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.UWP Nuget Package](UWP_images/UWP_images_img2.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -470,7 +470,6 @@ A complete working example of how to create an Excel file in UWP in C# is presen
 
 By executing the program, you will get the Excel file as below.
 ![Output File](UWP_images/UWP_images_img3.png)
-<img src="UWP_images/UWP_images_img3.png" alt="Output File" width="100%" Height="Auto"/>
 
 ## Read and Edit Excel file
 
