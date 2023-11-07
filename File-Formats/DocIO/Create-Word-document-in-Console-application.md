@@ -266,7 +266,7 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET).
 
 By executing the program, you will get the **Word document** as follows.
 
@@ -518,7 +518,7 @@ document.Save("Sample.docx");
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-Framework).
 
 By executing the program, you will get the **Word document** as follows.
 
