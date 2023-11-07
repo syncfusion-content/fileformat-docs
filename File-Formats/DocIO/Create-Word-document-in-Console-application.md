@@ -14,7 +14,7 @@ Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-pr
 
 The below steps illustrates creating a simple **Word document** in console application using **.NET Core**.
 
-Step 1: Create a new **Console application** project.
+Step 1: Create a new **.NET Core console application** project.
 ![Create a C# Console application in Visual Studio](Console-Images/.NET/Console-Template-Net-Core.png)
 
 Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
@@ -272,22 +272,19 @@ By executing the program, you will get the **Word document** as follows.
 
 ![.NET Core output Word document](Mac-images/GettingStartedOutput.jpg)
 
-Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
-
-An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core. 
-
 ## Create Word document in .NET Framework
 
 The below steps illustrates creating a simple **Word document** in console application using **.NET Framework**.
 
-Step 1: Create a new **Console application** project.
+Step 1: Create a new **.NET FrameWork console application** project.
 ![Create a C# Console application in Visual Studio](Console-Images/.NET-FrameWork/Console-Template-Net-FrameWork.png)
 
 Step 2: Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
 ![Install Syncfusion.DocIO.WinForms NuGet package](Console-Images/.NET-FrameWork/Nuget-Package-NET-FrameWork.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+N> 1. The [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) is a dependency for Syncfusion Windows Forms GUI controls and is named with the suffix "WinForms". It contains platform-independent .NET Framework assemblies (compatible with versions 4.0, 4.5, 4.5.1, and 4.6) for the Word library and does not include any Windows Forms-related references or code. Therefore, we recommend using this package for .NET Framework Console applications.
+N> 2. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
 Step 3: Include the following namespaces in **Program.cs** file.
 
@@ -526,8 +523,4 @@ You can download a complete working sample from GitHub.
 By executing the program, you will get the **Word document** as follows.
 
 ![.NET FrameWork output Word document](Mac-images/GettingStartedOutput.jpg)
-
-Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features.
-
-An online sample link to [create a Word document](https://ej2.syncfusion.com/aspnetcore/Word/HelloWorld#/material3) in ASP.NET Core.
 
