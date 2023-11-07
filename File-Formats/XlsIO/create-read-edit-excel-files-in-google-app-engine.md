@@ -17,12 +17,10 @@ Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/docum
 Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
 
 ![Activate Cloud Shell](GCP_Images/App_Engine_Getting_Started.png)
-<img src="GCP_Images/App_Engine_Getting_Started.png" alt="Activate Cloud Shell" width="100%" Height="Auto"/>
 
 Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
 
 ![Open Editor in Cloud Shell](GCP_Images/Activate_Cloud_Shell.png)
-<img src="GCP_Images/Activate_Cloud_Shell.png" alt="Open Editor in Cloud Shell" width="100%" Height="Auto"/>
 
 Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
 
@@ -35,12 +33,10 @@ gcloud auth list
 {% endtabs %}
 
 ![Authentication for App Engine](GCP_Images/Authentication.png)
-<img src="GCP_Images/Authentication.png" alt="Authentication for App Engine" width="100%" Height="Auto"/>
 
 Step 4: Click the **Authorize** button.
 
 ![Click Authorize button](GCP_Images/Authorize_Button.png)
-<img src="GCP_Images/Authorize_Button.png" alt="Click Authorize button" width="100%" Height="Auto"/>
 
 ## Create an application for App Engine
 
