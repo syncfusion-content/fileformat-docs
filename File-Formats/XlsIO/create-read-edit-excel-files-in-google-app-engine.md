@@ -16,11 +16,11 @@ Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/docum
 
 Step 1: Open the **Google Cloud Console** and click the **Activate Cloud Shell** button.
 
-<img src="GCP_Images/App_Engine_Getting_Started.png" alt="Activate Cloud Shell" width="100%" Height="Auto"/>
+![Activate Cloud Shell](GCP_Images/App_Engine_Getting_Started.png)
 
 Step 2: Click the **Cloud Shell Editor** button to view the **Workspace**.
 
-<img src="GCP_Images/Activate_Cloud_Shell.png" alt="Open Editor in Cloud Shell" width="100%" Height="Auto"/>
+![Open Editor in Cloud Shell](GCP_Images/Activate_Cloud_Shell.png)
 
 Step 3: Open **Cloud Shell Terminal**, run the following **command** to confirm authentication.
 
@@ -32,29 +32,29 @@ gcloud auth list
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Authentication.png" alt="Authentication for App Engine" width="100%" Height="Auto"/>
+![Authentication for App Engine](GCP_Images/Authentication.png)
 
 Step 4: Click the **Authorize** button.
 
-<img src="GCP_Images/Authorize_Button.png" alt="Click Authorize button" width="100%" Height="Auto"/>
+![Click Authorize button](GCP_Images/Authorize_Button.png)
 
 ## Create an application for App Engine
 
 Step 1: Open Visual Studio and select the ASP.NET Core Web app (Model-View-Controller) template.
 
-<img src="GCP_Images/CreateProject_Create_Excel.png" alt="Create ASP.NET Core Web application in Visual Studio" width="100%" Height="Auto"/>
+![Create ASP.NET Core Web application in Visual Studio](GCP_Images/CreateProject_Create_Excel.png)
 
 Step 2: Configure your new project according to your requirements.
 
-<img src="GCP_Images/Configuration_Create_Excel.png" alt="Configure your project" width="100%" Height="Auto"/>
+![Configure your project](GCP_Images/Configuration_Create_Excel.png)
 
 Step 3: Click the **Create** button.
 
-<img src="GCP_Images/Additional_Information_Create_Excel.png" alt="Click create button" width="100%" Height="Auto"/>
+![Click create button](GCP_Images/Additional_Information_Create_Excel.png)
 
 Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-<img src="GCP_Images/Install_Nuget_Create_Excel.png" alt="Install Syncfusion.XlsIO.Net.Core NuGet package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Net.Core NuGet package](GCP_Images/Install_Nuget_Create_Excel.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -284,11 +284,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Step 1: Open the **Cloud Shell editor**.
 
-<img src="GCP_Images/Cloud_Shell_Editor.png" alt="Cloud Shell Editor" width="100%" Height="Auto"/>
+![Cloud Shell Editor](GCP_Images/Cloud_Shell_Editor.png)
 
 Step 2: Drag and drop the sample from your local machine to **Workspace**.
 
-<img src="GCP_Images/Workspace_Create_Excel.png" alt="Open the Home Workspace" width="100%" Height="Auto"/>
+![Open the Home Workspace](GCP_Images/Workspace_Create_Excel.png)
 
 N> If you have your sample application in your local machine, drag and drop it into the Workspace. If you created the sample using the Cloud Shell terminal command, it will be available in the Workspace.
 
@@ -302,7 +302,7 @@ ls
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/View_File_Create_Excel.png" alt="View the files and directories" width="100%" Height="Auto"/>
+![View the files and directories](GCP_Images/View_File_Create_Excel.png)
 
 Step 4: Run the following **command** to navigate which sample you want run.
 
@@ -314,7 +314,7 @@ cd Create\ Excel
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Navigate_Create_Excel.png" alt="Navigate which sample you want to run" width="100%" Height="Auto"/>
+![Navigate which sample you want to run](GCP_Images/Navigate_Create_Excel.png)
 
 Step 5: To ensure that the sample is working correctly, please run the application using the following command.
 
@@ -326,19 +326,19 @@ dotnet run --urls=http://localhost:8080
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Run_Application_Command_Create_Excel.png" alt="Run the application using command" width="100%" Height="Auto"/>
+![Run the application using command](GCP_Images/Run_Application_Command_Create_Excel.png)
 
 Step 6: Verify that the application is running properly by accessing the **Web View** -> **Preview on port 8080**.
 
-<img src="GCP_Images/Web_View_Create_Excel.png" alt="Verify the application is running properly" width="100%" Height="Auto"/>
+![Verify the application is running properly](GCP_Images/Web_View_Create_Excel.png)
 
 Step 7: Now you can see the sample output on the preview page.
 
-<img src="GCP_Images/Ensure_Sample_Create_Excel.png" alt="Sample output in browser" width="100%" Height="Auto"/>
+![Sample output in browser](GCP_Images/Ensure_Sample_Create_Excel.png)
 
 Step 8: Close the preview page and return to the terminal then press **Ctrl+C** for which will typically stop the process.
 
-<img src="GCP_Images/Stop_Process_Create_Excel.png" alt="Press Ctrl+C in Cloud Shell Terminal" width="100%" Height="Auto"/>
+![Press Ctrl+C in Cloud Shell Terminal](GCP_Images/Stop_Process_Create_Excel.png)
 
 ## Publish the application
 
@@ -352,7 +352,7 @@ dotnet publish -c Release
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Publish_Create_Excel.png" alt="Publish the application" width="100%" Height="Auto"/>
+![Publish the application](GCP_Images/Publish_Create_Excel.png)
 
 Step 2: Run the following command in **Cloud Shell Terminal** to navigate to the publish folder.
 {% tabs %}
@@ -363,7 +363,7 @@ cd bin/Release/net6.0/publish/
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Navigate_Publish_Folder_Create_Excel.png" alt="Navigate to publish folder" width="100%" Height="Auto"/>
+![Navigate to publish folder](GCP_Images/Navigate_Publish_Folder_Create_Excel.png)
 
 ## Configure app.yaml and docker file
 
@@ -380,7 +380,7 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Yaml_File_Create_Excel.png" alt="Add required files to publish folder" width="100%" Height="Auto"/>
+![Add required files to publish folder](GCP_Images/Yaml_File_Create_Excel.png)
 
 Step 2: Add the Docker file to the publish folder with the following contents.
 
@@ -400,11 +400,11 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Docker_File_Create_Excel.png" alt="Add required files to publish folder" width="100%" Height="Auto"/>
+![Add required files to publish folder](GCP_Images/Docker_File_Create_Excel.png)
 
 Step 3: You can ensure **Docker** and **app.yaml** files are added in **Workspace**.
 
-<img src="GCP_Images/Check_Yaml_Docker_File_Create_Excel.png" alt="Add required files to publish folder" width="100%" Height="Auto"/>
+![Add required files to publish folder](GCP_Images/Check_Yaml_Docker_File_Create_Excel.png)
 
 ## Deploy to App Engine
 
@@ -418,17 +418,17 @@ gcloud app deploy --version v0
 {% endhighlight %}
 {% endtabs %}
 
-<img src="GCP_Images/Deploy_Create_Excel.png" alt="Deploy the app engine" width="100%" Height="Auto"/>
+![Deploy the app engine](GCP_Images/Deploy_Create_Excel.png)
 
 Step 2: Open the **URL** to access the application, which has been successfully deployed.
 
-<img src="GCP_Images/Browser_Create_Excel.png" alt="Open the URL" width="100%" Height="Auto"/>
+![Open the URL](GCP_Images/Browser_Create_Excel.png)
 
 A complete working example of how to create an Excel file in GCP is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
 By executing the program, you will get the **Excel document** as follows. The output will be saved in **bin** folder.
 
-<img src="GCP_Images/Output_Create_Excel.png" alt="Create Excel document in Google App Engine" width="100%" Height="Auto"/>
+![Output File](GCP_Images/Output_Create_Excel.png)
 
 ## Read and Edit Excel file
 

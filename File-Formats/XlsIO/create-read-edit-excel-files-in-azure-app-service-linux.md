@@ -15,18 +15,19 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
-<img src="Azure_Images/App_Service_Linux/Create_Application.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
+![Create ASP.NET Core web application in Visual Studio](Azure_Images/App_Service_Linux/Create_Application.png)
 
 Step 2: Name the project.
 
-<img src="Azure_Images/App_Service_Linux/Name_the_Application_CreateExcel.png" alt="Name the project" width="100%" Height="Auto"/>
+![Name the project](Azure_Images/App_Service_Linux/Name_the_Application_CreateExcel.png)
 
 Step 3: Select the framework and click **Create** button.
-<img src="Azure_Images/App_Service_Linux/Select_Framework.png" alt="Framework version" width="100%" Height="Auto"/>
+
+![Framework version](Azure_Images/App_Service_Linux/Select_Framework.png)
 
 Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="Azure_Images/App_Service_Linux/Install_NuGet_CreateExcel.png" alt="Install Syncfusion.XlsIO.Net.Core NuGet Package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Install_NuGet_CreateExcel.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -446,37 +447,48 @@ End Using
 ## Steps to publish as Azure App Service on Linux
 
 Step 1: Right-click the project and select **Publish** option.
-<img src="Azure_Images/App_Service_Linux/Publish_CreateExcel.png" alt="Publish" width="100%" Height="Auto"/>
+
+![Publish](Azure_Images/App_Service_Windows/Publish_CreateExcel.png)
 
 Step 2: Select the publish target as **Azure**.
-<img src="Azure_Images/App_Service_Linux/Publish_Profile.png" alt="Add a Publish Profile" width="100%" Height="Auto"/>
+
+![Add a Publish Profile](Azure_Images/App_Service_Linux/Publish_Profile.png)
 
 Step 3: Select the Specific target as **Azure App Service (Linux)**.
-<img src="Azure_Images/App_Service_Linux/Linux_App_Service.png" alt="Select the publish target" width="100%" Height="Auto"/>
+
+![Select the publish target](Azure_Images/App_Service_Linux/Linux_App_Service.png)
 
 Step 4: To create a new app service, click **Create new** option.
-<img src="Azure_Images/App_Service_Linux/Create_New.png" alt="Click create new option" width="100%" Height="Auto"/>
+
+![Click create new option](Azure_Images/App_Service_Linux/Create_New.png)
 
 Step 5: Click the **Create** button to proceed with **App Service** creation.
-<img src="Azure_Images/App_Service_Linux/Hosting_CreateExcel.png" alt="Hosting" width="100%" Height="Auto"/>
+
+![Hosting](Azure_Images/App_Service_Linux/Hosting_CreateExcel.png)
 
 Step 6: Click the **Finish** button to finalize the **App Service** creation.
-<img src="Azure_Images/App_Service_Linux/App_Service_CreateExcel.png" alt="App Service" width="100%" Height="Auto"/>
+
+![App Service](Azure_Images/App_Service_Linux/App_Service_CreateExcel.png)
 
 Step 7: Click **Close** button.
-<img src="Azure_Images/App_Service_Linux/Profile_Created_CreateExcel.png" alt="Profile created" width="100%" Height="Auto"/>
+
+![Profile created](Azure_Images/App_Service_Linux/Profile_Created_CreateExcel.png)
 
 Step 8: Click the **Publish** button.
-<img src="Azure_Images/App_Service_Linux/Start_Publish_CreateExcel.png" alt="Start publish" width="100%" Height="Auto"/>
+
+![Start publish](Azure_Images/App_Service_Linux/Start_Publish_CreateExcel.png)
 
 Step 9: Now, Publish has been succeeded.
-<img src="Azure_Images/App_Service_Linux/Publish_Success_CreateExcel.png" alt="Publish has been succeeded" width="100%" Height="Auto"/>    
 
-Step 10: Now, the published webpage will open in the browser. 
-<img src="Azure_Images/App_Service_Linux/CreateDocument_Button_CreateExcel.png" alt="Browser will open after publish" width="100%" Height="Auto"/>
+![Publish has been succeeded](Azure_Images/App_Service_Linux/Publish_Success_CreateExcel.png)    
+
+Step 10: Now, the published webpage will open in the browser.
+
+![Browser will open after publish](Azure_Images/App_Service_Linux/CreateDocument_Button_CreateExcel.png) 
 
 Step 11: Click **Create Document** to create a simple Excel document. You will get the output Excel document as follows.
-<img src="Azure_Images/App_Service_Linux/CreateExcel_AppService_Linux.png" alt="Create Excel in Azure App Service on Windows" width="100%" Height="Auto"/>
+
+![Output File](Azure_Images/App_Service_Linux/CreateExcel_AppService_Linux.png)
 
 A complete working example of how to create an Excel file in Azure App Service on Linux in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core/Create%20Excel).
 
