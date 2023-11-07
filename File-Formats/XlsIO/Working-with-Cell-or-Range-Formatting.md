@@ -362,8 +362,7 @@ End Using
 
 A complete working example to apply global style in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Global%20Style).
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg" alt="Excel document with global styles" width="100%" Height="Auto"/>
-
+![Excel document with global styles](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg)
 
 __Excel__ __document__ __with__ __Global__ __Styles__
 
@@ -778,7 +777,7 @@ The screenshot of the previous code is shown as follows:
 
 A complete working example to apply number formats in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Editing%20Excel%20cell-styles/Number%20Format).
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg" alt="Excel document with number formats" width="100%" Height="Auto"/>
+![Excel document with number formats](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
 
 **Access** **number** **format** **applied** **results** **at** **runtime**
 
@@ -1219,8 +1218,7 @@ A complete working example to apply cell text alignment in C# is present on [thi
 
 The following screenshot is the output of previous code:
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg" alt="Excel document with different alignment options" width="100%" Height="Auto"/>
-
+!["Excel document with different alignment options](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
 
 ## Merging and Un-Merging Cells
 
@@ -1621,7 +1619,7 @@ A complete working example to apply different font settings in C# is present on 
 
 The output of the previous code is shown as follows.
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg" alt="Excel document with different font settings" width="100%" Height="Auto"/>
+![Excel document with different font settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
 
 
 ## Apply Color Settings
@@ -1846,8 +1844,7 @@ A complete working example to apply different border settings in C# is present o
 
 The output of the previous code is shown in the following screenshot:
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg" alt="Excel document with different border settings" width="100%" Height="Auto"/>
-
+![Excel document with different border settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 ## HTML String Formatting
 
@@ -2052,6 +2049,4 @@ A complete working example to apply rich text formatting in C# is present on [th
 
 The output of the previous code is shown as follows:
 
-<img src="Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg" alt="Excel document with rich-text formatting" width="100%" Height="Auto"/>
-
-
+![Excel document with rich-text formatting](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)

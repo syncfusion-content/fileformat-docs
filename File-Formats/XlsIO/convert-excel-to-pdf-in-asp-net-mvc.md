@@ -13,16 +13,20 @@ Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-p
 ## Steps to convert an Excel document to PDF in C#
 
 Step 1: Create a new ASP.NET Web Application Project.
-<img src="ASP-NET-MVC_images\ASP-NET-MVC_images_img4.png" alt="Create a ASP.NET Web App project" width="100%" Height="Auto"/>
+
+!["Create a ASP.NET Web App project in visual studio](ASP-NET-MVC_images\ASP-NET-MVC_images_img4.png)
 
 Step 2: Name the project, choose the framework and click **Create** button.
-<img src="ASP-NET-MVC_images\ASP-NET-MVC_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
+
+![Name the project and choose the framework version](ASP-NET-MVC_images\ASP-NET-MVC_images_img5.png)
 
 Step 3: Select the MVC application.
-<img src="ASP-NET-MVC_images\ASP-NET-MVC_images_img6.png" alt="Select the MVC App" width="100%" Height="Auto"/>
+
+![Select the MVC App](ASP-NET-MVC_images\ASP-NET-MVC_images_img6.png)
 
 Step 4: Install the [Syncfusion.ExcelToPdfConverter.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="ASP-NET-MVC_images\ASP-NET-MVC_images_img7.png" alt="Install Syncfusion.ExcelToPdfConverter.AspNet.Mvc5 NuGet Package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.ExcelToPdfConverter.AspNet.Mvc5 NuGet Package](ASP-NET-MVC_images\ASP-NET-MVC_images_img7.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -85,7 +89,7 @@ A complete working example of how to convert an Excel document to PDF in ASP.NET
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="ASP-NET-MVC_images\ASP-NET-MVC_images_img8.png" alt="Excel to PDF in ASP.NET MVC" width="100%" Height="Auto"/>
+![Output File](ASP-NET-MVC_images\ASP-NET-MVC_images_img8.png)
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 

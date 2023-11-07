@@ -77,7 +77,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-<img src="Slicer_images/CreateSlicer.png" alt="Create Slicer" width="100%" Height="Auto"/>
+![Create Slicer](Slicer_images/CreateSlicer.png)
 
 ## Slicer Properties
 
@@ -408,4 +408,4 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-<img src="Slicer_images/FormatSlicer.png" alt="Format Slicer" width="100%" Height="Auto"/>
+![Format Slicer](Slicer_images/FormatSlicer.png)
