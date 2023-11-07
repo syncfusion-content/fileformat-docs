@@ -1048,3 +1048,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [Print Word documents](https://help.syncfusion.com/file-formats/docio/word-document/print-word-documents)
 * [Split Word documents](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents)
 * [Why it is not possible to access the Word document contents page by page](https://support.syncfusion.com/kb/article/4241/why-it-is-not-possible-to-access-the-word-document-contents-page-by-page-in-winforms-fileformat-libraries-)
+* [How to find list of used fonts in the Word document?](https://support.syncfusion.com/kb/article/11334/how-to-find-list-of-used-fonts-in-the-word-document)
