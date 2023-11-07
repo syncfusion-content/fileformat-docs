@@ -270,7 +270,7 @@ You can download a complete working sample from GitHub.
 
 By executing the program, you will get the **Word document** as follows.
 
-![.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)
+![.NET Core output Word document](Mac-images/GettingStartedOutput.jpg)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/net-core) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
@@ -524,6 +524,8 @@ document.Save("Sample.docx");
 You can download a complete working sample from GitHub.
 
 By executing the program, you will get the **Word document** as follows.
+
+![.NET FrameWork output Word document](Mac-images/GettingStartedOutput.jpg)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/net) to explore the rich set of Syncfusion Word library (DocIO) features.
 
