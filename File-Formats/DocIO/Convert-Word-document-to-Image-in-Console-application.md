@@ -17,7 +17,7 @@ The below steps illustrates **convert Word to image** in console application usi
 Step 1: Create a new **.NET Core console application** project.
 ![Create a .NET Core Console application in Visual Studio](Console-Images/.NET/Console-Template-Net-Core.png)
 
-Step 2: Install the [Syncfusion.DocIORenderer.Net.Core ](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+Step 2: Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](ASP-NET-Core_images/NugetPackage.png)
 
