@@ -13,16 +13,20 @@ Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-p
 ## Steps to convert an Excel document to Image in Azure Functions v1
 
 Step 1: Create a new Azure Functions project.
-<img src="Azure_Images/Functions_v1/Create_Application.png" alt="Create an Azure Functions project" width="100%" Height="Auto"/>
+
+![Create an Azure Functions project in visual studio](Azure_Images/Functions_v1/Create_Application.png)
 
 Step 2: Name the project.
-<img src="Azure_Images/Functions_v1/Name_the_Application_Image.png" alt="Name the project" width="100%" Height="Auto"/>
 
-Step 3: Select functions worker as **.NET Framework v1**. 
-<img src="Azure_Images/Functions_v1/Functions_Worker.png" alt="Select functions worker" width="100%" Height="Auto"/>
+![Name the project](Azure_Images/Functions_v1/Name_the_Application_Image.png)
+
+Step 3: Select functions worker as **.NET Framework v1**.
+
+![Select functions worker](Azure_Images/Functions_v1/Functions_Worker.png)
 
 Step 4: Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="Azure_Images/Functions_v1/Install_NuGet_Image.png" alt="Install Syncfusion.XlsIO.WinForms NuGet package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.XlsIO.WinForms NuGet package](Azure_Images/Functions_v1/Install_NuGet_Image.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -78,31 +82,40 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 Step 6: Right-click the project and select **Publish** option.
-<img src="Azure_Images/Functions_v1/Publish_Image.png" alt="Publish" width="100%" Height="Auto"/>
+
+![Publish](Azure_Images/Functions_v1/Publish_Image.png)
 
 Step 7: Select the publish target as **Azure**.
-<img src="Azure_Images/Functions_v1/Publish_Profile.png" alt="Add a Publish Profile" width="100%" Height="Auto"/>
+
+![Add a Publish Profile"](Azure_Images/Functions_v1/Publish_Profile.png)
 
 Step 8: Select the **Create new** button.
-<img src="Azure_Images/Functions_v1/Create_New.png" alt="Click create new option" width="100%" Height="Auto"/>
+
+![Click create new option](Azure_Images/Functions_v1/Create_New.png)
 
 Step 9: Click the **Create** button to proceed with creation. 
-<img src="Azure_Images/Functions_v1/Hosting_Image.png" alt="Hosting" width="100%" Height="Auto"/>
+
+![Hosting](Azure_Images/Functions_v1/Hosting_Image.png)
 
 Step 10: Click the **Finish** button to finalize the **Azure Function** creation. 
-<img src="Azure_Images/Functions_v1/Azure_Function_Image.png" alt="Creating app service" width="100%" Height="Auto"/>
+
+![Creating app service](Azure_Images/Functions_v1/Azure_Function_Image.png)
 
 Step 11: Click **Close** button.
-<img src="Azure_Images/Functions_v1/Profile_Created_Image.png" alt="Profile created" width="100%" Height="Auto"/>
+
+![Profile created](Azure_Images/Functions_v1/Profile_Created_Image.png)
 
 Step 12: Click the **Publish** button.
-<img src="Azure_Images/Functions_v1/Start_Publish_Image.png" alt="Click Publish Button" width="100%" Height="Auto"/>
+
+![Click Publish Button](Azure_Images/Functions_v1/Start_Publish_Image.png)
 
 Step 13: Publish has been succeeded.
-<img src="Azure_Images/Functions_v1/Publish_Success_Image.png" alt="Publish succeeded" width="100%" Height="Auto"/>
+
+![Publish succeeded](Azure_Images/Functions_v1/Publish_Success_Image.png)
 
 Step 14: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to Image conversion** using the template Excel document). You will get the output image as follows.
-<img src="Azure_Images/Functions_v1/ExcelToImage_Function_v1.png" alt="Excel to Image in Azure Functions v1" width="100%" Height="Auto"/>
+
+![Output File](Azure_Images/Functions_v1/ExcelToImage_Function_v1.png)
 
 ## Steps to post the request to Azure Functions
 

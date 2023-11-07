@@ -13,13 +13,16 @@ Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/docum
 ## Steps to convert an Excel document to PDF in UWP
 
 Step 1: Create a new C# Blank App (Universal Windows) project.
-<img src="UWP_images\UWP_images_img4.png" alt="Create a UWP application project" width="100%" Height="Auto"/>
+
+![Create a UWP application project in visual studio](UWP_images\UWP_images_img4.png)
 
 Step 2: Name the project.
-<img src="UWP_images\UWP_images_img5.png" alt="Name the project" width="100%" Height="Auto"/>
+
+![Name the project](UWP_images\UWP_images_img5.png)
 
 Step 3: Install the [Syncfusion.XlsIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="UWP_images\UWP_images_img6.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet Package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.XlsIORenderer.Net.Core NuGet Package](UWP_images\UWP_images_img6.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
@@ -135,7 +138,7 @@ A complete working example of how to convert an Excel document to PDF in UWP is 
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="UWP_images\UWP_images_img7.png" alt="Excel to PDF in UWP" width="100%" Height="Auto"/>
+![Output File](UWP_images\UWP_images_img7.png)
 
 N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-uwp-support-for-net-standard-2-0/), the minimum version of UWP project must be Fall Creators Update (FCU).
 

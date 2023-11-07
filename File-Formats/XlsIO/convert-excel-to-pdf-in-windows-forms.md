@@ -13,13 +13,16 @@ Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-p
 ## Steps to convert an Excel document to PDF in Windows Forms
 
 Step 1: Create a new Windows Forms application project.
-<img src="Windows-Forms_images\Windows-Forms_images_img4.png" alt="Create a Windows Forms application project" width="100%" Height="Auto"/>
+
+![Create a Windows Forms application in visual studio](Windows-Forms_images\Windows-Forms_images_img4.png)
 
 Step 2: Name the project, choose the framework and click **Create** button.
-<img src="Windows-Forms_images\Windows-Forms_images_img5.png" alt="Name the project and choose the framework version" width="100%" Height="Auto"/>
+
+![Name the project and choose the framework version](Windows-Forms_images\Windows-Forms_images_img5.png)
 
 Step 3: Install the [Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="Windows-Forms_images\Windows-Forms_images_img6.png" alt="Install Syncfusion.ExcelToPdfConverter.WinForms NuGet Package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.ExcelToPdfConverter.WinForms NuGet Package](Windows-Forms_images\Windows-Forms_images_img6.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
@@ -92,7 +95,7 @@ A complete working example of how to convert an Excel document to PDF in Windows
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="Windows-Forms_images\Windows-Forms_images_img7.png" alt="Excel to PDF in WinForms" width="100%" Height="Auto"/>
+![Output File](Windows-Forms_images\Windows-Forms_images_img7.png)
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 

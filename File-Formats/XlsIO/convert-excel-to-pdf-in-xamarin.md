@@ -13,19 +13,22 @@ Syncfusion XlsIO is a [Xamarin Excel library](https://www.syncfusion.com/documen
 ## Steps to convert Excel document to PDF in Xamarin
 
 Step 1: Create a new Xamarin.Forms application project.
-<img src="XAMARIN_images\XAMARIN_images_img5.png" alt="Create a Xamarin application project" width="100%" Height="Auto"/>
+
+![Create a Xamarin application project in visual studio](XAMARIN_images\XAMARIN_images_img5.png)
 
 Step 2: Name the project and click **Create** button.
-<img src="XAMARIN_images\XAMARIN_images_img6.png" alt="Name the project" width="100%" Height="Auto"/>
+
+![Name the project](XAMARIN_images\XAMARIN_images_img6.png)
 
 Step 3: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-<img src="XAMARIN_images\XAMARIN_images_img7.png" alt="Select the Template" width="100%" Height="Auto"/>
+![Select the Template](XAMARIN_images\XAMARIN_images_img7.png)
 
 Step 4: Install the [Syncfusion.Xamarin.XlsIORenderer](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="XAMARIN_images\XAMARIN_images_img8.png" alt="Install Syncfusion.Xamarin.XlsIORenderer NuGet Package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.Xamarin.XlsIORenderer NuGet Package](XAMARIN_images\XAMARIN_images_img8.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -179,7 +182,7 @@ A complete working example of how to convert an Excel document to PDF in Xamarin
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="XAMARIN_images\XAMARIN_images_img9.png" alt="Excel to PDF in Xamarin" width="100%" Height="Auto"/>
+![Output File](XAMARIN_images\XAMARIN_images_img9.png)
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/xamarin) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 

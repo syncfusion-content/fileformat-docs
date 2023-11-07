@@ -13,16 +13,20 @@ Syncfusion XlsIO is a [.NET Excel library](https://www.syncfusion.com/document-p
 ## Steps to convert an Excel document to PDF in Azure Functions v1
 
 Step 1: Create a new Azure Functions project.
-<img src="Azure_Images/Functions_v1/Create_Application.png" alt="Create an Azure Functions project" width="100%" Height="Auto"/>
+
+![Create an Azure Functions project in visual studio](Azure_Images/Functions_v1/Create_Application.png)
 
 Step 2: Name the project.
-<img src="Azure_Images/Functions_v1/Name_the_Application.png" alt="Name the project" width="100%" Height="Auto"/>
+
+![Name the project](Azure_Images/Functions_v1/Name_the_Application.png)
 
 Step 3: Select functions worker as **.NET Framework v1**. 
-<img src="Azure_Images/Functions_v1/Functions_Worker.png" alt="Select functions worker" width="100%" Height="Auto"/>
+
+![Select functions worker](Azure_Images/Functions_v1/Functions_Worker.png)
 
 Step 4: Install the [Syncfusion.ExcelToPdfConverter.WinForms](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-<img src="Azure_Images/Functions_v1/Install_NuGet.png" alt="Install Syncfusion.ExcelToPdfConverter.WinForms NuGet package" width="100%" Height="Auto"/>
+
+![Install Syncfusion.ExcelToPdfConverter.WinForms NuGet package](Azure_Images/Functions_v1/Install_NuGet.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -84,31 +88,40 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 Step 7: Right-click the project and select **Publish** option.
-<img src="Azure_Images/Functions_v1/Publish.png" alt="Publish" width="100%" Height="Auto"/>
+
+![Publish](Azure_Images/Functions_v1/Publish.png)
 
 Step 8: Select the publish target as **Azure**.
-<img src="Azure_Images/Functions_v1/Publish_Profile.png" alt="Add a Publish Profile" width="100%" Height="Auto"/>
+
+![Add a Publish Profile](Azure_Images/Functions_v1/Publish_Profile.png)
 
 Step 9: Select the **Create new** button.
-<img src="Azure_Images/Functions_v1/Create_New.png" alt="Click create new option" width="100%" Height="Auto"/>
+
+![Click create new option](Azure_Images/Functions_v1/Create_New.png)
 
 Step 10: Click the **Create** button to proceed with creation. 
-<img src="Azure_Images/Functions_v1/Hosting.png" alt="Hosting" width="100%" Height="Auto"/>
+
+![Hosting](Azure_Images/Functions_v1/Hosting.png)
 
 Step 11: Click the **Finish** button to finalize the **Azure Function** creation. 
-<img src="Azure_Images/Functions_v1/Azure_Function.png" alt="Creating app service" width="100%" Height="Auto"/>
+
+![Creating app service](Azure_Images/Functions_v1/Azure_Function.png)
 
 Step 12: Click **Close** button.
-<img src="Azure_Images/Functions_v1/Profile_Created.png" alt="Profile created" width="100%" Height="Auto"/>
+
+![Profile created](Azure_Images/Functions_v1/Profile_Created.png)
 
 Step 13: Click the **Publish** button.
-<img src="Azure_Images/Functions_v1/Start_Publish.png" alt="Click Publish Button" width="100%" Height="Auto"/>
+
+![Click Publish Button](Azure_Images/Functions_v1/Start_Publish.png)
 
 Step 14: Publish has been succeeded.
-<img src="Azure_Images/Functions_v1/Publish_Success.png" alt="Publish succeeded" width="100%" Height="Auto"/>
+
+![Publish succeeded](Azure_Images/Functions_v1/Publish_Success.png)
 
 Step 15: Now, go to Azure portal and select the App Services. After running the service, click **Get function URL by copying it**. Then, paste it in the below client sample (which will request the Azure Functions, to perform **Excel to PDF conversion** using the template Excel document). You will get the output PDF document as follows.
-<img src="Azure_Images/Functions_v1/ExcelToPDF_Function_v1.png" alt="Excel to PDF in Azure Functions v1" width="100%" Height="Auto"/>
+
+![Output File](Azure_Images/Functions_v1/ExcelToPDF_Function_v1.png)
 
 ## Steps to post the request to Azure Functions
 

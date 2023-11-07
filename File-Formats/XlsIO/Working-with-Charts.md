@@ -999,7 +999,7 @@ End Using
 
 A complete working example to create a custom chart in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Custom%20Chart).
 
-<img src="Working-with-Charts_images/Working-with-charts_img1.jpeg" alt="chart" width="100%" Height="Auto"/>
+![chart](Working-with-Charts_images/Working-with-charts_img1.jpeg)
 
 ## Remove a chart 
 
@@ -1068,7 +1068,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 The following screen shot shows the elements of chart.
 
-<img src="Working-with-Charts_images/Working-with-charts_img2.jpeg" alt="chart elements" width="100%" Height="Auto"/>
+![chart elements](Working-with-Charts_images/Working-with-charts_img2.jpeg)
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -1777,7 +1777,7 @@ A complete working example to show high low lines of chart in C# is present on [
 
 The following screen shot shows the high-low lines in the line chart.
 
-<img src="Working-with-Charts_images/highlowlines.jpg" alt="High-Low lines" width="100%" Height="Auto"/>
+![High-Low lines](Working-with-Charts_images/highlowlines.jpg)
 
 ### Add Drop Lines
 
@@ -1856,7 +1856,7 @@ A complete working example to add drop lines of chart in C# is present on [this 
 
 The following screen shot shows the drop lines in the line chart.
 
-<img src="Working-with-Charts_images/droplines.jpg" alt="Drop lines" width="100%" Height="Auto"/>
+![Drop lines](Working-with-Charts_images/droplines.jpg)
 
 ### Add Series Lines
 
@@ -1936,7 +1936,7 @@ A complete working example to add series lines of chart in C# is present on [thi
 
 The following screen shot shows the series lines in the stacker bar chart.
 
-<img src="Working-with-Charts_images/serieslines.jpg" alt="Series lines" width="100%" Height="Auto"/>
+![Series lines](Working-with-Charts_images/serieslines.jpg)
 
 ## Fill Chart Elements with Picture
 
@@ -3697,7 +3697,7 @@ A complete working example to create funnel chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/funnel.jpeg" alt="funnel chart" width="100%" Height="Auto"/>
+![funnel chart](Working-with-Charts_images/funnel.jpeg)
 
 ### Box and Whisker
 
@@ -3860,7 +3860,7 @@ A complete working example to create box and whisker chart in C# is present on [
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/boxandwhisker.jpeg" alt="box and whisker chart" width="100%" Height="Auto"/>
+![box and whisker chart](Working-with-Charts_images/boxandwhisker.jpeg)
 
 ### Waterfall
 
@@ -3987,7 +3987,7 @@ A complete working example to create waterfall chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/waterfall.jpeg" alt="waterfall chart" width="100%" Height="Auto"/>
+![waterfall chart](Working-with-Charts_images/waterfall.jpeg)
 
 ### Histogram
 
@@ -4111,7 +4111,7 @@ A complete working example to create histogram chart in C# is present on [this G
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/histogram.jpeg" alt="histogram chart" width="100%" Height="Auto"/>
+![histogram chart](Working-with-Charts_images/histogram.jpeg)
 
 ### Pareto
 
@@ -4238,7 +4238,7 @@ A complete working example to create pareto chart in C# is present on [this GitH
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/pareto.jpeg" alt="pareto chart" width="100%" Height="Auto"/>
+![pareto chart](Working-with-Charts_images/pareto.jpeg)
 
 ### Treemap
 
@@ -4347,7 +4347,7 @@ A complete working example to create treemap chart in C# is present on [this Git
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/treemap.jpeg" alt="treemap chart" width="100%" Height="Auto"/>
+![treemap chart](Working-with-Charts_images/treemap.jpeg)
 
 ### Sunburst
 
@@ -4456,7 +4456,7 @@ A complete working example to create sunburst chart in C# is present on [this Gi
 
 The following screen shot shows the output of above code.
 
-<img src="Working-with-Charts_images/sunburst.jpeg" alt="sunburst chart" width="100%" Height="Auto"/>
+![sunburst chart](Working-with-Charts_images/sunburst.jpeg)
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
 
