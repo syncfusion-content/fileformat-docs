@@ -15,11 +15,11 @@ Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-pr
 The below steps illustrates creating a simple **Word document** in console application using **.NET Core**.
 
 Step 1: Create a new **Console application** project.
-![Create a C# Console application in Visual Studio](Console-Images/Console-Template-Net-Core.png)
+![Create a C# Console application in Visual Studio](Console-Images/.NET/Console-Template-Net-Core.png)
 
 Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.DocIO.Net.Core NuGet Package](Console-Images/Nuget-Package-NET-Core.png)
+![Install Syncfusion.DocIO.Net.Core NuGet Package](Console-Images/.NET/Nuget-Package-NET-Core.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -281,11 +281,11 @@ An online sample link to [create a Word document](https://ej2.syncfusion.com/asp
 The below steps illustrates creating a simple **Word document** in console application using **.NET Framework**.
 
 Step 1: Create a new **Console application** project.
-![Create a C# Console application in Visual Studio](Console-Images/Console-Template-Net-FrameWork.png)
+![Create a C# Console application in Visual Studio](Console-Images/.NET-FrameWork/Console-Template-Net-FrameWork.png)
 
 Step 2: Install [Syncfusion.DocIO.WinForms](https://www.nuget.org/packages/Syncfusion.DocIO.WinForms/) NuGet package as a reference to your Windows Forms application from the [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.DocIO.WinForms NuGet package](Console-Images/Nuget-Package-NET-FrameWork.png)
+![Install Syncfusion.DocIO.WinForms NuGet package](Console-Images/.NET-FrameWork/Nuget-Package-NET-FrameWork.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
