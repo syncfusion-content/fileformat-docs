@@ -14,17 +14,16 @@ documentation: UG
 The below steps illustrates creating a simple Invoice formatted Excel document on Mac OS.
 
 Step 1: Create a new C# .NET Core console application.
-<img src="Mac_images/MAC_images_img1.png" alt="Create .NET Core console project" width="100%" Height="Auto"/>
+![Create .NET Core console project in Visual Studio](Mac_images/MAC_images_img1.png)
 
 Step 2: Select the framework version.
-<img src="Mac_images/MAC_images_img2.png" alt="Select framework version" width="100%" Height="Auto"/>
+![Select framework version](Mac_images/MAC_images_img2.png)
 
 Step 3: Name the application.
 ![Name the application](Mac_images/Mac_images_img3.png)
-<img src="Mac_images/MAC_images_img3.png" alt="Name the application" width="100%" Height="Auto"/>
 
 Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/) NuGet package as reference to your application from [NuGet.org](https://www.nuget.org/).
-<img src="Mac_images/MAC_images_img4.png" alt="Install XlsIO .Net Core Nuget" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIO.Net.Core Nuget Package](Mac_images/MAC_images_img4.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -224,7 +223,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 By executing the program, you will get the Excel file as below.
-<img src="Mac_images/MAC_images_img5.png" alt=".Net Core console Output" width="100%" Height="Auto"/>
+![Output File](Mac_images/MAC_images_img5.png)
 
 ## Read and Edit Excel file
 
