@@ -84,7 +84,7 @@ using (IPresentation pptxDoc = Presentation.Create())
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET).
 
 By executing the program, you will get the **PowerPoint** as follows.
 
@@ -169,7 +169,7 @@ using( IPresentation pptxDoc = Presentation.Create())
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-FrameWork).
 
 By executing the program, you will get the **PowerPoint** as follows.
 
