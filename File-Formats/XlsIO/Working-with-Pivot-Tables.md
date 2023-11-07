@@ -340,11 +340,11 @@ A complete working example to format a pivot cell in C# is present on [this GitH
 
 The following screenshot represents the input template of pivot table inline formatting.
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
+![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png)
 
 The following screenshot represents the generated Excel file with pivot table inline formatting in XlsIO.
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png" alt="Pivot Tables inline format" width="100%" Height="Auto"/>
+![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png)
 
 ## Refresh a pivot table
 When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through [IsRefreshOnLoad](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotCacheImpl_IsRefreshOnLoad) property of [PivotCacheImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html).
@@ -547,15 +547,15 @@ The following screenshots represents the generated Excel file with pivot table l
 
 Compact layout:
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png" alt="Pivot Tables layout compact" width="100%" Height="Auto"/>
+![Tables layout compact](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png)
 
 Outline layout:
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png" alt="Pivot Tables layout outline" width="100%" Height="Auto"/>
+![Tables layout outline](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png)
 
 Tabular layout:
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png" alt="Pivot Tables layout tabular" width="100%" Height="Auto"/>
+![Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
 
 ### Pivot table row layout
 
@@ -854,7 +854,7 @@ pageField.Items(2).Visible = False
 {% endhighlight %}
 {% endtabs %}  
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg" alt="Applying page filters" width="100%" Height="Auto"/>
+![Applying page filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
 
 ### Applying row or column filters
 
@@ -888,7 +888,7 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "Central", Noth
 {% endhighlight %}
 {% endtabs %}  
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg" alt="Applying label filters" width="100%" Height="Auto"/>
+![Applying label filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
 
 **Value** **Filter** 
 
@@ -916,7 +916,7 @@ field.PivotFilters.Add(PivotFilterType. ValueLessThan, field, "1341", Nothing)
 {% endhighlight %}
 {% endtabs %}  
 
-<img src="Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg" alt="Applying value filters" width="100%" Height="Auto"/>
+![Applying value filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
 
 **Multiple** **filter**
 

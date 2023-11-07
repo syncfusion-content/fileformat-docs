@@ -9,7 +9,7 @@ documentation: UG
 
 When an existing document is opened or a new document is created, the XlsIO library creates a **Document Object Model** (DOM) of the document in main memory. This object model can be used to manipulate the document as needed.
 
-<img src="DocumentObjectModel_images/DocumentObjectModel.png" alt="DocumentObjectModel" width="100%" Height="Auto"/>
+![DocumentObjectModel](DocumentObjectModel_images/DocumentObjectModel.png)
 
 **Object Reference Links**
 

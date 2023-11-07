@@ -1234,7 +1234,7 @@ A complete working example to import data to Excel worksheet with layout option 
 
 The following screenshot represents the output document with Default layout option.
 
-<img src="Working-with-Data_images/Working-with-Data_img1.png" alt="Output document with Default layout option" width="100%" Height="Auto"/>
+![Output document with Default layout option](Working-with-Data_images/Working-with-Data_img1.png)
 
 ##### Merge layout option
 
@@ -1258,7 +1258,7 @@ importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
 
 The following screenshot represents the output document with Merge layout option.
 
-<img src="Working-with-Data_images/Working-with-Data_img2.png" alt="Output document with Merge layout option" width="100%" Height="Auto"/>
+![Output document with Merge layout option](Working-with-Data_images/Working-with-Data_img2.png)
 
 ##### Repeat layout option
 
@@ -1282,7 +1282,7 @@ importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
 
 The following screenshot represents the output document with Repeat layout option.
 
-<img src="Working-with-Data_images/Working-with-Data_img3.png" alt="Output document with Repeat layout option" width="100%" Height="Auto"/>
+![Output document with Repeat layout option](Working-with-Data_images/Working-with-Data_img3.png)
 
 #### Grouping Options
 
@@ -1928,7 +1928,7 @@ A complete working example to import data to Excel worksheet with grouping optio
 
 The following screenshot represents the output document of Grouped data imported from nested collection and collapsed at level 2.
 
-<img src="Working-with-Data_images/Working-with-Data_img4.png" alt="Grouped data imported from nested collection and collapsed at level 2" width="100%" Height="Auto"/>
+![Grouped data imported from nested collection and collapsed at level 2](Working-with-Data_images/Working-with-Data_img4.png)
 
 #### Import Data from Collection Objects with hyperlink
 
@@ -2570,7 +2570,7 @@ XlsIO allows to export worksheet data to nested class objects. A new overload to
 
 Let’s consider the input Excel document has the data as shown in the below screenshot. 
 
-<img src="Working-with-Data_images/Working-with-Data_img5.png" alt="Excel worksheet with data" width="100%" Height="Auto"/>
+![Excel worksheet with data](Working-with-Data_images/Working-with-Data_img5.png)
 
 The following code illustrates how to export data from Excel worksheet to nested class objects with column headers mapping collection.
 
@@ -3018,11 +3018,11 @@ A complete working example to import data from HTML table to Excel worksheet in 
 
 The following screenshot represents the image of the input HTML file with a table.
 
-<img src="Working-with-Data_images/Working-with-Data_img6.png" alt="Input document for Import HTML table" width="100%" Height="Auto"/>
+![Input document for Import HTML table](Working-with-Data_images/Working-with-Data_img6.png)
 
 The following screenshot represents the image of the Excel output with data imported from HTML table.
 
-<img src="Working-with-Data_images/Working-with-Data_img7.png" alt="Output document imported from HTML table" width="100%" Height="Auto"/>
+![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
 
 N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
 
