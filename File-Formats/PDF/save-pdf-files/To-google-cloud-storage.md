@@ -14,7 +14,7 @@ Step 1: Create a simple console application
 
 ![Project configuration window](Save-PDF-Images/Console-Application.png)
 
-Step 3: Install the [Syncfusion.Pdf.Net.Core ](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) and [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob) NuGet packages as a reference to your project from the [NuGet.org](https://www.nuget.org/).
+Step 3: Install the [Syncfusion.Pdf.Net.Core ](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core) and [Google.Cloud.Storage.V1](https://www.nuget.org/packages/Google.Cloud.Storage.V1) NuGet packages as a reference to your project from the [NuGet.org](https://www.nuget.org/).
 ![NuGet package installation](Save-PDF-Images/Syncfusion.Pdf.Net.Core-nuget.png)
 <br><br>
 ![NuGet package installation](Save-PDF-Images/Google.Cloud.Storage.V1-nuget.png)
