@@ -1672,3 +1672,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and replace line break in Word document as paragraph mark?](https://support.syncfusion.com/kb/article/11935/how-to-find-and-replace-line-break-in-word-document-as-paragraph-mark)
 * [How to insert another document before a text in Word document?](https://support.syncfusion.com/kb/article/12178/how-to-insert-another-document-before-a-text-in-word-document)
 * [How to replace text within bookmark content in Word document?](https://support.syncfusion.com/kb/article/12159/how-to-replace-text-within-bookmark-content-in-word-document)
+* [How to find and replace a text with chart in Word document?](https://support.syncfusion.com/kb/article/13951/how-to-find-and-replace-a-text-with-chart-in-word-document)
+* [How to find and replace a text with hyperlink in Word document?](https://support.syncfusion.com/kb/article/13954/how-to-find-and-replace-a-text-with-hyperlink-in-word-document)
+* [How to find and replace a text with Table of Contents (TOC) in Word document?](https://support.syncfusion.com/kb/article/13958/how-to-find-and-replace-a-text-with-table-of-contents-toc-in-word-document)

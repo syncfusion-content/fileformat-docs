@@ -1861,6 +1861,8 @@ In .NET Core and latest target, we have limitation in metafile and TIFF. Refer {
 
 * [How to perform font substitution in Word to PDF conversion](https://support.syncfusion.com/kb/article/7499/how-to-perform-font-substitution-in-word-to-pdf-conversion)
 * [What happens when the Word document used fonts for a text is not installed in production machine during Word to PDF or Image conversion](https://support.syncfusion.com/kb/article/6821/what-happens-when-the-word-document-used-fonts-for-a-text-is-not-installed-in-production)
+* [How to resolve font problems during Word to PDF or image conversion?](https://support.syncfusion.com/kb/article/13969/how-to-resolve-font-problems-during-word-to-pdf-or-image-conversion)
+* [How to convert multiple Word documents to multiple PDFs and zip the PDFs in C#?](https://support.syncfusion.com/kb/article/13837/how-to-convert-multiple-word-documents-to-multiple-pdfs-and-zip-the-pdfs-in-c)
 * [How to convert and replace EMF image in word document to PNG with same size](https://support.syncfusion.com/kb/article/11331/how-to-convert-and-replace-emf-image-in-word-document-to-png-with-same-size)
 * [How to convert Word document to PDF in UWP](https://support.syncfusion.com/kb/article/8902/how-to-convert-word-document-to-pdf-in-uwp)
 * [How to avoid conflicts while using DocIORenderer and other controls in UWP](https://support.syncfusion.com/kb/article/11445/how-to-avoid-conflicts-while-using-dociorenderer-and-other-controls-in-uwp)
@@ -1872,4 +1874,4 @@ In .NET Core and latest target, we have limitation in metafile and TIFF. Refer {
 * [How to convert Word document to PDF in AWS Lambda](https://support.syncfusion.com/kb/article/10534/how-to-convert-word-document-to-pdf-in-aws-lambda)
 * [How to add signature field in the PDF converted from Word](https://support.syncfusion.com/kb/article/11438/how-to-add-signature-field-in-the-pdf-converted-from-word)
 * [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12239/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
-
+* [How to perform Word to PDF conversion in WinForms ?](https://support.syncfusion.com/kb/article/8848/how-to-perform-word-to-pdf-conversion-in-winforms-?isInternalRefresh=False)
