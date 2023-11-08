@@ -45,7 +45,7 @@ using (WordDocument document = new WordDocument(new FileStream("Input.docx", Fil
 {% endhighlight %}
 {% endtabs %}
 
-Step 5: Add below code example to add a paragraph in the Word document.
+Step 5: Add below code example to **add a paragraph** in the Word document.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -62,7 +62,7 @@ text.CharacterFormat.FontSize = 12f;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Add below code example to **save the Word document in .NET Core application on Mac OS**.
+Step 6: Add below code example to **save the Word document in .NET Core console application**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -81,7 +81,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows.
 
-![Output Word document in .NET FrameWork console application](Blazor_Images/Blazor_Output.png)
+![Output Word document in .NET Core console application](Blazor_Images/Blazor_Output.png)
 
 ## Open and save Word document in .NET Framework
 
@@ -104,7 +104,6 @@ Step 3: Include the following namespaces in **Program.cs** file.
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.Windows.Forms;
 
 {% endhighlight %}
 {% endtabs %}
