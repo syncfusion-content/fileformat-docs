@@ -16,6 +16,9 @@ Comparing two Word documents allows you to identify the changes between two vers
 N> 1. DocIO performs word level comparison while comparing two Word documents. In this scenario, if a single character in a word is changed, the entire word will be highlighted as changed.
 N> 2. Comparing two Word documents supported in DOCX format only.
 
+To quickly start comparing two Word documents, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=5Q3884kPWOw" %}
+
 ## Compare two Word documents 
 
 Compare the existing Word documents or documents created from scratch using the Compare method in the .NET Word library (DocIO).
