@@ -30,11 +30,11 @@ Step 4: Include the following namespaces in the Program.cs file.
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-using Syncfusion.Pdf.Graphics;
-using Syncfusion.Pdf;
-using Dropbox.Api;
-using Dropbox.Api.Files;
-using Syncfusion.Drawing;
+    using Syncfusion.Pdf.Graphics;
+    using Syncfusion.Pdf;
+    using Dropbox.Api;
+    using Dropbox.Api.Files;
+    using Syncfusion.Drawing;
 
 {% endhighlight %}
 
@@ -47,31 +47,31 @@ Step 5: Add the below code example to create a simple PDF and save in Dropbox cl
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-PdfDocument doc = new PdfDocument();
-PdfPage page = doc.Pages.Add();
-
-PdfGraphics graphics = page.Graphics;
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-
-graphics.DrawString("Hello, World!", font, PdfBrushes.Black, new PointF(10, 10));
-
-// Add more content if needed...
-
-// Save the PDF to a memory stream.
-MemoryStream stream = new MemoryStream();
-doc.Save(stream);
-doc.Close(true);
-
-var accessToken = "YOUR_ACCESS_TOKEN";// Replace with your actual access token
-
-using (var dbx = new DropboxClient(accessToken))
-{
-    var uploadResult = await dbx.Files.UploadAsync(
-        "/path/to/save/yourfile.pdf",
+        // Create a new PDF document.
+        PdfDocument doc = new PdfDocument();
+        // Add a new page to the document.
+        PdfPage page = doc.Pages.Add();
+        // Get the graphics object for the page to draw on.
+        PdfGraphics graphics = page.Graphics;
+        // Create a font for drawing text.
+        PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+        // Draw the text 
+        graphics.DrawString("Hello, World!", font, PdfBrushes.Black, new PointF(10, 10));
+        // Save the PDF to a memory stream.
+        MemoryStream stream = new MemoryStream();
+        doc.Save(stream);
+        // Close the PDF document.
+        doc.Close(true);
+        var accessToken = "YOUR_ACCESS_TOKEN";// Replace with your actual access token
+        // Initialize a DropboxClient with the provided access token.
+        using (var dbx = new DropboxClient(accessToken))
+        {
+            // Upload the PDF to Dropbox.
+            var uploadResult = await dbx.Files.UploadAsync(
+        "/path/to/save/Sample.pdf",
         WriteMode.Overwrite.Instance,
         body: new MemoryStream(stream.ToArray()));
-    Console.WriteLine("Saved to Dropbox as " + uploadResult.PathDisplay);
-}
+        }
 
 {% endhighlight %}
 
