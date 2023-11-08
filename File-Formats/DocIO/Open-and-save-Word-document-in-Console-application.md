@@ -8,7 +8,7 @@ documentation: UG
 
 # Open and save Word document in Console application
 
-Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save Word document in Console application**.
+Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, and edit **Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **open and save Word document in Console application**.
 
 ## Open and save Word document using .NET Core and Latest
 
