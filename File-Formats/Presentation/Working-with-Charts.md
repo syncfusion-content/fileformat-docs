@@ -589,8 +589,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Customizing the chart
 
-### Chart Basics
-
 A chart is composed of various elements such as legends, axes, series, etc. Each chart element corresponds to an object. The following image illustrates the basic elements of a chart.
 
 ![PowerPoint Example Chart2](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
@@ -604,25 +602,25 @@ A chart is composed of various elements such as legends, axes, series, etc. Each
 7. A data label that you can use to identify the details of a data point in a data series.
 
 ### Chart Title
-You can customize the **chart title** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-title).
+Using **Presentation library**, you can customize the **chart title** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-title).
 
 ### Chart Area
-You can customize the **chart area** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-area).
+Using **Presentation library**, you can customize the **chart area** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-area).
 
 ### Chart Plot Area
-You can customize the **chart plot area** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-plot-area).
+Using **Presentation library**, you can customize the **plot area** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-plot-area).
 
 ### Chart Series
-You can customize the **chart series** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-series).
+ Using **Presentation library**, you can customize the **series** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-series).
 
 ### Chart Legend
-You can customize the **chart legend** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-legend).
+Using **Presentation library**, you can customize the **legend** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-legend).
 
 ### Chart Data Labels
-You can customize the **chart data labels** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-data-labels).
+Using **Presentation library**, you can customize the **data labels** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-data-labels).
 
 ### Chart Axis
-You can customize the **chart axis** in a chart within the PowerPoint. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-axis).
+Using **Presentation library**, you can customize the **axis** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/presentation/charts/chart-axis).
 
 ## Applying 3D Formats
 
