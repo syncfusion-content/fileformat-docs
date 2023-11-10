@@ -483,3 +483,67 @@ pptxDoc.Close()
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/Mark-as-final).
+
+## First slide number
+
+Customize the first slide number of PowerPoint presentation by utilizing the **FirstSlideNumber** API. 
+
+The following code snippet illustrates how to modify the first slide number in the PowerPoint presentation.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Open an existing PowerPoint Presentation.
+using (FileStream inputStream = new FileStream("Data/Input.pptx", FileMode.Open))
+{
+    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+    {
+        //Get the FirstSlideNumber of Presentation.
+        int firstSlideNumber = pptxDoc.FirstSlideNumber;
+
+        //Modify the value for FirstSlideNumber.
+        pptxDoc.FirstSlideNumber = 10;
+
+        //Save the PowerPoint Presentation as stream
+        using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create))
+        {
+            pptxDoc.Save(outputStream);
+        }                       
+    }
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
+{
+    //Get the FirstSlideNumber of Presentation.
+    int firstSlideNumber = pptxDoc.FirstSlideNumber;
+
+    //Modify the value for FirstSlideNumber.
+    pptxDoc.FirstSlideNumber = 10;
+
+    //Save the PowerPoint Presentation as stream
+    pptxDoc.Save("Result.pptx");                      
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+Using pptxDoc As IPresentation = Presentation.Open("Data/Input.pptx")
+    'Get the FirstSlideNumber of Presentation.
+    Dim firstSlideNumber As Integer = pptxDoc.FirstSlideNumber
+
+    'Modify the value for FirstSlideNumber.
+    pptxDoc.FirstSlideNumber = 10
+
+    'Save the PowerPoint Presentation as stream.
+    pptxDoc.Save("Result.pptx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+N> First slide number is the starting slide number of presentation, and this API allows to set the first slide number from 0 to 9999.
+
+You can download a complete working sample from [GitHub]().
