@@ -486,7 +486,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## First slide number
 
-Customize the first slide number of PowerPoint presentation by utilizing the **FirstSlideNumber** API. 
+Change the first slide number of PowerPoint presentation using **FirstSlideNumber** API. 
 
 The following code snippet illustrates how to modify the first slide number in the PowerPoint presentation.
 
@@ -523,7 +523,7 @@ using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
     //Modify the value for FirstSlideNumber.
     pptxDoc.FirstSlideNumber = 10;
 
-    //Save the PowerPoint Presentation as stream
+    //Save the PowerPoint Presentation.
     pptxDoc.Save("Result.pptx");                      
 }
 
@@ -537,7 +537,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Data/Input.pptx")
     'Modify the value for FirstSlideNumber.
     pptxDoc.FirstSlideNumber = 10
 
-    'Save the PowerPoint Presentation as stream.
+    'Save the PowerPoint Presentation.
     pptxDoc.Save("Result.pptx")
 End Using
 
@@ -546,4 +546,4 @@ End Using
 
 N> First slide number is the starting slide number of presentation, and this API allows to set the first slide number from 0 to 9999.
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/First-slide-number/.NET).
