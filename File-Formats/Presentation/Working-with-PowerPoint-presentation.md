@@ -504,7 +504,7 @@ using (FileStream inputStream = new FileStream("Data/Input.pptx", FileMode.Open)
         //Modify the value for the FirstSlideNumber.
         pptxDoc.FirstSlideNumber = 10;
 
-        //Save the PowerPoint Presentation as a stream.
+        //Save the PowerPoint Presentation.
         using (FileStream outputStream = new FileStream("Result.pptx", FileMode.Create))
         {
             pptxDoc.Save(outputStream);
