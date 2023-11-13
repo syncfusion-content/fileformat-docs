@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert Excel document to PDF in Google App Engine
 
-Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/document-processing/excel-framework/net-core) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in Google App Engine**.
+Syncfusion XlsIO is a [.NET Core Excel library](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) used to create, read, edit and **convert Excel documents** programmatically without **Microsoft Excel** or interop dependencies. Using this library, you can **convert an Excel document to PDF in Google App Engine**.
 
 ## Set up App Engine
 
@@ -223,7 +223,7 @@ EOT
 {% endhighlight %}
 {% endtabs %}
 
-![Publish the application](GCP_Images/Yaml_File_ExceltoPDF.png)
+![Add required files to publish folder](GCP_Images/Yaml_File_ExceltoPDF.png)
 
 Step 2: Add the Docker file to the publish folder with the following contents.
 
