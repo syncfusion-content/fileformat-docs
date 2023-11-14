@@ -29,7 +29,7 @@ Step 3: Add a new button in the MainPage.xaml as shown below.
 {% highlight c# tabtitle="C#" %}
 <Page
     x:Class="CreateUWPPowerPoint.MainPage"
-    xmlns="https://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="https://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CreateUWPPowerPoint"
     xmlns:d="https://schemas.microsoft.com/expression/blend/2008"

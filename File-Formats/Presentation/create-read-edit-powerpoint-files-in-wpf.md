@@ -39,7 +39,7 @@ Step 4: Add a new button in the **MainWindow.xaml** as shown below.
 {% highlight c# tabtitle="C#" %}
 
 <Window x:Class="CreatePowerPointWPF.MainWindow"
-        xmlns="https://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="https://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="https://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="https://schemas.openxmlformats.org/markup-compatibility/2006"
