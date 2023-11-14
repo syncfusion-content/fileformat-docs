@@ -608,25 +608,25 @@ A Chart is composed of various elements such as plot area, chart area, title are
 7. A data label that you can use to identify the details of a data point in a data series.
 
 ### Chart Title
-Using **DocIO**, you can customize the **chart title** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-title).
+Customize the **chart title** by modifying its name, appearance, and resizing it using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-title).
 
 ### Chart Area
-Using **DocIO**, you can customize the **chart area** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-area).
+Customize the **chart area** by changing its border, colors, transparency, and more using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-area).
 
 ### Chart Plot Area
-Using **DocIO**, you can customize the **plot area** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-plot-area).
+Customize the **chart plot area** by changing its border, colors, transparency, position and adding image using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-plot-area).
 
 ### Chart Series
- Using **DocIO**, you can customize the **series** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-series).
+ Customize the **chart series** by changing the series name, type, color, border, and more using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-series).
 
 ### Chart Legend
-Using **DocIO**, you can customize the **legend** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-legend).
+Customize the **chart legend** by changing the position, border, and modifying the legend entry using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-legend).
 
 ### Chart Data Labels
-Using **DocIO**, you can customize the **data labels** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-data-lables).
+Customize the **chart data labels** by changing the position, size and more using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-data-lables).
 
 ### Chart Axis
-Using **DocIO**, you can customize the **axis** in the chart. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-axis).
+Customize the **chart axes** by changing the title, border, font, rotation angle and more using the **Word (DocIO) library**. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-axis).
 
 ## Applying 3D Formats
 
