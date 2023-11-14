@@ -178,31 +178,6 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 
 </table>
 
-## Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion
-
-<table>
-
-<th style="font-size:14px" width="100px">Exception
-</th>
-<th style="font-size:14px">Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion
-</th>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>The runtime folder path may do not have the required (read/write/execute) permission. 
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>Ensure that the user account running the application has the necessary permissions to execute processes.
-</td>
-</tr>
-
-</table>
-
 ## Access is denied in runtimes folders, runtimes folder requires read/write/execute permission
 
 <table>
@@ -354,12 +329,12 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 </tr>
 </table>
 
-## Failed to convert webpage exception in Linux Docker
+## Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion
 
 <table>
 <th style="font-size:14px" width="100px">Exception
 </th>
-<th style="font-size:14px">Failed to convert webpage exception in Linux Docker.
+<th style="font-size:14px">Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion.
 </th>
 
 <tr>
