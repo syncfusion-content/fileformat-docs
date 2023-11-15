@@ -58,7 +58,7 @@ To preserve the expected images in the PDF/Image conversion, we suggest you conv
 
 **Suggestion**
 
-You can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab]() code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) platform NuGet packages have limitations.
+You can use the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) platform NuGet packages for .NET Core 3.0 or later versions targeting applications from v17.3.0.x and use the same [C# tab](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) code examples for it. But in Mac and Linux environment, using the [WPF](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/) or [Windows Forms](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/) platform NuGet packages have limitations.
 
 ## What are the NuGet packages to be installed to perform PowerPoint Presentation to PDF conversion in Linux OS?
 
