@@ -645,6 +645,8 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Axis/.NET).
+
 ## Set the Category Label
 
 The following code snippet illustrates how to set the category label.

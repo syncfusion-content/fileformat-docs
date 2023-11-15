@@ -176,6 +176,8 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Plot-Area/.NET).
+
 ## Add Image in Plot Area
 
 The following code snippet illustrates how to fill the image in plot area.
