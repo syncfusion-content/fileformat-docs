@@ -15,17 +15,17 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 
 Step 1: Create a new C# Xamarin.Forms application project.
 
-<img src="XAMARIN_images/XAMARIAN_images_img1.png" alt="Create ASP.NET Core web application in Visual Studio" width="100%" Height="Auto"/>
+![Create a Xamarin.Forms application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-<img src="XAMARIN_images/XAMARIAN_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
+![Select Blank App](XAMARIN_images/XAMARIAN_images_img2.png)
 
 Step 3: Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-<img src="XAMARIN_images/XAMARIAN_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
+![Install Syncfusion.Xamarin.XlsIO Nuget Package](XAMARIN_images/XAMARIAN_images_img3.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
@@ -475,7 +475,7 @@ Step 8: Compile and execute the application. Now this application creates a simp
 A complete working example of how to create an Excel file in Xamarin in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Xamarin/Create%20Excel). 
 
 By executing the program, you will get the Excel file as below.
-<img src="XAMARIN_images/XAMARIAN_images_img4.png" alt="Output File" width="100%" Height="Auto"/>
+![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
 
 ## Read and Edit Excel file
 

@@ -9,6 +9,9 @@ keywords: c#, vb.net, excel, create excel, new excel , open excel, read excel, e
 
 # Create Excel File in C# and VB.NET
 
+To quickly get started on creating an Excel document, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=oLkSFvDLlEk" %}
+
 This section explains how to create a simple Excel file in C# and VB.NET using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 
 <table>
@@ -150,7 +153,7 @@ End Using
 
 The output screen-shot of the above code.
 
-<img src="Getting-Started_images/Getting-Started_HelloWorld.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
+![Create Excel](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
 
 ## Create a Simple Excel File
 
@@ -563,7 +566,7 @@ End Namespace
 
 The screen-shot of the output for above code is given below.
 
-<img src="Getting-Started_images/Getting-Started_img1.jpeg" alt="Create Excel" width="100%" Height="Auto"/>
+![Create Excel](Getting-Started_images/Getting-Started_img1.jpeg)
 
 ## Export Data to Excel Worksheets
 
@@ -1067,7 +1070,7 @@ public class Sales
 
 The following screenshot shows the DataTable of previous code.
 
-<img src="Getting-Started_images/Getting-Started_img2.jpeg" alt="Excel to Data Table" width="100%" Height="Auto"/>
+![Excel to Data Table](Getting-Started_images/Getting-Started_img2.jpeg)
 
 You can refer various exporting options in the [Working with Data](https://help.syncfusion.com/file-formats/xlsio/working-with-data) section.
 
@@ -1100,7 +1103,7 @@ Find more details in [Template marker section for arguments](https://help.syncfu
 
 For example – let’s consider that you have a template document as shown below.
 
-<img src="Getting-Started_images/Getting-Started_img3.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
+![Template Marker](Getting-Started_images/Getting-Started_img3.jpeg)
 
 [Download input template](https://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
@@ -1334,6 +1337,6 @@ End Class
 
 The resultant document looks as follows.
 
-<img src="Getting-Started_images/Getting-Started_img4.jpeg" alt="Template Marker" width="100%" Height="Auto"/>
+![Template Marker](Getting-Started_images/Getting-Started_img4.jpeg)
 
 N> You can refer to our [.Net Excel Framework](https://www.syncfusion.com/document-processing/excel-framework/net) webpage to see the product’s groundbreaking features. You can also explore our [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.

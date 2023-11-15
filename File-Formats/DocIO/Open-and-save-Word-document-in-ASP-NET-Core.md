@@ -66,7 +66,7 @@ Step 7: Add a new action method **OpenAndSaveDocument** in HomeController.cs and
 
 {% highlight c# tabtitle="C#" %}
 //Open an existing Word document.
-WordDocument document = new WordDocument(new FileStream("Input.docx", FileMode.Open, FileAccess.Read));
+WordDocument document = new WordDocument(new FileStream("Input.docx", FileMode.Open, FileAccess.Read), FormatType.Automatic);
 
 {% endhighlight %}
 

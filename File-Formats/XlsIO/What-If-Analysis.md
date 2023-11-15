@@ -118,7 +118,7 @@ A complete working example to create scenarios in C# is present on [this GitHub 
 
 By executing the program, you will get the Excel file as below.
 
-<img src="What_If_Analysis_images/Create_Scenario.png" alt="Create Scenarios" width="100%" Height="Auto"/>
+![Create Scenarios](What_If_Analysis_images/Create_Scenario.png)
 
 ### Edit Scenario
 
@@ -426,7 +426,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-<img src="What_If_Analysis_images/Create_Summary.png" alt="Create Summary" width="100%" Height="Auto"/>
+![Create Summary](What_If_Analysis_images/Create_Summary.png)
 
 ### Apply Scenario
 

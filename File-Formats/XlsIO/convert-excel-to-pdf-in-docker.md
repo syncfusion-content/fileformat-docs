@@ -13,19 +13,20 @@ Docker is an open platform for developing, shipping and running applications. Yo
 ## Steps to convert an Excel document to PDF in Linux Docker
 
 Step 1: Create a new Core Console application.
-<img src="Docker_Images/docker_images_img1.png" alt="Create a Console Application" width="100%" Height="Auto"/>
+
+![Create a Console Application in visual studio](Docker_Images/docker_images_img1.png)
 
 Step 2: Name the project.
-<img src="Docker_Images/docker_images_img2.png" alt="Name the project" width="100%" Height="Auto"/>
+
+![Name the project](Docker_Images/docker_images_img2.png)
 
 Step 3: Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
 * [Syncfusion.XlsIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
 * [SkiaSharp.NativeAssets.Linux v2.80.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.80.2) 
 
-<img src="Docker_Images/docker_images_img3.png" alt="Install Syncfusion.XlsIORenderer.Net.Core NuGet Package" width="100%" Height="Auto"/>
-
-<img src="Docker_Images/docker_images_img4.png" alt="Install SkiaSharp.NativeAssets.Linux v2.80.2 NuGet Package" width="100%" Height="Auto"/>
+![Install Syncfusion.XlsIORenderer.Net.Core NuGet Package](Docker_Images/docker_images_img3.png)
+![Install SkiaSharp.NativeAssets.Linux v2.80.2 NuGet Package](Docker_Images/docker_images_img4.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components.
 
@@ -65,11 +66,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Step 6: Add Docker support to that application by clicking <b>Add -> Docker Support.</b>
 
-<img src="Docker_Images/docker_images_img5.png" alt="Add Docker support to that console app" width="100%" Height="Auto"/>
+![Add Docker support to that console app](Docker_Images/docker_images_img5.png)
 
 Step 7: Choose Linux option in order to run the application in Linux Docker container.
 
-<img src="Docker_Images/docker_images_img6.png" alt="Choose Linux option" width="100%" Height="Auto"/>
+![Choose Linux option](Docker_Images/docker_images_img6.png)
 
 Step 8: Open the **Dockerfile** to see the default Docker commands that are shown below.
 
@@ -100,13 +101,13 @@ ENTRYPOINT ["dotnet", "Convert-Excel-to-PDF.dll"]
 
 Step 8: Select Docker option and Run the application.
 
-<img src="Docker_Images/docker_images_img7.png" alt="Choose docker and run application" width="100%" Height="Auto"/>
+![Choose docker and run application](Docker_Images/docker_images_img7.png)
 
 A complete working example of how to convert an Excel document to PDF in docker container is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/Docker).
 
 By executing the program, you will get the **PDF document** as follows.
 
-<img src="Docker_Images/docker_images_img8.png" alt="Output file" width="100%" Height="Auto"/>
+![Output File](Docker_Images/docker_images_img8.png)
 
 ## Dockerfile Examples
 
