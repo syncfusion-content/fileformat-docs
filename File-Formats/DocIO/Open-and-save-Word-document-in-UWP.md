@@ -151,6 +151,8 @@ async void Save(MemoryStream streams, string filename)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/UWP).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![UWP open and save output Word document](UWP_images/OpenAndSaveOutput.png)
