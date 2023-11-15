@@ -50,7 +50,7 @@ You can improve the quality of converted images by specifying the image resoluti
 
 ## Why images are preserved as RedX images in PPTX to PDF/Image conversion?
 
-In .NET Core or .NET targeting applications, metafile (.wmf, *.emf) and TIFF images have some limitations in Presentation Renderer. Internally, Presentation Renderer use SkiaSharp graphics library to layout the text and images in PDF/Image conversion. And SkiaSharp library doesn’t support the metafile (“.emf”, “*.wmf”) and TIFF images, so, it doesn’t preserve the images in the mentioned applications.
+In .NET Core or .NET targeting applications, metafile (.wmf, *.emf) and TIFF images have some limitations in PresentationRenderer. Internally, PresentationRenderer use SkiaSharp graphics library to layout the text and images in PDF/Image conversion. And SkiaSharp library doesn’t support the metafile (“.emf”, “*.wmf”) and TIFF images, so, it doesn’t preserve the images in the mentioned applications.
 
 If the PowerPoint contains metafile (*.wmf” or *.emf”) and TIFF images, internally, Presentation preserves those images as RedX images with the same size of original images during the PPTX to PDF or Image conversions to avoid pagination problems.
 
