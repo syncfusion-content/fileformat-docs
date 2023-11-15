@@ -610,5 +610,5 @@ chart.Series(0).SerieFormat.Percent = 10
 {% endtabs %}
 
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Fomat-Series/Explode-Pie-Chart).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Fomat-Series/Explode-Pie-Chart/.NET).
 
