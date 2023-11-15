@@ -114,6 +114,8 @@ saveService.SaveAndView("Sample.docx", "application/msword", ms);
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![MAUI open and save output Word document](MAUI_Images/OpenAndSaveOutput.png)

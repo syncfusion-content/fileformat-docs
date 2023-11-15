@@ -463,3 +463,5 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Legend/.NET).

@@ -116,6 +116,8 @@ Save(outputStream, "Sample.docx");
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/WinUI).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![WinUI Desktop open and save output Word document](WinUI_Images/OpenAndSaveOutput.png)

@@ -83,6 +83,8 @@ outputStream.Dispose();
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Read-and-Save-document/Open-and-save-Word-document/MAC).
+
 By executing the program, you will get the **Word document** as follows. The output will be saved in bin folder.
 
 ![.Net Core open and save output Word document](Mac-images/OpenAndSaveOutput.png)

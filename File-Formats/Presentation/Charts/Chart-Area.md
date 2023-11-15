@@ -177,6 +177,8 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Chart-Area/.NET).
+
 ## Add Image in Chart Area
 
 The following code snippet illustrates how to fill the image in chart area.

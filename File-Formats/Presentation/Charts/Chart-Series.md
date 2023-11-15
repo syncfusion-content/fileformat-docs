@@ -256,6 +256,8 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/.NET).
+
 ## Set the DataPoint as Total
 
 The following code snippet illustrates how to set the Data Point as total in chart.
@@ -340,6 +342,8 @@ chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 100
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Chart-Bar-Spacing/.NET).
+
 ## Add High-Low Lines
 
 The following code snippet illustrates how to add high-low lines.
@@ -379,6 +383,8 @@ chart.Series(0).SerieFormat.CommonSerieOptions.HighLowLines.LineWeight = OfficeC
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Add-High-Low-Lines/.NET).
 
 ## Add Drop Lines
 
@@ -420,6 +426,8 @@ chart.Series(0).SerieFormat.CommonSerieOptions.DropLines.LineWeight = OfficeChar
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Add-Drop-Lines/.NET).
+
 ## Add Series Lines
 
 The following code snippet illustrates how to add series lines in chart.
@@ -459,6 +467,8 @@ chart.Series(0).SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = Office
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Add-Series-Lines/.NET).
 
 ## Different Marker Properties
 
@@ -524,3 +534,5 @@ chart.Series(0).SerieFormat.Percent = 10
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Explode-Pie-Chart/.NET).
