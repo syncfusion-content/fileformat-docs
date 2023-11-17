@@ -109,4 +109,4 @@ Step 5: Add the below code example to create a simple PDF and save in google dri
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Save-PDF-file/To%20Google%20Drive).

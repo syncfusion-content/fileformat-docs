@@ -62,4 +62,4 @@ Step 5: Add the below code example to load a PDF from Azure blob storage.
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open-PDF-file/To%20Azure%20Blob%20Storage).
