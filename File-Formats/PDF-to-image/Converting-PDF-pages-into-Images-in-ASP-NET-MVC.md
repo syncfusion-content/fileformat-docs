@@ -63,8 +63,6 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConverter.Convert(0, new SizeF(1836, 2372), false, false, false);
-Bitmap image = new Bitmap(outputStream);
-image.Save("sample.png");
 
 {% endhighlight %}
 {% endtabs %}
