@@ -190,14 +190,14 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The exception may occur if the 'runtimes' folder is not copied correctly.
+<td>The exception may occur if the runtimes folder is not access.
 </td>
 </tr>
 
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>To overcome the exception, you can add read, write, and execute permissions for the "runtimes" folder.
+<td>To overcome the exception, you can add read, write, and execute permissions for the runtimes folder.
 </td>
 </tr>
 
@@ -215,14 +215,21 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The specified temporary folder path might be incorrect or doesn't exist.
+<td>The specified temporary folder path might be inaccessible.
 </td>
 </tr>
 
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>To overcome the exception, you can check the temporary folder path specified in your HTML to PDF conversion code.
+<td>To overcome the exception, you can add read, write, and execute permissions for the temporary folder. Refer to the following code snippet to set temp folder.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+settings.TempPath = "D://MyProject//bin";
+
+{% endhighlight %}
 </td>
 </tr>
 
@@ -246,14 +253,8 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>The Blink HTML converter has support for setting the temporary path. Using the <i>TempPath</i> property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files. Refer to the following code snippet to set temp folder.
-<br><br/>
-{% highlight c# tabtitle="C#" %}
+<td>The Blink HTML converter has support for setting the temporary path. Using the <i>TempPath</i> property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files.
 
-BlinkConverterSettings settings = new BlinkConverterSettings();
-settings.TempPath = "D://MyProject//bin";
-
-{% endhighlight %}
 </td>
 </tr>
 
