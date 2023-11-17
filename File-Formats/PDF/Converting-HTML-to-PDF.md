@@ -324,7 +324,7 @@ N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-ht
 
 By default, the PDF document generated with the IE rendering engine comes with the following warning message.
 
-<img src="convert-html-to-pdf/htmlconversion_images/ie-warning.png" alt="IE warning" width="100%" Height="Auto"/>
+<img src="convert-html-to-pdf/htmlconversion_images/ie-warning.png" alt="IE warning." width="100%" Height="Auto"/>
 Please refer to the below code snippet to use the DisableIEWarning API to remove the default IE warning from the PDF document.
 
 {% tabs %}
