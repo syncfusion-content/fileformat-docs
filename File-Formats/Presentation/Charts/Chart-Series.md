@@ -250,7 +250,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Template.pptx")
     chart.Legend.Position = OfficeLegendPosition.Bottom
 
     ' Save the PowerPoint Presentation.
-    pptxDoc.Save("Result.pptx")
+    pptxDoc.Save("Result.pptx" )
 End Using
 
 {% endhighlight %}
