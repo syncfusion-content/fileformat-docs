@@ -167,7 +167,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_Presentation-1440845842.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Refer the below helper files and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -183,61 +183,61 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    .NET MAUI Project
+    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation)'| markdownify }}
   </td>
   <td>
-    SaveService.cs
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Services/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
   <td>
-    Windows
+    {{'[Windows](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/Windows)'| markdownify }}
   </td>
   <td>
-    SaveWindows.cs
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/Windows/SaveWindows.cs)'| markdownify }}
   </td>
   <td>Save implementation for Windows.
   </td>
   </tr>
   <tr>
   <td>
-    Android
+    {{'[Android](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/Android)'| markdownify }}
   </td>
   <td>
-    SaveAndroid.cs
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device.
   </td>
   </tr>
   <tr>
   <td>
-    Mac Catalyst
+    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/MacCatalyst)'| markdownify }}
   </td>
   <td>
-    SaveMac.cs
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    iOS
+    {{'[iOS](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/iOS)'| markdownify }}
   </td>
   <td>
-    SaveIOS.cs
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
-    Save implementation for iOS device.
+    Save implementation for iOS device
   </td>
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Getting-started/.NET-MAUI/Create-PowerPoint-presentation/Create-presentation/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
-    Helper classes for viewing the <b>PowerPoint file</b> in iOS device.
+    Helper classes for viewing the <b>Word document</b> in iOS device
   </td>
   </tr>
 </table>
