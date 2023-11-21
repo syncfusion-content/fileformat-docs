@@ -183,7 +183,7 @@ Integrating HTML to PDF converter library in any .NET application is simple. Ple
 <b>Steps to convert HTML to PDF in .NET application</b>
 
 Step 1: Create a new .NET console application.
-<img src="convert-html-to-pdf/htmlconversion_images/create-net-core-console-sample.png" alt="Create .NET Core core console sample." width="100%" Height="Auto"/>
+<img src="convert-html-to-pdf/htmlconversion_images/create-net-core-console-sample.png" alt="Create .NET Core console sample." width="100%" Height="Auto"/>
 
 <img src="convert-html-to-pdf/htmlconversion_images/select-target-net-core-version.png" alt="Select target .NET Core version." width="100%" Height="Auto"/>
 
