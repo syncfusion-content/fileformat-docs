@@ -29,12 +29,12 @@ There are two ways to install the dependency packages to Azure server,
 * Using SSH from Azure portal.
 * By running the commands from C#.
 
-**Using SSH command line**
+3.1. Using SSH command line
 
-* After publishing the Web application, login to the Azure portal in a web interface and open the published app service. Under Development Tools Menu, Open the SSH and Click the go link.
+1. After publishing the Web application, login to the Azure portal in a web interface and open the published app service. Under Development Tools Menu, Open the SSH and Click the go link.
 ![Convert HTMLToPDF Azure NetCore Step4](htmlconversion_images/AzureNetCore4.png) 
 
-* From the terminal window, you can install the dependency packages. Use the following single command to install all dependencies packages.
+2. From the terminal window, you can install the dependency packages. Use the following single command to install all dependencies packages.
 
 {% highlight c# tabtitle="C#" %}
 
@@ -42,13 +42,43 @@ apt-get update && apt-get install -yq --no-install-recommends  libasound2 libatk
 
 {% endhighlight %}
 
-**Running the commands from C#**
+3.2. Running the commands from C#
 
-* Create a shell file with the above commands in the project and name it as dependenciesInstall.sh. In this article, these steps have been followed to install dependencies packages. 
+1. Create a shell file with the above commands in the project and name it as dependenciesInstall.sh. In this article, these steps have been followed to install dependencies packages. 
 ![Convert HTMLToPDF Azure NetCore Step5](htmlconversion_images/AzureNetCore5.png) 
 
-* Set Copy to Output Directory as "Copy if newer" to the dependenciesInstall.sh file.
+2. Set Copy to Output Directory as "Copy if newer" to the dependenciesInstall.sh file.
 ![Convert HTMLToPDF Azure NetCore Step6](htmlconversion_images/AzureNetCore6.png) 
+
+3. Include the following code snippet to install the dependencies code in Configure method in *startup.cs* file.
+
+{% highlight c# tabtitle="C#" %}
+
+//Install the dependencies packages for HTML to PDF conversion in Linux
+string shellFilePath = System.IO.Path.Combine(env.ContentRootPath, "dependenciesInstall.sh");
+InstallDependecies(shellFilePath);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C#" %}
+
+private void InstallDependecies(string shellFilePath) 
+{
+      Process process = new Process
+      {
+            StartInfo = new ProcessStartInfo
+            {
+                  FileName = "/bin/bash",
+                  Arguments = "-c " + shellFilePath,
+                  CreateNoWindow = true,
+                  UseShellExecute = false,
+             }
+      };
+      process.Start();
+      process.WaitForExit();
+}
+
+{% endhighlight %}
 
 Step 4: Add an Export to the PDF button in the index.cshtml.
 
