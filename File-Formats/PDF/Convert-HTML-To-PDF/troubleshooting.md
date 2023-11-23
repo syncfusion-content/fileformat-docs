@@ -105,85 +105,14 @@ document.Close(true);
 
 </table>
 
-## Failed to convert Webpage Exception
+## Failed to launch chromium: Running as root without --no-sandbox is not supported
 
 <table>
+
 <th style="font-size:14px" width="100px">Exception
 </th>
-<th style="font-size:14px">Failed to convert Webpage Exception
+<th style="font-size:14px">Failed to launch chromium: Running as root without --no-sandbox is not supported
 </th>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>Missing or mismatch of <a href="https://www.nuget.org/packages/Newtonsoft.Json/13.0.2">Newtonsoft.Json</a> package in the project.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>For converting HTML to PDF in Blink, you need to refer to the Newtonsoft.Json assembly or NuGet package with current version is 13.0.2 in the application, otherwise conversion will get failed.
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>The exception may occur if the Newtonsoft.Json assembly or NuGet package with current version is 13.0.2.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>The Newtonsoft.Json package version with current version is 13.0.2, then include the following assembly binding redirection in the app.config/web.config file.	
-<br><br/>
-{% highlight html %}
-
-<runtime>
-    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-      <dependentAssembly>
-        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
-        <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />
-      </dependentAssembly>
-    </assemblyBinding>
-</runtime>
-{% endhighlight %}
-
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>If the temporary folder does not have elevated permission for the respective user, then the Blink HTML converter may throw this exception.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>The Blink HTML converter has support for setting the temporary path. Using the <i>TempPath</i> property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files. Refer to the following code snippet to set temp folder.
-<br><br/>
-{% highlight c# tabtitle="C#" %}
-
-BlinkConverterSettings settings = new BlinkConverterSettings();
-settings.TempPath = "D://MyProject//bin";
-
-{% endhighlight %}
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>The exception may occur in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>To overcome the exception in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
-</td>
-</tr>
 
 <tr>
 <th style="font-size:14px" width="100px">Reason
@@ -192,6 +121,7 @@ settings.TempPath = "D://MyProject//bin";
 </td>
 </tr>
 <tr>
+
 <th style="font-size:14px" width="100px">Solution
 </th>
 <td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder.
@@ -218,6 +148,132 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </tr>
 </table>
 <br>
+</td>
+</tr>
+
+</table>
+
+## Failed to launch chromium: Missing required dependent packages
+
+<table>
+
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Failed to launch chromium: Missing required dependent packages
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The required dependencies for the Chromium are not installed on the system.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>Ensure that all required dependencies for the Chromium are installed on the system. This may include additional libraries or packages.
+</td>
+</tr>
+
+</table>
+
+## Access is denied in runtimes folders, runtimes folder requires read/write/execute permission
+
+<table>
+
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Access is denied in runtimes folders, runtimes folder requires read/write/execute permission
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The exception may occur if the runtimes folder is not access.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome the exception, you can add read, write, and execute permissions for the runtimes folder.
+</td>
+</tr>
+
+</table>
+
+## Access denied for specified temporary folder
+
+<table>
+
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Access denied for specified temporary folder
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The specified temporary folder path might be inaccessible.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome the exception, you can add read, write, and execute permissions for the temporary folder. Refer to the following code snippet to set temp folder.
+<br><br/>
+{% highlight c# tabtitle="C#" %}
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+settings.TempPath = "D://MyProject//bin";
+
+{% endhighlight %}
+</td>
+</tr>
+
+</table>
+
+## The temporary folder does not have read permission
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">The temporary folder does not have read permission
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>If the temporary folder does not have elevated permission for the respective user, then the Blink HTML converter may throw this exception.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>The Blink HTML converter has support for setting the temporary path. Using the <i>TempPath</i> property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files.
+
+</td>
+</tr>
+
+</table>
+
+## Failed to convert Webpage Exception
+
+<table>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The exception may occur in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome the exception in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
 </td>
 </tr>
 
@@ -274,12 +330,12 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 </tr>
 </table>
 
-## Failed to convert webpage exception in Linux Docker
+## Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion
 
 <table>
 <th style="font-size:14px" width="100px">Exception
 </th>
-<th style="font-size:14px">Failed to convert webpage exception in Linux Docker.
+<th style="font-size:14px">Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion.
 </th>
 
 <tr>
