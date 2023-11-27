@@ -52,7 +52,7 @@ You can improve the quality of converted images by specifying the image resoluti
 
 In .NET Core or .NET targeting applications, metafile (*.wmf, *.emf) and TIFF images have some limitations in PresentationRenderer. Internally, PresentationRenderer use SkiaSharp graphics library to layout the text and images in PDF/Image conversion. And SkiaSharp library doesn’t support the metafile (*.emf, *.wmf) and TIFF images, so, it doesn’t preserve the images in the mentioned applications.
 
-If the PowerPoint contains metafile (*.wmf or *.emf) and TIFF images, internally, Presentation doesn't preserve these during PPTX to PDF or image conversions to avoid pagination problems.
+If the PowerPoint contains metafile (*.wmf or *.emf) and TIFF images, internally, Presentation doesn't preserve these during the PPTX to PDF or image conversions.
 
 To preserve the expected images in the PDF/Image conversion, we suggest you convert the metafile and Tiff image formats to bitmap image format (JPEG or PNG) and then perform PPTX to PDF/Image conversion.
 
