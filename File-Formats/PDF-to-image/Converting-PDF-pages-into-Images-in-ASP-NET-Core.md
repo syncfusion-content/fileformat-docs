@@ -24,8 +24,6 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConverter.Convert(0, false, false);
-Bitmap image = new Bitmap(outputStream);
-image.Save("sample.png");
 
 {% endhighlight %}
 {% endtabs %}
@@ -47,11 +45,6 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream[] outputStream = imageConverter.Convert(0, imageConverter.PageCount-1, false, false);
-for(int i=0; i < outputStream.Length; i++)
-{
-    Bitmap image = new Bitmap(outputStream[i]);
-    image.Save("sample-"+i+".png");
-}
 
 {% endhighlight %}
 {% endtabs %}
@@ -70,8 +63,6 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConverter.Convert(0, new SizeF(1836, 2372), false, false, false);
-Bitmap image = new Bitmap(outputStream);
-image.Save("sample.png");
 
 {% endhighlight %}
 {% endtabs %}
@@ -100,7 +91,6 @@ FileStream inputStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.R
 imageConverter.Load(inputStream);
 //Convert PDF to Image.
 Stream outputStream = imageConverter.Convert(0, zoomFactor, tileXCount, tileYCount, tileX, tileY);
-return File(outputStream.ToArray(), System.Net.Mime.MediaTypeNames.Image.Png, "sample.png");
 
 {% endhighlight %}
 {% endtabs %}
