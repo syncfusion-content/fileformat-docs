@@ -493,7 +493,7 @@ S.No
 <th width="40%">
 Professional
 </th>
-<th width="auto">
+<th width="40%">
 LaTeX
 </th>
 </tr>
