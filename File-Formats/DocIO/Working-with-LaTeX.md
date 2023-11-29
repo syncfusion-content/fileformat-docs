@@ -975,6 +975,26 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format group character equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/GroupCharacter1.png" alt="Group Character equation"></td>
+<td>\overbrace{a-b}</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/GroupCharacter2.png" alt="Group Character equation"></td>
+<td>\underbrace{a}</td>
+</tr>
+</table>
+
 ## Limit
 
 Add **limit** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -1035,6 +1055,31 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format limit equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Limit1.png" alt="Limit equation"></td>
+<td>\lim\belowb{a}</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Limit2.png" alt="Limit equation"></td>
+<td>\min\belowb{a}</td>
+</tr>
+<tr>
+<td>3.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Limit3.png" alt="Limit equation"></td>
+<td>\max\belowb{a}</td>
+</tr>
+</table>
+
 ## Matrix
 
 Add **matrix** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -1094,6 +1139,21 @@ document.Save("Result.docx", FormatType.Docx)
 You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format matrix equations.
+
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Matrix1.png" alt="Matrix equation"></td>
+<td>\begin{matrix}\mathbit{a}&\mathbit{b}\\\end{matrix}</td>
+</tr>
+</table>
 
 ## N-array
 
