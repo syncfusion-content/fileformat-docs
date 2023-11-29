@@ -6,8 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# LaTeX
-
+# Create Equation using LaTeX
 The .NET Word (DocIO) library allows to create mathematical equation in Word document using **LaTeX**.
 
 ## Accent
@@ -89,7 +88,7 @@ LaTeX
 1.
 </td>
 <td>
- <img src="WorkingwithMathematicalEquation_images/Accent1.png" alt="Accent1">
+ <img src="WorkingwithMathematicalEquation_images/Accent1.png" alt="Accent equation">
 </td>
 <td>
 \dot{a}
@@ -100,7 +99,7 @@ LaTeX
 2.
 </td>
 <td>
- <img src="WorkingwithMathematicalEquation_images/Accent2.png" alt="Accent2">
+ <img src="WorkingwithMathematicalEquation_images/Accent2.png" alt="Accent equation">
 </td>
 <td>
 \ddot{a}
@@ -111,7 +110,7 @@ LaTeX
 3.
 </td>
 <td>
- <img src="WorkingwithMathematicalEquation_images/Accent3.png" alt="Accent3">
+ <img src="WorkingwithMathematicalEquation_images/Accent3.png" alt="Accent equation">
 </td>
 <td>
 \dddot{a}
@@ -122,7 +121,7 @@ LaTeX
 4.
 </td>
 <td>
- <img src="WorkingwithMathematicalEquation_images/Accent4.png" alt="Accent4">
+ <img src="WorkingwithMathematicalEquation_images/Accent4.png" alt="Accent equation">
 </td>
 <td>
 \hat{a}
@@ -133,17 +132,111 @@ LaTeX
 5.
 </td>
 <td>
- <img src="WorkingwithMathematicalEquation_images/Accent5.png" alt="Accent5">
+ <img src="WorkingwithMathematicalEquation_images/Accent5.png" alt="Accent equation">
 </td>
 <td>
 \check{a}
 </td>
 </tr>
+<tr>
+<td>
+6.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent6.png" alt="Accent equation">
+</td>
+<td>
+\acute{a}
+</td>
+</tr>
+<tr>
+<td>
+7.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent7.png" alt="Accent equation">
+</td>
+<td>
+\grave{a}
+</td>
+</tr>
+<tr>
+<td>
+8.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent8.png" alt="Accent equation">
+</td>
+<td>
+\breve{a}
+</td>
+</tr><tr>
+<td>
+9.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent9.png" alt="Accent equation">
+</td>
+<td>
+\widetilde{a}
+</td>
+</tr>
+<tr>
+<td>
+10.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent10.png" alt="Accent equation">
+</td>
+<td>
+\bar{a}
+</td>
+</tr>
+<tr>
+<td>
+11.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent11.png" alt="Accent equation">
+</td>
+<td>
+\bar{\bar{a}}
+</td>
+</tr>
+<tr>
+<td>
+12.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent12.png" alt="Accent equation">
+</td>
+<td>
+\vec{a}
+</td>
+</tr>
+<tr>
+<td>
+13.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent13.png" alt="Accent equation">
+</td>
+<td>
+\hvec{a}
+</td>
+</tr>
+<tr>
+<td>
+14.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Accent14.png" alt="Accent equation">
+</td>
+<td>
+\widehat{AAA}
+</td>
+</tr>
 </table>
-
-The following table demonstrates the LaTeX equivalent to professional format accent equations.
-
-![LaTeX equivalent to professional format accent equations](WorkingwithMathematicalEquation_images/Table-LaTeX.png)
 
 ## Bar
 
@@ -206,6 +299,44 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format bar equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">
+S.No
+</th>
+<th width="40%">
+Professional
+</th>
+<th width="40%">
+LaTeX
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+1.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Bar1.png" alt="Bar equation">
+</td>
+<td>
+\overline{a}
+</td>
+</tr>
+<tr>
+<td>
+2.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Bar2.png" alt="Bar equation">
+</td>
+<td>
+\underline{abc}
+</td>
+</tr>
+</table>
+
 ## Box
 
 Add **box** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -266,6 +397,33 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format box equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">
+S.No
+</th>
+<th width="40%">
+Professional
+</th>
+<th width="40%">
+LaTeX
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+1.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/Box1.png" alt="Box equation">
+</td>
+<td>
+\box{a}
+</td>
+</tr>
+</table>
+
 ## Border Box
 
 Add **border box** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -325,6 +483,33 @@ document.Save("Result.docx", FormatType.Docx)
 You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format border box equations.
+
+<table>
+<thead>
+<tr>
+<th width="20%">
+S.No
+</th>
+<th width="40%">
+Professional
+</th>
+<th width="40%">
+LaTeX
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+1.
+</td>
+<td>
+ <img src="WorkingwithMathematicalEquation_images/BorderBox1.png" alt="Border Box equation">
+</td>
+<td>
+\boxed{x^2+y^2 = z^2}
+</td>
+</tr>
+</table>
 
 ## Delimiter
 
