@@ -755,6 +755,166 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format function equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function1.png" alt="Function equation"></td>
+<td>\sin{\theta}</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function2.png" alt="Function equation"></td>
+<td>\cos{\theta}</td>
+</tr>
+<tr>
+<td>3.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function3.png" alt="Function equation"></td>
+<td>\tan{\theta}</td>
+</tr>
+<tr>
+<td>4.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function4.png" alt="Function equation"></td>
+<td>\csc{\theta}</td>
+</tr>
+<tr>
+<td>5.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function5.png" alt="Function equation"></td>
+<td>\sec{\theta}</td>
+</tr>
+<tr>
+<td>6.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function6.png" alt="Function equation"></td>
+<td>\cot{\theta}</td>
+</tr>
+<tr>
+<td>7.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function7.png" alt="Function equation"></td>
+<td>\sin^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>8.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function8.png" alt="Function equation"></td>
+<td>\cos^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>9.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function9.png" alt="Function equation"></td>
+<td>\tan^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>10.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function10.png" alt="Function equation"></td>
+<td>\csc^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>11.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function11.png" alt="Function equation"></td>
+<td>\sec^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>12.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function12.png" alt="Function equation"></td>
+<td>\cot^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>13.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function13.png" alt="Function equation"></td>
+<td>\sinh{\theta}</td>
+</tr>
+<tr>
+<td>14.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function14.png" alt="Function equation"></td>
+<td>\cosh{\theta}</td>
+</tr>
+<tr>
+<td>15.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function15.png" alt="Function equation"></td>
+<td>\tanh{\theta}</td>
+</tr>
+<tr>
+<td>16.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function16.png" alt="Function equation"></td>
+<td>\csch{\theta}</td>
+</tr>
+<tr>
+<td>17.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function17.png" alt="Function equation"></td>
+<td>\sech{\theta}</td>
+</tr>
+<tr>
+<td>18.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function18.png" alt="Function equation"></td>
+<td>\coth{\theta}</td>
+</tr>
+<tr>
+<td>19.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function19.png" alt="Function equation"></td>
+<td>\sinh^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>20.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function20.png" alt="Function equation"></td>
+<td>\cosh^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>21.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function21.png" alt="Function equation"></td>
+<td>\tanh^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>22.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function22.png" alt="Function equation"></td>
+<td>\csch^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>23.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function23.png" alt="Function equation"></td>
+<td>\sech^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>24.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function24.png" alt="Function equation"></td>
+<td>\coth^{-1}{\theta}</td>
+</tr>
+<tr>
+<td>25.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function25.png" alt="Function equation"></td>
+<td>\arcsin{\theta}</td>
+</tr>
+<tr>
+<td>26.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function26.png" alt="Function equation"></td>
+<td>\arccos{\theta}</td>
+</tr>
+<tr>
+<td>27.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function27.png" alt="Function equation"></td>
+<td>\arctan{\theta}</td>
+</tr>
+<tr>
+<td>28.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function28.png" alt="Function equation"></td>
+<td>\arccsc{\theta}</td>
+</tr>
+<tr>
+<td>29.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function29.png" alt="Function equation"></td>
+<td>\arcsec{\theta}</td>
+</tr>
+<tr>
+<td>30.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Function30.png" alt="Function equation"></td>
+<td>\arccot{\theta}</td>
+</tr>
+</table>
+
 ## Group character
 
 Add **group character** equation to a Word document using the LaTeX through **AppendMath** API.
