@@ -991,60 +991,30 @@ The following table demonstrates the LaTeX equivalent to professional format fra
 <table>
 <thead>
 <tr>
-<th width="20%">
-S.No
-</th>
-<th width="40%">
-Professional
-</th>
-<th width="40%">
-LaTeX
-</th>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
 </tr>
 </thead>
 <tr>
-<td>
-1.
-</td>
-<td>
- <img src="WorkingwithMathematicalEquation_images/Fraction1.png" alt="Fraction equation">
-</td>
-<td>
-frac{\mathbit{dy}}{\mathbit{dx}}
-</td>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Fraction1.png" alt="Fraction equation"></td>
+<td>frac{\mathbit{dy}}{\mathbit{dx}}</td>
 </tr>
 <tr>
-<td>
-2.
-</td>
-<td>
- <img src="WorkingwithMathematicalEquation_images/Fraction2.png" alt="Fraction equation">
-</td>
-<td>
-\sfrac{dy}{dx}
-</td>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Fraction2.png" alt="Fraction equation"></td>
+<td>\sfrac{dy}{dx}</td>
 </tr>
 <tr>
-<td>
-3.
-</td>
-<td>
- <img src="WorkingwithMathematicalEquation_images/Fraction3.png" alt="Fraction equation">
-</td>
-<td>
-\sfrac{dy}{dx}
-</td>
+<td>3.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Fraction3.png" alt="Fraction equation"></td>
+<td>\sfrac{dy}{dx}</td>
 </tr>
 <tr>
-<td>
-4.
-</td>
-<td>
- <img src="WorkingwithMathematicalEquation_images/Fraction4.png" alt="Fraction equation">
-</td>
-<td>
-{\frac{dy}{dx}}
-</td>
+<td>4.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Fraction4.png" alt="Fraction equation"></td>
+<td>{\frac{dy}{dx}}</td>
 </tr>
 </table>
 
