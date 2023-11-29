@@ -1215,6 +1215,71 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format N-array equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray1.png" alt="N-Array equation"></td>
+<td>\sum a</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray2.png" alt="N-Array equation"></td>
+<td>\sum_{l}^{u}a</td>
+</tr>
+<tr>
+<td>3.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray3.png" alt="N-Array equation"></td>
+<td>\sum_{l}^{u}a</td>
+</tr>
+<tr>
+<td>4.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray4.png" alt="N-Array equation"></td>
+<td>\sum_{l}a</td>
+</tr>
+<tr>
+<td>5.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray5.png" alt="N-Array equation"></td>
+<td>\sum_{b}a</td>
+</tr>
+<tr>
+<td>6.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray6.png" alt="N-Array equation"></td>
+<td>\prod a</td>
+</tr>
+<tr>
+<td>7.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray7.png" alt="N-Array equation"></td>
+<td>\amalg a</td>
+</tr>
+<tr>
+<td>8.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray8.png" alt="N-Array equation"></td>
+<td>\bigcup a</td>
+</tr>
+<tr>
+<td>9.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray9.png" alt="N-Array equation"></td>
+<td>\bigcap a</td>
+</tr>
+<tr>
+<td>10.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray10.png" alt="N-Array equation"></td>
+<td>\bigvee a</td>
+</tr>
+<tr>
+<td>11.</td>
+<td><img src="WorkingwithMathematicalEquation_images/NArray11.png" alt="N-Array equation"></td>
+<td>\bigwedge a</td>
+</tr>
+</table>
+
 ## Radical
 
 Add **radical** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -1274,6 +1339,26 @@ document.Save("Result.docx", FormatType.Docx)
 You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format radical equations.
+
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Radical1.png" alt="Radical equation"></td>
+<td>\sqrt a</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/Radical2.png" alt="Radical equation"></td>
+<td>\sqrt[b]{a}</td>
+</tr>
+</table>
 
 ## SubSuperScript
 
@@ -1335,6 +1420,26 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format SubSuperScript equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/SubSuperScript1.png" alt="SubSuperScript equation"></td>
+<td>\mathbit{a}^\mathbit{b}</td>
+</tr>
+<tr>
+<td>2.</td>
+<td><img src="WorkingwithMathematicalEquation_images/SubSuperScript2.png" alt="SubSuperScript equation"></td>
+<td>\mathbit{a}_\mathbit{b}</td>
+</tr>
+</table>
+
 ## Left SubSuperScript
 
 Add **Left SubSuperScript** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -1395,6 +1500,21 @@ You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format Left SubSuperScript equations.
 
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/LeftSubSuperScript1.png" alt="Left SubSuperScript equation"></td>
+<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+</tr>
+</table>
+
 ## Right SubSuperScript
 
 Add **Right SubSuperScript** equation to a Word document using the LaTeX through **AppendMath** API.
@@ -1454,3 +1574,18 @@ document.Save("Result.docx", FormatType.Docx)
 You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format Right SubSuperScript equations.
+
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/RightSubSuperScript1.png" alt="Right SubSuperScript equation"></td>
+<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+</tr>
+</table>
