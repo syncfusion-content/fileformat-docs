@@ -10,7 +10,7 @@ documentation: ug
 
 # Downloading Syncfusion FileFormats offline installer
 
-[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/document-processing/pdf-framework/net),[Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net) controls will be included in the Syncfusion FileFormats installer. You can either download the licensed installer or try our trial installer depending on your license. 
+[DocIO](https://www.syncfusion.com/document-processing/word-framework/net),[PDF](https://www.syncfusion.com/document-processing/pdf-framework/net),[Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net) controls will be included in the Syncfusion FileFormats installer. You can either download the licensed installer or try our trial installer depending on your license. 
 
    -	Trial Installer
    -	Licensed Installer
