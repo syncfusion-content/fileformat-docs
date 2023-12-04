@@ -2900,7 +2900,7 @@ settings.AdditionalDelay = 2000;
 <th style="font-size:14px">Solution
 </th>
 <td>You can convert HTML to PDF using the Blink rendering engine in Azure cloud service (which has the elevated permission and rights to access the GDI calls). 
-Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-to-pdf-in-azure-using-blink">link</a> for more information. 
+Refer to this <a href="https://support.syncfusion.com/kb/article/9022/how-to-convert-html-to-pdf-in-azure-using-blink">link</a> for more information. 
 </td>
 </tr>
 </table>
