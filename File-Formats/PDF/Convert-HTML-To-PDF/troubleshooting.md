@@ -117,14 +117,14 @@ document.Close(true);
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The exception may occur in Linux CentOS/Docker environment due to the chrome browser unable to launch from sandbox mode in CentOS.
+<td>The exception may occur in the Linux CentOS/Docker environment due to the Chrome browser unable to launch from sandbox mode in CentOS.
 </td>
 </tr>
 <tr>
 
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>To overcome the exception in Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper file inside the BlinkBinaries folder.
+<td>To overcome the exception in the Linux CentOS/Docker environment, provide the execute permission for chrome and chrome-wrapper files inside the BlinkBinaries folder.
 <br/>
 <b>Refer to the following screenshot:</b>
 <br/>
@@ -132,7 +132,7 @@ document.Close(true);
 <br/>
 <img src="htmlconversion_images/Permission_chrome-wrapper.png" alt="Blink chrome wrapper file permission">
 <br/>
-Also, please add the below command line arguments in our converter setting,
+Also, please add the following command line arguments in our converter setting.
 <br/>
 <table>
 <tr>
@@ -172,25 +172,25 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>Ensure that all required dependencies for the Chromium are installed on the system. This may include additional libraries or packages.
+<td>Ensure all required dependencies for the Chromium are installed on the system. This may include additional libraries or packages.
 </td>
 </tr>
 
 </table>
 
-## Access is denied in runtimes folders, runtimes folder requires read/write/execute permission
+## Access is denied in runtimes folders. Runtimes folder requires read/write/execute permission
 
 <table>
 
 <th style="font-size:14px" width="100px">Exception
 </th>
-<th style="font-size:14px">Access is denied in runtimes folders, runtimes folder requires read/write/execute permission
+<th style="font-size:14px">Access is denied in runtimes folders. Runtimes folder requires read/write/execute permission
 </th>
 
 <tr>
 <th style="font-size:14px" width="100px">Reason
 </th>
-<td>The exception may occur if the runtimes folder is not access.
+<td>The exception may occur if the runtimes folder is not accessed.
 </td>
 </tr>
 
@@ -222,7 +222,7 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>To overcome the exception, you can add read, write, and execute permissions for the temporary folder. Refer to the following code snippet to set temp folder.
+<td>To overcome the exception, you can add read, write, and execute permissions for the temporary folder. Refer to the following code sample to set the temp folder.
 <br><br/>
 {% highlight c# tabtitle="C#" %}
 
@@ -330,7 +330,7 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 </tr>
 </table>
 
-## Failed to launch chromium: Due to insufficient permission unable to launch chromium process for conversion
+## Failed to launch chromium: Due to insufficient permission unable to launch the chromium process for conversion
 
 <table>
 <th style="font-size:14px" width="100px">Exception
@@ -348,7 +348,7 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 <tr>
 <th style="font-size:14px" width="100px">Solution
 </th>
-<td>To overcome this exception, you can provide a execute permission for chrome and chrome-wrapper file inside the runtimes/linux/native folder by using the docker command.
+<td>To overcome this exception, you can provide an execute permission for chrome and chrome-wrapper files inside the runtimes/linux/native folder by using the docker command.
 <br><br/>
 <img src="htmlconversion_images/Troubleshooting_webpage_exception_Linux.png" alt="ExcludeAssets">
 <br><br/>
