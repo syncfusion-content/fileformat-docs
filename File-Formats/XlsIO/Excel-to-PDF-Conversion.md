@@ -1145,10 +1145,11 @@ N> Printing is supported only in Windows Forms and WPF platforms.
 This feature allows the use of substitute fonts when the fonts provided for the cell text cannot render the text properly in Excel to PDF conversion.
 
 This feature allows the following options.
+
 * Allow to fallback the unsupported fonts automatically with predefined fallback fonts.
 * Replace the predefined fallback font with a custom font.
 
-The following code illustrates how to create the Font fallback in the Excel to PDF Conversion.
+The following code illustrates how to use font fallback in the Excel to PDF Conversion.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1161,9 +1162,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorksheet sheet = workbook.Worksheets[0];            
     application.XlsIORenderer = new XlsIORenderer();
 
-    //Initialize Fallback Font
+    //Initialize fallback Font
     application.FallbackFonts.InitializeDefault();
-    //Add customized FallBackFont with script type
+    //Add customized fallback font with script type
     application.FallbackFonts.Add(ScriptType.Chinese, "SimSun");                              
            
     XlsIORenderer renderer = new XlsIORenderer();            
