@@ -1140,6 +1140,81 @@ End Using
   
 N> Printing is supported only in Windows Forms and WPF platforms.
 
+## Font fallback in Excel to PDF
+
+This feature allows the use of substitute fonts when the fonts provided for the cell text cannot render the text properly in Excel to PDF conversion.
+
+This feature allows the following options.
+* Allow to fallback the unsupported fonts automatically with predefined fallback fonts.
+* Replace the predefined fallback font with a custom font.
+
+The following code illustrates how to create the Font fallback in the Excel to PDF Conversion.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);              
+    IWorksheet sheet = workbook.Worksheets[0];            
+    application.XlsIORenderer = new XlsIORenderer();
+
+    //Initialize Fallback Font
+    application.FallbackFonts.InitializeDefault();
+    //Add customized FallBackFont with script type
+    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun");                              
+           
+    XlsIORenderer renderer = new XlsIORenderer();            
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);               
+    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);                       
+
+    //Close and Dispose             
+    workbook.Close();
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using(ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+    IWorksheet sheet = workbook.Worksheets[0];
+
+    //Convert the sheet to PDF
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+
+    //Initialize fallback font
+    application.FallbackFonts.InitializeDefault();
+    //Add customized fallback font with script type
+    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun");
+
+    PdfDocument pdfDocument = new PdfDocument();
+    pdfDocument = converter.Convert();
+    pdfDocument.Save("ExcelToPDF.pdf");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+    Dim sheet As IWorksheet = workbook.Worksheets(0)
+    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
+    application.FallbackFonts.InitializeDefault()
+    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun")
+    Dim pdfDocument As PdfDocument = New PdfDocument()
+    pdfDocument = converter.Convert()
+    pdfDocument.Save("ExcelToPDF.pdf")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
 ## Supported elements
 
 This feature supports the following elements:
