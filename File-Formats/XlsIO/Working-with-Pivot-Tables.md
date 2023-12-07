@@ -1415,6 +1415,177 @@ A complete working example for left to right sort in pivot table in C# is presen
 
 N> [IsRefreshOnLoad](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotCacheImpl_IsRefreshOnLoad) property of [PivotCacheImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html) is set as true when applying [AutoSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IPivotField.html#Syncfusion_XlsIO_IPivotField_AutoSort_Syncfusion_XlsIO_PivotFieldSortType_System_Int32_) to pivot fields.
 
+## Grouping
+
+Date and time fields in the pivot table can be grouped using XlsIO.
+
+XlsIO supports grouping pivot data based on the following categories.
+
+* Date
+* Month
+* Year
+* Quarters
+* Hours
+* Minutes
+* Seconds
+
+### Group
+
+The pivot fields can be grouped by using the GroupBy property in the IPivotField.FieldGroup. 
+
+The following code example shows how to group pivot fields based on a period.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IWorksheet pivotSheet = workbook.Worksheets.Create();
+
+    IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:B16"]);
+    pivotSheet.PivotTables.Add("PivotTable", pivotSheet["A2"], cache);
+    IPivotTable pivotTable = pivotSheet.PivotTables[0];
+    pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+    pivotTable.Fields[1].Subtotals = PivotSubtotalTypes.None;
+    var field1 = pivotTable.Fields[1].FieldGroup;
+
+
+    //Apply pivot table grouping
+    field1.GroupBy = PivotFieldGroupType.Seconds | PivotFieldGroupType.Years | PivotFieldGroupType.Quarters;
+
+    pivotTable.Options.ShowFieldList = false;
+    pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;
+
+    FileStream stream = new FileStream("PivotTableGrouping.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();                
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;                
+    IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IWorksheet pivotSheet = workbook.Worksheets.Create();
+
+    IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:B16"]);
+    pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A2"], cache);
+    IPivotTable pivotTable = pivotSheet.PivotTables[0];
+    pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+    pivotTable.Fields[1].Subtotals = PivotSubtotalTypes.None;
+    var field1 = pivotTable.Fields[1].FieldGroup;
+
+    //Apply pivot table grouping
+    field1.GroupBy = PivotFieldGroupType.Seconds | PivotFieldGroupType.Years | PivotFieldGroupType.Quarters;
+
+    pivotTable.Options.ShowFieldList = false;
+    pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular;                
+    workbook.SaveAs("PivotTableGrouping.xlsx");              
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("../../Data/Sample.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    Dim pivotSheet As IWorksheet = workbook.Worksheets.Create()
+    Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:B16"))
+    pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A2"), cache)
+    Dim pivotTable As IPivotTable = pivotSheet.PivotTables(0)
+    pivotTable.Fields(1).Axis = PivotAxisTypes.Row
+    pivotTable.Fields(1).Subtotals = PivotSubtotalTypes.None
+    Dim field1 = pivotTable.Fields(1).FieldGroup
+    field1.GroupBy = PivotFieldGroupType.Seconds Or PivotFieldGroupType.Years Or PivotFieldGroupType.Quarters
+    pivotTable.Options.ShowFieldList = False
+    pivotTable.Options.RowLayout = PivotTableRowLayout.Tabular
+    workbook.SaveAs("PivotTableGrouping.xlsx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+The following screenshot represents the output of the pivot table group.
+
+![Pivot table group](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img9.png)
+
+### Ungroup
+
+The grouping in the pivot table can be removed by making the GroupBy property value None. 
+
+The following example shows how to remove grouping from the pivot table.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IPivotTable pivotTable = worksheet.PivotTables[0];
+    pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+    pivotTable.Fields[0].Subtotals = PivotSubtotalTypes.None;
+    var field1 = pivotTable.Fields[1].FieldGroup;
+
+    //Remove pivot table grouping
+    field1.GroupBy = PivotFieldGroupType.None;
+
+    FileStream stream = new FileStream("PivotTableUnGrouping.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();                
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+ using (ExcelEngine excelEngine = new ExcelEngine())
+ {
+     IApplication application = excelEngine.Excel;
+     application.DefaultVersion = ExcelVersion.Xlsx;               
+     IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+     IWorksheet worksheet = workbook.Worksheets[0];
+
+     IPivotTable pivotTable = worksheet.PivotTables[0];
+     pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+     pivotTable.Fields[0].Subtotals = PivotSubtotalTypes.None;
+     var field1 = pivotTable.Fields[1].FieldGroup;
+
+     //Remove pivot table grouping
+     field1.GroupBy = PivotFieldGroupType.None;
+
+     workbook.SaveAs("PivotTableUnGrouping.xlsx");                
+ }
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+    Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+    pivotTable.Fields(0).Axis = PivotAxisTypes.Row
+    pivotTable.Fields(0).Subtotals = PivotSubtotalTypes.None
+    Dim field1 = pivotTable.Fields(1).FieldGroup
+
+    field1.GroupBy = PivotFieldGroupType.None
+
+    workbook.SaveAs("PivotTableUnGrouping.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
 ## Other pivot table operations
 
 ### Adding calculated field in the existing pivot table

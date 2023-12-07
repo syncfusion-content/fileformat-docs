@@ -914,6 +914,14 @@ BINOMDIST<br/><br/></td><td>
 Returns the individual term binomial distribution probability<br/><br/></td></tr>
 <tr>
 <td>
+BYCOL<br/><br/></td><td>
+Applies a LAMBDA to each column and returns an array of the results<br/><br/></td></tr>
+<tr>
+<td>
+BYROW<br/><br/></td><td>
+Applies a LAMBDA to each row and returns an array of the results<br/><br/></td></tr>
+<tr>
+<td>
 CEILING<br/><br/></td><td>
 Rounds a number to the nearest integer or to the nearest multiple of significance<br/><br/></td></tr>
 <tr>
@@ -940,6 +948,14 @@ Returns the test for independence<br/><br/></td></tr>
 <td>
 CHOOSE<br/><br/></td><td>
 Chooses a value from a list of values<br/><br/></td></tr>
+<tr>
+<td>
+CHOOSECOLS<br/><br/></td><td>
+Returns specified columns from an array<br/><br/></td></tr>
+<tr>
+<td>
+CHOOSEROWS<br/><br/></td><td>
+Returns specified rows from an array<br/><br/></td></tr>
 <tr>
 <td>
 CLEAN<br/><br/></td><td>
@@ -1406,6 +1422,10 @@ KURT<br/><br/></td><td>
 Returns the kurtosis of a data set<br/><br/></td></tr>
 <tr>
 <td>
+LAMBDA <br/><br/></td><td>
+Allows to use own formula parameters and logic<br/><br/></td></tr>
+<tr>
+<td>
 LARGE<br/><br/></td><td>
 Returns the k-th largest value in a data set<br/><br/></td></tr>
 <tr>
@@ -1766,6 +1786,10 @@ SLOPE<br/><br/></td><td>
 Returns the slope of the linear regression line<br/><br/></td></tr>
 <tr>
 <td>
+SORT<br/><br/></td><td>
+Returns the cell range values in ascending or descending order<br/><br/></td></tr>
+<tr>
+<td>
 SMALL<br/><br/></td><td>
 Returns the k-th smallest value in a data set<br/><br/></td></tr>
 <tr>
@@ -1862,8 +1886,16 @@ TEXT<br/><br/></td><td>
 Formats a number and converts it to text<br/><br/></td></tr>
 <tr>
 <td>
+TEXTBEFORE<br/><br/></td><td>
+Returns text that occurs before a given character<br/><br/></td></tr>
+<tr>
+<td>
 TEXTJOIN<br/><br/></td><td>
 Combines the text from multiple ranges and/or strings with a delimiter you specify between each text value that will be combined<br/><br/></td></tr>
+<tr>
+<td>
+TEXTSPLIT<br/><br/></td><td>
+Splits the cell text across rows or columns<br/><br/></td></tr>
 <tr>
 <td>
 TIME<br/><br/></td><td>
@@ -1874,8 +1906,16 @@ TIMEVALUE<br/><br/></td><td>
 Converts a time in the form of text to a serial number<br/><br/></td></tr>
 <tr>
 <td>
+TOCOL<br/><br/></td><td>
+Transforms an array into a single column<br/><br/></td></tr>
+<tr>
+<td>
 TODAY<br/><br/></td><td>
 Returns the serial number of today's date<br/><br/></td></tr>
+<tr>
+<td>
+TOROW<br/><br/></td><td>
+Transforms an array into a single row<br/><br/></td></tr>
 <tr>
 <td>
 TRANSPORSE<br/><br/></td><td>
