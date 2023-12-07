@@ -1513,6 +1513,10 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+The following screenshot represents the output of the pivot table group.
+
+![Pivot table group](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img9.png)
+
 ### Ungroup
 
 The grouping in the pivot table can be removed by making the GroupBy property value None. 
@@ -1581,7 +1585,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 End Using
 {% endhighlight %}
 {% endtabs %}
-
 
 ## Other pivot table operations
 
