@@ -84,6 +84,7 @@ Syncfusion.Compression.Portable<br/>
 Syncfusion.OfficeChart.Portable<br/>
 Syncfusion.Pdf.Portable<br/>
 Syncfusion.PresentationRenderer.Portable<br/>
+Syncfusion.Pdf.Imaging.Portable<br/>
 Syncfusion.SkiaSharpHelper.Portable<br/>
 Skiasharp
 </td>
@@ -95,7 +96,7 @@ Windows UI Library (WinUI) and .NET Multi-platform App UI (.NET MAUI)
 </td>
 <td>
 Syncfusion.Presentation.NET<br/>Syncfusion.Compression.NET<br/>
-Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/> Syncfusion.SkiaSharpHelper.NET<br/>Skiasharp
+Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/>Syncfusion.Pdf.Imaging.NET<br/> Syncfusion.SkiaSharpHelper.NET<br/>Skiasharp
 </td>
 </tr>
 </table>

@@ -96,12 +96,12 @@ Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.Of
 <tr>
 <td>
 {{'[ASP.NET Core](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-asp-net-core)' | markdownify}}, {{'[Xamarin](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-xamarin)' | markdownify}} and {{'[Blazor](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-blazor)' | markdownify}}<br/></td><td>
-Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>Syncfusion.Pdf.Imaging.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
 <tr>
 <td>
 {{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-winui)' | markdownify}}<br/> {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-pdf-in-maui)' | markdownify}}<br/>
 </td><td>
-Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
+Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/>Syncfusion.Pdf.Imaging.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
@@ -110,6 +110,7 @@ N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference 
 N> 4. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
 N> 5. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
 N> 6. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
+N> 6. Starting with v24.1.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to PDF conversion.
 
 ## Converting Word document to image
 
@@ -131,12 +132,12 @@ Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.Of
 <tr>
 <td>
 {{'[ASP.NET Core](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-asp-net-core)' | markdownify}}, {{'[Xamarin](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-xamarin)' | markdownify}} and {{'[Blazor](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-blazor)' | markdownify}}<br/></td><td>
-Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>Syncfusion.Pdf.Imaging.Portable<br/>SkiaSharp.HarfBuzz<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
 <tr>
 <td>
 {{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-winui)' | markdownify}}<br/> {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/docio/convert-word-document-to-image-in-maui)' | markdownify}}<br/>
 </td><td>
-Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
+Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/>Syncfusion.Pdf.Imaging.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
 ## Converting Charts

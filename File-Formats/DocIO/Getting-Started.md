@@ -1063,6 +1063,7 @@ For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform,
 * Syncfusion.Compression.Portable
 * Syncfusion.Pdf.Portable
 * Syncfusion.DocIORenderer.Portable
+* Syncfusion.Pdf.Imaging.Portable
 
 [DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a Word document into PDF. 
 
