@@ -1701,7 +1701,7 @@ Users can configure fallback fonts in the following ways:
 * Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
-N> DocIO internally uses user initialized or specified fallback fonts for Unicode characters during Word to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
+N> DocIO internally uses user-initialized or specified fallback fonts for Unicode characters during Word to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
 
 ### Initialize default fallback fonts
 
@@ -1710,10 +1710,10 @@ The following code example demonstrates how to initialize a default fallback fon
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
       //Initialize the default fallback fonts collection.
@@ -1724,7 +1724,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
          //Converts Word document into PDF document.
          using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
          {
-            //Saves the PDF file to file system
+            //Saves the PDF file to file system.
             using (FileStream outputStream = new FileStream("WordToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                pdfDocument.Save(outputStream);
@@ -1736,12 +1736,12 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-//Loads an existing Word document
+//Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.DocIO.FormatType.Docx))
 {
-   //Initialize the default fallback fonts collection
+   //Initialize the default fallback fonts collection.
    wordDocument.FontSettings.FallbackFonts.InitializeDefault();
-   //Instantiation of DocToPDFConverter for Word to PDF conversion
+   //Instantiation of DocToPDFConverter for Word to PDF conversion.
    using (DocToPDFConverter converter = new DocToPDFConverter())
    {
       //Converts Word document into PDF document.
@@ -1755,15 +1755,15 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Loads an existing Word document
+'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-    'Initialize the default fallback fonts collection
+    'Initialize the default fallback fonts collection.
     wordDocument.FontSettings.FallbackFonts.InitializeDefault()
-    'Instantiation of DocToPDFConverter for Word to PDF conversion
+    'Instantiation of DocToPDFConverter for Word to PDF conversion.
     Using converter As New DocToPDFConverter()
-        'Converts Word document into PDF document
+        'Converts Word document into PDF document.
         Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-            'Saves the PDF file to file system
+            'Saves the PDF file to file system.
             pdfDocument.Save("WordToPDF.pdf")
         End Using
     End Using
@@ -1779,25 +1779,25 @@ The following code example demonstrates how a user can add fallback fonts based 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" script type
+      //Adds fallback font for "Arabic" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
-      //Adds fallback font for "Hebrew" script type
+      //Adds fallback font for "Hebrew" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
-      //Adds fallback font for "Hindi" script type
+      //Adds fallback font for "Hindi" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
-      //Adds fallback font for "Chinese" script type
+      //Adds fallback font for "Chinese" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
-      //Adds fallback font for "Japanese" script type
+      //Adds fallback font for "Japanese" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
-      //Adds fallback font for "Thai" script type
+      //Adds fallback font for "Thai" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
-      //Adds fallback font for "Korean" script type
+      //Adds fallback font for "Korean" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
       //Instantiation of DocIORenderer for Word to PDF conversion.
       using (DocIORenderer render = new DocIORenderer())
@@ -1805,7 +1805,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
          //Converts Word document into PDF document.
          using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
          {
-            //Saves the PDF file to file system
+            //Saves the PDF file to file system.
             using (FileStream outputStream = new FileStream("WordToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                pdfDocument.Save(outputStream);
@@ -1817,24 +1817,24 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-//Loads an existing Word document
+//Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.DocIO.FormatType.Docx))
 {
-   //Adds fallback font for "Arabic" script type
+   //Adds fallback font for "Arabic" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
-   //Adds fallback font for "Hebrew" script type
+   //Adds fallback font for "Hebrew" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
-   //Adds fallback font for "Hindi" script type
+   //Adds fallback font for "Hindi" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
-   //Adds fallback font for "Chinese" script type
+   //Adds fallback font for "Chinese" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
-   //Adds fallback font for "Japanese" script type
+   //Adds fallback font for "Japanese" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
-   //Adds fallback font for "Thai" script type
+   //Adds fallback font for "Thai" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
-   //Adds fallback font for "Korean" script type
+   //Adds fallback font for "Korean" script type.
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
-   //Instantiation of DocToPDFConverter for Word to PDF conversion
+   //Instantiation of DocToPDFConverter for Word to PDF conversion.
    using (DocToPDFConverter converter = new DocToPDFConverter())
    {
       //Converts Word document into PDF document.
@@ -1848,27 +1848,27 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Loads an existing Word document
+'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-    'Adds fallback font for "Arabic" script type
+    'Adds fallback font for "Arabic" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman")
-    'Adds fallback font for "Hebrew" script type
+    'Adds fallback font for "Hebrew" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New")
-    'Adds fallback font for "Hindi" script type
+    'Adds fallback font for "Hindi" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI")
-    'Adds fallback font for "Chinese" script type
+    'Adds fallback font for "Chinese" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU")
-    'Adds fallback font for "Japanese" script type
+    'Adds fallback font for "Japanese" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho")
-    'Adds fallback font for "Thai" script type
+    'Adds fallback font for "Thai" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif")
-    'Adds fallback font for "Korean" script type
+    'Adds fallback font for "Korean" script type.
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang")
-    'Instantiation of DocToPDFConverter for Word to PDF conversion
+    'Instantiation of DocToPDFConverter for Word to PDF conversion.
     Using converter As New DocToPDFConverter()
-        'Converts Word document into PDF document
+        'Converts Word document into PDF document.
         Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-            'Saves the PDF file to file system
+            'Saves the PDF file to file system.
             pdfDocument.Save("WordToPDF.pdf")
         End Using
     End Using
@@ -1886,25 +1886,25 @@ The following code example demonstrates how users can add fallback fonts by usin
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" custom unicode range
+      //Adds fallback font for "Arabic" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-      //Adds fallback font for "Hebrew" custom unicode range
+      //Adds fallback font for "Hebrew" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
-      //Adds fallback font for "Hindi" custom unicode range
+      //Adds fallback font for "Hindi" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
-      //Adds fallback font for "Chinese" custom unicode range
+      //Adds fallback font for "Chinese" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-      //Adds fallback font for "Japanese" custom unicode range
+      //Adds fallback font for "Japanese" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
-      //Adds fallback font for "Thai" custom unicode range
+      //Adds fallback font for "Thai" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
-      //Adds fallback font for "Korean" custom unicode range
+      //Adds fallback font for "Korean" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
       //Instantiation of DocIORenderer for Word to PDF conversion.
       using (DocIORenderer render = new DocIORenderer())
@@ -1912,7 +1912,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
          //Converts Word document into PDF document.
          using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
          {
-            //Saves the PDF file to file system
+            //Saves the PDF file to file system.
             using (FileStream outputStream = new FileStream("WordToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                pdfDocument.Save(outputStream);
@@ -1924,24 +1924,24 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-//Loads an existing Word document
+//Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.DocIO.FormatType.Docx))
 {
-   //Adds fallback font for "Arabic" custom unicode range
+   //Adds fallback font for "Arabic" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-   //Adds fallback font for "Hebrew" custom unicode range
+   //Adds fallback font for "Hebrew" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
-   //Adds fallback font for "Hindi" custom unicode range
+   //Adds fallback font for "Hindi" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
-   //Adds fallback font for "Chinese" custom unicode range
+   //Adds fallback font for "Chinese" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-   //Adds fallback font for "Japanese" custom unicode range
+   //Adds fallback font for "Japanese" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
-   //Adds fallback font for "Thai" custom unicode range
+   //Adds fallback font for "Thai" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
-   //Adds fallback font for "Korean" custom unicode range
+   //Adds fallback font for "Korean" custom unicode range.
    wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-   //Instantiation of DocToPDFConverter for Word to PDF conversion
+   //Instantiation of DocToPDFConverter for Word to PDF conversion.
    using (DocToPDFConverter converter = new DocToPDFConverter())
    {
       //Converts Word document into PDF document.
@@ -1955,27 +1955,27 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Loads an existing Word document
+'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-    'Adds fallback font for "Arabic" custom unicode range
+    'Adds fallback font for "Arabic" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"))
-    'Adds fallback font for "Hebrew" custom unicode range
+    'Adds fallback font for "Hebrew" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"))
-    'Adds fallback font for "Hindi" custom unicode range
+    'Adds fallback font for "Hindi" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"))
-    'Adds fallback font for "Chinese" custom unicode range
+    'Adds fallback font for "Chinese" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"))
-    'Adds fallback font for "Japanese" custom unicode range
+    'Adds fallback font for "Japanese" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"))
-    'Adds fallback font for "Thai" custom unicode range
+    'Adds fallback font for "Thai" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"))
-    'Adds fallback font for "Korean" custom unicode range
+    'Adds fallback font for "Korean" custom unicode range.
     wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"))
-    'Instantiation of DocToPDFConverter for Word to PDF conversion
+    'Instantiation of DocToPDFConverter for Word to PDF conversion.
     Using converter As New DocToPDFConverter()
-        'Converts Word document into PDF document
+        'Converts Word document into PDF document.
         Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-            'Saves the PDF file to file system
+            'Saves the PDF file to file system.
             pdfDocument.Save("WordToPDF.pdf")
         End Using
     End Using
@@ -1991,10 +1991,10 @@ The following code example demonstrates how user can modify or customize the exi
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
       //Initialize the default fallback fonts collection.
@@ -2002,10 +2002,10 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 	  FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
       foreach (FallbackFont fallbackFont in fallbackFonts) 
       {
-         //Customize a default fallback font name as "David" for the Hebrew script
+         //Customize a default fallback font name as "David" for the Hebrew script.
          if (fallbackFont.ScriptType == ScriptType.Hebrew)
             fallbackFont.FontNames = "David";
-         //Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script
+         //Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script.
          else if (fallbackFont.ScriptType == ScriptType.Thai)
             fallbackFont.FontNames = "Microsoft Sans Serif";
       }
@@ -2015,7 +2015,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
          //Converts Word document into PDF document.
          using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
          {
-            //Saves the PDF file to file system
+            //Saves the PDF file to file system.
             using (FileStream outputStream = new FileStream("WordToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                pdfDocument.Save(outputStream);
@@ -2027,22 +2027,22 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-//Loads an existing Word document
+//Loads an existing Word document.
 using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.DocIO.FormatType.Docx))
 {
-   //Initialize the default fallback fonts collection
+   //Initialize the default fallback fonts collection.
    wordDocument.FontSettings.FallbackFonts.InitializeDefault();
    FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
    foreach (FallbackFont fallbackFont in fallbackFonts) 
    {
-      //Customize a default fallback font name as "David" for the Hebrew script
+      //Customize a default fallback font name as "David" for the Hebrew script.
       if (fallbackFont.ScriptType == ScriptType.Hebrew)
          fallbackFont.FontNames = "David";
-      //Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script
+      //Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script.
       else if (fallbackFont.ScriptType == ScriptType.Thai)
          fallbackFont.FontNames = "Microsoft Sans Serif";
    }
-   //Instantiation of DocToPDFConverter for Word to PDF conversion
+   //Instantiation of DocToPDFConverter for Word to PDF conversion.
    using (DocToPDFConverter converter = new DocToPDFConverter())
    {
       //Converts Word document into PDF document.
@@ -2056,25 +2056,25 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Loads an existing Word document
+'Loads an existing Word document.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
-    'Initialize the default fallback fonts collection
+    'Initialize the default fallback fonts collection.
     wordDocument.FontSettings.FallbackFonts.InitializeDefault()
 	Dim fallbackFonts As FallbackFonts = wordDocument.FontSettings.FallbackFonts
 	foreach (FallbackFont fallbackFont in fallbackFonts) 
     {
-      'Customize a default fallback font name as "David" for the Hebrew script
+      'Customize a default fallback font name as "David" for the Hebrew script.
       if (fallbackFont.ScriptType == ScriptType.Hebrew)
          fallbackFont.FontNames = "David";
-      'Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script
+      'Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script.
       else if (fallbackFont.ScriptType == ScriptType.Thai)
          fallbackFont.FontNames = "Microsoft Sans Serif";
     }
-    'Instantiation of DocToPDFConverter for Word to PDF conversion
+    'Instantiation of DocToPDFConverter for Word to PDF conversion.
     Using converter As New DocToPDFConverter()
-        'Converts Word document into PDF document
+        'Converts Word document into PDF document.
         Using pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
-            'Saves the PDF file to file system
+            'Saves the PDF file to file system.
             pdfDocument.Save("WordToPDF.pdf")
         End Using
     End Using

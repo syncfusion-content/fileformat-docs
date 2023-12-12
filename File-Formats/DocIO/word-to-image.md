@@ -341,24 +341,24 @@ Users can configure fallback fonts in the following ways:
 * Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
-N> DocIO internally uses user initialized or specified fallback fonts for Unicode characters during Word to Image conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
+N> DocIO internally uses user-initialized or specified fallback fonts for Unicode characters during Word to Image conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
 
 ### Initialize default fallback fonts
 
-The following code example demonstrates how to initialize a default fallback fonts while converting a Word document to Image. The *InitializeDefault* API sets the default fallback fonts for specific script types like Arabic, Hebrew, Chinese, Japanese etc.
+The following code example demonstrates how to initialize a default fallback fonts while converting a Word document to an Image. The *InitializeDefault* API sets the default fallback fonts for specific script types like Arabic, Hebrew, Chinese, Japanese etc.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
       //Initialize the default fallback fonts collection.
       wordDocument.FontSettings.FallbackFonts.InitializeDefault();
-      //Instantiation of DocIORenderer for Word to PDF conversion.
+      //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
          //Convert the entire Word document to images.
@@ -384,32 +384,32 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 ### Fallback fonts based on script type
 
-The following code example demonstrates how a user can add fallback fonts based on the script types, which DocIO considers internally when converting a Word document to Image.
+The following code example demonstrates how a user can add fallback fonts based on the script types, which DocIO considers internally when converting a Word document to an Image.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" script type
+      //Adds fallback font for "Arabic" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
-      //Adds fallback font for "Hebrew" script type
+      //Adds fallback font for "Hebrew" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
-      //Adds fallback font for "Hindi" script type
+      //Adds fallback font for "Hindi" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
-      //Adds fallback font for "Chinese" script type
+      //Adds fallback font for "Chinese" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
-      //Adds fallback font for "Japanese" script type
+      //Adds fallback font for "Japanese" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
-      //Adds fallback font for "Thai" script type
+      //Adds fallback font for "Thai" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
-      //Adds fallback font for "Korean" script type
+      //Adds fallback font for "Korean" script type.
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
-      //Instantiation of DocIORenderer for Word to PDF conversion.
+      //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
 		 //Convert the entire Word document to images.
@@ -437,32 +437,32 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 Users can set fallback fonts for specific Unicode range of text to be used in Word to Image conversion.
 
-The following code example demonstrates how users can add fallback fonts by using a specific Unicode range of text that DocIO considers internally while converting a Word document to Image.
+The following code example demonstrates how users can add fallback fonts by using a specific Unicode range of text that DocIO considers internally while converting a Word document to an Image.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" custom unicode range
+      //Adds fallback font for "Arabic" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-      //Adds fallback font for "Hebrew" custom unicode range
+      //Adds fallback font for "Hebrew" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
-      //Adds fallback font for "Hindi" custom unicode range
+      //Adds fallback font for "Hindi" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
-      //Adds fallback font for "Chinese" custom unicode range
+      //Adds fallback font for "Chinese" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-      //Adds fallback font for "Japanese" custom unicode range
+      //Adds fallback font for "Japanese" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
-      //Adds fallback font for "Thai" custom unicode range
+      //Adds fallback font for "Thai" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
-      //Adds fallback font for "Korean" custom unicode range
+      //Adds fallback font for "Korean" custom unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-      //Instantiation of DocIORenderer for Word to PDF conversion.
+      //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
          //Convert the entire Word document to images.
@@ -488,15 +488,15 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 ### Modify the exiting fallback fonts
 
-The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to PDF. 
+The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to an Image. 
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Opens the file as stream
+//Opens the file as stream.
 using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
 {
-   //Loads an existing Word document file stream
+   //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
       //Initialize the default fallback fonts collection.
@@ -511,7 +511,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
          else if (fallbackFont.ScriptType == ScriptType.Thai)
             fallbackFont.FontNames = "Microsoft Sans Serif";
       }
-      //Instantiation of DocIORenderer for Word to PDF conversion.
+      //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
          //Convert the entire Word document to images.
