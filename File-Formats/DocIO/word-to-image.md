@@ -332,6 +332,325 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Custom-image-resolution).
 
+## Fallback fonts
+
+During Word to Image conversions, if a glyph of the input text is unavailable in the specified font, the text will not be rendered properly. To address this, the Syncfusion Word (DocIO) library allows users to specify fallback fonts. When a glyph is missing, the library will use one of the fallback fonts to render the text correctly in the output image document.
+
+Users can configure fallback fonts in the following ways:
+* Initialize default fallback fonts.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for a particular range of Unicode text.
+
+N> DocIO internally uses fallback fonts for Unicode characters. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
+
+### Initialize default fallback fonts
+
+The following code example demonstrates how to initialize a default fallback fonts while converting a Word document to Image. The *InitializeDefault* API sets the default fallback fonts for specific script types like Arabic, Hebrew, Chinese, Japanese etc.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the file as stream
+using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+   //Loads an existing Word document file stream
+   using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
+   {
+      //Initialize the default fallback fonts collection.
+      wordDocument.FontSettings.FallbackFonts.InitializeDefault();
+      //Instantiation of DocIORenderer for Word to PDF conversion.
+      using (DocIORenderer render = new DocIORenderer())
+      {
+         //Convert the entire Word document to images.
+         Stream[] imageStreams = wordDocument.RenderAsImages(); 
+         int i = 0;
+         foreach (Stream stream in imageStreams)
+         {
+             //Reset the stream position.
+             stream.Position = 0;
+             //Save the stream as file.
+             using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+		     {
+		         stream.CopyTo(fileStreamOutput);
+		     }
+		     i++;
+		 }
+      }
+   }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
+
+### Fallback fonts based on script type
+
+The following code example demonstrates how user can add fallback fonts based on the below script types which we considered internally while converting a Word document to Image.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the file as stream
+using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+   //Loads an existing Word document file stream
+   using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
+   {
+      //Adds fallback font for "Arabic" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Tahoma, Traditional Arabic");
+      //Adds fallback font for "Hebrew" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+      //Adds fallback font for "Hindi" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+      //Adds fallback font for "Chinese" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+      //Adds fallback font for "Japanese" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+      //Adds fallback font for "Thai" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
+      //Adds fallback font for "Korean" script type
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+      //Instantiation of DocIORenderer for Word to PDF conversion.
+      using (DocIORenderer render = new DocIORenderer())
+      {
+		 //Convert the entire Word document to images.
+         Stream[] imageStreams = wordDocument.RenderAsImages(); 
+		 int i = 0;
+         foreach (Stream stream in imageStreams)
+		 {
+             //Reset the stream position.
+		     stream.Position = 0;
+             //Save the stream as file.
+		     using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+             {
+		         stream.CopyTo(fileStreamOutput);
+             }
+		     i++;
+         }
+      }
+   }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
+
+### Fallback fonts for range of Unicode text
+
+The following code example demonstrates how user can add fallback fonts by using custom unicode range of text which we considered internally while converting a Word document to Image. Based on this, user can use different fallback fonts for the different Unicode ranges under same script type.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the file as stream
+using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+   //Loads an existing Word document file stream
+   using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
+   {
+      //Adds fallback font for "Arabic" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+      //Adds fallback font for "Hebrew" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
+      //Adds fallback font for "Hindi" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
+      //Adds fallback font for "Chinese" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
+      //Adds fallback font for "Japanese" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
+      //Adds fallback font for "Thai" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
+      //Adds fallback font for "Korean" custom unicode range
+      wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+      //Instantiation of DocIORenderer for Word to PDF conversion.
+      using (DocIORenderer render = new DocIORenderer())
+      {
+         //Convert the entire Word document to images.
+		 Stream[] imageStreams = wordDocument.RenderAsImages(); 
+		 int i = 0;
+         foreach (Stream stream in imageStreams)
+         {
+             //Reset the stream position.
+             stream.Position = 0;
+             //Save the stream as file.
+             using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+             {
+                 stream.CopyTo(fileStreamOutput);
+		     }
+		     i++;
+		 }
+      }
+   }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
+
+### Modify the exiting fallback fonts
+
+The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to PDF. 
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the file as stream
+using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, FileAccess.Read))
+{
+   //Loads an existing Word document file stream
+   using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
+   {
+      //Initialize the default fallback fonts collection.
+      wordDocument.FontSettings.FallbackFonts.InitializeDefault();
+	  FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
+      foreach (FallbackFont fallbackFont in fallbackFonts) 
+      {
+         //Customize a default fallback font name as "David" for the Hebrew script.
+         if (fallbackFont.ScriptType == ScriptType.Hebrew)
+            fallbackFont.FontNames = "David";
+         //Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script.
+         else if (fallbackFont.ScriptType == ScriptType.Thai)
+            fallbackFont.FontNames = "Microsoft Sans Serif";
+      }
+      //Instantiation of DocIORenderer for Word to PDF conversion.
+      using (DocIORenderer render = new DocIORenderer())
+      {
+         //Convert the entire Word document to images.
+		 Stream[] imageStreams = wordDocument.RenderAsImages(); 
+         int i = 0;
+		 foreach (Stream stream in imageStreams)
+         {
+		     //Reset the stream position.
+             stream.Position = 0;
+		     //Save the stream as file.
+             using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+		     {
+                 stream.CopyTo(fileStreamOutput);
+		     }
+             i++;
+		 }
+      }
+   }
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
+
+### Supported script types
+
+The following table illustrates the supported script types by .Net Word library (DocIO) in Word to Image(Portable) conversion.
+
+<table>
+<thead> 
+<tr>
+<th>Script types</th>
+<th>Ranges</th>
+<th>Default fallback fonts considered in InitializeDefault API</th>
+</tr>
+</thead>
+<tr>
+<td>
+Arabic
+</td>
+<td>
+0x0600 - 0x06ff<br>
+0x0750 - 0x077f<br>
+0x08a0 - 0x08ff<br>
+0xfb50 - 0xfdff<br>
+0xfe70 - 0xfeff<br>
+</td>
+<td>
+Arial, Times New Roman, Microsoft Uighur
+</td>
+</tr>
+<tr>
+<td>
+Hebrew
+</td>
+<td>
+0x0590 - 0x05ff<br>
+0xfb1d - 0xfb4f<br>
+</td>
+<td>
+Arial, Times New Roman, David
+</td>
+</tr>
+<tr>
+<td>
+Hindi
+</td>
+<td>
+0x0900 - 0x097F<br>
+0xa8e0 - 0xa8ff<br>
+0x1cd0 - 0x1cff<br>
+</td>
+<td>
+Mangal, Utsaah
+</td>
+</tr>
+<tr>
+<td>
+Chinese
+</td>
+<td>
+0x4E00 - 0x9FFF<br>
+0x3400 - 0x4DBF<br>
+0xd840 - 0xd869<br>
+0xdc00 - 0xdedf<br>
+0xA960 - 0xA97F<br>
+0xFF00 - 0xFFEF<br>
+0x3000 - 0x303F<br>
+</td>
+<td>
+DengXian, MingLiU, MS Gothic
+</td>
+</tr>
+<tr>
+<td>
+Japanese
+</td>
+<td>
+0x30A0 - 0x30FF<br>
+0x3040 - 0x309F<br>
+</td>
+<td>
+Yu Mincho, MS Mincho
+</td>
+</tr>
+<tr>
+<td>
+Thai 
+</td>
+<td>
+0x0E00 - 0x0E7F
+</td>
+<td>
+Tahoma, Microsoft Sans Serif
+</td>
+</tr>
+<tr>
+<td>
+Korean 
+</td>
+<td>
+0xAC00 - 0xD7A3<br>
+0x1100 - 0x11FF<br>
+0x3130 - 0x318F<br>
+0xA960 - 0xA97F<br>
+0xD7B0 - 0xD7FF<br>
+0xAC00 - 0xD7AF<br>
+</td>
+<td>
+Malgun Gothic, Batang
+</td>
+</tr>
+</table>
+
 N> 1. In Azure Web Service and Azure APP Service, .NET GDI+ (System.Drawing) does not support the Metafile image (vector image). So, the image will be generated as Bitmap (raster image).
 N> 2. Creating an instance of the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
 N> 3. Total number of images may vary based on unsupported elements in the input Word document.
