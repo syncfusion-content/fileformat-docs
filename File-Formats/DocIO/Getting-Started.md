@@ -1046,24 +1046,7 @@ The resultant document looks as follows.
 
 Essential DocIO allows you to convert a Word document into PDF document in a few lines of code. 
 
-For converting a Word document to PDF, the following assemblies are required to be referenced in your application
-
-* Syncfusion.DocIO.Base
-* Syncfusion.OfficeChart.Base
-* Syncfusion.Compression.Base
-* Syncfusion.Pdf.Base
-* Syncfusion.DocToPdfConverter.Base
-* Syncfusion.OfficeChartToImageConverter.WPF
-* Syncfusion.SfChart.WPF
-
-For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform, the following assemblies are required.
-
-* Syncfusion.DocIO.Portable
-* Syncfusion.OfficeChart.Portable
-* Syncfusion.Compression.Portable
-* Syncfusion.Pdf.Portable
-* Syncfusion.DocIORenderer.Portable
-* Syncfusion.Pdf.Imaging.Portable
+Refer [here](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) to know about the assemblies required to perform Word to PDF conversion in your application.
 
 [DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a Word document into PDF. 
 

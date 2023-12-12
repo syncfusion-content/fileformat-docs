@@ -574,11 +574,9 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-fallback-fonts).
-
 ### Fallback fonts based on script type
 
-The following code example demonstrates how user can add fallback fonts based on the below script types which we considered internally while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how a user can add fallback fonts based on the script types, which Presentation considers internally when converting a PowerPoint presentation to Image.
 
 {% tabs %}
 
@@ -621,11 +619,11 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-PDF-conversion/Apply-fallback-fonts).
-
 ### Fallback fonts for range of Unicode text
 
-The following code example demonstrates how user can add fallback fonts by using custom unicode range of text which we considered internally while converting a PowerPoint presentation to Image.
+Users can set fallback fonts for their custom Unicode range of text to be used in presentation to Image conversion.
+
+The following code example demonstrates how users can add fallback fonts by using a custom Unicode range of text that Presentation considers internally while converting a PowerPoint presentation to Image.
 
 {% tabs %}
 
@@ -669,8 +667,6 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Apply-custom-fallback-fonts).
-
 ### Modify the exiting fallback fonts
 
 The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a PowerPoint presentation to Image.
@@ -688,7 +684,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         //Initialize the PresentationRenderer to perform image conversion
         pptxDoc.PresentationRenderer = new PresentationRenderer();
         //Use a sets of default FallbackFont collection to IPresentation
-        pptxDoc.FontSettings.InitializeFallbackFonts();
+        pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
         // Customize a default fallback font name
         // Modify the Hebrew script default font name as "David"
         pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
@@ -710,11 +706,9 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Customize-default-fallback-fonts).
-
 ### Supported script types
 
-The following table illustrates the supported script types by .Net PowerPoint library (Presentation) in Presentation to Image(Portable) conversion.
+The following table illustrates the supported script types by .NET PowerPoint library (Presentation) in Presentation to Image(Portable) conversion.
 
 <table>
 <thead> 

@@ -1772,11 +1772,9 @@ End Using
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
-
 ### Fallback fonts based on script type
 
-The following code example demonstrates how user can add fallback fonts based on the below script types which we considered internally while converting a Word document to PDF.
+The following code example demonstrates how a user can add fallback fonts based on the script types, which DocIO considers internally when converting a Word document to PDF.
 
 {% tabs %}
 
@@ -1879,11 +1877,11 @@ End Using
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
-
 ### Fallback fonts for range of Unicode text
 
-The following code example demonstrates how user can add fallback fonts by using custom unicode range of text which we considered internally while converting a Word document to PDF. Based on this, user can use different fallback fonts for the different Unicode ranges under same script type.
+Users can set fallback fonts for their custom Unicode range of text to be used in Word to PDF conversion.
+
+The following code example demonstrates how users can add fallback fonts by using a custom Unicode range of text that DocIO considers internally while converting a Word document to PDF.
 
 {% tabs %}
 
@@ -1986,8 +1984,6 @@ End Using
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
-
 ### Modify the exiting fallback fonts
 
 The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to PDF.
@@ -2087,11 +2083,9 @@ End Using
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Use-alternate-font-without-installing).
-
 ### Supported script types
 
-The following table illustrates the supported script types by .Net Word library (DocIO) in Word to PDF conversion.
+The following table illustrates the supported script types by .NET Word library (DocIO) in Word to PDF conversion.
 
 <table>
 <thead> 
