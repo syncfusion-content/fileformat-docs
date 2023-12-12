@@ -1701,7 +1701,7 @@ Users can configure fallback fonts in the following ways:
 * Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
-N> DocIO internally uses fallback fonts for Unicode characters. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
+N> DocIO internally uses user initialized or specified fallback fonts for Unicode characters during Word to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
 
 ### Initialize default fallback fonts
 
@@ -1786,19 +1786,19 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
       //Adds fallback font for "Arabic" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Tahoma, Traditional Arabic");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
       //Adds fallback font for "Hebrew" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
       //Adds fallback font for "Hindi" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
       //Adds fallback font for "Chinese" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
       //Adds fallback font for "Japanese" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
       //Adds fallback font for "Thai" script type
       wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
       //Adds fallback font for "Korean" script type
-      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+      wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
       //Instantiation of DocIORenderer for Word to PDF conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
@@ -1821,19 +1821,19 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.DocIO.FormatType.Docx))
 {
    //Adds fallback font for "Arabic" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Tahoma, Traditional Arabic");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
    //Adds fallback font for "Hebrew" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
    //Adds fallback font for "Hindi" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
    //Adds fallback font for "Chinese" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
    //Adds fallback font for "Japanese" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
    //Adds fallback font for "Thai" script type
    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
    //Adds fallback font for "Korean" script type
-   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+   wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
    //Instantiation of DocToPDFConverter for Word to PDF conversion
    using (DocToPDFConverter converter = new DocToPDFConverter())
    {
@@ -1851,19 +1851,19 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 'Loads an existing Word document
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Adds fallback font for "Arabic" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Tahoma, Traditional Arabic")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman")
     'Adds fallback font for "Hebrew" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New")
     'Adds fallback font for "Hindi" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI")
     'Adds fallback font for "Chinese" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU")
     'Adds fallback font for "Japanese" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho")
     'Adds fallback font for "Thai" script type
     wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif")
     'Adds fallback font for "Korean" script type
-    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim")
+    wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang")
     'Instantiation of DocToPDFConverter for Word to PDF conversion
     Using converter As New DocToPDFConverter()
         'Converts Word document into PDF document
@@ -1879,9 +1879,9 @@ End Using
 
 ### Fallback fonts for range of Unicode text
 
-Users can set fallback fonts for their custom Unicode range of text to be used in Word to PDF conversion.
+Users can set fallback fonts for specific Unicode range of text to be used in Word to PDF conversion.
 
-The following code example demonstrates how users can add fallback fonts by using a custom Unicode range of text that DocIO considers internally while converting a Word document to PDF.
+The following code example demonstrates how users can add fallback fonts by using a specific Unicode range of text that DocIO considers internally while converting a Word document to PDF.
 
 {% tabs %}
 

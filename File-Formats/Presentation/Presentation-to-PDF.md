@@ -349,7 +349,7 @@ When a glyph of input text is unavailable in mentioned font, text will not be pr
 
 ### Initialize default fallback fonts
 
-The following code example demonstrates how to initialize a default fallback font while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how to initialize a default fallback font while converting a PowerPoint presentation to PDF. The *InitializeDefault* API sets the default fallback fonts for specific script types like Arabic, Hebrew, Chinese, Japanese etc.
 
 {% tabs %}
 
@@ -437,19 +437,19 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
         //Adds fallback font for "Arabic" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Traditional Arabic");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
 		//Adds fallback font for "Hebrew" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
 		//Adds fallback font for "Hindi" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
 		//Adds fallback font for "Chinese" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
 		//Adds fallback font for "Japanese" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
 		//Adds fallback font for "Thai" script type
 		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
 		//Adds fallback font for "Korean" script type
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
         //Create the MemoryStream to save the converted PDF
         using (MemoryStream pdfStream = new MemoryStream())
         {
@@ -479,19 +479,19 @@ PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfC
 //Enable the portable rendering
 pdfConverterSettings.EnablePortableRendering = true;
 //Adds fallback font for "Arabic" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Traditional Arabic");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
 //Adds fallback font for "Hebrew" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
 //Adds fallback font for "Hindi" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
 //Adds fallback font for "Chinese" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
 //Adds fallback font for "Japanese" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
 //Adds fallback font for "Thai" script type
 pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
 //Adds fallback font for "Korean" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
 //Converts the PowerPoint Presentation into PDF document with Portable rendering option
 PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 //Saves the PDF document
@@ -510,19 +510,19 @@ Dim pdfConverterSettings As PresentationToPdfConverterSettings = new Presentatio
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
 'Adds fallback font for "Arabic" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Traditional Arabic")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman")
 'Adds fallback font for "Hebrew" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial,Courier New")
 'Adds fallback font for "Hindi" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI")
 'Adds fallback font for "Chinese" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU")
 'Adds fallback font for "Japanese" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho")
 'Adds fallback font for "Thai" script type
 pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif")
 'Adds fallback font for "Korean" script type
-pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim")
+pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang")
 'Converts the PowerPoint Presentation into PDF document
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 'Saves the PDF document
@@ -537,9 +537,9 @@ pptxDoc.Close()
 
 ### Fallback fonts for range of Unicode text
 
-Users can set fallback fonts for their custom Unicode range of text to be used in presentation to PDF conversion.
+Users can set fallback fonts for specific Unicode range of text to be used in presentation to PDF conversion.
 
-The following code example demonstrates how users can add fallback fonts by using a custom Unicode range of text that Presentation considers internally while converting a PowerPoint presentation to PDF.
+The following code example demonstrates how users can add fallback fonts by using a specific Unicode range of text that Presentation considers internally while converting a PowerPoint presentation to PDF.
 
 {% tabs %}
 
