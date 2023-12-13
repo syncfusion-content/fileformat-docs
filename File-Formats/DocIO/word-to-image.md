@@ -338,7 +338,7 @@ During Word to Image conversions, if a glyph of the input text is unavailable in
 
 Users can configure fallback fonts in the following ways:
 * Initialize default fallback fonts.
-* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, Japanese, and more.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
 N> DocIO internally uses user-initialized or specified fallback fonts for Unicode characters during Word to Image conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
@@ -370,11 +370,11 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
              stream.Position = 0;
              //Save the stream as file.
              using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
-		     {
-		         stream.CopyTo(fileStreamOutput);
-		     }
-		     i++;
-		 }
+             {
+                stream.CopyTo(fileStreamOutput);
+             }
+             i++;
+         }
       }
    }
 }
@@ -412,19 +412,19 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
       //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
-		 //Convert the entire Word document to images.
+         //Convert the entire Word document to images.
          Stream[] imageStreams = wordDocument.RenderAsImages(); 
-		 int i = 0;
+         int i = 0;
          foreach (Stream stream in imageStreams)
-		 {
+         {
              //Reset the stream position.
-		     stream.Position = 0;
+             stream.Position = 0;
              //Save the stream as file.
-		     using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
+             using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
              {
-		         stream.CopyTo(fileStreamOutput);
+                 stream.CopyTo(fileStreamOutput);
              }
-		     i++;
+             i++;
          }
       }
    }
@@ -448,26 +448,26 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
    //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" custom unicode range.
+      //Adds fallback font for "Arabic" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-      //Adds fallback font for "Hebrew" custom unicode range.
+      //Adds fallback font for "Hebrew" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
-      //Adds fallback font for "Hindi" custom unicode range.
+      //Adds fallback font for "Hindi" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
-      //Adds fallback font for "Chinese" custom unicode range.
+      //Adds fallback font for "Chinese" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-      //Adds fallback font for "Japanese" custom unicode range.
+      //Adds fallback font for "Japanese" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
-      //Adds fallback font for "Thai" custom unicode range.
+      //Adds fallback font for "Thai" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
-      //Adds fallback font for "Korean" custom unicode range.
+      //Adds fallback font for "Korean" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
       //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
       {
          //Convert the entire Word document to images.
-		 Stream[] imageStreams = wordDocument.RenderAsImages(); 
-		 int i = 0;
+         Stream[] imageStreams = wordDocument.RenderAsImages(); 
+         int i = 0;
          foreach (Stream stream in imageStreams)
          {
              //Reset the stream position.
@@ -476,9 +476,9 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
              using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
              {
                  stream.CopyTo(fileStreamOutput);
-		     }
-		     i++;
-		 }
+             }
+             i++;
+         }
       }
    }
 }
@@ -501,7 +501,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
    {
       //Initialize the default fallback fonts collection.
       wordDocument.FontSettings.FallbackFonts.InitializeDefault();
-	  FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
+      FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
       foreach (FallbackFont fallbackFont in fallbackFonts) 
       {
          //Customize a default fallback font name as "David" for the Hebrew script.
@@ -515,19 +515,19 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
       using (DocIORenderer render = new DocIORenderer())
       {
          //Convert the entire Word document to images.
-		 Stream[] imageStreams = wordDocument.RenderAsImages(); 
+         Stream[] imageStreams = wordDocument.RenderAsImages(); 
          int i = 0;
-		 foreach (Stream stream in imageStreams)
+         foreach (Stream stream in imageStreams)
          {
-		     //Reset the stream position.
+             //Reset the stream position.
              stream.Position = 0;
-		     //Save the stream as file.
+             //Save the stream as file.
              using (FileStream fileStreamOutput = File.Create("WordToImage_" + i + ".jpeg"))
-		     {
+             {
                  stream.CopyTo(fileStreamOutput);
-		     }
+             }
              i++;
-		 }
+         }
       }
    }
 }
@@ -537,14 +537,14 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 ### Supported script types
 
-The following table illustrates the supported script types by .NET Word library (DocIO) in Word to Image(Portable) conversion.
+The following table illustrates the supported script types by the .NET Word library (DocIO) in Word to Image conversion.
 
 <table>
 <thead> 
 <tr>
 <th>Script types</th>
 <th>Ranges</th>
-<th>Default fallback fonts considered in InitializeDefault API</th>
+<th>Default fallback fonts considered in InitializeDefault() API</th>
 </tr>
 </thead>
 <tr>
@@ -653,6 +653,7 @@ N> 5. Different styles of borders are known limitations in Word to Image convers
 N> 6. In ASP.NET Core, Blazor, Xamarin, WinUI and .NET MAUI platforms, to convert Word document to images we recommend you to use Word to image [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image) as a reference in your application.
 N> 7. DocIO supports Word to image conversion in UWP application using DocIORenderer.
 N> 8. In addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6) and [HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0) NuGets to perform Word to Image conversion in Linux environment.
+N> 9. The .NET Word Library (DocIO) uses System.Drawing functionalities for Word to image conversion in .NET Framework applications. And System.Drawing itself uses a fallback font to preserve the Unicode text while drawing the text in the image. So, these Fallback fonts APIs are **not supported in .NET Framework**.
 
 ## See Also
 
