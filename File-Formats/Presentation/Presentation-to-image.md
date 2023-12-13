@@ -828,7 +828,7 @@ Malgun Gothic, Batang
 </tr>
 </table>
 
-N> Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
+N> The .NET PowerPoint Library (Presentation) uses System.Drawing functionalities for PowerPoint to image conversion in .NET Framework applications. And System.Drawing itself uses fallback font to preserve the Unicode text while drawing the text in image. So, these APIs are **not supported in .NET Framework**.
 
 ## See Also
 
