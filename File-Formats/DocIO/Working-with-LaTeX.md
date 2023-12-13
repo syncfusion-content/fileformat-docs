@@ -65,8 +65,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format accent equations.
 
 <table>
@@ -205,9 +203,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format bar equations.
 
 <table>
@@ -286,8 +281,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format box equations.
 
 <table>
@@ -360,8 +353,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format border box equations.
 
@@ -436,8 +427,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format delimiter equations.
 
 <table>
@@ -465,141 +454,126 @@ The following table demonstrates the LaTeX equivalent to professional format del
 </tr>
 <tr>
 <td>4.</td>
-<td><img src="WorkingwithMathematicalEquation_images/Delimiter4.png" alt="Delimiter equation"></td>
-<td>  </td>
-</tr>
-<tr>
-<td>5.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter5.png" alt="Delimiter equation"></td>
 <td>\left\lfloora\right\rfloor</td>
 </tr>
 <tr>
-<td>6.</td>
+<td>5.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter6.png" alt="Delimiter equation"></td>
 <td>\left\lceila\right\rceil</td>
 </tr>
 <tr>
-<td>7.</td>
+<td>6.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter7.png" alt="Delimiter equation"></td>
 <td>\left|a\right|</td>
 </tr>
 <tr>
-<td>8.</td>
-<td><img src="WorkingwithMathematicalEquation_images/Delimiter8.png" alt="Delimiter equation"></td>
-<td>  </td>
-</tr>
-<tr>
-<td>9.</td>
+<td>7.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter9.png" alt="Delimiter equation"></td>
 <td>\left[a\right[</td>
 </tr>
 <tr>
-<td>10.</td>
+<td>8.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter10.png" alt="Delimiter equation"></td>
 <td>\left]a\right]</td>
 </tr>
 <tr>
-<td>11.</td>
+<td>9.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter11.png" alt="Delimiter equation"></td>
 <td>\left]a\right[</td>
 </tr>
 <tr>
-<td>12.</td>
-<td><img src="WorkingwithMathematicalEquation_images/Delimiter12.png" alt="Delimiter equation"></td>
-<td>  </td>
-</tr>
-<tr>
-<td>13.</td>
+<td>10.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter13.png" alt="Delimiter equation"></td>
 <td>\left(a\middle|b\right)</td>
 </tr>
 <tr>
-<td>14.</td>
+<td>11.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter14.png" alt="Delimiter equation"></td>
 <td>\left\{a\middle|b\right\}</td>
 </tr>
 <tr>
-<td>15.</td>
+<td>12.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter15.png" alt="Delimiter equation"></td>
 <td>\left\langlea\middle|b\right\rangle</td>
 </tr>
 <tr>
-<td>16.</td>
+<td>13.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter16.png" alt="Delimiter equation"></td>
 <td>\left\langlea\middle|b\middle|c\right\rangle</td>
 </tr>
 <tr>
-<td>17.</td>
+<td>14.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter17.png" alt="Delimiter equation"></td>
 <td>\left(a\right.</td>
 </tr>
 <tr>
-<td>18.</td>
+<td>15.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter18.png" alt="Delimiter equation"></td>
 <td>\left. a\right)</td>
 </tr>
 <tr>
-<td>19.</td>
+<td>16.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter19.png" alt="Delimiter equation"></td>
 <td>\left[a\right.</td>
 </tr>
 <tr>
-<td>20.</td>
+<td>17.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter20.png" alt="Delimiter equation"></td>
 <td>\left. a\right]</td>
 </tr>
 <tr>
-<td>21.</td>
+<td>18.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter21.png" alt="Delimiter equation"></td>
 <td>\left\{a\right.</td>
 </tr>
 <tr>
-<td>22.</td>
+<td>19.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter22.png" alt="Delimiter equation"></td>
 <td>\left. a\right\}</td>
 </tr>
 <tr>
-<td>23.</td>
+<td>20.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter23.png" alt="Delimiter equation"></td>
 <td>\left\langlea\right.</td>
 </tr>
 <tr>
-<td>24.</td>
+<td>21.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter24.png" alt="Delimiter equation"></td>
 <td>\left. a\right\rangle</td>
 </tr>
 <tr>
-<td>25.</td>
+<td>22.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter25.png" alt="Delimiter equation"></td>
 <td>\left\lfloora\right.</td>
 </tr>
 <tr>
-<td>26.</td>
+<td>23.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter26.png" alt="Delimiter equation"></td>
 <td>\left. a\right\rfloor</td>
 </tr>
 <tr>
-<td>27.</td>
+<td>24.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter27.png" alt="Delimiter equation"></td>
 <td>\left\lceila\right.</td>
 </tr>
 <tr>
-<td>28.</td>
+<td>25.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter28.png" alt="Delimiter equation"></td>
 <td>\left. a\right\rceil</td>
 </tr>
 <tr>
-<td>29.</td>
+<td>26.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter29.png" alt="Delimiter equation"></td>
 <td>\left|a\right.</td>
 </tr>
 <tr>
-<td>30.</td>
+<td>27.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter30.png" alt="Delimiter equation"></td>
 <td>\left. a\right|</td>
 </tr>
 <tr>
-<td>31.</td>
+<td>28.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Delimiter31.png" alt="Delimiter equation"></td>
 <td>\binom{a}{b}</td>
 </tr>
@@ -660,8 +634,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format fraction equations.
 
@@ -750,8 +722,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format function equations.
 
@@ -971,8 +941,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format group character equations.
 
 <table>
@@ -1050,8 +1018,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format limit equations.
 
@@ -1136,8 +1102,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format matrix equations.
 
 <table>
@@ -1210,8 +1174,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format N-array equations.
 
@@ -1336,8 +1298,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format radical equations.
 
 <table>
@@ -1415,8 +1375,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format SubSuperScript equations.
 
@@ -1496,8 +1454,6 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 The following table demonstrates the LaTeX equivalent to professional format Left SubSuperScript equations.
 
 <table>
@@ -1570,8 +1526,6 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endhighlight %}
 {% endtabs %}
-
-You can download a complete working sample from GitHub.
 
 The following table demonstrates the LaTeX equivalent to professional format Right SubSuperScript equations.
 
