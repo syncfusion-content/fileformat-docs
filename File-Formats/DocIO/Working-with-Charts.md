@@ -484,8 +484,9 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
     WParagraph paragraph = document.LastParagraph;
     //Gets the chart entity from the paragraph items
     WChart chart = paragraph.ChildEntities[1] as WChart;
-    //Refreshes chart data
-    chart.Refresh();
+    // Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+    // or false to refresh only the data without evaluating formulas.
+    chart.Refresh(false);
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.docx);
     //Closes the Word document
@@ -500,8 +501,9 @@ WordDocument document = new WordDocument("Template.docx");
 WParagraph paragraph = document.LastParagraph;
 //Gets the chart entity from the paragraph items
 WChart chart = paragraph.ChildEntities[1] as WChart;
-//Refreshes chart data
-chart.Refresh();
+// Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+// or false to refresh only the data without evaluating formulas.
+chart.Refresh(false);
 //Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
@@ -514,8 +516,9 @@ Dim document As New WordDocument("Template.docx")
 Dim paragraph As WParagraph = document.LastParagraph
 'Gets the chart entity from the paragraph items
 Dim chart As WChart = TryCast(paragraph.ChildEntities(1), WChart)
-'Refreshes chart data
-chart.Refresh()
+'Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+'or false to refresh only the data without evaluating formulas.
+chart.Refresh(false)
 'Saves and closes the document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()

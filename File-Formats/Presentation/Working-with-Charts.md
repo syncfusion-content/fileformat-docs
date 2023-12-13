@@ -451,8 +451,9 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 ISlide slide = pptxDoc.Slides[0];
 //Gets the chart in slide
 IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
-//Refreshes the chart
-chart.Refresh();
+//Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+//or false to refresh only the data without evaluating formulas.
+chart.Refresh(false);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -467,8 +468,9 @@ IPresentation pptxDoc = Presentation.Open("Chart.pptx");
 ISlide slide = pptxDoc.Slides[0];
 //Gets the chart in slide
 IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
-//Refreshes the chart
-chart.Refresh();
+//Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+//or false to refresh only the data without evaluating formulas.
+chart.Refresh(false);
 //Saves the Presentation
 pptxDoc.Save("output.pptx");
 //Closes the Presentation
@@ -482,8 +484,9 @@ Dim pptxDoc As IPresentation = Presentation.Open("Chart.pptx")
 Dim slide As ISlide = pptxDoc.Slides(0)
 'Gets the chart in slide
 Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
-'Refreshes the chart
-chart.Refresh()
+'Refreshes the chart data. Set true to evaluate Excel formulas before refreshing,
+'or false to refresh only the data without evaluating formulas.
+chart.Refresh(false)
 'Saves the Presentation
 pptxDoc.Save("output.pptx")
 'Closes the Presentation
