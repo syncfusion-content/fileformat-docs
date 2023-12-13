@@ -1999,7 +1999,7 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
    {
       //Initialize the default fallback fonts collection.
       wordDocument.FontSettings.FallbackFonts.InitializeDefault();
-	  FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
+      FallbackFonts fallbackFonts = wordDocument.FontSettings.FallbackFonts;
       foreach (FallbackFont fallbackFont in fallbackFonts) 
       {
          //Customize a default fallback font name as "David" for the Hebrew script.
@@ -2060,15 +2060,15 @@ using (WordDocument wordDocument = new WordDocument("Template.docx", Syncfusion.
 Using wordDocument As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
     'Initialize the default fallback fonts collection.
     wordDocument.FontSettings.FallbackFonts.InitializeDefault()
-	Dim fallbackFonts As FallbackFonts = wordDocument.FontSettings.FallbackFonts
-	For Each fallbackFont As FallbackFont In fallbackFonts
+    Dim fallbackFonts As FallbackFonts = wordDocument.FontSettings.FallbackFonts
+    For Each fallbackFont As FallbackFont In fallbackFonts
       'Customize a default fallback font name as "David" for the Hebrew script.
       If fallbackFont.ScriptType = ScriptType.Hebrew Then
          fallbackFont.FontNames = "David"
       'Customize a default fallback font name as "Microsoft Sans Serif" for the Thai script.
       ElseIf fallbackFont.ScriptType = ScriptType.Thai Then
          fallbackFont.FontNames = "Microsoft Sans Serif"
-	  End If
+      End If
     Next
     'Instantiation of DocToPDFConverter for Word to PDF conversion.
     Using converter As New DocToPDFConverter()

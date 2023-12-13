@@ -595,19 +595,19 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
         //Adds fallback font for "Arabic" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
-		//Adds fallback font for "Hebrew" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
-		//Adds fallback font for "Hindi" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
-		//Adds fallback font for "Chinese" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
-		//Adds fallback font for "Japanese" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
-		//Adds fallback font for "Thai" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
-		//Adds fallback font for "Korean" script type.
-		pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
+        //Adds fallback font for "Hebrew" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
+        //Adds fallback font for "Hindi" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
+        //Adds fallback font for "Chinese" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
+        //Adds fallback font for "Japanese" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
+        //Adds fallback font for "Thai" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
+        //Adds fallback font for "Korean" script type.
+        pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
         //Convert PowerPoint slide to image as stream.
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
@@ -693,13 +693,13 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         //Use a sets of default FallbackFont collection to IPresentation.
         pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
         // Customize a default fallback font name.
-		FallbackFonts fallbackFonts = pptxDoc.FontSettings.FallbackFonts;
-		foreach (FallbackFont fallbackFont in fallbackFonts) 
+        FallbackFonts fallbackFonts = pptxDoc.FontSettings.FallbackFonts;
+        foreach (FallbackFont fallbackFont in fallbackFonts) 
         {
-		   //Customize a default fallback font name as "David" for the Hebrew script.
-		   if (fallbackFont.ScriptType == ScriptType.Hebrew)
+           //Customize a default fallback font name as "David" for the Hebrew script.
+           if (fallbackFont.ScriptType == ScriptType.Hebrew)
               fallbackFont.FontNames = "David";
-		}
+        }
         //Convert PowerPoint slide to image as stream.
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
@@ -828,7 +828,7 @@ Malgun Gothic, Batang
 </tr>
 </table>
 
-N> The .NET PowerPoint Library (Presentation) uses System.Drawing functionalities for PowerPoint to image conversion in .NET Framework applications. And System.Drawing itself uses fallback font to preserve the Unicode text while drawing the text in image. So, these APIs are **not supported in .NET Framework**.
+N> Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
 
 ## See Also
 
