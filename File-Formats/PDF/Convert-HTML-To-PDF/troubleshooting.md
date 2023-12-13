@@ -153,6 +153,29 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 
 </table>
 
+## Failed to launch Base
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Failed to launch Base
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The exception may occur due to missing of required dependent packages.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>To overcome the exception, you can ensure the required dependency in docker file.
+</td>
+</tr>
+</table>
+
 ## Failed to launch chromium: Missing required dependent packages
 
 <table>
