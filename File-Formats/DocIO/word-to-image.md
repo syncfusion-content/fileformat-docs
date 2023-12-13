@@ -448,19 +448,19 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
    //Loads an existing Word document file stream.
    using (WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx))
    {
-      //Adds fallback font for "Arabic" custom unicode range.
+      //Adds fallback font for "Arabic" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-      //Adds fallback font for "Hebrew" custom unicode range.
+      //Adds fallback font for "Hebrew" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
-      //Adds fallback font for "Hindi" custom unicode range.
+      //Adds fallback font for "Hindi" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Nirmala UI"));
-      //Adds fallback font for "Chinese" custom unicode range.
+      //Adds fallback font for "Chinese" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-      //Adds fallback font for "Japanese" custom unicode range.
+      //Adds fallback font for "Japanese" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Gothic"));
-      //Adds fallback font for "Thai" custom unicode range.
+      //Adds fallback font for "Thai" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
-      //Adds fallback font for "Korean" custom unicode range.
+      //Adds fallback font for "Korean" specific unicode range.
       wordDocument.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
       //Instantiation of DocIORenderer for Word to Image conversion.
       using (DocIORenderer render = new DocIORenderer())
@@ -537,14 +537,14 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 ### Supported script types
 
-The following table illustrates the supported script types by .NET Word library (DocIO) in Word to Image(Portable) conversion.
+The following table illustrates the supported script types by the .NET Word library (DocIO) in Word to Image conversion.
 
 <table>
 <thead> 
 <tr>
 <th>Script types</th>
 <th>Ranges</th>
-<th>Default fallback fonts considered in InitializeDefault API</th>
+<th>Default fallback fonts considered in InitializeDefault() API</th>
 </tr>
 </thead>
 <tr>
@@ -653,6 +653,7 @@ N> 5. Different styles of borders are known limitations in Word to Image convers
 N> 6. In ASP.NET Core, Blazor, Xamarin, WinUI and .NET MAUI platforms, to convert Word document to images we recommend you to use Word to image [assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-image) or [NuGet](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-image) as a reference in your application.
 N> 7. DocIO supports Word to image conversion in UWP application using DocIORenderer.
 N> 8. In addition to the previous NuGet packages, we recommend to use [SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6) and [HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0) NuGets to perform Word to Image conversion in Linux environment.
+N> 9. Fallback fonts only supported in [Portable Word to Image](https://help.syncfusion.com/file-formats/docio/word-to-image) conversion.
 
 ## See Also
 

@@ -122,4 +122,5 @@ Syncfusion.SfChart.WPF<br/>
 </td>
 </tr>
 </table>
-N> The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> 1. The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards.
+N> 2. Starting with v24.1.x, if you reference "Syncfusion.PresentationRenderer", you also have to add "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform PowerPoint Presentation to PDF conversion.

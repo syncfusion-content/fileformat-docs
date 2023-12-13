@@ -345,7 +345,14 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Fallback fonts
 
-When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to PDF conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to PDF conversion.
+During PowerPoint to PDF conversions, if a glyph of the input text is unavailable in the specified font, the text will not be rendered properly. To address this, the Syncfusion PowerPoint (Presentation) library allows users to specify fallback fonts. When a glyph is missing, the library will use one of the fallback fonts to render the text correctly in the output PDF document.
+
+Users can configure fallback fonts in the following ways:
+* Initialize default fallback fonts.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for a particular range of Unicode text.
+
+N> Presentation internally uses user-initialized or specified fallback fonts for Unicode characters during PowerPoint to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment. Otherwise, it will not render the text properly using the fallback fonts.
 
 ### Initialize default fallback fonts
 
@@ -550,7 +557,7 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-        //Add custom fallback font names.
+        //Adds fallback font for specific unicode range.
         // Arabic.
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
         // Hebrew.
@@ -591,7 +598,7 @@ IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
 //Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true;
-//Add custom fallback font names.
+//Adds fallback font for specific unicode range.
 // Arabic.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
 // Hebrew.
@@ -621,7 +628,7 @@ Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
-'Add custom fallback font names.
+'Adds fallback font for specific unicode range.
 ' Arabic.
 pptxDoc.FontSettings.FallbackFonts.Add(New FallbackFont(1536, 1791, "Arial"))
 ' Hebrew.
@@ -662,8 +669,13 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
         //Use a sets of default FallbackFont collection to IPresentation.
         pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
         // Customize a default fallback font name.
-        // Modify the Hebrew script default font name as "David".
-        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+		FallbackFonts fallbackFonts = pptxDoc.FontSettings.FallbackFonts;
+		foreach (FallbackFont fallbackFont in fallbackFonts) 
+		{
+		   //Customize a default fallback font name as "David" for the Hebrew script.
+		   if (fallbackFont.ScriptType == ScriptType.Hebrew)
+		      fallbackFont.FontNames = "David";
+		}
         //Create the MemoryStream to save the converted PDF.
         using (MemoryStream pdfStream = new MemoryStream())
         {
@@ -695,8 +707,13 @@ pdfConverterSettings.EnablePortableRendering = true;
 //Use a sets of default FallbackFont collection to IPresentation.
 pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
 // Customize a default fallback font name.
-// Modify the Hebrew script default font name as "David".
-pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+FallbackFonts fallbackFonts = pptxDoc.FontSettings.FallbackFonts;
+foreach (FallbackFont fallbackFont in fallbackFonts) 
+{
+   //Customize a default fallback font name as "David" for the Hebrew script.
+   if (fallbackFont.ScriptType == ScriptType.Hebrew)
+      fallbackFont.FontNames = "David";
+}
 //Converts the PowerPoint Presentation into PDF document.
 PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 //Saves the PDF document.
@@ -715,10 +732,15 @@ Dim pdfConverterSettings As PresentationToPdfConverterSettings = new Presentatio
 'Enable the portable rendering.
 pdfConverterSettings.EnablePortableRendering = true
 'Use a sets of default FallbackFont collection to IPresentation.
-pptxDoc.FontSettings.FallbackFonts.InitializeDefault
-' Customize a default fallback font name.
-' Modify the Hebrew script default font name as "David".
-pptxDoc.FontSettings.FallbackFonts(5).FontNames = "David"
+pptxDoc.FontSettings.FallbackFonts.InitializeDefault()
+'Customize a default fallback font name.
+Dim fallbackFonts As FallbackFonts = pptxDoc.FontSettings.FallbackFonts
+For Each fallbackFont As FallbackFont In fallbackFonts 
+   'Customize a default fallback font name as "David" for the Hebrew script.
+   If fallbackFont.ScriptType = ScriptType.Hebrew Then
+      fallbackFont.FontNames = "David"
+   End If	  
+Next
 'Converts the PowerPoint Presentation into PDF document.
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 'Saves the PDF document.
@@ -733,14 +755,14 @@ pptxDoc.Close()
 
 ### Supported script types
 
-The following table illustrates the supported script types by .NET PowerPoint library (Presentation) in Presentation to PDF conversion.
+The following table illustrates the supported script types by the .NET PowerPoint library (Presentation) in Presentation to PDF conversion.
 
 <table>
 <thead> 
 <tr>
 <th>Script types</th>
 <th>Ranges</th>
-<th>Default fallback fonts considered in InitializeDefault API</th>
+<th>Default fallback fonts considered in InitializeDefault() API</th>
 </tr>
 </thead>
 <tr>
@@ -840,8 +862,6 @@ Malgun Gothic, Batang
 </td>
 </tr>
 </table>
-
-N> Its only supported in [Direct PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf#powerpoint-to-pdf-conversion-in-azure-platform) and [Portable](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf) PDF conversion modules.
 
 ## Show Warning for unsupported elements
 

@@ -140,6 +140,8 @@ Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.Off
 Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/>Syncfusion.Pdf.Imaging.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
+N> Starting with v24.1.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to Image conversion.
+
 ## Converting Charts
 
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF and image.

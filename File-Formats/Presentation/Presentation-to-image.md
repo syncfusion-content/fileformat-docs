@@ -536,7 +536,14 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Fallback fonts
 
-When a glyph of input text is unavailable in mentioned font, text will not be preserved in PPTX to Image conversion. To avoid this, Syncfusion PowerPoint library allows you to use a fallback font to preserve the text properly in PPTX to Image conversion.
+During PowerPoint to Image conversions, if a glyph of the input text is unavailable in the specified font, the text will not be rendered properly. To address this, the Syncfusion PowerPoint (Presentation) library allows users to specify fallback fonts. When a glyph is missing, the library will use one of the fallback fonts to render the text correctly in the output image.
+
+Users can configure fallback fonts in the following ways:
+* Initialize default fallback fonts.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for a particular range of Unicode text.
+
+N> Presentation internally uses user-initialized or specified fallback fonts for Unicode characters during PowerPoint to Image conversion. Therefore, the specified fallback fonts must be installed in the production environment. Otherwise, it will not render the text properly using the fallback fonts.
 
 ### Initialize default fallback fonts
 
@@ -634,7 +641,7 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
     //Open the existing PowerPoint presentation with loaded stream.
     using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
     {
-        //Add custom fallback font names.
+        //Adds fallback font for specific unicode range.
         // Arabic.
         pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
         // Hebrew.
@@ -686,8 +693,13 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
         //Use a sets of default FallbackFont collection to IPresentation.
         pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
         // Customize a default fallback font name.
-        // Modify the Hebrew script default font name as "David".
-        pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";
+		FallbackFonts fallbackFonts = pptxDoc.FontSettings.FallbackFonts;
+		foreach (FallbackFont fallbackFont in fallbackFonts) 
+        {
+		   //Customize a default fallback font name as "David" for the Hebrew script.
+		   if (fallbackFont.ScriptType == ScriptType.Hebrew)
+              fallbackFont.FontNames = "David";
+		}
         //Convert PowerPoint slide to image as stream.
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
@@ -708,14 +720,14 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 ### Supported script types
 
-The following table illustrates the supported script types by .NET PowerPoint library (Presentation) in Presentation to Image(Portable) conversion.
+The following table illustrates the supported script types by the .NET PowerPoint library (Presentation) in Presentation to Image conversion.
 
 <table>
 <thead> 
 <tr>
 <th>Script types</th>
 <th>Ranges</th>
-<th>Default fallback fonts considered in InitializeDefault API</th>
+<th>Default fallback fonts considered in InitializeDefault() API</th>
 </tr>
 </thead>
 <tr>
