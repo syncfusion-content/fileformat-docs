@@ -110,7 +110,7 @@ N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference 
 N> 4. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
 N> 5. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
 N> 6. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
-N> 7. Starting with v24.1.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to PDF conversion.
+N> 7. Starting with the v24.1.x, if you reference "Syncfusion.DocIORenderer", you have to add the "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to PDF conversion.
 
 ## Converting Word document to image
 
@@ -140,7 +140,7 @@ Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.Off
 Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/>Syncfusion.Pdf.NET<br/>Syncfusion.DocIORenderer.NET<br/>Syncfusion.Pdf.Imaging.NET<br/> SkiaSharp<br/>Syncfusion.SkiaSharpHelper.NET</td></tr>
 </table>
 
-N> Starting with v24.1.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to Image conversion.
+N> Starting with the v24.1.x, if you reference "Syncfusion.DocIORenderer", you have to add the "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform Word to Image conversion.
 
 ## Converting Charts
 

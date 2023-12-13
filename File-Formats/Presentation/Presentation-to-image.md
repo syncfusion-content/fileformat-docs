@@ -540,7 +540,7 @@ During PowerPoint to Image conversions, if a glyph of the input text is unavaila
 
 Users can configure fallback fonts in the following ways:
 * Initialize default fallback fonts.
-* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, Japanese, and more.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
 N> Presentation internally uses user-initialized or specified fallback fonts for Unicode characters during PowerPoint to Image conversion. Therefore, the specified fallback fonts must be installed in the production environment. Otherwise, it will not render the text properly using the fallback fonts.
@@ -828,7 +828,7 @@ Malgun Gothic, Batang
 </tr>
 </table>
 
-N> Its only supported in [Portable PPTX to Image](https://help.syncfusion.com/file-formats/presentation/presentation-to-image) conversion.
+N> The .NET PowerPoint Library (Presentation) uses System.Drawing functionalities for PowerPoint to image conversion conversion in .NET Framework applications. And System.Drawing itself uses a fallback font to preserve the Unicode text while drawing the text in the image. So, these Fallback fonts APIs are **not supported in .NET Framework**.
 
 ## See Also
 

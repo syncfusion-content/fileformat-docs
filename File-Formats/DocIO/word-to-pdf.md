@@ -1698,7 +1698,7 @@ During Word to PDF conversions, if a glyph of the input text is unavailable in t
 
 Users can configure fallback fonts in the following ways:
 * Initialize default fallback fonts.
-* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, and Japanese etc.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, Japanese, and more.
 * Set custom fonts as fallback fonts for a particular range of Unicode text.
 
 N> DocIO internally uses user-initialized or specified fallback fonts for Unicode characters during Word to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Word document (DOCX). Otherwise, it will not render the text properly using the fallback fonts.
