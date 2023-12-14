@@ -296,7 +296,7 @@ Download a complete working sample from [GitHub](https://github.com/SyncfusionEx
 
 ## Remove Unused Resources when Splitting PDF Documents
 
-The Syncfusion PDF library enables the splitting of PDF documents and offers the capability to eliminate unused resources during the process. By enabling the **RemoveUnusedResources** property on the **PdfSplitOptions** class, any resources that are not in use will be deleted, thereby optimizing the final PDF document. The default value for this property is false.
+The Syncfusion PDF library enables the splitting of PDF documents and offers the capability to eliminate unused resources during the process. By enabling the `RemoveUnusedResources` property on the `PdfSplitOptions` class, any resources that are not in use will be deleted, thereby optimizing the final PDF document. The default value for this property is false.
 
 {% tabs %}  
 
