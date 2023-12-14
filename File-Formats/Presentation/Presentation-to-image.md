@@ -608,6 +608,8 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
         pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
         //Adds fallback font for "Korean" script type.
         pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
+        //Initialize the PresentationRenderer to perform image conversion.
+        pptxDoc.PresentationRenderer = new PresentationRenderer();
         //Convert PowerPoint slide to image as stream.
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
