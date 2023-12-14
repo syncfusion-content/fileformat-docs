@@ -293,3 +293,76 @@ End Using
 {% endtabs %}
 
 Download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Split%20PDFs/Split-PDF-based-Bookmarks/.NET).
+
+## Remove Unused Resources when Splitting PDF Documents
+
+The Syncfusion PDF library enables the splitting of PDF documents and offers the capability to eliminate unused resources during the process. By enabling the **RemoveUnusedResources** property on the **PdfSplitOptions** class, any resources that are not in use will be deleted, thereby optimizing the final PDF document. The default value for this property is false.
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the existing PDF file.
+PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
+//Subscribe to the document split event.
+loadDocument.DocumentSplitEvent += LoadDocument_DocumentSplitEvent;
+void LoadDocument_DocumentSplitEvent(object sender, PdfDocumentSplitEventArgs args)
+{
+    //Save the resulting document.
+    FileStream outputStream = new FileStream(Guid.NewGuid().ToString() + ".pdf", FileMode.CreateNew);
+    args.PdfDocumentData.CopyTo(outputStream);
+    outputStream.Close();
+}
+//Create the split options object.
+PdfSplitOptions splitOptions = new PdfSplitOptions();
+//Enable the removal of unused resources property.
+splitOptions.RemoveUnusedResources = true;
+//Split the document by ranges.
+loadDocument.SplitByRanges(new int[,] { { 0, 5 }, { 5, 10 } }, splitOptions);
+//Close the document.
+loadDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create the values.
+int[,] values = new int[,] { { 2, 5 }, { 8, 10 } };
+//Load the PDF document.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+//Set an output file pattern.
+const string destinationFilePattern = "Output{0}.pdf";
+//Create the split options object.
+PdfSplitOptions splitOptions = new PdfSplitOptions();
+//Enable the removal of unused resources property.
+splitOptions.RemoveUnusedResources = true;
+//Split the document by ranges.
+loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions);
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create the values.
+Dim values As Integer(,) = New Integer(,) {{2, 5},{8, 10}}
+'Load the PDF document.
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+'Set an output path.
+Const destinationFilePattern As String = "Output" + "{0}.pdf"
+'Create the split options object.
+Dim splitOptions As New PdfSplitOptions();
+'Enable the removal of unused resources property. 
+splitOptions.RemoveUnusedResources = True
+'Split the document by ranges.
+loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions)
+
+'Close the document.
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+Download a complete working sample from GitHub.
