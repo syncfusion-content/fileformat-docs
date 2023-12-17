@@ -2,7 +2,7 @@
 layout: post
 title: Downloading Syncfusion PowerPoint web installer - Syncfusion
 description: Learn here about how to download Syncfusion PowerPoint web installer from our Syncfusion website with license.
-platform: PowerPoint
+platform: file-formats
 control: Installation and Deployment
 documentation: ug
 
