@@ -2,7 +2,7 @@
 layout: post
 title: Downloading Syncfusion Word web installer - Syncfusion
 description: Learn here about how to download Syncfusion Word web installer from our Syncfusion website with license.
-platform: Word
+platform: file-formats
 control: Installation and Deployment
 documentation: ug
 

@@ -2,7 +2,7 @@
 layout: post
 title: Downloading Syncfusion Excel offline installer - Syncfusion
 description: Learn here about how to download the Syncfusion Excel offline installer from our Syncfusion website with license.
-platform: Excel
+platform: file-formats
 control: Installation and Deployment
 documentation: ug
 

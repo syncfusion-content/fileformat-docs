@@ -2,7 +2,7 @@
 layout: post
 title: Downloading Syncfusion Excel web installer - Syncfusion
 description: Learn here about how to download Syncfusion Excel web installer from our Syncfusion website with license.
-platform: Excel
+platform: file-formats
 control: Installation and Deployment
 documentation: ug
 

@@ -2,7 +2,7 @@
 layout: post
 title: Installing Syncfusion Word offline installer-Syncfusion
 description: Learn here about how to install Syncfusion Word offline installer after downloading from our Syncfusion website.
-platform: Word
+platform: file-formats
 control: Installation and Deployment
 documentation: ug
 
