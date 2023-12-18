@@ -293,3 +293,49 @@ End Using
 {% endtabs %}
 
 Download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Split%20PDFs/Split-PDF-based-Bookmarks/.NET).
+
+## Split a PDF document with Remove of Unused Resources
+
+The Syncfusion .NET PDF library allows to split a PDF document while providing the option to remove unused resources during the operation. When [RemoveUnusedResources]() property is set to 'true', any unused resources will be removed, thereby optimizing the resulting PDF document. Conversely, when set to 'false', the unused resources will be retained. The default value is 'false' using [PdfSplitOptions]() class.
+
+Refer to the following code example
+
+{% tabs %}  
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Loads an existing document
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+//Create the split options object
+PdfSplitOptions splitOptions = new PdfSplitOptions();
+//set the remove unused resource
+splitOptions.RemoveUnusedResources = true;
+//Splits the source document 
+ldoc.Split("Output.pdf", splitOptions);
+//Close the PDF document
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+    ' Loads an existing document
+    Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+    ' Create the split options object
+    Dim splitOptions As PdfSplitOptions = New PdfSplitOptions
+    ' set the remove unused resource
+    splitOptions.SplitTags = true
+    ' Splits the source document 
+    ldoc.Split("Output.pdf", splitOptions)
+    ' Close the PDF document
+    ldoc.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+Download a complete working sample from [GitHub]().
