@@ -37,10 +37,15 @@ The steps below show how to install Essential Studio Linux installer.
 
    ![License Agreement](images/Linux_Installer2.png)   
    
-   N> The Unlock key is not required to install the Linux installer. The Syncfusion Linux installer can be used for development purposes without registering the Unlock key.
+   N> The Unlock key is not required to install the Linux installer.
 
 
 4. You can launch the demo source and use the NuGet packages included in the Linux installer.
+
+
+5. Run the following command in linux machine to deploy the ASP.NET Core samples
+ 
+  **dotnet restore projectname -s \nuget** in order to restore.
 
 ## License key registration in samples
 
