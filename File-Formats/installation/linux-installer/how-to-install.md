@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Installing Syncfusion File-Formats Linux installer - Syncfusion
-description: Learn here about how to install Syncfusion File-Formats Linux installer after downloading from our Syncfusion website.
-platform: common
-control: File-Formats
+title: Installing Syncfusion FileFormats Linux installer-Syncfusion
+description: Learn here about how to install Syncfusion FileFormats Linux installer after downloading from our Syncfusion website.
+platform: file-formats
+control: Installation and Deployment
 documentation: ug
+
 ---
 
 # Installing Syncfusion File-Formats Linux installer
@@ -49,7 +50,7 @@ The steps below show how to install File-Formats Linux installer.
 
 ## License key registration in samples
 
-After the installation, the license key is required to register the demo source that is included in the Linux installer. To learn about the steps for license registration for the JavaScript - EJ2 linux installer, please refer to this.
+After the installation, the license key is required to register the demo source that is included in the Mac installer. To learn about the steps for license registration for the ASP.NET Core - EJ2 Mac installer, please refer to this.
 
-* [Register Syncfusion License key in the project](https://ej2.syncfusion.com/react/documentation/licensing/license-key-registration#register-syncfusion-license-key-in-the-project)
-* [Register the license key using the npx command](https://ej2.syncfusion.com/react/documentation/licensing/license-key-registration#register-syncfusion-license-key-using-the-npx-command)
+* Register the license key in the [Program.cs](https://ej2.syncfusion.com/aspnetcore/documentation/licensing/how-to-register-in-an-application#for-aspnet-core-application-using-net-60) file if you created the ASP.NET Core web application with Visual Studio 2022 and .NET 6.0.
+* Register the license key in Configure method of [Startup.cs](https://ej2.syncfusion.com/aspnetcore/documentation/licensing/how-to-register-in-an-application#for-aspnet-core-application-using-net-50-or-net-31)

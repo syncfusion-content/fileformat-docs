@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Downloading Syncfusion File-Formats Linux installer - Syncfusion
-description: Learn here about the how to download Syncfusion File-Formats Linux installer from our syncfusion website with license.
-platform: common
+title: Downloading Syncfusion FileFormats Linux installer - Syncfusion
+description: Learn here about how to download the Syncfusion FileFormats Linux installer from our Syncfusion website with license.
+platform: file-formats
+control: Installation and Deployment
 documentation: ug
---- 
+
+---
 
 # Download Syncfusion File-Formats Linux Installer
 
