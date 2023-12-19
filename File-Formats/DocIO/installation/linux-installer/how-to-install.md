@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Installing Syncfusion Essential Studio Linux installer - Syncfusion
-description: Learn here about how to install Syncfusion Essential Studio Linux installer after downloading from our Syncfusion website.
+title: Installing Syncfusion Word Linux installer - Syncfusion
+description: Learn here about how to install Syncfusion Word Linux installer after downloading from our Syncfusion website.
 platform: common
-control: Essential Studio
+control: Word
 documentation: ug
 ---
 
-# Installing Syncfusion Essential Studio Linux installer
+# Installing Syncfusion Word Linux installer
 
 ## Overview
 
@@ -26,9 +26,9 @@ Syncfusion provides the Linux installer for the following Essential Studio produ
 
 ## Step-by-Step Installation
 
-The steps below show how to install Essential Studio Linux installer.
+The steps below show how to install Word Linux installer.
 
-1. Extract the Syncfusion Essential Studio Linux installer(.zip) file. The files are extracted in your machine.
+1. Extract the Syncfusion Word Linux installer(.zip) file. The files are extracted in your machine.
 
    ![Welcome wizard](images/Linux_Installer1.png)
    
