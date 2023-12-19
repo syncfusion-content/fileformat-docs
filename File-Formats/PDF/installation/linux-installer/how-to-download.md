@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Downloading Syncfusion PDF Linux installer - Syncfusion
-description: Learn here about the how to download Syncfusion PDF Linux installer from our syncfusion website with license.
-platform: common
+title: Downloading Syncfusion PDF linux installer - Syncfusion
+description: Learn here about how to download the Syncfusion PDF linux installer from our Syncfusion website with license.
+platform: file-formats
+control: Installation and Deployment
 documentation: ug
---- 
+
+---
 
 # Download Syncfusion PDF Linux Installer
 
