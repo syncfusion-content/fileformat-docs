@@ -1,13 +1,14 @@
 ---
 layout: post
-title: Installing Syncfusion Essential Studio Linux installer - Syncfusion
-description: Learn here about how to install Syncfusion Essential Studio Linux installer after downloading from our Syncfusion website.
-platform: common
-control: Essential Studio
+title: Installing Syncfusion PowerPoint linux installer-Syncfusion
+description: Learn here about how to install Syncfusion PowerPoint linux installer after downloading from our Syncfusion website.
+platform: file-formats
+control: Installation and Deployment
 documentation: ug
+
 ---
 
-# Installing Syncfusion Essential Studio Linux installer
+# Installing Syncfusion PowerPoint Linux installer
 
 ## Overview
 
@@ -26,9 +27,9 @@ Syncfusion provides the Linux installer for the following Essential Studio produ
 
 ## Step-by-Step Installation
 
-The steps below show how to install Essential Studio Linux installer.
+The steps below show how to install PowerPoint Linux installer.
 
-1. Extract the Syncfusion Essential Studio Linux installer(.zip) file. The files are extracted in your machine.
+1. Extract the Syncfusion PowerPoint Linux installer(.zip) file. The files are extracted in your machine.
 
    ![Welcome wizard](images/Linux_Installer1.png)
    
@@ -49,7 +50,7 @@ The steps below show how to install Essential Studio Linux installer.
 
 ## License key registration in samples
 
-After the installation, the license key is required to register the demo source that is included in the Linux installer. To learn about the steps for license registration for the ASP.NET Core - EJ2 Linux installer, please refer to this.
+After the installation, the license key is required to register the demo source that is included in the Mac installer. To learn about the steps for license registration for the ASP.NET Core - EJ2 Mac installer, please refer to this.
 
 * Register the license key in the [Program.cs](https://ej2.syncfusion.com/aspnetcore/documentation/licensing/how-to-register-in-an-application#for-aspnet-core-application-using-net-60) file if you created the ASP.NET Core web application with Visual Studio 2022 and .NET 6.0.
 * Register the license key in Configure method of [Startup.cs](https://ej2.syncfusion.com/aspnetcore/documentation/licensing/how-to-register-in-an-application#for-aspnet-core-application-using-net-50-or-net-31)
