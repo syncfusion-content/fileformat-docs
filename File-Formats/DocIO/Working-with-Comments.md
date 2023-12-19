@@ -445,3 +445,7 @@ End Using
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Comments/Retrieve-commented-word).
+
+## See Also
+
+* [How to check if a comment is resolved or not in a Word document?](https://support.syncfusion.com/kb/article/14652/how-to-check-if-comment-is-resolved-or-not-in-word-document)
