@@ -375,7 +375,7 @@ The Syncfusion PDF library enables the splitting of PDF documents and offers the
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-//Load the existing PDF file.
+//Load an existing PDF file.
 PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
 //Subscribe to the document split event.
 loadDocument.DocumentSplitEvent += LoadDocument_DocumentSplitEvent;
