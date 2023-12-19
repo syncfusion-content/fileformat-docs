@@ -382,6 +382,8 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Initialize-default-fallback-fonts).
+
 ### Fallback fonts based on script type
 
 The following code example demonstrates how a user can add fallback fonts based on the script types, which DocIO considers internally when converting a Word document to an Image.
@@ -432,6 +434,8 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Fallback-fonts-based-on-scripttype).
 
 ### Fallback fonts for range of Unicode text
 
@@ -486,6 +490,8 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Fallback-fonts-for-Unicode-range).
+
 ### Modify the exiting fallback fonts
 
 The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to an Image. 
@@ -534,6 +540,8 @@ using (FileStream inputStream = new FileStream("Template.docx", FileMode.Open, F
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-Image-conversion/Modify-the-exiting-fallback-fonts).
 
 ### Supported script types
 

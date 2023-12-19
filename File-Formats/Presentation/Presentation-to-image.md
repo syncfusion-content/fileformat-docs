@@ -581,6 +581,8 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Initialize-default-fallback-fonts).
+
 ### Fallback fonts based on script type
 
 The following code example demonstrates how a user can add fallback fonts based on the script types, which Presentation considers internally when converting a PowerPoint presentation to an Image.
@@ -627,6 +629,8 @@ using (FileStream fileStreamInput = new FileStream("Template.pptx", FileMode.Ope
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Fallback-fonts-based-on-scripttype).
 
 ### Fallback fonts for range of Unicode text
 
@@ -676,6 +680,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Fallback-fonts-for-Unicode-range).
+
 ### Modify the exiting fallback fonts
 
 The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a PowerPoint presentation to an Image.
@@ -719,6 +725,8 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PPTX-to-Image-conversion/Modify-the-exiting-fallback-fonts).
 
 ### Supported script types
 
