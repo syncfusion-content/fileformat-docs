@@ -365,7 +365,7 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
-Download a complete working sample from GitHub.
+Download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Split%20PDFs/Remove-Unused-Resources-when-Splitting-PDF-Documents/.NET).
 
 ## Import Tagged structure when Splitting PDF Documents
 
@@ -440,4 +440,4 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
-Download a complete working sample from GitHub.
+Download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Split%20PDFs/Import-tagged-structure-when-splitting-PDF-documents/.NET).
