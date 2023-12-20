@@ -995,7 +995,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an limit equation using LaTeX.
-document.LastParagraph.AppendMath(@"\lim\belowb{a}");
+document.LastParagraph.AppendMath(@"\lim\below{b}{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1012,7 +1012,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an limit equation using LaTeX.
-document.LastParagraph.AppendMath(@"\lim\belowb{a}");
+document.LastParagraph.AppendMath(@"\lim\below{b}{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1027,7 +1027,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an limit equation using LaTeX.
-document.LastParagraph.AppendMath(@"\lim\belowb{a}")
+document.LastParagraph.AppendMath(@"\lim\below{b}{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1050,17 +1050,17 @@ The following table demonstrates the LaTeX equivalent to professional format lim
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Limit1.png" alt="Limit equation"></td>
-<td>\lim\belowb{a}</td>
+<td>\lim\below{b}{a}</td>
 </tr>
 <tr>
 <td>2.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Limit2.png" alt="Limit equation"></td>
-<td>\min\belowb{a}</td>
+<td>\min\below{b}{a}</td>
 </tr>
 <tr>
 <td>3.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Limit3.png" alt="Limit equation"></td>
-<td>\max\belowb{a}</td>
+<td>\max\below{b}{a}</td>
 </tr>
 </table>
 
