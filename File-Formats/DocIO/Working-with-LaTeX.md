@@ -1480,7 +1480,7 @@ document.Save("Result.docx", FormatType.Docx)
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Left-SubSuperScript/.NET).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Left-SubSuperScript/.NET)
 
 The following table demonstrates the LaTeX equivalent to professional format Left SubSuperScript equations.
 
