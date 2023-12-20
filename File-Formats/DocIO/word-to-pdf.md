@@ -1772,6 +1772,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Initialize-default-fallback-fonts).
+
 ### Fallback fonts based on script type
 
 The following code example demonstrates how a user can add fallback fonts based on the script types, which DocIO considers internally when converting a Word document to PDF.
@@ -1876,6 +1878,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Fallback-fonts-based-on-scripttype).
 
 ### Fallback fonts for range of Unicode text
 
@@ -1984,6 +1988,8 @@ End Using
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Fallback-fonts-for-Unicode-range).
+
 ### Modify the exiting fallback fonts
 
 The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting a Word document to PDF.
@@ -2082,6 +2088,8 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Modify-the-exiting-fallback-fonts).
 
 ### Supported script types
 
