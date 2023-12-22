@@ -352,7 +352,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 'Set an output path.
 Const destinationFilePattern As String = "Output" + "{0}.pdf"
 'Create the split options object.
-Dim splitOptions As New PdfSplitOptions();
+Dim splitOptions As New PdfSplitOptions()
 'Enable the removal of unused resources property. 
 splitOptions.RemoveUnusedResources = True
 'Split the document by ranges.
@@ -428,7 +428,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 'Set an output path.
 Const destinationFilePattern As String = "Output" + "{0}.pdf"
 'Create the split options object.
-Dim splitOptions As New PdfSplitOptions();
+Dim splitOptions As New PdfSplitOptions()
 'Enable the Split tags property.
 splitOptions.SplitTags = True
 'Split the document by ranges.
