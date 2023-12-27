@@ -1136,7 +1136,7 @@ The following table demonstrates the LaTeX equivalent to professional format mat
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Matrix1.png" alt="Matrix equation"></td>
-<td>\begin{matrix}a&b\\\end{matrix}</td>
+<td>\begin{matrix}\mathbit{a}&\mathbit{b}\\\end{matrix}</td>
 </tr>
 </table>
 
