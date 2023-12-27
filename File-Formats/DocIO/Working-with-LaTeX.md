@@ -1416,12 +1416,12 @@ The following table demonstrates the LaTeX equivalent to professional format Sub
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript1.png" alt="SubSuperScript equation"></td>
-<td>a^b</td>
+<td>\mathbit{a}^\mathbit{b}</td>
 </tr>
 <tr>
 <td>2.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript2.png" alt="SubSuperScript equation"></td>
-<td>a_b</td>
+<td>\mathbit{a}_\mathbit{b}</td>
 </tr>
 </table>
 
@@ -1496,7 +1496,7 @@ The following table demonstrates the LaTeX equivalent to professional format Lef
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/LeftSubSuperScript1.png" alt="Left SubSuperScript equation"></td>
-<td>{_40^{20}}100</td>
+<td>{_\mathbf{40}^{\mathbf{20}}}\mathbf{100}</td>
 </tr>
 </table>
 
@@ -1571,6 +1571,6 @@ The following table demonstrates the LaTeX equivalent to professional format Rig
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/RightSubSuperScript1.png" alt="Right SubSuperScript equation"></td>
-<td>{100}_{40}^{20}</td>
+<td>{\mathbf{100}}_{\mathbf{40}}^{\mathbf{20}}</td>
 </tr>
 </table>
