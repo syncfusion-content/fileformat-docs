@@ -320,7 +320,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -337,7 +337,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -352,7 +352,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}")
+document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -375,7 +375,7 @@ The following table demonstrates the LaTeX equivalent to professional format bor
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/BorderBox1.png" alt="Border Box equation"></td>
-<td>\boxed{x^2+y^2=z^2}</td>
+<td>\boxed{{x}^2+{y}^2={z}^2}</td>
 </tr>
 </table>
 
@@ -1135,7 +1135,7 @@ The following table demonstrates the LaTeX equivalent to professional format mat
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Matrix1.png" alt="Matrix equation"></td>
-<td>\begin{matrix}\mathbit{a}&\mathbit{b}\\\end{matrix}</td>
+<td>\begin{matrix}a&b\\\end{matrix}</td>
 </tr>
 </table>
 
@@ -1415,12 +1415,12 @@ The following table demonstrates the LaTeX equivalent to professional format Sub
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript1.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}^\mathbit{b}</td>
+<td>a^b</td>
 </tr>
 <tr>
 <td>2.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript2.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}_\mathbit{b}</td>
+<td>a_b</td>
 </tr>
 </table>
 
@@ -1440,7 +1440,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_40^{20}}100");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1457,7 +1457,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_40^{20}}100");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1472,7 +1472,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_40^{20}}100");
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1495,7 +1495,7 @@ The following table demonstrates the LaTeX equivalent to professional format Lef
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/LeftSubSuperScript1.png" alt="Left SubSuperScript equation"></td>
-<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+<td>{_40^{20}}100</td>
 </tr>
 </table>
 
@@ -1547,7 +1547,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}")
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1570,6 +1570,6 @@ The following table demonstrates the LaTeX equivalent to professional format Rig
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/RightSubSuperScript1.png" alt="Right SubSuperScript equation"></td>
-<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+<td>{100}_{40}^{20}</td>
 </tr>
 </table>
