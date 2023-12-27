@@ -679,6 +679,7 @@ The following table demonstrates the LaTeX equivalent to professional format fra
 </tr>
 </table>
 
+
 ## Function
 
 Add **function** equation to a Word document using the LaTeX through [AppendMath](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendMath_System_String_) API.
