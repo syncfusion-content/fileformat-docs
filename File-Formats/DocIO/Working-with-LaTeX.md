@@ -1496,7 +1496,7 @@ The following table demonstrates the LaTeX equivalent to professional format Lef
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/LeftSubSuperScript1.png" alt="Left SubSuperScript equation"></td>
-<td>{_\mathbf{40}^{\mathbf{20}}}\mathbf{100}</td>
+<td>{_{\mathbf{40}}^{\mathbf{20}}}{\mathbf{100}}</td>
 </tr>
 </table>
 
