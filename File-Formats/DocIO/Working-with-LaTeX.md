@@ -320,7 +320,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -337,7 +337,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -352,7 +352,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}")
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -375,7 +375,7 @@ The following table demonstrates the LaTeX equivalent to professional format bor
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/BorderBox1.png" alt="Border Box equation"></td>
-<td>\boxed{{x}^2+{y}^2={z}^2}</td>
+<td>\boxed{{x}^{2}+{y}^{2}={z}^{2}}</td>
 </tr>
 </table>
 
@@ -1441,7 +1441,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1458,7 +1458,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1473,7 +1473,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
