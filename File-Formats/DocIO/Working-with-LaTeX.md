@@ -1361,7 +1361,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b");
+document.LastParagraph.AppendMath((@"{a}^{b}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1378,7 +1378,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b");
+document.LastParagraph.AppendMath((@"{a}^{b}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1393,7 +1393,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b")
+document.LastParagraph.AppendMath((@"{a}^{b}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
