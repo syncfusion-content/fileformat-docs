@@ -165,7 +165,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}");
+document.LastParagraph.AppendMath(@"\overline{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1156,7 +1156,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a");
+document.LastParagraph.AppendMath(@"\sum{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1173,7 +1173,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a");
+document.LastParagraph.AppendMath(@"\sum{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1188,7 +1188,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a")
+document.LastParagraph.AppendMath(@"\sum{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1211,7 +1211,7 @@ The following table demonstrates the LaTeX equivalent to professional format N-a
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray1.png" alt="N-Array equation"></td>
-<td>\sum a</td>
+<td>@"\sum{a}"</td>
 </tr>
 <tr>
 <td>2.</td>
@@ -1236,32 +1236,32 @@ The following table demonstrates the LaTeX equivalent to professional format N-a
 <tr>
 <td>6.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray6.png" alt="N-Array equation"></td>
-<td>\prod a</td>
+<td>\prod{a}</td>
 </tr>
 <tr>
 <td>7.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray7.png" alt="N-Array equation"></td>
-<td>\amalg a</td>
+<td>\amalg{a}</td>
 </tr>
 <tr>
 <td>8.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray8.png" alt="N-Array equation"></td>
-<td>\bigcup a</td>
+<td>\bigcup{a}</td>
 </tr>
 <tr>
 <td>9.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray9.png" alt="N-Array equation"></td>
-<td>\bigcap a</td>
+<td>\bigcap{a}</td>
 </tr>
 <tr>
 <td>10.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray10.png" alt="N-Array equation"></td>
-<td>\bigvee a</td>
+<td>\bigvee{a}</td>
 </tr>
 <tr>
 <td>11.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray11.png" alt="N-Array equation"></td>
-<td>\bigwedge a</td>
+<td>\bigwedge{a}</td>
 </tr>
 </table>
 
@@ -1281,7 +1281,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a");
+document.LastParagraph.AppendMath(@"\sqrt{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1298,7 +1298,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a");
+document.LastParagraph.AppendMath(@"\sqrt{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1313,7 +1313,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a")
+document.LastParagraph.AppendMath(@"\sqrt{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1336,7 +1336,7 @@ The following table demonstrates the LaTeX equivalent to professional format rad
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Radical1.png" alt="Radical equation"></td>
-<td>\sqrt a</td>
+<td>@"\sqrt{a}"</td>
 </tr>
 <tr>
 <td>2.</td>
