@@ -669,11 +669,6 @@ The following table demonstrates the LaTeX equivalent to professional format fra
 </tr>
 <tr>
 <td>3.</td>
-<td><img src="WorkingwithMathematicalEquation_images/Fraction3.png" alt="Fraction equation"></td>
-<td>\sfrac{dy}{dx}</td>
-</tr>
-<tr>
-<td>4.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Fraction4.png" alt="Fraction equation"></td>
 <td>{\frac{dy}{dx}}</td>
 </tr>
