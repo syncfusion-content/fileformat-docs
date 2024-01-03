@@ -1206,7 +1206,7 @@ The following table demonstrates the LaTeX equivalent to professional format N-a
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray1.png" alt="N-Array equation"></td>
-<td>@"\sum{a}"</td>
+<td>\sum{a}</td>
 </tr>
 <tr>
 <td>2.</td>
