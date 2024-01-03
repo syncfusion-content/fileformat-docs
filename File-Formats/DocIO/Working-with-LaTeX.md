@@ -1411,12 +1411,12 @@ The following table demonstrates the LaTeX equivalent to professional format Sub
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript1.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}^\mathbit{b}</td>
+<td>{\mathbit{a}}^{\mathbit{b}}</td>
 </tr>
 <tr>
 <td>2.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript2.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}_\mathbit{b}</td>
+<td>{\mathbit{a}}_{\mathbit{b}}</td>
 </tr>
 </table>
 
