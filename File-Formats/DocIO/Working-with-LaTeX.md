@@ -182,7 +182,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}");
+document.LastParagraph.AppendMath(@"\overline{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -197,7 +197,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}")
+document.LastParagraph.AppendMath(@"\overline{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1331,7 +1331,7 @@ The following table demonstrates the LaTeX equivalent to professional format rad
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Radical1.png" alt="Radical equation"></td>
-<td>@"\sqrt{a}"</td>
+<td>\sqrt{a}</td>
 </tr>
 <tr>
 <td>2.</td>
@@ -1436,7 +1436,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1453,7 +1453,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1468,7 +1468,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1511,7 +1511,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}");
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1528,7 +1528,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}");
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
