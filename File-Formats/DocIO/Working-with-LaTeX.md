@@ -165,7 +165,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}");
+document.LastParagraph.AppendMath(@"\overline{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -182,7 +182,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}");
+document.LastParagraph.AppendMath(@"\overline{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -197,7 +197,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an bar equation using LaTeX.
-document.LastParagraph.AppendMath(@"\dot{a}")
+document.LastParagraph.AppendMath(@"\overline{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -320,7 +320,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -337,7 +337,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -352,7 +352,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}")
+document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -375,7 +375,7 @@ The following table demonstrates the LaTeX equivalent to professional format bor
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/BorderBox1.png" alt="Border Box equation"></td>
-<td>\boxed{x^2+y^2=z^2}</td>
+<td>\boxed{{x}^{2}+{y}^{2}={z}^{2}}</td>
 </tr>
 </table>
 
@@ -669,15 +669,11 @@ The following table demonstrates the LaTeX equivalent to professional format fra
 </tr>
 <tr>
 <td>3.</td>
-<td><img src="WorkingwithMathematicalEquation_images/Fraction3.png" alt="Fraction equation"></td>
-<td>\sfrac{dy}{dx}</td>
-</tr>
-<tr>
-<td>4.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Fraction4.png" alt="Fraction equation"></td>
 <td>{\frac{dy}{dx}}</td>
 </tr>
 </table>
+
 
 ## Function
 
@@ -1155,7 +1151,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a");
+document.LastParagraph.AppendMath(@"\sum{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1172,7 +1168,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a");
+document.LastParagraph.AppendMath(@"\sum{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1187,7 +1183,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an N-array equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sum a")
+document.LastParagraph.AppendMath(@"\sum{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1210,7 +1206,7 @@ The following table demonstrates the LaTeX equivalent to professional format N-a
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray1.png" alt="N-Array equation"></td>
-<td>\sum a</td>
+<td>\sum{a}</td>
 </tr>
 <tr>
 <td>2.</td>
@@ -1235,32 +1231,32 @@ The following table demonstrates the LaTeX equivalent to professional format N-a
 <tr>
 <td>6.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray6.png" alt="N-Array equation"></td>
-<td>\prod a</td>
+<td>\prod{a}</td>
 </tr>
 <tr>
 <td>7.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray7.png" alt="N-Array equation"></td>
-<td>\amalg a</td>
+<td>\amalg{a}</td>
 </tr>
 <tr>
 <td>8.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray8.png" alt="N-Array equation"></td>
-<td>\bigcup a</td>
+<td>\bigcup{a}</td>
 </tr>
 <tr>
 <td>9.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray9.png" alt="N-Array equation"></td>
-<td>\bigcap a</td>
+<td>\bigcap{a}</td>
 </tr>
 <tr>
 <td>10.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray10.png" alt="N-Array equation"></td>
-<td>\bigvee a</td>
+<td>\bigvee{a}</td>
 </tr>
 <tr>
 <td>11.</td>
 <td><img src="WorkingwithMathematicalEquation_images/NArray11.png" alt="N-Array equation"></td>
-<td>\bigwedge a</td>
+<td>\bigwedge{a}</td>
 </tr>
 </table>
 
@@ -1280,7 +1276,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a");
+document.LastParagraph.AppendMath(@"\sqrt{a}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1297,7 +1293,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a");
+document.LastParagraph.AppendMath(@"\sqrt{a}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1312,7 +1308,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an radical equation using LaTeX.
-document.LastParagraph.AppendMath(@"\sqrt a")
+document.LastParagraph.AppendMath(@"\sqrt{a}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1335,7 +1331,7 @@ The following table demonstrates the LaTeX equivalent to professional format rad
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/Radical1.png" alt="Radical equation"></td>
-<td>\sqrt a</td>
+<td>\sqrt{a}</td>
 </tr>
 <tr>
 <td>2.</td>
@@ -1360,7 +1356,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b");
+document.LastParagraph.AppendMath((@"{a}^{b}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1377,7 +1373,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b");
+document.LastParagraph.AppendMath((@"{a}^{b}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1392,7 +1388,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b")
+document.LastParagraph.AppendMath((@"{a}^{b}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1415,12 +1411,12 @@ The following table demonstrates the LaTeX equivalent to professional format Sub
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript1.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}^\mathbit{b}</td>
+<td>{\mathbit{a}}^{\mathbit{b}}</td>
 </tr>
 <tr>
 <td>2.</td>
 <td><img src="WorkingwithMathematicalEquation_images/SubSuperScript2.png" alt="SubSuperScript equation"></td>
-<td>\mathbit{a}_\mathbit{b}</td>
+<td>{\mathbit{a}}_{\mathbit{b}}</td>
 </tr>
 </table>
 
@@ -1440,7 +1436,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1457,7 +1453,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1472,7 +1468,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Left SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40}^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}{100}");
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1495,7 +1491,7 @@ The following table demonstrates the LaTeX equivalent to professional format Lef
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/LeftSubSuperScript1.png" alt="Left SubSuperScript equation"></td>
-<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+<td>{_{\mathbf{40}}^{\mathbf{20}}}{\mathbf{100}}</td>
 </tr>
 </table>
 
@@ -1515,7 +1511,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}");
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}");
 
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
@@ -1532,7 +1528,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}");
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
@@ -1547,7 +1543,7 @@ Dim document As WordDocument = New WordDocument()
 document.EnsureMinimal()
 
 'Append an Right SubSuperScript equation using LaTeX.
-document.LastParagraph.AppendMath(@”{100}_{40}^{20}")
+document.LastParagraph.AppendMath(@"{100}_{40}^{20}")
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
@@ -1570,6 +1566,6 @@ The following table demonstrates the LaTeX equivalent to professional format Rig
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/RightSubSuperScript1.png" alt="Right SubSuperScript equation"></td>
-<td>{_{\mathbf{40}}^{\mathbf{20}}}\mathbf{100}</td>
+<td>{\mathbf{100}}_{\mathbf{40}}^{\mathbf{20}}</td>
 </tr>
 </table>
