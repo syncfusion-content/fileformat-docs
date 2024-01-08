@@ -5,6 +5,9 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
+
+> With the 2024 Volume 1 release, we will discontinue support for .NET Framework 4.5, 4.5.1, and 4.6 in WinForms, WPF, and the File-Format Frameworks. Instead, we will provide support for .NET 4.6.2.
+
 # Overview of Word library (DocIO)
 
 Essential DocIO is a native [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net) that is used by developers to create, read, write, and convert Microsoft Word documents by using C#, VB.NET, and managed C++ code from any of the following .NET platforms - [Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms), [WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf), [ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net), [ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc), [ASP.NET Core](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-core), [Blazor](https://help.syncfusion.com/file-formats/docio/create-word-document-in-blazor), [WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf), [Xamarin](https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin), [WinUI](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui) and [.NET MAUI applications](https://help.syncfusion.com/file-formats/docio/create-word-document-in-maui). 
