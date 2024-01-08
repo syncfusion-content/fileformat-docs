@@ -215,7 +215,7 @@ Step 5: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
 {% endhighlight %}
 {% endtabs %}
 
-N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime.
+N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime. After installing wasm tools using the above commands, please restart your machine.
 
 Step 6: Enable the following property in the **Blazor WASM csproj** file.
 
