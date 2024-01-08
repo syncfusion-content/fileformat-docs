@@ -1,12 +1,12 @@
 ---
-title: Working with LaTeX | DocIO | Syncfusion
-description: Learn how to create mathematical equations in a Word document using LaTeX with the .NET Word (DocIO) library without Microsoft Word.
+title: Working with LaTeX in File Formats DocIO | Syncfusion
+description: Learn here all abuot how to create mathematical equations in Word document using LaTeX in Syncfusion Essentia .NET Word library, it's elements and more details.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Create Equation using LaTeX
+# Create Equation using LaTeX in File Formats DocIO Library
 The .NET Word (DocIO) library allows to create mathematical equation in Word document using **LaTeX**.
 
 ## Accent

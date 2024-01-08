@@ -1,12 +1,12 @@
 ---
-title: Convert Word Document to PDF in Xamarin | Syncfusion
-description: Convert Word to PDF in Xamarin using Xamarin Word (DocIO) library without Microsoft Word or interop dependencies.
+title: Convert Word Document to PDF in Xamarin DocIO Library | Syncfusion
+description: Learn here all about how to convert word to pdf in Xamarin using Syncfusion Essential File Formats Word library, it's elements and more details.
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Convert Word Document to PDF in Xamarin
+# Convert Word Document to PDF in Xamarin DocIO Library
 
 Syncfusion DocIO is a [Xamarin Word library](https://www.syncfusion.com/document-processing/word-framework/xamarin/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or **interop** dependencies. Using this library, you can **convert a Word document to PDF in Xamarin**.
 
@@ -14,17 +14,17 @@ Syncfusion DocIO is a [Xamarin Word library](https://www.syncfusion.com/document
 
 Step 1: Create a new Xamarin.Forms application project.
 
-![Create Xamarin application in Visual Studio](Xamarin_images/Create-Project-WordtoPDF.png)
+![Create Xamarin Word application in Visual Studio.](Xamarin_images/create-project-word-to-pdf.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Select the Template](Xamarin_images/Template_WordtoPDF.png)
+![Select the Template in Xamarin Word.](Xamarin_images/template-word-to-pdf.png)
 
 Step 3: Install [Syncfusion.Xamarin.DocIORenderer ](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIORenderer) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
-![Install Syncfusion.Xamarin.DocIORenderer NuGet package](Xamarin_images/Nuget-Package-WordtoPDF.png)
+![Install Syncfusion.Xamarin.DocIORenderer NuGet package in Word.](Xamarin_images/nuget-package-word-to-pdf.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -185,7 +185,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the PDF document as follows.
 
-![Word to PDF in Xamarin](WordToPDF_images/OutputImage.png)
+![Word to PDF in Xamarin.](WordToPDF_images/xamarin-word-output-image.png)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/xamarin) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
