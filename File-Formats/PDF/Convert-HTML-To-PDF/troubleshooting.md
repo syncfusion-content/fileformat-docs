@@ -706,3 +706,64 @@ Code snippet:
 </td>
 </tr>
 </table>
+
+## Background color missing issue in HTML Header and Footer
+
+<table>
+<th style="font-size:14px" width="100px">Exception
+</th>
+<th style="font-size:14px">Background color missing issue in HTML Header and Footer.
+</th>
+
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>We do not have the support for adding a custom CSS style in the HTML header and footer.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px" width="100px">Solution
+</th>
+<td>
+To resolve this issue, we can adding inline styles in element. However, we have attached the sample and output documents for your reference.
+<br><br>
+
+{% tabs %}
+
+Code snippet:
+
+{% highlight c# tabtitle="C#" %}
+
+	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+	//Initialize blink converter settings. 
+	BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+	//Set the Blink viewport size.
+	blinkConverterSettings.ViewPortSize = new Size(1280, 0);
+	//Set the html margin-top value based on the html header height and margin-top value.
+	blinkConverterSettings.Margin.Top = 70;
+	//Set the html margin-bottom value based on the html footer height and margin-bottom value.
+	blinkConverterSettings.Margin.Bottom = 40;
+	//Set the custom HTML header to add at the top of each page.
+	blinkConverterSettings.HtmlHeader = " <div style=\"background-color: blue; -webkit-print-color-adjust: exact; margin-left: 40px; font-size: 10px;\">HTML Header</div>";
+	//Set the custom HTML footer to add at the bottom of each page.
+	blinkConverterSettings.HtmlFooter = " <div style=\"background-color: blue; -webkit-print-color-adjust: exact;margin-left: 40px; font-size: 10px;\">HTML Footer</div>";
+	//Assign Blink converter settings to the HTML converter.
+	htmlConverter.ConverterSettings = blinkConverterSettings;
+	//Convert the URL to a PDF document.
+	PdfDocument document = htmlConverter.Convert("<div>Hello World</div>",string.Empty);
+	//Create a filestream.
+	FileStream fileStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+	//Save and close a PDF document.
+	document.Save(fileStream);
+	document.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
+
+</td>
+</tr>
+</table>
