@@ -762,7 +762,7 @@ Code sample:
 
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can downloaded a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-Footer-Background-Colour/.NET).
 
 </td>
 </tr>
