@@ -726,12 +726,12 @@ Code snippet:
 <th style="font-size:14px" width="100px">Solution
 </th>
 <td>
-To resolve this issue, we can adding inline styles in element. However, we have attached the sample and output documents for your reference.
+To resolve this issue, we can add inline styles in element. However, we have attached the sample and output documents for your reference.
 <br><br>
 
 {% tabs %}
 
-Code snippet:
+Code sample:
 
 {% highlight c# tabtitle="C#" %}
 
