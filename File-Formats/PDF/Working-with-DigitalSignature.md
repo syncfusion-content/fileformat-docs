@@ -1503,10 +1503,10 @@ signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digis
 
 //Save the document into stream
 MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
+document.Save(stream);
 stream.Position = 0;
 //Close the document
-loadedDocument.Close(true);
+document.Close(true);
 //Defining the ContentType for pdf file
 string contentType = "application/pdf";
 //Define the file name
