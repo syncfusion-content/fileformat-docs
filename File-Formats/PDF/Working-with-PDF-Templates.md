@@ -225,8 +225,9 @@ graphics.DrawPdfTemplate(template, Syncfusion.Drawing.PointF.Empty, new Syncfusi
 
 //Save the document into stream.
 MemoryStream stream = new MemoryStream();
-loadedDocument.Save(stream);
+document.Save(stream);
 //Close the document.
+document.Close(true);
 loadedDocument.Close(true);
 
 {% endhighlight %}
