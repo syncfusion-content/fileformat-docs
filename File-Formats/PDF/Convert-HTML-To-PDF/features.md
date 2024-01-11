@@ -2080,3 +2080,52 @@ document.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set_blink_path_in_HTML_to_PDF).
+
+## Scale property in HTML to PDF converter
+The Blink rendering engine supports the scale property to HTML or a URL before rendering it into a PDF document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+	//Initialize the HTML to PDF converter.
+	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+	//Initialize blink converter settings.
+	BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+	//Set the Scale.
+	blinkConverterSettings.Scale = 1.0f;
+	//Assign Blink converter settings to HTML converter.
+	htmlConverter.ConverterSettings = blinkConverterSettings;
+	//Convert URL to PDF document. 
+	PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+	//Create a file stream.
+	FileStream fileStream = new FileStream("HTMLtoPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+	//Save a PDF document to a file stream.
+	document.Save(fileStream);
+	//Close the document.
+	document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+	'Initialize the HTML to PDF converter.
+	Dim htmlConverter As New HtmlToPdfConverter()
+	'Initialize blink converter settings.
+	Dim blinkConverterSettings As New BlinkConverterSettings()
+	'Set the Scale.
+	blinkConverterSettings.Scale = 1.0F
+	'Assign Blink converter settings to HTML converter.
+	htmlConverter.ConverterSettings = blinkConverterSettings
+	'Convert URL to PDF document.
+	Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+	'Save a PDF document to a file stream.
+	document.Save("HTMLtoPDF.pdf")
+	'Close the document.
+	document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from GitHub.
