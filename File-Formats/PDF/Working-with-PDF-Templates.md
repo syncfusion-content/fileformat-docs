@@ -214,8 +214,6 @@ PdfTemplate template = loadedPage.CreateTemplate();
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
-//Set the document margin.
-document.PageSettings.SetMargins(2);
 //Add the page.
 PdfPage page = document.Pages.Add();
 //Create the graphics.
@@ -243,8 +241,6 @@ PdfTemplate template = loadedPage.CreateTemplate();
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
-//Set the document margin.
-document.PageSettings.SetMargins(2);
 //Add the page.
 PdfPage page = document.Pages.Add();
 //Create the graphics.
@@ -271,8 +267,6 @@ Dim template As PdfTemplate = loadedPage.CreateTemplate()
 
 'Create a new PDF document
 Dim document As New PdfDocument()
-'Set the document margin
-document.PageSettings.SetMargins(2)
 'Add the page
 Dim page As PdfPage = document.Pages.Add()
 'Create the graphics
