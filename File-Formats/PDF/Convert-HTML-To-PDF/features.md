@@ -2090,13 +2090,13 @@ The Blink rendering engine supports the scale property to HTML or a URL before r
 
 	//Initialize the HTML to PDF converter.
 	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-	//Initialize blink converter settings.
+	//Initialize the blink converter settings.
 	BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 	//Set the Scale.
 	blinkConverterSettings.Scale = 1.0f;
-	//Assign Blink converter settings to HTML converter.
+	//Assign the Blink converter settings to the HTML converter.
 	htmlConverter.ConverterSettings = blinkConverterSettings;
-	//Convert URL to PDF document. 
+	//Convert the URL to a PDF document. 
 	PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 	//Create a file stream.
 	FileStream fileStream = new FileStream("HTMLtoPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
@@ -2111,13 +2111,13 @@ The Blink rendering engine supports the scale property to HTML or a URL before r
 
 	'Initialize the HTML to PDF converter.
 	Dim htmlConverter As New HtmlToPdfConverter()
-	'Initialize blink converter settings.
+	'Initialize the blink converter settings.
 	Dim blinkConverterSettings As New BlinkConverterSettings()
 	'Set the Scale.
 	blinkConverterSettings.Scale = 1.0F
-	'Assign Blink converter settings to HTML converter.
+	'Assign the Blink converter settings to HTML converter.
 	htmlConverter.ConverterSettings = blinkConverterSettings
-	'Convert URL to PDF document.
+	'Convert the URL to a PDF document.
 	Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 	'Save a PDF document to a file stream.
 	document.Save("HTMLtoPDF.pdf")
