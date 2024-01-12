@@ -2082,7 +2082,7 @@ document.Close(True)
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set_blink_path_in_HTML_to_PDF).
 
 ## Scale
-Resizing the HTML content within a PDF can be achieved through the utilization of the Scale property of Blink in HTML Converter.
+Resizing the HTML content within a PDF can be achieved through the utilization of the [Scale](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_Scale) property of Blink in HTML Converter.
 
 N> The scaling factor should be within the range of 0.1 to 2.0. 
 
