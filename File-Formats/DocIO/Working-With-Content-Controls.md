@@ -19,6 +19,9 @@ Content controls can be categorized based on its occurrence in a document as fol
 * [InlineContentControl](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.InlineContentControl.html): Among inline content inside, as a child of a paragraph.
 * [BlockContentControl](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.BlockContentControl.html): Among paragraphs and tables, as a child of a Body, HeaderFooter, Comment, Footnote, or a Shape node.
 
+To quickly start create and fill a form in Word document, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=IbsRfsRoa2s" %}
+
 ### Block Content Control
 
 You can add content control to a text body of the Word document using block content control. You can add text, tables, pictures, or other items into the block content control. Refer to the following code.
