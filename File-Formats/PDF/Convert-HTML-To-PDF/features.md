@@ -2081,8 +2081,12 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Set_blink_path_in_HTML_to_PDF).
 
-## Scale property in HTML to PDF converter
-The Blink rendering engine supports the scale property to HTML or a URL before rendering it into a PDF document.
+## Scale
+Resizing the HTML content within a PDF can be achieved through the utilization of the Scale property of Blink in HTML Converter.
+
+N> The scaling factor should be within the range of 0.1 to 2.0. 
+
+Refer to the following code snippet to resize the page content size.
 
 {% tabs %}
 
