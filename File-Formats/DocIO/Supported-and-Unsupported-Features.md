@@ -355,8 +355,8 @@ Yes<br/><br/></td></tr>
 Custom shapes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
+DrawingML - Yes<br/>VML - No<br/><br/></td><td>
+DrawingML - Yes<br/>VML - No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -442,7 +442,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 </tbody>
 </table>
-
 
 ### Paragraph features
 
