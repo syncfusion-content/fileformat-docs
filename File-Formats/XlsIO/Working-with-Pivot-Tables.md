@@ -1,11 +1,11 @@
 ---
-title: Working with Pivot Tables | Excel library | Syncfusion
-description: In this section, you can learn how to create and use pivot tables operations in Excel document using XlsIO
+title: Working with Pivot Tables | Excel Library | Syncfusion
+description: Learn here all about how to create and use pivot tables operations in Excel document using Syncfussion Essential File Formats XlsIO, it's elements and more.
 platform: file-Formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Pivot Tables
+# Working with Pivot Tables in File Formats Excel Library
 
 You can easily arrange and summarize complex data in a [Pivot Table](https://support.microsoft.com/en-gb/office/create-a-pivottable-in-excel-74ce8afc-2446-4816-80ee-20ca7fb71793?redirectSourcePath=%252fen-us%252farticle%252fPivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). 
 
@@ -340,11 +340,11 @@ A complete working example to format a pivot cell in C# is present on [this GitH
 
 The following screenshot represents the input template of pivot table inline formatting.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img4.png)
+![Pivot Tables inline format in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-inline-format.png)
 
 The following screenshot represents the generated Excel file with pivot table inline formatting in XlsIO.
 
-![Pivot Tables inline format](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img5.png)
+![Pivot Tables inline format in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-inline.png)
 
 ## Refresh a pivot table
 When you update the pivot table data source, you should refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through [IsRefreshOnLoad](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html#Syncfusion_XlsIO_Implementation_PivotTables_PivotCacheImpl_IsRefreshOnLoad) property of [PivotCacheImpl](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.PivotTables.PivotCacheImpl.html).
@@ -547,15 +547,15 @@ The following screenshots represents the generated Excel file with pivot table l
 
 Compact layout:
 
-![Tables layout compact](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img6.png)
+![Tables layout compact in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-layout-compact.png)
 
 Outline layout:
 
-![Tables layout outline](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img7.png)
+![Tables layout outline in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-layout-outline.png)
 
 Tabular layout:
 
-![Tables layout tabular](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img8.png)
+![Tables layout tabular in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-layout-tabular.png)
 
 ### Pivot table row layout
 
@@ -854,7 +854,7 @@ pageField.Items(2).Visible = False
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying page filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
+![Applying page filters in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-page-filters.jpeg)
 
 ### Applying row or column filters
 
@@ -888,7 +888,7 @@ rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "Central", Noth
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying label filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
+![Applying label filters in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-label-filters.jpeg)
 
 **Value** **Filter** 
 
@@ -916,7 +916,7 @@ field.PivotFilters.Add(PivotFilterType. ValueLessThan, field, "1341", Nothing)
 {% endhighlight %}
 {% endtabs %}  
 
-![Applying value filters](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
+![Applying value filters in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-filters.jpeg)
 
 **Multiple** **filter**
 
@@ -1515,7 +1515,7 @@ End Using
 
 The following screenshot represents the output of the pivot table group.
 
-![Pivot table group](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img9.png)
+![Pivot table group in File Formats Excel.](Working-with-Pivot-Tables_images/file-formats-excel-pivot-tables.png)
 
 ### Ungroup
 
