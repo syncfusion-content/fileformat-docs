@@ -1140,16 +1140,20 @@ End Using
   
 N> Printing is supported only in Windows Forms and WPF platforms.
 
-## Font fallback in Excel to PDF
+## Fallback fonts
 
-This feature allows the use of substitute fonts when the fonts provided for the cell text cannot render the text properly in Excel to PDF conversion.
+During Excel to PDF conversions, if a glyph of the input text is unavailable in the specified font, the text will not be rendered properly. To address this, the Syncfusion Excel (XlsIO) library allows users to specify fallback fonts. When a glyph is missing, the library will use one of the fallback fonts to render the text correctly in the output PDF document.
 
-This feature allows the following options.
+Users can configure fallback fonts in the following ways:
+* Initialize default fallback fonts.
+* Set custom fonts as fallback fonts for specific script types, including Arabic, Hebrew, Chinese, Japanese, and more.
+* Set custom fonts as fallback fonts for a particular range of Unicode text.
 
-* Allow to fallback the unsupported fonts automatically with predefined fallback fonts.
-* Replace the predefined fallback font with a custom font.
+N> XlsIO internally uses user-initialized or specified fallback fonts for Unicode characters during Excel to PDF conversion. Therefore, the specified fallback fonts must be installed in the production environment or embedded in the input Excel document (xlsx). Otherwise, it will not render the text properly using the fallback fonts.
 
-The following code illustrates how to use font fallback in the Excel to PDF Conversion.
+### Initialize default fallback fonts
+
+The following code example demonstrates how to initialize a default fallback fonts while converting an Excel document to PDF. The *InitializeDefault* API sets the default fallback fonts for specific script types like Arabic, Hebrew, Chinese, Japanese etc.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1158,21 +1162,23 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
     FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-    IWorkbook workbook = application.Workbooks.Open(fileStream);              
-    IWorksheet sheet = workbook.Worksheets[0];            
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
     application.XlsIORenderer = new XlsIORenderer();
 
-    //Initialize fallback Font
+    //Initialize fallBack font
     application.FallbackFonts.InitializeDefault();
-    //Add customized fallback font with script type
-    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun");                              
-           
-    XlsIORenderer renderer = new XlsIORenderer();            
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);               
-    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-    pdfDocument.Save(stream);                       
 
-    //Close and Dispose             
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the converted PDF document to stream.
+    FileStream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+
+    //Close and Dispose
     workbook.Close();
     stream.Dispose();
 }
@@ -1183,19 +1189,19 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
-    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-    IWorksheet sheet = workbook.Worksheets[0];
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
-    //Convert the sheet to PDF
-    ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+    //Convert Excel document into PDF document
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
     //Initialize fallback font
     application.FallbackFonts.InitializeDefault();
-    //Add customized fallback font with script type
-    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun");
 
+    //Initialize PdfDocument
     PdfDocument pdfDocument = new PdfDocument();
     pdfDocument = converter.Convert();
+
+    //Save the converted PDF.
     pdfDocument.Save("ExcelToPDF.pdf");
 }
 {% endhighlight %}
@@ -1204,17 +1210,454 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = excelEngine.Excel
     application.DefaultVersion = ExcelVersion.Xlsx
-    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-    Dim sheet As IWorksheet = workbook.Worksheets(0)
-    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(sheet)
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+    'Convert Excel document into PDF document
+    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+    'Initialize fallback font
     application.FallbackFonts.InitializeDefault()
-    application.FallbackFonts.Add(ScriptType.Chinese, "SimSun")
+
+    'Initialize PdfDocument
     Dim pdfDocument As PdfDocument = New PdfDocument()
     pdfDocument = converter.Convert()
+
+    'Save the converted PDF.
     pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
 {% endtabs %}
+
+A complete working example for Initialize default fallback fonts in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Initialize%20default%20fallback%20fonts/NET%20Standard/Initialize_default-fallback_fonts).
+
+### Fallback fonts based on script type
+
+The following code example demonstrates how a user can add fallback fonts based on the script types, which XlsIO considers internally when converting an Excel document to PDF.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    application.XlsIORenderer = new XlsIORenderer();
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    //Adds fallback font for "Arabic" script type.
+    application.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
+    //Adds fallback font for "Hebrew" script type.
+    application.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
+    //Adds fallback font for "Thai" script type.
+    application.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
+    //Adds fallback font for "Korean" script type.
+    application.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
+
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the converted PDF document to stream.
+    FileStream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+
+    //Close and Dispose
+    workbook.Close();
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+    //Convert Excel document into PDF document
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    //Adds fallback font for "Arabic" script type.
+    application.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
+    //Adds fallback font for "Hebrew" script type.
+    application.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
+    //Adds fallback font for "Thai" script type.
+    application.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
+    //Adds fallback font for "Korean" script type.
+    application.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
+
+    //Initialize PdfDocument
+    PdfDocument pdfDocument = new PdfDocument();
+    pdfDocument = converter.Convert();
+
+    //Save the converted PDF.
+    pdfDocument.Save("ExcelToPDFScript.pdf");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+    'Convert Excel document into PDF document
+    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+    'Initialize fallback font
+    application.FallbackFonts.InitializeDefault()
+
+    'Adds fallback font for "Arabic" script type.
+    application.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman")
+    'Adds fallback font for "Hebrew" script type.
+    application.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New")
+    'Adds fallback font for "Thai" script type.
+    application.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif")
+    'Adds fallback font for "Korean" script type.
+    application.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang")
+
+    'Intialize PdfDocument
+    Dim pdfDocument As PdfDocument = New PdfDocument()
+    pdfDocument = converter.Convert()
+
+    'Save the converted PDF.
+    pdfDocument.Save("ExcelToPDF.pdf")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example for Fallback fonts based on script type in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fallback%20fonts%20based%20on%20script%20type/NET%20Standard/Fallback_fonts_based_on_scripttype).
+
+### Fallback fonts for range of Unicode text
+
+Users can set fallback fonts for specific Unicode range of text to be used in Excel to PDF conversion.
+
+The following code example demonstrates how users can add fallback fonts by using a specific Unicode range of text that XlsIO considers internally while converting an Excel document to PDF.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+    //Initialize XlsIORenderer
+    application.XlsIORenderer = new XlsIORenderer();
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    //Adds fallback font for "Arabic" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0600,0x06ff,"Arial"));
+    //Adds fallback font for "Hebrew" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
+    //Adds fallback font for "Thai" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
+    //Adds fallback font for "Korean" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Excel to PDF
+    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+
+    //Close and Dispose
+    workbook.Close();
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+    //Convert Excel document into PDF document
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    //Adds fallback font for "Arabic" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
+    //Adds fallback font for "Hebrew" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Times New Roman"));
+    //Adds fallback font for "Thai" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0x0E00, 0x0E7F, "Tahoma"));
+    //Adds fallback font for "Korean" specific unicode range.
+    application.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
+
+    //Initialize PdfDocument
+    PdfDocument pdfDocument = new PdfDocument();
+    pdfDocument = converter.Convert();
+
+    //Save the converted PDF.
+    pdfDocument.Save("ExcelToPDF.pdf");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+    'Convert Excel document into PDF document
+    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+    'Initialize fallback font
+    application.FallbackFonts.InitializeDefault()
+
+    'Adds fallback font for "Arabic" specific unicode range.
+    application.FallbackFonts.Add(New FallbackFont(&H600, &H6FF, "Arial"))
+    'Adds fallback font for "Hebrew" specific unicode range.
+    application.FallbackFonts.Add(New FallbackFont(&H590, &H5FF, "Times New Roman"))
+    'Adds fallback font for "Thai" specific unicode range.
+    application.FallbackFonts.Add(New FallbackFont(&HE00, &HE7F, "Tahoma"))
+    'Adds fallback font for "Korean" specific unicode range.
+    application.FallbackFonts.Add(New FallbackFont(&HAC00, &HD7A3, "Malgun Gothic"))
+
+    'Intialize PdfDocument
+    Dim pdfDocument As PdfDocument = New PdfDocument()
+    pdfDocument = converter.Convert()
+
+    'Save the converted PDF.
+    pdfDocument.Save("ExcelToPDF.pdf")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example for Fallback fonts for range of Unicode text in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Fallback%20fonts%20for%20unicode%20range/NET%20Standard/Fallback_fonts_for_unicode_range).
+
+### Modify the existing fallback fonts
+
+The following code example demonstrates how user can modify or customize the existing fallback fonts using *FontNames* API while converting an Excel document to PDF.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    application.XlsIORenderer = new XlsIORenderer();
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    FallbackFonts fallbackFonts = application.FallbackFonts;
+    foreach(FallbackFont fallbackFont in fallbackFonts)
+    {
+        //Customize a default fallback font name as "David" for the Hebrew script.
+        if (fallbackFont.ScriptType == ScriptType.Hebrew)
+            fallbackFont.FontNames = "David";
+    }
+
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the converted PDF document to stream
+    FileStream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+    pdfDocument.Save(stream);
+
+    //Close and Dispose
+    workbook.Close();
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+    //Convert Excel document into PDF document
+    ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+    //Initialize fallBack font
+    application.FallbackFonts.InitializeDefault();
+
+    FallbackFonts fallbackFonts = application.FallbackFonts;
+    foreach (FallbackFont fallbackFont in fallbackFonts)
+    {
+        //Customize a default fallback font name as "David" for the Hebrew script.
+        if (fallbackFont.ScriptType == ScriptType.Hebrew)
+            fallbackFont.FontNames = "David";
+    }
+
+    //Initialize PdfDocument
+    PdfDocument pdfDocument = new PdfDocument();
+    pdfDocument = converter.Convert();
+
+    //Save the converted PDF.
+    pdfDocument.Save("ExcelToPDFModify.pdf");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Xlsx
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+    'Convert Excel document into PDF document
+    Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+    'Initialize fallback font
+    application.FallbackFonts.InitializeDefault()
+
+    Dim fallbackFonts As FallbackFonts = application.FallbackFonts
+    For Each fallbackFont As FallbackFont In fallbackFonts
+        ' Customize a default fallback font name as "David" for the Hebrew script.
+        If fallbackFont.ScriptType = ScriptType.Hebrew Then
+            fallbackFont.FontNames = "David"
+        End If
+    Next
+
+    'Intialize PdfDocument
+    Dim pdfDocument As PdfDocument = New PdfDocument()
+    pdfDocument = converter.Convert()
+
+    'Save the converted PDF.
+    pdfDocument.Save("ExcelToPDF.pdf")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example for Modify the existing fallback fonts in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Excel%20to%20PDF/Modify%20the%20existing%20fallback%20fonts/NET%20Standard/Modify_the_existing_fallback_fonts).
+
+### Supported script types
+
+The following table illustrates the supported script types by the .NET Excel library (XlsIO) in Excel to PDF conversion.
+
+<table>
+<thead> 
+<tr>
+<th>Script types</th>
+<th>Ranges</th>
+<th>Default fallback fonts considered in InitializeDefault() API</th>
+</tr>
+</thead>
+<tr>
+<td>
+Arabic
+</td>
+<td>
+0x0600 - 0x06ff<br>
+0x0750 - 0x077f<br>
+0x08a0 - 0x08ff<br>
+0xfb50 - 0xfdff<br>
+0xfe70 - 0xfeff<br>
+</td>
+<td>
+Arial, Times New Roman, Microsoft Uighur
+</td>
+</tr>
+<tr>
+<td>
+Hebrew
+</td>
+<td>
+0x0590 - 0x05ff<br>
+0xfb1d - 0xfb4f<br>
+</td>
+<td>
+Arial, Times New Roman, David
+</td>
+</tr>
+<tr>
+<td>
+Hindi
+</td>
+<td>
+0x0900 - 0x097F<br>
+0xa8e0 - 0xa8ff<br>
+0x1cd0 - 0x1cff<br>
+</td>
+<td>
+Mangal, Utsaah
+</td>
+</tr>
+<tr>
+<td>
+Chinese
+</td>
+<td>
+0x4E00 - 0x9FFF<br>
+0x3400 - 0x4DBF<br>
+0xd840 - 0xd869<br>
+0xdc00 - 0xdedf<br>
+0xA960 - 0xA97F<br>
+0xFF00 - 0xFFEF<br>
+0x3000 - 0x303F<br>
+</td>
+<td>
+DengXian, MingLiU, MS Gothic
+</td>
+</tr>
+<tr>
+<td>
+Japanese
+</td>
+<td>
+0x30A0 - 0x30FF<br>
+0x3040 - 0x309F<br>
+</td>
+<td>
+Yu Mincho, MS Mincho
+</td>
+</tr>
+<tr>
+<td>
+Thai 
+</td>
+<td>
+0x0E00 - 0x0E7F
+</td>
+<td>
+Tahoma, Microsoft Sans Serif
+</td>
+</tr>
+<tr>
+<td>
+Korean 
+</td>
+<td>
+0xAC00 - 0xD7A3<br>
+0x1100 - 0x11FF<br>
+0x3130 - 0x318F<br>
+0xA960 - 0xA97F<br>
+0xD7B0 - 0xD7FF<br>
+0xAC00 - 0xD7AF<br>
+</td>
+<td>
+Malgun Gothic, Batang
+</td>
+</tr>
+</table>
 
 ## Supported elements
 
