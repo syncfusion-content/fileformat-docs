@@ -77,4 +77,4 @@ You should initiate an evaluation if you have already obtained our components th
    
    ![License and downloads of Syncfusion Excel](images/Linux_Download.PNG)
 
-You can also refer to the [**Excel Linux installer**](https://help.syncfusion.com/common/essential-studio/installation/linux-installer/how-to-install) links for step-by-step installation guidelines.	
+You can also refer to the [**Excel Linux installer**](https://help.syncfusion.com/file-formats/xlsio/installation/linux-installer/how-to-install) links for step-by-step installation guidelines.	
