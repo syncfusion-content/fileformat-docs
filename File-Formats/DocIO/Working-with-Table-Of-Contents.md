@@ -50,6 +50,9 @@ Builds a table of contents from paragraphs formatted with specified styles other
 </tbody>
 </table>
 
+To quickly start create and update a table of contents in Word document, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=rCtGrWuRplk" %}
+
 ## Adding a TOC field
 
 The following code example shows how to add a table of contents (TOC) in Word document.
