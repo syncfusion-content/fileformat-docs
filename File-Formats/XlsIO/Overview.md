@@ -5,6 +5,9 @@ platform: file-formats
 control: XlsIO
 documentation: UG
 ---
+
+> With the 2024 Volume 1 release, we will discontinue support for .NET Framework 4.5, 4.5.1, and 4.6 in WinForms, WPF, and the File-Format Frameworks. Instead, we will provide support for .NET 4.6.2.
+
 # Overview of Syncfusion Excel (XlsIO) library
 
 [**Essential XlsIO**](https://www.syncfusion.com/document-processing/excel-framework/net) is a native **.****NET** class library that can be used to create and modify **Microsoft** **Excel** files by using C#, VB.NET and managed C++ code. It is a non-UI component that provides a full-fledged object model that facilitates accessing & manipulating the spreadsheets without any dependency of Microsoft Office COM libraries & Microsoft Office.
