@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Excel to PDF Conversion in File Formats
+# Excel to PDF Conversion
 
 [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net/excel-to-pdf-conversion) supports converting an entire workbook or a single worksheet into PDF document. Refer the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
 
