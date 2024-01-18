@@ -2517,10 +2517,6 @@ worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas)
 {% endhighlight %}
 {% endtabs %}
 
-## FAQ
-
-* [How to import data table with its data type using template markers](https://help.syncfusion.com/file-formats/xlsio/faqs/how-to-import-data-table-with-its-data-type-using-template-markers)
-
 ## Blogs
 
 * [Export from DataTable to an Excel worksheet](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#DataTable-to-Excel).
