@@ -83,6 +83,8 @@ A complete working example to export from DataTable to an Excel worksheet in C# 
 
 We can also export from DataTable to an Excel worksheet, as described in [this blog post](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#DataTable-to-Excel).
 
+An online sample link to [export from Data table to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/ImportExportDataTable#/material3) in ASP.NET Core.
+
 ### Export from DataColumn to Excel
 
 The following code snippet illustrates how to export from DataColumn to a worksheet using [ImportDataColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataColumn_System_Data_DataColumn_System_Boolean_System_Int32_System_Int32_) method.
@@ -399,7 +401,7 @@ A complete working example to export from collection of objects to an Excel work
 
 We can also export from collection of objects to an Excel, as described in [this blog post](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#objects-to-Excel).
 
-An online sample link to [export from collection of objects to an Excel](https://ej2.syncfusion.com/aspnetcore/Excel/CollectionObjects#/material3) in ASP.NET Core.
+An online sample link to [export from collection of objects to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/CollectionObjects#/material3) in ASP.NET Core.
 
 #### Options to Export from Collection of Objects to Excel
 
@@ -2309,8 +2311,6 @@ End Using
 
 A complete working example to export data from Excel worksheet to DataTable in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20DataTable).
 
-An online sample link to [Export from worksheet to a Data table](https://ej2.syncfusion.com/aspnetcore/Excel/ImportExportDataTable#/material3) in ASP.NET Core.
-
 ### Export to Data Table with an Event
 
 Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event [ExportDataTableEvent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.ExportDataTableEventHandler.html) to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the [ExportDataTableActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.ExportDataTableEventArgs.html#Syncfusion_XlsIO_Implementation_ExportDataTableEventArgs_ExportDataTableAction) enumeration.
@@ -3034,7 +3034,7 @@ A complete working example to export from HTML table to an Excel worksheet in C#
 
 We can also export data from HTML table to an Excel worksheet, as described in [this blog post](https://www.syncfusion.com/blogs/post/easy-steps-to-export-html-tables-to-an-excel-worksheet-in-c.aspx).
 
-An online sample link to [Export from HTML table to an Excel worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/HTMLToWorksheet#/material3) in ASP.NET Core.
+An online sample link to [export from HTML table to an Excel worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/HTMLToWorksheet#/material3) in ASP.NET Core.
 
 The following screenshot represents the image of the input HTML file with a table.
 
@@ -3043,8 +3043,6 @@ The following screenshot represents the image of the input HTML file with a tabl
 The following screenshot represents the image of the Excel output with data exported from the webpage with the HTML table.
 
 ![Output document with HTML table](Working-with-Data_images/Working-with-Data_img7.png)
-
-An online sample link to [Export from HTML table to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/HTMLToWorksheet#/material3) in ASP.NET Core.
 
 N> Syncfusion XlsIO supports exporting HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
 
