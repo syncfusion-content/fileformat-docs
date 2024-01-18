@@ -101,6 +101,8 @@ Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/>Syncfusio
 </tr>
 </table>
 
+## Converting Charts
+
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
 <table>
 <tr>

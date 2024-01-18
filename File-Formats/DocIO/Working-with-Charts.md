@@ -831,6 +831,55 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 You can convert the chart in Word document as image using the [SaveAsImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html#Syncfusion_OfficeChartToImageConverter_ChartToImageConverter_SaveAsImage_Syncfusion_OfficeChart_IOfficeChart_System_IO_Stream_) method in [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_ChartToImageConverter).
 
+<table>
+<thead>
+<tr>
+<th width="20%">
+Platform(s)
+</th>
+<th width="40%">
+NuGets for Chart to Image
+</th>
+<th width="40%">
+Assemblies for Chart to image
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+Cross-platform, Xamarin
+</td>
+<td>
+{{'[Word to PDF NuGets](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf)' |  markdownify }}
+</td>
+<td>
+{{'[Word to PDF assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)' |  markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Windows-specific
+</td>
+<td>
+{{'[Word to PDF NuGets](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf)' |  markdownify }}<br/> {{'[Chart conversion NuGets](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-charts)' |  markdownify }}
+</td>
+<td>
+{{'[Word to PDF assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)' |  markdownify }}<br/> {{'[Chart conversion assemblies](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-charts)' |  markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+UWP
+</td>
+<td>
+{{'[Word to PDF NuGets of cross platform](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf)' |  markdownify }}
+</td>
+<td>
+{{'[Word to PDF assemblies of cross platform](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)' |  markdownify }}
+</td>
+</tr>
+</table>
+
 The following code example shows how to convert chart in the Word document as image.
 
 {% tabs %}
@@ -938,7 +987,7 @@ using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResource
 {% endhighlight %}
 
 {% highlight c# tabtitle="UWP" %}
-//DocIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone. You can convert chart as images in UWP using DocIORenderer.
+// You can convert a chart to images in UWP using DocIORenderer, by using cross-platform NuGets or assemblies in a UWP application.
 //Open the file as Stream.
 using (Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.TemplateWithChart.docx"))
 {
