@@ -828,18 +828,17 @@ pptxDoc.Close()
 {% highlight c# tabtitle="UWP" %}
 //You can convert a chart to images in UWP using PresentationRenderer, by using cross-platform NuGets or assemblies in a UWP application.
 //Loads or open an PowerPoint Presentation
-IPresentation pptxDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_chart_to_image.Assets.Template.pptx"));
 //Initialize the PresentationRenderer
 pptxDoc.PresentationRenderer = new PresentationRenderer();
 //Gets the first instance of chart from slide
 IPresentationChart chart = pptxDoc.Slides[0].Charts[0];
-// Converts the chart to image.
+//Converts the chart to image.
 //Creates a stream instance to store the image
 MemoryStream stream = new MemoryStream();
 pptxDoc.PresentationRenderer.ConvertToImage(chart, stream);
 //Closes the presentation
 pptxDoc.Close();
-image.Close();
 inputStream.Close();
 //Save the memory stream as file.
 Save(stream as MemoryStream, "ChartToImage.jpeg");
