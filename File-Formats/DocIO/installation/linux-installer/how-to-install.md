@@ -10,8 +10,6 @@ documentation: ug
 
 # Installing Syncfusion Word Linux installer
 
-## Overview
-
 ## Step-by-Step Installation
 
 The steps below show how to install Word Linux installer.
