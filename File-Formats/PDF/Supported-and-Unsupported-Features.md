@@ -454,7 +454,7 @@ Fields<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>Yes*<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
@@ -464,14 +464,13 @@ Form Filling<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>Yes*<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
-*Supported on ASP.NET Core 2.0 and above
 <br>
 Document Conversion:
 
@@ -505,7 +504,7 @@ HTML to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td>
-<td>Yes*<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>No<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>No<br/><br/></td></tr>
@@ -533,9 +532,9 @@ Yes<br/><br/></td>
 <td>
 Excel To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes*<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>Yes*<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>No<br/><br/></td></tr>
@@ -612,7 +611,6 @@ Yes<br/><br/></td>
 </tbody>
 </table>
 
-*Supported on .NETStandard 2.0 and above
 <br>
 PDF Standards:
 
@@ -1096,7 +1094,7 @@ Redaction<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td>
-<td>Yes*<br/><br/></td>
+<td>Yes<br/><br/></td>
 <td>No<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
