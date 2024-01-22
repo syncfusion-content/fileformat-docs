@@ -89,6 +89,8 @@ Step 7: Add a new button in the Index.cshtml as shown below.
     }
     Html.EndForm();
 }
+{% endhighlight %}
+{% endtabs %}
 
 Step 8: Add a new action method **ConvertExcelToImage** in HomeController.cs and include the below code snippet to **convert the Excel document to image** and download it.
 
