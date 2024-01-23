@@ -266,6 +266,7 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://support.syncfusion.com/kb/article/7626/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 N> 4. From v23.1.40, the dependent package SkiaSharp is upgraded from 2.88.2 to 2.88.6 version and it is mandatory to use SkiaSharp.NativeAssets.Linux v2.88.6 and HarfBuzzSharp.NativeAssets.Linux v7.3.0 packages for converting Word documents into PDF in Linux environment.
+N> 5. "DocIO supports Word to PDF conversion in UWP application using DocIORenderer." For further information, please refer [here](https://support.syncfusion.com/kb/article/8902/how-to-convert-word-document-to-pdf-in-uwp)
 
 ## Converting Word document to image
 
