@@ -10,8 +10,6 @@ documentation: ug
 
 # Installing Syncfusion File-Formats Linux installer
 
-## Overview
-
 ## Step-by-Step Installation
 
 The steps below show how to install File-Formats Linux installer.
