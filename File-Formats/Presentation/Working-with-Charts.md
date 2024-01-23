@@ -842,7 +842,9 @@ pptxDoc.Close();
 inputStream.Close();
 //Save the memory stream as file.
 Save(stream as MemoryStream, "ChartToImage.jpeg");
-//Save the image.
+/// <summary>
+/// Save the image.
+/// </summary>
 async void Save(MemoryStream streams, string filename)
 {
     streams.Position = 0;
@@ -862,13 +864,13 @@ async void Save(MemoryStream streams, string filename)
     }
     if (stFile != null)
     {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        using (Windows.Storage.Streams.IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
         {
             //Write compressed data from memory to file.
             using (Stream outstream = zipStream.AsStreamForWrite())
             {
                 byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);           
+                outstream.Write(buffer, 0, buffer.Length);
                 outstream.Flush();
             }
         }
