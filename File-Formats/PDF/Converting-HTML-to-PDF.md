@@ -1,6 +1,6 @@
 ---
 title: Converting HTML to PDF | Syncfusion
-description: Learn how to convert HTML to PDF using 3 different rendering engines (Blink, WebKit and IE) with various features like TOC, partial web page to PDF etc.
+description: Learn how to convert HTML to PDF using 3 different rendering engines (Blink and IE) with various features like TOC, partial web page to PDF etc.
 platform: file-formats
 control: PDF
 documentation: UG
@@ -264,61 +264,6 @@ Refer to [this](/file-formats/pdf/convert-html-to-pdf/features) section for more
 ## Troubleshooting and FAQ
 
 Refer to [this](/file-formats/pdf/convert-html-to-pdf/troubleshooting) section for troubleshooting HTML to PDF conversion failures and frequently asked questions.
-
-## Steps to disable WebKit warning while performing HTML to PDF
-
-By default, the PDF document generated with the WebKit rendering engine comes with the following warning message.
-
-<img src="Convert-HTML-To-PDF/htmlconversion_images/WebKitWarning.png" alt="WebKitWarning" width="100%" Height="Auto"/>
-
-Please refer to the below code snippet to use the DisableWebKitWarning API to remove the default WebKit warning message from the PDF document.
-
-{% tabs %}
-
-{% highlight c# tabtitle="C#" %}
-
-//Initialize HTML to PDF converter
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-//Initialize the WebKit converter settings
-WebKitConverterSettings settings = new WebKitConverterSettings();
-//Disable WebKit warning message
-settings.DisableWebKitWarning = true;
-//Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings;
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.google.com");
-FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
-
-//Save and close the PDF document 
-document.Save(fileStream);
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET" %}
-'Initialize the HTML to PDF converter 
-Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
-Dim settings As New WebKitConverterSettings()
-'Disable Default WebKit Warning Message
-settings.DisableWebKitWarning = true
-'Assign WebKit settings to HTML converter
-htmlConverter.ConverterSettings = settings
-'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
-
-'Save and close the PDF document 
-document.Save("Output.pdf")
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight c# tabtitle="ASP.NET Core" %}
-//Currently, IE rendering engine does not support conversion in .NET Core platform
-{% endhighlight %}
-
-{% endtabs %}
-
-N>Please try our [Blink](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf) engine for best quality and accuracy in HTML to PDF conversion.
 
 ## Steps to disable IE warning while performing HTML To PDF using the IE rendering engine
 

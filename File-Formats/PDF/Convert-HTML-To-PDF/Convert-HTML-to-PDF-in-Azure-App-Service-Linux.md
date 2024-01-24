@@ -120,7 +120,7 @@ public ActionResult ExportToPDF()
     //Set command line arguments to run without sandbox.
     settings.CommandLineArguments.Add("--no-sandbox");
     settings.CommandLineArguments.Add("--disable-setuid-sandbox");
-    //Assign WebKit settings to the HTML converter 
+    //Assign BlinkConverter settings to the HTML converter 
     htmlConverter.ConverterSettings = settings;
     //Convert HTML string to PDF
     PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
