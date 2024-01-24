@@ -1,5 +1,5 @@
 ---
-title: Working with LaTeX in File Formats DocIO | Syncfusion
+title: Working with LaTeX | DocIO | Syncfusion
 description: Learn all about how to create mathematical equations in Word documents using LaTeX with Syncfusion’s essential .NET Word library for Xamarin.
 platform: file-formats
 control: DocIO
