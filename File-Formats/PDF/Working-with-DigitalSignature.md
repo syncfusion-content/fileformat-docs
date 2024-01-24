@@ -1,6 +1,6 @@
 ---
 title: Working with Digital Signature in File Formarts PDF | Syncfusion
-description: Learn here all about how to create a digital signature by using Syncfusion Essential File Formats .NET PDF library, it's elements and more details.
+description: Learn all about creatinge and validating digital signatures with Syncfusion’s essential PDF file-format library for Xamarin.
 platform: file-formats
 control: PDF
 documentation: UG

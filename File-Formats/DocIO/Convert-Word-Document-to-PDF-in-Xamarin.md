@@ -1,6 +1,6 @@
 ---
 title: Convert Word Document to PDF in Xamarin DocIO Library | Syncfusion
-description: Learn here all about how to convert word to pdf in Xamarin using Syncfusion Essential File Formats Word library, it's elements and more details.
+description: Learn all about splitting PDF documents into single pages or multiple pages with Syncfusion’s essential PDF file-format library for Xamarin.
 platform: file-formats
 control: DocIO
 documentation: UG

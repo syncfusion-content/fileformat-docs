@@ -1,6 +1,6 @@
 ---
 title: Working with LaTeX in File Formats DocIO | Syncfusion
-description: Learn here all abuot how to create mathematical equations in Word document using LaTeX in Syncfusion Essentia .NET Word library, it's elements and more details.
+description: Learn all about how to create mathematical equations in Word documents using LaTeX with Syncfusion’s essential .NET Word library for Xamarin.
 platform: file-formats
 control: DocIO
 documentation: UG

@@ -1,6 +1,6 @@
 ---
 title: Split Documents in File Formats PDF Library | Syncfusion
-description: Learn here all about split documents in Syncfussion Essential File Formats PDF library into single-page or multiple-page, it's elements and more details.
+description: Learn all about splitting PDF documents into single pages or multiple pages with Syncfusion’s essential PDF file-format library for Xamarin.
 platform: file-formats
 control: PDF
 documentation: UG
