@@ -200,7 +200,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Remove Chart Title
 
-The following code example illustrates how to remove the chart title from the document.
+The following code example illustrates how to remove the chart title from the Word document.
 
 {% tabs %}
 
