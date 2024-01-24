@@ -230,12 +230,11 @@ using (WordDocument document = new WordDocument())
         pieSeries.Values = chart.ChartData[2, 2, 3, 2];
         //Sets category labels.
         chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 3, 1];
-        //Creates file stream.
-        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
-        {
-            //Saves the Word document to file stream.
-            document.Save(outputFileStream, FormatType.Docx);
-        }
+        //Saves the Word document to MemoryStream.
+        MemoryStream stream = new MemoryStream();
+        document.Save(stream, FormatType.Docx);
+        //Closes the document.
+        document.Close();
 }
 {% endhighlight %}
 
@@ -263,10 +262,10 @@ using (WordDocument document = new WordDocument())
 'Sets category labels.
  chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 3, 1)
 'Creates file stream.
- Imports (FileStream outputFileStream = New FileStream(Path.GetFullPath("../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+ Imports (MemoryStream stream = New MemoryStream())
  {
-     'Saves the Word document to file stream.
-      document.Save(outputFileStream, FormatType.Docx)
+     'Saves the Word document to memory stream.
+      document.Save(stream, FormatType.Docx)
  }
 {% endhighlight %}
 
