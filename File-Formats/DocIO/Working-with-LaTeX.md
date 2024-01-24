@@ -313,6 +313,7 @@ The following code example illustrates how to create border box equation using L
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
+{% raw %}
 // Create a new Word document.
 using WordDocument document = new WordDocument();
 
@@ -326,10 +327,11 @@ document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 using MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 
-
+{% endraw %}
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
+{% raw %}
 // Create a new Word document.
 using WordDocument document = new WordDocument();
 
@@ -342,9 +344,11 @@ document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
 
+{% endraw %}
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
+{% raw %}
 ' Create a new Word document.
 Dim document As WordDocument = New WordDocument()
 
@@ -357,6 +361,7 @@ document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}")
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
 
+{% endraw %}
 {% endhighlight %}
 {% endtabs %}
 
@@ -375,7 +380,7 @@ The following table demonstrates the LaTeX equivalent to professional format bor
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/BorderBox1.png" alt="Border Box equation"></td>
-<td>\boxed{{x}^{2}+{y}^{2}={z}^{2}}</td>
+<td>{% raw %}\boxed{{x}^{2}+{y}^{2}={z}^{2}}{% endraw %}</td>
 </tr>
 </table>
 
