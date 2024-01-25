@@ -283,51 +283,6 @@ settings.TempPath = "D://MyProject//bin";
 
 </table>
 
-## Failed to convert Webpage Exception
-
-<table>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>The exception may occur in Windows 7/Windows server 2008 environment due to limitation of <i>ClientWebSocket</i> implementation.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>To overcome the exception in Windows 7/Windows server 2008 environment, add the <a href="https://www.nuget.org/packages/System.Buffers/">System.Buffers.4.5.0</a> NuGet package in the sample for conversion. 
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>Including both packages (Blink and Webkit) in the application might lead to the occurrence of the exception.
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>In order to resolve the exception, it's necessary to eliminate one of the packages (Webkit or Blink) from the application and then perform a thorough cleaning and rebuilding process.
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>Sometimes this exception occurs for only particular URL
-</td>
-</tr>
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
-</td>
-</tr>
-
-</table>
-
 ## Blink converter may create PDF with blank pages
 
 <table>
@@ -610,35 +565,6 @@ Refer to the following package reference:
 		<th style="font-size:14px">Azure App Service with Linux docker</th>
 		<td>Yes</td>
 	</tr>
-</table>
-
-## Image rendering issue occurs while converting HTML to PDF using WebKit
-
-<table>
-<th style="font-size:14px" width="100px">Issue
-</th>
-<th style="font-size:14px">Image rendering issue occurs while converting HTML(HTTPS sites) to PDF using Webkit rendering engine in location machine/Azure App Service. 
-</th>
-
-<tr>
-<th style="font-size:14px" width="100px">Reason
-</th>
-<td>When the OPENSSL assemblies are missing in your machine.
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px" width="100px">Solution
-</th>
-<td>
-Our WebKit rendering engine necessitates OPENSSL assemblies to access resources from HTTPS URLs. If your project involves accessing resources from HTTPS sites, please make sure to include the following assemblies,
-<br><br>
-<img src="htmlconversion_images/OPENSSl_assemblies.png" alt="ExcludeAssets"><br><br>
-You can get the OPENSSL assemblies from the below link,
-<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511</a>
-<br><br>
-</td>
-</tr>
 </table>
 
 ## Failed to convert Webpage exception with Linux docker in Mac M1 machine.

@@ -93,7 +93,7 @@ public ActionResult ExportToPDF()
     //Set command line arguments to run without sandbox.
     settings.CommandLineArguments.Add("--no-sandbox");
     settings.CommandLineArguments.Add("--disable-setuid-sandbox");
-    //Assign WebKit settings to the HTML converter 
+    //Assign BlinkConverter settings to the HTML converter 
     htmlConverter.ConverterSettings = settings;
     //Convert HTML string to PDF
     PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
@@ -308,7 +308,7 @@ Step 5: Add the following code example in the Function1 class to convert HTML to
         settings.CommandLineArguments.Add("--no-sandbox");
         settings.CommandLineArguments.Add("--disable-setuid-sandbox");
         settings.BlinkPath = blinkBinariesPath;
-        //Assign WebKit settings to the HTML converter 
+        //Assign BlinkConverter settings to the HTML converter 
         htmlConverter.ConverterSettings = settings;
         //Convert URL to PDF
         PdfDocument document = htmlConverter.Convert(url);
