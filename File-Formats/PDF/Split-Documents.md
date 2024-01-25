@@ -81,6 +81,8 @@ Refer to the following code example to split a range of pages.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
+{% raw %}
+
 //Load the existing PDF file.
 PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
 //Subscribe to the document split event.
@@ -98,10 +100,13 @@ loadDocument.SplitByRanges(new int[,] { { 0, 5 }, { 5, 10 } });
 //Close the document.
 loadDocument.Close(true);
 
+{% endraw %}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+{% raw %}
 
+//Create the values.
 int[,] values = new int[,] { { 2, 5 }, { 8, 10 } };
 //Load the PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
@@ -112,10 +117,14 @@ loadedDocument.SplitByRanges(destinationFilePattern, values);
 //close the document
 loadedDocument.Close(true);
 
+{% endraw %}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+{% raw %}
 
+'Create the values.
+Dim values As Integer(,) = New Integer(,) {{2, 5},{8, 10}}
 'Load the PDF document.
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 'Set a output path
@@ -125,6 +134,7 @@ loadedDocument.SplitByRanges(destinationFilePattern, values)
 'Close the document.
 loadedDocument.Close(True)
 
+{% endraw %}
 {% endhighlight %}
 
 {% endtabs %}  
@@ -302,6 +312,7 @@ The Syncfusion PDF library enables the splitting of PDF documents and offers the
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 {% raw %}
+
 //Load the existing PDF file.
 PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
 //Subscribe to the document split event.
@@ -321,11 +332,13 @@ splitOptions.RemoveUnusedResources = true;
 loadDocument.SplitByRanges(new int[,] { { 0, 5 }, { 5, 10 } }, splitOptions);
 //Close the document.
 loadDocument.Close(true);
+
 {% endraw %}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 {% raw %}
+
 //Create the values.
 int[,] values = new int[,] { { 2, 5 }, { 8, 10 } };
 //Load the PDF document.
@@ -340,11 +353,13 @@ splitOptions.RemoveUnusedResources = true;
 loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions);
 //Close the document.
 loadedDocument.Close(true);
+
 {% endraw %}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 {% raw %}
+
 'Create the values.
 Dim values As Integer(,) = New Integer(,) {{2, 5},{8, 10}}
 'Load the PDF document.
@@ -360,6 +375,7 @@ loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions)
 
 'Close the document.
 loadedDocument.Close(True)
+
 {% endraw %}
 {% endhighlight %}
 
@@ -376,6 +392,7 @@ The Syncfusion PDF library enables the splitting of PDF documents and offers the
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 {% raw %}
+
 //Load an existing PDF file.
 PdfLoadedDocument loadDocument = new PdfLoadedDocument(new FileStream("Input.pdf", FileMode.Open));
 //Subscribe to the document split event.
@@ -396,11 +413,13 @@ loadDocument.SplitByRanges(new int[,] { { 0, 1 }, { 1, 2 } }, splitOptions);
 
 //Close the document.
 loadDocument.Close(true);
+
 {% endraw %}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 {% raw %}
+
 //Create the values.
 int[,] values = new int[,] { { 0, 1 }, { 1, 2 } };
 //Load the PDF document.
@@ -416,11 +435,13 @@ loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions);
 
 //Close the document.
 loadedDocument.Close(true);
+
 {% endraw %}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 {% raw %}
+
 'Create the values.
 Dim values As Integer(,) = New Integer(,) {{0, 1},{1, 2}}
 'Load the PDF document.
@@ -436,6 +457,7 @@ loadedDocument.SplitByRanges(destinationFilePattern, values, splitOptions)
 
 'Close the document.
 loadedDocument.Close(True)
+
 {% endraw %}
 {% endhighlight %}
 

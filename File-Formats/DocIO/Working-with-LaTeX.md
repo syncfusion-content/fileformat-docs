@@ -1574,3 +1574,265 @@ The following table demonstrates the LaTeX equivalent to professional format Rig
 <td>{\mathbf{100}}_{\mathbf{40}}^{\mathbf{20}}</td>
 </tr>
 </table>
+
+## Format Equations
+
+### Apply style to characters
+
+Apply styles to characters, such as bold and bold-italic, for equations in a Word document using LaTeX with the .NET Word Library. Apply the following styles using LaTeX commands.
+
+<table>
+<thead> 
+<tr>
+<th>Styles</th>
+<th>LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>
+Bold<br/><br/></td>
+<td>
+\mathbf<br/><br/></td>
+</tr>
+<tr>
+<td>
+BoldItalic<br/><br/></td>
+<td>
+\mathbit<br/><br/></td>
+</tr>
+</table>
+
+The following code example demonstrates how to apply styles to characters within equations in a Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation with bold using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathbf{a}}");
+    //Append an accent equation with bold-italic using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathbit{a}}");
+
+    //Save a Word document to the MemoryStream.
+    using (MemoryStream stream = new MemoryStream())
+    {
+        document.Save(stream, FormatType.Docx);
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation with bold using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathbf{a}}");
+    //Append an accent equation with bold-italic using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathbit{a}}");
+
+    //Save a Word document.
+    document.Save("Result.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+' Create a new Word document.
+Dim document As WordDocument = New WordDocument()
+
+'Add one section and one paragraph to the document.
+document.EnsureMinimal()
+
+'Append an accent equation with Bold using LaTeX.
+document.LastParagraph.AppendMath(@"\dot{\mathbf{a}}")
+'Append an accent equation with Bold-Italic using LaTeX.
+document. LastSection.AddParagraph().AppendMath(@"\dot{\mathbit{a}}")
+
+'Save the Word document.
+document.Save("Result.docx", FormatType.Docx)
+{% endhighlight %}
+
+{% endtabs %}
+
+### Apply scripts to the equation
+
+Apply scripts, such as double-struck, fraktur, and more, to equations in a Word document using LaTeX with the .NET Word Library. Apply the following scripts using LaTeX commands.
+
+<table>
+<thead> 
+<tr>
+<th>Scripts</th>
+<th>LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>
+Double-struck<br/><br/></td>
+<td>
+\mathbb<br/><br/></td>
+</tr>
+<tr>
+<td>
+Fraktur<br/><br/></td>
+<td>
+\mathfrak<br/><br/></td>
+</tr>
+<tr>
+<td>
+Sans Serif<br/><br/></td>
+<td>
+\mathsf<br/><br/></td>
+</tr>
+<tr>
+<td>
+Script<br/><br/></td>
+<td>
+\mathscr<br/>\mathcal<br/></td>
+</tr>
+</table>
+
+The following code examples show how to apply the scripts to equations in a Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation with Double-Struck font using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathbb{a}}");
+    //Append an accent equation with Fraktur font using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathfrak{a}}");
+    //Append an accent equation with Sans Serif font using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathsf{a}}");
+    //Append an accent equation with Script using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathcal{a}}");
+    //Append an accent equation with Script using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathscr{a}}");
+
+    //Save a Word document to the MemoryStream.
+    using (MemoryStream stream = new MemoryStream())
+    {
+        document.Save(stream, FormatType.Docx);
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation with DoubleStruck font using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathbb{a}}");
+    //Append an accent equation with Fraktur font using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathfrak{a}}");
+    //Append an accent equation with SansSerif font using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathsf{a}}");
+    //Append an accent equation with Script using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathcal{a}}");
+    //Append an accent equation with Script using LaTeX.
+    document.LastSection.AddParagraph().AppendMath(@"\dot{\mathscr{a}}");
+
+    //Save a Word document.
+    document.Save("Result.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+' Create a new Word document.
+Dim document As WordDocument = New WordDocument()
+
+'Add one section and one paragraph to the document.
+document.EnsureMinimal()
+
+'Append an accent equation with DoubleStruck font using LaTeX.
+document.LastParagraph.AppendMath(@"\dot{\mathbb{a}}")
+'Append an accent equation with Fraktur font using LaTeX.
+document.LastSection.AddParagraph().AppendMath(@"\dot{\mathfrak{a}}")
+'Append an accent equation with SansSerif font using LaTeX.
+document. LastSection.AddParagraph().AppendMath(@"\dot{\mathsf{a}}")
+'Append an accent equation with Script using LaTeX.
+document. LastSection.AddParagraph().AppendMath(@"\dot{\mathcal{a}}")
+'Append an accent equation with Script using LaTeX.
+document. LastSection.AddParagraph().AppendMath(@"\dot{\mathscr{a}}")
+
+'Save a Word document.
+document.Save("Result.docx", FormatType.Docx)
+{% endhighlight %}
+
+{% endtabs %}
+
+![Apply scripts to the equation](WorkingwithMathematicalEquation_images/scripts.png)
+
+### Preserve as normal text
+
+By default, characters in equations in a Word document are in italics. However, you can also include normal text within an equation using LaTeX.
+
+The following code example shows how to preserve text as normal text, without any default formatting, within an equation using LaTeX.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation as normal text using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathrm{a}}");
+
+    //Save a Word document to the MemoryStream.
+    using (MemoryStream stream = new MemoryStream())
+    {
+        document.Save(stream, FormatType.Docx);
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+
+    //Append an accent equation as normal text using LaTeX.
+    document.LastParagraph.AppendMath(@"\dot{\mathrm{a}}");
+
+    //Save a Word document.
+    document.Save("Result.docx", FormatType.Docx);
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+' Create a new Word document.
+Dim document As WordDocument = New WordDocument()
+
+'Add one section and one paragraph to the document.
+document.EnsureMinimal()
+
+'Append an accent equation as normal text using LaTeX.
+document.LastParagraph.AppendMath(@"\dot{\mathrm{a}}")
+
+'Save a Word document.
+document.Save("Result.docx", FormatType.Docx)
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation).
