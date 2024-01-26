@@ -327,18 +327,6 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/IE/Convert-HTML-to-PDF-with-PDFA-conformance).
 
-## Limitations in the IE Rendering Engine
-
-Syncfusion’s IE HTML to PDF converter relied on Microsoft’s MSHTML library to do the conversion from HTML to PDF. The actual conversion happens in two steps.
-
-* Convert HTML into a Metafile. 
-* Rendering the Metafile to PDF. 
-
-The main advantage of this kind of conversion is that the text rendered remains searchable in PDF. 
-With version 9 of Internet Explorer, Microsoft started using hardware acceleration to produce bitmap images instead of metafiles, completely removing the ability to render selectable or searchable text within PDF. Users can work around the problem by making some registry changes, but may not be satisfied with the result, so a better alternative was needed. Hence a new converter based on the <b>WebKit renderer</b> was created. 
-The WebKit rendered document contains vector graphics instead of scalar images. This reduces file size and allows users to perform various operations such as text search, selection, and clipboard copy. Apart from overcoming the limitations in the Internet Explorer rendering engine, the new WebKit render also provides better support to render HTML5, CSS3, and SVG content.
-
-
 ## Troubleshooting
 
 <table>
