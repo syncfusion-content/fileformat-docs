@@ -40,9 +40,9 @@ Step 4: Add a new button in the **MainWindow.xaml** as shown below.
 
 <Window x:Class="CreatePowerPointWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:x="https://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="https://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="https://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CreatePowerPointWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
