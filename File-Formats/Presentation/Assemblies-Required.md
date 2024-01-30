@@ -148,7 +148,7 @@ Syncfusion.SfChart.UWP<br/>
 
 ## Converting Charts
 
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF and image.
 <table>
 <tr>
 <thead>

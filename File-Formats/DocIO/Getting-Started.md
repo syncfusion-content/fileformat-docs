@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-## Getting started with simple word document
+# Getting started with simple word document
 
 To quickly get started with the .NET Word (DOCIO) Library, please check out this video:
 {% youtube "https://www.youtube.com/watch?v=ptbMtxIv3CY" %}
