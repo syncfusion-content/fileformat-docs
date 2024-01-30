@@ -90,30 +90,6 @@ Syncfusion.OfficeChart.NET<br/>Syncfusion.PresentationRenderer.NET<br/>Syncfusio
 </tr>
 </table>
 
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
-<table>
-<tr>
-<thead>
-<th>
-Platform(s)</th>
-<th>
-Assembly
-</th>
-</thead>
-</tr>
-<tr>
-<td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
-</td>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/>
-Syncfusion.SfChart.WPF<br/>
-</td>
-</tr>
-</table>
-N> 1. The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards.
-N> 2. Starting with the v24.1.x, if you reference "Syncfusion.PresentationRenderer", you have to add the "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform PowerPoint Presentation to PDF conversion.
-
 ## Converting PowerPoint Presentation to Image
 
 For converting a PowerPoint Presentation to Image, the following assemblies needed to be referenced in your application
@@ -169,3 +145,29 @@ Syncfusion.SfChart.UWP<br/>
 </td>
 </tr>
 </table>
+
+## Converting Charts
+
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
+<table>
+<tr>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
+</tr>
+<tr>
+<td>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.WPF<br/>
+Syncfusion.SfChart.WPF<br/>
+</td>
+</tr>
+</table>
+N> 1. The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards.
+N> 2. Starting with the v24.1.x, if you reference "Syncfusion.PresentationRenderer", you have to add the "Syncfusion.Pdf.Imaging" assembly reference in your projects to perform PowerPoint Presentation to PDF conversion.

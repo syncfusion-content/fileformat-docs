@@ -18,7 +18,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-{{'[WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)' | markdownify}}, {{'[Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)' | markdownify}}, {{'[ASP.NET]https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)' | markdownify}}, {{'[ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)' | markdownify}}<br/></td><td>
+{{'[WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)' | markdownify}}, {{'[Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)' | markdownify}}, {{'[ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)' | markdownify}}, {{'[ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)' | markdownify}}<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
