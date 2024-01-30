@@ -1,24 +1,24 @@
 ---
-title: Convert a HTML to PDF file in Docker | Syncfusion
-description: Learn how to convert a HTML to PDF file in docker with easy steps using Syncfusion .NET HTML converter library.
+title: Convert a HTML to PDF file in File Formats PDF Library | Syncfusion
+description: Learn here all about converting html to pdf file in Syncfussion Essentila File Formats PDF, with easy steps using .NET HTML converter library.
 platform: file-formats
 control: PDF
 documentation: UG
 keywords: Assemblies
 ---
 
-# Convert HTML to PDF file in Linux Docker container
+# Convert HTML to PDF file in File Formats Linux Docker container
 
 The Syncfusion HTML to PDF converter is a .NET library that converts HTML or web pages to PDF document in a Linux [Docker](https://www.docker.com/why-docker/) container.
 
 ## Steps to convert HTML to PDF in Linux Docker container
 
 Step 1: Create a new ASP.NET Core application and enable the Docker support with Linux as a target OS.
-![Convert HTMLToPDF Docker Step1](htmlconversion_images/DockerStep1.png)
-![Convert HTMLToPDF Docker Step2](htmlconversion_images/DockerStep2.png)
+![Convert HTMLToPDF Docker Step1](htmlconversion_images/pdf-docker-first-step.png)
+![Convert HTMLToPDF Docker Step2](htmlconversion_images/pdf-docker-second-step.png)
 
 Step 2: Install the [Syncfusion.HtmlToPdfConverter.Net.Linux](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Net.Linux/) NuGet package as a reference to your .NET Core application [NuGet.org](https://www.nuget.org/).
-![Convert HTMLToPDF Docker Step3](htmlconversion_images/DockerStep3.png)
+![Convert HTMLToPDF Docker Step3](htmlconversion_images/pdf-docker-third-step.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -36,7 +36,7 @@ libnss3 libgbm1
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Docker Step4](htmlconversion_images/DockerStep4.png)
+![Convert HTMLToPDF Docker Step4](htmlconversion_images/file-formats-pdf-docker-forth-step.png)
 
 Step 4: Add a new button in the index.cshtml as shown below.
 
@@ -52,7 +52,7 @@ Step 4: Add a new button in the index.cshtml as shown below.
 
 {% endhighlight %}
 
-![Convert HTMLToPDF Docker Step5](htmlconversion_images/DockerStep5.png)
+![Convert HTMLToPDF Docker Step5](htmlconversion_images/file-formats-docker-fifth-step.png)
 
 Step 5: A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
@@ -94,7 +94,7 @@ public ActionResult ExportToPDF()
 Step 7: Build and run the sample in the Docker. It will pull the Linux Docker image from the Docker hub and run the project. Now, the webpage will open in the browser. Click the button to convert the webpage to a PDF document.
 
 By executing the program, you will get the PDF document as follows.
-![Convert HTMLToPDF Dockeroutput](htmlconversion_images/htmltopdfoutput.png)
+![Convert HTMLToPDF Dockeroutput](htmlconversion_images/file-formats-html-to-pdf-output.png)
 
 A complete working sample for converting an HTML to PDF in the Linux docker container can be downloaded from [Github](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Docker).
 
