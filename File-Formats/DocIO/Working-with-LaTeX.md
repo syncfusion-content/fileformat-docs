@@ -1662,6 +1662,8 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation/Apply%20style%20to%20characters).
+
 ### Apply scripts to the equation
 
 Apply scripts, such as double-struck, fraktur, and more, to equations in a Word document using LaTeX with the .NET Word Library. Apply the following scripts using LaTeX commands.
@@ -1778,6 +1780,8 @@ document.Save("Result.docx", FormatType.Docx)
 
 ![Apply scripts to the equation](WorkingwithMathematicalEquation_images/scripts.png)
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation/Apply%20scripts%20to%20the%20equation).
+
 ### Preserve as normal text
 
 By default, characters in equations in a Word document are in italics. However, you can also include normal text within an equation using LaTeX.
@@ -1835,4 +1839,4 @@ document.Save("Result.docx", FormatType.Docx)
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation).
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation/Preserve%20as%20normal%20text).
