@@ -472,7 +472,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ### Export HTML with body content alone
 
-While saving a Word document as a HTML file using .NET Word Library, there is an option to save the HTML file with only the content within the <body> tags, excluding other elements through HtmlExportBodyContentAlone API. 
+While saving a Word document as a HTML file using .NET Word Library, there is an option to save the HTML file with only the content within the <body> tags, excluding other elements through HtmlExportBodyContentAlone API. When this option is set to true, styles are applied inline to each element, and the images are exported as base64 strings in the output HTML.
 
 The following code example illustrates how to export the HTML file with only the body content.
 
