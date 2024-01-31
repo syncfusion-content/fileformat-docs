@@ -1,6 +1,6 @@
 ---
 title: Working with Pivot Tables | Excel Library | Syncfusion
-description: Learn all about how to create and use pivot tables in Excel workbooks using Syncfussion’s essential Excel file-formats library for Windows Forms.
+description: Learn all about how to create and use pivot tables in Excel workbooks using Syncfussion’s essential Excel file-formats library for WinForms.
 platform: file-Formats
 control: XlsIO
 documentation: UG
