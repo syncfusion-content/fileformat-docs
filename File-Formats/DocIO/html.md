@@ -470,6 +470,57 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Customize-Word-to-HTML-conversion).
 
+### Export HTML with body content alone
+
+While saving a Word document as a HTML file using .NET Word Library, there is an option to save the HTML file with only the content within the <body> tags, excluding other elements through HtmlExportBodyContentAlone API. 
+
+The following code example illustrates how to export the HTML file with only the body content.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-Platform]" %}
+//Load an existing Word document.
+using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+    using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+    {
+        //Enable the flag, to save HTML with elements inside body tags alone.
+        document.SaveOptions.HtmlExportBodyContentAlone = true;
+       
+        using (FileStream outputFileStream = new FileStream("WordToHTML.html", FileMode.Create, FileAccess.ReadWrite))
+        {
+            //Save Word document as HTML.
+            document.Save(outputFileStream, FormatType.Html);
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Loads an existing document
+//Load an existing Word document.
+WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
+//Enable the flag, to save HTML with elements inside body tags alone.
+document.SaveOptions.HtmlExportBodyContentAlone = true;
+//Saves the document as html file
+document.Save(document, "WordtoHtml.html");
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Loads an existing document
+Dim document As New WordDocument("Input.docx")
+'Enable the flag, to save HTML with elements inside body tags alone.
+document.SaveOptions.HtmlExportBodyContentAlone = true
+'Saves the document as html file
+document.Save(document, "WordtoHtml.html")
+document.Close()
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/HTML-conversions/Export-HTML-with-body-content)
+
 ## Supported and unsupported items
 
 The following document elements and attributes are supported by DocIO in Word to HTML and HTML to Word conversions.
