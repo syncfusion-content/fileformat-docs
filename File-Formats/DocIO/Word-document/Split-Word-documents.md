@@ -13,6 +13,9 @@ By using this feature, you can be able to split/extract the necessary parts from
 
 You can save the resultant document as a Word document (DOCX, WordML, DOC), PDF, image, HTML, RTF, and more.
 
+To quickly start splitting Word documents, please check out this video:
+{% youtube "https://www.youtube.com/watch?v=w9np2NSfq94" %}
+
 ## Split by Section
 
 The following code example illustrates how to split the Word document by sections.
