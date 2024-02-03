@@ -88,7 +88,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint** as follows.
 
-![Output PowerPoint in .NET Core console application](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Output PowerPoint in .NET Core console application](GettingStarted_images/gettingstartedsample.png)
 
 ## Create a PowerPoint in .NET Framework
 
@@ -173,4 +173,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PowerPoint** as follows.
 
-![Output PowerPoint in .NET FrameWork console application](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Output PowerPoint in .NET FrameWork console application](GettingStarted_images/gettingstartedsample.png)
