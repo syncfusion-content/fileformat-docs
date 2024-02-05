@@ -1836,3 +1836,59 @@ document.Save("Result.docx", FormatType.Docx)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Format%20Equation).
+
+## Apply Math Justification
+
+Apply justification, such as Left, Right, and more to the equation in a Word document using the .NET Word Library.
+
+The following code examples show how to apply the justification to equations in a Word document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+// Create a new Word document.
+using (WordDocument document = new WordDocument())
+{
+    //Add one section and one paragraph to the document.
+    document.EnsureMinimal();
+    //Append an border box equation using LaTeX.
+    WMath math = document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
+    //Apply math justification.
+    math.MathParagraph.Justification = MathJustification.Left;
+    using (FileStream outputFileStream = new FileStream("Output.docx", FileMode.Create, FileAccess.ReadWrite))
+    {
+        //Save Word document.
+        document.Save(outputFileStream, FormatType.Docx);
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Create a new Word document.
+WordDocument document = new WordDocument();
+//Add one section and one paragraph to the document.
+document.EnsureMinimal();
+//Append an border box equation using LaTeX.
+WMath math = document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
+//Apply math justification.
+math.MathParagraph.Justification = MathJustification.Left;
+//Save Word document.
+document.Save("Output.docx", FormatType.Docx);
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Create a new Word document.
+Dim document As New WordDocument()
+'Add one section and one paragraph to the document.
+document.EnsureMinimal()
+'Append a border box equation using LaTeX.
+Dim math As WMath = document.LastParagraph.AppendMath("\boxed{{x}^{2}+{y}^{2}={z}^{2}}")
+'Apply math justification.
+math.MathParagraph.Justification = MathJustification.Left
+'Save Word document.
+document.Save("Output.docx", FormatType.Docx)
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/Apply-math-justification).
