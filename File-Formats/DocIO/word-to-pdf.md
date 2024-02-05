@@ -2367,6 +2367,170 @@ In .NET Core and latest target, we have limitation in metafile. Refer {{'[here](
 </tr>
 </table>
 
+## Show Warning for Unsupported Elements
+
+When converting a Word document to a PDF, the presence of unsupported elements in the input Word document can lead to preservation issues in the converted PDF. The .NET Word library (DocIO) contains [Warning](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_Warning) API, which helps to detect and handle these unsupported elements during the conversion process. This API holds the information of unsupported elements once found in the input Word document. 
+
+Users can display warning messages for the unsupported elements using the [WarningType](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WarningInfo.html#Syncfusion_DocIO_DLS_WarningInfo_WarningType) during Word to PDF conversion. Users can set a flag to stop the conversion process based on the warning. 
+
+The following code demonstrates how to stop conversion if the input Word document has an unsupported element like SmartArt during Word to PDF conversion.
+
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open))
+{
+    //Loads an existing Word document.
+    using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
+    {
+        //Creates an instance of DocIORenderer.
+        using (DocIORenderer renderer = new DocIORenderer())
+        {
+            renderer.Settings.Warning = new DocumentWarning();
+            //Converts Word document into a PDF document.
+            using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+            {
+                //If the IsCanceled boolean is enabled, the input document will contain an unsupported element.
+                if (renderer.IsCanceled)
+                {
+                    Console.WriteLine("The execution stopped due to unsupported element.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    //Saves the PDF file.
+                    FileStream outputFile = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    pdfDocument.Save(outputFile);
+                    outputFile.Dispose();
+                    Console.WriteLine("Success");
+                }
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+WordDocument wordDocument = new WordDocument("Input.docx");
+DocToPDFConverter converter = new DocToPDFConverter();
+converter.Settings.Warning = new DocumentWarning();
+PdfDocument pdfDocument = converter.ConvertToPDF(document);
+//If the IsCanceled boolean is enabled, the input document will contain an unsupported element.
+if (converter.IsCanceled)
+{
+    Console.WriteLine("The execution stopped due to unsupported element.");
+    Console.ReadKey();
+}
+else
+{
+    //Saves the PDF file.
+    FileStream outputFile = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+    pdfDocument.Save(outputFile);
+    outputFile.Dispose();
+    Console.WriteLine("Success");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Dim wordDocument As New WordDocument("Input.docx")
+Dim converter As New DocToPDFConverter()
+converter.Settings.Warning = New DocumentWarning()
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(document)
+
+' If the IsCanceled boolean is enabled, the input document will contain an unsupported element.
+If converter.IsCanceled Then
+    Console.WriteLine("The execution stopped due to unsupported element.")
+    Console.ReadKey()
+Else
+    ' Saves the PDF file.
+    Using outputFile As New FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+        pdfDocument.Save(outputFile)
+        Console.WriteLine("Success")
+    End Using
+End If
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code demonstrates how to initialize the [Warning](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.DocToPDFConverterSettings.html#Syncfusion_DocToPDFConverter_DocToPDFConverterSettings_Warning) API and display warning messages for all unsupported elements in the input document. Additionally, this code shows how to set a flag to stop Word to PDF conversion if an unsupported element is identified.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+public class DocumentWarning : IWarning
+{
+    public bool ShowWarnings(List<WarningInfo> warningInfo)
+    {
+        bool isContinueConversion = true;
+        foreach (WarningInfo warning in warningInfo)
+        {
+            //Based on the WarningType enumeration, you can do your manipulation.
+            //Skip the Word to PDF conversion by setting the isContinueConversion value to false.
+            //To stop execution if the input document has a SmartArt.
+            if (warning.WarningType == WarningType.SmartArt)
+                isContinueConversion = false;
+
+            //Warning messages for unsupported elements in the input document.
+            Console.WriteLine("The input document contains " + warning.WarningType + " unsupported element.");
+        }
+        return isContinueConversion;
+    }
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+public class DocumentWarning : IWarning
+{
+    public bool ShowWarnings(List<WarningInfo> warningInfo)
+    {
+        bool isContinueConversion = true;
+        foreach (WarningInfo warning in warningInfo)
+        {
+            //Based on the WarningType enumeration, you can do your manipulation.
+            //Skip the Word to PDF conversion by setting the isContinueConversion value to false.
+            //To stop execution if the input document has a SmartArt.
+            if (warning.WarningType == WarningType.SmartArt)
+                isContinueConversion = false;
+
+            //Warning messages for unsupported elements in the input document.
+            Console.WriteLine("The input document contains " + warning.WarningType + " unsupported element.");
+        }
+        return isContinueConversion;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Public Class DocumentWarning
+    Implements IWarning
+
+    Public Function ShowWarnings(warningInfo As List(Of WarningInfo)) As Boolean Implements IWarning.ShowWarnings
+        Dim isContinueConversion As Boolean = True
+
+        For Each warning As WarningInfo In warningInfo
+            ' Based on the WarningType enumeration, you can perform your manipulation.
+            ' Skip the Word to PDF conversion by setting the isContinueConversion value to false.
+            ' To stop execution if the input document has a SmartArt.
+            If warning.WarningType = WarningType.SmartArt Then
+                isContinueConversion = False
+            End If
+
+            ' Warning messages for unsupported elements in the input document.
+            Console.WriteLine("The input document contains " & warning.WarningType & " unsupported element.")
+        Next
+
+        Return isContinueConversion
+    End Function
+End Class
+{% endhighlight %}
+
+{% endtabs %}
+
+T> Using the above Warning API, handle logic to identify the documents with unsupported elements and notify the end users to use supported elements for good preservation in the output PDF.
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Show-Warning-for-unsupported-elements)
+
 ## See Also
 
 * [How to perform font substitution in Word to PDF conversion](https://support.syncfusion.com/kb/article/7499/how-to-perform-font-substitution-in-word-to-pdf-conversion)
