@@ -69,7 +69,7 @@ if(currentBuild.result != 'FAILURE')
 
 	stage 'Delete Workspace'
 	
-		def files = findFiles(glob: '**/cireports/spellcheck/*.*')      
+		def files = findFiles(glob: '**/cireports/*.*')      
         
     if(files.size() > 0) 		
     { 		
