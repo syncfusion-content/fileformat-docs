@@ -1345,7 +1345,7 @@ Returns owner Password (owner password is same as the user password; it allows f
  
  2. How do you open a document using the owner's password if it's different from the user's password?
 
-      Open a document using the owner's password if it's different from the user's password. You can  refer to the following code example.
+      You can refer to the following code to open a document using owner passed and edit the security permissions.
 
  {% tabs %}
 
