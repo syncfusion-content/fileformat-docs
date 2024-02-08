@@ -1339,9 +1339,13 @@ Returns owner Password (owner password is same as the user password; it allows f
 
 ## Troubleshooting
 
- If the document is protected with the owner's password only, it can be opened without entering a password. In that case, can the Syncfusion library remove or change restrictions? And how do you open a document using the owner's password if it's different from the user's password?
+ 1. If the document is protected with the owner's password only, it can be opened without entering a password. In that case, can the Syncfusion library remove or change restrictions? 
+ 
+      Using our Syncfusion library, remove or edit permissions in a document restricted by an owner password using our [import pages option](https://help.syncfusion.com/file-formats/pdf/working-with-pages#importing-pages-from-an-existing-document).
+ 
+ 2. How do you open a document using the owner's password if it's different from the user's password?
 
- Using our Syncfusion library, remove or edit permissions in a document restricted by an owner password using our import pages option. If you provide the correct owner password, you can perform these actions within the same document.
+      Open a document using the owner's password if it's different from the user's password. You can  refer to the following code example.
 
  {% tabs %}
 
