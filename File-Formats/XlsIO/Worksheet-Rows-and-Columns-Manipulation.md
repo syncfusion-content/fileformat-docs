@@ -686,6 +686,7 @@ A complete working example to autofit rows and columns in an Excel worksheet in 
 N> 1) If a Range is text wrapped, the [AutoFitColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_AutofitColumn_System_Int32_) method will not be applied on it.
 N> 2) If a Range is merged, the Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
 N> 3) Auto fitting is a time consuming process so, it might cause performance issues when used excessively.
+N> 4) When using Auto-Fit methods after hiding a column or row, the column or row width will be adjusted based on the cell content, causing the width to increase from 0 and making the columns or rows visible. Note that this is the behavior of Excel as well.
 
 ## Group or Ungroup Rows and Columns 
 
