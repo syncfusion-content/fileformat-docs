@@ -1336,3 +1336,89 @@ Returns user password</td><td>
 Returns owner Password (owner password is same as the user password; it allows full permission to users).</td></tr>
 </tbody>
 </table>
+
+## Troubleshooting
+
+ 1. If the document is protected with the owner's password only, it can be opened without entering a password. In that case, can the Syncfusion library remove or change restrictions? 
+ 
+      Using our Syncfusion library, remove or edit permissions in a document restricted by an owner password using our [import pages option](https://help.syncfusion.com/file-formats/pdf/working-with-pages#importing-pages-from-an-existing-document).
+ 
+ 2. How do you open a document using the owner's password if it's different from the user's password?
+
+      You can refer to the following code to open a document using owner passed and edit the security permissions.
+
+ {% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}	
+
+    // Open a FileStream for reading the PDF file.
+    FileStream fileStream = new FileStream("OwnerPasswordOnly.pdf", FileMode.Open, FileAccess.Read);
+    // Load the PDF document from the FileStream with the specified owner password.
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileStream, "12345");
+    // Access the security settings of the loaded PDF document.
+    PdfSecurity security = loadedDocument.Security;
+    // Disable incremental update for the file structure.
+    loadedDocument.FileStructure.IncrementalUpdate = false;
+    // Set specific permissions for a PDF document.
+    loadedDocument.Security.Permissions = PdfPermissionsFlags.EditAnnotations | PdfPermissionsFlags.AssembleDocument;
+    // Set the encryption algorithm to AES for the document security.
+    security.Algorithm = PdfEncryptionAlgorithm.AES;
+    // Set the encryption key size to 256 Bit.
+    security.KeySize = PdfEncryptionKeySize.Key256Bit;
+    // Create a MemoryStream to store the modified PDF document.
+    MemoryStream stream = new MemoryStream();
+    // Save the modified PDF document to the MemoryStream.
+    loadedDocument.Save(stream);
+    // Close the loaded PDF document.
+    loadedDocument.Close(true);
+    // Write the contents of the MemoryStream.
+    File.WriteAllBytes("output.pdf", stream.ToArray());
+    
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+    // Load the PDF document "OwnerPasswordOnly.pdf" with the owner password.
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument("OwnerPasswordOnly.pdf", "12345");
+    // Access the security settings of the loaded PDF document.
+    PdfSecurity security = loadedDocument.Security;
+    // Disable incremental updates for the file structure.
+    loadedDocument.FileStructure.IncrementalUpdate = false;
+    // Set specific permissions for a PDF document, allowing editing annotations and assembling the document.
+    loadedDocument.Security.Permissions = PdfPermissionsFlags.EditAnnotations | PdfPermissionsFlags.AssembleDocument;
+    // Set the encryption algorithm to AES for enhanced security.
+    security.Algorithm = PdfEncryptionAlgorithm.AES;
+    // Set the encryption key size to 256 Bit.
+    security.KeySize = PdfEncryptionKeySize.Key256Bit;
+    // Save the modified document.
+    loadedDocument.Save("output.pdf");
+    // Close the document.
+    loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+    ' Load the PDF document "OwnerPasswordOnly.pdf" with the owner password "12345"
+    Dim loadedDocument As New PdfLoadedDocument("OwnerPasswordOnly.pdf", "12345")
+    ' Access the security settings of the loaded PDF document
+    Dim security As PdfSecurity = loadedDocument.Security
+    ' Disable incremental updates for the file structure
+    loadedDocument.FileStructure.IncrementalUpdate = False
+    ' Set specific permissions for a PDF document, allowing editing annotations and assembling the document.
+    loadedDocument.Security.Permissions = PdfPermissionsFlags.EditAnnotations Or PdfPermissionsFlags.AssembleDocument
+    ' Set the encryption algorithm to AES for enhanced security
+    security.Algorithm = PdfEncryptionAlgorithm.AES
+    ' Set the encryption key size to 256 Bit.
+    security.KeySize = PdfEncryptionKeySize.Key256Bit;
+    ' Save the modified document to "output.pdf".
+    loadedDocument.Save("output.pdf")
+    ' Close the document, releasing resources
+    loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Security/Troubleshooting/.NET).
