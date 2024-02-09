@@ -8,7 +8,7 @@ documentation: UG
 
 # How to avoid exception when using Excel97 to 2003 with large number of rows column index?
 
-When creating a new workbook, it defaults to the Excel97to2003 version, which supports only 65,536 rows and 256 columns. If the row or column index exceeds this limit, an ArgumentException is thrown. To avoid this exception, we recommend setting the default version of the IApplication to Xlsx.
+By default, when creating a new workbook, it is set to Excel97to2003 version which supports only 65536 rows and 256 columns. When the row and column index exceeds this limit, an ArgumentOutOfRange exception is thrown. To fix this, the DefaultVersion needs to be set as Xlsx. This version supports 1048576 rows and 16384 columns.
 
 The following code snippet shows how to set the default version of IApplication to Xlsx.
 
