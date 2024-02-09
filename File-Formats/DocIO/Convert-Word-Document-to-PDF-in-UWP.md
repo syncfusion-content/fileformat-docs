@@ -151,4 +151,4 @@ N> As per [MSDN announcement](https://devblogs.microsoft.com/dotnet/announcing-u
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/uwp) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
-An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core. 
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/bootstrap5) in ASP.NET Core. 
