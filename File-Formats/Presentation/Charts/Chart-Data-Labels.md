@@ -246,3 +246,7 @@ chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 3
 
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+
+* [How to change text of data labels for Chart in Presentation](https://support.syncfusion.com/kb/article/13828/how-to-change-the-text-in-data-labels-inside-a-chart-in-presentation-using-c-in-aspnet-core)
