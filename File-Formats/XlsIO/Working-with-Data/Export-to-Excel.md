@@ -1,15 +1,16 @@
 ---
-title: Working with Data | Syncfusion
-description: Learn how to import data to Excel file from ADO.NET objects, Collections, Array; and how to export data from Excel to ADO.NET objects or collections.
-platform: file-Formats
+title: Export to Excel | Syncfusion
+description: Learn how to Export to Excel using Syncfusion .NET Exel (XlsIO) library without Microsoft Excel.
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
+
 # Working with Excel Data 
 
-## Importing Data to Worksheets
+## Exporting Data to Excel
 
-XlsIO provides the ability to import data into a worksheet from the following data.
+XlsIO provides the ability to export data to a worksheet from the following data.
 
 * Data Table
 * Data Column
@@ -17,12 +18,14 @@ XlsIO provides the ability to import data into a worksheet from the following da
 * Collection Objects
 * Nested Collection Objects
 * Array
+* Microsoft Grid Controls
+* HTML Table
 
-### Import Data from DataTable
+### Export from DataTable to Excel
 
-The following code snippet illustrates on how to import a DataTable into a worksheet using [ImportDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataTable_System_Data_DataTable_Syncfusion_XlsIO_IName_System_Boolean_System_Int32_System_Int32_) method.
+The following code snippet illustrates on how to export from DataTable to a worksheet using [ImportDataTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataTable_System_Data_DataTable_Syncfusion_XlsIO_IName_System_Boolean_System_Int32_System_Int32_) method.
 
-N> XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+N> XlsIO supports exporting from data table to a worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -79,13 +82,15 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to import data from DataTable to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).  
+A complete working example to export from DataTable to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).  
 
-### Import Data from DataColumn
+An online sample link to [export from Data table to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/ImportExportDataTable#/material3) in ASP.NET Core.
 
-The following code snippet illustrates how to import DataColumn into a worksheet using [ImportDataColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataColumn_System_Data_DataColumn_System_Boolean_System_Int32_System_Int32_) method.
+### Export from DataColumn to Excel
 
-N> XlsIO supports importing data column to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+The following code snippet illustrates how to export from DataColumn to a worksheet using [ImportDataColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataColumn_System_Data_DataColumn_System_Boolean_System_Int32_System_Int32_) method.
+
+N> XlsIO supports exporting from DataColumn to a worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -145,13 +150,13 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to import data from DataColumn to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataColumn%20to%20Worksheet).  
+A complete working example to export from DataColumn to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataColumn%20to%20Worksheet).
 
-### Import Data from DataView
+### Export from DataView to Excel
 
-The following code snippet illustrates how to import DataView into a worksheet using [ImportDataView](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataView_System_Data_DataView_System_Boolean_System_Int32_System_Int32_) method.
+The following code snippet illustrates how to Export from DataView to a worksheet using [ImportDataView](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportDataView_System_Data_DataView_System_Boolean_System_Int32_System_Int32_) method.
 
-N> XlsIO supports importing data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+N> XlsIO supports exporting from DataView to a worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -211,11 +216,11 @@ End Using
 {% endhighlight %}
 {% endtabs %} 
 
-A complete working example to import data from DataView to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataView%20to%20Worksheet).   
+A complete working example to Export from DataView to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataView%20to%20Worksheet).
 
-### Import Data from Collection Objects
+### Export from Collection of Objects to Excel
 
-Essential XlsIO allows you to import data directly from Collection Objects as shown below.
+Essential XlsIO allows you to export from collection of objects to a worksheet using [ImportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportData_System_Collections_IEnumerable_Syncfusion_XlsIO_ExcelImportDataOptions_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -393,11 +398,13 @@ End Class
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to import data from Collection Objects to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/CollectionObjects%20to%20Worksheet).   
+A complete working example to export from collection of objects to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/CollectionObjects%20to%20Worksheet).
 
-### Import Data Options
+An online sample link to [export from collection of objects to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/CollectionObjects#/material3) in ASP.NET Core.
 
-[ExcelImportDataOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html) is a support class for [ImportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportData_System_Collections_IEnumerable_Syncfusion_XlsIO_ExcelImportDataOptions_) method which contains various properties to import data with formatting. 
+#### Options to Export from Collection of Objects to Excel
+
+[ExcelImportDataOptions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html) is a support class for [ImportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IWorksheet.html#Syncfusion_XlsIO_IWorksheet_ImportData_System_Collections_IEnumerable_Syncfusion_XlsIO_ExcelImportDataOptions_) method which contains various properties to export from collection of objects to Excel with formatting. 
 
 **ExcelImportDataOptions** class contains the following properties:
 
@@ -406,7 +413,7 @@ FirstColumn - Specifies first column from where the data should be imported.
 IncludeHeader - Specifies whether class properties names must be imported or not.
 PreserveTypes - Indicates whether XlsIO should preserve column types from Data. By default, preserve type is TRUE. Setting it to True will import data based on column type, otherwise will import based on value type.
 
-The following code snippet illustrates how to import collection objects into a worksheet using **ImportData** method with **ExcelImportDataOptions** class.
+The following code snippet illustrates how to export from collection of objects to a worksheet using **ImportData** method with **ExcelImportDataOptions** class.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -596,19 +603,19 @@ End Class
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to import data to Excel worksheet with import data options in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20Data%20Options).
+A complete working example to export from collection of objects to an Excel worksheet with options in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20Data%20Options).
 
-### Import Data from Nested Collection Objects
+### Export from Nested Collection Objects
 
-Import hierarchical data from nested collections to Excel worksheet helps the user to analyze data in its structure. XlsIO provides more flexible options to analyze such data by importing in different layouts and grouping the imported data.
+Export hierarchical data from nested collections to a worksheet helps the user to analyze data in its structure. XlsIO provides more flexible options to analyze such data by exporting in different layouts and grouping.
 
-Data import can be done with the layout options:
+Here, data can be exported with the following layout options:
 
 * **Default** - Parent records imported in the first row of its collection.
 * **Merge** - Parent records imported in merged rows. 
 * **Repeat** - Parent records imported in all the rows. 
 
-Imported data can be grouped with the grouping options:
+Here, data can be exported with the following grouping options:
 
 * **Expand** – Imported data will be grouped and expanded.
 * **Collapse** – Imported data will be grouped and collapsed at first level, by default.
@@ -621,7 +628,7 @@ Let’s see these options in detail along with code examples and screenshots.
 
 This option adds the property value once per object for the corresponding records in the column while importing.
 
-The following code snippet illustrates how to import data directly from nested collection objects with default layout option. The input XML file used in the code can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ExportData831552872.zip).
+The following code snippet illustrates how to export from nested collection objects with default layout option. The input XML file used in the code can be downloaded [here](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ExportData831552872.zip).
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1230,17 +1237,17 @@ End Namespace
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to import data to Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
+A complete working example to export from nested collection objects to an Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
 
 The following screenshot represents the output document with Default layout option.
 
-![Output document with Default layout option](Working-with-Data_images/Working-with-Data_img1.png)
+![Output document with Default layout option](../Working-with-Data_images/Working-with-Data_img1.png)
 
 ##### Merge layout option
 
-This option merges the cells in the column for each object while importing.
+This option merges the cells in the column for each object while exporting.
 
-The following code snippet helps to import data with merged cells.
+The following code snippet helps to export from nested collection objects with merge layout option.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1258,13 +1265,13 @@ importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
 
 The following screenshot represents the output document with Merge layout option.
 
-![Output document with Merge layout option](Working-with-Data_images/Working-with-Data_img2.png)
+![Output document with Merge layout option](../Working-with-Data_images/Working-with-Data_img2.png)
 
 ##### Repeat layout option
 
-This option repeats the parent records imported in all the rows.
+This option repeats the parent records exported in all the rows.
 
-The following code snippet helps to import data with repeated rows.
+The following code snippet helps to export from nested collection objects with repeat layout option.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1282,22 +1289,22 @@ importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
 
 The following screenshot represents the output document with Repeat layout option.
 
-![Output document with Repeat layout option](Working-with-Data_images/Working-with-Data_img3.png)
+![Output document with Repeat layout option](../Working-with-Data_images/Working-with-Data_img3.png)
 
 #### Grouping Options
 
-##### Import Data with Grouping option
+##### Export hierarchical data to Excel with grouping option
 
-Hierarchical data imported into Excel worksheet must be shown its structure to analyze more flexible. In addition, if the data is grouped according to its level, it is easier to analyze. XlsIO supports to import hierarchical data from nested collection and group them while importing.
+Hierarchical data exported into Excel worksheet must be shown its structure to analyze more flexible. In addition, if the data is grouped according to its level, it is easier to analyze. XlsIO supports to export hierarchical data from nested collection and group them while exporting.
 
-The following are the options that is supported to group on import.
+The following are the options that is supported to group on export.
 
-* **Expand** – Imported data will be grouped and expanded.
-* **Collapse** – Imported data will be grouped and collapsed at first level, by default.
+* **Expand** – Exported data will be grouped and expanded.
+* **Collapse** – Exported data will be grouped and collapsed at first level, by default.
 
 In addition, [CollapseLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelImportDataOptions.html#Syncfusion_XlsIO_ExcelImportDataOptions_CollapseLevel) will group and collapse the mentioned level, upto the maximum of 8 levels.
 
-The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
+The following code snippet illustrates how to export hierarchical data from nested collection objects with collapse group option.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -1924,15 +1931,15 @@ End Namespace
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to import data to Excel worksheet with grouping option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Grouping%20Options).
+A complete working example to export from hierarchical data to an Excel worksheet with grouping option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Grouping%20Options).
 
-The following screenshot represents the output document of Grouped data imported from nested collection and collapsed at level 2.
+The following screenshot represents the output document of Grouped data exported from nested collection and collapsed at level 2.
 
-![Grouped data imported from nested collection and collapsed at level 2](Working-with-Data_images/Working-with-Data_img4.png)
+![Grouped data exported from nested collection and collapsed at level 2](../Working-with-Data_images/Working-with-Data_img4.png)
 
-#### Import Data from Collection Objects with hyperlink
+#### Export Data from Collection Objects with hyperlink
 
-Essential XlsIO allows you to import images, data with URLs, and data with mail IDs as hyperlinks from various data sources binded in Collection Objects as shown below
+Essential XlsIO allows you to export images, data with URLs, and data with mail IDs as hyperlinks from various data sources binded in Collection Objects as shown below
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2162,11 +2169,13 @@ End Class
 {% endhighlight %}
 {% endtabs %} 
 
-A complete working example to import data from collection objects with hyperlink to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20with%20Hyperlink).
+A complete working example to export data from collection objects with hyperlink to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20with%20Hyperlink).
 
-### Import Data from Array
+An online sample link to [export from nested collection of objects to an Excel Worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/ImportNestedCollection#/material3) in ASP.NET Core.
 
-The following code snippet shows how to import array of data into a worksheet using [ImportArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportArray_System_DateTime___System_Int32_System_Int32_System_Boolean_) method.
+### Export from Array
+
+The following code snippet shows how to export from array to a worksheet using [ImportArray](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportArray_System_DateTime___System_Int32_System_Int32_System_Boolean_) method.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2223,569 +2232,25 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-A complete working example to import data from array to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Array%20to%20Worksheet).
+A complete working example to export from array to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Array%20to%20Worksheet).
 
-## Exporting from Worksheet to Data Table 
+### Export Data from DataGrid, GridView and DataGridView to Excel
 
-XlsIO allows to export the sheet data to a **DataTable** by using the [ExportDataTable()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportDataTable_Syncfusion_XlsIO_IRange_Syncfusion_XlsIO_ExcelExportDataTableOptions_) method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
-
-N> XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
-
-The following code snippet illustrates on how to export data from worksheet to Data grid using **DataTable**.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("ExportToDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-
-//XlsIO supports binding of exported data table to data grid in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Export3.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
-
-  //Binding exported DataTable to data grid, likewise it can binded to any 
-  //user interface control which supports binding
-  DataGrid dataGrid = new DataGrid();
-  dataGrid.DataSource = customersTable;
-
-  workbook.SaveAs("ExportToGrid.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Read data from the worksheet and Export to the DataTable
-  Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
-
-  'Binding exported DataTable to data grid, likewise it can binded to any 
-  'user interface control which supports binding
-  Dim dataGrid As DataGrid = New DataGrid
-  dataGrid.DataSource = customersTable
-
-  workbook.SaveAs("ExportToGrid.xlsx")
-End Using
-{% endhighlight %}
-{% endtabs %}  
-
-A complete working example to export data from Excel worksheet to DataTable in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20DataTable).
-
-### Export to Data Table with an Event
-
-Sometimes there may be a need to control the data export from Excel to a data table. XlsIO provides an event [ExportDataTableEvent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.ExportDataTableEventHandler.html) to trigger while exporting data from an Excel worksheet to a data table. This event helps to perform the following actions through the [ExportDataTableActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.ExportDataTableEventArgs.html#Syncfusion_XlsIO_Implementation_ExportDataTableEventArgs_ExportDataTableAction) enumeration.
-
-* Default          -     Exports worksheet data to the data table without any action.
-* SkipRows         -     Exports worksheet data to the data table by skipping a specific row(s).
-* StopExporting    -     Stops exporting the data from Excel worksheet to the data table.
-
-N> XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (NETStandard2.0 onwards) platforms alone.
-
-The following code snippet illustrates how to export data from an Excel worksheet to a data table by triggering an event.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Event to choose an action while exporting data from Excel to data table.
-  worksheet.ExportDataTableEvent += ExportDataTable_EventAction();
-
-  //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("ExportToDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-
-//XlsIO supports binding of exported data table to data grid in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2016;
-  IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Event to choose an action while exporting data from Excel to data table.
-  worksheet.ExportDataTableEvent += ExportDataTable_EventAction();
-
-  //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
-
-  //Binding the exported data table to a data grid. It can be bound to any control that supports the data table.
-  DataGrid dataGrid = new DataGrid();
-  dataGrid.DataSource = customersTable;
-  workbook.SaveAs("ExportToGrid.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2016
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-  'Event to choose an action while exporting data from Excel to data table.
-  sheet.ExportDataTableEvent += ExportDataTable_EventAction()
-
-  'Read data from the worksheet and Export to the DataTable
-  Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
-
-  'Binding the exported data table to a data grid. It can be bound to any control that supports the data table.
-  Dim dataGrid As DataGrid = New DataGrid
-  dataGrid.DataSource = customersTable
-  workbook.SaveAs("ExportToGrid.xlsx")
-End Using
-{% endhighlight %}
-{% endtabs %}  
-
-The following code is the event handler for the above code.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
-{
-  if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
-    e.ExportDataTableAction = ExportDataTableActions.SkipRow;
-
-  if (e.DataTableColumnIndex ==0 && e.ExcelRowIndex == 5 && e.ExcelColumnIndex == 1)
-    e.ExportDataTableAction = ExportDataTableActions.StopExporting;
-
-  if (e.ExcelValue != null && e.ExcelValue.ToString() == "Mexico D.F.")
-    e.DataTableValue = "Mexico";
-
-  if (e.ColumnType.ToString() == "Double" && e.ExcelValue != null)
-    e.DataTableValue = 30;
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-private void ExportDataTable_EventAction(ExportDataTableEventArgs e)
-{
-  if (e.ExcelValue != null && e.ExcelValue.ToString() == "Owner")
-    e.ExportDataTableAction = ExportDataTableActions.SkipRow;
-   
-  if (e.DataTableColumnIndex ==0 && e.ExcelRowIndex == 5 && e.ExcelColumnIndex == 1)
-    e.ExportDataTableAction = ExportDataTableActions.StopExporting;
-   
-  if (e.ExcelValue != null && e.ExcelValue.ToString() == "Mexico D.F.")
-    e.DataTableValue = "Mexico";
-   
-  if (e.ColumnType.ToString() == "Double" && e.ExcelValue != null)
-    e.DataTableValue = 30;
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Private Sub ExportDataTable_EventAction(ByVal e As ExportDataTableEventArgs)
-  If e.ExcelValue IsNot Nothing AndAlso e.ExcelValue.ToString() = "Owner" Then 
-    e.ExportDataTableAction = ExportDataTableActions.SkipRow
-  
-  If e.DataTableColumnIndex = 0 AndAlso e.ExcelRowIndex = 5 AndAlso e.ExcelColumnIndex = 1 Then 
-    e.ExportDataTableAction = ExportDataTableActions.StopExporting
-  
-  If e.ExcelValue IsNot Nothing AndAlso e.ExcelValue.ToString() = "Mexico D.F." Then 
-    e.DataTableValue = "Mexico"
-  
-  If e.ColumnType.ToString() = "double" AndAlso e.ExcelValue IsNot Nothing Then
-    e.DataTableValue = 30
-End Sub
-{% endhighlight %}
-{% endtabs %}  
-
-## Exporting from Worksheet to Collection Objects 
-
-XlsIO allows to export the sheet data to a **Collection Objects** by using the [ExportData&lt;T&gt;()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportData__1_System_Int32_System_Int32_System_Int32_System_Int32_) method.
-
-The following code snippet illustrates on how to export worksheet data into Collection Objects using **ExportData&lt;T&gt;**.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Export worksheet data into Collection Objects
-  List<Report> collectionObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("CollectionObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
-
-  //Export worksheet data into Collection Objects
-  List<Report> collectionObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
-
-  workbook.SaveAs("CollectionObjects.xlsx");
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-  'Export worksheet data into Collection Objects
-  Dim collectionObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
-
-  workbook.SaveAs("CollectionObjects.xlsx")
-End Using
-{% endhighlight %}
-{% endtabs %}
-
-The following code snippet provides supporting class for the above code. Here, the attributes **DisplayNameAttribute** and **Bindable** are used.
-
-* [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) - to match the column headers with set of properties while exporting.
-* [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while exporting.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-public class Report
-{
-  [DisplayNameAttribute("Sales Person Name")]
-  public string SalesPerson { get; set; }
-  [Bindable(false)]
-  public string SalesJanJun { get; set; }
-  public string SalesJulDec { get; set; }
-
-  public Report()
-  {
-
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-public class Report
-{
-  [DisplayNameAttribute("Sales Person Name")]
-  public string SalesPerson { get; set; }
-  [Bindable(false)]  
-  public string SalesJanJun { get; set; }
-  public string SalesJulDec { get; set; }
-
-  public Report()
-  {
-
-  }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Public Class Report
-  Private m_SalesPerson As String
-  Private m_SalesJanJun As String	
-  Private m_SalesJulDec As String
-
-  <DisplayNameAttribute("Sales Person Name")>
-  Public Property SalesPerson() As String
-  Get
-    Return m_SalesPerson
-  End Get
-  Set(value As String)
-    m_SalesPerson = Value
-  End Set
-  End Property
-
-  <Bindable(False)>
-  Public Property SalesJanJun() As String
-  Get
-    Return m_SalesJanJun
-  End Get
-  Set(value As String)
-    m_SalesJanJun = Value
-  End Set
-  End Property
-
-  Public Property SalesJulDec() As String
-  Get
-    Return m_SalesJulDec
-  End Get
-  Set(value As String)
-    m_SalesJulDec = Value
-  End Set
-  End Property
-End Class
-{% endhighlight %}
-{% endtabs %} 
-
-A complete working example to export data from Excel worksheet to collection objects in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20CollectionObjects).
-
-## Export data from Excel to Nested Class Objects
-
-XlsIO allows to export worksheet data to nested class objects. A new overload to the existing [ExportData<T>()](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ExportData__1_System_Int32_System_Int32_System_Int32_System_Int32_System_Collections_Generic_Dictionary_System_String_System_String__) method helps to achieve this requirement by mapping column headers with class properties.
-
-Let’s consider the input Excel document has the data as shown in the below screenshot. 
-
-![Excel worksheet with data](Working-with-Data_images/Working-with-Data_img5.png)
-
-The following code illustrates how to export data from Excel worksheet to nested class objects with column headers mapping collection.
-
-{% tabs %}  
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-
-namespace ImportFromNestedCollection
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      ExportData();
-    }
-
-    //Main method to Export data from worksheet to nested class objects. 
-    private static void ExportData()
-    {
-      using (ExcelEngine excelEngine = new ExcelEngine())
-      {
-        IApplication application = excelEngine.Excel;
-        application.DefaultVersion = ExcelVersion.Excel2013;
-        FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-        IWorkbook workbook = application.Workbooks.Open(inputStream);
-        IWorksheet worksheet = workbook.Worksheets[0];
-
-        //Map column headers in worksheet with class properties. 
-        Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-        mappingProperties.Add("Customer ID", "CustId");
-        mappingProperties.Add("Customer Name", "CustName");
-        mappingProperties.Add("Customer Age", "CustAge");
-        mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-        mappingProperties.Add("Order Price", "CustOrder.Price");
-
-        //Export worksheet data into nested class Objects.
-        List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
-
-        //Saving the workbook as stream
-        FileStream stream = new FileStream("NestedClassObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
-        workbook.SaveAs(stream);
-
-        stream.Dispose();
-      }   
-    }
-  }
-
-  //Customer details class
-  public partial class Customer
-  {
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }
-    public Customer()
-    {
-
-    }
-  }
-
-  //Order details class
-  public partial class Order
-  {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
-    public Order()
-    {
-
-    }
-  }
-}
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-
-namespace ImportFromNestedCollection
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      ExportData();
-    }
-
-    //Main method to Export data from worksheet to nested class objects.
-    private static void ExportData()
-    {
-      using (ExcelEngine excelEngine = new ExcelEngine())
-      {
-        IApplication application = excelEngine.Excel;
-        application.DefaultVersion = ExcelVersion.Excel2013;
-        IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-        IWorksheet worksheet = workbook.Worksheets[0];
-
-        //Map column headers in worksheet with class properties. 
-        Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-        mappingProperties.Add("Customer ID", "CustId");
-        mappingProperties.Add("Customer Name", "CustName");
-        mappingProperties.Add("Customer Age", "CustAge");
-        mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-        mappingProperties.Add("Order Price", "CustOrder.Price");
-
-        //Export worksheet data into nested class Objects.
-        List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
-
-        workbook.SaveAs("NestedClassObjects.xlsx");
-      }
-    }
-  }
- 
-  //Customer details class
-  public partial class Customer
-  {
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }
-    public Customer()
-    {
-
-    }
-  }
-
-  //Order details class
-  public partial class Order
-  {
-    public int Order_Id { get; set; }
-    public double Price { get; set; }
-    public Order()
-    {
-
-    }
-  }
-}
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-Imports Syncfusion.XlsIO
-Imports System.Collections.Generic
-
-Namespace ImportFromNestedCollection
-  Class Program
-    Private Shared Sub Main(ByVal args As String())
-      ExportData()
-    End Sub
-
-    'Main method to Export data from worksheet to nested class objects. 
-    Private Shared Sub ExportData()
-      Using excelEngine As ExcelEngine = New ExcelEngine()
-        Dim application As IApplication = excelEngine.Excel
-        application.DefaultVersion = ExcelVersion.Excel2013
-        Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-        Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-        'Map column headers in worksheet with class properties.
-        Dim mappingProperties As Dictionary(Of String, String) = New Dictionary(Of String, String)()
-        mappingProperties.Add("Customer ID", "CustId")
-        mappingProperties.Add("Customer Name", "CustName")
-        mappingProperties.Add("Customer Age", "CustAge")
-        mappingProperties.Add("Order ID", "CustOrder.Order_Id")
-        mappingProperties.Add("Order Price", "CustOrder.Price")
-
-        'Export worksheet data into nested class Objects.
-        Dim nestedClassObjects As List(Of Customer) = worksheet.ExportData(Of Customer)(1, 1, 10, 5, mappingProperties)
-
-        workbook.SaveAs("NestedClassObjects.xlsx")
-      End Using
-    End Sub
-  End Class
-    
-  'Customer details class
-  Public Partial Class Customer
-    Public Property CustId As Integer
-    Public Property CustName As String
-    Public Property CustAge As Integer
-    Public Property CustOrder As Order
-  
-    Public Sub New()
-    End Sub
-  End Class
-    
-  'Order details class
-  Public Partial Class Order
-    Public Property Order_Id As Integer
-    Public Property Price As Double
-    
-    Public Sub New()
-    End Sub
-  End Class
-End Namespace
-{% endhighlight %}
-{% endtabs %}
-
-A complete working example to export data from Excel worksheet to nested class in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Worksheet%20to%20Nested%20Class).
-
-## Importing Data from Microsoft Grid Controls to Worksheet
-
-XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid controls are: 
+XlsIO provides support to export data from various Microsoft grid controls with its cell formatting. The supported grid controls are: 
 
 * DataGrid
 * GridView
 * DataGridView
 
-### DataGrid
+#### DataGrid
 
-Imports data from Microsoft DataGrid control with its header and cell formatting to Excel worksheet. The following code illustrates how to import data from Microsoft DataGrid control to worksheet.
+Exports data from Microsoft DataGrid control with its header and cell formatting to Excel worksheet. The following code illustrates how to export data from Microsoft DataGrid control to worksheet.
  
-N> GetDataTable() method returns DataTable of applicable data to import.
+N> GetDataTable() method returns DataTable of applicable data to export.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
+//XlsIO supports exporting of data from data grid to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -2827,13 +2292,13 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-### GridView
+#### GridView
 
-Imports data from Microsoft GridView control with its header and cell formatting to Excel worksheet. The following code illustrates how to import data from Microsoft GridView control to worksheet.
+Exports data from Microsoft GridView control with its header and cell formatting to Excel worksheet. The following code illustrates how to export data from Microsoft GridView control to worksheet.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
+//XlsIO supports exporting of data from data view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -2877,13 +2342,13 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-### DataGridView
+#### DataGridView
 
-Imports data from Microsoft DataGridView control with its header and cell formatting to Excel worksheet. In addition, this API imports sorted data applied in the control. The following code illustrates how to import data from Microsoft DataGridView control to worksheet.
+Export data from Microsoft DataGridView control with its header and cell formatting to Excel worksheet. In addition, this API exports sorted data applied in the control. The following code illustrates how to export data from Microsoft DataGridView control to worksheet.
  
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
+//XlsIO supports exporting of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -2931,13 +2396,15 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-## Importing HTML Table to Excel Worksheet
+A complete working example to export from data grid view to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataGridView%20to%20Worksheet/NET%20Framework/DataGridView%20to%20Worksheet).
 
-### Import HTML Table
+### Export from HTML Table to Excel Worksheet
 
-Essential XlsIO supports importing HTML tables into Excel worksheets. The [ImportHtmlTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportHtmlTable_System_IO_Stream_System_Int32_System_Int32_) method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
+#### Export HTML Table
 
-The following code snippet shows how to import HTML table into Excel worksheet.
+Essential XlsIO supports export HTML tables from a webpage to Excel worksheets. The [ImportHtmlTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.WorksheetImpl.html#Syncfusion_XlsIO_Implementation_WorksheetImpl_ImportHtmlTable_System_IO_Stream_System_Int32_System_Int32_) method loads an HTML file and imports all the tables in the file to the worksheet.  This import operation includes the table formatting that is defined within the HTML file.
+
+The following code snippet shows how to export HTML table to an Excel worksheet.
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 using Syncfusion.XlsIO;
@@ -2956,7 +2423,7 @@ namespace ImportHtml
         IWorkbook workbook = application.Workbooks.Create(1);
         IWorksheet worksheet = workbook.Worksheets[0];
 
-        //Imports HTML table into the worksheet from first row and first column
+        //Exports HTML table to the worksheet from first row and first column
         FileStream fileStream = new FileStream("Import-HTML-Table.html", FileMode.Open, FileAccess.ReadWrite);
         worksheet.ImportHtmlTable(fileStream, 1, 1);
 
@@ -2985,7 +2452,7 @@ namespace ImportHtml
         IWorkbook workbook = application.Workbooks.Create(1);
         IWorksheet worksheet = workbook.Worksheets[0];
 
-        //Imports HTML table into the worksheet from first row and first column
+        //Exports HTML table to the worksheet from first row and first column
         worksheet.ImportHtmlTable("Import-HTML-Table.html", 1, 1);
         workbook.SaveAs("Import-HTML-Table.xlsx");
       }
@@ -3005,7 +2472,7 @@ Module ImportHtmlTable
       Dim workbook As IWorkbook = application.Workbooks.Create(1)
       Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-      'Imports HTML table into the worksheet from first row and first column
+      'Exports HTML table to the worksheet from first row and first column
       worksheet.ImportHtmlTable("Import-HTML-Table.html", 1, 1)
       workbook.SaveAs("Import-HTML-Table.xlsx")
     End Using
@@ -3014,25 +2481,27 @@ End Module
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to import data from HTML table to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/HTML%20Table%20to%20Worksheet).
+A complete working example to export from HTML table to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/HTML%20Table%20to%20Worksheet).
+
+An online sample link to [export from HTML table to an Excel worksheet](https://ej2.syncfusion.com/aspnetcore/Excel/HTMLToWorksheet#/material3) in ASP.NET Core.
 
 The following screenshot represents the image of the input HTML file with a table.
 
-![Input document for Import HTML table](Working-with-Data_images/Working-with-Data_img6.png)
+![Input document with HTML table](../Working-with-Data_images/Working-with-Data_img6.png)
 
-The following screenshot represents the image of the Excel output with data imported from HTML table.
+The following screenshot represents the image of the Excel output with data exported from the webpage with the HTML table.
 
-![Output document imported from HTML table](Working-with-Data_images/Working-with-Data_img7.png)
+![Output document with HTML table](../Working-with-Data_images/Working-with-Data_img7.png)
 
-N> Syncfusion XlsIO supports importing HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
+N> Syncfusion XlsIO supports exporting HTML tables with the inline styles alone. HTML documents with embedded styles or style sheets are not supported.
 
 N> Syncfusion XlsIO depends on the XMLDocument object to load HTML string in which the "<" and "&" symbols are invalid. These symbols needs to be changed as "&lt;" and "&amp;" respectively, to overcome the xml exception.
 
-N> Data formatting can be applied to the Excel cells only after importing the HTML table to Excel.
+N> Data formatting can be applied to the Excel cells only after exporting the HTML table to Excel.
 
-### Import HTML Table with Formula
+#### Export HTML Table with Formula
 
-Syncfusion XlsIO also supports importing HTML table with formula to Excel worksheet. The following code snippet explains this.
+Syncfusion XlsIO also supports exporting HTML table with formula to an Excel worksheet. The following code snippet explains this.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -3047,3 +2516,41 @@ worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas)
 worksheet.ImportHtmlTable("Sample.html", 1, 1, HtmlImportOptions.DetectFormulas)
 {% endhighlight %}
 {% endtabs %}
+
+## Blogs
+
+* [Export from DataTable to an Excel worksheet](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#DataTable-to-Excel).
+
+* [Export from collection of objects to an Excel worksheet](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#objects-to-Excel)
+
+* [Export from nested collection of objects to an Excel Worksheet](https://www.syncfusion.com/blogs/post/export-data-from-collection-to-excel-and-group-csharp.aspx#nested-collection-to-excel-worksheet)
+
+* [Export from array to an Excel worksheet](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#Array-to-Excel)
+
+* [Export data from microsoft grid controls to an Excel worksheet](https://www.syncfusion.com/blogs/post/export-data-to-excel-csharp.aspx#DataGrid-GridView-DataGridView-to-Excel)
+
+* [Export data from HTML table to an Excel worksheet](https://www.syncfusion.com/blogs/post/easy-steps-to-export-html-tables-to-an-excel-worksheet-in-c.aspx)
+
+## Github Samples
+
+* A complete working example to export from DataTable to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).
+
+* A complete working example to export from DataColumn to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataColumn%20to%20Worksheet).
+
+* A complete working example to Export from DataView to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataView%20to%20Worksheet).
+
+* A complete working example to export from collection of objects to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/CollectionObjects%20to%20Worksheet).
+
+* A complete working example to export from collection of objects to an Excel worksheet with options in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20Data%20Options).
+
+* A complete working example to export from nested collection objects to an Excel worksheet with layout option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Layout%20Options).
+
+* A complete working example to export from hierarchical data to an Excel worksheet with grouping option in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Grouping%20Options).
+
+* A complete working example to export data from collection objects with hyperlink to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Import%20with%20Hyperlink).
+
+* A complete working example to export from array to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/Array%20to%20Worksheet).
+
+* A complete working example to export from data grid view to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataGridView%20to%20Worksheet/NET%20Framework/DataGridView%20to%20Worksheet).
+
+* A complete working example to export from HTML table to an Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/HTML%20Table%20to%20Worksheet).

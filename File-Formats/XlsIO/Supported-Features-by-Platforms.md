@@ -68,7 +68,7 @@ The list of supported and non-supported Excel features in .NET Framework and .NE
 	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
-    <td>Import data from DataTable, DataColumn, DataView, Array to worksheet.</td>
+    <td>Import data from DataTable, DataColumn, DataView, Array, HTML table to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
