@@ -455,6 +455,9 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 
 //Number format for axis
 chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+//Display unit for axis
+chart.PrimaryValueAxis.DisplayUnit = ExcelChartDisplayUnit.Hundreds;
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
@@ -469,6 +472,9 @@ chart.PrimaryValueAxis.MaximumValue = 14.0;
 
 //Number format for axis
 chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+//Display unit for axis
+chart.PrimaryValueAxis.DisplayUnit = ExcelChartDisplayUnit.Hundreds;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
@@ -483,6 +489,9 @@ chart.PrimaryValueAxis.MaximumValue = 14.0
 
 'Number format for axis
 chart.PrimaryValueAxis.NumberFormat = "0.0"
+
+'Display unit for axis
+chart.PrimaryValueAxis.DisplayUnit = ExcelChartDisplayUnit.Hundreds
 {% endhighlight %}
 {% endtabs %}
 

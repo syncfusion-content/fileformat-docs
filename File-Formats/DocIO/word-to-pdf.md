@@ -2549,3 +2549,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to add signature field in the PDF converted from Word](https://support.syncfusion.com/kb/article/11438/how-to-add-signature-field-in-the-pdf-converted-from-word)
 * [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12239/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
 * [How to perform Word to PDF conversion in WinForms ?](https://support.syncfusion.com/kb/article/8848/how-to-perform-word-to-pdf-conversion-in-winforms-?isInternalRefresh=False)
+* [How to preserve track changes markup in Word to PDF conversion](https://support.syncfusion.com/kb/article/14997/how-to-preserve-simple-markup-all-markup-and-no-markup-of-track-changes-during-word-to-pdf-conversion)
