@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Split PDF Documents in File Formats using .NET PDF Library
+# Split PDF Documents using .NET PDF Library
 
 The Syncfusion .NET PDF library supports [Splitting PDF file](https://www.syncfusion.com/document-processing/pdf-framework/net/pdf-library/split-pdf) into single-page or multiple-page PDF documents.
 
