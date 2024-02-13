@@ -6,19 +6,19 @@ control: XlsIO
 documentation: UG
 ---
 
-# Create an Excel files in ASP.NET Core Web API
+# Create an Excel file using ASP.NET Core Web API
 
-[Syncfusion Excel library for ASP.NET Core platform](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
+[Syncfusion .NET Excel library](https://www.syncfusion.com/document-processing/excel-framework/net-core/excel-library) can be used to create, read, and edit Excel documents using a Web API.
 
 ## Create a simple Excel report
 
-The below steps illustrates creating a simple Invoice formatted Excel document in ASP.NET Core Web API.
+The below steps illustrates creating a simple invoice formatted Excel document in ASP.NET Core Web API.
 
 Step 1: Create a new C# ASP.NET Core Web API project.
 
 ![Create ASP.NET Core Web API project in Visual Studio](ASP-NET-Core-Web-API_images/ASP-NET-Core-Web-API_images_img1.png)
 
-Step 2: Name the project.
+Step 2: Add a name for the project.
 
 ![Name the project](ASP-NET-Core-Web-API_images/ASP-NET-Core-Web-API_images_img2.png)
 
@@ -28,7 +28,7 @@ Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/S
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your applications to use our components. 
 
-Step 4: Add new API controller empty file in the project. 
+Step 4: Add a new API controller empty file in the project. 
 
 ![Add empty API controller to the project](ASP-NET-Core-Web-API_images/ASP-NET-Core-Web-API_images_img4.png)
 
@@ -256,14 +256,14 @@ public static MemoryStream ExportTimecardDailyDetail()
 {% endcapture %}
 {{ codesnippet2 | OrderList_Indent_Level_1 }}
 
-A complete working example of how to create an Excel file in ASP.NET Core Web API in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core%20Web%20API/Create%20Excel).
+A complete working example of how to create an Excel file using ASP.NET Core Web API in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/ASP.NET%20Core%20Web%20API/Create%20Excel).
 
 ## Steps for accessing the Web API using HTTP requests
 
 Step 1: Create a console application.
 ![Create console app in Visual Studio](ASP-NET-Core-Web-API_images/ASP-NET-Core-Web-API_images_img5.png)
 
-Step 2: Name the Application.
+Step 2: Add a name for the application.
 ![Name the project](ASP-NET-Core-Web-API_images/ASP-NET-Core-Web-API_images_img6.png)
 
 Step 3: Add the below code snippet in the **Program.cs** file for accessing the Web API using HTTP requests. 
