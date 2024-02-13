@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Create Equation using LaTeX .NET DocIO Library
+# Create Equation using LaTeX Xamarin DocIO Library
 The .NET Word (DocIO) library allows to create mathematical equation in Word document using **LaTeX**.
 
 ## Accent

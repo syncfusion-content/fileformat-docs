@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Digital Signature in .NET PDF Library
+# Working with Digital Signature in Xamarin PDF Library
 
 To quickly get started with digitally signing a PDF document and validating signatures using the Blazor PDF Library, check this video:
 {% youtube "https://www.youtube.com/watch?v=NNIFh1Ckdzw&t=672s" %}
