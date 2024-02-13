@@ -5,7 +5,7 @@ platform: file-Formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Pivot Tables in File Formats Excel Library
+# Working with Pivot Tables using .NET Excel Library
 
 You can easily arrange and summarize complex data in a [Pivot Table](https://support.microsoft.com/en-gb/office/create-a-pivottable-in-excel-74ce8afc-2446-4816-80ee-20ca7fb71793?redirectSourcePath=%252fen-us%252farticle%252fPivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). 
 
