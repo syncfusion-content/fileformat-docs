@@ -205,7 +205,7 @@ The following code example illustrates how to remove the chart title from the Wo
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creates a new instance of WordDocument (Empty Word Document).
+//Creates a new instance of WordDocument.
 using (WordDocument document = new WordDocument())
 {
         //Adds section to the document.
