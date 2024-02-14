@@ -239,6 +239,7 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creates a new instance of WordDocument.
 using (WordDocument document = new WordDocument())
 {
     //Adds section to the document.
@@ -265,10 +266,14 @@ using (WordDocument document = new WordDocument())
     chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 3, 1];
     //Saves the document
     document.Save("Sample.docx");
+    //Closes the document.
+    document.Close();
 }
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creates an empty WordDocument instance
+ Dim document As New WordDocument()
 'Adds section to the document.
  Dim sec As IWSection =  document.AddSection() 
 'Adds paragraph to the section.
@@ -291,12 +296,10 @@ using (WordDocument document = new WordDocument())
  pieSeries.Values = chart.ChartData(2, 2, 3, 2)
 'Sets category labels.
  chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 3, 1)
-'Creates file stream.
- Imports (MemoryStream stream = New MemoryStream())
- {
-     'Saves the Word document to memory stream.
-      document.Save(stream, FormatType.Docx)
- }
+'Saves the document
+ document.Save("Sample.docx", FormatType.Docx)
+'Closes the document
+ document.Close()
 {% endhighlight %}
 
 {% endtabs %}
