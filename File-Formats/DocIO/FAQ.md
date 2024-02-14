@@ -2334,6 +2334,15 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
 [Working with table of contents](/file-formats/docio/working-with-table-of-contents)
 
+## Experiencing font access problems in IIS during Word to PDF/Image, but not locally?
+
+1. Uninstall the respective font (e.g., Arial Unicode MS) from the local machine.
+2. Install the same font using the below procedure.
+~~~
+Right click the font file “Arial Unicode MS” -> Install for all users
+~~~
+3. Restart your machine and host the application in IIS for seamless functionality.
+
 ## How to copy necessary fonts to Linux containers
 
 The fonts present in the location (in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
