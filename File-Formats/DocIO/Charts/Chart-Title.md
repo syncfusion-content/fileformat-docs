@@ -239,7 +239,7 @@ using (WordDocument document = new WordDocument())
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-using (WordDocument document = new WordDocument("Template.docx", FormatType.Docx))
+using (WordDocument document = new WordDocument())
 {
     //Adds section to the document.
     IWSection sec = document.AddSection();
