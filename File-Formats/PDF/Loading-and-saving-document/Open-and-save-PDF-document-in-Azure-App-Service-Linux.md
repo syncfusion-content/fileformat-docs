@@ -13,16 +13,16 @@ The [Syncfusion .NET Core PDF library](https://www.syncfusion.com/document-proce
 ## Steps to open and save PDF document in Azure App Service on Linux
 
 Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
-![Create a ASP.NET Core Web App project](Azure_Images/Azure_app_service_Windows/Create-net-core-web-app.png)
+![Create a ASP.NET Core Web App project](Azure_Images/Azure-app-service-Windows/Create-net-core-web-app.png)
 
 Step 2: Create a project name and select the location.
-![Configure your new project](Azure_Images/Azure_app_service_Windows/project_configuration.png)
+![Configure your new project](Azure_Images/Azure-app-service-Windows/project_configuration.png)
 
 Step 3: Click **Create** button.
-![Additional Information](Azure_Images/Azure_app_service_Windows/Framework_selection.png)
+![Additional Information](Azure_Images/Azure-app-service-Windows/Framework_selection.png)
 
 Step 4: Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
-![Install Syncfusion.Pdf.Net.Core Nuget Package](Azure_Images/Azure_app_service_Windows/NuGet_package.png)
+![Install Syncfusion.Pdf.Net.Core Nuget Package](Azure_Images/Azure-app-service-Windows/NuGet_package.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -120,37 +120,37 @@ return fileStreamResult;
 ## Steps to publish as Azure App Service on Windows
 
 Step 1: Right-click the project and select **Publish** option.
-![Right-click the project and select the Publish option](Azure_Images/Azure_app_service_Windows/Click_publish_button.png)
+![Right-click the project and select the Publish option](Azure_Images/Azure-app-service-Windows/Click_publish_button.png)
 
 Step 2: Select the publish target as **Azure**.
-![Select the publish target as Azure](Azure_Images/Azure_app_service_Windows/Select_target.png)
+![Select the publish target as Azure](Azure_Images/Azure-app-service-Windows/Select_target.png)
 
 Step 3: Select the Specific target as **Azure App Service (Linux)**.
-![Select the publish target](Azure_Images/Azure_app_service_Linux/Select_Azure_app_service_linux.png)
+![Select the publish target](Azure_Images/Azure-app-service-Linux/Select_Azure_app_service_Linux.png)
 
 Step 4: To create a new app service, click **Create new** option.
-![Click create new option](Azure_Images/Azure_app_service_Windows/Create_new_app_service.png)
+![Click create new option](Azure_Images/Azure-app-service-Windows/Create_new_app_service.png)
 
 Step 5: Click the **Create** button to proceed with **App Service** creation.
-![Click the Create button](Azure_Images/Azure_app_service_Linux/App_service_detais1.png)
+![Click the Create button](Azure_Images/Azure-app-service-Linux/App_service_detais1.png)
 
 Step 6: Click the **Finish** button to finalize the **App Service** creation.
-![Click the Finish button](Azure_Images/Azure_app_service_Linux/Finish_app_service.png)
+![Click the Finish button](Azure_Images/Azure-app-service-Linux/Finish_app_service.png)
 
 Step 7: Click **Close** button.
-![Create a ASP.NET Core Project](Azure_Images/Azure_app_service_Linux/Profile_creation.png)
+![Create a ASP.NET Core Project](Azure_Images/Azure-app-service-Linux/Profile_creation.png)
 
 Step 8: Click the **Publish** button.
-![Click the Publish button](Azure_Images/Azure_app_service_Linux/Publish_app_service.png)
+![Click the Publish button](Azure_Images/Azure-app-service-Linux/Publish_app_service.png)
 
 Step 9: Now, Publish has been succeeded.
-![Publish has been succeeded](Azure_Images/Azure_app_service_Linux/Publish_link.png)
+![Publish has been succeeded](Azure_Images/Azure-app-service-Linux/Publish_link.png)
 
 Step 10: Now, the published webpage will open in the browser. 
-![Browser will open after publish](Azure_Images/Azure_app_service_windows//WebView.png)
+![Browser will open after publish](Azure_Images/Azure-app-service-Windows//WebView.png)
 
 Step 11: Click **Open and Save Document** button.You will get the output **PDF document** as follows.
-![Output PDF screenshot](Azure_Images/Azure_app_service_windows/Output_screenshot.png)
+![Output PDF screenshot](Azure_Images/Azure-app-service-Windows/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/Azure/Azure_App_Service).
 
