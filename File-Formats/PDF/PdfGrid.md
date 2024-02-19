@@ -1153,6 +1153,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 The following image shows the PDF document with the ```PdfGridBuiltinStyle.GridTable4Accent1```.
 <img src="Table_images/Gridtable4Accent1.png" alt="GridTable4Accent1 image" width="100%" Height="Auto"/>
 
+The following PDF document shows all the   ```PdfGridBuiltinStyle``` styles [Built-in table styles.pdf](https://www.syncfusion.com/downloads/support/directtrac/general/ze/Grid_built-int_styles1244509964)
+
 The below code example illustrates how to apply built-in table styles with table options to [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html) using [PdfGridBuiltinStyleSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGridBuiltinStyleSettings.html) in [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Grid.PdfGrid.html#Syncfusion_Pdf_Grid_PdfGrid_ApplyBuiltinStyle_Syncfusion_Pdf_PdfGridBuiltinStyle_Syncfusion_Pdf_Grid_PdfGridBuiltinStyleSettings_) method with [PdfGridBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfGridBuiltinStyle.html) Enum.
 
 {% tabs %}
