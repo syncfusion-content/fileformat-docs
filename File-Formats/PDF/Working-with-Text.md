@@ -1469,7 +1469,7 @@ PdfPage page = doc.Pages.Add();
 PdfGraphics graphics = page.Graphics;
 FileStream fontStream = new FileStream("tahoma.ttf", FileMode.Open, FileAccess.Read);
 //Create a new PDF font instance
-PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+PdfFont pdfFont = new PdfTrueTypeFont(fontStream, 10);
 //Set the format for string
 PdfStringFormat format = new PdfStringFormat();
 //Set the format as complex script layout type
