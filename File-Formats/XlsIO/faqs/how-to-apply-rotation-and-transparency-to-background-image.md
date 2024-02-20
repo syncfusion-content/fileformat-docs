@@ -1,5 +1,5 @@
 ---
-title: How to apply rotation and transparency to background image | XlsIO | Syncfusion
+title: Apply rotation and transparency to background image | Syncfusion
 description: This page explains how to apply rotation and transparency to background image using Syncfusion .NET Excel library (XlsIO).
 platform: file-formats
 control: XlsIO
