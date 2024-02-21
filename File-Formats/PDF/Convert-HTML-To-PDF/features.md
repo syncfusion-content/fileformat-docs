@@ -2187,4 +2187,4 @@ Refer to the following code snippet to set the timeout for HTML to PDF conversio
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Time-out-support-in-HTML-to-PDF/.NET).
