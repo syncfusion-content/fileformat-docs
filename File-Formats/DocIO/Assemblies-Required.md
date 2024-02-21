@@ -18,7 +18,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-{{'[WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)' | markdownify}}, {{'[Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)' | markdownify}}, {{'[ASP.NET]https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)' | markdownify}}, {{'[ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)' | markdownify}}<br/></td><td>
+{{'[WPF](https://help.syncfusion.com/file-formats/docio/create-word-document-in-wpf)' | markdownify}}, {{'[Windows Forms](https://help.syncfusion.com/file-formats/docio/create-word-document-in-windows-forms)' | markdownify}}, {{'[ASP.NET](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net)' | markdownify}}, {{'[ASP.NET MVC](https://help.syncfusion.com/file-formats/docio/create-word-document-in-asp-net-mvc)' | markdownify}}<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
@@ -66,7 +66,7 @@ Universal (Classic)<br/></td><td>
 Syncfusion.DocIO.Universal<br/></td></tr>
 <tr>
 <td>
-Windows UI Library (WinUI)<br/> .NET Multi-platform App UI (.NET MAUI)<br/>
+{{'[Windows UI Library (WinUI)](https://help.syncfusion.com/file-formats/docio/create-word-document-in-winui)' | markdownify}}<br/> {{'[.NET Multi-platform App UI (.NET MAUI)](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-maui)' | markdownify}}<br/>
 </td><td>
 Syncfusion.DocIO.NET<br/>Syncfusion.Compression.NET<br/>Syncfusion.OfficeChart.NET<br/></td></tr>
 </table>

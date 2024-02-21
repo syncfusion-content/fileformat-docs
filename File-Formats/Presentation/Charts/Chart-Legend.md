@@ -465,3 +465,7 @@ End Using
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Legend/.NET).
+
+## See Also
+
+* [How to remove legend for Chart in Presentation](https://support.syncfusion.com/kb/article/13832/how-to-remove-legend-of-chart-in-powerpoint-using-c-in-aspnet-core)
