@@ -461,7 +461,7 @@ IPresentation destinationPresentation = Presentation.Open(destinationPresentatio
 //Clones the first slide of the source Presentation
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 //Merges the cloned slide to the destination Presentation with paste option - Destination Theme
-destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
+destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 destinationPresentation.Save(outputStream);
@@ -481,7 +481,7 @@ IPresentation destinationPresentation = Presentation.Open("DestinationPresentati
 //Clones the first slide of the source Presentation
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 //Merges the cloned slide to the destination Presentation with paste option - Destination Theme
-destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
+destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme);
 //Saves the destination Presentation
 destinationPresentation.Save("Output.pptx");
 //Closes the source presentation
@@ -498,7 +498,7 @@ Dim destinationPresentation_1 As IPresentation = Presentation.Open("DestinationP
 'Clones the first slide of the source Presentation
 Dim clonedSlide As ISlide = sourcePresentation_1.Slides(0).Clone()
 'Merges the cloned slide to the destination Presentation with paste option - Destination Theme
-destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation_1)
+destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme)
 'Saves the destination Presentation
 destinationPresentation_1.Save("Output.pptx")
 'Closes the source presentation
