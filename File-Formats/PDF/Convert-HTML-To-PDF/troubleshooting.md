@@ -26,7 +26,7 @@ Ensure that the runtimes folder is copied properly to bin folder of the applicat
 <br/><br/>
 Please refer to the below screenshot,
 <br/><br/>
-<img src="htmlconversion_images/runtime_folder.png">
+<img alt="Runtime folder" src="htmlconversion_images/runtime_folder.png">
 <br/><br/>
 (Or)
 <br/><br/>
