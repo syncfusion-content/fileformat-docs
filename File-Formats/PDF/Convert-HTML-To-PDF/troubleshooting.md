@@ -365,7 +365,7 @@ RUN chmod +x /app/runtimes/linux/native/chrome && \
 {% highlight c# tabtitle="C#" %}
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
-settings.AdditionalDelay = 2000;
+settings.AdditionalDelay = 4000;
 
 {% endhighlight %}
 </td>
