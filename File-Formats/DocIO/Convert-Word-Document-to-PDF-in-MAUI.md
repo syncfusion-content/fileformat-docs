@@ -11,7 +11,7 @@ documentation: UG
 Syncfusion DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in .NET MAUI**.
 
 ## Prerequisites
-To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-7.0&tabs=vswin).
+To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-8.0&viewFallbackFrom=net-maui-7.0&tabs=vswin).
 
 ## Steps to convert Word document to PDF in .NET MAUI
 
@@ -183,4 +183,4 @@ Refer the below helper files and add them into the mentioned project. These help
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
-An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/material3) in ASP.NET Core.
+An online sample link to [convert Word document to PDF](https://ej2.syncfusion.com/aspnetcore/Word/WordToPDF#/bootstrap5) in ASP.NET Core.
