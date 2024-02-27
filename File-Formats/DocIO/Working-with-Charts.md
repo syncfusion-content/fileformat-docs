@@ -473,7 +473,6 @@ Create a chart in a Word document using the .NET Word Library by utilizing the v
 
 The following code example illustrates how to create a chart in a Word document from a database.
 
-
 {% tabs %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 
