@@ -335,3 +335,16 @@ validation.EndUpdate()
 {% endhighlight %}
 {% endtabs %}  
 
+## Performance and Memory benchmark
+
+###Performance
+
+The performance of opening excel files with XlsIO and various types of data.
+
+![Perofrmacne](Performance-and-benchmark/Performance.png)
+
+###Memory benchmark
+
+The memory benchmark details fpr opening excel files with various types of data.
+
+![Memory_benchmark](Performance-and-benchmark/Memory_benchmark.png)
