@@ -469,7 +469,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Creating a Chart from Database
 
-Generate a chart within a Word document sourced from a database by retrieving the required chart data values and subsequently assigning them to the chart's dataset.
+Create a chart in a Word document using the .NET Word Library by utilizing the values retrieved from the database.
 
 The following code example illustrates how to create a chart in a Word document from database.
 
@@ -629,7 +629,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-Pie-chart-from-database).
 
 ## Refreshing the Chart
 
