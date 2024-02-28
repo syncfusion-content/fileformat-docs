@@ -602,7 +602,7 @@ The following code example illustrates how to create an equation array using LaT
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-
+{% raw %}
 // Create a new Word document.
 using WordDocument document = new WordDocument();
 
@@ -615,10 +615,10 @@ document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
 //Save the Word document to MemoryStream
 using MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
+{% endraw %}
 {% endhighlight %}
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-
+{% raw %}
 // Create a new Word document.
 using WordDocument document = new WordDocument();
 
@@ -630,10 +630,10 @@ document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
 
 //Save the Word document.
 document.Save("Result.docx", FormatType.Docx);
-
+{% endraw %}
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-
+{% raw %}
 ' Create a new Word document.
 Dim document As WordDocument = New WordDocument()
 
@@ -645,7 +645,7 @@ document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
 
 'Save the Word document.
 document.Save("Result.docx", FormatType.Docx)
-
+{% endraw %}
 {% endhighlight %}
 {% endtabs %}
 
@@ -664,7 +664,7 @@ The following table demonstrates the LaTeX equivalent to professional format equ
 <tr>
 <td>1.</td>
 <td><img src="WorkingwithMathematicalEquation_images/EquationArray.png" alt="Equation array"></td>
-<td>\eqarray{a@&b}</td>
+<td>{% raw %}\eqarray{a@&b}{% endraw %}</td>
 </tr>
 </table>
 
