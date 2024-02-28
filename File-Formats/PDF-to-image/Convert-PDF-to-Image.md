@@ -109,4 +109,4 @@ image.Save("sample.png")
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/WPF-PDFViewer-Examples/tree/master/PDF-to-image).
 
-N> To know more about PdfToImageConverter and features it provides, please refer to [PdfToImageConverter](https://help.syncfusion.com/file-formats/pdf-to-image)
+N> To know more about PdfToImageConverter and features it provides, please refer to [PdfToImageConverter](https://help.syncfusion.com/file-formats/pdf-to-image/convert-pdf-to-image)
