@@ -2338,9 +2338,9 @@ Refer to the online documentation link for more information about adding the tab
 
 1. Uninstall the respective font (e.g., Arial Unicode MS) from the local machine.
 2. Install the same font using the below procedure.
-~~~
-Right click the font file “Arial Unicode MS” -> Install for all users
-~~~
+
+*Right click the font file “Arial Unicode MS” -> Install for all users*
+
 3. Restart your machine and host the application in IIS for seamless functionality.
 
 ## How to copy necessary fonts to Linux containers
