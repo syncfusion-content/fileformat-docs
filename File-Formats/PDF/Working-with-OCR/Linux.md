@@ -21,6 +21,16 @@ sudo apt-get install libc6-dev
 
 {% endhighlight %}
 
+{% highlight c# tabtitle="C#" %}
+
+sudo apt-get install libleptonica-dev libjpeg62
+
+ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+
+ln -s /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
+
+{% endhighlight %}
+
 ## Steps to convert HTML to PDF in .NET Core application on Linux
 
 Step 1: Execute the following command in the Linux terminal to create a new .NET Core Console application.
