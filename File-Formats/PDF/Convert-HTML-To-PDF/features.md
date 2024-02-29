@@ -2133,3 +2133,58 @@ Refer to the following code snippet to resize the page content size.
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/HTML-to-PDF-scale-property).
+
+
+## Timeout
+
+HTML content being converted takes a long time to render or convert into a PDF can be achieved through the utilization of the Timeout property of Blink in HTML Converter.
+
+Refer to the following code snippet to set the timeout for HTML to PDF conversion.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+	//Initialize the HTML to PDF converter.
+	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+	//Initialize the blink converter settings.
+	BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+	// Set the conversion timeout to 5000 milliseconds 
+	blinkConverterSettings.ConversionTimeout = 5000;
+	//Assign Blink converter settings to HTML converter
+	htmlConverter.ConverterSettings = blinkConverterSettings;
+	//Convert URL to PDF
+	PdfDocument document = htmlConverter.Convert("https://www.google.com");
+	//Create a file stream.
+	FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+	//Save and close the PDF document.
+	document.Save(fileStream);
+	//Close the document.
+	document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+	'Initialize the HTML to PDF converter.
+	Dim htmlConverter As New HtmlToPdfConverter()
+	'Initialize the blink converter settings.
+	Dim blinkConverterSettings As New BlinkConverterSettings()
+	'Set the conversion timeout to 5000 milliseconds 
+	blinkConverterSettings.ConversionTimeout = 5000
+	'Assign Blink converter settings to HTML converter
+	htmlConverter.ConverterSettings = blinkConverterSettings
+	'Convert URL to PDF
+	Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+	'Create a file stream.
+	Dim fileStream As New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)
+	'Save and close the PDF document.
+	document.Save(fileStream)
+	'Close the document.
+	document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Time-out-support-in-HTML-to-PDF/.NET).

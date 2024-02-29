@@ -1846,6 +1846,7 @@ The following code examples show how to apply the justification to equations in 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
+{% raw %}
 // Create a new Word document.
 using (WordDocument document = new WordDocument())
 {
@@ -1861,9 +1862,11 @@ using (WordDocument document = new WordDocument())
         document.Save(outputFileStream, FormatType.Docx);
     }
 }
+{% endraw %}
 {% endhighlight %}
 
 {% highlight c# tabtitle="C# [Windows-specific]" %}
+{% raw %}
 //Create a new Word document.
 WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
@@ -1874,9 +1877,11 @@ WMath math = document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}
 math.MathParagraph.Justification = MathJustification.Left;
 //Save Word document.
 document.Save("Output.docx", FormatType.Docx);
+{% endraw %}
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+{% raw %}
 'Create a new Word document.
 Dim document As New WordDocument()
 'Add one section and one paragraph to the document.
@@ -1887,6 +1892,7 @@ Dim math As WMath = document.LastParagraph.AppendMath("\boxed{{x}^{2}+{y}^{2}={z
 math.MathParagraph.Justification = MathJustification.Left
 'Save Word document.
 document.Save("Output.docx", FormatType.Docx)
+{% endraw %}
 {% endhighlight %}
 
 {% endtabs %}

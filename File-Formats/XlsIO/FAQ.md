@@ -80,3 +80,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to vary colors by point for line and column chart?](faqs/how-to-vary-colors-by-point-for-line-and-column-chart)
 * [How to upload a file to Azure blob and download as stream?](faqs/how-to-upload-a-file-to-azure-blob-and-download-as-stream)
 * [How to find and replace text in hyperlinks](faqs/how-to-find-and-replace-text-in-hyperlinks)
+* [How to fix the ArgumentOutOfRangeException when accessing a large number of rows and columns?](faqs/how-to-fix-the-argument-out-of-range-exception-when-accessing-a-large-number-of-rows-and-columns)
