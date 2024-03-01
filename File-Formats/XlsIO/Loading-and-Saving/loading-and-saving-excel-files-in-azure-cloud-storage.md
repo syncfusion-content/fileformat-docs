@@ -18,18 +18,18 @@ Steps to load an Excel document from Azure Cloud Storage.
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
-![Create a ASP.NET Core Web App project in visual studio](Loading-and-Saving_images\Loading-and-Saving_images_img1.png)
+![Create a ASP.NET Core Web App project in visual studio](Loading-and-Saving_images/Loading-and-Saving_images_img1.png)
 
 Step 2: Name the project.
 
-![Name the project](Loading-and-Saving_images\Loading-and-Saving_images_img2.png)
+![Name the project](Loading-and-Saving_images/Loading-and-Saving_images_img2.png)
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
 * [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
 * [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs)
 
-![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images\Loading-and-Saving_images_img3.png)
-![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images\Loading-and-Saving_images_img4.png)
+![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
+![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img4.png)
 
 Step 4: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
@@ -120,7 +120,7 @@ A complete working example of how to load an Excel document from Azure Cloud Sto
 
 By executing the program, you will get the **Excel document** as follows.
 
-![Output File](Loading-and-Saving_images\Loading-and-Saving_images_img5.png)
+![Output File](Loading-and-Saving_images/Loading-and-Saving_images_img5.png)
 
 ## Saving Excel document to Azure
 
@@ -128,18 +128,18 @@ Steps to save an Excel document to Azure Cloud Storage.
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
-![Create a ASP.NET Core Web App project in visual studio](..\ASP-NET-Core_images\ASP-NET-Core_images_img5.png)
+![Create a ASP.NET Core Web App project in visual studio](Loading-and-Saving_images/Loading-and-Saving_images_img1.png)
 
 Step 2: Name the project.
 
-![Name the project](Loading-and-Saving_images\Loading-and-Saving_images_img6.png)
+![Name the project](Loading-and-Saving_images/Loading-and-Saving_images_img6.png)
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
 * [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
 * [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs)
 
-![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images\Loading-and-Saving_images_img3.png)
-![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images\Loading-and-Saving_images_img4.png)
+![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
+![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img4.png)
 
 Step 4: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
@@ -371,7 +371,7 @@ A complete working example of how to save an Excel document to Azure Cloud Stora
 
 By executing the program, you will get the **Excel document** as follows.
 
-![Output File](Loading-and-Saving_images\Loading-and-Saving_images_img7.png)
+![Output File](Loading-and-Saving_images/Loading-and-Saving_images_img7.png)
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
