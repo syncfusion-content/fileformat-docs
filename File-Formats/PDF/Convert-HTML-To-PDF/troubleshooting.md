@@ -693,3 +693,27 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 </td>
 </tr>
 </table>
+
+## Zombie process are not closed by default from chrome headless in Linux platform
+
+ The zombie process are not closed by default from chrome headless in Linux. However, We can resolve the zombie process issue by using the below commandline arguments in converter settings.
+
+{% tabs %}
+
+{% highlight %}
+
+		//Set command line arguments to run without the sandbox.
+
+		settings.CommandLineArguments.Add("--no-sandbox");
+
+		settings.CommandLineArguments.Add("--disable-setuid-sandbox");
+
+		settings.CommandLineArguments.Add("--no-zygote");
+
+		settings.CommandLineArguments.Add("--disable-dev-shm-usage");
+
+		settings.CommandLineArguments.Add("--single-process");
+
+{% endhighlight %}
+
+{% endtabs %}
