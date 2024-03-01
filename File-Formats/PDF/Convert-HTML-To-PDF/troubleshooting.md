@@ -657,8 +657,6 @@ To resolve this issue, we can add inline styles in element. However, we have att
 
 {% tabs %}
 
-Code sample:
-
 {% highlight c# tabtitle="C#" %}
 
 	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();

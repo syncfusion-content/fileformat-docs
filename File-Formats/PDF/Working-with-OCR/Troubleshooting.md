@@ -289,3 +289,58 @@ cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersampl
 </td>
 </tr>
 </table>
+
+
+## OCR not working on Linux: Exception has been thrown by the target of an invocation
+
+<table>
+<th style="font-size:14px" width="100px">Issue</th>
+<th style="font-size:14px">Syncfusion.Pdf.PdfException: Exception has been thrown by the target of an invocation" in the Linux machine.</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The problem occurs due to the missing prerequisites dependencies on your Linux machine.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+To resolve this problem, you should install all required dependencies in your Linux machine. Refer to the following steps to installing the missing dependencies.
+
+Step 1: Execute the following command in terminal window to check dependencies are installed properly.
+
+{% highlight %}
+
+        ldd  liblept1753.so
+        ldd  libSyncfusionTesseract.so
+
+{% endhighlight %}
+
+Run the following commands in terminal
+Step 1:
+
+{% highlight %}
+
+        sudo apt-get install libleptonica-dev libjpeg62
+
+{% endhighlight %}
+
+Step 2:
+
+{% highlight %}
+
+        ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+
+{% endhighlight %}
+
+Step 3:
+
+{% highlight %}
+
+        ln -s /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
+
+{% endhighlight %}
+
+</td>
+</tr>
+</table>
