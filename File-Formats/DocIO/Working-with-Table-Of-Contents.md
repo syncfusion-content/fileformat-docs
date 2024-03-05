@@ -703,6 +703,552 @@ End Using
 
 {% endtabs %}
 
+## Table of Figures 
+
+The following code example illustrates how to set the name of the sequence identifier employed in the creation of a table of figures using TableOfFiguresLabel API. 
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+    {
+        WParagraph paragraph = new WParagraph(document);
+        paragraph.AppendText("List of Figures");
+        //Apply Heading1 style for paragraph.
+        paragraph.ApplyStyle(BuiltinStyle.Heading1);
+        //Insert the paragraph 
+        document.LastSection.Body.ChildEntities.Insert(0, paragraph);
+        //Create new paragraph and append TOC 
+        paragraph = new WParagraph(document);
+        TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
+        //Disable a flag to exclude heading style paragraphs in TOC entries.
+        tableOfContent.UseHeadingStyles = false;
+        //Set the name of SEQ field identifier for table of figures.
+        tableOfContent.TableOfFiguresLabel = "Figure";
+        //Insert the paragraph to the text body.
+        document.LastSection.Body.ChildEntities.Insert(1, paragraph);
+
+        //Find all pictures from the document
+        List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, null, null);
+        // Iterate each picture and add caption.
+        foreach (WPicture picture in pictures)
+        {
+            //Set alternate text as caption for picture.
+            WParagraph captionPara = picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage) as WParagraph;
+            captionPara.AppendText(" " + picture.AlternativeText);
+            //Apply formatting to the caption.
+            captionPara.ApplyStyle(BuiltinStyle.Caption);
+            captionPara.ParagraphFormat.BeforeSpacing = 8;
+            captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+        }
+
+        // Create a new paragraph
+        paragraph = new WParagraph(document);
+        paragraph.AppendText("List of Tables");
+        // Apply Heading1 style for paragraph.
+        paragraph.ApplyStyle(BuiltinStyle.Heading1);
+        // Insert the paragraph
+        document.LastSection.Body.ChildEntities.Insert(2, paragraph);
+
+        //Create a new paragraph and append TOC.
+        paragraph = new WParagraph(document);
+        tableOfContent = paragraph.AppendTOC(1, 3);
+        //Disable a flag to exclude heading style paragraphs in TOC entries.
+        tableOfContent.UseHeadingStyles = false;
+        //Set the name of SEQ field identifier for table of tables.
+        tableOfContent.TableOfFiguresLabel = "Table";
+        // Insert the paragraph to the text body.
+        document.LastSection.Body.ChildEntities.Insert(3, paragraph);
+
+
+        // Find all tables from the document
+        List<Entity> tables = document.FindAllItemsByProperty(EntityType.Table, null, null);
+        //Iterate each table and add caption.
+        foreach (WTable table in tables)
+        {
+            //Gets the table index
+            int tableIndex = table.OwnerTextBody.ChildEntities.IndexOf(table);
+            //Create a new paragraph and appends the sequence field to use as a caption.
+            WParagraph captionPara = new WParagraph(document);
+            captionPara.AppendText("Table ");
+            captionPara.AppendField("Table", FieldType.FieldSequence);
+            //Set alternate text as caption for table.
+            captionPara.AppendText(" " + table.Description);
+            // Apply formatting to the paragraph
+            captionPara.ApplyStyle(BuiltinStyle.Caption);
+            captionPara.ParagraphFormat.BeforeSpacing = 8;
+            captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+            //Insert the paragraph next to the table
+            table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara);
+        }
+
+        //Update all document fields to update SEQ fields.
+        document.UpdateDocumentFields();
+        //Update the table of contents.
+        document.UpdateTableOfContents();
+
+        //Create a FileStream to save the Word file.
+        using (FileStream outputStream = new FileStream("Output.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+        {
+            //Save the Word document.
+            document.Save(outputStream, FormatType.Docx);
+        }
+    }        
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing word document.
+using (WordDocument document = new WordDocument("Input.docx",FormatType.Docx))
+{
+    //Create a new paragraph
+    WParagraph paragraph = new WParagraph(document);
+    paragraph.AppendText("List of Figures");
+    //Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Insert the paragraph. 
+    document.LastSection.Body.ChildEntities.Insert(0, paragraph);
+
+    //Create new paragraph and append TOC. 
+    paragraph = new WParagraph(document);
+    TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
+    //Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = false;
+    //Set the name of SEQ field identifier for table of figures.
+    tableOfContent.TableOfFiguresLabel = "Figure";
+    //Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(1, paragraph);
+
+    //Find all pictures from the document.
+    List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, null, null);
+    // Iterate each picture and add caption.
+    foreach (WPicture picture in pictures)
+    {
+        //Set alternate text as caption for picture.
+        WParagraph captionPara = picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage) as WParagraph;
+        captionPara.AppendText(" " + picture.AlternativeText);
+        //Apply formatting to the caption.
+        captionPara.ApplyStyle(BuiltinStyle.Caption);
+        captionPara.ParagraphFormat.BeforeSpacing = 8;
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    }
+
+    // Create a new paragraph.
+    paragraph = new WParagraph(document);
+    paragraph.AppendText("List of Tables");
+    // Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    // Insert the paragraph.
+    document.LastSection.Body.ChildEntities.Insert(2, paragraph);
+
+    //Create a new paragraph and append TOC.
+    paragraph = new WParagraph(document);
+    tableOfContent = paragraph.AppendTOC(1, 3);
+    //Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = false;
+    //Set the name of SEQ field identifier for table of tables.
+    tableOfContent.TableOfFiguresLabel = "Table";
+    // Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(3, paragraph);
+
+    // Find all tables from the document.
+    List<Entity> tables = document.FindAllItemsByProperty(EntityType.Table, null, null);
+    //Iterate each table and add caption.
+    foreach (WTable table in tables)
+    {
+        //Gets the table index.
+        int tableIndex = table.OwnerTextBody.ChildEntities.IndexOf(table);
+        //Create a new paragraph and appends the sequence field to use as a caption.
+        WParagraph captionPara = new WParagraph(document);
+        captionPara.AppendText("Table ");
+        captionPara.AppendField("Table", FieldType.FieldSequence);
+        //Set alternate text as caption for table.
+        captionPara.AppendText(" " + table.Description);
+        // Apply formatting to the paragraph.
+        captionPara.ApplyStyle(BuiltinStyle.Caption);
+        captionPara.ParagraphFormat.BeforeSpacing = 8;
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+        //Insert the paragraph next to the table.
+        table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara);
+    }
+
+    //Update all document fields to update SEQ fields.
+    document.UpdateDocumentFields();
+    //Update the table of contents.
+    document.UpdateTableOfContents();
+
+    //Save the Word document.
+    document.Save("Output.docx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open an existing word document.
+Using document As New WordDocument("Input.docx", FormatType.Docx)
+    ' Create a new paragraph
+    Dim paragraph As New WParagraph(document)
+    paragraph.AppendText("List of Figures")
+    ' Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    ' Insert the paragraph. 
+    document.LastSection.Body.ChildEntities.Insert(0, paragraph)
+
+    ' Create new paragraph and append TOC. 
+    paragraph = New WParagraph(document)
+    Dim tableOfContent As TableOfContent = paragraph.AppendTOC(1, 3)
+    ' Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = False
+    ' Set the name of SEQ field identifier for table of figures.
+    tableOfContent.TableOfFiguresLabel = "Figure"
+    ' Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(1, paragraph)
+
+    ' Find all pictures from the document.
+    Dim pictures As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Picture, Nothing, Nothing)
+    ' Iterate each picture and add caption.
+    For Each picture As WPicture In pictures
+        ' Set alternate text as caption for picture.
+        Dim captionPara As WParagraph = TryCast(picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage), WParagraph)
+        captionPara.AppendText(" " + picture.AlternativeText)
+        ' Apply formatting to the caption.
+        captionPara.ApplyStyle(BuiltinStyle.Caption)
+        captionPara.ParagraphFormat.BeforeSpacing = 8
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+    Next
+
+    ' Create a new paragraph.
+    paragraph = New WParagraph(document)
+    paragraph.AppendText("List of Tables")
+    ' Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    ' Insert the paragraph.
+    document.LastSection.Body.ChildEntities.Insert(2, paragraph)
+
+    ' Create a new paragraph and append TOC.
+    paragraph = New WParagraph(document)
+    tableOfContent = paragraph.AppendTOC(1, 3)
+    ' Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = False
+    ' Set the name of SEQ field identifier for table of tables.
+    tableOfContent.TableOfFiguresLabel = "Table"
+    ' Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(3, paragraph)
+
+    ' Find all tables from the document.
+    Dim tables As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Table, Nothing, Nothing)
+    ' Iterate each table and add caption.
+    For Each table As WTable In tables
+        ' Gets the table index.
+        Dim tableIndex As Integer = table.OwnerTextBody.ChildEntities.IndexOf(table)
+        ' Create a new paragraph and appends the sequence field to use as a caption.
+        Dim captionPara As New WParagraph(document)
+        captionPara.AppendText("Table ")
+        captionPara.AppendField("Table", FieldType.FieldSequence)
+        ' Set alternate text as caption for table.
+        captionPara.AppendText(" " + table.Description)
+        ' Apply formatting to the paragraph.
+        captionPara.ApplyStyle(BuiltinStyle.Caption)
+        captionPara.ParagraphFormat.BeforeSpacing = 8
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+        ' Insert the paragraph next to the table.
+        table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara)
+    Next
+
+    ' Update all document fields to update SEQ fields.
+    document.UpdateDocumentFields()
+    ' Update the table of contents.
+    document.UpdateTableOfContents()
+
+    ' Save the document
+    document.Save("Output.docx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+### Exclude caption label and numbers
+
+The following code example illustrates how to exclude the caption's label and number in TOC entries during the creation of a table of figures using the IncludeCaptionLabelsAndNumbers API.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+using (FileStream fileStream = new FileStream("Input.docx", FileMode.Open, FileAccess.Read))
+{
+    using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+    {
+        WParagraph paragraph = new WParagraph(document);
+        paragraph.AppendText("List of Figures");
+        //Apply Heading1 style for paragraph.
+        paragraph.ApplyStyle(BuiltinStyle.Heading1);
+        //Insert the paragraph 
+        document.LastSection.Body.ChildEntities.Insert(0, paragraph);
+        //Create new paragraph and append TOC 
+        paragraph = new WParagraph(document);
+        TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
+        //Disable a flag to exclude heading style paragraphs in TOC entries.
+        tableOfContent.UseHeadingStyles = false;
+        //Set the name of SEQ field identifier for table of figures.
+        tableOfContent.TableOfFiguresLabel = "Figure";
+        //Disable the flag, to exclude caption's label and number in TOC entries.
+        tableOfContent.IncludeCaptionLabelsAndNumbers = false;
+        //Insert the paragraph to the text body.
+        document.LastSection.Body.ChildEntities.Insert(1, paragraph);
+
+        //Find all pictures from the document
+        List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, null, null);
+        // Iterate each picture and add caption.
+        foreach (WPicture picture in pictures)
+        {
+            //Set alternate text as caption for picture.
+            WParagraph captionPara = picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage) as WParagraph;
+            captionPara.AppendText(" " + picture.AlternativeText);
+            //Apply formatting to the caption.
+            captionPara.ApplyStyle(BuiltinStyle.Caption);
+            captionPara.ParagraphFormat.BeforeSpacing = 8;
+            captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+        }
+
+        // Create a new paragraph
+        paragraph = new WParagraph(document);
+        paragraph.AppendText("List of Tables");
+        // Apply Heading1 style for paragraph.
+        paragraph.ApplyStyle(BuiltinStyle.Heading1);
+        // Insert the paragraph
+        document.LastSection.Body.ChildEntities.Insert(2, paragraph);
+
+        //Create a new paragraph and append TOC.
+        paragraph = new WParagraph(document);
+        tableOfContent = paragraph.AppendTOC(1, 3);
+        //Disable a flag to exclude heading style paragraphs in TOC entries.
+        tableOfContent.UseHeadingStyles = false;
+        //Set the name of SEQ field identifier for table of tables.
+        tableOfContent.TableOfFiguresLabel = "Table";
+        //Disable the flag, to exclude caption's label and number in TOC entries.
+        tableOfContent.IncludeCaptionLabelsAndNumbers = false;
+        // Insert the paragraph to the text body.
+        document.LastSection.Body.ChildEntities.Insert(3, paragraph);
+
+
+        // Find all tables from the document
+        List<Entity> tables = document.FindAllItemsByProperty(EntityType.Table, null, null);
+        //Iterate each table and add caption.
+        foreach (WTable table in tables)
+        {
+            //Gets the table index
+            int tableIndex = table.OwnerTextBody.ChildEntities.IndexOf(table);
+            //Create a new paragraph and appends the sequence field to use as a caption.
+            WParagraph captionPara = new WParagraph(document);
+            captionPara.AppendText("Table ");
+            captionPara.AppendField("Table", FieldType.FieldSequence);
+            //Set alternate text as caption for table.
+            captionPara.AppendText(" " + table.Description);
+            // Apply formatting to the paragraph
+            captionPara.ApplyStyle(BuiltinStyle.Caption);
+            captionPara.ParagraphFormat.BeforeSpacing = 8;
+            captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+            //Insert the paragraph next to the table
+            table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara);
+        }
+
+        //Update all document fields to update SEQ fields.
+        document.UpdateDocumentFields();
+        //Update the table of contents.
+        document.UpdateTableOfContents();
+
+        //Create a FileStream to save the Word file.
+        using (FileStream outputStream = new FileStream("Output.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+        {
+            //Save the Word document.
+            document.Save(outputStream, FormatType.Docx);
+        }
+    }        
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing word document.
+using (WordDocument document = new WordDocument("Input.docx",FormatType.Docx))
+{
+    //Create a new paragraph
+    WParagraph paragraph = new WParagraph(document);
+    paragraph.AppendText("List of Figures");
+    //Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    //Insert the paragraph. 
+    document.LastSection.Body.ChildEntities.Insert(0, paragraph);
+
+    //Create new paragraph and append TOC. 
+    paragraph = new WParagraph(document);
+    TableOfContent tableOfContent = paragraph.AppendTOC(1, 3);
+    //Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = false;
+    //Set the name of SEQ field identifier for table of figures.
+    tableOfContent.TableOfFiguresLabel = "Figure";
+    //Disable the flag, to exclude caption's label and number in TOC entries.
+    tableOfContent.IncludeCaptionLabelsAndNumbers = false;
+    //Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(1, paragraph);
+
+    //Find all pictures from the document.
+    List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, null, null);
+    // Iterate each picture and add caption.
+    foreach (WPicture picture in pictures)
+    {
+        //Set alternate text as caption for picture.
+        WParagraph captionPara = picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage) as WParagraph;
+        captionPara.AppendText(" " + picture.AlternativeText);
+        //Apply formatting to the caption.
+        captionPara.ApplyStyle(BuiltinStyle.Caption);
+        captionPara.ParagraphFormat.BeforeSpacing = 8;
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+    }
+
+    // Create a new paragraph.
+    paragraph = new WParagraph(document);
+    paragraph.AppendText("List of Tables");
+    // Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1);
+    // Insert the paragraph.
+    document.LastSection.Body.ChildEntities.Insert(2, paragraph);
+
+    //Create a new paragraph and append TOC.
+    paragraph = new WParagraph(document);
+    tableOfContent = paragraph.AppendTOC(1, 3);
+    //Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = false;
+    //Set the name of SEQ field identifier for table of tables.
+    tableOfContent.TableOfFiguresLabel = "Table";
+    //Disable the flag, to exclude caption's label and number in TOC entries.
+    tableOfContent.IncludeCaptionLabelsAndNumbers = false;
+    // Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(3, paragraph);
+
+    // Find all tables from the document.
+    List<Entity> tables = document.FindAllItemsByProperty(EntityType.Table, null, null);
+    //Iterate each table and add caption.
+    foreach (WTable table in tables)
+    {
+        //Gets the table index.
+        int tableIndex = table.OwnerTextBody.ChildEntities.IndexOf(table);
+        //Create a new paragraph and appends the sequence field to use as a caption.
+        WParagraph captionPara = new WParagraph(document);
+        captionPara.AppendText("Table ");
+        captionPara.AppendField("Table", FieldType.FieldSequence);
+        //Set alternate text as caption for table.
+        captionPara.AppendText(" " + table.Description);
+        // Apply formatting to the paragraph.
+        captionPara.ApplyStyle(BuiltinStyle.Caption);
+        captionPara.ParagraphFormat.BeforeSpacing = 8;
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+        //Insert the paragraph next to the table.
+        table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara);
+    }
+
+    //Update all document fields to update SEQ fields.
+    document.UpdateDocumentFields();
+    //Update the table of contents.
+    document.UpdateTableOfContents();
+
+    //Save the Word document.
+    document.Save("Output.docx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open an existing word document.
+Using document As New WordDocument("Input.docx", FormatType.Docx)
+    ' Create a new paragraph
+    Dim paragraph As New WParagraph(document)
+    paragraph.AppendText("List of Figures")
+    ' Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    ' Insert the paragraph. 
+    document.LastSection.Body.ChildEntities.Insert(0, paragraph)
+
+    ' Create new paragraph and append TOC. 
+    paragraph = New WParagraph(document)
+    Dim tableOfContent As TableOfContent = paragraph.AppendTOC(1, 3)
+    ' Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = False
+    ' Set the name of SEQ field identifier for table of figures.
+    tableOfContent.TableOfFiguresLabel = "Figure"
+    ' Disable the flag, to exclude caption's label and number in TOC entries.
+    tableOfContent.IncludeCaptionLabelsAndNumbers = False
+    ' Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(1, paragraph)
+
+    ' Find all pictures from the document.
+    Dim pictures As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Picture, Nothing, Nothing)
+    ' Iterate each picture and add caption.
+    For Each picture As WPicture In pictures
+        ' Set alternate text as caption for picture.
+        Dim captionPara As WParagraph = TryCast(picture.AddCaption("Figure", CaptionNumberingFormat.Number, CaptionPosition.AfterImage), WParagraph)
+        captionPara.AppendText(" " + picture.AlternativeText)
+        ' Apply formatting to the caption.
+        captionPara.ApplyStyle(BuiltinStyle.Caption)
+        captionPara.ParagraphFormat.BeforeSpacing = 8
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+    Next
+
+    ' Create a new paragraph.
+    paragraph = New WParagraph(document)
+    paragraph.AppendText("List of Tables")
+    ' Apply Heading1 style for paragraph.
+    paragraph.ApplyStyle(BuiltinStyle.Heading1)
+    ' Insert the paragraph.
+    document.LastSection.Body.ChildEntities.Insert(2, paragraph)
+
+    ' Create a new paragraph and append TOC.
+    paragraph = New WParagraph(document)
+    tableOfContent = paragraph.AppendTOC(1, 3)
+    ' Disable a flag to exclude heading style paragraphs in TOC entries.
+    tableOfContent.UseHeadingStyles = False
+    ' Set the name of SEQ field identifier for table of tables.
+    tableOfContent.TableOfFiguresLabel = "Table"
+    ' Disable the flag, to exclude caption's label and number in TOC entries.
+    tableOfContent.IncludeCaptionLabelsAndNumbers = False
+    ' Insert the paragraph to the text body.
+    document.LastSection.Body.ChildEntities.Insert(3, paragraph)
+
+    ' Find all tables from the document.
+    Dim tables As List(Of Entity) = document.FindAllItemsByProperty(EntityType.Table, Nothing, Nothing)
+    ' Iterate each table and add caption.
+    For Each table As WTable In tables
+        ' Gets the table index.
+        Dim tableIndex As Integer = table.OwnerTextBody.ChildEntities.IndexOf(table)
+        ' Create a new paragraph and appends the sequence field to use as a caption.
+        Dim captionPara As New WParagraph(document)
+        captionPara.AppendText("Table ")
+        captionPara.AppendField("Table", FieldType.FieldSequence)
+        ' Set alternate text as caption for table.
+        captionPara.AppendText(" " + table.Description)
+        ' Apply formatting to the paragraph.
+        captionPara.ApplyStyle(BuiltinStyle.Caption)
+        captionPara.ParagraphFormat.BeforeSpacing = 8
+        captionPara.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
+        ' Insert the paragraph next to the table.
+        table.OwnerTextBody.ChildEntities.Insert(tableIndex + 1, captionPara)
+    Next
+
+    ' Update all document fields to update SEQ fields.
+    document.UpdateDocumentFields()
+    ' Update the table of contents.
+    document.UpdateTableOfContents()
+
+    ' Save the document
+    document.Save("Output.docx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
 ## See Also
 
 * [How to change the text of TOC Entries in the Table of content in the Word document?](https://support.syncfusion.com/kb/article/11503/how-to-change-the-text-of-toc-entries-in-the-table-of-content-in-the-word-document)
