@@ -1269,7 +1269,7 @@ End Using
 
 By executing the program, you will get the **Word document** as follows.
 
-![Table of figures exclude caption label and numbers](WorkingWithTableOfContents/TOC_Exclude_Caption_and_Number.png)
+![Table of figures exclude caption label and numbers](WorkingWithTableOfContents/Exclude_Caption_and_Number_in_TOF.png)
  
 ## See Also
 
