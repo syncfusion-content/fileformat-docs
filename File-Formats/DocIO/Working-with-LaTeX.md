@@ -594,6 +594,80 @@ The following table demonstrates the LaTeX equivalent to professional format del
 </tr>
 </table>
 
+## Equation Array
+
+Add **equation array** to a Word document using the LaTeX through [AppendMath](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendMath_System_String_) API.
+
+The following code example illustrates how to create an equation array using LaTeX in Word document.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+// Create a new Word document.
+using WordDocument document = new WordDocument();
+
+//Add one section and one paragraph to the document.
+document.EnsureMinimal();
+
+//Append an box equation using LaTeX.
+document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
+
+//Save the Word document to MemoryStream
+using MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Create a new Word document.
+using WordDocument document = new WordDocument();
+
+//Add one section and one paragraph to the document.
+document.EnsureMinimal();
+
+//Append an box equation using LaTeX.
+document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
+
+//Save the Word document.
+document.Save("Result.docx", FormatType.Docx);
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Create a new Word document.
+Dim document As WordDocument = New WordDocument()
+
+'Add one section and one paragraph to the document.
+document.EnsureMinimal()
+
+'Append an box equation using LaTeX.
+document.LastParagraph.AppendMath(@"\eqarray{a@&b}");
+
+'Save the Word document.
+document.Save("Result.docx", FormatType.Docx)
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mathematical-Equation/LaTeX-equations/Equation-array/.NET).
+
+The following table demonstrates the LaTeX equivalent to professional format equation array.
+
+<table>
+<thead>
+<tr>
+<th width="20%">S.No</th>
+<th width="40%">Professional</th>
+<th width="40%">LaTeX</th>
+</tr>
+</thead>
+<tr>
+<td>1.</td>
+<td><img src="WorkingwithMathematicalEquation_images/EquationArray1.png" alt="Equation array"></td>
+<td>\eqarray{a@&b}</td>
+</tr>
+</table>
+
 ## Fraction
 
 Add **fraction** equation to a Word document using the LaTeX through [AppendMath](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WParagraph.html#Syncfusion_DocIO_DLS_WParagraph_AppendMath_System_String_) API.
