@@ -13,6 +13,8 @@ You can add the TOC into the paragraph by specifying the [LowerHeadingLevel](htt
 
 Basically TOC determines the TOC entries based on the TOC switches. 
 
+ ## Switches in TOC
+
 <table>
 <thead>
 <tr>
@@ -47,6 +49,16 @@ Specifies the characters that separate a TOC entry and its page number. The defa
 5<br/><br/></td><td>
 \t<br/><br/></td><td>
 Builds a table of contents from paragraphs formatted with specified styles other than the built-in heading styles<br/><br/></td></tr>
+<tr>
+<td>
+6<br/><br/></td><td>
+\c<br/><br/></td><td>
+Builds a table fo figures of the given label. <br/><br/></td></tr>
+<tr>
+<td>
+7<br/><br/></td><td>
+\a<br/><br/></td><td>
+Builds a table fo figures but does not include the caption's label and number. <br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -970,6 +982,12 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from GitHub.
+
+By executing the program, you will get the **Word document** as follows.
+
+![Table of figures using C#](WorkingWithTableOfContents/Table_of_Figures.png)
+
 ### Exclude caption label and numbers
 
 The following code example illustrates how to exclude the caption's label and number in TOC entries during the creation of a table of figures using the IncludeCaptionLabelsAndNumbers API.
@@ -1249,6 +1267,10 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+By executing the program, you will get the **Word document** as follows.
+
+![Table of figures exclude caption label and numbers](WorkingWithTableOfContents/TOC_Exclude_Caption_and_Number.png)
+ 
 ## See Also
 
 * [How to change the text of TOC Entries in the Table of content in the Word document?](https://support.syncfusion.com/kb/article/11503/how-to-change-the-text-of-toc-entries-in-the-table-of-content-in-the-word-document)
