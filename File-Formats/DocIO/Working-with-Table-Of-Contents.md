@@ -721,7 +721,7 @@ You can create captions for images, tables, charts, or other items using the SEQ
 
 With this feature, you can create a Table of Figures, tables, charts, and more, giving readers a clear overview of the document's contents and facilitating easier navigation.
 
-N> Update the SEQ fields in the Word document by calling the [UpdateDocumentFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_UpdateDocumentFields) API and then update the Table of Contents to build the Table of Figures.
+N> Update the SEQ fields in the Word document by calling the [UpdateDocumentFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_UpdateDocumentFields) API and then update the Table of Contents by calling the [UpdateTableOfContents](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.WordDocument.html#Syncfusion_DocIO_DLS_WordDocument_UpdateTableOfContents) to build the Table of Figures.
 
 The following code example illustrates how to add a Table of Figures in a Word document using the .NET Word Library (DocIO).
 
