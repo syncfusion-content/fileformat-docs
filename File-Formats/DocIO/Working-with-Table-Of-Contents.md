@@ -717,7 +717,7 @@ End Using
 
 ## Table of Figures 
 
-The following code example shows how to add a table of figures in Word document using TableOfFiguresLabel API.
+The following code example illustrates how to add a table of figures in Word document using TableOfFiguresLabel API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -988,7 +988,7 @@ By executing the program, you will get the **Word document** as follows.
 
 ### Exclude caption label and numbers
 
-The following code example shows how to add a table of figures by exclude the caption's label and number in Word document using IncludeCaptionLabelsAndNumbers API.
+The following code example illustrates how to add a table of figures by exclude the caption's label and number in Word document using IncludeCaptionLabelsAndNumbers API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
