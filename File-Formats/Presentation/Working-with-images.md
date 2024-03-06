@@ -318,16 +318,17 @@ using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, Fil
         //Retrieve the first picture from the slide.
         IPicture picture = slide.Pictures[0];
 
-        //Apply cropping to the picture.
-        picture.Crop.ContainerWidth = 345;
-        picture.Crop.ContainerHeight = 220;
-        picture.Crop.ContainerLeft = 324;
-        picture.Crop.ContainerTop = 220;
+        //Apply bounding box size and position.
+        picture.Crop.ContainerWidth = 256.32f;
+        picture.Crop.ContainerHeight = 153.36f;
+        picture.Crop.ContainerLeft = 397.44f;
+        picture.Crop.ContainerTop = 205.2f;
 
-        picture.Crop.Width = 288;
-        picture.Crop.Height = 144;
-        picture.Crop.OffsetX = -35;
-        picture.Crop.OffsetY = -65;
+        //Apply cropping size and offsets.
+        picture.Crop.Width = 364.32f;
+        picture.Crop.Height = 192.24f;
+        picture.Crop.OffsetX = -27.36f;
+        picture.Crop.OffsetY = -2.16f;
 
         //Save the PowerPoint Presentation as stream.
         using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
@@ -348,16 +349,17 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
     //Retrieve the first picture from the slide.
     IPicture picture = slide.Pictures[0];
 
-    //Apply cropping to the picture.
-    picture.Crop.ContainerWidth = 345;
-    picture.Crop.ContainerHeight = 220;
-    picture.Crop.ContainerLeft = 324;
-    picture.Crop.ContainerTop = 220;
+    //Apply bounding box size and position.
+    picture.Crop.ContainerWidth = 256.32f;
+    picture.Crop.ContainerHeight = 153.36f;
+    picture.Crop.ContainerLeft = 397.44f;
+    picture.Crop.ContainerTop = 205.2f;
 
-    picture.Crop.Width = 288;
-    picture.Crop.Height = 144;
-    picture.Crop.OffsetX = -35;
-    picture.Crop.OffsetY = -65;
+    //Apply cropping size and offsets.
+    picture.Crop.Width = 364.32f;
+    picture.Crop.Height = 192.24f;
+    picture.Crop.OffsetX = -27.36f;
+    picture.Crop.OffsetY = -2.16f;
 
     // Save the PowerPoint Presentation.
     pptxDoc.Save("Output.pptx");
@@ -373,16 +375,17 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
     ' Retrieve the first picture from the slide.
     Dim picture As IPicture = slide.Pictures(0)
 
-    ' Apply cropping to the picture.
-    picture.Crop.ContainerWidth = 345
-    picture.Crop.ContainerHeight = 220
-    picture.Crop.ContainerLeft = 324
-    picture.Crop.ContainerTop = 220
+    ' Apply bounding box size and position
+    picture.Crop.ContainerWidth = 256.32F
+    picture.Crop.ContainerHeight = 153.36F
+    picture.Crop.ContainerLeft = 397.44F
+    picture.Crop.ContainerTop = 205.2F
 
-    picture.Crop.Width = 288
-    picture.Crop.Height = 144
-    picture.Crop.OffsetX = -35
-    picture.Crop.OffsetY = -65
+    ' Apply cropping size and offsets
+    picture.Crop.Width = 364.32F
+    picture.Crop.Height = 192.24F
+    picture.Crop.OffsetX = -27.36F
+    picture.Crop.OffsetY = -2.16F
 
     ' Save the PowerPoint Presentation.
     pptxDoc.Save("Output.pptx")
