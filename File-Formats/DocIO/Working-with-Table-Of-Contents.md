@@ -717,7 +717,7 @@ End Using
 
 ## Table of Figures 
 
-The following code example illustrates how to set the name of the sequence identifier employed in the creation of a table of figures using TableOfFiguresLabel API. 
+The following code example shows how to add a table of figures in Word document using TableOfFiguresLabel API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -982,15 +982,13 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-You can download a complete working sample from GitHub.
-
 By executing the program, you will get the **Word document** as follows.
 
 ![Table of figures in Word document](WorkingWithTableOfContents/Table_of_Figures.png)
 
 ### Exclude caption label and numbers
 
-The following code example illustrates how to exclude the caption's label and number in TOC entries during the creation of a table of figures using the IncludeCaptionLabelsAndNumbers API.
+The following code example shows how to add a table of figures by exclude the caption's label and number in Word document using IncludeCaptionLabelsAndNumbers API.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
