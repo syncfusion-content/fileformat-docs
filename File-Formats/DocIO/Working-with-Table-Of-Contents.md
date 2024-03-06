@@ -986,7 +986,7 @@ You can download a complete working sample from GitHub.
 
 By executing the program, you will get the **Word document** as follows.
 
-![Table of figures using C#](WorkingWithTableOfContents/Table_of_Figures.png)
+![Table of figures in Word document](WorkingWithTableOfContents/Table_of_Figures.png)
 
 ### Exclude caption label and numbers
 
