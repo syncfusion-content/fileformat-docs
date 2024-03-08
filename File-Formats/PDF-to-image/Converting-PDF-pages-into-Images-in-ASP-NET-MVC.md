@@ -26,10 +26,7 @@ imageConverter.Load(inputStream);
 Stream outputStream = imageConverter.Convert(0, false, false);
 
 {% endhighlight %}
-{% endtabs %}
-
-N> 
-N> 
+{% endtabs %} 
 
 ## Exporting a specific range of pages
 

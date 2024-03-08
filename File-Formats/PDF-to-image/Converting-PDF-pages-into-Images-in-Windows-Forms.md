@@ -30,9 +30,6 @@ image.Save("sample.png");
 {% endhighlight %}
 {% endtabs %}
 
-N> 
-N> 
-
 ## Exporting a specific range of pages
 
 You can export a specific range of PDF pages into images by specifying the start and end page indexes and setting the parameters `keepTransparency` and `isSkipAnnotations` in the Convert method. To preserve transparency in the output images, make sure to set the `keepTransparency` parameter to true. If you want to exclude annotations and form field elements from the output images, set the `isSkipAnnotations` parameter to true. Refer to the following code to export the pages of PDF into PNG images.
