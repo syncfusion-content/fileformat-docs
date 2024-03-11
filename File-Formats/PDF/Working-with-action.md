@@ -779,6 +779,126 @@ document.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Reset-form-fields-in-the-PDF-document).
 
+## Remote GoTo action:
+
+The PdfRemoteGoToAction in a PDF document enables users to navigate to a specific destination within a remote PDF file. This feature seamlessly directs users to specific pages or locations in another PDF document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document.Pages.Add();
+//Create font and font style
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f, PdfFontStyle.Bold);
+//Create a new PdfButtonField
+PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+submitButton.Font = font;
+submitButton.Text = "Open file";
+submitButton.BackColor = new PdfColor(181, 191, 203);
+//Create a new remote destination
+PdfRemoteDestination remoteDestination = new PdfRemoteDestination();
+remoteDestination.RemotePageNumber = 3;
+remoteDestination.Mode = PdfDestinationMode.FitToPage;
+//Create a new PdfRemoteGoToAction
+PdfRemoteGoToAction goToAction = new PdfRemoteGoToAction("input.pdf", remoteDestination);
+//Set the IsNewWindow
+goToAction.IsNewWindow = true;
+//Add the action to the button.
+submitButton.Actions.GotFocus = goToAction;
+//Add the submit button to a new document
+document.Form.Fields.Add(submitButton);
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Close the document
+document.Close(true);
+// Defining the ContentType for the PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Create a FileContentResult object by using the file contents, content type, and file name
+return File(stream,  contentType,  fileName);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+//Create a new page
+PdfPage page = document.Pages.Add();
+//Create font and font style
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f, PdfFontStyle.Bold);
+//Create a new PdfButtonField
+PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+submitButton.Font = font;
+submitButton.Text = "Open file";
+submitButton.BackColor = new PdfColor(181, 191, 203);
+//Create a new remote destination
+PdfRemoteDestination remoteDestination = new PdfRemoteDestination();
+remoteDestination.RemotePageNumber = 3;
+remoteDestination.Mode = PdfDestinationMode.FitToPage;
+//Create a new PdfRemoteGoToAction
+PdfRemoteGoToAction goToAction = new PdfRemoteGoToAction("input.pdf", remoteDestination);
+//Set the IsNewWindow
+goToAction.IsNewWindow = true;
+//Add the goToAction
+submitButton.Actions.GotFocus = goToAction;
+//Add the submit button to a new document
+document.Form.Fields.Add(submitButton);
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Close the document
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create a new document
+Dim document As PdfDocument = New PdfDocument
+'Create a new page
+Dim page As PdfPage = document.Pages.Add
+'Create a new font and font style
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12!, PdfFontStyle.Bold)
+'Create a new Buttonfield
+Dim submitButton As PdfButtonField = New PdfButtonField(page, "submitButton")
+submitButton.Bounds = New RectangleF(25, 160, 100, 20)
+submitButton.Font = font
+submitButton.Text = "Open file"
+submitButton.BackColor = New PdfColor(181, 191, 203)
+'Create a new PdfRemoteDestination
+Dim remoteDestination As PdfRemoteDestination = New PdfRemoteDestination
+remoteDestination.RemotePageNumber = 3
+remoteDestination.Mode = PdfDestinationMode.FitToPage
+'Create a new PdfRemoteGoToAction
+Dim goToAction As PdfRemoteGoToAction = New PdfRemoteGoToAction("input.pdf", remoteDestination)
+'Set the IsNewWindow
+goToAction.IsNewWindow = true
+'Add the goToAction
+submitButton.Actions.GotFocus = goToAction
+'Add the submit button to a new document
+document.Form.Fields.Add(submitButton)
+Dim stream As MemoryStream = New MemoryStream
+document.Save(stream)
+stream.Position = 0
+'Close the document
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub]
+
 ## Adding an action to the form field
 
 Essential PDF provides support to add various actions to the form fields. The following code example illustrates how to add actions to the form field in PDF document using [PdfFieldActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfFieldActions.html) class. 
