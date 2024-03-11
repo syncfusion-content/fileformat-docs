@@ -199,37 +199,15 @@ Step 2: Now, the project configuration window will popup. Click **Create** butto
 
 Step 3: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 * [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core)
-* [SkiaSharp.NativeAssets.WebAssembly v2.88.2](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly/2.88.2)
+* [SkiaSharp.Views.Blazor v2.88.6](https://www.nuget.org/packages/SkiaSharp.Views.Blazor/2.88.6)
 
 ![Install Syncfusion.DocIORenderer.Net.Core NuGet Package](Blazor_Images/Nuget-Package-WordtoImage.png)
-![Install SkiaSharp.NativeAssets.WebAssembly NuGet Package](Blazor_Images/SkiaSharp-Nuget-WordtoPDF.png)
+![Install SkiaSharp.Views.Blazor v2.88.6 NuGet Package](Blazor_Images/NuGet-Package-Convert-WordtoImage.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime. After installing wasm tools using the above commands, please restart your machine.
 
-Step 4: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
-{% tabs %}
-
-{% highlight XAML  %}
-<ItemGroup>
-    <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
-</ItemGroup>
-{% endhighlight %}
-
-{% endtabs %}
-
-N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime. After installing wasm tools using the above commands, please restart your machine.
-
-Step 5: Enable the following property in the Blazor WASM csproj file.
-
-{% tabs %}
-{% highlight XAML %}
-<PropertyGroup>
-    <WasmNativeStrip>true</WasmNativeStrip>
-</PropertyGroup>
-{% endhighlight %}
-{% endtabs %}
-
-Step 6: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
+Step 4: Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 
@@ -244,7 +222,7 @@ Step 6: Create a razor file with name as ``DocIO`` under ``Pages`` folder and ad
 
 {% endtabs %}
 
-Step 7: Add the following code to create a new button.
+Step 5: Add the following code to create a new button.
 
 {% tabs %}
 
@@ -258,7 +236,7 @@ Step 7: Add the following code to create a new button.
 
 {% endtabs %}
 
-Step 8: Create a new async method with name as ``WordToImage`` and include the following code snippet to **convert a Word document to image in Blazor** WASM app.
+Step 6: Create a new async method with name as ``WordToImage`` and include the following code snippet to **convert a Word document to image in Blazor** WASM app.
 
 {% tabs %}
 
@@ -286,7 +264,7 @@ using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", Fi
 
 {% endtabs %}
 
-Step 9: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 7: Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
@@ -305,7 +283,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-Step 10: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
+Step 8: Add the following JavaScript function in the Index.html file present under ``wwwroot``.
 
 {% tabs %}
 
@@ -338,7 +316,7 @@ Step 10: Add the following JavaScript function in the Index.html file present un
 
 {% endtabs %}
 
-Step 11: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
+Step 9: Add the following code snippet in the razor file of Navigation menu in the Shared folder.
 
 {% tabs %}
 

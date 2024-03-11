@@ -195,41 +195,16 @@ Step 3: Choose Blazor WebAssembly App and click Create button to create a new Bl
 Step 4: Install the following **Nuget packages** in your application from [Nuget.org](https://www.nuget.org/).
 
 * [Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core) 
-* [SkiaSharp.NativeAssets.WebAssembly v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.WebAssembly/2.88.6)
+* [SkiaSharp.Views.Blazor v2.88.6](https://www.nuget.org/packages/SkiaSharp.Views.Blazor/2.88.6)
 
 ![Install Syncfusion.PresentationRenderer.Net.Core Nuget Package](Azure_Images/App_Service_Linux/Nuget_Package_PowerPoint_Presentation_to_PDF.png)
 
-![Install SkiaSharp.NativeAssets.WebAssembly v2.88.6 Nuget Package](Workingwith_Blazor/Nuget-Package-PPTXtoPDF.png)
+![Install SkiaSharp.Views.Blazor v2.88.6 Nuget Package](Workingwith_Blazor/NuGet_package_PPTXtoPDF.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime. After installing wasm tools using the above commands, please restart your machine.
 
-Step 5: Add the following ItemGroup tag in the **Blazor WASM csproj** file.
-
-{% tabs %}
-{% highlight XAML  %}
-
-<ItemGroup>
-<NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
-</ItemGroup>
-
-{% endhighlight %}
-{% endtabs %}
-
-N> Install this wasm-tools and wasm-tools-net6 by using the "dotnet workload install wasm-tools" and "dotnet workload install wasm-tools-net6" commands in your command prompt respectively if you are facing issues related to Skiasharp during runtime. After installing wasm tools using the above commands, please restart your machine.
-
-Step 6: Enable the following property in the **Blazor WASM csproj** file.
-
-{% tabs %}
-{% highlight XAML  %}
-
-<PropertyGroup>
-    <WasmNativeStrip>true</WasmNativeStrip>
-</PropertyGroup>
-
-{% endhighlight %}
-{% endtabs %}
-
-Step 7: Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
+Step 5: Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -245,7 +220,7 @@ Step 7: Create a razor file with name as ``Presentation`` under ``Pages`` folder
 {% endhighlight %}
 {% endtabs %}
 
-Step 8: Add the following code to create a new button.
+Step 6: Add the following code to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -257,7 +232,7 @@ Step 8: Add the following code to create a new button.
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new async method with name as ``PPTXToPDF`` and include the following code snippet to **convert a PowerPoint to PDF in Blazor WASM app**.
+Step 7: Create a new async method with name as ``PPTXToPDF`` and include the following code snippet to **convert a PowerPoint to PDF in Blazor WASM app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -286,7 +261,7 @@ using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"
 {% endhighlight %}
 {% endtabs %}
 
-Step 10: To download the PowerPoint presentation in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+Step 8: To download the PowerPoint presentation in browser, create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -303,7 +278,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-Step 11: Add the following JavaScript function in the **Index.html** file present under ``wwwroot``.
+Step 9: Add the following JavaScript function in the **Index.html** file present under ``wwwroot``.
 
 {% tabs %}
 {% highlight HTML %}
