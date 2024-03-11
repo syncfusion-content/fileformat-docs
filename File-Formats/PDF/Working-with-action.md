@@ -253,7 +253,7 @@ document.Close(True)
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Actions/Add-JavaScript-action-to-the-PDF-document/).
 
 N> You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
-N> [https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsdk/pdfs/acrobatsdk_jsdevguide.pdf](https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsdk/pdfs/acrobatsdk_jsdevguide.pdf)
+N> [https://opensource.adobe.com/dc-acrobat-sdk-docs/library/jsdevguide/index.html](https://opensource.adobe.com/dc-acrobat-sdk-docs/library/jsdevguide/index.html)
 
 ### URI action
 
