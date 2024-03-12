@@ -2191,7 +2191,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## Accessible PDF
 
-The Blink HTML converter support preserving tags from HTML to PDF using EnableAccessibilityTags property in BlinkConverterSettings class. Refer to the following code snippet.
+The Blink HTML converter supports preserving tags from HTML to PDF using the EnableAccessibilityTags property in the BlinkConverterSettings class. Refer to the following code sample.
 
 N> This support fully depends on the Chromium headless browser. Our converter preserves the tags, same as the saved PDF from Chrome.
 
@@ -2207,7 +2207,7 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 	settings.EnableAccessibilityTags= true;
 	//Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
 	htmlConverter.ConverterSettings = settings;
-	//Convert URL to PDF
+	//Convert URL to PDF.
 	PdfDocument document = htmlConverter.Convert("Input.html");
 	//Save and close the PDF document.
 	FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);	
@@ -2220,13 +2220,13 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 
 	'Initialize HTML to PDF converter.
 	Dim htmlConverter As New HtmlToPdfConverter()
-	'Initialize the BlinkConverterSettings
+	'Initialize the BlinkConverterSettings.
 	Dim settings As New BlinkConverterSettings()
 	'Set true to enable the accessibility tags in PDF generation.
 	settings.EnableAccessibilityTags = True
 	'Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
 	htmlConverter.ConverterSettings = settings
-	'Convert URL to PDF
+	'Convert URL to PDF.
 	Dim document As PdfDocument = htmlConverter.Convert("Input.html")
 	'Save and close the PDF document.
 	Dim fileStream As New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)	
@@ -2241,7 +2241,7 @@ You can download a complete working sample from [GitHub]().
 
 ## Image Background
 
-The Blink HTML converter support adding the image background from HTML to Image using ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code snippet.
+The Blink HTML converter support adding the image background from HTML to Image using the ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -2255,7 +2255,7 @@ The Blink HTML converter support adding the image background from HTML to Image 
 	settings.ImageBackgroundColor = Color.Transparent;
 	//Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
 	htmlConverter.ConverterSettings = settings;
-	//Convert HTML to Image
+	//Convert HTML to Image.
 	Image image = htmlConverter.ConvertToImage("Input.html");
 	//Save the Image.
 	byte[] imageByte = image.ImageData;
@@ -2267,7 +2267,7 @@ The Blink HTML converter support adding the image background from HTML to Image 
 
 	' Initialize HTML to PDF converter.
 	Dim htmlConverter As New HtmlToPdfConverter()
-	' Initialize the BlinkConverterSettings
+	' Initialize the BlinkConverterSettings.
 	Dim settings As New BlinkConverterSettings()
 	' Set the Image Background color.
 	settings.ImageBackgroundColor = Color.Transparent
