@@ -1,6 +1,6 @@
 ---
 title: FAQ Section | DocIO | Syncfusion
-description: Learn about the frequently asked questions in the .NET Word (DocIO) library.
+description: In this section, you can discover the various questions asked about manipulation of Word documents using the .NET Word Library (DocIO).
 platform: file-formats
 control: DocIO
 documentation: UG
