@@ -2432,7 +2432,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 
 * In production environment (hosted server machine), ensure whether the Visual C++ Redistributable is properly installed.
 
-    [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, if not installed.
+    [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53840) and install Visual C++, if not installed.
 
 ## How to set title when converting Word document to EPUB
 
