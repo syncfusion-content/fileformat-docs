@@ -8,7 +8,7 @@ documentation: UG
 
 # Convert HTML to PDF file in AWS Lambda
 
-The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. Using this library, **convert HTML to PDF document in AWS Lambda**.
+The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/document-processing/pdf-framework/net/html-to-pdf) is a .NET library for converting webpages, SVG, MHTML, and HTML to PDF using C#. Using this library, **convert HTML to PDF document in AWS Lambda**.
 
 Refer to the following steps to convert HTML to PDF in AWS Lambda
 
