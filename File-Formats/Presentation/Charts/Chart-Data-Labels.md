@@ -247,6 +247,35 @@ chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 3
 {% endhighlight %}
 {% endtabs %}
 
+## Show Leader lines
+
+The leader lines can be shown in a chart through [ShowLeaderLines](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.Charts.ChartDataLabelsImpl.html#Syncfusion_XlsIO_Implementation_Charts_ChartDataLabelsImpl_ShowLeaderLines) API which can be set to all data labels by enabling the leader lines for [DefaultDataPoint](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.Charts.ChartDataPointsCollection.html#Syncfusion_XlsIO_Implementation_Charts_ChartDataPointsCollection_DefaultDataPoint).
+
+The following code illustrates how to enable the leader lines for all data labels in the chart.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+// Enable the leader lines in Chart.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.ShowLeaderLines = true;
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+// Enable the leader lines in Chart.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.ShowLeaderLines = true;
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Enable the leader lines in Chart.
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.ShowLeaderLines = true;
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Show-Leader-Lines/.NET).
+
 ## See Also
 
 * [How to change text of data labels for Chart in Presentation](https://support.syncfusion.com/kb/article/13828/how-to-change-the-text-in-data-labels-inside-a-chart-in-presentation-using-c-in-aspnet-core)
