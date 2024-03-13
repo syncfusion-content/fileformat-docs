@@ -6,7 +6,7 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Chart Data Labels
+# Chart Data Labels in PowerPoint
 
 Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using Presentation, you can **customize the data labels in the chart**.
 
