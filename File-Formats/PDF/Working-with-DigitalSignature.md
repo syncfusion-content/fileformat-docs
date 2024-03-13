@@ -4160,4 +4160,6 @@ loadedDocument.Close(true)
 
 {% endhighlight %}
 
+{% endtabs %}
+
 N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.
