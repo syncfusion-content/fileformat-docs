@@ -467,6 +467,170 @@ document.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-custom-chart).
 
+## Creating a Chart from a Database
+
+Create a chart in a Word document using the .NET Word Library by utilizing the values retrieved from the database.
+
+The following code example illustrates how to create a chart in a Word document from a database.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Create a new instance of WordDocument.
+using (WordDocument document = new WordDocument())
+{
+    document.EnsureMinimal();
+    //Get the data table.
+    DataTable dataTable = GetDataTable();
+    //Create and append the chart to the paragraph.
+    WChart chart = document.LastParagraph.AppendChart(446, 270);
+    chart.ChartType = OfficeChartType.Pie;
+    //Assign the data.
+    AddChartData(chart, dataTable);
+    //Set a chart title.
+    chart.ChartTitle = "Best Selling Products";
+    IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
+    pieSeries.Values = chart.ChartData[2, 2, 11, 2];
+    //Set the data label.
+    pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+    pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
+    //Set the category labels.
+    chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1];
+    //Set the legend.
+    chart.HasLegend = true;
+    //Save a Word document.
+    document.Save(Path.GetFullPath(@"../../Result.docx"));
+}
+
+// Get the data to create a pie chart.
+private static DataTable GetDataTable()
+{
+    string path = Path.GetFullPath(@"../../Data/DataBase.mdb");
+    //Create a new instance of OleDbConnection.
+    OleDbConnection connection = new OleDbConnection();
+    //Set the string to open a Database.
+    connection.ConnectionString = "Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";User ID=Admin;Data Source=" + path;
+    //Open the Database connection.
+    connection.Open();
+    //Get all the data from the Database.
+    OleDbCommand query = new OleDbCommand("select * from Products", connection);
+    //Create a new instance of OleDbDataAdapter.
+    OleDbDataAdapter adapter = new OleDbDataAdapter(query);
+    //Create a new instance of DataSet.
+    DataSet dataSet = new DataSet();
+    //Add rows in the Dataset.
+    adapter.Fill(dataSet);
+    //Create a DataTable from the Dataset.
+    DataTable table = dataSet.Tables[0];
+    table.TableName = "Products";
+    return table;
+}
+
+// Set the value for the chart.
+ private static void AddChartData(WChart chart, DataTable dataTable)
+ {
+     //Set the value for the chart data.
+     chart.ChartData.SetValue(1, 1, "Names");
+     chart.ChartData.SetValue(1, 2, "Product");
+
+     int rowIndex = 2;
+     int colIndex = 1;
+     //Get the value from the DataTable and set the value for the chart data
+     foreach (DataRow row in dataTable.Rows)
+     {
+         foreach (object val in row.ItemArray)
+         {
+             string value = val.ToString();
+             chart.ChartData.SetValue(rowIndex, colIndex, value);
+             colIndex++;
+             if (colIndex == 3)
+                 break;
+         }
+         colIndex = 1;
+         rowIndex++;
+     }
+ }
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Create a new instance of WordDocument.
+Using document As New WordDocument()
+    document.EnsureMinimal()
+    ' Get the data table.
+    Dim dataTable As DataTable = GetDataTable()
+    ' Create and append the chart to the paragraph.
+    Dim chart As WChart = document.LastParagraph.AppendChart(446, 270)
+    chart.ChartType = OfficeChartType.Pie
+    ' Assign the data.
+    AddChartData(chart, dataTable)
+    ' Set a chart title.
+    chart.ChartTitle = "Best Selling Products"
+    Dim pieSeries As IOfficeChartSerie = chart.Series.Add("Sales")
+    pieSeries.Values = chart.ChartData(2, 2, 11, 2)
+    ' Set the data label.
+    pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+    pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside
+    ' Set the category labels.
+    chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 11, 1)
+    ' Set the legend.
+    chart.HasLegend = True
+    ' Save a Word document.
+    document.Save(Path.GetFullPath("..\..\Result.docx"))
+End Using
+
+' Get the data to create a pie chart.
+Private Function GetDataTable() As DataTable
+
+    Dim path As String = System.IO.Path.GetFullPath("..\..\Data\DataBase.mdb")
+    ' Create a new instance of OleDbConnection.
+    Dim connection As New OleDbConnection()
+    ' Set the string to open a Database.
+    connection.ConnectionString = "Provider=Microsoft.JET.OLEDB.4.0;Password="""";User ID=Admin;Data Source=" & path
+    ' Open the Database connection.
+    connection.Open()
+    ' Get all the data from the Database.
+    Dim query As New OleDbCommand("select * from Products", connection)
+    ' Create a new instance of OleDbDataAdapter.
+    Dim adapter As New OleDbDataAdapter(query)
+    ' Create a new instance of DataSet.
+    Dim dataSet As New DataSet()
+    ' Add rows in the Dataset.
+    adapter.Fill(dataSet)
+    ' Create a DataTable from the Dataset.
+    Dim table As DataTable = dataSet.Tables(0)
+    table.TableName = "Products"
+    Return table
+End Function
+
+' Set the value for the chart.
+Private Sub AddChartData(ByVal chart As WChart, ByVal dataTable As DataTable)
+    ' Set the value for the chart data.
+    chart.ChartData.SetValue(1, 1, "Names")
+    chart.ChartData.SetValue(1, 2, "Product")
+
+    Dim rowIndex As Integer = 2
+    Dim colIndex As Integer = 1
+    ' Get the value from the DataTable and set the value for the chart data
+    For Each row As DataRow In dataTable.Rows
+        For Each val As Object In row.ItemArray
+            Dim value As String = val.ToString()
+            chart.ChartData.SetValue(rowIndex, colIndex, value)
+            colIndex += 1
+            If colIndex = 3 Then
+                Exit For
+            End If
+        Next
+        colIndex = 1
+        rowIndex += 1
+    Next
+End Sub
+
+{% endhighlight %}
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Charts/Create-Pie-chart-from-database).
+
 ## Refreshing the Chart
 
 The chart may not have the data in the referred excel file instead it may represent some other data. For those charts to have the excel data, it should be refreshed. 

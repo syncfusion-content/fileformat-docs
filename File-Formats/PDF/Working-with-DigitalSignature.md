@@ -4065,4 +4065,99 @@ ldoc.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Get-images-from-the-existing-signed-signature-field).
 
+## Integrating signature and timestamp certificates into the Document Secure Store (DSS).
+
+Effortlessly Integrate **signature and timestamp** certificates into the Document Security Store (DSS) with the Essential PDF Library. This streamlined process enhances certificate management, ensuring robust validation for your PDF documents. Below is a code example demonstrating how to include certificates when creating Long-Term Validity (LTV) from an external signature, utilizing the [CreateLongTermValidity](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_CreateLongTermValidity_System_Collections_Generic_List_System_Security_Cryptography_X509Certificates_X509Certificate2__System_Boolean_) method in the [PdfSignature](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html) class.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Loads an existing document
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+//Gets the signature field
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Add public Certificates
+List<X509Certificate2> x509Certificate2s = new List<X509Certificate2>();
+//Create long term validation of the signature.
+signatureField.Signature.CreateLongTermValidity(x509Certificate2s , true);
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document
+document.Close(true);
+//Loads the stream from the document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
+// Access the Document Security Store details
+PdfDocumentSecureStore pdfDocumentSecureStore = loadedDocument.DocumentSecureStore;
+// Store the DSS certificates on X509Certificate2 certificates.
+X509Certificate2[] cert2 = pdfDocumentSecureStore.Certificates;
+foreach(X509Certificate2 cert in cert2)
+{
+    PdfCertificate certificate = new PdfCertificate(cert);
+}
+// Close the document
+loadedDocument.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Gets the stream from the document
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+//Loads an existing signed PDF document
+PdfLoadedDocument document = new PdfLoadedDocument(documentStream);
+//Gets the signature field
+PdfLoadedSignatureField signatureField = document.Form.Fields[0] as PdfLoadedSignatureField;
+//Add public Certificates
+List<X509Certificate2> x509Certificate2s = new List<X509Certificate2>();
+//Create long term validation of the signature.
+signatureField.Signature.CreateLongTermValidity(x509Certificate2s, true);
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document
+document.Close(true);
+//Loads an existing steam
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
+//Access the Document Security Store details
+PdfDocumentSecureStore pdfDocumentSecureStore = loadedDocument.DocumentSecureStore;
+//Store the DSS certificates on X509Certificate2 certificates.
+X509Certificate2[] cert2 = pdfDocumentSecureStore.Certificates;
+foreach(X509Certificate2 cert in cert2)
+{
+    PdfCertificate certificate = new PdfCertificate(cert);
+}
+// Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Loads an existing signed PDF document
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+'Gets the signature field
+Dim signatureField As PdfLoadedSignatureField = CType(document.Form.Fields(0),PdfLoadedSignatureField)
+'Add public Certificates
+Dim x509Certificate2s As List(Of X509Certificate2) = New List(Of X509Certificate2)
+'Create long term validation of the signature.
+signatureField.Signature.CreateLongTermValidity(x509Certificate2s, true)
+Dim stream As MemoryStream = New MemoryStream
+document.Save(stream)
+'Close the document
+document.Close(true)
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument(stream)
+'Access the Document Security Store details
+Dim pdfDocumentSecureStore As PdfDocumentSecureStore = loadedDocument.DocumentSecureStore
+'Store the DSS certificates on X509Certificate2 certificates.
+Dim cert2() As X509Certificate2 = pdfDocumentSecureStore.Certificates
+For Each cert As X509Certificate2 In cert2
+    Dim certificate As PdfCertificate = New PdfCertificate(cert)
+Next
+' Close the document
+loadedDocument.Close(true)
+
+{% endhighlight %}
+
 N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.

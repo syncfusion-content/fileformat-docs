@@ -25,7 +25,7 @@ keywords: Assemblies
 <td>
 Set proper tesseract binaries and tessdata folder with all files and inner folders. The tessdata folder name is case-sensitive and should not change.  
 <br/><br/>
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 //TesseractBinaries - path of the folder tesseract binaries. 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
@@ -180,7 +180,7 @@ By using the best tessdata, we can improve the OCR results. For more information
 <br><br/>
 1.Execute the following command to install Tesserat 5. 
 <br><br/>
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 brew install tesseract
 
@@ -189,7 +189,7 @@ brew install tesseract
 <br><br/>
 If the "brew" is not installed on your machine, you can install it using the following command.
 <br><br/>
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -199,7 +199,7 @@ If the "brew" is not installed on your machine, you can install it using the fol
 
 2.Once Tesseract 5 is successfully installed, you can configure the path to the latest binaries by copying the location of the Tesseract folder and setting it as the Tesseract binaries path when setting up the OCR processor. Refer to the example code below:
 <br><br/>
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries.
 using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
@@ -209,7 +209,7 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 
 3.Add the TessDataPath from bin folder. Refer to the example code below:
 <br></br>
-{% highlight c# tabtitle="C#" %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
 
 using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
 {
@@ -253,7 +253,7 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 <br><br/>
 1. Install the leptonica.
 <br>
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 sudo apt-get install libleptonica-dev
 
@@ -264,7 +264,7 @@ sudo apt-get install libleptonica-dev
 2.Install the tesseract.
 <br>
 
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 sudo apt-get install tesseract-ocr-eng
 
@@ -280,7 +280,7 @@ cp /usr/lib/x86_64-linux-gnu/liblept.so /home/syncfusion/linuxdockersample/linux
 
 {% endhighlight %}
 <br>
-{% highlight c# tabtitle="C#" %}
+{% highlight %}
 
 cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/libSyncfusionTesseract.so
 
