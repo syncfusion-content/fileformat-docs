@@ -13,7 +13,7 @@ You can add the TOC into the paragraph by specifying the [LowerHeadingLevel](htt
 
 Basically TOC determines the TOC entries based on the TOC switches. 
 
- ## Switches in TOC
+## Switches in TOC
 
 <table>
 <thead>
