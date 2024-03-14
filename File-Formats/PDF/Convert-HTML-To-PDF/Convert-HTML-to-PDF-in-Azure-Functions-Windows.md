@@ -15,16 +15,16 @@ As the Azure Windows platform is a Sandboxed environment, the default HTML rende
 ## Steps to convert HTML to PDF file in Azure Functions on Windows using legacy Webkit
 
 Step 1: Create the Azure functions project.
-![Convert HTMLToPDF Azure Functions Step1](Azure_images/Azure_function/AzureFunctions1.png)
+![Convert HTMLToPDF Azure Functions Step1](Azure_images/Azure-function/AzureFunctions1.png)
 
 Step 2: Create a project name and select the location.
-![Project naming](Azure_images/Azure_function/AzureFunctions2.png)
+![Project naming](Azure_images/Azure-function/AzureFunctions2.png)
 
 Step 3: Select the function worker as .NET 6.0(Long-term support), and the selected HTTP triggers as follows. 
-![Convert HTMLToPDF Azure Functions Step3](Azure_images/Azure_function/AzureFunctions3.png)
+![Convert HTMLToPDF Azure Functions Step3](Azure_images/Azure-function/AzureFunctions3.png)
 
 Step 4: Install the [Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/) NuGet package as a reference to your project using **Package Manager Console**.
-![Convert HTMLToPDF Azure Functions Step4](Azure_images/Azure_function/AzureFunctions4.png) 
+![Convert HTMLToPDF Azure Functions Step4](Azure_images/Azure-function/AzureFunctions4.png) 
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from the trial setup or NuGet feed, you also have to add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to learn about registering the Syncfusion license key in your application to use our components.
 
@@ -105,36 +105,36 @@ Step 7: Copy the OpenSSL assemblies and paste them into the **runtimes/win-x64/n
 
 N> The OpenSSL libraries can be installed by downloading their setup from this [link.](https://www.syncfusion.com/downloads/support/directtrac/general/ze/OPENSSL-798051511)
 
-![Right-click the project and select the publish option](Azure_images/Azure_function/runtimes.png)
+![Right-click the project and select the publish option](Azure_images/Azure-function/runtimes.png)
 
 Step 8: Set **Copy if newer** for all the OpenSSL assemblies.
-![Right-click the project and select the publish option](Azure_images/Azure_function/copy_if_newer.png)
+![Right-click the project and select the publish option](Azure_images/Azure-function/copy_if_newer.png)
 
 Step 9: Right-click the project and select Publish. Then, create a new profile in the Publish Window.
-![Create a new profile in the Publish Window](Azure_images/Azure_function/Click_publish.png)
+![Create a new profile in the Publish Window](Azure_images/Azure-function/Click_publish.png)
 
 Step 10: Select the target as **Azure** and click **Next**.
-![Select the target as Azure](Azure_images/Azure_function/Set_Azure_target.png)
+![Select the target as Azure](Azure_images/Azure-function/Set_Azure_target.png)
 
 Step 11: Select the **Azure Function App (Windows)** and click **Next**. 
-![Select Azure function app](Azure_images/Azure_function/Select_function_app.png)
+![Select Azure function app](Azure_images/Azure-function/Select_function_app.png)
 
 Step 12: Select the **Create new**.
-![Configure Hosting Plan](Azure_images/Azure_function/Select_create_new_button.png)
+![Configure Hosting Plan](Azure_images/Azure-function/Select_create_new_button.png)
 
 Step 13: Click **Create**.
-![Browser will open after publish](Azure_images/Azure_function/WebView.png)
+![Browser will open after publish](Azure_images/Azure-function/WebView.png)
 
 Step 14: After creating the function app service, click **Finish**. 
-![Creating app service](Azure_images/Azure_function/Creating_app_function.png)
+![Creating app service](Azure_images/Azure-function/Creating_app_function.png)
 
 Step 15: Click **Publish**.
-![Click the Publish button](Azure_images/Azure_function/Publish_app_function.png)
+![Click the Publish button](Azure_images/Azure-function/Publish_app_function.png)
 
 Step 16: Now, Publish has succeeded.
-![Publish has been succeeded](Azure_images/Azure_function/Publish_link(function).png)
+![Publish has been succeeded](Azure_images/Azure-function/Publish_link(function).png)
 
 Step 17: Now, go to the Azure portal and select App Services. After running the service, click **Get function URL > Copy**. Include the URL as a query string in the URL. Then, paste it into a new browser tab. You will get a PDF document as follows. 
-![Output document screenshot](Azure_images/Azure_function/Output_screenshot.png)
+![Output document screenshot](Azure_images/Azure-function/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML-to-PDF-Azure-Functions(Windows)).
