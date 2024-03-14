@@ -8,10 +8,10 @@ documentation: UG
 
 # Convert PowerPoint to Image in .NET MAUI
 
-Syncfusion PowerPoint is a [.NET MAUI PowerPoint library](https://www.syncfusion.com/powerpoint-framework/maui/powerpoint-library) used to create, read, edit and convert PowerPoint presentation programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in .NET MAUI**.
+Syncfusion PowerPoint is a [.NET MAUI PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/maui/powerpoint-library) used to create, read, edit and convert PowerPoint presentation programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint to image in .NET MAUI**.
 
 ## Prerequisites
-To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://docs.microsoft.com/en-us/dotnet/maui/get-started/installation).
+To create .NET Multi-platform App UI (.NET MAUI) apps, you need the latest versions of Visual Studio 2022 and .NET 6. For more details, refer [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-8.0&tabs=vswin).
 
 ## Steps to convert PowerPoint to Image programmatically
 
@@ -174,6 +174,6 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
 </table>
 
-Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/maui) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
+Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/maui/powerpoint-library) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
 An online sample link to [convert PowerPoint Presentation to image](https://ej2.syncfusion.com/aspnetcore/PowerPoint/PPTXToImage#/material3) in ASP.NET Core. 
