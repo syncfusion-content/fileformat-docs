@@ -25,7 +25,8 @@ keywords: Assemblies
 <td>
 Set proper tesseract binaries and tessdata folder with all files and inner folders. The tessdata folder name is case-sensitive and should not change.  
 <br/><br/>
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% tabs %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 
 //TesseractBinaries - path of the folder tesseract binaries. 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
@@ -34,6 +35,7 @@ OCRProcessor processor = new OCRProcessor(@"TesseractBinaries/");
 processor.PerformOCR(lDoc, @"TessData/");
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 <tr>
@@ -180,36 +182,41 @@ By using the best tessdata, we can improve the OCR results. For more information
 <br><br/>
 1.Execute the following command to install Tesserat 5. 
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 brew install tesseract
 
 {% endhighlight %}
-
+{% endtabs %}
 <br><br/>
 If the "brew" is not installed on your machine, you can install it using the following command.
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 {% endhighlight %}
-
+{% endtabs %}
 <br><br/>
 
 2.Once Tesseract 5 is successfully installed, you can configure the path to the latest binaries by copying the location of the Tesseract folder and setting it as the Tesseract binaries path when setting up the OCR processor. Refer to the example code below:
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 //Initialize the OCR processor by providing the path of tesseract binaries.
 using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
 
 {% endhighlight %}
+{% endtabs %}
 <br><br/>
 
 3.Add the TessDataPath from bin folder. Refer to the example code below:
 <br></br>
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% tabs %}
+{% highlight C# tabtitle="C# [Cross-platform]" %}
 
 using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract/5.3.2/lib"))
 {
@@ -232,6 +239,7 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 }
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 </table>
@@ -253,38 +261,45 @@ using (OCRProcessor processor = new OCRProcessor("/opt/homebrew/Cellar/tesseract
 <br><br/>
 1. Install the leptonica.
 <br>
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 sudo apt-get install libleptonica-dev
 
 {% endhighlight %}
+{% endtabs %}
 <br><br>
 <img src="OCR-Images/Install-leptonica.png">
 <br><br>
 2.Install the tesseract.
 <br>
-
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 sudo apt-get install tesseract-ocr-eng
 
 {% endhighlight %}
+{% endtabs %}
 <br><br>
 <img src="OCR-Images/Install-tesseract.png">
 <br><br>
 3. Copy the binaries (liblept.so and libtesseract.so) to the missing files exception folder in the project location.
 <br>
-{% highlight c# tabtitle="C#" %}
+{% tabs %}
+{% highlight C# %}
 
 cp /usr/lib/x86_64-linux-gnu/liblept.so /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/liblept1753.so
 
 {% endhighlight %}
+{% endtabs %}
 <br>
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
 cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersample/linuxdockersample/bin/Debug/net7.0/libSyncfusionTesseract.so
 
 {% endhighlight %}
+{% endtabs %}
 <br/>
 </td>
 </tr>
@@ -308,39 +323,39 @@ cp /usr/lib/x86_64-linux-gnu/libtesseract.so.4 /home/syncfusion/linuxdockersampl
 To resolve this problem, you should install all required dependencies in your Linux machine. Refer to the following steps to installing the missing dependencies.
 
 Step 1: Execute the following command in terminal window to check dependencies are installed properly.
-
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
         ldd  liblept1753.so
         ldd  libSyncfusionTesseract.so
 
 {% endhighlight %}
-
+{% endtabs %}
 Run the following commands in terminal
 Step 1:
-
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
         sudo apt-get install libleptonica-dev libjpeg62
 
 {% endhighlight %}
-
+{% endtabs %}
 Step 2:
-
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
         ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
 
 {% endhighlight %}
-
+{% endtabs %}
 Step 3:
-
-{% highlight %}
+{% tabs %}
+{% highlight C# %}
 
         ln -s /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so
 
 {% endhighlight %}
-
+{% endtabs %}
 </td>
 </tr>
 </table>
