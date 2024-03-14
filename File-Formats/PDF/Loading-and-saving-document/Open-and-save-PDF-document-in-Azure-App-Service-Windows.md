@@ -150,10 +150,10 @@ Step 10: Now, the published webpage will open in the browser.
 ![Browser will open after publish](Azure_Images/Azure-app-service-windows/WebView.png)
 
 Step 11: Click **Open and Save Document** button.You will get the output **PDF document** as follows.
-![Output PDF screenshot](Azure_Images/Azure-app-service-windows/Output_screenshot.png)
+![Output PDF screenshot and picture.](Azure_Images/Azure-app-service-windows/Output_screenshot.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Open%20and%20Save%20PDF%20document/Azure/Azure_App_Service).
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/net-core) to explore the rich set of Syncfusion PDF library features. 
 
-An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 
+An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/bootstrap5) in ASP.NET Core. 
