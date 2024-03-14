@@ -1,6 +1,6 @@
 ---
 title: Add and edit images in PowerPoint slides |C# PowerPoint| |Syncfusion|
-description: C# PowerPoint library to create, read, edit and convert PowerPoint files in .NET applications, ASP.NET Web, MVC, C# [Cross-platform], Xamarin and Azure platforms
+description: Learn how to add, edit, and remove the images in C# using Syncfusion .NET PowerPoint library without Microsoft PowerPoint or interop dependencies.
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -298,6 +298,103 @@ pptxDoc.Close()
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Replace-SVG-Image).
+
+## Crop Image
+
+Crop the images in an existing presentation or insert the cropped picture while creating a presentation from scratch by applying crop properties using the .NET PowerPoint Library.
+
+The following code example demonstrates how to crop an image in a PowerPoint slide.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Open an existing PowerPoint Presentation.
+using (FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open, FileAccess.Read))
+{
+    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+    {
+        //Retrieve the first slide from the Presentation.
+        ISlide slide = pptxDoc.Slides[0];
+        //Retrieve the first picture from the slide.
+        IPicture picture = slide.Pictures[0];
+
+        //Apply bounding box size and position.
+        picture.Crop.ContainerWidth = 114.48f;
+        picture.Crop.ContainerHeight = 56.88f;
+        picture.Crop.ContainerLeft = 94.32f;
+        picture.Crop.ContainerTop = 128.16f;
+
+        //Apply cropping size and offsets.
+        picture.Crop.Width = 900.72f;
+        picture.Crop.Height = 74.88f;
+        picture.Crop.OffsetX = 329.04f;
+        picture.Crop.OffsetY = -9.36f;
+
+        //Save the PowerPoint Presentation as stream.
+        using (FileStream outputStream = new FileStream("Output.pptx", FileMode.Create))
+        {
+            pptxDoc.Save(outputStream);
+        }                           
+    }                       
+}
+
+{% endhighlight %}
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Open an existing PowerPoint Presentation.
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+    //Retrieve the first slide from the Presentation.
+    ISlide slide = pptxDoc.Slides[0];
+    //Retrieve the first picture from the slide.
+    IPicture picture = slide.Pictures[0];
+
+    //Apply bounding box size and position.
+    picture.Crop.ContainerWidth = 114.48f;
+    picture.Crop.ContainerHeight = 56.88f;
+    picture.Crop.ContainerLeft = 94.32f;
+    picture.Crop.ContainerTop = 128.16f;
+
+    //Apply cropping size and offsets.
+    picture.Crop.Width = 900.72f;
+    picture.Crop.Height = 74.88f;
+    picture.Crop.OffsetX = 329.04f;
+    picture.Crop.OffsetY = -9.36f;
+
+    // Save the PowerPoint Presentation.
+    pptxDoc.Save("Output.pptx");
+}
+
+{% endhighlight %}
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+' Open an existing PowerPoint Presentation.
+Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+    ' Retrieve the first slide from the Presentation.
+    Dim slide As ISlide = pptxDoc.Slides(0)
+    ' Retrieve the first picture from the slide.
+    Dim picture As IPicture = slide.Pictures(0)
+
+    ' Apply bounding box size and position
+    picture.Crop.ContainerWidth = 114.82F
+    picture.Crop.ContainerHeight = 56.88F
+    picture.Crop.ContainerLeft = 94.32F
+    picture.Crop.ContainerTop = 128.16F
+
+    ' Apply cropping size and offsets
+    picture.Crop.Width = 900.72F
+    picture.Crop.Height = 74.88F
+    picture.Crop.OffsetX = 329.04F
+    picture.Crop.OffsetY = -9.36F
+
+    ' Save the PowerPoint Presentation.
+    pptxDoc.Save("Output.pptx")
+End Using
+
+{% endhighlight %}
+{% endtabs %}
+
+N> The bounding box properties (ContainerLeft, ContainerTop, ContainerRight, ContainerBottom) must be set before applying the cropping properties for proper functionality.
 
 ## Removing Images
 
