@@ -34,7 +34,8 @@ You can set the runtimes folder path explicitly in BlinkPath property in BlinkCo
 <br/><br/>
 Ex path: <i>C:\HtmlConversion\HTMl-to-PDF\HTMl-to-PDF\bin\Debug\net7.0\runtimes\win-x64\native\</i>
 <br/><br/>
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% tabs %}
+{% highlight C# %}
 
 //Initialize the HTML to PDF converter.
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
@@ -52,6 +53,7 @@ document.Save(fileStream);
 document.Close(true);
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 
@@ -137,13 +139,15 @@ Also, please add the following command line arguments in our converter setting.
 <table>
 <tr>
 <td>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 //Set command line arguments to run without sandbox.
 blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
 blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 </table>
@@ -247,12 +251,14 @@ blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 </th>
 <td>To overcome the exception, you can add read, write, and execute permissions for the temporary folder. Refer to the following code sample to set the temp folder.
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 settings.TempPath = "D://MyProject//bin";
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 
@@ -330,7 +336,8 @@ Check the HTML file or URL is rendered properly in Chrome browser's print previe
 <br><br/>
 <img src="htmlconversion_images/Troubleshooting_webpage_exception_Linux.png" alt="ExcludeAssets">
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 COPY . /app
 WORKDIR /app
@@ -339,6 +346,7 @@ RUN chmod +x /app/runtimes/linux/native/chrome && \
     chmod +x /app/runtimes/linux/native/chrome-wrapper
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 </table>
@@ -362,12 +370,14 @@ RUN chmod +x /app/runtimes/linux/native/chrome && \
 </th>
 <td>To overcome this issue, add suitable delay for the conversion using the <a href="https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.BlinkConverterSettings.html#Syncfusion_HtmlConverter_BlinkConverterSettings_AdditionalDelay">AdditionalDelay</a> property of the HTMLConverter. 
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 settings.AdditionalDelay = 4000;
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 
@@ -431,12 +441,14 @@ Refer to this <a href="https://www.syncfusion.com/kb/10258/how-to-convert-html-t
 </th>
 <td>You can able to bypass the invalid SSL certificate errors using the command line arguments property of Blink converter settings.
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 BlinkConverterSettings settings = new BlinkConverterSettings();
 settings.CommandLineArguments.Add("--ignore-certificate-errors");
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 </table>
@@ -461,13 +473,15 @@ settings.CommandLineArguments.Add("--ignore-certificate-errors");
 </th>
 <td>We can resolve this permission related failure in the Blink rendering engine using below command line arguments in our converter settings. 
 <br><br/>
-{% highlight %}
+{% tabs %}
+{% highlight C# tabtitle="C#" %}
 
 //Set command line arguments to run without sandbox.
 blinkConverterSettings.CommandLineArguments.Add("--no-sandbox");
 blinkConverterSettings.CommandLineArguments.Add("--disable-setuid-sandbox");
 
 {% endhighlight %}
+{% endtabs %}
 </td>
 </tr>
 </table>
@@ -591,7 +605,7 @@ To resolve this issue, we can install the chromium using the docker file and set
 Docker File:<br><br>
 {% tabs %}
 
-{% highlight %}
+{% highlight C# tabtitle="C#" %}
 
 	FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base 
 
@@ -615,9 +629,12 @@ Docker File:<br><br>
 
 {% endhighlight %}
 
-Code snippet:
+{% endtabs %}
 
-{% highlight %}
+Code snippet:
+{% tabs %}
+
+{% highlight C# tabtitle="C#" %}
 
 	BlinkConverterSettings settings = new BlinkConverterSettings();  
 
@@ -657,7 +674,7 @@ To resolve this issue, we can add inline styles in element. However, we have att
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% highlight C# tabtitle="C#" %}
 
 	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 	//Initialize blink converter settings. 
@@ -698,7 +715,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 {% tabs %}
 
-{% highlight %}
+{% highlight C# %}
 
 		//Set command line arguments to run without the sandbox.
 
