@@ -2092,3 +2092,5 @@ The following Chart types are supported in Presentation.
 * Surface_NoColor_3D
 * Surface_NoColor_Contour
 
+## See Also
+* [How to set same number of intervals for Primary and Secondary ValueAxis?](https://support.syncfusion.com/kb/article/11366/how-to-set-same-number-of-intervals-for-primary-and-secondary-valueaxis-in-winforms-presentation)
