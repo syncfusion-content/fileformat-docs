@@ -2199,88 +2199,86 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-	//Initialize HTML to PDF converter.
-	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-	//Initialize the BlinkConverterSettings
-	BlinkConverterSettings settings = new BlinkConverterSettings();
-	//Set true to enable the accessibility tags in PDF generation.
-	settings.EnableAccessibilityTags= true;
-	//Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
-	htmlConverter.ConverterSettings = settings;
-	//Convert URL to PDF.
-	PdfDocument document = htmlConverter.Convert("Input.html");
-	//Save and close the PDF document.
-	FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);	
-	document.Save(fileStream);
-	document.Close(true);
-	
+    //Initialize HTML to PDF converter.
+    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+    //Initialize the BlinkConverterSettings.
+    BlinkConverterSettings settings = new BlinkConverterSettings();
+    //Set true to enable the accessibility tags in PDF generation.
+    settings.EnableAccessibilityTags= true;
+    //Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
+    htmlConverter.ConverterSettings = settings;
+    //Convert URL to PDF.
+    PdfDocument document = htmlConverter.Convert("Input.html");
+    //Save and close the PDF document.
+    FileStream fileStream = new FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite);    
+    document.Save(fileStream);
+    document.Close(true);
+    
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-	'Initialize HTML to PDF converter.
-	Dim htmlConverter As New HtmlToPdfConverter()
-	'Initialize the BlinkConverterSettings.
-	Dim settings As New BlinkConverterSettings()
-	'Set true to enable the accessibility tags in PDF generation.
-	settings.EnableAccessibilityTags = True
-	'Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
-	htmlConverter.ConverterSettings = settings
-	'Convert URL to PDF.
-	Dim document As PdfDocument = htmlConverter.Convert("Input.html")
-	'Save and close the PDF document.
-	Dim fileStream As New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)	
-	document.Save(fileStream)
-	document.Close(True)
+    'Initialize HTML to PDF converter.
+    Dim htmlConverter As New HtmlToPdfConverter()
+    'Initialize the BlinkConverterSettings.
+    Dim settings As New BlinkConverterSettings()
+    'Set true to enable the accessibility tags in PDF generation.
+    settings.EnableAccessibilityTags = True
+    'Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
+    htmlConverter.ConverterSettings = settings
+    'Convert URL to PDF.
+    Dim document As PdfDocument = htmlConverter.Convert("Input.html")
+    'Save and close the PDF document.
+    Dim fileStream As New FileStream("HTML-to-PDF.pdf", FileMode.CreateNew, FileAccess.ReadWrite)   
+    document.Save(fileStream)
+    document.Close(True)
 
 {% endhighlight %}
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
 
 ## Image Background
 
-The Blink HTML converter support adding the image background from HTML to Image using the ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code snippet.
+The Blink HTML converter support adding the image background from HTML to Image using the ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code sample.
 
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 
-	//Initialize HTML to PDF converter.
-	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-	//Initialize the BlinkConverterSettings
-	BlinkConverterSettings settings = new BlinkConverterSettings();
-	//Set the Image Background color.
-	settings.ImageBackgroundColor = Color.Transparent;
-	//Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
-	htmlConverter.ConverterSettings = settings;
-	//Convert HTML to Image.
-	Image image = htmlConverter.ConvertToImage("Input.html");
-	//Save the Image.
-	byte[] imageByte = image.ImageData;
-	File.WriteAllBytes("Output.png", imageByte);
+    //Initialize HTML to PDF converter.
+    HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+    //Initialize the BlinkConverterSettings.
+    BlinkConverterSettings settings = new BlinkConverterSettings();
+    //Set the Image Background color.
+    settings.ImageBackgroundColor = Color.Transparent;
+    //Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
+    htmlConverter.ConverterSettings = settings;
+    //Convert HTML to Image.
+    Image image = htmlConverter.ConvertToImage("Input.html");
+    //Save the Image.
+    byte[] imageByte = image.ImageData;
+    File.WriteAllBytes("Output.png", imageByte);
 
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-	' Initialize HTML to PDF converter.
-	Dim htmlConverter As New HtmlToPdfConverter()
-	' Initialize the BlinkConverterSettings.
-	Dim settings As New BlinkConverterSettings()
-	' Set the Image Background color.
-	settings.ImageBackgroundColor = Color.Transparent
-	' Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
-	htmlConverter.ConverterSettings = settings
-	' Convert HTML to Image
-	Dim image As Image = htmlConverter.ConvertToImage("Input.html")
-	' Save the Image.
-	Dim imageByte As Byte() = image.ImageData
-	File.WriteAllBytes("Output.png", imageByte)
+    ' Initialize HTML to PDF converter.
+    Dim htmlConverter As New HtmlToPdfConverter()
+    ' Initialize the BlinkConverterSettings.
+    Dim settings As New BlinkConverterSettings()
+    ' Set the Image Background color.
+    settings.ImageBackgroundColor = Color.Transparent
+    ' Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
+    htmlConverter.ConverterSettings = settings
+    ' Convert HTML to Image.
+    Dim image As Image = htmlConverter.ConvertToImage("Input.html")
+    ' Save the Image.
+    Dim imageByte As Byte() = image.ImageData
+    File.WriteAllBytes("Output.png", imageByte)
 
 {% endhighlight %}
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
