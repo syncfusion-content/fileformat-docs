@@ -2201,7 +2201,7 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 
     //Initialize HTML to PDF converter.
     HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    //Initialize the BlinkConverterSettings
+    //Initialize the BlinkConverterSettings.
     BlinkConverterSettings settings = new BlinkConverterSettings();
     //Set true to enable the accessibility tags in PDF generation.
     settings.EnableAccessibilityTags= true;
@@ -2237,11 +2237,10 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
 
 ## Image Background
 
-The Blink HTML converter support adding the image background from HTML to Image using the ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code snippet.
+The Blink HTML converter support adding the image background from HTML to Image using the ImageBackgroundColor property in BlinkConverterSettings class. Refer to the following code sample.
 
 {% tabs %}
 
@@ -2249,7 +2248,7 @@ The Blink HTML converter support adding the image background from HTML to Image 
 
     //Initialize HTML to PDF converter.
     HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-    //Initialize the BlinkConverterSettings
+    //Initialize the BlinkConverterSettings.
     BlinkConverterSettings settings = new BlinkConverterSettings();
     //Set the Image Background color.
     settings.ImageBackgroundColor = Color.Transparent;
@@ -2273,7 +2272,7 @@ The Blink HTML converter support adding the image background from HTML to Image 
     settings.ImageBackgroundColor = Color.Transparent
     ' Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
     htmlConverter.ConverterSettings = settings
-    ' Convert HTML to Image
+    ' Convert HTML to Image.
     Dim image As Image = htmlConverter.ConvertToImage("Input.html")
     ' Save the Image.
     Dim imageByte As Byte() = image.ImageData
@@ -2283,4 +2282,3 @@ The Blink HTML converter support adding the image background from HTML to Image 
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
