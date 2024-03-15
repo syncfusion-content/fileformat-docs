@@ -799,7 +799,7 @@ submitButton.Text = "Apply";
 submitButton.BackColor = new PdfColor(181, 191, 203);
 
 //Create a new PdfJavaScriptAction
-PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PD
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
 //Set the scriptAction to submitButton
 submitButton.Actions.MouseDown = scriptAction;
 
