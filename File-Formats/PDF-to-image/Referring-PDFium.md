@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Referring PDFium | Syncfusion
+title: Referring the PDFium | Syncfusion
 description: Learn about Converting PDF pages into images using Syncfusion PdfToImageConverter with the help of PDFium.
 platform: file-formats
 control: PDF to image
@@ -26,8 +26,6 @@ For WPF, WinForms and MVC, Pdfium folder structure will be generated as below,
 For ASP .NET Core and Blazor, Pdfium folder structure will be generated as below,
 
 ![Folder Structure](PDFium_images/folder-structure-cross-platform.png)
-
-N> Currently, the ARM64 architecture is not supported in Linux and MAC operating system for the PdfToImageConverter.
 
 N> When you include PdfToImageConverter via a NuGet package, PDFium assemblies will automatically be generated in the application's output path folder from the NuGet package during compilation
 

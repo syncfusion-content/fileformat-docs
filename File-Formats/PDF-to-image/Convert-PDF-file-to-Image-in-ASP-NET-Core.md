@@ -1,6 +1,6 @@
 ---
 title: Convert PDF file to Image in ASP.NET Core | Syncfusion
-description: Learn how to convert a PDF file to Image in ASP.NET Core with easy steps.
+description: Learn how to convert a PDF file to Image in ASP.NET Core with easy steps using Syncfusion PDF TO Image Converter library.
 platform: file-formats
 control: PDF to image
 documentation: UG
@@ -21,6 +21,8 @@ Step 2:  In configuration windows, name your project and select Next.
 ![Configuration window2](Asp.Net.Core_images/aspnetcore3.png)
 
 Step 3:  Install [Syncfusion.PdfToImageConverter.Net](https://www.nuget.org/packages/Syncfusion.PdfToImageConverter.Net/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+
+N> If you want to use the PdfToImageConverter in the Linux environment, you need to install the [SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6) NuGet package as reference to your applications from [NuGet.org](https://www.nuget.org/).
 
 Step 4: A default controller with name HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in that HomeController.cs file.
 
