@@ -396,6 +396,8 @@ End Using
 
 N> The bounding box properties (ContainerLeft, ContainerTop, ContainerRight, ContainerBottom) must be set before applying the cropping properties for proper functionality.
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Crop_image).
+
 ## Removing Images
 
 The following code example demonstrates how to remove an existing image in a PowerPoint slide.
