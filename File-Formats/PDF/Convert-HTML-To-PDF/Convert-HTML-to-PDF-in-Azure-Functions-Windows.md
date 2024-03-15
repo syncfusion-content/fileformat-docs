@@ -135,6 +135,6 @@ Step 16: Now, Publish has succeeded.
 ![Publish has been succeeded](Azure_images/Azure-function/Publish_link(function).png)
 
 Step 17: Now, go to the Azure portal and select App Services. After running the service, click **Get function URL > Copy**. Include the URL as a query string in the URL. Then, paste it into a new browser tab. You will get a PDF document as follows. 
-![Output document screenshot](Azure_images/Azure-function/Output_screenshot.png)
+![Output document screenshot](Azure_images/Azure-function/Output.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML-to-PDF-Azure-Functions(Windows)).

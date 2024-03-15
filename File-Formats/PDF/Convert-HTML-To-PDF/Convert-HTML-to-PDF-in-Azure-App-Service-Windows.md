@@ -89,10 +89,10 @@ Step 9: Set **Copy if newer** for all the OpenSSL assemblies.
 ## Steps to publish as Azure App Service on Windows 
 
 Step 1: Right-click the project and select the **Publish** option.
-![Right-click the project and select the publish option](Azure_images/Azure-app-service-windows/Publish_button_screenshot.png)
+![Right-click the project and select the publish option](Azure_images/Azure-app-service-windows/Publish_button.png)
 
 Step 2: Click **Add a Publish Profile**.
-![Click the Add a publish profile](Azure_images/Azure-app-service-windows/Publish_profile_screenshot.png)
+![Click the Add a publish profile](Azure_images/Azure-app-service-windows/Publish_profile.png)
 
 Step 3: Select the publish target as **Azure**.
 ![Select the publish target as Azure](Azure_images/Azure-app-service-windows/Select_target.png)
@@ -122,6 +122,6 @@ Step 11: Now, the published webpage will open in the browser.
 ![Browser will open after publish](Azure_images/Azure-app-service-windows/WebView.png)
 
 Step 12: Select a PDF document and click **Export to PDF** to create a PDF document. You will get the output PDF document as follows.
-![Create PDF document in Azure App Service on Windows](Azure_images/Azure-app-service-windows/Output_screenshot.png)
+![Create PDF document in Azure App Service on Windows](Azure_images/Azure-app-service-windows/Output.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML-to-PDF-Azure-app-service(Windows)).
