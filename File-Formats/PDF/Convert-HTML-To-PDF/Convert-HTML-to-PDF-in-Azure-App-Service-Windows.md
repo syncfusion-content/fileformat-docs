@@ -12,7 +12,7 @@ As the Azure Windows platform is a Sandboxed environment, the default HTML rende
 
 * Legacy [WebKit](https://github.com/syncfusion/SfQtWebKit) - this open-source library comes under [LGPL license](https://github.com/syncfusion/SfQtWebKit?tab=License-3-ov-file). It has some known rendering issues and limitations, and some of the advanced Bootstrap CSS styles are not supported.
 
-## Steps to convert HTML to PDF file in Azure App Service on Windows using legacy Webkit
+## Steps to convert HTML to PDF file in Azure App Service on Windows using legacy WebKit
 
 Step 1: Create a new ASP.NET Core Web App (Model-View-Controller).
 ![Create a ASP.NET Core Web App project](Azure_images/Azure-app-service-windows/Create-net-core-web-app.png)

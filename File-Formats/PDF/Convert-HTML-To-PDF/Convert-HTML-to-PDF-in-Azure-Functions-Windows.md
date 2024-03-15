@@ -12,7 +12,7 @@ As the Azure Windows platform is a Sandboxed environment, the default HTML rende
 
 * Legacy [WebKit](https://github.com/syncfusion/SfQtWebKit) - this open-source library comes under [LGPL license](https://github.com/syncfusion/SfQtWebKit?tab=License-3-ov-file). It has some known rendering issues and limitations, and some of the advanced Bootstrap CSS styles are not supported.
 
-## Steps to convert HTML to PDF file in Azure Functions on Windows using legacy Webkit
+## Steps to convert HTML to PDF file in Azure Functions on Windows using legacy WebKit
 
 Step 1: Create the Azure functions project.
 ![Convert HTMLToPDF Azure Functions Step1](Azure_images/Azure-function/AzureFunctions1.png)
@@ -135,6 +135,6 @@ Step 16: Now, Publish has succeeded.
 ![Publish has been succeeded](Azure_images/Azure-function/Publish_link(function).png)
 
 Step 17: Now, go to the Azure portal and select App Services. After running the service, click **Get function URL > Copy**. Include the URL as a query string in the URL. Then, paste it into a new browser tab. You will get a PDF document as follows. 
-![Output document screenshot](Azure_images/Azure-function/Output.png)
+![Output document](Azure_images/Azure-function/Output.png)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/html-to-pdf-csharp-examples/tree/master/Azure/HTML-to-PDF-Azure-Functions(Windows)).
