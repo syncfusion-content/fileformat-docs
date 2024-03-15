@@ -4065,6 +4065,8 @@ ldoc.Close(True)
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Digital%20Signature/Get-images-from-the-existing-signed-signature-field).
 
+N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.
+
 ## Integrating signature and timestamp certificates into the Document Secure Store (DSS).
 
 Effortlessly Integrate **signature and timestamp** certificates into the Document Security Store (DSS) with the Essential PDF Library. This streamlined process enhances certificate management, ensuring robust validation for your PDF documents. Below is a code example demonstrating how to include certificates when creating Long-Term Validity (LTV) from an external signature, utilizing the [CreateLongTermValidity](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_CreateLongTermValidity_System_Collections_Generic_List_System_Security_Cryptography_X509Certificates_X509Certificate2__System_Boolean_) method in the [PdfSignature](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html) class.
@@ -4162,4 +4164,3 @@ loadedDocument.Close(true)
 
 {% endtabs %}
 
-N> This method retrieves the images when rendered on the signed signature field appearance; otherwise, it will return null.
