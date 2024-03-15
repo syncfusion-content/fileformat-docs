@@ -988,6 +988,8 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Table_of_figures).
+
 By executing the program, you will get the **Word document** as follows.
 
 ![Table of figures in Word document](WorkingWithTableOfContents/Table_of_Figures.png)
@@ -1272,6 +1274,8 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Table-Of-Contents/Exclude_caption_label_numbers).
 
 By executing the program, you will get the **Word document** as follows.
 
