@@ -622,7 +622,7 @@ public class PreviewControllerDS : QLPreviewControllerDataSource
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of creating an Excel document in the .NET MAUI application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Create%20Excel).
+A complete working example of creating an Excel document in the .NET MAUI application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/CreateExcel).
 
 By executing the program in windows, you will get the **Excel document** as follows.
 
@@ -666,7 +666,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to read and edit an Excel file in the .NET MAUI application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Edit%20Excel).
+A complete working example of how to read and edit an Excel file in the .NET MAUI application in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/EditExcel).
 
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/maui) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
