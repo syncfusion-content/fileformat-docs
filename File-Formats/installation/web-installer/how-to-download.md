@@ -10,7 +10,7 @@ documentation: ug
 
 # Downloading Syncfusion FileFormats web Installer
 
-[DocIO](https://www.syncfusion.com/word-framework/net),[PDF](https://www.syncfusion.com/pdf-framework/net),[Presentation](https://www.syncfusion.com/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/excel-framework/net) controls will be included in the Syncfusion FileFormats installer. You can either download the licensed installer or try our trial installer depending on your license. 
+[DocIO](https://www.syncfusion.com/document-processing/word-framework/net),[PDF](https://www.syncfusion.com/document-processing/pdf-framework/net),[Presentation](https://www.syncfusion.com/document-processing/powerpoint-framework/net), and [XlsIO](https://www.syncfusion.com/document-processing/excel-framework/net) controls will be included in the Syncfusion FileFormats installer. You can either download the licensed installer or try our trial installer depending on your license. 
 
    -	Trial Installer
    -	Licensed Installer
@@ -31,7 +31,7 @@ Our 30-day trial can be downloaded in two ways.
    ![Trial and downloads of Syncfusion Essential Studio](images/trial-confirmation.png)
    
 3. With a trial license, only the latest version’s trial installer can be downloaded.
-4. After downloading, the Syncfusion FileFormats trial installer can be unlocked using either the trial unlock key or the Syncfusion registered login credential. More information on generating an unlock key can be found in [this](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) article.
+4. After downloading, the Syncfusion FileFormats trial installer can be unlocked using either the trial unlock key or the Syncfusion registered login credential. More information on generating an unlock key can be found in [this](https://support.syncfusion.com/kb/article/7053/how-to-generate-unlock-key-for-essentials-studio-products) article.
 5. Before the trial expires, you can download the trial installer at any time from your registered account’s [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page (as shown in below screenshot.)
 6. Click the Download (element 1 in the screenshot below) button to get the Syncfusion Essential Studio FileFormats web installer.
  
@@ -52,7 +52,7 @@ You should initiate an evaluation if you have already obtained our components th
 
    N> If you've already used the trial products and they haven't expired, you won't be able to start the trial for the same product again.
 
-4. After you've started the trial, go to the [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page to get the latest version trial installer. You can generate the [unlock key](https://www.syncfusion.com/kb/8069/how-to-generate-unlock-key-for-essentials-studio-products) and [license key](https://help.syncfusion.com/file-formats/licensing/how-to-generate) here at any time before the trial period expires. (as shown in below screenshot.)
+4. After you've started the trial, go to the [Trials & Downloads](https://www.syncfusion.com/account/manage-trials/downloads) page to get the latest version trial installer. You can generate the [unlock key](https://support.syncfusion.com/kb/article/7053/how-to-generate-unlock-key-for-essentials-studio-products) and [license key](https://help.syncfusion.com/file-formats/licensing/how-to-generate) here at any time before the trial period expires. (as shown in below screenshot.)
 
    ![License and downloads of Syncfusion Essential Studio](images/start-trial-download-installer.png)
 
