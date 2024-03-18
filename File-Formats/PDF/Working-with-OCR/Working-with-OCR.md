@@ -326,7 +326,7 @@ The Syncfusion .NET OCR library supports performing OCR in Docker. Refer to [thi
 
 ### Perform OCR in Mac
 
-The Syncfusion .NET OCR library supports performing OCR on Mac. Refer to [this]() section for more information about performing OCR on an entire PDF document on Mac. 
+The Syncfusion .NET OCR library supports performing OCR on Mac. Refer to [this](https://help.syncfusion.com/file-formats/pdf/working-with-ocr/mac) section for more information about performing OCR on an entire PDF document on Mac. 
 
 ### Perform OCR in ASP.NET Core 
 
