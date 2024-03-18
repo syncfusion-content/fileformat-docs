@@ -984,7 +984,7 @@ submitButton.Text = "Apply"
 submitButton.BackColor = New PdfColor(181, 191, 203)
 
 'Create a new PdfJavaScriptAction
-Dim scriptAction As New PdfJavaScriptAction("app.alert(""You are looking at Form field action of PDF "")")
+Dim scriptAction As New PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")")
 'Set the scriptAction to submitButton
 submitButton.Actions.MouseDown = scriptAction
 
