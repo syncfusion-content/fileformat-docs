@@ -2237,6 +2237,7 @@ N> This support fully depends on the Chromium headless browser. Our converter pr
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Accessible_PDF_In_HTML_to_PDF/.NET).
 
 
 ## Image Background
@@ -2283,3 +2284,4 @@ The Blink HTML converter support adding the image background from HTML to Image 
 
 {% endtabs %}
 
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/HTML%20to%20PDF/Blink/Image_Background_In_HTML_to_PDF/.NET).
