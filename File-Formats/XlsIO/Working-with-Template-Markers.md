@@ -73,6 +73,8 @@ Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;collapsegroup
 
 Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;expandgroup
 
+N> XlsIO supports only one marker for each cell in the worksheet.
+
 ## Bind from Array
 
 An array of data can be binded to the marker in the template document.
