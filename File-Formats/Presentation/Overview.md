@@ -6,8 +6,6 @@ control: Presentation
 documentation: UG
 ---
 
-> With the 2024 Volume 1 release, we will discontinue support for .NET Framework 4.5, 4.5.1, and 4.6 in WinForms, WPF, and the File-Format Frameworks. Instead, we will provide support for .NET 4.6.2.
-
 # Overview of PowerPoint Presentation
 
 The PowerPoint framework is a feature rich [.NET PowerPoint class library](https://www.syncfusion.com/document-processing/powerpoint-framework/net) that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in [Windows Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-windows-forms), [WPF](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-wpf), [ASP.NET Web Forms](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-web-forms), [ASP.NET MVC](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-mvc), [ASP.NET Core](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-asp-net-core-c-sharp), [Blazor](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-blazor), [UWP](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-uwp), [Xamarin](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin), [WinUI](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-winui) and [.NET MAUI](https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-maui) applications.
