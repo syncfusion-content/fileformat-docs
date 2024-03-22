@@ -6,7 +6,7 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Chart Title
+# Chart Title in PowerPoint
 
 Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using Presentation, you can **customize the chart title in the chart**.
 

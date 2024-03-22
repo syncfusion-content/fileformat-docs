@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Chart Series in PowerPoint
+# Chart Series
 
 In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using DocIO, you can **customize the series in the chart**.
 

@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Chart Title in PowerPoint
+# Chart Title
 
 Chart title is a concise description at the top of a chart, offering context and clarity for the data displayed. Using DocIO, you can **customize the chart title in the chart**.
 
