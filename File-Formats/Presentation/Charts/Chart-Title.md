@@ -212,3 +212,6 @@ End Using
 
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+* [How to format chart title in PowerPoint using C#?](https://support.syncfusion.com/kb/article/13825/how-to-format-chart-title-in-powerpoint-using-c)
