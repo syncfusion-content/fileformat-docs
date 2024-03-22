@@ -6,8 +6,6 @@ control: PDF
 documentation: UG
 ---
 
-> With the 2024 Volume 1 release, we will discontinue support for .NET Framework 4.5, 4.5.1, and 4.6 in WinForms, WPF, and the File-Format Frameworks. Instead, we will provide support for .NET 4.6.2.
-
 # Overview of PDF Framework
 
 The PDF framework is a feature rich [.NET PDF class library](https://www.syncfusion.com/document-processing/pdf-framework/net) developed with 100% managed C# code that can be used to create, read and write PDF. The library can be used in [Windows Forms](https://www.syncfusion.com/document-processing/pdf-framework/net), [WPF](https://www.syncfusion.com/document-processing/pdf-framework/net), [ASP.NET Web Forms](https://www.syncfusion.com/document-processing/pdf-framework/net), [ASP.NET MVC](https://www.syncfusion.com/document-processing/pdf-framework/net), [ASP.NET Core](https://www.syncfusion.com/document-processing/pdf-framework/net-core), [Blazor](https://www.syncfusion.com/document-processing/pdf-framework/blazor), [UWP](https://www.syncfusion.com/document-processing/pdf-framework/uwp), [Xamarin](https://www.syncfusion.com/document-processing/pdf-framework/xamarin), [Flutter](https://www.syncfusion.com/document-processing/pdf-framework/flutter) applications and Unity platform without the dependency of Adobe Acrobat. The creation of PDF follows the most popular PDF 1.7 (ISO 32000-1) and latest PDF 2.0 (ISO 32000-2) specifications.
