@@ -463,3 +463,8 @@ pptxDoc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Images/Remove-all-images).
 
+## See Also
+* [How to crop an image in a Presentation using C#?](https://support.syncfusion.com/kb/article/15431/how-to-crop-an-image-in-a-presentation-using-c)
+* [How to extract the cropped image from Presentation in C#?](https://support.syncfusion.com/kb/article/15451/how-to-extract-the-cropped-image-from-presentation-in-c)
+* [How to crop and insert image in Presentation in C#?](https://support.syncfusion.com/kb/article/15432/how-to-crop-and-insert-image-in-presentation-in-c)
+* [How to remove the crop from image in Presentation using C#?](https://support.syncfusion.com/kb/article/15435/how-to-remove-the-crop-from-image-in-presentation-using-c)

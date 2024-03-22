@@ -6,7 +6,7 @@ control: PowerPoint
 documentation: UG
 ---
 
-# Chart Series
+# Chart Series in PowerPoint
 
 In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using Presentation, you can **customize the series in the chart**.
 
@@ -536,3 +536,6 @@ chart.Series(0).SerieFormat.Percent = 10
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Charts/Format-Series/Explode-Pie-Chart/.NET).
+
+## See Also
+* [How to change the slice color of Pie chart in Presentation?](https://support.syncfusion.com/kb/article/13830/how-to-change-the-slice-color-of-pie-chart-in-presentation-using-c-in-aspnet-core)
