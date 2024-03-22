@@ -732,3 +732,91 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 {% endhighlight %}
 
 {% endtabs %}
+
+## Failed to launch chromium: Missing required dependent packages issue occurs in Azure function Linux with premium plans.
+
+<table>
+<th style="font-size:14px" width="100px">Exception</th>
+<th style="font-size:14px">Failed to launch chromium: Missing required dependent packages issue occurs in Azure function Linux with premium plans.
+</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The reported issue occurs due to missing of required Linux dependencies in Azure function to perform the conversion in premium plans (such as Ep1)
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+To overcome this issue by installing the Linux dependencies package in SSH window. Please refer the below commands and screenshot,
+
+{% tabs %}
+
+{% highlight C# %}
+
+apt-get update && apt-get install -yq --no-install-recommends libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 libnss3 libgbm1
+{% endhighlight %}
+
+{% endtabs %}
+<br/><br/>
+Please refer to the below screenshot,
+<br/><br/>
+
+<img src="htmlconversion_images/Failedtolaunchchromium.png"><br>
+<br/><br/>
+(Or)
+<br/><br/>
+We can install the required dependencies using the dependencies vis shell script. Please find the below.
+<br/><br/>
+<img src="htmlconversion_images/dependencies.png"><br>
+<br/><br/>
+code snippet:
+<br/><br/>
+{% tabs %}
+{% highlight C# %}
+
+	private static void InstallLinuxPackages(FileInfo functionAppDirectory)
+	{
+		if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+		{
+			return;
+		}
+		FileAccessPermissions ExecutableFilePermissions = FileAccessPermissions.UserRead | FileAccessPermissions.UserWrite | FileAccessPermissions.UserExecute |
+		FileAccessPermissions.GroupRead | FileAccessPermissions.GroupExecute | FileAccessPermissions.OtherRead | FileAccessPermissions.OtherExecute;
+		//Install the dependencies packages for HTML to PDF conversion in Linux
+		string shellFilePath = Path.Combine(functionAppDirectory.Directory.Parent.FullName, @"wwwroot/data");
+		string tempBlinkDir = Path.GetTempPath();
+		string dependenciesPath = Path.Combine(tempBlinkDir, "dependenciesInstall.sh");
+		if (!File.Exists(dependenciesPath))
+		{
+			CopyFilesRecursively(shellFilePath, tempBlinkDir);
+			var execPath = Path.Combine(tempBlinkDir, "dependenciesInstall.sh");
+			if (File.Exists(execPath))
+			{
+				var code = Function1.Chmod(execPath, ExecutableFilePermissions);
+				if (code != 0)
+				{
+					throw new Exception("Chmod operation failed");
+				}
+			}
+			Process process = new Process
+			{
+				StartInfo = new ProcessStartInfo
+				{
+					FileName = "/bin/bash",
+					Arguments = "-c " + execPath,
+					CreateNoWindow = true,
+					UseShellExecute = false,
+				}
+			};
+			process.Start();
+			process.WaitForExit();
+		}
+	}
+
+{% endhighlight %}
+{% endtabs %}
+</td>
+</tr>
+
+</table>
