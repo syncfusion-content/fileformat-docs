@@ -1757,3 +1757,5 @@ document.Close()
 
 * [Is it possible to update Include Text field in Word document using Essential DocIO?](https://www.syncfusion.com/kb/3921/is-it-possible-to-update-include-text-field-in-word-document-using-essential-docio)
 * [How to insert author's name in a Word document?](https://www.syncfusion.com/kb/13929/how-to-insert-authors-name-in-a-word-document)
+* [How to insert IF field with multiple body items in Word document?](https://support.syncfusion.com/kb/article/15139/how-to-insert-if-field-with-multiple-body-items-in-word-document-using-net-core-word-library?isInternalRefresh=False)
+* [How to insert Merge field inside an IF field in a Word document?](https://support.syncfusion.com/kb/article/15255/how-to-insert-merge-field-inside-an-if-field-in-a-word-document-using-net-core-word-library?isInternalRefresh=False)

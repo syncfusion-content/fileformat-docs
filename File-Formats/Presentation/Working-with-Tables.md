@@ -1241,3 +1241,8 @@ pptxDoc.Close()
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Tables/Edit-table-contents).
+
+## See Also
+* [How to set background image for a table cell?](https://support.syncfusion.com/kb/article/5731/how-to-set-background-image-for-a-table-cell-in-winforms-)
+* [How to add images to a table cell?](https://support.syncfusion.com/kb/article/6929/how-to-add-images-to-a-table-cell-using-essential-presentation-library)
+* [How to add text with different styles in the same table cell?](https://support.syncfusion.com/kb/article/5606/how-to-add-text-with-different-styles-in-the-same-table-cell)

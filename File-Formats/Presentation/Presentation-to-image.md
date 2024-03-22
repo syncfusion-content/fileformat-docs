@@ -901,3 +901,4 @@ N> The .NET PowerPoint Library (Presentation) uses System.Drawing functionalitie
 ## See Also
 
 * [How to convert PPTX to Image in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12122/how-to-convert-pptx-to-image-in-blazor-webassembly-wasm)
+* [How custom resolution supported in WinForms PowerPoint slide to image conversion?](https://support.syncfusion.com/kb/article/6685/how-custom-resolution-supported-in-winforms-powerpoint-slide-to-image-conversion)

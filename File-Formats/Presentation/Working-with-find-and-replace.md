@@ -680,3 +680,6 @@ End Using
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-highlight-in-slide).
+
+## See Also
+* [How to replace the hyperlink within a SmartArt in PowerPoint Presentation?](https://support.syncfusion.com/kb/article/15293/how-to-replace-the-hyperlink-within-a-smartart-in-powerpoint-presentation)

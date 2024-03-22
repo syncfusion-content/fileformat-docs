@@ -1471,3 +1471,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## See Also
 
 * [How to convert PPTX to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12120/how-to-convert-pptx-to-pdf-in-blazor-webassembly-wasm)
+* [How to resolve font problems during PowerPoint to PDF or image conversion?](https://support.syncfusion.com/kb/article/15472/how-to-resolve-font-problems-during-powerpoint-to-pdf-or-image-conversion)

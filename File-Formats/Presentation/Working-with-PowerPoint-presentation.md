@@ -547,3 +547,7 @@ End Using
 N> The first slide number is the starting slide number of the presentation, and this API allows you to set the first slide number from 0 to 9999.
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/PowerPoint-Presentation/First-slide-number/.NET).
+
+## See Also
+* [How to merge or combine multiple PowerPoint files](https://support.syncfusion.com/kb/article/7961/how-to-merge-or-combine-multiple-powerpoint-files-in-c-vb-net)
+* [How to extract text from a PowerPoint presentation?](https://support.syncfusion.com/kb/article/7711/how-to-extract-text-from-a-powerpoint-presentation)

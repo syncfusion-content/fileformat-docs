@@ -512,3 +512,6 @@ pptxDoc.Close()
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Shapes/Remove-groupshape).
 
 N> The Presentation library do not have support for converting the auto-shapes with modified adjustment values in PowerPoint presentation to image or PDF conversion. To know more about adjustment values in PowerPoint shapes please click [here](https://msdn.microsoft.com/en-us/library/office/aa220882(v=office.11).aspx).
+
+## See Also
+* [How to set Smooth Start and End for animated shapes in Presentation?](https://support.syncfusion.com/kb/article/11450/how-to-set-smooth-start-and-end-for-animated-shapes-in-presentation)
