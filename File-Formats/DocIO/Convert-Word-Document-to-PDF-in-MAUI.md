@@ -98,12 +98,6 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI).
-
-By executing the program, you will get the **PDF document** as follows.
-
-![Word to PDF in .NET MAUI](WordToPDF_images/OutputImage.png)
-
 ## Helper files for .NET MAUI
 
 Refer the below helper files and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
@@ -180,6 +174,12 @@ Refer the below helper files and add them into the mentioned project. These help
   </td>
   </tr>
 </table>
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/.NET-MAUI).
+
+By executing the program, you will get the **PDF document** as follows.
+
+![Word to PDF in .NET MAUI](WordToPDF_images/OutputImage.png)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
