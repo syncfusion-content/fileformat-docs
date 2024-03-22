@@ -301,15 +301,11 @@ saveService.SaveAndView("Sample.docx", "application/msword", ms);
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
 
-By executing the program, you will get the **Word document** as follows.
-
-![MAUI output Word document](MAUI_Images/GettingStartedOutput.jpg)
 
 ## Helper files for .NET MAUI
 
-Download the helper files from this [link](https://www.syncfusion.com/downloads/support/directtrac/general/ze/HelperFiles_DocIO-2028573617.zip) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Refer the helper files to be added into the mentioned project. These helper files allow you to **save the stream as a physical file and open the file for viewing**.
 
 <table>
   <tr>
@@ -328,7 +324,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     .NET MAUI Project
   </td>
   <td>
-    SaveService.cs
+    [SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Services/SaveService.cs)
   </td>
   <td>Represent the base class for save operation.
   </td>
@@ -338,7 +334,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     Windows
   </td>
   <td>
-    SaveWindows.cs
+    [SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/Windows/SaveWindows.cs)
   </td>
   <td>Save implementation for Windows.
   </td>
@@ -348,7 +344,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     Android
   </td>
   <td>
-    SaveAndroid.cs
+    [SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/Android/SaveAndroid.cs)
   </td>
   <td>Save implementation for Android device.
   </td>
@@ -358,7 +354,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     Mac Catalyst
   </td>
   <td>
-    SaveMac.cs
+    [SaveMac.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/MacCatalyst/SaveMac.cs)
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
@@ -368,7 +364,7 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
     iOS
   </td>
   <td>
-    SaveIOS.cs
+    [SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/SaveIOS.cs)
   </td>
   <td>
     Save implementation for iOS device
@@ -376,13 +372,19 @@ Download the helper files from this [link](https://www.syncfusion.com/downloads/
   </tr>
   <tr>
   <td>
-    PreviewControllerDS.cs<br/>QLPreviewItemFileSystem.cs
+    [PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/PreviewControllerDS.cs)<br/>[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/QLPreviewItemFileSystem.cs)
   </td>
   <td>
     Helper classes for viewing the <b>Word document</b> in iOS device
   </td>
   </tr>
 </table>
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Getting-Started/.NET-MAUI).
+
+By executing the program, you will get the **Word document** as follows.
+
+![MAUI output Word document](MAUI_Images/GettingStartedOutput.jpg)
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
