@@ -1,6 +1,6 @@
 ---
 title: Convert PowerPoint to PDF in Xamarin | Syncfusion
-description: Convert PowerPoint to PDF in Xamarin using Xamarin PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies.
+description: Learn all about converting PowerPoint presentations to PDF in Xamarin using Syncfusion’s essential PowerPoint file-format library.
 platform: file-formats
 control: PowerPoint
 documentation: UG
@@ -14,7 +14,7 @@ Syncfusion PowerPoint is a [Xamarin PowerPoint library](https://www.syncfusion.c
 
 Step 1: Create a new C# **Xamarin.Forms** application project.
 
-![Create Xamarin project](Workingwith_Xamarin/Project-Open-and-Save.png)
+![Create Xamarin Presentation project.](Workingwith_Xamarin/presentation-project-Open-and-Save.png)
 
 Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://learn.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
@@ -175,7 +175,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **PDF** as follows.
 
-![Converted PDF from PowerPoint in Xamarin](PPTXtoPDF_images/Output_PowerPoint_Presentation_to-PDF.png)
+![Converted PDF from PowerPoint in Xamarin.](PPTXtoPDF_images/xamarin-output-presentation-to-pdf.png)
 
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/xamarin) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 

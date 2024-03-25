@@ -1,6 +1,6 @@
 ---
-title: Split PDF Documents | Syncfusion
-description:  Split a PDF file into single-page or multiple-page PDFs using the Syncfusion .NET PDF library.
+title: Split Documents in File Formats PDF Library | Syncfusion
+description: Learn all about splitting PDF documents into single pages or multiple pages with Syncfusion’s essential PDF file-format library for Xamarin.
 platform: file-formats
 control: PDF
 documentation: UG
