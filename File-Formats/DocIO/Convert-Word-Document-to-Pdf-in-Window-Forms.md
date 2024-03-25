@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Convert Word Document to PDF in Windows Forms
+# Convert Word document to PDF in Windows Forms
 
 Syncfusion DocIO is a [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to PDF in Windows Forms**.
 
