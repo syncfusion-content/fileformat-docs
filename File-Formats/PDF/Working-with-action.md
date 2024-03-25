@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Actions in PDF Library
+# Working with Actions
 
 Essential PDF supports different actions that can be triggered by different events and user interactions.
 
