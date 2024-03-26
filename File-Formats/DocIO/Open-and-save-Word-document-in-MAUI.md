@@ -135,7 +135,7 @@ Refer the helper files to be added into the mentioned project. These helper file
     .NET MAUI Project
   </td>
   <td>
-    [SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/SaveServices/SaveService.cs)
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Services/SaveService.cs)' | markdownify}} 
   </td>
   <td>Represent the base class for save operation.
   </td>
@@ -145,7 +145,7 @@ Refer the helper files to be added into the mentioned project. These helper file
     Windows
   </td>
   <td>
-    [SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/Windows/SaveWindows.cs)
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/Windows/SaveWindows.cs)' | markdownify}} 
   </td>
   <td>Save implementation for Windows.
   </td>
@@ -155,7 +155,7 @@ Refer the helper files to be added into the mentioned project. These helper file
     Android
   </td>
   <td>
-    [SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/Android/SaveAndroid.cs)
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/Android/SaveAndroid.cs)' | markdownify}} 
   </td>
   <td>Save implementation for Android device.
   </td>
@@ -165,7 +165,7 @@ Refer the helper files to be added into the mentioned project. These helper file
     Mac Catalyst
   </td>
   <td>
-    [SaveMac.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/MacCatalyst/SaveMac.cs)
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/MacCatalyst/SaveMac.cs)' | markdownify}} 
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
@@ -175,7 +175,7 @@ Refer the helper files to be added into the mentioned project. These helper file
     iOS
   </td>
   <td>
-    [SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/iOS/SaveIOS.cs)
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/SaveIOS.cs)' | markdownify}} 
   </td>
   <td>
     Save implementation for iOS device
@@ -183,7 +183,8 @@ Refer the helper files to be added into the mentioned project. These helper file
   </tr>
   <tr>
   <td>
-    [PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/iOS/PreviewControllerDS.cs)<br/>[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Read-and-Save-document/Open-and-save-Word-document/.NET-MAUI/Open-and-save-Word-document/Platforms/iOS/QLPreviewItemFileSystem.cs)
+    {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/PreviewControllerDS.cs)' | markdownify}} 
+    <br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Getting-Started/.NET-MAUI/Create-Word-document/Platforms/iOS/QLPreviewItemFileSystem.cs)' | markdownify}} 
   </td>
   <td>
     Helper classes for viewing the <b>Word document</b> in iOS device
