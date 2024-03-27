@@ -126,7 +126,7 @@ Step 10: Now, the published webpage will open in the **browser**.
 ![Browser will open after publish](AKS_images/WebView.png)
 
 Step 11: Select the PDF document and Click **Create PDF document** to generate the PDF document.You will get the output **PDF document** as follows.
-![Create PDF document in Azure App Service on Linux](AKS_images/Output_screenshot.png)
+![Create PDF document in Azure App Service on Linux](AKS_images/Output.png)
 
 You can download a complete working sample from [GitHub]().
 
