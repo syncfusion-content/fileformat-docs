@@ -53,12 +53,12 @@ Builds a table of contents from paragraphs formatted with specified styles other
 <td>
 6<br/><br/></td><td>
 \c<br/><br/></td><td>
-Builds a table fo figures of the given label. <br/><br/></td></tr>
+Builds a table of figures for the given label. <br/><br/></td></tr>
 <tr>
 <td>
 7<br/><br/></td><td>
 \a<br/><br/></td><td>
-Builds a table fo figures but does not include the caption's label and number. <br/><br/></td></tr>
+Builds a table of figures but does not include the caption's label and number. <br/><br/></td></tr>
 </tbody>
 </table>
 
