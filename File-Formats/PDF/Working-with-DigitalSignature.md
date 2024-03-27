@@ -1638,7 +1638,7 @@ The Essential PDF provides support to get the certificate details from an existi
 * [Signed date](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_SignedDate)
 * Expiry date
 * [Signed name](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_SignedName)
-* [Subject name](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfSignature.html#Syncfusion_Pdf_Security_PdfSignature_SignedName)
+* [Subject name](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfCertificate.html#Syncfusion_Pdf_Security_PdfCertificate_SubjectName)
 * [Issuer name](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Security.PdfCertificate.html#Syncfusion_Pdf_Security_PdfCertificate_IssuerName)
 * Certificate distinguished names (country, state, street, email, organization, organization unit, locality, and more).
 

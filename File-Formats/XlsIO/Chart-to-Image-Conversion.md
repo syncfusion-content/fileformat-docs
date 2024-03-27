@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart to image conversion
+# Chart to Image Conversion
 
 Refer to the following links for assemblies/nuget packages required based on platforms to convert the chart to image.
 
