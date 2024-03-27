@@ -17,3 +17,15 @@ The Syncfusion [HTML to PDF converter](https://www.syncfusion.com/pdf-framework/
 * Download and install the AWS Toolkit for Visual Studio, you can download the AWS toolkit from this [link](https://aws.amazon.com/visualstudio/).
 * The Toolkit can be installed from Tools/Extension and updates options in Visual Studio. 
 
+## Convert HTML to PDF in AWS Lambda
+
+HTML to PDF converter .NET library supports conversion in AWS Lambda. Refer to [this](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/convert-html-to-pdf-in-aws-lambda) section for more information about HTML to PDF conversion in AWS Lambda.
+
+## Convert HTML to PDF in AWS Lambda with NET 6 container image
+
+HTML to PDF converter .NET library supports conversion in AWS Lambda with NET 6 container image. Refer to [this](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/convert-html-to-pdf-in-aws-lambda-with-net-6-container-image) section for more information about HTML to PDF conversion in AWS Lambda with NET 6 container image.
+
+## Convert HTML to PDF in AWS Elastic Beanstalk.
+
+HTML to PDF converter .NET library supports conversion in AWS Elastic Beanstalk. Refer to [this](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/convert-html-to-pdf-in-aws-elastic-beanstalk) section for more information about HTML to PDF conversion in AWS Elastic Beanstalk.
+
