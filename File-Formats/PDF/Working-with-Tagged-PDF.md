@@ -1193,7 +1193,7 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 ## Marking PDF content as an artifact
 
 Artifacts in the PDF document can be graphic objects or other markings that are not a part of the authored content and will include such things as: headers, footers, page numbers, watermarks, cut marks, color bars, background images, lines separating content, or decorative images. 
-You can add artifact tag to PDF element by using the [PdfArtifact](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html) class. The artifact type can be speified by using the [ArtifactType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html#Syncfusion_Pdf_PdfArtifact_ArtifactType) property available in the ```PdfArtifact``` class.
+You can add artifact tag to PDF element by using the [PdfArtifact](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html) class. The artifact type can be specified by using the [ArtifactType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfArtifact.html#Syncfusion_Pdf_PdfArtifact_ArtifactType) property available in the ```PdfArtifact``` class.
 
 The following code explains how to add tag for header and footers in the PDF document.
 
