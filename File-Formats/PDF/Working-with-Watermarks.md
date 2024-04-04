@@ -372,3 +372,167 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The following screenshot shows the output of adding image watermark to an existing PDF document. 
 <img src="Watermark_images/Watermark_img4.jpg" alt="Image watermark in an existing PDF" width="100%" Height="Auto"/>
+
+
+### Adding Watermark Annotation
+
+A watermark annotation is used to represent graphics that are expected to be printed at a fixed size and position on a page, regardless of the dimensions of the printed page. [PdfWatermarkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Interactive.PdfWatermarkAnnotation.html) can be used.
+The following code example explains how to add a watermark annotation in the PDF document
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get the page 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+//Sets properties to the annotation 
+watermark.Opacity = 0.5f; 
+//Create the appearance of watermark 
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+//Adds the annotation to page 
+lpage.Annotations.Add(watermark);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document 
+loadedDocument.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+//Get the page 
+PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates PDF watermark annotation 
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+//Sets properties to the annotation 
+watermark.Opacity = 0.5f; 
+//Create the appearance of watermark 
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, new RectangleF(0, 0, 200, 50), new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle));
+//Adds the annotation to page 
+lpage.Annotations.Add(watermark); 
+
+//Saves the document to disk. 
+loadedDocument.Save("WatermarkAnnotation.pdf"); 
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Load the existing PDF document
+ Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+'Get the page 
+Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
+
+'Creates PDF watermark annotation
+Dim watermark As New PdfWatermarkAnnotation(New RectangleF(50, 100, 100, 50)) 
+watermark.Opacity = 0.5f; 
+'Creates the appearance of watermark
+watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", New PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, New RectangleF(0, 0, 200, 50), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
+'Adds annotation to the page 
+lpage.Annotations.Add(watermark)
+
+'Saves the document to disk. 
+loadedDocument.Save("WatermarkAnnotation.pdf")
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Annotation/Add-watermark-annotation-in-the-PDF-document).
+
+
+### Removing Watermark Annotation
+
+You can remove the Watermark annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) of the loaded page. The following code illustrates this.
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+    //Load the PDF document
+    FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+    // Iterate through the annotations collection and remove PdfLoadedWatermark annotations
+    foreach (PdfPageBase page in loadedDocument.Pages)
+    {
+        for (int i = page.Annotations.Count - 1; i >= 0; i--)
+        {
+            // Check if the annotation is a PdfLoadedWatermarkAnnotation
+            if (page.Annotations[i] is PdfLoadedWatermarkAnnotation)
+            {
+                // Remove the PdfLoadedWatermarkAnnotation
+                page.Annotations.RemoveAt(i);
+            }
+        }
+    }
+
+    //Save the document into stream
+    MemoryStream stream = new MemoryStream();
+    loadedDocument.Save(stream);
+    //Close the document 
+    loadedDocument.Close(true); 
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+    //Load the existing PDF document
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+    // Iterate through the annotations collection and remove PdfLoadedWatermark annotations
+    foreach (PdfPageBase page in loadedDocument.Pages)
+    {
+        for (int i = page.Annotations.Count - 1; i >= 0; i--)
+        {
+            // Check if the annotation is a PdfLoadedWatermarkAnnotation
+            if (page.Annotations[i] is PdfLoadedWatermarkAnnotation)
+            {
+                // Remove the PdfLoadedWatermarkAnnotation
+                page.Annotations.RemoveAt(i);
+            }
+        }
+    } 
+
+    //Saves the document to disk. 
+    loadedDocument.Save("WatermarkAnnotation.pdf"); 
+    loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+    'Load the existing PDF document
+    Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+    ' Iterate through the annotations collection and remove PdfLoadedWatermark annotations
+    For Each page As PdfPageBase In loadedDocument.Pages
+        Dim i As Integer = page.Annotations.Count - 1
+        While i >= 0
+            ' Check if the annotation is a PdfLoadedWatermarkAnnotation
+            If TypeOf page.Annotations(i) Is PdfLoadedWatermarkAnnotation Then
+                ' Remove the PdfLoadedWatermarkAnnotation
+                page.Annotations.RemoveAt(i)
+            End If
+            i -= 1
+        End While
+    Next
+
+    'Saves the document to disk. 
+    loadedDocument.Save("WatermarkAnnotation.pdf")
+    loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub]().
+
