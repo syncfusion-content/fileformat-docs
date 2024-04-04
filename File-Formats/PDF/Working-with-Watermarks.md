@@ -534,5 +534,5 @@ You can remove the Watermark annotation from the annotation collection, represen
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Watermark/Removing-watermark-annotation-in-PDF-document).
 
