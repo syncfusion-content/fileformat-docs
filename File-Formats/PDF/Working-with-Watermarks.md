@@ -389,7 +389,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Creates PDF watermark annotation 
-PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(0, 0, 200, 50));
 //Sets properties to the annotation 
 watermark.Opacity = 0.5f; 
 //Create the appearance of watermark 
@@ -413,7 +413,7 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 PdfLoadedPage lpage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Creates PDF watermark annotation 
-PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(50, 100, 100, 50));
+PdfWatermarkAnnotation watermark = new PdfWatermarkAnnotation(new RectangleF(0, 0, 200, 50));
 //Sets properties to the annotation 
 watermark.Opacity = 0.5f; 
 //Create the appearance of watermark 
@@ -435,7 +435,7 @@ loadedDocument.Close(true);
 Dim lpage As PdfLoadedPage = TryCast(loadedDocument.Pages(0),PdfLoadedPage)
 
 'Creates PDF watermark annotation
-Dim watermark As New PdfWatermarkAnnotation(New RectangleF(50, 100, 100, 50)) 
+Dim watermark As New PdfWatermarkAnnotation(New RectangleF(0, 0, 200, 50)) 
 watermark.Opacity = 0.5f; 
 'Creates the appearance of watermark
 watermark.Appearance.Normal.Graphics.DrawString("Watermark Text", New PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Red, New RectangleF(0, 0, 200, 50), New PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle))
