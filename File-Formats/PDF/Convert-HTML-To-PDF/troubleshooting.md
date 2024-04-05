@@ -711,7 +711,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 ## Zombie process are not closed by default from chrome headless in Linux platform
 
- The zombie process are not closed by default from chrome headless in Linux. However, We can resolve the zombie process issue by using the below commandline arguments in converter settings.
+ The zombie process are not closed by default from chrome headless in Linux. However, We can resolve the zombie process issue by using the below command line arguments in converter settings.
 
 {% tabs %}
 
