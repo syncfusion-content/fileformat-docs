@@ -820,3 +820,35 @@ code snippet:
 </tr>
 
 </table>
+
+
+## Failed to load Chrome DLL exception occurs in Windows 7/8 and Windows Server 2008,2012 machine
+
+<table>
+<th style="font-size:14px" width="100px">Exception</th>
+<th style="font-size:14px">Failed to load Chrome DLL exception occurs in Windows 7/8 and Windows Server 2008,2012 machine.
+</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The reported issue occurs due to an unsupported OS platform with the latest binaries.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+ If you are using Windows 7/8, Windows Server 2008, 2012, please use Chromium version 109 instead of the new version. Chromium ended the support for these operating systems and the last version is 109.
+<br/><br/>
+
+Please refer to the below thread for more information,
+[https://support.google.com/chrome/thread/185534985](https://support.google.com/chrome/thread/185534985)
+
+<br/>
+
+Blink binaries (Version 109.0.5414.75),
+[https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898)
+
+</td>
+</tr>
+
+</table>
