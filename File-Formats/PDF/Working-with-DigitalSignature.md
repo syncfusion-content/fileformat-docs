@@ -4164,3 +4164,33 @@ loadedDocument.Close(true)
 
 {% endtabs %}
 
+## Troubleshooting
+
+<th style="font-size:14px"><b>Signature is not visible after signing the document.
+</b></th>
+
+<table>
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td style="font-size:14px">
+<b>The signature bounds is not properly set, due to this may appear invisible.</b>
+</td>
+</tr>
+<tr>
+<th style="font-size:14px"> Solution
+</th>
+<td>We recommend ensuring that the bounds value of the signature field is correctly set and drawing the image with the signature to ensure its visibility 
+{% tabs %}
+
+{% highlight c# tabtitle="C#" %}
+
+//Set the signature bounds.
+signature.Bounds= new RectangleF(new PointF(0, 0), new SizeF(100, 100));
+
+{% endhighlight %}
+{% endtabs %}
+</td>
+</tr>
+</table>
+
