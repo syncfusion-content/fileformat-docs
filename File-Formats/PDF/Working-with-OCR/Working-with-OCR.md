@@ -1,5 +1,5 @@
 ---
-title: Perform OCR on PDF and image files | Syncfusion
+title: Performing OCR on scanned PDF and image files | Syncfusion
 description: Learn how to perform OCR on scanned PDF documents and images with different tesseract versions using Syncfusion .NET OCR library.  
 platform: file-formats
 control: PDF
