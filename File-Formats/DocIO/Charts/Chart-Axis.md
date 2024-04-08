@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Chart Axis
+# Chart Axis in Word document
 
 Charts typically have two axes that are used to measure and categorize data.
 -  Horizontal axis (also known as category axis or x axis).
