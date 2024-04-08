@@ -343,3 +343,6 @@ N> To convert Word to image, it is necessary to access the font stream internall
 Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
 An online sample link to [convert Word document to image](https://blazor.syncfusion.com/demos/word/word-to-image?theme=fluent) in Blazor. 
+
+## See Also
+* [How to convert Word to Image in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12123/how-to-convert-word-to-image-in-blazor-webassembly-wasm)

@@ -683,3 +683,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 * [How to replace the hyperlink within a SmartArt in PowerPoint Presentation?](https://support.syncfusion.com/kb/article/15293/how-to-replace-the-hyperlink-within-a-smartart-in-powerpoint-presentation)
+* [How to replace the hyperlink within a SmartArt in ASP.NET Core PowerPoint Presentation?](https://support.syncfusion.com/kb/article/15293/how-to-replace-the-hyperlink-within-a-smartart-in-aspnet-core-powerpoint-presentation?)

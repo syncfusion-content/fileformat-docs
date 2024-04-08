@@ -671,3 +671,6 @@ chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 11, 1)
 
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+* [How to set the X-axis label position of the chart in the ASP.NET Core Word document?](https://support.syncfusion.com/kb/article/15443/how-to-set-the-x-axis-label-position-of-the-chart-in-the-aspnet-core-word-document?)

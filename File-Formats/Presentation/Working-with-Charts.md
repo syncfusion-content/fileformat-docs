@@ -2094,3 +2094,4 @@ The following Chart types are supported in Presentation.
 
 ## See Also
 * [How to set same number of intervals for Primary and Secondary ValueAxis?](https://support.syncfusion.com/kb/article/11366/how-to-set-same-number-of-intervals-for-primary-and-secondary-valueaxis-in-winforms-presentation)
+* [How to create a chart and save as an image using ASP.NET Core Presentation library?](https://support.syncfusion.com/kb/article/15499/how-to-create-a-chart-and-save-as-an-image-using-aspnet-core-presentation-library?)
