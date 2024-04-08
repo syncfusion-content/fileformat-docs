@@ -316,6 +316,3 @@ N> Even though PowerPoint library works in WASM app, it is recommended to use se
 Click [here](https://www.syncfusion.com/document-processing/powerpoint-framework/blazor) to explore the rich set of Syncfusion PowerPoint Library (Presentation) features. 
 
 An online sample link to [convert PowerPoint Presentation to image](https://blazor.syncfusion.com/demos/powerpoint/pptx-to-image?theme=fluent) in Blazor. 
-
-## See Also
-* [How to convert PPTX to Image in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12122/how-to-convert-pptx-to-image-in-blazor-webassembly-wasm)

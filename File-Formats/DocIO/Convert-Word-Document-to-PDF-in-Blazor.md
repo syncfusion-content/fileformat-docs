@@ -349,6 +349,3 @@ N> To convert Word to PDF, it is necessary to access the font stream internally.
 Click [here](https://www.syncfusion.com/document-processing/word-framework/blazor) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
 An online sample link to [convert Word document to PDF](https://blazor.syncfusion.com/demos/word/word-to-pdf?theme=fluent) in Blazor. 
-
-## See Also
-* [How to convert Word to PDF in Blazor WebAssembly (WASM)?](https://support.syncfusion.com/kb/article/12239/how-to-convert-word-to-pdf-in-blazor-webassembly-wasm)
