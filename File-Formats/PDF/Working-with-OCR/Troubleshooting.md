@@ -359,3 +359,46 @@ Step 3:
 </td>
 </tr>
 </table>
+
+## OCR not working on Docker net 8.0: Exception has been thrown by target of an invocation.
+
+<table>
+<th style="font-size:14px" width="100px">Exception</th>
+<th style="font-size:14px">OCR not working on Docker net 8.0: Exception has been thrown by target of an invocation.</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The reported issue occurs due to the missing prerequisite dependencies packages in the Docker container in .NET 8.0 version.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+ We can resolve the reported issue by installing the tesseract required dependencies by using Docker file. Please refer the below commands.
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
+`RUN apt-get update && \`
+
+`apt-get install -yq --no-install-recommends \`
+
+`libgdiplus libc6-dev libleptonica-dev libjpeg62`
+
+`RUN ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5`
+
+`RUN ln -s /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libdl.so`
+
+ 
+
+USER app
+
+WORKDIR /app
+
+EXPOSE 8080
+
+EXPOSE 8081
+
+
+</td>
+</tr>
+</table>
