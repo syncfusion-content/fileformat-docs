@@ -822,11 +822,11 @@ code snippet:
 </table>
 
 
-## Failed to load Chrome DLL exception occurs in Windows 7/8 and Windows Server 2008,2012 machine
+## Failed to load Chrome DLL exception occurs on Windows 7/8 and Windows Server 2008/2012 machines
 
 <table>
 <th style="font-size:14px" width="100px">Exception</th>
-<th style="font-size:14px">Failed to load Chrome DLL exception occurs in Windows 7/8 and Windows Server 2008,2012 machine.
+<th style="font-size:14px">Failed to load Chrome DLL exception occurs on Windows 7/8 and Windows Server 2008/2012 machines.
 </th>
 <tr>
 <th style="font-size:14px" width="100px">Reason
@@ -837,7 +837,7 @@ code snippet:
 <tr>
 <th style="font-size:14px" width="100px">Solution</th>
 <td>
- If you are using Windows 7/8, Windows Server 2008, 2012, please use Chromium version 109 instead of the new version. Chromium ended the support for these operating systems and the last version is 109.
+If you are using Windows 7/8 or Windows Server 2008/2012, please use Chromium version 109 instead of the newer versions. Chromium has discontinued support for these operating systems, and the last compatible version is 109.
 <br/><br/>
 
 Please refer to the below thread for more information,
