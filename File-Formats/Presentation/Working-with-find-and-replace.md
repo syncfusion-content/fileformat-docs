@@ -374,6 +374,8 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-Replace-in-Powerpoint-using-Regex).
 
+N> When searching for items within a Master slide in your Presentation document, it is recommended to use the IPresentation.FindAll API instead of the ISlide.FindAll API. 
+
 ## Find and replace in specific slide
 
 You can find all occurrences of a text in a specific PowerPoint slide (slide, notes slide, master slide, or layout slide) and replace it with other text.
