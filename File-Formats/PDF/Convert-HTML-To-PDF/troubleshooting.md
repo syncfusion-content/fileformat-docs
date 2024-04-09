@@ -841,12 +841,12 @@ If you are using Windows 7/8 or Windows Server 2008/2012, please use Chromium ve
 <br/><br/>
 
 Please refer to the below thread for more information,
-[https://support.google.com/chrome/thread/185534985](https://support.google.com/chrome/thread/185534985)
+<a href="https://support.google.com/chrome/thread/185534985">https://support.google.com/chrome/thread/185534985</a>
 
 <br/>
 
 Blink binaries (Version 109.0.5414.75),
-[https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898)
+<a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898">https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898</a>
 
 </td>
 </tr>
