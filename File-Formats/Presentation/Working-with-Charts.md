@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with charts using various operations
 
-To quickly start creating a chart in a PowerPoint Presentation using .NET PowerPoint libray, please check out this video:
+To quickly start creating a chart in a PowerPoint Presentation using .NET PowerPoint library, please check out this video:
 {% youtube "https://www.youtube.com/watch?v=z2yD83HWIrQ" %}
 
 ## Creating a Chart from scratch
@@ -711,7 +711,7 @@ To convert chart in PowerPoint slide as an image, refer the below dependencies i
 Platform(s)
 </th>
 <th width="40%">
-NuGets for Chart to Image
+NuGet for Chart to Image
 </th>
 <th width="40%">
 Assemblies for Chart to image
