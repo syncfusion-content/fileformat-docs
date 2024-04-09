@@ -180,7 +180,7 @@ By using the best tessdata, we can improve the OCR results. For more information
 </th>
 <td>To resolve this problem, you should install and utilize Tesseract 5 on your Mac machine. Refer to the following steps for installing Tesseract 5 and integrating it into an OCR processing workflow. 
 <br><br/>
-1.Execute the following command to install Tesserat 5. 
+1.Execute the following command to install Tesseract 5. 
 <br><br/>
 {% tabs %}
 {% highlight C# %}
@@ -376,6 +376,10 @@ Step 3:
 <td>
  We can resolve the reported issue by installing the tesseract required dependencies by using Docker file. Please refer the below commands.
 
+{% tabs %}
+
+{% highlight C# %}
+
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 
 `RUN apt-get update && \`
@@ -398,6 +402,9 @@ EXPOSE 8080
 
 EXPOSE 8081
 
+{% endhighlight %}
+
+{% endtabs %}
 
 </td>
 </tr>
