@@ -711,7 +711,7 @@ You can downloaded a complete working sample from [GitHub](https://github.com/Sy
 
 ## Zombie process are not closed by default from chrome headless in Linux platform
 
- The zombie process are not closed by default from chrome headless in Linux. However, We can resolve the zombie process issue by using the below commandline arguments in converter settings.
+ The zombie process are not closed by default from chrome headless in Linux. However, We can resolve the zombie process issue by using the below command line arguments in converter settings.
 
 {% tabs %}
 
@@ -816,6 +816,38 @@ code snippet:
 
 {% endhighlight %}
 {% endtabs %}
+</td>
+</tr>
+
+</table>
+
+
+## Failed to load Chrome DLL exception occurs on Windows 7/8 and Windows Server 2008/2012 machines
+
+<table>
+<th style="font-size:14px" width="100px">Exception</th>
+<th style="font-size:14px">Failed to load Chrome DLL exception occurs on Windows 7/8 and Windows Server 2008/2012 machines.
+</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The reported issue occurs due to an unsupported OS platform with the latest binaries.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+If you are using Windows 7/8 or Windows Server 2008/2012, please use Chromium version 109 instead of the newer versions. Chromium has discontinued support for these operating systems, and the last compatible version is 109.
+<br/><br/>
+
+Please refer to the below thread for more information,
+[https://support.google.com/chrome/thread/185534985](https://support.google.com/chrome/thread/185534985)
+
+<br/>
+
+Blink binaries (Version 109.0.5414.75),
+[https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898](https://www.syncfusion.com/downloads/support/directtrac/general/ze/BlinkBinaries_109.0.5414.7560606898)
+
 </td>
 </tr>
 
