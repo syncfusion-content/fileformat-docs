@@ -374,7 +374,7 @@ End Using
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Find-and-Replace/Find-and-Replace-in-Powerpoint-using-Regex).
 
-N> When searching for items within a Master slide in your Presentation document, it is recommended to use the IPresentation.FindAll API instead of the ISlide.FindAll API. 
+N> When searching for items within a Master slide in the Presentation document, it is recommended to use the IPresentation.FindAll API instead of the ISlide.FindAll API. 
 
 ## Find and replace in specific slide
 
