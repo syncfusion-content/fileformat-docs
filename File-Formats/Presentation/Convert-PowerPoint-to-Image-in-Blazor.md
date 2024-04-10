@@ -87,7 +87,7 @@ using Syncfusion.PresentationRenderer;
 {% endhighlight %}
 {% endtabs %}
 
-Step 9: Create a new MemoryStream method with name as **ConvertPPTXtoImage** in **PowerPointService** class and include the following code snippet to **convert a PowerPoint to image in Blazor Server app**.
+Step 9: Create a new MemoryStream method with name as **ConvertPPTXToImage** in **PowerPointService** class and include the following code snippet to **convert a PowerPoint to image in Blazor Server app**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
