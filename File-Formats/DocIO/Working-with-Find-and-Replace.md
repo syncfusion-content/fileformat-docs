@@ -1675,3 +1675,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and replace a text with chart in Word document?](https://support.syncfusion.com/kb/article/13951/how-to-find-and-replace-a-text-with-chart-in-word-document)
 * [How to find and replace a text with hyperlink in Word document?](https://support.syncfusion.com/kb/article/13954/how-to-find-and-replace-a-text-with-hyperlink-in-word-document)
 * [How to find and replace a text with Table of Contents (TOC) in Word document?](https://support.syncfusion.com/kb/article/13958/how-to-find-and-replace-a-text-with-table-of-contents-toc-in-word-document)
+* [How to replace text in a Word document with HTML in ASP.NET Core?](https://support.syncfusion.com/kb/article/15520/how-to-replace-text-in-a-word-document-with-html-in-aspnet-core?)
