@@ -1,11 +1,11 @@
 ---
-title: Converting HTML to PDF | Syncfusion
+title: Converting HTML to PDF in File Formats | Syncfusion
 description: Learn how to convert HTML to PDF using 2 different rendering engines (Blink and IE) with various features like TOC, partial web page to PDF etc.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Converting HTML to PDF
+# Converting HTML to PDF in File Formats
 
 The HTML to PDF converter is a .NET library for converting webpages, SVG, MHTML, and HTML files to PDF using C#. It uses popular rendering engines such as Blink (Google Chrome) and is reliable and accurate. The result preserves all graphics, images, text, fonts, and the layout of the original HTML document or webpage.
 
