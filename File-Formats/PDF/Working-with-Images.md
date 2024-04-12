@@ -1,12 +1,12 @@
 ---
-title: Working with Images | Syncfusion
+title: Working with Images in File Formats PDF | Syncfusion
 description: This section explains how to add and replace images in the PDF document using Essential PDF. Essential PDF supports both raster and vector images.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Working with images using various options
+# Working with images using various options in File Formats PDF
 
 Essential PDF supports both raster and vector images.
 
