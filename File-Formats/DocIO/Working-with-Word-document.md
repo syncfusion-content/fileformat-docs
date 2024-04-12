@@ -5,7 +5,7 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Word document
+# Working with Word document in C#
 
 ## Cloning a Word document
 
