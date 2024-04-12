@@ -468,3 +468,8 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to extract the cropped image from Presentation in C#?](https://support.syncfusion.com/kb/article/15451/how-to-extract-the-cropped-image-from-presentation-in-c)
 * [How to crop and insert image in Presentation in C#?](https://support.syncfusion.com/kb/article/15432/how-to-crop-and-insert-image-in-presentation-in-c)
 * [How to remove the crop from image in Presentation using C#?](https://support.syncfusion.com/kb/article/15435/how-to-remove-the-crop-from-image-in-presentation-using-c)
+* [How to crop an image in ASP.NET Core Presentation using C#?](https://support.syncfusion.com/kb/article/15431/how-to-crop-an-image-in-aspnet-core-presentation-using-c?)
+* [How to crop and insert image in ASP.NET Core Presentation in C#?](https://support.syncfusion.com/kb/article/15432/how-to-crop-and-insert-image-in-aspnet-core-presentation-in-c?)
+* [How to extract the cropped image from ASP.NET Core Presentation in C#?](https://support.syncfusion.com/kb/article/15451/how-to-extract-the-cropped-image-from-aspnet-core-presentation-in-c?)
+* [How to remove the crop from image in ASP.NET Core Presentation using C#?](https://support.syncfusion.com/kb/article/15435/how-to-remove-the-crop-from-image-in-aspnet-core-presentation-using-c?)
+* [How to extract the cropped image from WinForms Presentation in C#?](https://support.syncfusion.com/kb/article/15533/how-to-extract-the-cropped-image-from-winforms-presentation-in-c?)
