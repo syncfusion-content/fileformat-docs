@@ -1,11 +1,11 @@
 ---
-title: Working with pages | Syncfusion
+title: Working with pages in File Formats PDF | Syncfusion
 description: This section explains how to add, rearrange, remove pages and detect empty pages from the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with PDF document Pages
+# Working with PDF Document Pages in File Formats
 
 ## Adding a new page to the document
 
