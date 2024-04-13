@@ -24,6 +24,8 @@ The following code snippet illustrates on how to import a DataTable into a works
 
 N> XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 
+N> When the data table column contains numbers and date values formatted as text, they will be imported as string type only. The number formatting applied to the data table column values will not be effective. To address this, the data table column values should be preserved with their respective data type.
+
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
