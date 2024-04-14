@@ -1,5 +1,5 @@
 ---
-title: How to resolve the performance issue when deleting a large number of rows | Syncfusion
+title: Resolve the performance issue when deleting a large number of rows | Syncfusion
 description: This page explains how to resolve the performance issue when deleting a large number of rows using Syncfusion .NET Excel library (XlsIO).
 platform: file-formats
 control: XlsIO
