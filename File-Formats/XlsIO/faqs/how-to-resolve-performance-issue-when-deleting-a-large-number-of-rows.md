@@ -81,7 +81,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
     //Remove the worksheet
     workbook.Worksheets[0].Remove();
 
-    //Saving the workbook as stream
+    //Saving the workbook
     workbook.SaveAs("Output.xlsx");
 }
 {% endhighlight %}
