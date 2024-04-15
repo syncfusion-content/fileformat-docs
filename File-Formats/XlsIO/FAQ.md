@@ -82,4 +82,4 @@ The frequently asked questions in Essential XlsIO are listed below.
 * [How to find and replace text in hyperlinks?](faqs/how-to-find-and-replace-text-in-hyperlinks)
 * [How to fix the ArgumentOutOfRangeException when accessing a large number of rows and columns?](faqs/how-to-fix-the-argument-out-of-range-exception-when-accessing-a-large-number-of-rows-and-columns)
 * [How to set Logarithmic axis for chart in Excel document?](faqs/how-to-set-logarithmic-axis-for-chart-in-excel-document)
-* [How to resolve performance issue when deleting a large number of rows?](faqs\how-to-resolve-performance-issue-when-deleting-a-large-number-of-rows)
+* [How to resolve performance issue when deleting a large number of rows?](faqs/how-to-resolve-performance-issue-when-deleting-a-large-number-of-rows)
