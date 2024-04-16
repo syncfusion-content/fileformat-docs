@@ -1,7 +1,7 @@
 ---
 title: Working with Data | Syncfusion
 description: Learn how to import data to Excel file from ADO.NET objects, Collections, Array; and how to export data from Excel to ADO.NET objects or collections.
-platform: file-Formats
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -80,6 +80,8 @@ End Using
 {% endtabs %}  
 
 A complete working example to import data from DataTable to Excel worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Import%20and%20Export%20Data/DataTable%20to%20Worksheet).  
+
+N> XlsIO imports the data from data table into Excel worksheet based on the data table column type. So, it is suggested to create the data tables with required column types such as number, text or date time before importing the data table to Excel worksheet.  
 
 ### Import Data from DataColumn
 
@@ -2244,7 +2246,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.ComputedFormulaValues);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("ExportToDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -2264,7 +2266,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Read data from the worksheet and Export to the DataTable
-  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+  DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.ComputedFormulaValues);
 
   //Binding exported DataTable to data grid, likewise it can binded to any 
   //user interface control which supports binding
@@ -2283,7 +2285,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim sheet As IWorksheet = workbook.Worksheets(0)
 
   'Read data from the worksheet and Export to the DataTable
-  Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
+  Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames Or ExcelExportDataTableOptions.ComputedFormulaValues)
 
   'Binding exported DataTable to data grid, likewise it can binded to any 
   'user interface control which supports binding

@@ -248,9 +248,18 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
     //Accesses the built-in document properties
     Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
     Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
-    //Modifies or sets the category and company Built-in document properties
-    document.BuiltinDocumentProperties.Category = "Sales reports";
-    document.BuiltinDocumentProperties.Company = "Northwind traders";
+    //Modifies or sets the Built-in document properties.
+    document.BuiltinDocumentProperties.Author = "Andrew";
+    document.BuiltinDocumentProperties.LastAuthor = "Steven";
+    document.BuiltinDocumentProperties.CreateDate = new DateTime(1900, 12, 31, 12, 0, 0);
+    document.BuiltinDocumentProperties.LastSaveDate = new DateTime(1900, 12, 31, 12, 0, 0);
+    document.BuiltinDocumentProperties.LastPrinted = new DateTime(1900, 12, 31, 12, 0, 0);
+    document.BuiltinDocumentProperties.Title = "Sample Document";
+    document.BuiltinDocumentProperties.Subject = "Adventure Works Cycle";
+    document.BuiltinDocumentProperties.Category = "Technical documentation";
+    document.BuiltinDocumentProperties.Comments = "This is sample document.";
+    document.BuiltinDocumentProperties.RevisionNumber = "2";
+    document.BuiltinDocumentProperties.Company = "Adventure Works Cycle";
     //Saves and closes the destination document to MemoryStream
     MemoryStream stream = new MemoryStream();
     document.Save(stream, FormatType.Docx);
@@ -264,9 +273,18 @@ WordDocument document = new WordDocument(inputFileName);
 //Accesses the built-in document properties
 Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
-//Modifies or sets the category and company Built-in document properties
-document.BuiltinDocumentProperties.Category = "Sales reports";
-document.BuiltinDocumentProperties.Company = "Northwind traders";
+//Modifies or sets the Built-in document properties.
+document.BuiltinDocumentProperties.Author = "Andrew";
+document.BuiltinDocumentProperties.LastAuthor = "Steven";
+document.BuiltinDocumentProperties.CreateDate = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.LastSaveDate = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.LastPrinted = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.Title = "Sample Document";
+document.BuiltinDocumentProperties.Subject = "Adventure Works Cycle";
+document.BuiltinDocumentProperties.Category = "Technical documentation";
+document.BuiltinDocumentProperties.Comments = "This is sample document.";
+document.BuiltinDocumentProperties.RevisionNumber = "2";
+document.BuiltinDocumentProperties.Company = "Adventure Works Cycle";
 document.Save(outputFileName, FormatType.Docx);
 document.Close();
 {% endhighlight %}
@@ -277,9 +295,18 @@ Dim document As New WordDocument(inputFileName)
 'Accesses the built-in document properties
 Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title)
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author)
-'Modifies or sets the category and company Built-in document properties
-document.BuiltinDocumentProperties.Category = "Sales reports"
-document.BuiltinDocumentProperties.Company = "Northwind traders"
+'Modifies or sets the Built-in document properties.
+document.BuiltinDocumentProperties.Author = "Andrew";
+document.BuiltinDocumentProperties.LastAuthor = "Steven";
+document.BuiltinDocumentProperties.CreateDate = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.LastSaveDate = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.LastPrinted = new DateTime(1900, 12, 31, 12, 0, 0);
+document.BuiltinDocumentProperties.Title = "Sample Document";
+document.BuiltinDocumentProperties.Subject = "Adventure Works Cycle";
+document.BuiltinDocumentProperties.Category = "Technical documentation";
+document.BuiltinDocumentProperties.Comments = "This is sample document.";
+document.BuiltinDocumentProperties.RevisionNumber = "2";
+document.BuiltinDocumentProperties.Company = "Adventure Works Cycle";
 'Saves and closes the document
 document.Save(outputFileName, FormatType.Docx)
 document.Close()
