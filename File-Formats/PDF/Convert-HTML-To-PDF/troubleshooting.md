@@ -852,3 +852,60 @@ Blink binaries (Version 109.0.5414.75),
 </tr>
 
 </table>
+
+
+## There was an error opening this document. This file is already open or in use by another application.
+
+<table>
+<th style="font-size:14px" width="100px">Issue</th>
+<th style="font-size:14px">There was an error opening this document. This file is already open or in use by another application.
+</th>
+<tr>
+<th style="font-size:14px" width="100px">Reason
+</th>
+<td>The reported issue occurs due to the document or file not being properly disposed or closed, leading to conflicts when attempting to access it again.
+</td>
+</tr>
+<tr>
+<th style="font-size:14px" width="100px">Solution</th>
+<td>
+
+We can resolve the reported issue by using the FileStream within the "using" block.
+{% tabs %}
+{% highlight C# %}
+
+	using (FileStream fs = new FileStream("path_to_file", FileMode.Open))
+	{
+    	// Use the file here
+	} // File stream is automatically closed and disposed
+
+{% endhighlight %}
+{% endtabs %}
+
+Or
+
+Dispose of the FileStream at the end of the process and ensure that the file or document is not already open in another application.
+{% tabs %}
+{% highlight C# %}
+
+	
+	PdfDocument document = htmlConverter.Convert(");
+
+	FileStream fileStream = new FileStream(baseUrl+ "Bill_PDF_04_16_24.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+
+	//Save and close the PDF document.
+
+	document.Save(fileStream);
+
+	document.Close(true);
+
+	document.Dispose();
+
+	fileStream.Dispose();
+
+{% endhighlight %}
+{% endtabs %}
+</td>
+</tr>
+
+</table>
