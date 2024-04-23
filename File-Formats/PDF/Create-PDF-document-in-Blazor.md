@@ -1,12 +1,12 @@
 ---
-title: Create or Generate PDF file in Blazor | Syncfusion
+title: Create or Generate PDF File in Blazor | Syncfusion
 description: Learn how to create or generate a PDF file in Blazor applications with easy steps using Syncfusion .NET Core PDF library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Create or Generate PDF file in Blazor
+# Create or Generate PDF File in Blazor
 
 The Syncfusion [Blazor PDF library](https://www.syncfusion.com/document-processing/pdf-framework/blazor/pdf-library) is used to create, read, and edit PDF documents. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
