@@ -414,7 +414,7 @@ EXPOSE 8081
 ## Default path reference for Syncfusion OCR packages
 When installing the Syncfusion OCR NuGet packages, the tessdata and tesseract path binaries are copied into the runtimes folder. The default binaries path references are added in the package itself, so there is no need to set the manual path.
 
-If you are facing any issues with default reference path in your project. Kindly manually set the Tesseract and Tessdata path using the TessdataPath and TeeseractPath in OCRProcessor class. You can find the binaries in the below project in your project location.
+If you are facing any issues with default reference path in your project. Kindly manually set the Tesseract and Tessdata path using the TessdataPath and TesseractPath in OCRProcessor class. You can find the binaries in the below project in your project location.
 
 <table>
 <tr>
