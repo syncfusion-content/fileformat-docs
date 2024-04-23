@@ -1,12 +1,12 @@
 ---
-title: Overview of Syncfusion Excel (XlsIO) library | Syncfusion
+title: Overview of .NET Excel (XlsIO) Library | Syncfusion
 description: .NET Excel library create, read, edit & convert Excel file in WinForms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin, Blazor, WinUI and .NET MAUI applications.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Overview of Syncfusion Excel (XlsIO) library
+# Overview of .NET Excel (XlsIO) Library
 
 [**Essential XlsIO**](https://www.syncfusion.com/document-processing/excel-framework/net) is a native **.****NET** class library that can be used to create and modify **Microsoft** **Excel** files by using C#, VB.NET and managed C++ code. It is a non-UI component that provides a full-fledged object model that facilitates accessing & manipulating the spreadsheets without any dependency of Microsoft Office COM libraries & Microsoft Office.
 
