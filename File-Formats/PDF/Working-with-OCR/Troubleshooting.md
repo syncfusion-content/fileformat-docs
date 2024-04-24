@@ -441,7 +441,7 @@ bin\Debug\net6.0\runtimes\linux\native
  
 Mac:
 <br/>
-bin\Debug\net6.0.\runtimes\osx\native.
+bin\Debug\net6.0.\runtimes\osx\native
 </td>
 </tr>
 </table>
