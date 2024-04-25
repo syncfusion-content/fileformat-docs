@@ -1,6 +1,6 @@
 ---
-title: Working with pages | Syncfusion
-description: This section explains how to add, rearrange, remove pages and detect empty pages from the PDF document
+title: Working with Pages in .NET PDF Library | Syncfusion
+description: This section explains how to add, rearrange, remove pages and detect empty pages from the PDF document.
 platform: file-formats
 control: PDF
 documentation: UG
