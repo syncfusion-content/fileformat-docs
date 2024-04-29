@@ -36,13 +36,6 @@ Syncfusion.Pdf.UWP<br/></td></tr>
 {{'[Xamarin](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-xamarin)' | markdownify}}<br/></td><td>
 Syncfusion.Pdf.Portable<br/>Syncfusion.Compression.Portable<br/></td></tr>
 <tr>
-<td>
-{{'[ASP.NET (Classic)](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-web-forms)' | markdownify}}<br/></td><td>
-Syncfusion.Pdf.Web<br/>Syncfusion.Compression.Base<br/></td></tr>
-<tr>
-<td>
-{{'[ASP.NET MVC (Classic)](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-mvc)' | markdownify}}<br/></td><td>
-Syncfusion.Pdf.MVC<br/>Syncfusion.Compression.Base<br/></td></tr>
 <tr>
 <td>
 {{'[Blazor](https://help.syncfusion.com/file-formats/pdf/create-pdf-document-in-blazor)' | markdownify}}, {{'[.NET Core](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-core)' | markdownify}} and {{'[.NET Platforms](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-mvc)' | markdownify}}<br/></td><td>
@@ -90,9 +83,12 @@ Windows Phone 8.1 WinRT<br/></td><td>
 Syncfusion.Pdf.WP<br/>Syncfusion.Compression.WP<br/></td></tr>
 <tr>
 <td>
-Silverlight<br/></td><td>
-Syncfusion.Pdf.Silverlight<br/>Syncfusion.Compression.Silverlight<br/></td></tr>
+{{'[ASP.NET (Classic)](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-web-forms)' | markdownify}}<br/></td><td>
+Syncfusion.Pdf.Web<br/>Syncfusion.Compression.Base<br/></td></tr>
 <tr>
+<td>
+{{'[ASP.NET MVC (Classic)](https://help.syncfusion.com/file-formats/pdf/create-pdf-file-in-asp-net-mvc)' | markdownify}}<br/></td><td>
+Syncfusion.Pdf.MVC<br/>Syncfusion.Compression.Base<br/></td></tr>
 </table>
 
 
