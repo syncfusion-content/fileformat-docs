@@ -37,36 +37,12 @@ Xamarin<br/></td><td>
 Syncfusion.Pdf.Portable<br/>Syncfusion.Compression.Portable<br/></td></tr>
 <tr>
 <td>
-WinRT (Windows Store applications)<br/></td><td>
-Syncfusion.Pdf.winrt<br/></td></tr>
-<tr>
-<td>
-Windows Phone 8<br/></td><td>
-Syncfusion.Pdf.WP8<br/>Syncfusion.Compression.WP8<br/></td></tr>
-<tr>
-<td>
-Windows Phone 8.1 Silverlight<br/></td><td>
-Syncfusion.Pdf.WPSilverlight<br/>Syncfusion.Compression.WPSilverlight<br/></td></tr>
-<tr>
-<td>
-Windows Phone 8.1 WinRT<br/></td><td>
-Syncfusion.Pdf.WP<br/>Syncfusion.Compression.WP<br/></td></tr>
-<tr>
-<td>
-Silverlight<br/></td><td>
-Syncfusion.Pdf.Silverlight<br/>Syncfusion.Compression.Silverlight<br/></td></tr>
-<tr>
-<td>
 ASP.NET (Classic)<br/></td><td>
 Syncfusion.Pdf.Web<br/>Syncfusion.Compression.Base<br/></td></tr>
 <tr>
 <td>
 ASP.NET MVC (Classic)<br/></td><td>
 Syncfusion.Pdf.MVC<br/>Syncfusion.Compression.Base<br/></td></tr>
-<tr>
-<td>
-Universal (Classic)<br/></td><td>
-Syncfusion.Pdf.Universal<br/></td></tr>
 <tr>
 <td>
 Xamarin, UWP, Blazor, .NET Core and .NET Platforms<br/></td><td>
