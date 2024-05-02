@@ -813,3 +813,152 @@ loadedDocument.Close(True)
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Redaction/Redact-text-content-alone-on-the-redated-area/).
+
+
+## Find text by regular expression pattern and redact it from PDF document.
+
+You can find text by regular expression pattern and redact it from PDF document using the [PdfRedaction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Redaction.PdfRedaction.html#Syncfusion_Pdf_Redaction_PdfRedaction__ctor_System_Drawing_RectangleF_) class.
+
+The following code snippet explains how to find text by regular expression pattern and redact it from PDF document.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+
+    //Create stream from an existing PDF document.
+    FileStream docStream = new FileStream(Path.GetFullPath("Input.pdf"), FileMode.Open, FileAccess.Read);
+
+    //Load the existing PDF document.
+    PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+    //Get the first page from the document.
+    PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+    TextLineCollection collection = new TextLineCollection();
+    //Extract text from first page.
+    string extractedText = page.ExtractText(out collection);
+
+    foreach (TextLine line in collection.TextLine)
+    {
+        foreach (TextWord word in line.WordCollection)
+        {
+            //Define regular expression pattern to search for dates in the format MM/DD/YYYY
+            string datePattern = @"\b\d{1,2}\/\d{1,2}\/\d{4}\b";
+            //Search for dates
+            MatchCollection dateMatches = Regex.Matches(word.Text, datePattern);
+            //Add redaction if the match found
+            foreach (Match dateMatch in dateMatches)
+            {
+                string textToFindAndRedact = dateMatch.Value;
+                if (textToFindAndRedact == word.Text)
+                {
+                    //Create a redaction object.
+                    PdfRedaction redaction = new PdfRedaction(word.Bounds, Syncfusion.Drawing.Color.Black);
+                    //Add a redaction object into the redaction collection of loaded page.
+                    page.AddRedaction(redaction);
+                }
+            }
+        }
+    }
+
+    //Redact the contents from the PDF document.
+    document.Redact();
+
+    //Creating the stream object
+    MemoryStream stream = new MemoryStream();
+    //Save the document
+    document.Save(stream);
+    //Close the document
+    document.Close(true);
+
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+
+    //Load a PDF document
+    PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+    //Get the first page from the document.
+    PdfLoadedPage page = document.Pages[0] as PdfLoadedPage;
+
+    TextLineCollection collection = new TextLineCollection();
+    //Extract text from first page.
+    string extractedText = page.ExtractText(out collection);
+
+    foreach (TextLine line in collection.TextLine)
+    {
+        foreach (TextWord word in line.WordCollection)
+        {
+            //Define regular expression pattern to search for dates in the format MM/DD/YYYY
+            string datePattern = @"\b\d{1,2}\/\d{1,2}\/\d{4}\b";
+            //Search for dates
+            MatchCollection dateMatches = Regex.Matches(word.Text, datePattern);
+            //Add redaction if the match found
+            foreach (Match dateMatch in dateMatches)
+            {
+                string textToFindAndRedact = dateMatch.Value;
+                if (textToFindAndRedact == word.Text)
+                {
+                    //Create a redaction object.
+                    PdfRedaction redaction = new PdfRedaction(word.Bounds, Syncfusion.Drawing.Color.Black);
+                    //Add a redaction object into the redaction collection of loaded page.
+                    page.Redactions.Add(redaction);
+                }
+            }
+        }
+    }
+    //Save and close the PDF document
+    document.Save("Output.pdf");
+    document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+
+'Create stream from an existing PDF document.
+        Dim docStream As New FileStream(Path.GetFullPath("Input.pdf"), FileMode.Open, FileAccess.Read)
+
+        'Load the existing PDF document.
+        Dim document As New PdfLoadedDocument(docStream)
+
+        'Get the first page from the document.
+        Dim page As PdfLoadedPage = TryCast(document.Pages(0), PdfLoadedPage)
+
+        Dim collection As New TextLineCollection()
+        'Extract text from first page.
+        Dim extractedText As String = page.ExtractText(collection)
+
+        For Each line As TextLine In collection.TextLine
+            For Each word As TextWord In line.WordCollection
+                'Define regular expression pattern to search for dates in the format MM/DD/YYYY
+                Dim datePattern As String = "\b\d{1,2}\/\d{1,2}\/\d{4}\b"
+                'Search for dates
+                Dim dateMatches As MatchCollection = Regex.Matches(word.Text, datePattern)
+                'Add redaction if the match found
+                For Each dateMatch As Match In dateMatches
+                    Dim textToFindAndRedact As String = dateMatch.Value
+                    If textToFindAndRedact = word.Text Then
+                        'Create a redaction object.
+                        Dim redaction As New PdfRedaction(word.Bounds, Syncfusion.Drawing.Color.Black)
+                        'Add a redaction object into the redaction collection of loaded page.
+                        page.AddRedaction(redaction)
+                    End If
+                Next
+            Next
+        Next
+
+        'Redact the contents from the PDF document.
+        document.Redact()
+
+        'Creating the stream object
+        Dim stream As New MemoryStream()
+        'Save the document
+        document.Save(stream)
+        'Close the document
+        document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub]().
