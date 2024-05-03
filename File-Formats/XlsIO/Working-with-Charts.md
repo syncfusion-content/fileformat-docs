@@ -691,6 +691,53 @@ serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen
 {% endhighlight %}
 {% endtabs %}
 
+### Different Data Label Properties
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+IChartSerie serieOne = chart.Series[0];
+
+//Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+//Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+//Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+IChartSerie serieOne = chart.Series[0];
+
+//Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+//Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+//Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Dim serieOne As IChartSerie = chart.Series(0)
+
+'Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+'Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet("B4:B6")
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = True
+
+'Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside
+
+{% endhighlight %}
+{% endtabs %}
+
 ### Different Legend Properties
 
 {% tabs %}
@@ -812,7 +859,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+  
+  //Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
 
+  //Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+  
   //Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom;
   chart.Legend.IsVerticalLegend = false;
@@ -905,6 +959,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+  
+  //Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+  //Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
 
   //Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom;
@@ -996,6 +1057,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
+
+  'Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet("B4:B6")
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = True
+
+  'Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside
 
   'Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom
