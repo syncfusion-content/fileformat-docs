@@ -20,6 +20,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Loads an xls file
     FileStream fileStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+    //Set the workbook version to xlsx
+    workbook.Version = ExcelVersion.Xlsx;
     
     //Saving the workbook as stream in xlsx format
     FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -37,6 +40,9 @@ using (ExcelEngine engine = new ExcelEngine())
     //Loads an xls file
     IWorkbook workbook = application.Workbooks.Open("InputTemplate.xls");
 
+    //Set the workbook version to xlsx
+    workbook.Version = ExcelVersion.Xlsx;
+
     //Saving the workbook in xlsx format
     workbook.SaveAs("Output.xlsx");
 }
@@ -47,10 +53,13 @@ Using engine As ExcelEngine = New ExcelEngine()
     Dim application As IApplication = engine.Excel
     application.DefaultVersion = ExcelVersion.Xlsx
 
-    ' Loads an xls file
+    'Loads an xls file
     Dim workbook As IWorkbook = application.Workbooks.Open("InputTemplate.xls")
 
-    ' Saving the workbook in xlsx format
+    'Set the workbook version to xlsx
+    workbook.Version = ExcelVersion.Xlsx;
+
+    'Saving the workbook in xlsx format
     workbook.SaveAs("Output.xlsx")
 End Using
 {% endhighlight %}
