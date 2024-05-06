@@ -961,4 +961,4 @@ The following code snippet explains how to find text by regular expression patte
 
 {% endtabs %}
 
-You can download a complete working sample from [GitHub]().
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PDF-Examples/tree/master/Redaction/Find-text-by-regular-expression-pattern-and-redact-it-from-PDF-document/.NET-Standard).
