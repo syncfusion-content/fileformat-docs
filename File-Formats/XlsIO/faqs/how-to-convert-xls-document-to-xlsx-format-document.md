@@ -18,7 +18,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     application.DefaultVersion = ExcelVersion.Xlsx;
     
     //Loads an xls file
-    FileStream fileStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+    FileStream fileStream = new FileStream("InputTemplate.xls", FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(fileStream);
 
     //Set the workbook version to xlsx
