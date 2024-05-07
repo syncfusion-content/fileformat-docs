@@ -691,6 +691,53 @@ serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen
 {% endhighlight %}
 {% endtabs %}
 
+### Different Data Label Properties
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+IChartSerie serieOne = chart.Series[0];
+
+//Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+//Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+//Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+IChartSerie serieOne = chart.Series[0];
+
+//Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+//Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+//Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Dim serieOne As IChartSerie = chart.Series(0)
+
+'Set data label as value.
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+'Set data label from the range of cells
+serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet("B4:B6")
+serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = True
+
+'Set the position of the data label
+serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside
+
+{% endhighlight %}
+{% endtabs %}
+
 ### Different Legend Properties
 
 {% tabs %}
@@ -812,7 +859,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+  
+  //Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
 
+  //Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+  
   //Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom;
   chart.Legend.IsVerticalLegend = false;
@@ -905,6 +959,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+  
+  //Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+  //Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
 
   //Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom;
@@ -996,6 +1057,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
   chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None
   chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
+
+  'Set data label from the range of cells
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet("B4:B6")
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = True
+
+  'Set the position of the data label
+  serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside
 
   'Set legend properties
   chart.Legend.Position = ExcelLegendPosition.Bottom
@@ -2109,6 +2177,216 @@ End Using
 {% endtabs %}
 
 A complete working example to fill chart area with picture in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Picture%20in%20Chart%20Area). 
+
+## Gradient Fill
+
+A gradient fill in a chart refers to the application of a smooth transition of colors across a chart element. Instead of a solid color, a gradient fill gradually blends one color into another, creating a visually appealing effect.
+
+The following code example explains how to apply gradient fill in the chart data series.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
+  
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:C6"];
+  chart.IsSeriesInRows = false;
+  
+  //Get Serie
+  IChartSerie serie1 = chart.Series[0];
+  IChartSerie serie2 = chart.Series[1];
+  
+  //Set Datalabels
+  serie1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  serie2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  serie1.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+  serie2.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+  
+  //Gradient fill for serie1
+  ChartFillImpl chartFillImpl1 = serie1.SerieFormat.Fill as ChartFillImpl;
+  chartFillImpl1.FillType = ExcelFillType.Gradient;
+  chartFillImpl1.GradientColorType = ExcelGradientColor.MultiColor;
+  serie1.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
+  GradientStopImpl gradientStopImpl1 = new GradientStopImpl(new ColorObject(Color.FromArgb(0, 176, 240)), 50000, 100000);
+  GradientStopImpl gradientStopImpl2 = new GradientStopImpl(new ColorObject(Color.FromArgb(0, 112, 192)), 70000, 100000);
+  chartFillImpl1.GradientStops.GradientType = GradientType.Liniar;
+  chartFillImpl1.GradientStops.Add(gradientStopImpl1);
+  chartFillImpl1.GradientStops.Add(gradientStopImpl2);
+  
+  //Gradient fill for serie2
+  ChartFillImpl chartFillImpl2 = serie2.SerieFormat.Fill as ChartFillImpl;
+  chartFillImpl2.FillType = ExcelFillType.Gradient;
+  chartFillImpl2.GradientColorType = ExcelGradientColor.MultiColor;
+  serie2.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
+  GradientStopImpl gradientStopImpl3 = new GradientStopImpl(new ColorObject(Color.FromArgb(244, 177, 131)), 40000, 100000);
+  GradientStopImpl gradientStopImpl4 = new GradientStopImpl(new ColorObject(Color.FromArgb(255, 102, 0)), 70000, 100000);
+  chartFillImpl2.GradientStops.GradientType = GradientType.Liniar;
+  chartFillImpl2.GradientStops.Add(gradientStopImpl3);
+  chartFillImpl2.GradientStops.Add(gradientStopImpl4);
+  
+  //Set Legend
+  chart.HasLegend = true;
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+  
+  //Positioning the chart in the worksheet
+  chart.TopRow = 8;
+  chart.LeftColumn = 1;
+  chart.BottomRow = 23;
+  chart.RightColumn = 8;
+  
+  //Saving the workbook
+  FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+  workbook.SaveAs(outputStream);
+  
+  //Dispose streams
+  outputStream.Dispose();
+  inputStream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+  IApplication application = engine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  IWorkbook workbook = application.Workbooks.Open("../../Data/InputTemplate.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:C6"];
+  chart.IsSeriesInRows = false;
+
+  //Get Serie
+  IChartSerie serie1 = chart.Series[0];
+  IChartSerie serie2 = chart.Series[1];
+
+  //Set Datalabels
+  serie1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  serie2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  serie1.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+  serie2.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+
+  //Gradient fill for serie1
+  ChartFillImpl chartFillImpl1 = serie1.SerieFormat.Fill as ChartFillImpl;
+  chartFillImpl1.FillType = ExcelFillType.Gradient;
+  chartFillImpl1.GradientColorType = ExcelGradientColor.MultiColor;
+  serie1.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
+  GradientStopImpl gradientStopImpl1 = new GradientStopImpl(new ColorObject(Color.FromArgb(0, 176, 240)), 50000, 100000);
+  GradientStopImpl gradientStopImpl2 = new GradientStopImpl(new ColorObject(Color.FromArgb(0, 112, 192)), 70000, 100000);
+  chartFillImpl1.GradientStops.GradientType = GradientType.Liniar;
+  chartFillImpl1.GradientStops.Add(gradientStopImpl1);
+  chartFillImpl1.GradientStops.Add(gradientStopImpl2);
+
+  //Gradient fill for serie2
+  ChartFillImpl chartFillImpl2 = serie2.SerieFormat.Fill as ChartFillImpl;
+  chartFillImpl2.FillType = ExcelFillType.Gradient;
+  chartFillImpl2.GradientColorType = ExcelGradientColor.MultiColor;
+  serie2.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal;
+  GradientStopImpl gradientStopImpl3 = new GradientStopImpl(new ColorObject(Color.FromArgb(244, 177, 131)), 40000, 100000);
+  GradientStopImpl gradientStopImpl4 = new GradientStopImpl(new ColorObject(Color.FromArgb(255, 102, 0)), 70000, 100000);
+  chartFillImpl2.GradientStops.GradientType = GradientType.Liniar;
+  chartFillImpl2.GradientStops.Add(gradientStopImpl3);
+  chartFillImpl2.GradientStops.Add(gradientStopImpl4);
+
+  //Set Legend
+  chart.HasLegend = true;
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+
+  //Positioning the chart in the worksheet
+  chart.TopRow = 8;
+  chart.LeftColumn = 1;
+  chart.BottomRow = 23;
+  chart.RightColumn = 8;
+
+  //Saving the workbook in xlsx format
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using engine As New ExcelEngine()
+  Dim application As IApplication = engine.Excel
+  application.DefaultVersion = ExcelVersion.Xlsx
+  Dim workbook As IWorkbook = application.Workbooks.Open("../../Data/InputTemplate.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create a Chart
+  Dim chart As IChartShape = sheet.Charts.Add()
+
+  'Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered
+
+  'Set data range in the worksheet
+  chart.DataRange = sheet.Range("A1:C6")
+  chart.IsSeriesInRows = False
+
+  'Get Serie
+  Dim serie1 As IChartSerie = chart.Series(0)
+  Dim serie2 As IChartSerie = chart.Series(1)
+
+  'Set Datalabels
+  serie1.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  serie2.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  serie1.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside
+  serie2.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside
+
+  'Gradient fill for serie1
+  Dim chartFillImpl1 As ChartFillImpl = TryCast(serie1.SerieFormat.Fill, ChartFillImpl)
+  chartFillImpl1.FillType = ExcelFillType.Gradient
+  chartFillImpl1.GradientColorType = ExcelGradientColor.MultiColor
+  serie1.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal
+  Dim gradientStopImpl1 As New GradientStopImpl(New ColorObject(Color.FromArgb(0, 176, 240)), 50000, 100000)
+  Dim gradientStopImpl2 As New GradientStopImpl(New ColorObject(Color.FromArgb(0, 112, 192)), 70000, 100000)
+  chartFillImpl1.GradientStops.GradientType = GradientType.Liniar
+  chartFillImpl1.GradientStops.Add(gradientStopImpl1)
+  chartFillImpl1.GradientStops.Add(gradientStopImpl2)
+
+  'Gradient fill for serie2
+  Dim chartFillImpl2 As ChartFillImpl = TryCast(serie2.SerieFormat.Fill, ChartFillImpl)
+  chartFillImpl2.FillType = ExcelFillType.Gradient
+  chartFillImpl2.GradientColorType = ExcelGradientColor.MultiColor
+  serie2.SerieFormat.Fill.GradientStyle = ExcelGradientStyle.Horizontal
+  Dim gradientStopImpl3 As New GradientStopImpl(New ColorObject(Color.FromArgb(244, 177, 131)), 40000, 100000)
+  Dim gradientStopImpl4 As New GradientStopImpl(New ColorObject(Color.FromArgb(255, 102, 0)), 70000, 100000)
+  chartFillImpl2.GradientStops.GradientType = GradientType.Liniar
+  chartFillImpl2.GradientStops.Add(gradientStopImpl3)
+  chartFillImpl2.GradientStops.Add(gradientStopImpl4)
+
+  'Set Legend
+  chart.HasLegend = True
+  chart.Legend.Position = ExcelLegendPosition.Bottom
+
+  'Positioning the chart in the worksheet
+  chart.TopRow = 8
+  chart.LeftColumn = 1
+  chart.BottomRow = 23
+  chart.RightColumn = 8
+
+  'Saving the workbook in xlsx format
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}  
+
+A complete working example for applying gradient fill in chart series in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Create%20and%20Edit%20Charts/Gradient%20Fill/NET%20Standard/Gradient%20Fill). 
 
 ## Applying 3D Formats
 
