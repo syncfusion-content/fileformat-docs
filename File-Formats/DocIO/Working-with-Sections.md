@@ -1,4 +1,4 @@
----
+![image](https://github.com/syncfusion-content/fileformat-docs/assets/97951305/5248efda-c6f9-4918-9c4d-63b4e9d7b08a)---
 title: Working with Sections in .NET Word (DocIO) library | Syncfusion
 description: Learn how to work with sections, headers, footers, and page settings in a Word document using the .NET Word (DocIO) library, without Microsoft Word.
 platform: file-formats
@@ -1528,3 +1528,5 @@ N> * And also, it is not feasible to get the page-wise details from Word documen
 * [How to add multiple page number formats in Word document?](https://www.syncfusion.com/kb/13701/how-to-add-multiple-page-number-formats-in-word-document)
 * [How to merge two Word documents without header and footer from the source document?](https://www.syncfusion.com/kb/13930/how-to-merge-two-word-documents-without-header-and-footer-from-the-source-document)
 * [How to add different header and footer for last page alone in the Word document?](https://www.syncfusion.com/kb/13948/how-to-add-different-header-and-footer-for-last-page-alone-in-the-word-document)
+* [How to modify the formatting for the default format of sections, paragraphs, and tables in a Word document?](https://support.syncfusion.com/kb/article/15884/how-to-modify-the-formatting-for-the-default-format-of-sections-paragraphs-and-tables-in-a-word-document?)
+* [Is it possible to fetch page numbers in a Word document using .NET Core DocIO?](https://support.syncfusion.com/kb/article/15907/is-it-possible-to-fetch-page-numbers-in-a-word-document-using-net-core-docio?)
