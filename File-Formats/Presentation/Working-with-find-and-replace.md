@@ -685,3 +685,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 ## See Also
 * [How to replace the hyperlink within a SmartArt in PowerPoint Presentation?](https://support.syncfusion.com/kb/article/15293/how-to-replace-the-hyperlink-within-a-smartart-in-powerpoint-presentation)
+* [How to replace a particular image with text in a PowerPoint Presentation?](https://support.syncfusion.com/kb/article/15652/how-to-replace-a-particular-image-with-text-in-a-powerpoint-presentation)
