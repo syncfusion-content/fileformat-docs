@@ -1,4 +1,4 @@
-![image](https://github.com/syncfusion-content/fileformat-docs/assets/97951305/463d2986-3e46-4066-a93e-7d719d77024b)---
+---
 title: Working with Paragraphs in .NET Word library | Syncfusion
 description: Learn how to work with paragraphs, lists, and child elements of paragraphs in a Word document using the .NET Word (DocIO) library.
 platform: file-formats
@@ -4351,3 +4351,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to resize list character in a Word document?](https://support.syncfusion.com/kb/article/12327/how-to-resize-list-character-in-a-word-document)
 * [How to modify the formatting for the default format of sections, paragraphs, and tables in a Word document?](https://support.syncfusion.com/kb/article/15884/how-to-modify-the-formatting-for-the-default-format-of-sections-paragraphs-and-tables-in-a-word-document?)
 * [How to extract images from tables in a Word document?](https://support.syncfusion.com/kb/article/15812/how-to-extract-images-from-tables-in-a-word-document)
+* [How to replace all OLE objects with text in a Word document?](https://support.syncfusion.com/kb/article/15654/how-to-replace-all-ole-objects-with-text-in-a-word-document)
