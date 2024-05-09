@@ -1,4 +1,4 @@
----
+![image](https://github.com/syncfusion-content/fileformat-docs/assets/97951305/d7374f27-b719-4425-a708-b591c8444e97)---
 title: Mail merge a Word document in C# | DocIO | Syncfusion
 description: Learn how to mail merge Word document to create reports (letters, envelopes, labels, invoice, payroll) using the .NET Word (DocIO) library.
 platform: file-formats
@@ -227,3 +227,5 @@ You can restart the list numbering in a Word document during Mail merge. For fur
 * [How to replace merge field with HTML string using Mail merge](https://support.syncfusion.com/kb/article/10252/how-to-replace-merge-field-with-html-string-using-mail-merge)
 * [How to mail merge Word document in Docker](https://support.syncfusion.com/kb/article/9397/how-to-mail-merge-word-document-in-docker)
 * [Is it possible to merge outer group fields placed within inner nested group using nested mail merge?](https://support.syncfusion.com/kb/article/12362/is-it-possible-to-merge-outer-group-fields-placed-within-inner-nested-group-using-nested)
+* [How to replace merge field with table using mail merge in Word document?](https://support.syncfusion.com/kb/article/15801/how-to-replace-merge-field-with-table-using-mail-merge-in-word-document)
+*  [How to use multiple documents as data sources for mail merge in a Word document?](https://support.syncfusion.com/kb/article/15775/how-to-use-multiple-documents-as-data-sources-for-mail-merge-in-a-word-document)
