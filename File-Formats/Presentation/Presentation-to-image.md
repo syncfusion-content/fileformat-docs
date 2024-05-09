@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Presentation to image conversion
 
-To quickly start converting a PowerPoint Presentation to an Image using .NET PowerPoint libray, please check out this video:
+To quickly start converting a PowerPoint Presentation to an Image using .NET PowerPoint library, please check out this video:
 {% youtube "https://www.youtube.com/watch?v=DcH9CptpYHg" %}
 
 ## .NET Framework
