@@ -2408,7 +2408,7 @@ hyperlink.ScreenTip = "To know more about Syncfusion products, go through this l
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a hyperlink for a website
+### Creating a hyperlink for a e-mail
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
