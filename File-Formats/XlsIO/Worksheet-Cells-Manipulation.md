@@ -2380,7 +2380,187 @@ Hyperlink can be created in a workbook to provide quick access to web pages, pla
 * E-mail
 * External files
 
-The following code example illustrates how to insert various hyperlinks.
+### Creating a hyperlink for a website
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink for a Website
+IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+hyperlink.Type = ExcelHyperLinkType.Url;
+hyperlink.Address = "http://www.syncfusion.com";
+hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink for a Website
+IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+hyperlink.Type = ExcelHyperLinkType.Url;
+hyperlink.Address = "http://www.syncfusion.com";
+hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink for a Website
+Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C5"))
+hyperlink.Type = ExcelHyperLinkType.Url
+hyperlink.Address = "http://www.Syncfusion.com"
+hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a hyperlink for a website
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink for e-mail
+IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+hyperlink1.Type = ExcelHyperLinkType.Url;
+hyperlink1.Address = "mailto:Username@syncfusion.com";
+hyperlink1.ScreenTip = "Send Mail";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink for e-mail
+IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+hyperlink1.Type = ExcelHyperLinkType.Url;
+hyperlink1.Address = "mailto:Username@syncfusion.com";
+hyperlink1.ScreenTip = "Send Mail";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink for e-mail
+Dim hyperlink1 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C7"))
+hyperlink1.Type = ExcelHyperLinkType.Url
+hyperlink1.Address = "mailto:Username@syncfusion.com"
+hyperlink1.ScreenTip = "Send Mail"
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a Hyperlink for Opening Files using type as File
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink for Opening Files using type as File
+IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+hyperlink2.Type = ExcelHyperLinkType.File;
+hyperlink2.Address = "C:/Program files";
+hyperlink2.ScreenTip = "File path";
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink for Opening Files using type as File
+IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+hyperlink2.Type = ExcelHyperLinkType.File;
+hyperlink2.Address = "C:/Program files";
+hyperlink2.ScreenTip = "File path";
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink for Opening Files using type as File
+Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
+hyperlink2.Type = ExcelHyperLinkType.File
+hyperlink2.Address = "C:/Program files"
+hyperlink2.ScreenTip = "File path"
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a Hyperlink for Opening Files using type as File
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink for Opening Files using type as File
+IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+hyperlink2.Type = ExcelHyperLinkType.File;
+hyperlink2.Address = "C:/Program files";
+hyperlink2.ScreenTip = "File path";
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink for Opening Files using type as File
+IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+hyperlink2.Type = ExcelHyperLinkType.File;
+hyperlink2.Address = "C:/Program files";
+hyperlink2.ScreenTip = "File path";
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink for Opening Files using type as File
+Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
+hyperlink2.Type = ExcelHyperLinkType.File
+hyperlink2.Address = "C:/Program files"
+hyperlink2.ScreenTip = "File path"
+hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a Hyperlink for Opening Files using type as Unc
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink for Opening Files using type as Unc
+IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+hyperlink3.Type = ExcelHyperLinkType.Unc;
+hyperlink3.Address = "C:/Documents and Settings";
+hyperlink3.ScreenTip = "Click here for files";
+hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink for Opening Files using type as Unc
+IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+hyperlink3.Type = ExcelHyperLinkType.Unc;
+hyperlink3.Address = "C:/Documents and Settings";
+hyperlink3.ScreenTip = "Click here for files";
+hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink for Opening Files using type as Unc
+Dim hyperlink3 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C11"))
+hyperlink3.Type = ExcelHyperLinkType.Unc
+hyperlink3.Address = "C:/Documents and Settings"
+hyperlink3.ScreenTip = "Click here for files"
+hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a Hyperlink for Opening Files using type as Unc
+
+{% tabs %}
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Creating a Hyperlink to another cell using type as Workbook
+IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+hyperlink4.Type = ExcelHyperLinkType.Workbook;
+hyperlink4.Address = "Sheet1!A15";
+hyperlink4.ScreenTip = "Click here";
+hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Creating a Hyperlink to another cell using type as Workbook
+IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+hyperlink4.Type = ExcelHyperLinkType.Workbook;
+hyperlink4.Address = "Sheet1!A15";
+hyperlink4.ScreenTip = "Click here";
+hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Creating a Hyperlink to another cell using type as Workbook
+Dim hyperlink4 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C13"))
+hyperlink4.Type = ExcelHyperLinkType.Workbook
+hyperlink4.Address = "Sheet1!A15"
+hyperlink4.ScreenTip = "Click here"
+hyperlink4.TextToDisplay = "Hyperlink to cell A15"
+{% endhighlight %}
+{% endtabs %}
+
+The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
