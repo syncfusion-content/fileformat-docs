@@ -1,12 +1,12 @@
 --- 
 title: Convert PPTX to Image in Google Cloud Platform (GCP) | Syncfusion 
-description: Learn how to convert a PPTX to image in Google Cloud Platform (GCP) using .NET Core PowerPoint library (Presentation) without Microsoft PowerPoint or interop dependencies. 
+description: Learn how to convert a PPTX to image in Google Cloud Platform (GCP) using .NET Core PowerPoint library (Presentation) in C#. 
 platform: file-formats 
 control: PowerPoint 
 documentation: UG 
 --- 
 
-# Convert PowerPoint Presentation to Image in Google Cloud Platform (GCP)
+# Convert PowerPoint to Image in Google Cloud Platform (GCP)
 
 Syncfusion PowerPoint is a [.NET Core PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net-core) used to create, read, edit and convert PowerPoint documents programmatically without **Microsoft PowerPoint** or interop dependencies. Using this library, you can **convert a PowerPoint Presentation to image in Google Cloud Platform (GCP)** within a few lines of code.
 
@@ -26,7 +26,7 @@ Google Cloud Platform<br/></th><th>
 NuGet package name<br/></th></tr></thead>
 <tr>
 <td>
-{{'[App Engine](https://help.syncfusion.com/file-formats/presentation/convert-powerpoint-presentation-to-image-in-google-app-engine)' | markdownify}}<br/></td><td>
+{{'[App Engine](https://help.syncfusion.com/file-formats/presentation/convert-powerpoint-to-image-in-google-app-engine)' | markdownify}}<br/></td><td>
 {{'[Syncfusion.PresentationRenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core)' | markdownify}}<br/>
 {{'[SkiaSharp.NativeAssets.Linux v2.88.6](https://www.nuget.org/packages/SkiaSharp.NativeAssets.Linux/2.88.6)' | markdownify}}<br/>{{'[HarfBuzzSharp.NativeAssets.Linux v7.3.0](https://www.nuget.org/packages/HarfBuzzSharp.NativeAssets.Linux/7.3.0)' |markdownify}} <br/></td></tr>
 </table>
