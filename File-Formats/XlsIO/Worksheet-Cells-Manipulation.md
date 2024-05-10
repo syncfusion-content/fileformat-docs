@@ -2467,37 +2467,6 @@ hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a Hyperlink for Opening Files using type as File
-
-{% tabs %}
-{% highlight c# tabtitle="C# [Cross-platform]" %}
-//Creating a Hyperlink for Opening Files using type as File
-IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
-hyperlink2.Type = ExcelHyperLinkType.File;
-hyperlink2.Address = "C:/Program files";
-hyperlink2.ScreenTip = "File path";
-hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
-{% endhighlight %}
-
-{% highlight c# tabtitle="C# [Windows-specific]" %}
-//Creating a Hyperlink for Opening Files using type as File
-IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
-hyperlink2.Type = ExcelHyperLinkType.File;
-hyperlink2.Address = "C:/Program files";
-hyperlink2.ScreenTip = "File path";
-hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
-{% endhighlight %}
-
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-'Creating a Hyperlink for Opening Files using type as File
-Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
-hyperlink2.Type = ExcelHyperLinkType.File
-hyperlink2.Address = "C:/Program files"
-hyperlink2.ScreenTip = "File path"
-hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
-{% endhighlight %}
-{% endtabs %}
-
 ### Creating a Hyperlink for Opening Files using type as Unc
 
 {% tabs %}
@@ -2529,7 +2498,7 @@ hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a Hyperlink for Opening Files using type as Unc
+### Creating a Hyperlink to another cell using type as Workbook
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
