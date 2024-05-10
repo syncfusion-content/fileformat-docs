@@ -24,7 +24,7 @@ Step 2: Name the project.
 ![Name the project](Loading-and-Saving_images/Loading-and-Saving_images_img2.png)
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
-* [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
+* [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)
 * [AWSSDK.S3](https://www.nuget.org/packages/AWSSDK.S3)
 
 ![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
@@ -150,7 +150,7 @@ Step 2: Name the project.
 ![Name the project](Loading-and-Saving_images/Loading-and-Saving_images_img6.png)
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
-* [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core)
+* [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)
 * [AWSSDK.S3](https://www.nuget.org/packages/AWSSDK.S3)
 
 ![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
