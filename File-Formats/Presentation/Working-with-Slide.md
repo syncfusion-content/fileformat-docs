@@ -451,6 +451,11 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 The Essential Presentation provides ability to clone slides from one Presentation to another Presentation. With this ability, you can split a large Presentation into small ones and also merge multiple presentations to one Presentation. You can choose the theme for the cloned slide by using the enum [PasteOption](https://help.syncfusion.com/cr/file-formats/Syncfusion.Presentation.PasteOptions.html).
 
+### Destination formatting
+This [PasteOption](https://help.syncfusion.com/cr/document-processing/Syncfusion.Presentation.PasteOptions.html) preserves the merged slide with formatting from the destination file during merging. 
+
+The following code sample explains how to merge slide with the destination formatting.
+
 {% tabs %}
 
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -510,6 +515,71 @@ destinationPresentation.Close()
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Merge-PowerPoint-slide).
+
+### Source formatting
+This [PasteOption](https://help.syncfusion.com/cr/document-processing/Syncfusion.Presentation.PasteOptions.html) preserves the merged slide with formatting from the source file during merging. 
+
+The following code sample explains how to merge slide with the source formatting.
+
+{% tabs %}
+
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+//Opens the source Presentation
+IPresentation sourcePresentation = Presentation.Open(SourcePresentationStream);
+//Opens the destination Presentation
+IPresentation destinationPresentation = Presentation.Open(destinationPresentationStream);
+//Clones the first slide of the source Presentation
+ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
+//Merges the cloned slide to the destination Presentation with paste option - Source formatting
+destinationPresentation.Slides.Add(clonedSlide, PasteOptions.SourceFormatting);
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+destinationPresentation.Save(outputStream);
+//Release all resources of the stream
+outputStream.Dispose();
+//Closes the source presentation
+sourcePresentation.Close();
+//Closes the destination Presentation
+destinationPresentation.Close();
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+//Opens the source Presentation
+IPresentation sourcePresentation = Presentation.Open("SourcePresentation.pptx");
+//Opens the destination Presentation
+IPresentation destinationPresentation = Presentation.Open("DestinationPresentation.pptx");
+//Clones the first slide of the source Presentation
+ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
+//Merges the cloned slide to the destination Presentation with paste option - Source formatting
+destinationPresentation.Slides.Add(clonedSlide, PasteOptions.SourceFormatting);
+//Saves the destination Presentation
+destinationPresentation.Save("Output.pptx");
+//Closes the source presentation
+sourcePresentation.Close();
+//Closes the destination Presentation
+destinationPresentation.Close();
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+'Opens the source Presentation
+Dim sourcePresentation_1 As IPresentation = Presentation.Open("SourcePresentation.pptx")
+'Opens the destination Presentation
+Dim destinationPresentation_1 As IPresentation = Presentation.Open("DestinationPresentation.pptx")
+'Clones the first slide of the source Presentation
+Dim clonedSlide As ISlide = sourcePresentation_1.Slides(0).Clone()
+'Merges the cloned slide to the destination Presentation with paste option - Source formatting
+destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.SourceFormatting)
+'Saves the destination Presentation
+destinationPresentation_1.Save("Output.pptx")
+'Closes the source presentation
+sourcePresentation.Close()
+'Closes the destination Presentation
+destinationPresentation.Close()
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Slides/Merge-PowerPoint-slide-with-Source-formatting/.NET).
 
 ## Removing slide
 
