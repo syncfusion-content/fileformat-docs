@@ -2380,7 +2380,7 @@ Hyperlink can be created in a workbook to provide quick access to web pages, pla
 * E-mail
 * External files
 
-### Creating a hyperlink for a website
+### Website URL Hyperlink
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2408,7 +2408,7 @@ hyperlink.ScreenTip = "To know more about Syncfusion products, go through this l
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a hyperlink for a e-mail
+### E-mail hyperlink
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2436,7 +2436,7 @@ hyperlink1.ScreenTip = "Send Mail"
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a Hyperlink for Opening Files using type as File
+### File Opening Hyperlink
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2467,7 +2467,7 @@ hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a Hyperlink for Opening Files using type as Unc
+### File opening hyperlink with Unc
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -2498,7 +2498,7 @@ hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a Hyperlink to another cell using type as Workbook
+### Worksheet Cell Hyperlink
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
