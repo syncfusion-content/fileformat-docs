@@ -1,5 +1,5 @@
 ---
-title: Working with ORC in PDF Document | Syncfusion
+title: Working with OCR in PDF Document | Syncfusion
 description: Learn how to perform OCR on scanned PDF documents and images with different tesseract versions using Syncfusion .NET OCR library.  
 platform: file-formats
 control: PDF
@@ -7,7 +7,7 @@ documentation: UG
 keywords: Assemblies 
 ---
 
-# Working with Optical Character Recognition (ORC) in PDF Document
+# Working with Optical Character Recognition (OCR) in PDF Document
 
 Optical character recognition (OCR) is a technology used to convert scanned paper documents in the form of PDF files or images into searchable and editable data.  
 
