@@ -853,98 +853,6 @@ Blink binaries (Version 109.0.5414.75),
 
 </table>
 
-## HTML to PDF Performance Benchmarks:
-
-### Environment Details:
-
- 
-
-OS Edition          : Windows 11 Enterprise
-
-Version               : 22H2
-
-Processor           : 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz   2.42 GHz
-
-Installed RAM    : 20.0 GB (19.7 GB usable)
-
-System type       : 64-bit operating system, x64-based processor
-
- 
-
-### Sample Details:
-
- 
-
-Application          : ASP.NET Core Web App (Model-View-Controller)
-
-Package Name   : Syncfusion.HtmlToPdfConverter.Net.Windows
-
-Version                : 25.1.35
-
-Sample Link        : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTMLToPDF_Demo_2-1367619702">https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTMLToPDF_Demo_2-1367619702</a>
-
-Output Files        : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OutputDocuments_1715564825">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OutputDocuments_1715564825</a>
-
-Input Files         : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/Input1125518413">https://www.syncfusion.com/downloads/support/directtrac/general/ze/Input1125518413</a>
-
-
-### Results:
-
-<table border="1">
-<th style="font-size:14px" width="100px">Input Page count</th>
-<th style="font-size:14px">Conversion time
-
-(Avg value of 5 conversions)
-</th>
-<th style="font-size:14px">Process Memory and CPU usage
-</th>
-<tr>
-    <td>10+ Pages</td>
-    <td>2.78 seconds</td>
-    <td>	
-Memory usage: 318 MB
-
-CPU usage: 10%</td>
-</tr>
-<tr>
-    <td>100+ pages</td>
-    <td>3.65 seconds</td>
-    <td>Memory usage: 367 MB
-
-CPU usage: 14%</td>
-</tr>
-<tr>
-    <td>1000+ pages</td>
-    <td>6.72 seconds</td>
-    <td>Memory usage: 813 MB
-
-CPU usage: 27%</td>
-</tr>
-<tr>
-    <td>10 documents with 100+ pages in a loop</td>
-    <td>30.52 seconds</td>
-    <td>	
-Memory usage: 663 MB
-
-CPU usage: 15%</td>
-</tr>
-<tr>
-    <td>10 documents with 1000+ pages in a loop</td>
-    <td>1 minute 10 seconds</td>
-    <td>	
-Memory usage: 2.2 GB
-
-CPU usage: 64%</td>
-</tr>
-</table>
-
-Note: The performance benchmark will vary depending on the following factors,
-
-<ol>
-  <li>External resources loaded in the HTML (Such as Images, Scripts, and Styles)</li>
-  <li>Network speed for online URL conversions.</li>
-  <li>Hardware resources (CPU and Memory)</li>
-</ol>
 
 ## There was an error opening this document. This file is already open or in use by another application.
 
@@ -1001,3 +909,96 @@ Dispose of the FileStream at the end of the process and ensure that the file or 
 </tr>
 
 </table>
+
+## HTML to PDF Performance Benchmarks:
+
+<h2>Environment Details:</h2>
+
+ 
+
+OS Edition          : Windows 11 Enterprise
+
+Version               : 22H2
+
+Processor           : 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz   2.42 GHz
+
+Installed RAM    : 20.0 GB (19.7 GB usable)
+
+System type       : 64-bit operating system, x64-based processor
+
+ 
+
+<h2>Sample Details:</h2>
+
+ 
+
+Application          : ASP.NET Core Web App (Model-View-Controller)
+
+Package Name   : Syncfusion.HtmlToPdfConverter.Net.Windows
+
+Version                : 25.1.35
+
+Sample Link        : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTMLToPDF_Demo_2-1367619702">https://www.syncfusion.com/downloads/support/directtrac/general/ze/HTMLToPDF_Demo_2-1367619702</a>
+
+Output Files        : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/OutputDocuments_1715564825">https://www.syncfusion.com/downloads/support/directtrac/general/ze/OutputDocuments_1715564825</a>
+
+Input Files         : <a href="https://www.syncfusion.com/downloads/support/directtrac/general/ze/Input1125518413">https://www.syncfusion.com/downloads/support/directtrac/general/ze/Input1125518413</a>
+
+
+<h2>Results:</h2>
+
+<table border="1">
+<th style="font-size:14px" width="100px">Input Page count</th>
+<th style="font-size:14px">Conversion time
+
+(Avg value of 5 conversions)
+</th>
+<th style="font-size:14px">Process Memory and CPU usage
+</th>
+<tr>
+    <td>10+ Pages</td>
+    <td>2.78 seconds</td>
+    <td>	
+Memory usage: 318 MB
+
+CPU usage: 10%</td>
+</tr>
+<tr>
+    <td>100+ pages</td>
+    <td>3.65 seconds</td>
+    <td>Memory usage: 367 MB
+
+CPU usage: 14%</td>
+</tr>
+<tr>
+    <td>1000+ pages</td>
+    <td>6.72 seconds</td>
+    <td>Memory usage: 813 MB
+
+CPU usage: 27%</td>
+</tr>
+<tr>
+    <td>10 documents with 100+ pages in a loop</td>
+    <td>30.52 seconds</td>
+    <td>	
+Memory usage: 663 MB
+
+CPU usage: 15%</td>
+</tr>
+<tr>
+    <td>10 documents with 1000+ pages in a loop</td>
+    <td>1 minute 10 seconds</td>
+    <td>	
+Memory usage: 2.2 GB
+
+CPU usage: 64%</td>
+</tr>
+</table>
+
+N> The performance benchmark will vary depending on the following factors,
+<ol>
+  <li>External resources loaded in the HTML (Such as Images, Scripts, and Styles)</li>
+  <li>Network speed for online URL conversions.</li>
+  <li>Hardware resources (CPU and Memory)</li>
+</ol>
+
