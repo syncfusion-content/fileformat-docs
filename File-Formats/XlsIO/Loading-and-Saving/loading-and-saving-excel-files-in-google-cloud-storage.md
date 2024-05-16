@@ -1,20 +1,22 @@
 ---
-title: Loading and saving Excel document in Azure Cloud Storage | Syncfusion
-description: Explains how to load and save Excel files in Azure Cloud Storage using .NET Core Excel (XlsIO) library without Microsoft Excel or interop dependencies.
+title: Loading and saving Excel document in Google Cloud Storage | Syncfusion
+description: Explains how to load and save Excel files in Google Cloud Storage using .NET Core Excel (XlsIO) library without Microsoft Excel or interop dependencies.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# Loading and Saving Excel document in Azure Cloud Storage
+# Loading and Saving Excel document in Google Cloud Storage
 
 ## Prerequisites 
-* **[Microsoft Azure subscription](https://portal.azure.com/#home)** is required. 
+* **[Google cloud storage](https://cloud.google.com/storage/docs/creating-buckets)** is required. 
 
-* **[Azure Cloud Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** is required. 
+* **[Service account](https://cloud.google.com/iam/docs/service-accounts-create)** is required.
 
-## Loading Excel document from Azure
+* **[Service account key](https://cloud.google.com/iam/docs/keys-create-delete#creating)** is required.
 
-Steps to load an Excel document from Azure Cloud Storage.
+## Loading Excel document from Google Cloud
+
+Steps to load an Excel document from Google Cloud Storage.
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
@@ -26,10 +28,10 @@ Step 2: Name the project.
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
 * [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)
-* [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Google.Cloud.Storage.V1](https://www.nuget.org/packages/Google.Cloud.Storage.V1)
 
 ![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
-![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img4.png)
+![Install Google.Cloud.Storage.V1 NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img9.png)
 
 Step 4: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
@@ -37,7 +39,7 @@ Step 4: Add a new button in the **Index.cshtml** as shown below.
 @{Html.BeginForm("EditDocument", "Home", FormMethod.Get);
     {
         <div>
-            <input type="submit" value="Edit Document" style="width:150px;height:27px" />
+            <input type="submit" value="Download Document" style="width:170px;height:27px" />
         </div>
     }
     Html.EndForm();
@@ -49,82 +51,73 @@ Step 5: Include the following namespaces in **HomeController.cs**.
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
+using Google.Cloud.Storage.V1;
+using Google.Apis.Auth.OAuth2;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Include the below code snippet in **HomeController.cs** to **load an Excel document from Azure Cloud Storage**.
+Step 6: Include the below code snippet in **HomeController.cs** to **load an Excel document from Google Cloud Storage**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
-// Your Azure Storage Account connection string
-string connectionString = "Your_connection_string";
+//Your bucket name
+string bucketName = "Your_bucket_name";
 
-// Name of the Azure Blob Storage container
-string containerName = "Your_container_name";
+//Your service account key path
+string keyPath = "Your_service_account_key_path";
 
-// Name of the Excel file you want to load
-string blobName = "Your_blob_name";
+//Name of the file to download from the Google Cloud Storage
+string fileName = "Your_file_name";
 
-// Download the Excel document from Azure Blob Storage
-BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
-BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-BlobClient blobClient = containerClient.GetBlobClient(blobName);
-try
+//Create Google Credential from the service account key file
+GoogleCredential credential = GoogleCredential.FromFile(keyPath);
+
+//Instantiates a storage client to interact with Google Cloud Storage
+StorageClient storageClient = StorageClient.Create(credential);
+
+//Download a file from Google Cloud Storage
+using (MemoryStream memoryStream = new MemoryStream())
 {
-    // Download the Excel file
-    BlobDownloadInfo download = await blobClient.DownloadAsync();
+    await storageClient.DownloadObjectAsync(bucketName, fileName, memoryStream);
+    memoryStream.Position = 0;
 
-    // Edit the downloaded Excel
-    using (Stream fileStream = new MemoryStream())
+    //Edit the downloaded Excel file
+    using (ExcelEngine excelEngine = new ExcelEngine())
     {
-        await download.Content.CopyToAsync(fileStream);
-        fileStream.Position = 0;
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Excel2016;
 
-        //Create an instance of ExcelEngine
-        using (ExcelEngine excelEngine = new ExcelEngine())
-        {
-            IApplication application = excelEngine.Excel;
-            application.DefaultVersion = ExcelVersion.Excel2016;
+        //Loads the downloaded document
+        IWorkbook workbook = application.Workbooks.Open(memoryStream);
 
-            //Load the downloaded document
-            IWorkbook workbook = application.Workbooks.Open(fileStream);
+        IWorksheet worksheet = workbook.Worksheets[0];
+        worksheet.Range["A3"].Text = "Hello world";
 
-            IWorksheet worksheet = workbook.Worksheets[0];
-            worksheet.Range["A3"].Text = "Hello world";
+        //Saving the Excel to the MemoryStream 
+        MemoryStream outputStream = new MemoryStream();
+        workbook.SaveAs(outputStream);
 
-            //Saving the Excel to the MemoryStream 
-            MemoryStream outputStream = new MemoryStream();
-            workbook.SaveAs(outputStream);
+        //Set the position as '0'.
+        outputStream.Position = 0;
 
-            //Set the position as '0'.
-            outputStream.Position = 0;
-
-            //Download the Excel file in the browser
-            FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/excel");
-            fileStreamResult.FileDownloadName = "EditExcel.xlsx";
-            return fileStreamResult;
-        }
+        //Download the Excel file in the browser
+        FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/excel");
+        fileStreamResult.FileDownloadName = "EditExcel.xlsx";
+        return fileStreamResult;
     }
-}
-catch (Exception ex)
-{
-    Console.WriteLine($"Error: {ex.Message}");
-    return Content("Error occurred while processing the file.");
 }
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to load an Excel document from Azure Cloud Storage in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Loading%20and%20Saving/Azure%20Blob%20Storage/Loading/Edit%20Excel).
+A complete working example of how to load an Excel document from Google Cloud Storage in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Loading%20and%20Saving/Google%20Cloud/Loading/Edit%20Excel).
 
 By executing the program, you will get the **Excel document** as follows.
 
 ![Output File](Loading-and-Saving_images/Loading-and-Saving_images_img5.png)
 
-## Saving Excel document to Azure
+## Saving Excel document to Google Cloud
 
-Steps to save an Excel document to Azure Cloud Storage.
+Steps to save an Excel document to Google Cloud Storage.
 
 Step 1: Create a new ASP.NET Core Web Application (Model-View-Controller).
 
@@ -136,10 +129,10 @@ Step 2: Name the project.
 
 Step 3: Install the following **Nuget packages** in your application from [NuGet.org](https://www.nuget.org/).
 * [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core)
-* [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Google.Cloud.Storage.V1](https://www.nuget.org/packages/Google.Cloud.Storage.V1)
 
 ![Install Syncfusion.XlsIO.Net.Core NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img3.png)
-![Install Azure.Storage.Blobs NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img4.png)
+![Install Google.Cloud.Storage.V1 NuGet Package](Loading-and-Saving_images/Loading-and-Saving_images_img9.png)
 
 Step 4: Add a new button in the **Index.cshtml** as shown below.
 {% tabs %}  
@@ -160,11 +153,12 @@ Step 5: Include the following namespaces in **HomeController.cs**.
 {% highlight c# tabtitle="C#" %}
 using Syncfusion.XlsIO;
 using Syncfusion.Drawing;
-using Azure.Storage.Blobs;
+using Google.Cloud.Storage.V1;
+using Google.Apis.Auth.OAuth2;
 {% endhighlight %}
 {% endtabs %}
 
-Step 6: Include the below code snippet in **HomeController.cs** to **Save an Excel document to Azure Cloud Storage**.
+Step 6: Include the below code snippet in **HomeController.cs** to **Save an Excel document to Google Cloud Storage**.
 
 {% tabs %}
 {% highlight c# tabtitle="C#" %}
@@ -346,28 +340,30 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Set the position as '0'.
     stream.Position = 0;
 
-    // Your Azure Storage Account connection string
-    string connectionString = "Your_connection_string";
+    //Your bucket name
+    string bucketName = "Your_bucket_name";
 
-    // Name of the Azure Blob Storage container
-    string containerName = "Your_container_name";
+    //Your service account key path
+    string keyPath = "Your_service_account_key_path";
 
-    // Name of the Excel file you want to upload
-    string blobName = "CreateExcel.xlsx";
+    //Name of the file to upload to Google Cloud Storage
+    string fileName = "Your_file_name";
 
-    // Upload the Excel document to Azure Blob Storage
-    BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
-    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
-    blobClient.Upload(stream, true);
+    //Create Google Credential from the service account key file
+    GoogleCredential credential = GoogleCredential.FromFile(keyPath);
 
-    return Ok("Excel document uploaded to Azure Blob Storage.");
+    //Instantiates a storage client to interact with Google Cloud Storage
+    StorageClient storageClient = StorageClient.Create(credential);
 
+    //Uploads a file to Google Cloud Storage
+    storageClient.UploadObject(bucketName, fileName, null, stream);
+    
+    return Ok($"Uploaded {fileName} to {bucketName}.");
 }
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to save an Excel document to Azure Cloud Storage in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Loading%20and%20Saving/Azure%20Blob%20Storage/Saving/Create%20Excel).
+A complete working example of how to save an Excel document to Google Cloud Storage in ASP.NET Core is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Loading%20and%20Saving/Google%20Cloud/Saving/Create%20Excel).
 
 By executing the program, you will get the **Excel document** as follows.
 
@@ -376,4 +372,3 @@ By executing the program, you will get the **Excel document** as follows.
 Click [here](https://www.syncfusion.com/document-processing/excel-framework/net-core) to explore the rich set of Syncfusion Excel library (XlsIO) features.
 
 An online sample link to [create an Excel document](https://ej2.syncfusion.com/aspnetcore/Excel/Create#/material3) in ASP.NET Core.
-

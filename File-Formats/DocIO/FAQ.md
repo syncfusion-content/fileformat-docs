@@ -1212,7 +1212,7 @@ doc.Close()
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-using-OleDbConnection).
 
-N> For more information on Mail merge using DocIO, you can refer to online documentation link: [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
+N> For more information on Mail merge using DocIO, you can refer to online documentation link: [MailMerge](/File-Formats/DocIO/Working-with-mail-merge)
 
 ### Find and Replace
 
@@ -2432,7 +2432,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 
 * In production environment (hosted server machine), ensure whether the Visual C++ Redistributable is properly installed.
 
-    [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53840) and install Visual C++, if not installed.
+    [Download](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) and install Visual C++, if not installed.
 
 ## How to set title when converting Word document to EPUB
 
