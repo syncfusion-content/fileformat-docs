@@ -374,3 +374,6 @@ pptxDoc.Close()
 {% endtabs %}
 
 You can download a complete working sample from [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/OLE-objects/Get-OLE-image-data).
+
+## See Also
+* [How to replace all OLE objects with text in PowerPoint using C#?](https://support.syncfusion.com/kb/article/15653/how-to-replace-all-ole-objects-with-text-in-powerpoint-using-c)

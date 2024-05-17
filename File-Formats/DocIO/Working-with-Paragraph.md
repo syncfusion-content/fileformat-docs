@@ -4349,3 +4349,6 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 * [How to find and modify hyperlink address in Word document?](https://support.syncfusion.com/kb/article/12198/find-and-modify-hyperlink-address-in-word-document)
 * [How to change the character/symbol used for bullet points in Word document?](https://support.syncfusion.com/kb/article/12099/how-to-change-the-character-symbol-used-for-bullet-points-in-word-document)
 * [How to resize list character in a Word document?](https://support.syncfusion.com/kb/article/12327/how-to-resize-list-character-in-a-word-document)
+* [How to modify the formatting for the default format of sections, paragraphs, and tables in a Word document?](https://support.syncfusion.com/kb/article/15884/how-to-modify-the-formatting-for-the-default-format-of-sections-paragraphs-and-tables-in-a-word-document?)
+* [How to extract images from tables in a Word document?](https://support.syncfusion.com/kb/article/15812/how-to-extract-images-from-tables-in-a-word-document)
+* [How to replace all OLE objects with text in a Word document?](https://support.syncfusion.com/kb/article/15654/how-to-replace-all-ole-objects-with-text-in-a-word-document)
