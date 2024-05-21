@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Axis
+# Chart Axis in Excel document
 
 Charts typically have two axes that are used to measure and categorize data.
 -  Horizontal axis (also known as category axis or x axis).
@@ -34,9 +34,9 @@ chart.PrimaryValueAxis.Title = "Precipitation,in.";
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Set the horizontal (category) axis title.
+'Set the horizontal (category) axis title.
 chart.PrimaryCategoryAxis.Title = "Months"
-' Set the vertical (value) axis title.
+'Set the vertical (value) axis title.
 chart.PrimaryValueAxis.Title = "Precipitation,in."
 {% endhighlight %}
 {% endtabs %}
@@ -71,12 +71,12 @@ chart.PrimaryValueAxis.Border.LineWeight = ExcelChartLineWeight.Hairline;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Customize the horizontal category axis.
+'Customize the horizontal category axis.
 chart.PrimaryCategoryAxis.Border.LinePattern = ExcelChartLinePattern.CircleDot
 chart.PrimaryCategoryAxis.Border.LineColor = Color.Blue
 chart.PrimaryCategoryAxis.Border.LineWeight = ExcelChartLineWeight.Hairline
 
-' Customize the vertical value axis.
+'Customize the vertical value axis.
 chart.PrimaryValueAxis.Border.LinePattern = ExcelChartLinePattern.CircleDot
 chart.PrimaryValueAxis.Border.LineColor = Color.Blue
 chart.PrimaryValueAxis.Border.LineWeight = ExcelChartLineWeight.Hairline
@@ -117,13 +117,13 @@ chart.PrimaryValueAxis.Font.Size = 20;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Customize the horizontal category axis font.
+'Customize the horizontal category axis font.
 chart.PrimaryCategoryAxis.Font.Color = ExcelKnownColors.Red
 chart.PrimaryCategoryAxis.Font.FontName = "Calibri"
 chart.PrimaryCategoryAxis.Font.Bold = True
 chart.PrimaryCategoryAxis.Font.Size = 20
 
-' Customize the vertical value axis font.
+'Customize the vertical value axis font.
 chart.PrimaryValueAxis.Font.Color = ExcelKnownColors.Red
 chart.PrimaryValueAxis.Font.FontName = "Calibri"
 chart.PrimaryValueAxis.Font.Bold = True
@@ -147,7 +147,7 @@ chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Axis title area text angle rotation.
+'Axis title area text angle rotation.
 chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90
 {% endhighlight %}
 {% endtabs %}
@@ -321,13 +321,13 @@ chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Set MaxCross for the secondary value axis.
+'Set MaxCross for the secondary value axis.
 chart.SecondaryValueAxis.IsMaxCross = True
 
-' Set the axis title for the secondary value axis.
+'Set the axis title for the secondary value axis.
 chart.SecondaryValueAxis.Title = "Temperature,deg.F"
 
-' Set the axis title area text rotation angle for the secondary value axis.
+'Set the axis title area text rotation angle for the secondary value axis.
 chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90
 {% endhighlight %}
 {% endtabs %}
@@ -366,16 +366,16 @@ chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabel
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Set MaxCross for the secondary category axis.
+'Set MaxCross for the secondary category axis.
 chart.SecondaryCategoryAxis.IsMaxCross = True
 
-' Select the border line color and make it transparent.
+'Select the border line color and make it transparent.
 chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
 
-' Select the major tick mark option as Cross.
+'Select the major tick mark option as Cross.
 chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_Cross
 
-' Select the tick label position as None.
+'Select the tick label position as None.
 chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
 {% endhighlight %}
 {% endtabs %}

@@ -2042,31 +2042,31 @@ The following image illustrates the basic elements of a chart.
 
 #### Chart Title
 
-Customize the Chart title by its name, appearnce, and resizing it using Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xlsio/charts/chart-title).
+Customize the Chart title by its name, appearance, and resizing it using Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart  Area
 
-Customize the chart area by changing its border, colors, transparency, and more using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xlsio/charts/chart-area).
+Customize the chart area by changing its border, colors, transparency, and more using the Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart Plot Area
 
-Customize the chart plot area by changing its border, colors, transparency, position and adding image using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xlsio/charts/chart-plot-area).
+Customize the chart plot area by changing its border, colors, transparency, position and adding image using the Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart Series
 
-Customize the chart series by changing the series name, type, color, border, and more using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xlsio/charts/chart-series).
+Customize the chart series by changing the series name, type, color, border, and more using the Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart Legend
 
-Customize the chart legend by changing the position, border, and modifying the legend entry using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xsio/charts/chart-legend).
+Customize the chart legend by changing the position, border, and modifying the legend entry using the Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart Data Labels
 
-Customize the chart data labels by changing the position, size and more using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/xlsio/charts/chart-data-labels).
+Customize the chart data labels by changing the position, size and more using the Excel (XlsIO) library. For further information, click [here]().
 
 #### Chart Axis
 
-Customize the chart axes by changing the title, border, font, rotation angle and more using the Excel (XlsIO) library. For further information, click [here](https://help.syncfusion.com/file-formats/docio/charts/chart-axi).
+Customize the chart axes by changing the title, border, font, rotation angle and more using the Excel (XlsIO) library. For further information, click [here]().
 
 ## Removing a Chart
 

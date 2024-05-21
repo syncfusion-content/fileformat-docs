@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Plot Area
+# Chart Plot Area in Excel document
 
 The plot area refers to the region that represents the plotted data in a chart. Using XlsIO, you can **customize the plot area in the chart**.
 
@@ -269,7 +269,7 @@ chartPlotArea.Fill.Transparency = 0.5;
 {% endhighlight %}
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
-' Set the transparency of the plot area.
+'Set the transparency of the plot area.
 chartPlotArea.Fill.Transparency = 0.5
 
 {% endhighlight %}
@@ -307,3 +307,7 @@ chartPlotArea.Layout.LayoutTarget = LayoutTargets.outer
 
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+* [How to set shadows for plot area or axis in chart using XlsIO?](https://support.syncfusion.com/kb/article/7667/how-to-set-shadows-for-plot-area-or-axis-in-chart-using-xlsio)
+* [How to position and re-size a plot area of chart using WinForms XlsIO?](https://support.syncfusion.com/kb/article/4796/how-to-position-and-re-size-a-plot-area-of-chart-using-winforms-xlsio)

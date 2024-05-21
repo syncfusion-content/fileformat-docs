@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Series
+# Chart Series in Excel document
 
 In a chart, a **series** represents a set of related data points, often depicted using lines, bars, or markers to show data trends or comparisons. Using XlsIO, you can **customize the series in the chart**.
 
@@ -441,9 +441,14 @@ chart.Series[0].SerieFormat.MarkerForegroundColor = Color.Black;
 ' Set the marker style of the first series in the chart.
 chart.Series(0).SerieFormat.MarkerStyle = ExcelChartMarkerType.Star
 
-' Customize the marker style.
+'Customize the marker style.
 chart.Series(0).SerieFormat.MarkerSize = 8
 chart.Series(0).SerieFormat.MarkerBackgroundColor = Color.Red
 chart.Series(0).SerieFormat.MarkerForegroundColor = Color.Black
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+* [How to filter Excel chart series in C#, VB.NET?](https://support.syncfusion.com/kb/article/7509/how-to-filter-excel-chart-series-in-c-vb-net)
+* [How to change Excel chart series color in C#, VB.NET?](https://support.syncfusion.com/kb/article/2733/how-to-change-excel-chart-series-color-in-c-vbnet)
+* [How to set trendlines for Excel chart series in C#, VB.NET?](https://support.syncfusion.com/kb/article/7532/how-to-set-trendlines-for-excel-chart-series-in-c-vb-net)

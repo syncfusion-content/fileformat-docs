@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Data Labels
+# Chart Data Labels in Excel document
 
 Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using DocIO, you can **customize the data labels in the chart**.
 
@@ -26,7 +26,7 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Enable the datalabel in chart.
+'Enable the datalabel in chart.
 chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 {% endhighlight %}
 {% endtabs %}
@@ -200,12 +200,17 @@ chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 3;
 {% endhighlight %}
 
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-' Manually resizing data label area using Layout.
+'Manually resizing data label area using Layout.
 chart.Series(0).DataPoints(0).DataLabels.Layout.Left = 3
 chart.Series(0).DataPoints(0).DataLabels.Layout.Top = 3
 
-' Manually resizing data label area using Manual Layout.
+'Manually resizing data label area using Manual Layout.
 chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Left = 3
 chart.Series(0).DataPoints(0).DataLabels.Layout.ManualLayout.Top = 3
 {% endhighlight %}
 {% endtabs %}
+
+## See Also
+* [Add Excel chart data labels with formula in C#, VB.NET using XlsIO](https://support.syncfusion.com/kb/article/10222/add-excel-chart-data-labels-with-formula-in-c-vb-net-using-xlsio)
+* [Format Excel chart data label in C#, VB.NET](https://support.syncfusion.com/kb/article/2731/format-excel-chart-data-label-in-c-vb-net)
+* [How to set the DataLabel position for chart series using XlsIO?](https://support.syncfusion.com/kb/article/2563/how-to-set-the-datalabel-position-for-chart-series-using-xlsio)

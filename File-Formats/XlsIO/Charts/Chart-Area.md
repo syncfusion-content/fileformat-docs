@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Area
+# Chart Area in Excel document
 
 Chart area refers to the space that contains the entire chart or graph within a document. It includes all elements of the chart, such as data points, labels, axes, and the plot area. Using XlsIO, you **can customize various aspects of the chart area in the chart**.
 
@@ -16,7 +16,6 @@ The following code snippet illustrates how to modify the border of the chart are
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-
 //Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
@@ -24,10 +23,9 @@ IChartFrameFormat chartArea = chart.ChartArea;
 chartArea.Border.LinePattern = ExcelChartLinePattern.Solid;
 chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
 chartArea.Border.LineWeight = ExcelChartLineWeight.Hairline;
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-
 //Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
@@ -35,10 +33,9 @@ IChartFrameFormat chartArea = chart.ChartArea;
 chartArea.Border.LinePattern = ExcelChartLinePattern.Solid;
 chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
 chartArea.Border.LineWeight = ExcelChartLineWeight.Hairline;
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea
 
@@ -46,7 +43,6 @@ IChartFrameFormat chartArea = chart.ChartArea
 chartArea.Border.LinePattern = ExcelChartLinePattern.Solid
 chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue
 chartArea.Border.LineWeight = ExcelChartLineWeight.Hairline
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -56,31 +52,27 @@ The following code snippet illustrates how to fill the color in chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-
 //Set fill type and fill colors.
 chartArea.Fill.FillType = ExcelFillType.Gradient;
 chartArea.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-
 //Set fill type and fill colors.
 chartArea.Fill.FillType = ExcelFillType.Gradient;
 chartArea.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
-
 {% endhighlight %}
-{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
 'Set fill type and fill colors.
 chartArea.Fill.FillType = ExcelFillType.Gradient
 chartArea.Fill.GradientColorType = ExcelGradientColor.TwoColor
 chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234)
 chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White
-
 {% endhighlight %}
 {% endtabs %}
 
@@ -118,6 +110,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   inputStream.Dispose();
 }
 {% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -262,23 +255,22 @@ The following code snippet illustrates how to apply transparency in chart area.
 
 {% tabs %}
 {% highlight c# tabtitle="C# [Cross-platform]" %}
-
-// Set the transparency of the chart area.
+//Set the transparency of the chart area.
 chartArea.Fill.Transparency = 0.5;
-
 {% endhighlight %}
+
 {% highlight c# tabtitle="C# [Windows-specific]" %}
-
-// Set the transparency of the chart area.
+//Set the transparency of the chart area.
 chartArea.Fill.Transparency = 0.5;
-
 {% endhighlight %}
+
 {% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
-
-' Set the transparency of the chart area.
+'Set the transparency of the chart area.
 chartArea.Fill.Transparency = 0.5
-
 {% endhighlight %}
 {% endtabs %}
 
 N> [Transparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_Transparency) is only applicable when [FillType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IFill.html#Syncfusion_XlsIO_IFill_FillType) is set as SolidColor. Color-shaded fill is represented as a floating-point value ranging from 0.0 (Clear) to 1.0 (Opaque).
+
+## See Also
+* [How to create Excel area chart in C#, VB.NET?](https://support.syncfusion.com/kb/article/7478/how-to-create-excel-area-chart-in-c-vb-net)

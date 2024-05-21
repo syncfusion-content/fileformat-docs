@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart Legend
+# Chart Legend in Excel document
 
 Legends are visual pictorial hints that provide a viewer information that helps them understand an chart. Using DocIO, you can **customize the legend in the chart**.
 
@@ -420,3 +420,7 @@ End Using
 {% endtabs %}
 
 A complete working example to format the legend in C# is present on [this GitHub page]().
+
+## See Also
+* [How to delete Excel chart legend in C#, VB.NET?](https://support.syncfusion.com/kb/article/7525/how-to-delete-excel-chart-legend-in-c-vb-net)
+* [Show or hide Excel chart legend in C#, VB.NET](https://support.syncfusion.com/kb/article/2564/show-or-hide-excel-chart-legend-in-c-vb-net)
