@@ -1,6 +1,6 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
-description: In this section, you can learn how to create and use conditional formatting operations in Excel using XlsIO
+description: In this section, you can learn how to create and use conditional formatting operations in an Excel document using XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -89,7 +89,7 @@ condition1.IsItalic = True
 {% endhighlight %}
 {% endtabs %}
 
-The following code example illustrates how to create and applies various differenent conditinal formats for different ranges in XlsIO.
+The following code example illustrates how to create and applies various different conditional formats for different ranges in XlsIO.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -274,7 +274,7 @@ By executing the program, you will get the Excel file as below
 
 XlsIO also reads conditional formats from an existing Excel workbook. 
 
-The following code example illustrates how to read existing condiitional formatting.
+The following code example illustrates how to read existing conditional formatting.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}

@@ -514,6 +514,6 @@ End Using
 
 A complete working example to format values with advanced conditional formatting options like data bars, color scales, icon sets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Advanced%20Conditional%20Formats).
 
-![Advanced conditional Formatting](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg)
+![Advanced conditional Formatting](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg)
 
 N> XlsIO visualization has been enhanced with backward compatibility for Advanced Conditional Formatting.

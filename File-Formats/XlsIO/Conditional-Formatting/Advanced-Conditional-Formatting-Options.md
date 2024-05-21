@@ -1,6 +1,6 @@
 ---
 title: Advanced Conditional Formatting Options| Excel library | Syncfusion
-description: In this section, you can learn how to use advanced conditional formatting options in Excel using XlsIO
+description: In this section, you can learn how to use advanced conditional formatting options in an Excel document using XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
@@ -267,7 +267,7 @@ The properties of **ITopBottom** interface are:
 
 The following screenshot represents the input template of conditional formatting.
 
-![Conditional formatting input template](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
+![Conditional formatting input template](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png)
 
 ### Top/Bottom ‘n’ rank values
 
@@ -371,7 +371,7 @@ A complete working example to format top and bottom rank values in C# is present
 
 By executing the program, you will get the Excel file as below
 
-![Top or Bottom conditional format](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
+![Top or Bottom conditional format](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
 
 N> **ITopBottom** **Rank** value should be in a range between 1 and 1000.
 
@@ -486,7 +486,7 @@ A complete working example to format top and bottom rank percentage in C# is pre
 
 By executing the program, you will get the Excel file as below
 
-![Top or Bottom conditional format](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
+![Top or Bottom conditional format](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png)
 
 N> **ITopBottom** **Rank** value should be in a range between 1 and 100 when set true to **Percent** property.
 
@@ -593,7 +593,7 @@ A complete working example to format above and below average values in C# is pre
 
 By executing the program, you will get the Excel file as below
 
-![Above or Below Average conditional format](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png)
+![Above or Below Average conditional format](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png)
 
 ### Above or Below Standard Deviation values
 
@@ -700,6 +700,6 @@ A complete working example to format above and below standard deviation values i
 
 By executing the program, you will get the Excel file as below
 
-![Above or Below Average conditional format](/Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png)
+![Above or Below Average conditional format](../Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png)
 
 N> **IAboveBelowAverage** **StdDevValue** can be applied only if the **AverageType** is **AboveStdDev** or **BelowStdDev**. The **StdDevValue** value should be in a range between 1 and 3.

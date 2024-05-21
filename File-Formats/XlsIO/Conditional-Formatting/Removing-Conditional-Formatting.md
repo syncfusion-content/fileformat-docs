@@ -1,6 +1,6 @@
 ---
 title: Remove Conditional Formatting| Excel library | Syncfusion
-description: In this section, you can learn how to remove conditional formatting options in Excel using XlsIO
+description: In this section, you can learn how to remove conditional formatting options in an Excel document using XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
