@@ -8,7 +8,7 @@ documentation: UG
 
 # Chart Data Labels in Excel document
 
-Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using DocIO, you can **customize the data labels in the chart**.
+Data Labels on a chart make it easier to understand. They show important information about the lines or points on the chart. Using XlsIO, you can **customize the data labels in the chart**.
 
 ## Enable Data Labels in Chart
 
