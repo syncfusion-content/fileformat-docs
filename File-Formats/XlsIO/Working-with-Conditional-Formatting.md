@@ -1,10 +1,11 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
-description: In this section, you can learn how to create and use conditional formatting operations in an Excel document using XlsIO
+description: In this section, you can learn how to create and use conditional formatting operations in Excel using XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
+
 # Working with Conditional Formatting
 
 Conditional formatting allows to format the contents of a cell dynamically. This can be defined and applied in XlsIO through the [IConditionalFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormat.html) interface.
@@ -31,7 +32,8 @@ IConditionalFormat condition1 = condition.AddCondition();
 Dim condition As IConditionalFormats = worksheet.Range("A1").ConditionalFormats
 Dim condition1 As IConditionalFormat = condition.AddCondition()
 {% endhighlight %}
-{% endtabs %}
+
+{% endtabs %}  
 
 The target range should meet the criteria, which is set using the **IConditionalFormat** interface. The  desired format type is set through the [ExcelCFType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ExcelCFType.html) enumerator, which are the supported conditional format types in XlsIO. Refer to the following code.
 
@@ -62,7 +64,7 @@ condition1.FirstFormula = "10"
 condition1.SecondFormula = "20"
 worksheet.Range("A1").Text = "Enter a number between 10 and 20"
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %}  
 
 When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details about conditional format priority, see [Manage conditional formatting rule precedence](https://support.microsoft.com/en-us/office/video-manage-conditional-formatting-6b69364e-dc79-4fe4-bd94-1883e40848f9).
 
@@ -87,9 +89,9 @@ condition1.BackColor = ExcelKnownColors.Light_orange
 condition1.IsBold = True
 condition1.IsItalic = True
 {% endhighlight %}
-{% endtabs %}
+{% endtabs %}  
 
-The following code example illustrates how to create and applies various different conditional formats for different ranges in XlsIO.
+The following code example illustrates how to create and applies various different conditional formats for different ranges.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -274,7 +276,7 @@ By executing the program, you will get the Excel file as below
 
 XlsIO also reads conditional formats from an existing Excel workbook. 
 
-The following code example illustrates how to read existing conditional formatting.
+The following code example illustrates how to read an existing conditional formatting.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -333,78 +335,286 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to read conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Read%20Conditional%20Format).
+A complete working example to read an existing conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Read%20Conditional%20Format).
 
-## Advanced Conditional Formatting Options
+## Removing Conditional Formats
 
-Advanced conditional formatting options encompass techniques beyond basic color or font changes, such as formatting **unique/duplicate values**, **top/bottom ranked values**, and values **above or below standard deviation**, to visually highlight specific data patterns or outliers based on user-defined criteria.
+All the conditional formats for a specified range can be removed using the [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html#Syncfusion_XlsIO_IConditionalFormats_Remove) method. 
 
-These methods make it easier to understand data by using custom formatting to highlight important patterns or unusual values, like unique numbers, top or bottom rankings, and deviations from the norm.
+The following code example illustrates how to remove conditional formats.
 
-### Formatting unique and duplicating values
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-This involves applying formatting styles to cells or data entries that are either unique (occurring only once in the dataset) or duplicate (repeating multiple times). It helps in visually distinguishing between unique and repetitive information. For further information, click [here]().
+  //Removing conditional format for a specified range 
+  worksheet.Range["E5"].ConditionalFormats.Remove();
 
-### Format top and bottom values
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-#### Top/Bottom n rank values
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-This refers to formatting the cells containing the highest or lowest n values in the dataset, based on their rank.
+  //Removing conditional format for a specified range
+  worksheet.Range["E5"].ConditionalFormats.Remove();
 
-#### Top/Bottom n% rank values
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
 
-This refers to formatting cells containing the top or bottom n% of values, similar to the previous point.
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-For further information, click [here]().
+  'Removing conditional format for a specified range
+  worksheet.Range("E5").ConditionalFormats.Remove()
 
-### Format above or below values
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}
 
-This involves applying formatting to cells that contain values either above or below a specified threshold. This helps in visually identifying data points that exceed or fall short of certain benchmarks.
-
-#### Format above or below standard deviation values
-This refers to applying formatting to cells containing values that are either above or below a certain number of standard deviations from the mean (average) of the dataset. Formatting cells based on standard deviation helps highlight data points that significantly deviate from the average, which can be useful in identifying outliers or understanding the distribution of data.
-
-For further information, click [here]().
-
-## Formula usage in conditional formatting
-
-### Using FormulaR1C1 Property in Conditional Formats
-
-This involves using custom formulas with the R1C1 reference style for conditional formatting, allowing for complex and flexible rules that adapt to different data ranges and criteria.
-
-For further information, click [here]().
-
-## Removing Conditional Formatting
+A complete working example to remove conditional formatting in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20Conditional%20Format).
 
 ### Removing Conditional Formats at specified index value
 
-This involves deleting a specific conditional formatting rule from a cell or range based on its index value. This allows users to precisely manage and update their formatting rules without affecting others.
+A particular conditional format at the specified range can be removed by using the [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html#Syncfusion_XlsIO_IConditionalFormats_RemoveAt_System_Int32_) method.
+
+The following code example illustrates how to remove conditonal formats at specified index value.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing first conditional Format at the specified Range
+  worksheet.Range["E5"].ConditionalFormats.RemoveAt(0);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing first conditional Format at the specified Range
+  worksheet.Range["E5"].ConditionalFormats.RemoveAt(0);
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Removing first conditional Format at the specified Range
+  worksheet.Range("E5").ConditionalFormats.RemoveAt(0)
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example to remove conditional formats at specified index in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20at%20Index).
 
 ### Removing Conditional Formats from entire sheet
 
-This refers to clearing all conditional formatting rules from an entire worksheet. This action removes any custom formatting applied to data, returning the sheet to its default formatting state.
+The following code example illustrates how to remove conditional formats from entire sheet.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing Conditional Formatting Settings From Entire Sheet
+  worksheet.UsedRange.Clear(ExcelClearOptions.ClearConditionalFormats);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing Conditional Formatting Settings From Entire Sheet
+  worksheet.UsedRange.Clear(ExcelClearOptions.ClearConditionalFormats);
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Removing Conditional Formatting Settings From Entire Sheet
+  worksheet.UsedRange.Clear(ExcelClearOptions.ClearConditionalFormats)
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example to remove conditional formats in entire worksheet in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Remove%20all%20Conditional%20Formats).
+
+## Using FormulaR1C1 property in Conditional Formats
+
+XlsIO sets the formula for the conditional format in R1C1-style notation. 
+
+The following code example illustrates how to use formula in Conditional Format.
+
+{% tabs %}  
+{% highlight c# tabtitle="C# [Cross-platform]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Using FormulaR1C1 property in Conditional Formatting 
+  IConditionalFormats condition = worksheet.Range["E5:E18"].ConditionalFormats;
+  IConditionalFormat condition1 = condition.AddCondition();
+  condition1.FirstFormulaR1C1 = "=R[1]C[0]";
+  condition1.SecondFormulaR1C1 = "=R[1]C[1]";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight c# tabtitle="C# [Windows-specific]" %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Using FormulaR1C1 property in Conditional Formatting
+  IConditionalFormats condition = worksheet.Range["E5:E18"].ConditionalFormats;
+  IConditionalFormat condition1 = condition.AddCondition();
+  condition1.FirstFormulaR1C1 = "=R[1]C[0]";
+  condition1.SecondFormulaR1C1 = "=R[1]C[1]";
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb.net tabtitle="VB.NET [Windows-specific]" %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Using FormulaR1C1 property in Conditional Formatting
+  Dim condition As IConditionalFormats = worksheet.Range("E5:E18").ConditionalFormats
+  Dim condition1 As IConditionalFormat = condition.AddCondition()
+  condition1.FirstFormulaR1C1 = "=R[1]C[0]"
+  condition1.SecondFormulaR1C1 = "=R[1]C[1]"
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example to create conditional formats with formula in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Conditional%20Format%20with%20R1C1).
+
+## Types of Conditional Formatting
+
+### Highlight Cell
+
+These are conditional formatting rules that apply specific formatting to cells based on their values. Examples include highlighting cells that contain certain text, numbers within a specific range, dates before or after a given date, or values that are duplicates or unique. These rules help in quickly identifying and emphasizing important data points.
 
 For further information, click [here]().
 
-## Advanced Conditional Format Types
+### Top/Bottom
+
+These conditional formatting rules are used to highlight cells that contain the highest or lowest values in a dataset. Formatting the top 10 items, bottom 10%, or the highest and lowest values based on specified criteria helps in easily spotting extremes in data, such as best-performing sales figures or lowest test scores.
+
+For further information, click [here]()
 
 ### Data Bars
 
-These are horizontal bars added to cells that visually represent the value of each cell relative to others in the range. The length of the bar corresponds to the cell's value, making it easy to compare values at a glance.
+These conditional formatting rules add horizontal bars to cells to visually represent the cell values. The length of the bar corresponds to the value in the cell, making it easy to compare values across a range. Data bars provide a quick visual summary of data distribution and relative magnitudes.
+
+For further information, click [here]()
 
 ### Color Scales
 
-This type of formatting applies a gradient of colors to a range of cells based on their values. Each color represents a different value range, helping to visualize data distribution and trends.
+These conditional formatting rules apply a gradient of colors to cells based on their values. Each color represents a different value range, allowing for a visual representation of data trends and variations. For example, a green-yellow-red scale can indicate low, medium, and high values, respectively.
+
+For further information, click [here]()
 
 ### Icon Sets
 
-These are collections of icons that can be applied to cells based on their values. Icons can represent different data levels, such as arrows for growth or decline, traffic lights for performance indicators, or other symbols.
+These are collections of icons that are applied to cells based on their values. Icons, such as arrows, traffic lights, or symbols, visually indicate different data levels or conditions. For example, arrows might show upward or downward trends, and traffic lights can indicate performance status.
 
-### Custom Icon Sets 
+For further information, click [here]()
 
-Similar to standard icon sets, but users can define their own icons and the value ranges that trigger each icon. This allows for highly tailored visual representations of data according to specific criteria.
+#### Custom Icon Sets
 
-For further information, click [here]().
+Similar to standard icon sets, custom icon sets allow users to define their own icons and the value ranges that trigger each icon. This offers more flexibility and customization, enabling tailored visual representations of data according to specific criteria or business needs.
+
+For further information, click [here]()
 
 ## See Also
 
