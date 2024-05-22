@@ -1,6 +1,6 @@
 ---
 title: Advanced Conditional Format Types| Excel library | Syncfusion
-description: In this section, you can learn how to apply advanced conditional format types in Excel using XlsIO
+description: In this section, you can learn how to apply advanced conditional format types in an Excel document using XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
