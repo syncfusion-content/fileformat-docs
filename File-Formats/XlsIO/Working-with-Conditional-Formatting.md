@@ -400,7 +400,7 @@ A complete working example to remove conditional formatting in C# is present on 
 
 A particular conditional format at the specified range can be removed by using the [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IConditionalFormats.html#Syncfusion_XlsIO_IConditionalFormats_RemoveAt_System_Int32_) method.
 
-The following code example illustrates how to remove conditonal formats at specified index value.
+The following code example illustrates how to remove conditional formats at specified index value.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}

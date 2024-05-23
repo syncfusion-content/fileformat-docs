@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Top/Bottom
+# Top/Bottom in Conditional Formatting
 
 Top/Bottom Rules are powerful tools for data analysis and presentation, enhancing the ability to quickly identify and emphasize the highest or lowest values within a range of cells in a worksheet.
 

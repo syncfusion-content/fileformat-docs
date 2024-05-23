@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Data Bars
+# Data Bars in Conditional Formatting
 
 Here, the values in each of the selected cells are compared, and a data bar is drawn in each cell representing the value of that cell relative to the other cells in the selected range. This bar provides a clear visual cue for users, making it easier to pick out larger and smaller values in a range.
 

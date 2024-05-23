@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Color Scales
+# Color Scales in Conditional Formatting
 
 Color Scales let you create visual effects in your data to see how the value of a cell is compared with the values in a range of cells. A color scale uses cell shading, as opposed to bars, to communicate relative values, beyond the relative size of the value of a cell.
 

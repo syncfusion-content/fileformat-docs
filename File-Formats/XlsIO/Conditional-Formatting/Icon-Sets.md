@@ -6,7 +6,7 @@ control: XlsIO
 documentation: UG
 ---
 
-# Icon Sets
+# Icon Sets in Conditional Formatting
 
 Icon sets present data in three to five categories that are distinguished by a threshold value. Each icon represents a range of values and each cell is annotated with the icon that represents that range.
 
