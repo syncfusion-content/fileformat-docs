@@ -1,5 +1,5 @@
 ---
-title: Working with Tables | Syncfusion
+title: Working with Tables in .NET PDF Library | Syncfusion
 description: Learn how to create or add a table to a PDF document, apply cell style & built-in table styles, automatic pagination, customize the rows and columns, and more.
 platform: file-formats
 control: PDF

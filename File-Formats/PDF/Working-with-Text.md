@@ -1,6 +1,6 @@
 ---
-title: Working with Text | Syncfusion
-description: This section explains how to add text to the PDF document using different type of fonts, TrueType fonts and standard fonts
+title: Working with Text in .NET PDF Library | Syncfusion
+description: This section explains how to add text to the PDF document using different type of fonts, TrueType fonts and standard fonts.
 platform: file-formats
 control: PDF
 documentation: UG
