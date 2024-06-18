@@ -287,7 +287,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Page setup<br/><br/></td><td>
+Page setup[Margin,origin,page size]<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -295,16 +295,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
 Yes<br/><br/></td></tr>
-<tr>
-<td>
-[Margin,origin,page size]<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
 <tr>
 <td>
 Page breaks<br/><br/></td><td>

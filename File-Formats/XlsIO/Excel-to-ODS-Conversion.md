@@ -294,7 +294,7 @@ Hyperlinks
 Cell Comments
 </td>
 <td>
-
+-
 </td>
 <td>
 Yes
@@ -362,10 +362,10 @@ Planned
 </tr>
 <tr>
 <td>
-Formulas
+Calculations
 </td>
 <td>
-
+Formulas
 </td>
 <td>
 Yes (Partial)
@@ -398,7 +398,7 @@ Yes (Partial)
 Group & Outline
 </td>
 <td>
-
+-
 </td>
 <td>
 Yes
@@ -452,7 +452,7 @@ N/A
 <td>
 Hide/Unhide rows/cols<br/><br/></td>
 <td>
-
+-
 </td>
 <td>
 Yes
@@ -462,7 +462,7 @@ Yes
 <td>
 Copy/Move worksheet<br/><br/></td>
 <td>
-
+-
 </td>
 <td>
 Yes
@@ -472,7 +472,7 @@ Yes
 <td>
 Image<br/><br/></td>
 <td>
-
+-
 </td>
 <td>
 No
@@ -483,7 +483,7 @@ No
 Data Validation
 </td>
 <td>
-
+-
 </td>
 <td>
 No
@@ -494,7 +494,7 @@ No
 Tables
 </td>
 <td>
-
+-
 </td>
 <td>
 Planned
@@ -505,7 +505,7 @@ Planned
 PivotTable
 </td>
 <td>
-
+-
 </td>
 <td>
 No
@@ -516,7 +516,7 @@ No
 Charts
 </td>
 <td>
-
+-
 </td>
 <td>
 Planned
@@ -527,7 +527,7 @@ Planned
 Drawing
 </td>
 <td>
-
+-
 </td>
 <td>
 Planned
@@ -538,7 +538,7 @@ Planned
 OLE Objects
 </td>
 <td>
-
+-
 </td>
 <td>
 No

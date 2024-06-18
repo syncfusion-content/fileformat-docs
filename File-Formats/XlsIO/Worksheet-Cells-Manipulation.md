@@ -3757,11 +3757,11 @@ End Using
 
 ### Comment
 
-To know in detail about **Comment**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments).
+For more details about Comment, [click here](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments).
 
 ### Conditional Formats
 
-To know in detail about **Conditional Formats**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting).
+For more details about Conditional Formats, [click here](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting).
 
 ### Count
 
@@ -3825,7 +3825,7 @@ End Using
 
 ### Data Validation
 
-To know in detail about **Data Validation**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation).
+For more details about Data Validation, [click here](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation).
 
 ### End
 
@@ -4101,7 +4101,7 @@ End Using
 
 ### Formula Array
 
-To know in detail about **FormulaArray**, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#array-of-formula](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#array-of-formula)
+For more details about FormulaArray, [click here](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas#array-of-formula).
 
 ### Formula Bool Value
 
@@ -5019,4 +5019,4 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-To know in detail about RichText, please navigate to [https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#rich-text-formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#rich-text-formatting).
+For more details about RichText, [click here](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting#rich-text-formatting).

@@ -115,50 +115,50 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF)'| markdownify }}
+    {{'[.NET MAUI Project](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF)'| markdownify }}
   </td>
   <td>
-    {{'[SaveService.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/SaveServices/SaveService.cs)'| markdownify }}
+    {{'[SaveService.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Services/SaveService.cs)'| markdownify }}
   </td>
   <td>Represent the base class for save operation.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Windows](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/Windows)'| markdownify }}
+    {{'[Windows](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/Windows)'| markdownify }}
   </td>
   <td>
-    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/Windows/SaveWindows.cs)'| markdownify }}
+    {{'[SaveWindows.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/Windows/SaveWindow.cs)'| markdownify }}
   </td>
   <td>Save implementation for Windows.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Android](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/Android)'| markdownify }}
+    {{'[Android](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/Android)'| markdownify }}
   </td>
   <td>
-    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/Android/SaveAndroid.cs)'| markdownify }}
+    {{'[SaveAndroid.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/Android/SaveAndroid.cs)'| markdownify }}
   </td>
   <td>Save implementation for Android device.
   </td>
   </tr>
   <tr>
   <td>
-    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/MacCatalyst)'| markdownify }}
+    {{'[Mac Catalyst](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/MacCatalyst)'| markdownify }}
   </td>
   <td>
-    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
+    {{'[SaveMac.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/MacCatalyst/SaveMac.cs)'| markdownify }}
   </td>
   <td>Save implementation for Mac Catalyst device.
   </td>
   </tr>
   <tr>
   <td rowspan="2">
-    {{'[iOS](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/iOS)'| markdownify }}
+    {{'[iOS](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/iOS)'| markdownify }}
   </td>
   <td>
-    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/iOS/SaveIOS.cs)'| markdownify }}
+    {{'[SaveIOS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/iOS/SaveIOS.cs)'| markdownify }}
   </td>
   <td>
     Save implementation for iOS device
@@ -166,7 +166,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
   <tr>
   <td>
-     {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF/Convert-Excel-to-PDF/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
+     {{'[PreviewControllerDS.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/iOS/PreviewControllerDS.cs)'| markdownify }}<br/>{{'[QLPreviewItemFileSystem.cs](https://github.com/SyncfusionExamples/XlsIO-Examples/blob/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF/ConvertExceltoPDF/Platforms/iOS/QLPreviewItemFileSystem.cs)'| markdownify }}
   </td>
   <td>
     Helper classes for viewing the <b>Excel document</b> in iOS device
@@ -174,7 +174,7 @@ Refer the below helper files and add them into the mentioned project. These help
   </tr>
 </table>
 
-A complete working example of how to convert an Excel document to PDF in .NET MAUI is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/Convert%20Excel%20to%20PDF).
+A complete working example of how to convert an Excel document to PDF in .NET MAUI is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Getting%20Started/.NET%20MAUI/ConvertExceltoPDF).
 
 By executing the program, you will get the **PDF document** as follows.
 

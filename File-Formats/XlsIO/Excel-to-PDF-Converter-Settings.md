@@ -1710,7 +1710,7 @@ Excel to PDF converter settings allows you to set the PDF conformance level. Ex
 * PDF/A-1b conformance
 * PDF/X-1a conformance
 
-N> 1. To know more details about PDF conformance refer [https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance)
+N> 1. For more details about PDF conformance, [click here](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance).
 N> 2. Pdf_X1A2001 is not supported for NETStandard.
 
 The following code illustrates  how to set the [PdfConformanceLevel](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.html#Syncfusion_ExcelToPdfConverter_ExcelToPdfConverterSettings_PdfConformanceLevel) while converting  Excel workbook to PDF.
