@@ -1,6 +1,6 @@
 ---
 title: Working with Pivot Tables | Excel library | Syncfusion
-description: In this section, you can learn how to create and use pivot tables operations in Excel document using XlsIO
+description: This section explains about how to create and use pivot tables operations in Excel document using XlsIO.
 platform: file-Formats
 control: XlsIO
 documentation: UG
