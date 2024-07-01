@@ -1,7 +1,7 @@
 ---
 title: Working with Pivot Tables | Excel library | Syncfusion
-description: In this section, you can learn how to create and use pivot tables operations in Excel document using XlsIO
-platform: file-Formats
+description: This section explains about how to create and use pivot tables operations in Excel document using XlsIO.
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
@@ -541,7 +541,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example to layout a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table/Pivot%20Layout). 
+A complete working example to layout a pivot table in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Pivot%20Table). 
 
 The following screenshots represents the generated Excel file with pivot table layout in XlsIO.
 
