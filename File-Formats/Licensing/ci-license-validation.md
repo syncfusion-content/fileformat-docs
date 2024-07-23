@@ -29,7 +29,7 @@ Syncfusion license key validation in CI services ensures that Syncfusion Essenti
 
 * Update the parameters in the LicenseKeyValidation.ps1 script file as described below. 
 
-  **Platform:** Modify the value for /platform: to the actual platform "file-formats". 
+  **Platform:** Modify the value for /platform: to the actual platform "FileFormats". 
   
   **Version:**  Change the value for /version: to the required version (e.g., "26.2.4").
   
