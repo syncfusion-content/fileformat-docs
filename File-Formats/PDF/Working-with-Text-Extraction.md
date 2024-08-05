@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Text Extraction
+# Working with Text Extraction in .NET PDF
 
 Essential PDF allows you to extract the text from a particular page or the entire PDF document. 
 
