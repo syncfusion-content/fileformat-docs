@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Watermarks
+# Working with Watermarks in .NET PDF
 
 The Essential PDF provides support to add watermark or stamp with text and images in the PDF document.
 
