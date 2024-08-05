@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with images using various options
+# Working with images using various options in.NET PDF
 
 Essential PDF supports both raster and vector images.
 

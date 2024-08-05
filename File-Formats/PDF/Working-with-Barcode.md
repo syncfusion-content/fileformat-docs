@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: 
 ---
-# Working with Barcode
+# Working with Barcode in .NET PDF
 
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
 

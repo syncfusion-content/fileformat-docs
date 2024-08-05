@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 ---
 
-# Working with Tagged PDF
+# Working with Tagged PDF in .NET 
 
 ## Introduction
 
