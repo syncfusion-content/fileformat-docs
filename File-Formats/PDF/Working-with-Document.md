@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Document
+# Working with Document in .NET PDF
 
 ## Adding the document settings
 
