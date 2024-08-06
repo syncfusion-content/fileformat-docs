@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with PDF Templates in .NET PDF
+# Working with PDF Templates in .NET
 
 A PDF template is a drawing surface, where contents can be added. All the elements that can be added to a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.PdfPage.html) is supported in [PdfTemplate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Graphics.PdfTemplate.html) as well. The template in turn can be drawn over the page or can be positioned at any part of the page.
 
