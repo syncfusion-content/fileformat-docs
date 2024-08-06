@@ -5,7 +5,7 @@ platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# Working with Excel Data 
+# Working with Data in .NET Excel
 
 ## Importing Data to Worksheets
 
