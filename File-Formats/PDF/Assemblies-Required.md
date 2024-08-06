@@ -6,7 +6,7 @@ control: PDF
 documentation: UG
 keywords: Assemblies
 ---
-# Assemblies Required to work with .NET PDF 
+# Assemblies Required to work with PDF in .NET
 
 The following assemblies need to be referenced in your application based on the platform.
 <table>
