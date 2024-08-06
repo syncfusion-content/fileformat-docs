@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Getting started with Essential Presentation library
+# Getting started with Essential Presentation library in .NET
 
 ## Creating a simple PowerPoint Presentation with basic elements from scratch
 
