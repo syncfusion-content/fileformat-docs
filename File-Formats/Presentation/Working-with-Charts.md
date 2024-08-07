@@ -647,6 +647,10 @@ chart.Rotation = 80;
 chart.SideWall.Shadow.Angle = 60;
 //Sets the back wall border weight
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
+//Set the right angle axes property of the chart
+chart.RightAngleAxes = true;
+//Set the auto scaling of chart
+chart.AutoScaling = true;
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -669,6 +673,10 @@ chart.Rotation = 80;
 chart.SideWall.Shadow.Angle = 60;
 //Sets the back wall border weight
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
+//Set the right angle axes property of the chart
+chart.RightAngleAxes = true;
+//Set the auto scaling of chart
+chart.AutoScaling = true;
 //Saves the Presentation
 pptxDoc.Save("output.pptx");
 //Closes the Presentation
@@ -690,6 +698,10 @@ chart.Rotation = 80
 chart.SideWall.Shadow.Angle = 60
 'Sets the back wall border weight
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow
+'Set the right angle axes property of the chart
+chart.RightAngleAxes = True
+'Set the auto scaling of chart
+chart.AutoScaling = True
 'Saves the Presentation
 pptxDoc.Save("output.pptx")
 'Closes the Presentation
