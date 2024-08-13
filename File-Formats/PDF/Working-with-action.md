@@ -1,6 +1,6 @@
 ---
 title: Working with Action | Syncfusion
-description: This section explains how to add actions to the document & form fields. Some supported actions are Sound, JavaScript, URI, Launch, Named, Submits & Resets.
+description: This section explains how to add actions to the document & form fields using Syncfusion .NET PDF Library. 
 platform: file-formats
 control: PDF
 documentation: UG
