@@ -1,6 +1,6 @@
 ---
 title: Working with XPS document to PDF Conversion | Syncfusion
-description: This section explains how to converting XPS document to PDF document by using Syncfusion .NET PDF library.
+description: This section explains how to convert XPS document to PDF document by using Syncfusion .NET PDF Library.
 platform: file-formats
 control: PDF
 documentation: UG
