@@ -1,6 +1,6 @@
 ---
 title: Create or Generate PDF file in WPF | Syncfusion
-description: Learn how to create or generate a PDF file in WPF with easy steps using Syncfusion .NET PDF library without depending on Adobe.
+description: Learn how to create or generate a PDF file in WPF with easy steps using Syncfusion .NET PDF Library without depending on Adobe.
 platform: file-formats
 control: PDF
 documentation: UG
