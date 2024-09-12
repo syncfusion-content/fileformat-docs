@@ -269,7 +269,7 @@ N> The conditional formats for a single range should be added in descending orde
 
 When proper criteria is met, the output file looks as follows:
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img1.jpeg" alt="working with conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-conditional-format.jpeg" alt="working with conditional format" width="100%" Height="Auto"/>
 
 ## Reading Conditional Formats in XlsIO
 
@@ -808,7 +808,7 @@ End Using
 A complete working example to format unique and duplicate values in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Unique%20and%20Duplicate).
 
 The following screenshot represents generated Excel file with unique and duplicate conditional format in XlsIO.
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img3.jpg" alt="unique and duplicate conditional Formatting" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-duplicate-values.jpg" alt="unique and duplicate conditional Formatting" width="100%" Height="Auto"/>
 
 ## Format Top or Bottom Values
 
@@ -822,7 +822,7 @@ The properties of **ITopBottom** interface are:
 
 The following screenshot represents the input template of conditional formatting.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png" alt="Conditional formatting input template" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-topbottom-formating.png" alt="Conditional formatting input template" width="100%" Height="Auto"/>
 
 ### Top/Bottom ‘n’ rank values
 
@@ -926,7 +926,7 @@ A complete working example to format top and bottom rank values in C# is present
 
 The following screenshot represents the Excel file generated with TopBottom conditional format with [Rank](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Rank) set to 10 in XlsIO.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-rank-values.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
 
 N> **ITopBottom** **Rank** value should be in a range between 1 and 1000.
 
@@ -1041,7 +1041,7 @@ A complete working example to format top and bottom rank percentage in C# is pre
 
 The following screenshot represents the Excel file generated with TopBottom conditional format with [Percent](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.ITopBottom.html#Syncfusion_XlsIO_ITopBottom_Percent) value set to 50 in XlsIO.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img6.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-topbottom-rank-values.png" alt="Top or Bottom conditional format" width="100%" Height="Auto"/>
 
 N> **ITopBottom** **Rank** value should be in a range between 1 and 100 when set true to **Percent** property.
 
@@ -1056,7 +1056,7 @@ The properties of **IAboveBelowAverage** are:
 
 The following screenshot represents the input template of conditional formatting.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img4.png" alt="Conditional formatting input template" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-average-values.png" alt="Conditional formatting input template" width="100%" Height="Auto"/>
 
 The below code example shows how to format a range with values that are below average using **IAboveBelowAverage** [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) property in XlsIO.
 
@@ -1152,7 +1152,7 @@ A complete working example to format above and below average values in C# is pre
 
 The following screenshot represents the Excel file generated with **AboveBelowAverage** conditional format with [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) set as **Below** in XlsIO.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img7.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-abovebelowaverage-formatting.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
 
 ### Above or Below Standard Deviation values
 
@@ -1259,7 +1259,7 @@ A complete working example to format above and below standard deviation values i
 
 The following screenshot represents the Excel file generated with **AboveBelowAverage** conditional format when [AverageType](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IAboveBelowAverage.html#Syncfusion_XlsIO_IAboveBelowAverage_AverageType) is set as **AboveStdDev** in XlsIO.
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img8.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-abovebelowaverage-formatting.png" alt="Above or Below Average conditional format" width="100%" Height="Auto"/>
 
 N> **IAboveBelowAverage** **StdDevValue** can be applied only if the **AverageType** is **AboveStdDev** or **BelowStdDev**. The **StdDevValue** value should be in a range between 1 and 3.
 
@@ -1772,7 +1772,7 @@ End Using
 
 A complete working example to format values with advanced conditional formatting options like data bars, color scales, icon sets in C# is present on [this GitHub page](https://github.com/SyncfusionExamples/XlsIO-Examples/tree/master/Conditional%20Formatting/Advanced%20Conditional%20Formats).
 
-<img src="Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg" alt="Advanced conditional Formatting" width="100%" Height="Auto"/>
+<img src="working-with-conditional-formatting_images/file-formats-xlsio-custom-icon-setting.jpeg" alt="Advanced conditional Formatting" width="100%" Height="Auto"/>
 
 
 __Excel__ __with__ __Conditional__ __Formatting__
