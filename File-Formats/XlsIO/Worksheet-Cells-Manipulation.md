@@ -215,7 +215,7 @@ A complete working example to access relative range in an Excel worksheet in C# 
 
 ### Accessing Discontinuous Ranges
 
-It is possible to modify the contents or apply formatting to discontinuous range by accessing and adding them to the [RangesCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Implementation.Collections.RangesCollection.html).
+It is possible to modify the contents or apply formatting to discontinuous range by accessing and adding them to the [RangesCollection](https://help.syncfusion.com/cr/file-formats).
 
 Following code snippet illustrates how to access discontinuous range.
 
