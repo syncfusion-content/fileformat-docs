@@ -14,16 +14,16 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 Step 1: Create a new .NET Core console application project.
 
-![Create .NET Core console application in Visual Studio](Mac-images/CreateProject.png)
+![Create .NET Core console application in Visual Studio with File Format DOcIO](mac_images/file-format-docio-mac-create-console-application.png)
 
 Step 2: Select the project version.
 
-![Select Project version](Mac-images/selectprojectverion.png)
+![Select Project version in File Format DOcIO Mac](mac_images/file-format-docio-mac-select-project.png)
 
 Step 3: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget1.png)
-![Install DocIO .NET Core NuGet package](Mac-images/Install_Nuget.png)
+![Install File Formats DocIO .NET Core NuGet package in Mac](mac_images/file-format-docio-install-nuget-package.png)
+![Install File Formats DocIO .NET Core NuGet package in Mac](mac_images/file-format-docio-install-nuget.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/overview) to know about registering Syncfusion license key in your application to use our components.
 
@@ -273,4 +273,4 @@ You can download a complete working sample from [GitHub](https://github.com/Sync
 
 By executing the program, you will get the **Word document** as follows. The output will be saved in bin folder.
 
-![.Net Core output Word document](Mac-images/GettingStartedOutput.jpg)
+![.Net Core output Word document in File Format DOcIO mac](mac_images/file-format-docio-mac-getting-started-output.jpg)
