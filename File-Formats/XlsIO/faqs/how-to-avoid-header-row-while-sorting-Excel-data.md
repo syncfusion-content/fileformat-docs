@@ -8,7 +8,7 @@ documentation: UG
 
 # How to avoid header row while sorting Excel data?
 
-Syncfusion XlsIO considers first row in the sort range as header. In order to disable this behavior and consider the first row in sorting, the [HasHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IDataSort.html#Syncfusion_XlsIO_IDataSort_HasHeader) property of [IDataSort](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.IDataSort.html) interface should be disabled. Please find the code snippet below.
+Syncfusion XlsIO considers first row in the sort range as header. In order to disable this behavior and consider the first row in sorting, the [HasHeader](https://help.syncfusion.com/cr/document-processing/Syncfusion.XlsIO.IDataSort.html#Syncfusion_XlsIO_IDataSort_HasHeader) property of [IDataSort](https://help.syncfusion.com/cr/document-processing/Syncfusion.XlsIO.IDataSort.html) interface should be disabled. Please find the code snippet below.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
