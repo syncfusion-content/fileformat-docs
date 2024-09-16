@@ -272,7 +272,7 @@ End Using
 The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
 
 * [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) - to customize the column header name while importing.
-* [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while importing.
+* [DisplayFormat](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.displayformatattribute?view=netframework-4.7.1) -  to customize formatting for a data field.
 
 {% tabs %}  
 {% highlight c# tabtitle="C# [Cross-platform]" %}
@@ -293,8 +293,9 @@ public class Customer
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
-  [Bindable(false)]
+  [DisplayFormat(DataFormatString = "$#,###.00")]
   public string SalesJanJun { get; set; }
+  [DisplayFormat(DataFormatString = "$#,###.00")]
   public string SalesJulDec { get; set; }
 
   public Customer(string name, string janToJun, string julToDec)
@@ -324,8 +325,9 @@ public class Customer
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; 
-  [Bindable(false)]
+  [DisplayFormat(DataFormatString = "$#,###.00")]
   public string SalesJanJun { get; set; }
+  [DisplayFormat(DataFormatString = "$#,###.00")]
   public string SalesJulDec { get; set; }
 
   public Customer(string name, string janToJun, string julToDec)
@@ -365,7 +367,7 @@ Public Class Customer
   End Set
   End Property
 
-  <Bindable(False)>
+  <DisplayFormat(DataFormatString = "$#,###.00")>
   Public Property SalesJanJun() As String
   Get
     Return m_SalesJanJun
@@ -375,6 +377,7 @@ Public Class Customer
   End Set
   End Property
 
+  <DisplayFormat(DataFormatString = "$#,###.00")>
   Public Property SalesJulDec() As String
   Get
     Return m_SalesJulDec
