@@ -1,5 +1,5 @@
 ---
-title: Working with Annotations | Syncfusion
+title: Working with Annotations by using Essential PDF | Syncfusion
 description: This section explains how to create or modify or remove different type of interactive Annotation by using Essential PDF
 platform: file-formats
 control: PDF
