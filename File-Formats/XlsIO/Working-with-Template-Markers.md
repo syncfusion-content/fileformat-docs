@@ -81,7 +81,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-<img src="Working-with-Template-Markers_images/Template_Markers_in_Excel_Spreadsheet_Templates.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/template-markers-in-excel-spreadsheet.jpeg" alt="Bind data from array using XLSIO template marker" width="100%" Height="Auto"/>
 
 Following code example illustrates how to bind the data from an array to a marker.
 
@@ -168,7 +168,7 @@ End Using
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-<img src="Working-with-Template-Markers_images/Bind_data_from_Array_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from Array Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/bind-data-from-array-to-spreadsheet-template.jpeg" alt="Bind data from array to spreadsheet template marker" width="100%" Height="Auto"/>
 
 You can also add or insert template markers using XlsIO APIs as follows.
 
@@ -284,7 +284,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
 The following screenshot represents the input template which has a template marker.
 
-<img src="Working-with-Template-Markers_images/Bind_data_from_datatable_to_Excel_Spreadsheet_Template.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/bind-data-from-datatable-to-excel-spreadsheet-template.jpeg" alt="Bind data from Datatable using XLSIO template marker" width="100%" Height="Auto"/>
 
 N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone. 
 
@@ -392,7 +392,7 @@ A complete working example to bind data from data table to template marker in C#
 
 The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg" alt="Bind from DataTable Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-bind-from-datatable-file.jpeg" alt="Bind data from Datatable File using XLSIO" width="100%" Height="Auto"/>
 
 ## Bind from Collection Objects with images
 
@@ -435,7 +435,7 @@ Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td
 </table>
 In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-import-collection-objects.jpeg" alt="Import collection objects with images in XLSIO " width="100%" Height="Auto"/>
 
 __Marker__ __added__ __for__ __merging__ __images__
 
@@ -449,51 +449,51 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-default.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Default" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-default.jpeg" alt="General Output Default in XLSIO" width="100%" Height="Auto"/>
 
 **Image** **with** **FitToCell** **attribute**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-attribute.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Attribute" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-attribute.jpeg" alt="General Output Attribute in XLSIO" width="100%" Height="Auto"/>
 
 **Image** **with** **Size**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Size" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-size.jpeg" alt="Working with Template Markers in File Formats XLSIO General Output Size" width="100%" Height="Auto"/>
 
 **Image** **with** **Position**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-position.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Position" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-position.jpeg" alt="General Output Position in XLSIO" width="100%" Height="Auto"/>
 
 **Image** **with** **position** **and** **size**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-position-and-size.jpeg" alt="Working with Template Markers in File Formats XLSIO Input Template Position and Size" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg" alt="Import collection objects with images Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-position-and-size.jpeg" alt="General Output Position and Size in XLSIO" width="100%" Height="Auto"/>
 
 You can also refer to the [Template based data filling using Template Markers](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet#template-based-data-filling-using-template-markers) section in [Getting Started](https://help.syncfusion.com/file-formats/xlsio/getting-started-create-excel-file-csharp-vbnet) for the sample regarding template marker with images.
 
@@ -760,51 +760,51 @@ The output of all the import data and group options with input templates are as 
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-default-option.jpeg" alt="Input Template Default Options in XLSIO" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-default-options.jpeg" alt="General Output Default Options in XLSIO" width="100%" Height="Auto"/>
 
 **Merge** **option** **input** **and** **output**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-merge.jpeg" alt="Input Template Merge in XLSIO" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-merge.jpeg" alt="General Output Merge in XLSIO" width="100%" Height="Auto"/>
 
 **Repeat** **option** **input** **and** **output**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-repeat.jpeg" alt="Input Template Repeat in XLSIO" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-repeat.jpeg" alt="General Output Repeat in XLSIO" width="100%" Height="Auto"/>
 
 **Collapse** **group** **option** **input** **and** **output**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-collapse.jpeg" alt="Input Template Collapse in XLSIO" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-collapse.jpeg" alt="General Output Collapse in XLSIO" width="100%" Height="Auto"/>
 
 **Expand** **group** **option** **input** **and** **output**
 
 Input template
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-input-template-expand.jpeg" alt="Input Template expand in XLSIO" width="100%" Height="Auto"/>
 
 Generated output
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg" alt="Import nested collection objects Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-general-output-expand.jpeg" alt="General Output Expand in XLSIO" width="100%" Height="Auto"/>
 
 ## Template marker with conditional formatting
 
@@ -812,7 +812,7 @@ You can create or apply conditional format to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg" alt="emplate marker with conditional formatting Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-conditional-formatting.jpeg" alt="Conditional Formatting in XLSIO" width="100%" Height="Auto"/>
 
 The following code sample illustrates how to create or apply conditional format to the marker.
 
@@ -1176,7 +1176,7 @@ A complete working example to import data to template marker with conditional fo
 
 The following screenshot represents generated Excel file in which the conditional format is applied.
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg" alt="Template marker with conditional formatting Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-conditional-formatting-file.jpeg" alt="Conditional Formatting File in XLSIO" width="100%" Height="Auto"/>
 
 ## Template marker with Hyperlink
 
@@ -1184,7 +1184,7 @@ You can add hyperlink to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-hyperlink.jpeg" alt="Hyperlink in XLSIO" width="100%" Height="Auto"/>
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -1433,6 +1433,6 @@ A complete working example to import data to template marker with hyperlink in C
 
 The following screenshot represents generated Excel file in which the hyperlink is added.
 
-<img src="Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg" alt="Template marker with Hyperlink Example" width="100%" Height="Auto"/>
+<img src="working-with-template-markers_images/file-formats-xlsio-hyperlink-file.jpeg" alt="Hyperlink File in XLSIO" width="100%" Height="Auto"/>
 
 N> Explore our [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net) Feature Tour page and [.Net Excel Framework demo](https://www.syncfusion.com/demos/fileformats/excel-library) that shows how to create and modify Excel files from C# with 5 lines of code on different platforms.
