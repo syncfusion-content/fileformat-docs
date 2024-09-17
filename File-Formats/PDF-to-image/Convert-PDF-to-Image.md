@@ -63,7 +63,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 The following code snippet illustrates how to convert PDF page into image using Convert method in PdfToImageConverter.
 
 {% tabs %}
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% highlight c# tabtitle="C# [Cross-platform]" playgroundButtonLink="https://raw.githubusercontent.com/SyncfusionExamples/WPF-PDFViewer-Examples/master/PDF-to-image/.NET/PDFPage-to-Image/PDFPage-to-Image/Program.cs" %}
 
 //Initialize PDF to Image converter.
 PdfToImageConverter imageConverter = new PdfToImageConverter();
