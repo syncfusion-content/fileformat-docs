@@ -1,12 +1,12 @@
 ---
-title: Syncfusion Excel to PDF Converter Settings
-description: In this section, you can learn how to convert Excel Workbook to PDF & Worksheet to PDF file using conversion settings of Excel to PDF converter;
+title: Excel to PDF Converter Settings in File Format Excel | Syncfusion
+description: Learn here all about excel to pdf converting in syncfusion File Format Excel library, it's elements and more details.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Excel to PDF Converter Settings
+# Excel to PDF Converter Settings in File Format Excel library
 
 XlsIO allows you to convert an entire workbook or a single worksheet into PDF document with conversion settings of Excel to PDF converter.
 
