@@ -1247,15 +1247,15 @@ You can determine whether the existing PDF document is password protected or not
 try
 {
   //Load the PDF document
-  FileStream docStream = new FileStream("Output.pdf", FileMode.Open, FileAccess.Read);
+  FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
   PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 }
-catch (PdfDocumentException exception)
+catch (PdfException exception)
 {
-  if (exception.Message == "Can't open an encrypted document. The password is invalid.")
-	{
-		MessageBox.Show("Cannot open an encrypted document without password");
-	}
+    if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+    {
+        Console.WriteLine("Cannot open an encrypted document without password");
+    }
 }
 
 {% endhighlight %}
@@ -1265,14 +1265,14 @@ catch (PdfDocumentException exception)
 try
 {
 	//Load the password protected PDF document without user password
-	PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Output.pdf");
+	PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 }
-catch (PdfDocumentException exception)
+catch (PdfException exception)
 {
-	if (exception.Message == "Can't open an encrypted document. The password is invalid.")
-	{
-		MessageBox.Show("Cannot open an encrypted document without password");
-	}
+    if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+    {
+        Console.WriteLine("Cannot open an encrypted document without password");
+    }
 }
 
 {% endhighlight %}
@@ -1281,10 +1281,10 @@ catch (PdfDocumentException exception)
 
 Try
 	'Load the password protected PDF document without user password
-	Dim loadedDocument As New PdfLoadedDocument("Output.pdf")
-Catch exception As PdfDocumentException
+	Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+Catch exception As PdfException
 	If exception.Message = "Can't open an encrypted document. The password is invalid." Then
-		MessageBox.Show("Cannot open an encrypted document without password")
+		Console.WriteLine("Cannot open an encrypted document without password")
 	End If
 End Try
 
