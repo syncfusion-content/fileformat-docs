@@ -21,7 +21,7 @@ Step 2: Select Web Application pattern (Model-View-Controller) for the project.
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img2.png" alt="Select Web application pattern" width="100%" Height="Auto"/>
 
-Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 <img src="ASP-NET-Core_images/ASP-NET-Core_images_img3.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 

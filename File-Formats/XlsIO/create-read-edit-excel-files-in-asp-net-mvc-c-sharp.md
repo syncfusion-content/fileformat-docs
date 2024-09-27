@@ -17,7 +17,7 @@ Step 1: Create a new ASP.NET MVC application project.
 
 <img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png" alt="Create ASP.NET MVC application in Visual Studio" width="100%" Height="Auto"/>
 
-Step 2: Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+Step 2: Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org/).
 
 <img src="ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png" alt="Add XlsIO reference to the project" width="100%" Height="Auto"/>
 
