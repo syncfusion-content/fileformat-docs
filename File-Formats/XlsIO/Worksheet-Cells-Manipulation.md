@@ -2394,7 +2394,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for a Website
   IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
   hyperlink.Type = ExcelHyperLinkType.Url;
-  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.Address = "https://www.syncfusion.com/";
   hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
 
   //Creating a Hyperlink for e-mail
@@ -2442,7 +2442,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a Hyperlink for a Website
   IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
   hyperlink.Type = ExcelHyperLinkType.Url;
-  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.Address = "https://www.syncfusion.com/";
   hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
 
   //Creating a Hyperlink for e-mail
@@ -2486,7 +2486,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Creating a Hyperlink for a Website
   Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C5"))
   hyperlink.Type = ExcelHyperLinkType.Url
-  hyperlink.Address = "http://www.Syncfusion.com"
+  hyperlink.Address = "https://www.syncfusion.com/"
   hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
 
   'Creating a Hyperlink for e-mail
@@ -2662,7 +2662,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Adding hyperlink to TextBox 
   ITextBox textBox = worksheet.TextBoxes.AddTextBox(1, 1, 100, 100);
-  IHyperLink hyperlink = worksheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+  IHyperLink hyperlink = worksheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "https://www.syncfusion.com/", "click here");
 
   //Adding hyperlink to AutoShape
   IShape autoShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
@@ -2692,7 +2692,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Adding hyperlink to TextBox 
   IWorksheet sheet = workbook.Worksheets[0];
   ITextBox textBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100);
-  IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+  IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "https://www.syncfusion.com/", "click here");
 
   //Adding hyperlink to AutoShape
   sheet = workbook.Worksheets[1];
@@ -2720,7 +2720,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Text box 
   Dim sheet As IWorksheet = workbook.Worksheets(0)
   Dim textBox As ITextBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100)
-  Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
+  Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "https://www.syncfusion.com/", "click here")
 
   'AutoShapes 
   sheet = workbook.Worksheets(1)
