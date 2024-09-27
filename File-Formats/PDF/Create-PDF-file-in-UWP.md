@@ -399,4 +399,4 @@ The filled form is shown in adobe reader application as follows.
 
 Click [here](https://www.syncfusion.com/document-processing/pdf-framework/uwp) to explore the rich set of Syncfusion PDF library features.
 
-An online sample link to [create PDF document](https://ej2.syncfusion.com/aspnetcore/PDF/HelloWorld#/material3) in ASP.NET Core. 
+An online sample link to [create PDF document](https://ej2aspnetcore.azurewebsites.net/aspnetcore/pdf/helloworld#/bootstrap5) in ASP.NET Core. 
