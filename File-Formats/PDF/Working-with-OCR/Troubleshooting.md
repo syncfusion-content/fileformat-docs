@@ -100,7 +100,7 @@ Please find the download link Visual C++ 2015 Redistributable file,<br>
 <tr>
 <th style="font-size:14px">Solution</th>
 <td>
-To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/en-us/articles/211543683-What-is-the-error-identity-of-the-developer-cannot-be-confirmed-">link</a> for more details.
+To resolve this issue, refer this <a href="https://support.shippingeasy.com/hc/en-us/articles/4406912134683-Support-and-Help">link</a> for more details.
 
 </td>
 </tr>
