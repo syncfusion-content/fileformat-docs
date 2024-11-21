@@ -19,11 +19,11 @@ The following table illustrates the supported mail merge overloads for ExecuteGr
 </tr>
 <tbody>
 <tr>
-<td>{{'[ExecuteGroup(MailMergeDataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)'| markdownify }}</td>
+<td>{{'[ExecuteGroup(MailMergeDataTable)](https://help.syncfusion.com/cr/document-processing/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_Syncfusion_DocIO_DLS_MailMergeDataTable_)'| markdownify }}</td>
 <td>{{'[Mail merge with .NET objects](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Mail-merge-with-.NET-objects)'| markdownify }}</td>
 </tr>
 <tr>
-<td>{{'[ExecuteGroup(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_)'| markdownify }}</td>
+<td>{{'[ExecuteGroup(DataTable)](https://help.syncfusion.com/cr/document-processing/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_)'| markdownify }}</td>
 <td>{{'[Event for mail merge field](https://github.com/SyncfusionExamples/DocIO-Examples/tree/main/Mail-Merge/Event-for-mail-merge-field)'| markdownify }}</td>
 </tr>
 <tr>
@@ -52,7 +52,7 @@ In this template, Employees is the group name and the same name should be used w
 
 ## Execute group mail merge
 
-The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides various overloads for [ExecuteGroup](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_) method to perform Mail merge within a group from various data sources. 
+The [MailMerge](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html) class provides various overloads for [ExecuteGroup](https://help.syncfusion.com/cr/document-processing/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_ExecuteGroup_System_Data_DataTable_) method to perform Mail merge within a group from various data sources. 
 
 The following code example shows how to perform Mail merge in the specific region with **data source retrieved from SQL connection**.
 
