@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Convert Word document to Image in .NET MAUI
+# Convert Word Document to Image in .NET MAUI
 
 Syncfusion DocIO is a [.NET MAUI Word library](https://www.syncfusion.com/document-processing/word-framework/maui/word-library) used to create, read, edit, and **convert Word documents** programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **convert a Word document to image in .NET MAUI**.
 
@@ -184,4 +184,4 @@ By executing the program, you will get the **image** as follows.
 
 Click [here](https://www.syncfusion.com/document-processing/word-framework/maui) to explore the rich set of Syncfusion Word library (DocIO) features. 
 
-An online sample link to [convert Word document to image](https://ej2.syncfusion.com/aspnetcore/Word/WordToImage#/material3) in ASP.NET Core. 
+An online sample link to [convert Word document to image](https://ej2aspnetcore.azurewebsites.net/aspnetcore/word/wordtoimage#/bootstrap5) in ASP.NET Core. 
