@@ -15,8 +15,8 @@ N> PDFium is not supported in Windows XP operating system.
 
 ### How PDFium works with PdfToImageConverter
 
-* On running your application, Syncfusion PdfToImageConverter control generates a folder named `PDFium` in the application output path folder (for example: bin/release or bin/debug) at runtime. 
-* Syncfusion PdfToImageConverter control detects the architecture of the running machine automatically.
+* On running your application, Syncfusion&reg; PdfToImageConverter control generates a folder named `PDFium` in the application output path folder (for example: bin/release or bin/debug) at runtime. 
+* Syncfusion&reg; PdfToImageConverter control detects the architecture of the running machine automatically.
 For WPF, WinForms and MVC, Pdfium folder structure will be generated as below,
 * Next, it creates another subfolder named “x64”, “x86” or “arm64” based on the machine architecture.
 * Extracts the PDFium binary (PDFium.dll) into the subfolder (x64, x86 or arm64) and consumes it to render PDF files.
@@ -31,7 +31,7 @@ N> When you include PdfToImageConverter via a NuGet package, PDFium assemblies w
 
 ## How to run PDFium in a restricted access environment
 
-If there is any access restriction applied to the application output folder, then the Syncfusion Pdf To Image Converter cannot able to extract and consume the PDFium engine.
+If there is any access restriction applied to the application output folder, then the Syncfusion&reg; Pdf To Image Converter cannot able to extract and consume the PDFium engine.
 
 In that situation, you need to add the following steps to consume the PDFium.
 
