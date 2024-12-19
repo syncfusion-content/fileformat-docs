@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Referring the PDFium | Syncfusion
-description: Learn about Converting PDF pages into images using Syncfusion PdfToImageConverter with the help of PDFium.
+title: Referring the PDFium | Syncfusion&reg;
+description: Learn about Converting PDF pages into images using Syncfusion&reg; PdfToImageConverter with the help of PDFium.
 platform: file-formats
 control: PDF to image
 documentation: UG

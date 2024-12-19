@@ -1,6 +1,6 @@
 ---
-title: Converting PDF pages into images in ASP.NET MVC| Syncfusion
-description: Learn about Converting PDF pages into images in ASP.NET MVC with easy steps using Syncfusion PdfToImageConverter library.
+title: Converting PDF pages into images in ASP.NET MVC| Syncfusion&reg;
+description: Learn about Converting PDF pages into images in ASP.NET MVC with easy steps using Syncfusion&reg; PdfToImageConverter library.
 platform: file-formats
 control: PDF to image
 documentation: UG

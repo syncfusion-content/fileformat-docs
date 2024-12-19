@@ -1,6 +1,6 @@
 ---
-title: Converting PDF pages into images in WPF| Syncfusion
-description: Learn about Converting PDF pages into images in WPF with easy steps using Syncfusion PdfToImageConverter library.
+title: Converting PDF pages into images in WPF| Syncfusion&reg;
+description: Learn about Converting PDF pages into images in WPF with easy steps using Syncfusion&reg; PdfToImageConverter library.
 platform: file-formats
 control: PDF to image
 documentation: UG

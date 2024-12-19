@@ -1,6 +1,6 @@
 ---
-title: Converting PDF pages into images in Windows Forms| Syncfusion
-description: Learn about Converting PDF pages into images in Windows Forms with easy steps using Syncfusion PdfToImageConverter library.
+title: Converting PDF pages into images in Windows Forms| Syncfusion&reg;
+description: Learn about Converting PDF pages into images in Windows Forms with easy steps using Syncfusion&reg; PdfToImageConverter library.
 platform: file-formats
 control: PDF to image
 documentation: UG
