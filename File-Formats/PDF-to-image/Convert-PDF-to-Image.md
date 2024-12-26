@@ -1,6 +1,6 @@
 ---
 title: Convert PDF to Image| Syncfusion&reg;
-description: Learn how to convert a PDF document to Image file with easy steps using Syncfusion PDFToImageConverter library.
+description: Learn how to convert a PDF document to Image file with easy steps using Syncfusion&reg; PDFToImageConverter library.
 platform: file-formats
 control: PDF to image
 documentation: UG
