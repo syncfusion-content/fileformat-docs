@@ -1,5 +1,5 @@
 ---
-title: Run NET80 Linux application in azure app service| Syncfusion&reg;
+title: Run NET80 Linux application in azure app service| Syncfusion<sup>&reg;</sup>;
 description: Learn about the steps to run the .NET80 linux application in Azure app service with the PdfToImageConverter control.
 platform: file-formats
 control: PDF to image
