@@ -1,6 +1,6 @@
 ---
-title: Converting PDF pages into images| Syncfusion
-description: Learn about converting PDF pages into images using PdfToImageConverter in Syncfusion .NET PDF Library.
+title: Converting PDF pages into images| Syncfusion<sup>&reg;</sup>;
+description: Learn about converting PDF pages into images using PdfToImageConverter in Syncfusion<sup>&reg;</sup>; .NET PDF Library.
 platform: file-formats
 control: PDF to image
 documentation: UG
