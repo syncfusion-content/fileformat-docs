@@ -1,5 +1,5 @@
 ---
-title: Converting PDF pages into images in Blazor| Syncfusion<sup>&reg;</sup>;
+title: Converting PDF pages into images in Blazor| Syncfusion;
 description: Learn about Converting PDF pages into images in Blazor with easy steps using Syncfusion<sup>&reg;</sup>; PdfToImageConverter library.
 platform: file-formats
 control: PDF to image
