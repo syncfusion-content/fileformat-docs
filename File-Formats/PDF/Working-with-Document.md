@@ -15,7 +15,7 @@ You can choose the standard or custom page size when you add a page to the PDF d
 
 {% tabs %}
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% highlight c# tabtitle="C# [Cross-platform]" playgroundButtonLink="https://raw.githubusercontent.com/SyncfusionExamples/PDF-Examples/master/PDF%20Document/Create-a-PDF-document-with-standard-page-size/.NET/Create-a-PDF-document-with-standard-page-size/Program.cs,180" %}
 
 //Create a new PDF document.
 PdfDocument document = new PdfDocument();
