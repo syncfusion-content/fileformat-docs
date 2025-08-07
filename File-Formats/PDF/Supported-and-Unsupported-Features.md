@@ -1,6 +1,6 @@
 ---
 title: Supported and Unsupported Features | Syncfusion 
-description: This section explains about features available in Essential PDF and their availability in different platforms.
+description: This section explains about supported and unsupported features in Essential PDF and their availability in different platforms.
 platform: file-formats
 control: PDF
 documentation: UG
