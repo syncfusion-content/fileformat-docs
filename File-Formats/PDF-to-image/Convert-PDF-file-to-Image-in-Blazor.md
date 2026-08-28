@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Convert PDF file to Image in Blazor
 
-The Syncfusion PDF to Image converter is a .NET library used to convert PDF document to image in Blazor application.
+The Syncfusion&reg; PDF to Image converter is a .NET library used to convert PDF document to image in Blazor application.
 
 ## Steps to convert PDF document to Image in Blazor application
 

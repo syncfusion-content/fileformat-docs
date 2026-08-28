@@ -9,7 +9,7 @@ keywords: Assemblies
 
 # Convert PDF file to Image in ASP.NET Core
 
-The Syncfusion PDF to Image converter is a .NET library used to convert PDF document to image in ASP.NET Core application.
+The Syncfusion&reg; PDF to Image converter is a .NET library used to convert PDF document to image in ASP.NET Core application.
 
 ## Steps to convert PDF document to Image in ASP.NET Core application
 
