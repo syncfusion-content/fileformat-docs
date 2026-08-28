@@ -30,7 +30,7 @@ The following code snippet shows how to add a file from disk to the PDF document
 
 {% tabs %}  
 
-{% highlight c# tabtitle="C# [Cross-platform]" %}
+{% highlight c# tabtitle="C# [Cross-platform]" playgroundButtonLink="https://raw.githubusercontent.com/SyncfusionExamples/PDF-Examples/master/Images/Insert-image-in-a-new-PDF-document/.NET/Insert-image-in-a-new-PDF-document/Program.cs,180" %}
 
 //Create a new PDF document
 PdfDocument doc = new PdfDocument();
